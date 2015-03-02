@@ -1,0 +1,12 @@
+{
+  "result": false,
+  "errors": {
+    "codes": [400],
+    "details": [
+      {
+        "code": 400,
+        "message": "The access token was not found"
+      }
+    ]
+  }
+}

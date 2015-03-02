@@ -1,0 +1,194 @@
+<div class="page" ng-controller="example03Ctrl">
+	<div class="main-section-container examples">
+		<a href="#/getStarted" class="goBackLink">Go Back</a>
+		<h1>Example 03</h1>
+		<hr />
+		we are teaching multi tenancy and service configuration level at the tenant level and user level.
+		you need a tenant and a user
+		so you need the urac
+		7ott soura
+
+		baddak ta3mil provision mitel 02 bass fi users for this tenant
+
+		the difference between 2 nd 3 enno fi urac
+
+		start the services w explain what we turned on.
+
+		use same api as example 01
+
+		w add oauth here as well.
+
+		tell the user enno el provisioning will expire in a certain amount of time.
+
+		mitel example 02 get the token, and hit the url u get same response as 02
+
+		explain the test product in detail ma3 el acl
+
+		explain the test tenant in detail ma3 el acl w kif rabatne bel product faw2o
+
+
+
+		-----
+		3 tenants
+
+		3 users
+		u1 => access 1 api diff conf
+		u2 => access 2 apis diff conf
+		u3 => access 3 apis diff conf
+
+		u1 -> api 2 = no
+		u2 -> api 2 = yes
+
+		This example shows how to configure multitenant and have your services behave differently from one tenant to the other down to the user level.<br />
+		This example also shows how easy it is to configure ACL and secure your APIs at the product, tenant and user level.<br />
+		To follow along with the example, make sure you first run these services:<br />
+		<pre><code class="bash"># start the controller
+$ cd soajs.controller
+$ node index
+
+#start urac
+$ cd soajs.urac
+$ node index
+
+#start example03
+$ cd soajs.examples/examples03
+$ node index</code></pre>
+		<hr />
+		<h4><u>Code Explanation:</u></h4>
+		<tabset>
+			<tab heading="index.js"
+			     select="loadCode(path + 'example03/index.js', 'indexjs');"><br/>
+
+				<div id="indexjs"></div>
+			</tab>
+			<tab heading="config.js"
+			     select="loadCode(path + 'example03/config.js', 'configjs');"><br/>
+
+				<div id="configjs"></div>
+			</tab>
+		</tabset>
+		<hr />
+		<h3><u>Configuration Levels:</u></h3>
+		Services are configurable at multiple levels, each level having a different scope.<br />
+		A more specific scope will override any options of a more general scope.<br />
+		The levels from most general to most specific are:
+		<ol>
+			<li>Product (general)</li>
+			<li>Tenant (specific)</li>
+			<li>User (very specific)</li>
+		</ol>
+		<br>
+		<h4><u>Product Level:</u></h4>
+		The Product is the most general scope.<br />
+		Updating the ACL here allows any user or tenant using the product, access to the specified APIs.<br />
+		Each product can have various packages configured.<br />
+		Let's take a look at the test product <b>TPROD</b>.
+		<div ng-init="loadCode(path + 'example03/prodLevel.js', 'prodLevel');">
+			<div id="prodLevel"></div>
+		</div>
+		Notice there are two packages, each package has an "acl" field, but they differ in what they allow.<br />
+		<b>TPROD_BASIC</b> allows access to only <u>urac APIs</u>, but <b>TPROD_EXAMPLE03</b> allows access to both <u>urac and example03 APIs.</u><br>
+		For Additional Information on Productization, checkout the <a href="#/documentation/provisioning">provisioning</a> page.<br />
+		<hr />
+		<h4><u>Tenant Level:</u></h4>
+		The Tenant scope, allows configuration per application and is applied to all users of the tenant.<br />
+		Specifying the ACL here will override the default ACL from the product.<br />
+		Here's a look at the test tenant's <b>test</b> applications array:
+		<div ng-init="loadCode(path + 'example03/tenantLevel.js', 'tenantLevel');">
+			<div id="tenantLevel"></div>
+		</div><br />
+		In this tenant, there are three applications.<br />
+		Each application has a keys, and each key has different configuration and different external keys values from other applications.<br />
+		To understand more about tenant applications and keys, checkout the <b>Multitenancy</b> section under <a href="#/documentation/provisioning">provisioning</a> page.<br /><br />
+		To better understand how the ACL works, let's take a look at each of the applications access to example03 APIs.<br /><br />
+		<fieldset>
+			<legend>1st Application</legend>
+			<div>
+				The first application uses <b>TPROD_BASIC</b> package, which does not have "example03" in its ACL.<br />
+				The first application does not have "example03" in its acl either, so this application does not have access to example03 service at all.<br />
+				Let's try to hit example03/ping:<br />
+				<pre><code class="bash">$ curl -X GET -H "key:aa39b5490c4a4ed0e56d7ec1232a428f771e8bb83cfcee16de14f735d0f5da587d5968ec4f785e38570902fd24e0b522b46cb171872d1ea038e88328e7d973ff47d9392f72b2d49566209eb88eb60aed8534a965cf30072c39565bd8d72f68ac" "http://rest-proxy:4000/example03/ping?user=john"</code></pre>
+				<h6>Response:</h6>
+				<div ng-init="loadJSON(path + 'example03/tenant_test1.json', 'tenant_test1');">
+					<div id="tenant_test1"></div>
+				</div>
+				Access denied!
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend>2nd Application</legend>
+			<div>
+				The second application also uses <b>TPROD_BASIC</b> package. However, it overrides the default acl by adding "example03" to its own ACL, thus granting access to that service.<br />
+				Let's swap in the second application's external key and hit example03/ping again:
+				<pre><code class="bash">$ curl -X GET -H "key:aa39b5490c4a4ed0e56d7ec1232a428f7ad78ebb7347db3fc9875cb10c2bce39bbf8aabacf9e00420afb580b15698c04ce10d659d1972ebc53e76b6bbae0c113bee1e23062800bc830e4c329ca913fefebd1f1222295cf2eb5486224044b4d0c" "http://rest-proxy:4000/example03/ping?user=john"</code></pre>
+				<h6>Response:</h6>
+				<div ng-init="loadJSON(path + 'example03/tenant_test2.json', 'tenant_test2');">
+					<div id="tenant_test2"></div>
+				</div>
+				Success! <em>(the tenant application acl, can override the default product package acl)</em>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend>3rd Application</legend>
+			<div>
+				The third application uses <b>TPROD_EXAMPLE03</b> package.<br />
+				This package already grants access to "exampleo3".<br />
+				Let's use the third application's external key and hit example03/ping:
+				<pre><code class="bash">$ curl -X GET -H "key:aa39b5490c4a4ed0e56d7ec1232a428f1c5b5dcabc0788ce563402e233386738fc3eb18234a486ce1667cf70bd0e8b08890a86126cf1aa8d38f84606d8a6346359a61678428343e01319e0b784bc7e2ca267bbaafccffcb6174206e8c83f2a25" "http://rest-proxy:4000/example03/ping?user=john"</code></pre>
+				<h6>Response:</h6>
+				<div ng-init="loadJSON(path + 'example03/tenant_test3.json', 'tenant_test3');">
+					<div id="tenant_test3"></div>
+				</div>
+				Success! <em>(if no acl is specified in tenant application, the application will use the defaults from product packages)</em>
+			</div>
+		</fieldset>
+		<hr />
+		<h4><u>User Level:</u></h4>
+		Urac is another place to configure ACL, but this time, it's specific to a particular user.<br />
+		User level is the most specific scope for configuration and ACL and will take precedence over both product and tenant levels.<br />
+		It applies only to the configured user.<br />
+		Here's a sample URAC record, which gives the user access to the example03 APIs:
+		<div ng-init="loadCode(path + 'example03/userLevel.js', 'userLevel');">
+			<div id="userLevel"></div>
+		</div>
+		Notice that "example03" is added to the ACL object in the user record <b>config</b> entry underkeys.<br />
+		Please checkout the <a href="#/documentation/urac">URAC</a> documentation for additional information on how to override ACL for users.
+		<br /><br />
+		<fieldset>
+			<legend>Call API before Logging in</legend>
+			<div>
+				First we'll hit the example03/ping API without being logged in: <em>(using  key of the first application)</em>
+				<pre><code class="bash">$ curl -X GET -H "key:aa39b5490c4a4ed0e56d7ec1232a428f771e8bb83cfcee16de14f735d0f5da587d5968ec4f785e38570902fd24e0b522b46cb171872d1ea038e88328e7d973ff47d9392f72b2d49566209eb88eb60aed8534a965cf30072c39565bd8d72f68ac" "http://rest-proxy:4000/example03/ping?user=john"</code></pre>
+				<h6>Response:</h6>
+				<div ng-init="loadJSON(path + 'example03/user_test1.json', 'user_test1');">
+					<div id="user_test1"></div>
+				</div>
+				No luck, the application has no access to the service and user is not logged in to override the application acl.
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend>Login & Call API</legend>
+			<div>
+				Now, let's log in as the user from the sample above and hit the urac/login API:
+				<pre><code class="bash">$ curl -X POST -d "username=john&password=$2a$04$EfG6mMcD/o5UCU9qnkSIAOMx20msSKgNhCWrqfAd7SHtan5ae2NWO" -H "key:aa39b5490c4a4ed0e56d7ec1232a428f771e8bb83cfcee16de14f735d0f5da587d5968ec4f785e38570902fd24e0b522b46cb171872d1ea038e88328e7d973ff47d9392f72b2d49566209eb88eb60aed8534a965cf30072c39565bd8d72f68ac" "http://rest-proxy:4000/urac/login"</code></pre>
+				<h6>Response:</h6>
+				<div ng-init="loadJSON(path + 'example03/user_test2.json', 'user_test2');">
+					<div id="user_test2"></div>
+				</div>
+				The login was successful and the response returned contains the <b>soajsauth</b> property.<br />
+				<b>soajsauth</b> is a property returned after login is successful.<br />
+				This property should be used in all consequent api calls that are only accessible by logged in users.<br /><br /><br />
+				Grab the <b>soajsauth</b> property and add it in the headers of the consequent request.<br />
+				Now hit example03/ping API again:
+				<pre><code class="bash">$ curl -H "soajsauth:Basic c29hanM6czAxdlhGSmg1LUZjYUlOd2VLUjlwUEQ1UFNUa2YxS2lDcDI=" -H "key:aa39b5490c4a4ed0e56d7ec1232a428f771e8bb83cfcee16de14f735d0f5da587d5968ec4f785e38570902fd24e0b522b46cb171872d1ea038e88328e7d973ff47d9392f72b2d49566209eb88eb60aed8534a965cf30072c39565bd8d72f68ac" "http://rest-proxy:4000/example03/ping?user=john"</code></pre>
+				<h6>Response:</h6>
+				<div ng-init="loadJSON(path + 'example03/user_test3.json', 'user_test3');">
+					<div id="user_test3"></div>
+				</div>
+				Success! <em>(the logged in user acl has overridden the tenants and provided access to example03)</em>
+			</div>
+		</fieldset>
+
+
+	</div>
+</div>

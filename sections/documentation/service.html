@@ -1,0 +1,81 @@
+<a id="service"></a>
+<h1>SOAJS Service</h1>
+<hr />
+<div>
+    Building a service with <b>SOAJS</b> is straight forward, simply start by installing <b>SOAJS</b> using npm:
+	<pre><code class="bash">$ npm install soajs</code></pre>
+	Once installed, a directory called <b>node_modules</b> will be created and <b>SOAJS</b> will be located inside it.<br />
+	Add your service next to the <b>node_modules</b> directory:<br />
+    <img ng-src="images/documentation/service-folder-tree.png" align="right" style="margin-left:5px; margin-bottom:5px;" class="image-border"/>
+    <ol>
+        <li>Create a directory and name it as your service.<br/><u>Ex:</u><span style="color:red;">"example01"</span>.</li>
+        <li>Create 2 files in that directory:
+            <ol>
+                <li><u><b>index.js</b></u> used to write your api service code.</li>
+                <li><u><b>config.js</b></u> used for <b>IMFV</b> and api configuration.</li>
+            </ol>
+        </li>
+    </ol>
+    <hr/>
+    <br/>
+    Navigate to the <a href="" ng-click="loadSection('registry');">Registry</a> of <b>SOAJS</b> and add an entry to your service under the <a href="" ng-click="loadSection('registry', 'rest-apis');">REST
+    API Configuration</a>.<br/>
+    Configure your service in the registy by specifying:
+    <ol>
+        <li>The host and port that the service is listening on.</li>
+        <li>If it requires a key to be accessible or not; boolean value. Setting this value to true means that this service requires a tenant key to be accessible. All requests to this service should include the tenant key in the headers otherwise the service will not be invoked.</li>
+    </ol>
+    <u>Ex:</u>
+    <img src="images/documentation/registry-example01.png" style="margin:5px 0;" class="image-border"/><br/><br/>
+    <p>
+        <em>
+            Img 1. shows a standard entry in registry.<br/>
+            All requests pass through the controller running on port 4000 for security check before invoking the requested services.
+        </em><br/>
+    </p>
+    <hr/>
+    <h4><u>Basic Example:</u></h4>
+
+    <p>
+        The following example demonstrates how to write a service with <b>SOAJS</b> that has one route using the GET protocol.<br/>
+        The service reads 2 inputs from the query string of the request, puts them in a JSON object and returns the object in the response.<br/><br/>
+        <img src="images/documentation/example01.png" align="right" style="margin-left:5px; padding:0;" class="image-border"/>
+    </p>
+
+    <p>
+
+    <h3><u><b>Code walkthrough:</b></u></h3>
+    <ul>
+        <li><b>Line1-</b> "strict mode” JavaScript.</li>
+        <li><b>Line2-</b> Require <b>SOAJS</b> framework.</li>
+        <li><b>Line3-</b> Require local configuration file.</li>
+        <li><b>Line4-</b> Create a service using <b>SOAJS</b>.<br/><br/><br/></li>
+        <li><b>Line5-</b> Create api <b style="color:red;">“/testGet”</b> that uses the GET protocol; A <b>SOAJS</b> object is added to the <b>req</b>.</li>
+        <li><b>Line6-</b> The api is returning a json response. Using the <b>SOAJS</b> object added to the <b>req</b> to build the json response <b>“buildRestResponse”</b> as well as
+            capture the passed params to
+            the api from <b>“inputmaskData”</b>.
+        </li>
+        <li><b>Line11-</b> Start the api server</li>
+    </ul>
+    </p>
+    <br/>
+	<p><a href="#/getStarted/example01">Example01</a> demonstrates how to create a service and provides examples on how to call it.</p>
+    <hr/>
+    <br/>
+    <tabset>
+        <tab heading="index.js" select="loadCode(path + 'service/index.js', 'indexjs');">
+            <br /><div id="indexjs"></div>
+        </tab>
+        <tab heading="registry" select="loadCode(path + 'service/registry.js', 'registryjs');">
+            <br /><div id="registryjs"></div>
+        </tab>
+        <tab heading="config.js">
+            <br />
+            <p>
+                Config.js is discussed in details in <a href="" ng-click="loadSection('imfv','example');">IMFV</a> section.
+            </p>
+            <br /><br />
+        </tab>
+    </tabset>
+    <script>renderCodeSnippets();</script>
+</div>

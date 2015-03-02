@@ -1,0 +1,265 @@
+<div class="page" ng-controller="example01Ctrl">
+	<div id="example01" class="main-section-container examples">
+		<a href="#/getStarted" class="goBackLink">Go Back</a>
+
+		<h1>Example 01</h1>
+		<hr/>
+		<p>
+			In this example we will create a simple service that provides some APIs that use different protocols: GET - POST - PUT - DEL.<br/>
+			The example focuses on how to make use of <a href="#/documenation/imfv">IMFV</a> that facilitates fetching and validation of the parameters passed to an API.<br/>
+			The service "<b>Example01</b>" will be public and will not be secured and accessible by everyone.<br/>
+			<img ng-src="images/getstarted/example01.png" style="margin:5px 0"/><br/>
+			The service is split up into 2 files: <u>index.js</u> and <u>config.js</u>.<br/>
+			The <u>index.js</u> contains the code that handles the APIs invoked and <u>config.js</u> contains the <b>IMFV</b> configuration used by the <u>index.js</u> to understand how to treat the parameters passed to those APIs.
+		</p>
+		<hr/>
+		<h3><u>Code Explanation</u></h3>
+		<p>
+			As mentioned in the <a href="#/documentation/service">documentation</a> section, each service is created by building two files: <u>index.js</u> and <u>config.js</u>.<br>
+			<b>Example01</b> has 5 APIs, these APIs are defined in <u>index.js</u> and each API has a representation in <u>config.js</u> to enable its<b>IMFV</b>.<br />
+			The first API of <b>Example01</b> uses the GET protocol and reads some parameters <b>firstName</b> - <b>lastName</b> - <b>email</b> then creates a JSON response out of them and returns it.<br/>
+		</p>
+		<table class="myTable" width="100%">
+			<thead>
+				<tr>
+					<th>Parameter</th>
+					<th>Mandatory</th>
+					<th>Type</th>
+					<th>Source</th>
+					<th>Format</th>
+				</tr>
+			</thead>
+			<tbod>
+				<tr>
+					<td>firstName</td>
+					<td>YES</td>
+					<td>String</td>
+					<td>Query String</td>
+					<td>N/A</td>
+				</tr>
+				<tr>
+					<td>lastName</td>
+					<td>YES</td>
+					<td>String</td>
+					<td>Query String</td>
+					<td>N/A</td>
+				</tr>
+				<tr>
+					<td>email</td>
+					<td>NO</td>
+					<td>String</td>
+					<td>Query String</td>
+					<td>Email Only.</td>
+				</tr>
+			</tbod>
+		</table><br />
+		<p>
+			The above table is provided to <b>IMFV</b> in the <u>config.js</u> by creating an entry under <b>schema</b> and naming it exaclty like the API name is written in <u>index.js</u>, in this case "<b>/testGet</b>", then specifying for every parameter of that API the source, validation type and if the parameter is required or not.<br/>
+			<b>IMFV</b> consolidates all the inputs in one place so when you want use them, you don't need to worry where the input came from essentially and if you read it from the correct souce or made a typo somewhere.<br />
+			Go ahead and switch between the two tabs below to see how the link was made between <b>testGet</b> API and its configuration for <b>IMFV</b> and how the input is being read in the API implementation.<br/><br/>
+		</p>
+		<tabset>
+			<tab heading="index.js" select="loadCode(path + 'example01/index.js', 'indexjs');">
+				<br/>
+
+				<div id="indexjs"></div>
+			</tab>
+			<tab heading="config.js" select="loadCode(path + 'example01/config.js', 'configjs');">
+				<br/>
+
+				<div id="configjs"></div>
+			</tab>
+		</tabset>
+		<hr/>
+		<h3><u>Registering the Service</u></h3>
+		<p>
+			<img ng-src="images/documentation/registry-example01.png" class="image-border" align="right" style="margin: 5px 0 0 5px;" />
+			Before you Run the service, you need to register it with <b>SOAJS</b>. To register a service, add an entry for it in the <a href="#/documentation/registry">Registry</a> under the environment you are working with.<br /><br />
+			When you install <b>SOAJS</b>, the <b>Registry</b> already contains an entry for <b>Example01</b>, so for this example you don't have to worry about the registry at the moment because this example is already registered.<br />
+			You can always checkout the <a href="#/documentation/registry">Registry</a> for more details on how the services are registered and what are the environments we just mentioned and how to use them.<br/><br/>
+			As mentioned in <a href="#/getStarted">Get Started</a>, all requests go through the <a href="#/documentation/controller">Controller</a> first then get forwarded to their corresponding services.<br />
+			Therefore the link to use in this example should have the following schema: http://<b>%controller%</b> / <b>%service name%</b> / <b>%api%</b><br/>
+			<u>Ex:</u> <a href="http://localhost:4000/example01/testGet" target="_blank">http://localhost:4000/example01/testGet</a><br/>
+			<em>localhost:4000 here represents the address of the controller.<br/>
+				example01 is the name of the service.<br/>
+				testGet is the api we are calling.
+			</em>
+		</p>
+		<hr/>
+		<h3><u>Start The Service</u></h3>
+		<p>
+		Start by running the service as you did with the controller in <a href="#/getstarted">Get Started</a>.<br />
+		<pre><code class="bash"># navigate to soajs.examples/example01 service and start it
+$ cd /opt/soajs/soajs.examples/example01/
+$ node index</code></pre>
+		<b>Example01</b> is now running on http://localhost:4000/example01.<br />
+		Let's do a heartbeat check just to make sure all is working as expected before we begin the tests.<br /><br />
+		</p>
+		<fieldset>
+			<legend>Heartbeat Example01</legend>
+			<div>
+				<pre><code class="bash">$ curl -X GET "http://localhost:5010/heartbeat"</code></pre>
+				<h6><u>Response:</u></h6>
+				<pre><code class="bash">{
+	"result":true,
+	"ts":1425054123486,
+	"service": {
+		"service":"example01",
+		"type":"rest",
+		"route":"/heartbeat"
+	}
+}</code>
+				</pre>
+				<p>Notice here that we used port <u>5010</u> to perform a <b>heartbeat</b> check. We previously mentioned in <a href="#/getstarted">Get Started</a>, that a heartbeat operation is made using the maintenance port of a service and that the maintenance port is equal to the port number of the service + 1000.<br />
+					In the image above, in <b>Registering the Service</b>, we registered example01 in <b>SOAJS</b> with port <u>4010</u> making the maintenance port of this service as <u>5010</u>.</p>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend>Calling Example01</legend>
+			<div>
+				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example01"</code></pre>
+				<h6><u>Response:</u></h6>
+				<pre><code class="bash">{
+	"result":false,
+	"errors": {
+		"codes": [ 151 ],
+		"details": [
+			{
+				"code": 151,
+				"message": "You are trying to reach an unknown rest service!"
+			}
+		]
+	}
+}</code>
+				</pre>
+				<p>
+					Here we attempted to call <b>Example01</b> service without specifying any of its APIs. The returned response was a fail because basically there is no API defined in this service with the value "/" so this event is treated as if an invalid API route was called.<br /><br />
+					Another important thing to notice is how the URL of the service was constructed. Again, all requests to <b>SOAJS</b> services should pass through the <a href="#/documenation/controller">Controller</a> and this why the port used was <u>4000</u> and not <u>4010</u> even though <u>4010</u> is <b>Example01</b> service port in the registry.
+				</p>
+			</div>
+		</fieldset>
+		<hr/>
+		<h3><u>Running Some Tests</u></h3>
+		<p>
+			Both our <b>Controller</b> and <b>Example01</b> services are now running, so let's start running some tests on the routes of Example01 and see what happens. Trigger the API by using a CURL command from the terminal.<br/><br/>
+		</p>
+		<fieldset>
+			<legend><b>/testGet api: Fail</b></legend>
+			<div>
+				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example01/testGet?firstName=John" </code> </pre>
+				<h6>Response</h6>
+				<div ng-init="loadJSON(path + 'example01/result01.json', 'result01');">
+					<div id="result01"></div>
+				</div>
+				<br/>
+				<p>
+					The API returned a false response because when we triggered the call, we did not specify a <b>lastName</b> in the querystring and we configured this API to read this parameter and make sure it is provided. <b>IMFV</b> did not find <b>lastName</b> in the parameters and thus stopped the request from continuing and returned an error message back to us.
+				</p>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend><b>/testGet api: Success</b></legend>
+			<div>
+				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example01/testGet?firstName=John&lastName=Smith&email=john@smith.com" </code> </pre>
+				<h6>Response</h6>
+
+				<div ng-init="loadJSON(path + 'example01/result02.json', 'result02');">
+					<div id="result02"></div>
+				</div><br />
+				<p>This time the API returned a valid response with the JSON Object containing all the parameters we specified.</p>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend><b>/testPost api: Success</b></legend>
+			<div>
+				<pre><code class="bash">$ curl -X POST -H "Content-type:application/json" -H "Accept:application/json" "http://localhost:4000/example01/testPost" -d '{"firstName":"John","lastName":"Smith"}'</code> </pre>
+				<h6>Response</h6>
+
+				<div ng-init="loadJSON(path + 'example01/testPost1.json', 'testPost1');">
+					<div id="testPost1"></div>
+				</div>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend><b>/testPost api: Success</b></legend>
+			<div>
+				<pre><code class="bash">$ curl -X POST -H "Content-type:application/json" -H "Accept:application/json" "http://localhost:4000/example01/testPost" -d '{"firstName":"John","lastName":"Smith","email":"john@smith.com"}'</code></pre>
+				<h6>Response</h6>
+
+				<div ng-init="loadJSON(path + 'example01/testPost2.json', 'testPost2');">
+					<div id="testPost2"></div>
+				</div>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend><b>/testPost api: Fail</b></legend>
+			<div>
+				<pre><code class="bash">$ curl -X POST -H "Content-type:application/json" -H "Accept:application/json" "http://localhost:4000/example01/testPost" -d '{"firstName":"Johnx","lastName":"Smith"}'</code></pre>
+
+				<h6>Response</h6>
+
+				<div ng-init="loadJSON(path + 'example01/testPost3.json', 'testPost3');">
+					<div id="testPost3"></div>
+				</div>
+				<br/>
+				<p>
+					This test failed because not only do we need to provide a <b>firstName</b> parameter when calling this API, but we also need to make sure that the value is always equal to "John".
+				</p>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend><b>/testPut api: Success Test</b></legend>
+			<div>
+				<pre><code class="bash">$ curl -X PUT -H "Content-type:application/json" -H "Accept:application/json" "http://localhost:4000/example01/testPut" -d '{"firstName":"John","lastName":"Smith"}'</code></pre>
+				<h6>Response</h6>
+
+				<div ng-init="loadJSON(path + 'example01/testPut1.json', 'testPut1');">
+					<div id="testPut1"></div>
+				</div>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend><b>/testDel api: Success</b></legend>
+			<div>
+				<pre><code class="bash">$ curl -X DELETE "http://localhost:4000/example01/testDel?firstName=John&lastName=Smith"</code></pre>
+				<h6>Response</h6>
+
+				<div ng-init="loadJSON(path + 'example01/testDel1.json', 'testDel1');">
+					<div id="testDel1"></div>
+				</div>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend><b>/buildName api: Success</b></legend>
+			<div>
+				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example01/buildName?firstName=James&lastName=Smith"</code></pre>
+				<h6>Response</h6>
+				<div ng-init="loadJSON(path + 'example01/buildName1.json', 'buildName1');">
+					<div id="buildName1"></div>
+				</div>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend><b>/buildName api: Test 2</b></legend>
+			<div>
+				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example01/buildName?lastName=Smith"</code></pre>
+
+				<h6>Response</h6>
+
+				<div ng-init="loadJSON(path + 'example01/buildName2.json', 'buildName2');">
+					<div id="buildName2"></div>
+				</div>
+				<br/>
+				<p>
+					This API succeeded the call even though <b>firstName</b> was not provided as a paramter while making the call. If you re-examin the <b>IMFV</b> configuration of this API, you notice an entry named "<b>default</b>" with the vlue "<b>John</b>" assigned to it.<br />
+					In the previous test, we made a call and specified <b>firstName</b> to be "<b>James</b>" and the returned response was "<b>James Smith</b>" but here we only provided the <b>lastName</b> as a paramter so <b>IMFV</b> noticed that there is a default value for the <b>firstName</b> parameter and since it wasn't provided by the request, it used it.
+				</p>
+			</div>
+		</fieldset>
+		<p>
+			By now you have seen how easy it is to configure <b>IMFV</b> for a service, how quick and simple it is to write an API service and how to perform maintenance operations on a service. Imagine how much time and effort you have saved just by creating two files and writing few lines of code in each of them.<br />
+			Try to conduct additional tests and scenarios on <b>Example01</b> APIs. When you are ready to jump to the next level, click on <a href="#/getStarted/example02">Example 02</a> to see how you can secure your service and add oAuth to it.
+		</p>
+		<script>renderCodeSnippets();</script>
+	</div>
+</div>

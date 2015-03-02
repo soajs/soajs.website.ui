@@ -1,0 +1,50 @@
+[
+  {
+    "property": "Name",
+    "type": "String",
+    "mandatory": "YES",
+    "notes": "Name of the environment: DEV - PROD - ..."
+  },
+  {
+    "property": "Version",
+    "type": "String",
+    "mandatory": "YES",
+    "notes": "Environment Version"
+  },
+  {
+    "property": "Environment",
+    "type": "String",
+    "mandatory": "YES",
+    "notes": "Environment Behavior restricted to either: \"develop\" or \"production\" as values."
+  },
+  {
+    "property": "CoreDB",
+    "type": "String",
+    "mandatory": "YES",
+    "notes": "List of Databases and their connection details."
+  },
+  {
+    "property": "CoreDB > Entry",
+    "type": "String",
+    "mandatory": "YES",
+    "notes": "One Database where key is the dbName and properties are connection details."
+  },
+  {
+    "property": "REST",
+    "type": "String",
+    "mandatory": "YES",
+    "notes": "List of REST API Services and their connection details."
+  },
+  {
+    "property": "REST > _conf",
+    "type": "String",
+    "mandatory": "YES",
+    "notes": "Global REST API Configuration applicable on all services."
+  },
+  {
+    "property": "REST > entry",
+    "type": "String",
+    "mandatory": "YES",
+    "notes": "One REST API Service where key is the name and properties are connection details."
+  }
+]

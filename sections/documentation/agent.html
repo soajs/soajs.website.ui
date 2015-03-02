@@ -1,0 +1,38 @@
+<a id="soajs.agent"></a>
+<h1>SOAJS Agent</h1>
+<hr/>
+<div>
+	<p>
+		SOAJS Agent is a service that empowers SOAJS with push mechanisms and analytics integration.<br/>
+		The Agent can update the topology of the application on different environments.<br/>
+		The Agent is also responsible to send data to the analytics systems and maintain soajs's awareness.
+	</p>
+	<hr />
+	<h3><u>Features:</u></h3>
+	<ol>
+		<li><b><u>Topology Updates:</u></b><br/>
+			Push soajs service topology including installed services, packages and versions to the dashboard.<br/><br/></li>
+		<li><b><u>Maintenance:</u></b><br/>
+			Trigger maintenance routes for all local soajs services.<br/><br/></li>
+		<li><b><u>Service Analytics:</u></b><br/>
+			Capture and send all local soajs services logs to elastic search for analytics updates.<br/><br/></li>
+		<li><b><u>System Analytics:</u></b><br/>
+			Capture and send soajs controller logs to elastic search.<br/><br/></li>
+		<li><b><u>System Information:</u></b><br/>
+			Retrieve and provide Operating System, Input/Output and Network Analytics information to dashboard.<br/><br/></li>
+		<li><b><u>Awareness:</u></b><br/>
+			Keep self awareness among services up-to-date.
+		</li>
+	</ol>
+	<hr/>
+	<h3><u>Usage:</u></h3>
+	<p>
+		<b>SOAJS</b> Agent is located in <a href="https://github.com/soajs/soajs.agent" target="_blank">soajs.agent</a>.<br />
+        Install:<br />
+		<pre><code class="bash">$ npm install -d soajs.agent</code></pre><br />
+		Then navigate to the directory where it is installed and run the service.<br />
+		<pre><code class="bash">$ cd soajs.agent
+$ node index</code></pre><br />
+	The service is now running and listening http://127.0.0.1:4000/agent/.
+	</p>
+</div>

@@ -1,0 +1,50 @@
+<div class="page" ng-controller="homePageCtrl">
+	<div>
+
+		<div ng-include="'sections/home/mainIntro.html'"></div>
+
+		<!--Features list-->
+		<div class="soajs-features">
+			<div class="features-container">
+				<div class="features">
+					<h1>Features</h1>
+
+					<p>Build your product APIs with soajs and take advantage of tons of features that usually take months of work from your engineering team. Now you can be done within minutes.</p>
+				</div>
+				<ul class="feature-list">
+					<li ng-repeat="feature in fList">
+						<div ng-click='goToAnchor("features",feature.id)'>
+							<img class="icon" ng-src="{{feature.icon}}"/>
+							<h5> {{feature.title}} </h5>
+
+							<p>{{feature.description}}</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+
+		<!--'What's Next?' section with links to get started page and docs-->
+		<div class="soajs-next-steps">
+			<!--<div class="contribute-link-wrapper">-->
+				<!--<a href="#/contactUs"> <span class="long"> How to contribute </span> </a>-->
+			<!--</div>-->
+			<!--<div class="container">-->
+				<!--<div class="calls-to-action">-->
+					<!--<a href="#/getStarted" class="button">Get started</a>-->
+					<!--<a class="doc" href="#/documentation">Documentation</a>-->
+				<!--</div>-->
+			<!--</div>-->
+		</div>
+	</div>
+	<div class="powered-by-container">
+		<div class="powered-by">
+			<div class="powered-icon"><a target="_blank" href="http://nodejs.org/"><img src="images/footer/nodeIcon.png"></a></div>
+			<div class="powered-icon"><a target="_blank" href="https://angularjs.org/"><img src="images/footer/angularIcon.png"></a></div>
+			<div class="powered-icon"><a target="_blank" href="http://www.elasticsearch.org/"><img src="images/footer/elasticSearchIcon.jpg"></a></div>
+			<div class="powered-icon"><a target="_blank" href="http://www.haproxy.org/"><img src="images/footer/haproxyIcon.png"></a></div>
+			<div class="powered-icon"><a target="_blank" href="http://www.mongodb.org/"><img src="images/footer/mongoDb.png"></a></div>
+		</div>
+	</div>
+</div>

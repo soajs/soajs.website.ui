@@ -1,0 +1,84 @@
+<a id="soajs.controller"></a>
+	<h1>SOAJS Controller</h1>
+<hr />
+<div>
+	<p>
+		<b>SOAJS</b> Controller is the main gateway to its cloud of service APIs.<br/>
+        All requests are made to this gateway first and then forwarded based on the route requested.
+	</p>
+	<hr/>
+	<h3><u>Features:</u></h3>
+	<ol>
+		<li>
+			<u><b>Self Awareness:</b></u><br/>
+
+			<p>
+				The controller's main functionality is to perform heartbeat checks on the remaining services.<br/>
+				This approaches allows the self awareness feature that <b>SOAJS</b> offers.
+			</p>
+			<p>
+				If a service is down or does not exists, the controller will return a message back to the sender without crashing.<br/>
+				When a new service is created or added to the cloud, the controller will detect its presence.<br/>
+				All requests to this new service will then be forwarded.
+			</p>
+			<p>
+				The Controller runs on port <b>4000</b>. To request a service in the cloud, simply add the service name after the port number.<br/>
+				To request a specific reoute in that service, type the route path after the service name.<br/><br/>
+				<u>Ex:</u>
+			</p>
+			<pre><code class="bash">#CURL -X %method% http:// %controller host% : 4000 / %service name% / %route path% /
+CURL -X POST "http://127.0.0.1:4000/urac/login"</code></pre>
+			<em>The above example calls SOAJS's Controller, then requests the urac service and route login.</em>
+			<br/><br/><br />
+		</li>
+		<li>
+			<u><b>Key Security:</b></u><br/>
+
+			<p>
+				When a request is made to <b>SOAJS</b> and a key is specified, the controller checks the key.<br />
+				Before forwarding the request or checking if the service is up and running, the controller makes a database call and:
+			</p>
+			<ol>
+				<li>Checks that the key exists.</li>
+				<li>Retrieves the ACL of the tenant of this key and checks if the tenant has permission to use the requested service.</li>
+				<li>Performs a heartbeat check to make sure the service is alive.</li>
+				<li>Checks the Authorization of the header if the service requires authorization to be accessed.</li>
+				<li>Forwards the request if all is ok.</li>
+			</ol>
+			<img ng-src="images/documentation/controller.png" style="margin:5px 0;" />
+			<br /><br />
+		</li>
+		<li>
+			<u><b>CORS:</b></u><br/>
+
+			<p>
+				<b>SOAJS</b> controller also provides support for <a href="http://en.wikipedia.org/wiki/Cross-origin_resource_sharing" target="_blank">CORS</a> (Cross Origin Resource Sharing).<br/><br/>
+                Enabling <b>CORS</b> allows different domains to communicate with <b>SOAJS</b> via its gateway to post and pull resources without having to deal with <b>"cross-domain"</b> issues and by simply using the standard protocols: GET - POST - DELETE - PUT.
+			</p>
+		</li>
+	</ol>
+	<hr/>
+	<h3><u>Usage:</u></h3>
+	<p>
+		<b>SOAJS</b> controller is located in <a href="https://github.com/soajs/soajs.controller" target="_blank">soajs.controller</a>.<br />
+		Install:<br />
+		<pre><code class="bash">$ npm install -d soajs.controller</code></pre><br />
+		Then navigate to the directory where it is installed and run the service.<br />
+		<pre><code class="bash">$ cd soajs.controller
+$ node index</code></pre><br />
+		The service is now running and listening to port 4000.
+	</p>
+	<hr />
+	<h3><u>Calling the Service:</u></h3>
+	<p>
+		<pre><code class="bash">CURL -X %method% "http://127.0.0.1:4000"</code></pre>
+		The sample demonstrates that to invoke <b>SOAJS</b> Controller, you only need to request the < <u>host</u> : <u>port</u> >.<br />
+		No need to pass arguments yet if you want to check that the controller is up and running.<br />
+		By Default, the controller is configured to use port 4000 as specified in the <a href="" ng-click="goToAnchor('documentation', 'registry');">registry</a>.<br />
+		Keep in mind that calling the controller only will lead nowhere.<br />
+		This is just to check that the service is running.<br />
+		<h6><u>Response:</u></h6>
+		<pre><code class="json" ng-bind-html="controller|json"></code></pre>
+	</p>
+	<script>renderCodeSnippets();</script>
+</div>

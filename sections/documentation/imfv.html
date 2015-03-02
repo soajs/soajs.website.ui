@@ -1,0 +1,84 @@
+<a id="imfv"></a>
+<h1>IMFV</h1>
+<hr />
+<div>
+    <p>
+	    <b>SOAJS</b> is equipped with an input mapping, filtering and validating mechanism that removes up to 50% of an API code in terms of fetching and cleaning the inputs from POST, GET, SESSION, COOKIES ...
+    </p>
+    <br />
+    <p>
+        <b>IMFV</b> reads its configuration and rules from the local configuration of a service (config.js) as mentioned in <a href="#/documentation/service">SOAJS Service</a>. A Standard <u>config.js</u> file contains 2 main entries: <b>errors</b> & <b>schema</b>
+    </p>
+    <br/>
+    <p>
+	    <img ng-src="images/documentation/imfv1.png" align="right" style="margin-left:5px; padding:0;" class="image-border"/>
+        <b><u>Error codes:</u></b> defines the errors that the service will return in case of errors.<br/>
+        These errors are returned in a json format response.<br/><br/><br/>
+
+        <b><u>Input schema:</u></b> here is where <b>IMFV</b> reads its configuration.
+        Every entry under schema refers to an API route in the service. Here you can define how <b>IMFV</b> should read the inputs and validate them.<br/><br/><br />
+
+        You also notice that <b>commonFields</b> is present in the schema.<br/>
+        <b>commonFields</b> contains the list of inputs that are used in more than one api and that should be mapped and validated the same way by <b>IMFV</b>.<br/>
+    </p>
+    <hr/>
+    <br/><br/>
+
+    <p>
+        <img ng-src="images/documentation/imfv2.png" align="right" style="margin-left:5px;" class="image-border"/>
+        <b>IMFV</b> can read the input of an api from different sources based on an order.<br/>
+        If the input is not present in the first subscript, it will check the next one(s) till the input is found.
+    </p>
+    <br/>
+    <hr/>
+    <br/><br/>
+
+    <p style="display: table; clear:both;">
+        <img ng-src="images/documentation/imfv3.png" align="left" style="margin-right:30px;" class="image-border"/>
+        <br/><b>IMFV</b> support different input types with different properties such as strings, maximum length, numbers, predefined values, regular expressions and patterns.<br/><br/><br/>
+        <b>IMFV</b> also provides formats that are applied on strings such as alphanumeric, date, time, email, uri, phone …<br/>
+    </p>
+    <hr/>
+    <br/><br/>
+
+    <p>
+        <b>IMFV</b> supports complex schemas such as arrays and objects with basic or even complex schemas internally.<br/><br/>
+        <b>IMFV</b> uses <a href="http://json-schema.org/" target="_blank" title="Open JSON Schema Website in a new tab">JSON Schema’s</a> operator such as oneOf, anyOf, allOf in the cases where the same input might have different values.<br/><br/>
+        <b>IMFV</b> also uses <u>additionalProperties</u> and <u>patternProperties</u>, from <a href="http://json-schema.org/latest/json-schema-validation.html" target="_blank" title="Open JSON Schema Documentation">JSON Schema</a>, within object schemas giving you validation control on optional api fields and complex input names such as api routes.<br/>
+        <img ng-src="images/documentation/imfv4.png" style="margin:5px 0;" class="image-border"/>
+    </p>
+    <a id="example">
+        <div ng-show="padding"><br/><br/><br/></div>
+    </a>
+    <br/>
+    <hr/>
+    <h4>Configuration Details & Sample:</h4>
+    <tabset>
+        <tab heading="Details" select="loadCode(path + 'imfv/simple.js', 'simple');">
+            <table class="myTable">
+                <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Type</th>
+                    <th>Mandatory</th>
+                    <th>Notes</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="detail in imfv" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
+                    <td width="20%">{{detail.property}}</td>
+                    <td>{{detail.type}}</td>
+                    <td>{{detail.mandatory}}</td>
+                    <td>{{detail.notes}}</td>
+                </tr>
+                </tbody>
+            </table><hr />
+            <div id="simple"></div>
+            <em>The above snippets shows only the mandatory fields used by <b>IMFV</b> in the local service configuration.</em>
+        </tab>
+        <tab heading="Code Sample" select="loadCode(path + 'imfv/advanced.js', 'advanced');">
+            <br /><div id="advanced"></div>
+            <em>The above snippets shows a combination including all types of properties used by <b>IMFV</b> in the local service configuration.</em>
+        </tab>
+    </tabset>
+</div>

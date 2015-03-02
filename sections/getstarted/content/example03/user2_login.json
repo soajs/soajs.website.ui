@@ -1,0 +1,13 @@
+{
+  "result": true,
+  "data": {
+
+    "username": "user2",
+
+    "config": {
+      "packages": {},
+      "keys": {}
+    }
+  },
+  "soajsauth": "Basic c29hanM6czAxclV4WlRGbXdvS2VtOG1rTERGZW9ocDUwSzFYdDZaaUg="
+}

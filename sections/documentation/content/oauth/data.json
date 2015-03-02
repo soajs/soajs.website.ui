@@ -1,0 +1,44 @@
+{
+  "token": {
+    "cmd": "CURL -X POST http://localhost:4000/oauth/token -d 'username=oauthuser&password=oauthpass&grant_type=password'",
+    "fields": [
+      {
+        "parameter": "username",
+        "type": "string",
+        "source": "body",
+        "mandatory": true,
+        "default": "",
+        "notes": ""
+      },
+      {
+        "parameter": "password",
+        "type": "string",
+        "source": "body",
+        "mandatory": true,
+        "default": "",
+        "notes": ""
+      },
+      {
+        "parameter": "grant_type",
+        "type": "string",
+        "source": "body",
+        "mandatory": true,
+        "default": "password",
+        "notes": ""
+      }
+    ]
+  },
+  "kill": {
+    "cmd": "CURL -X GET http://localhost:4000/oauth/kill -d 'access_token=someOAuthAcessToken'",
+    "fields": [
+      {
+        "parameter": "access_token",
+        "type": "string",
+        "source": "query",
+        "mandatory": true,
+        "default": "",
+        "notes": ""
+      }
+    ]
+  }
+}

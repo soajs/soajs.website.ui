@@ -1,0 +1,117 @@
+<a id="dashboard-service"></a>
+<h1>Dashboard SOAJS</h1>
+<hr/>
+<div>
+	<tabset>
+		<tab heading="Service Information"><br>
+			The Dashboard is a service API that allows you to manage and configure SOAJS services and components.<br/><br/>
+			<ol>
+				<li>Manage all your products in Productization section.</li>
+				<li>Manage all your tenants and keys in Multitenancy section.</li>
+				<li>Define Multiple Environments.</li>
+				<li>Create applications, keys and external service API keys.</li>
+			</ol>
+			<img ng-src="images/documentation/dashboard.png" style="margin:5px 0;"/>
+			<hr/>
+			<h3><u>Dashboard Services</u></h3>
+
+			<p>
+				The dashboard service covers 3 sections needed for you application to start.<br/>
+				The dashboard gives you access to Environments, Productization and Multitenancy.
+			</p>
+			<br/>
+			<h4><u>Environments</u></h4>
+
+			<p>
+				Create and manage environments as you desire.<br/>
+				Simply hit the api of SOAJS Dashboard and provide the inputs needed to create a new environment.<br/>
+				You can also perform similar requests to update an existing environment or remove it.<br/><br/>
+				Once your environments are added and ready to be used, use the <a ng-click="goToAnchor('documentation', 'agent');">Agent</a> to push them to the
+				<a ng-click="goToAnchor('documentation', 'registry');">Registry</a>.
+			</p>
+			<div ng-init="loadCode(path + 'dashboard/env.js', 'envjs');">
+				<div id="envjs"></div>
+			</div>
+			<br/>
+			<h4><u>Productization</u></h4>
+
+			<p>
+				Create and manage the products and their packages.<br/>
+				Products contain packages. These package are used by tenants' applications to function.<br/>
+				Packages provide Access Level control over the API services.<br/><br/>
+				Checkout the Productization section in <a ng-click="goToAnchor('documentation', 'provisioning');">Provisioning</a> to learn more about the schemas and functionality of products and
+				packages.
+			</p>
+			<div ng-init="loadCode(path + 'dashboard/product.js', 'productjs');">
+				<div id="productjs"></div>
+			</div>
+			<br/>
+			<h4><u>Multitenancy</u></h4>
+
+			<p>
+				Create and manage the tenants and their applications.<br/>
+				Add oAuth security to your tenants if you need to.<br/><br/>
+				Tenants applications contains keys. These keys provide the services you created with data that should be loaded from the database.<br/>
+				This data is specific per tenant such as templates location and headlines, mail configuration, URAC links ...etc.<br/><br/>
+
+				Keys offer the ability to generate external keys that are used in the header of requests made to the services.<br/>
+				These keys have expiry dates and device and geo location security.<br/><br/>
+
+				oAuth security is a simple configuration that later on should be used with the <a ng-click="goToAnchor('documentation', 'oauth');">oAuth</a> service of <b>SOAJS</b>.<br/>
+				The service will compare the credentials passed at login with the values of the tenant to determine if access should be granted or not.<br/><br/>
+
+				Checkout the Multitenancy section in <a ng-click="goToAnchor('documentation', 'provisioning');">Provisioning</a> to learn more about the schemas and functionality of tenants.
+			</p>
+			<div ng-init="loadCode(path + 'dashboard/tenant.js', 'tenantjs');">
+				<div id="tenantjs"></div>
+			</div>
+		</tab>
+		<tab heading="Service Information">
+			<h3><u>Usage:</u></h3>
+
+			<p>
+				<b>SOAJS</b> Dashboard is located in <a href="https://github.com/soajs/soajs.dashboard" target="_blank">soajs.dashboard</a>.<br/>
+				Install:<br/>
+			<pre><code class="bash">$ npm install -d soajs.dashboard</code></pre>
+			<br/>
+			Then navigate to the directory where it is installed and run the service.<br/>
+		<pre><code class="bash">$ cd soajs.dashboard
+$ node index</code></pre>
+			<br/>
+			The service is now running and listening http://127.0.0.1:4000/dashboard/.
+			</p>
+			<hr/>
+			<h3><u>API Call:</u></h3>
+			<fieldset ng-repeat="route in dashboard_services">
+				<legend>{{route.routeName}}</legend>
+
+				<div>
+					<table class="myTable">
+						<thead>
+							<tr>
+								<th>Parameter</th>
+								<th>Type</th>
+								<th>Source</th>
+								<th>Mandatory</th>
+								<th>Notes</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="field in route.fields" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
+								<td width="20%">{{field.parameter}}</td>
+								<td>{{field.type}}</td>
+								<td>{{field.source}}</td>
+								<td>{{field.mandatory}}</td>
+								<td>{{field.notes}}</td>
+							</tr>
+						</tbody>
+					</table>
+					<br/>
+					<h6><u>Command:</u></h6>
+					<pre><code class="bash">{{route.cmd}}</code></pre>
+				</div>
+			</fieldset>
+		</tab>
+	</tabset>
+	<script>renderCodeSnippets();</script>
+</div>

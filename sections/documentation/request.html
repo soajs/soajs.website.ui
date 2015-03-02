@@ -1,0 +1,30 @@
+<a id="request"></a>
+<h1>SOAJS Request</h1>
+<hr/>
+<div>
+	<p>
+		<b>SOAJS</b> adds its functionality and properties to the request and response of that service.<br/>
+		These features empower the developer to have all the tools needed to develop the API quickly and offers common ground between team members.<br/>
+	</p>
+
+	<h3><b><u>Req++</u></b></h3>
+
+	<table width="100%" class="myTable">
+		<thead>
+			<tr>
+				<th>Property</th>
+				<th>Purpose</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="feature in request" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
+				<td><b>{{feature.property}}</b></td>
+				<td>{{feature.purpose}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<hr/>
+	<div ng-init="loadCode(path + 'request/index.js', 'requestjs');">
+		<div id="requestjs"></div>
+	</div>
+</div>

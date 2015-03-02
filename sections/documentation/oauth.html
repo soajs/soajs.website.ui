@@ -1,0 +1,75 @@
+<a id="soajs.oauth"></a>
+<h1>SOAJS OAUTH</h1>
+<hr/>
+<div>
+	<tabset>
+		<tab heading="Service Information"><br />
+			<p>
+				<img ng-src="images/documentation/oauth-config.png" class="image-border" style="margin:5px 0;" align="right"/>
+				<b>SOAJS</b> <b>oAuth</b> is a service that integrates with <a href="oauth.net/2/" target="_blank">oAuth 2.0</a>.<br/>
+				The service simply validates, refreshes and kills access tokens generated via <b>oAuth 2.0</b>.<br/><br/>
+				This service is useless by itself and is used by other services that requires <b>oAuth 2.0</b> security.<br/><br/>
+				When developing a <b>SOAJS</b> service, a configuration is provided to <b>SOAJS</b>.<br/>
+				If the configuration contains < <b>"oauth":true</b> >, then this service cannot be accessed unless an <b>oAuth 2.0</b> access token is provided in every request made to this service.
+			</p>
+			<hr/>
+			<h4><u>Workflow:</u></h4>
+
+			<p>
+				The following diagram illustrates how <b>oAuth 2.0</b> works with <b>SOAJS</b> services.
+			</p>
+			<img ng-src="images/documentation/oAuth-workflow.png" style="margin:5px 0"/>
+			<br/>
+			<hr/>
+			<p>
+				For additional examples on how <b>SOAJS</b> <b>oAuth 2.0</b> works, checkout the code samples of <a href="#/getStarted/example02">Example02</a> in <a href="#/getStarted">Get Started</a> section.
+			</p>
+		</tab>
+		<tab heading="Service API">
+			<h3><u>Usage:</u></h3>
+
+			<p>
+				<b>SOAJS</b> oAuth is located in <a href="https://github.com/soajs/soajs.oauth" target="_blank">soajs.oauth</a>.<br/>
+				Install:<br/>
+			<pre><code class="bash">$ npm install -d soajs.oauth</code></pre>
+			<br/>
+			Then navigate to the directory where it is installed and run the service.<br/>
+			<pre><code class="bash">$ cd soajs.oauth
+$ node index</code></pre>
+			<br/>
+			The service is now running and listening http://127.0.0.1:4000/oauth/.
+			</p>
+			<hr />
+			<h3><u>API:</u></h3>
+			<fieldset ng-repeat="(routeName, routeOptions) in oauth">
+				<legend>{{routeName}}</legend>
+				<div>
+					<table class="myTable">
+						<thead>
+							<tr>
+								<th>Parameter</th>
+								<th>Type</th>
+								<th>Source</th>
+								<th>Mandatory</th>
+								<th>Notes</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="field in routeOptions.fields" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
+								<td width="20%">{{field.parameter}}</td>
+								<td>{{field.type}}</td>
+								<td>{{field.source}}</td>
+								<td>{{field.mandatory}}</td>
+								<td>{{field.notes}}</td>
+							</tr>
+						</tbody>
+					</table>
+					<br/>
+					<h6><u>Command:</u></h6>
+					<pre><code class="bash">{{routeOptions.cmd}}</code></pre>
+				</div>
+			</fieldset>
+		</tab>
+	</tabset>
+	<script>renderCodeSnippets();</script>
+</div>

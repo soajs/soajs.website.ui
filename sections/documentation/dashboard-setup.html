@@ -1,0 +1,51 @@
+<a id="dashboard-setup"></a>
+<h1>Dashboard Setup</h1>
+<hr />
+<div>
+	<h3><u>Installation:</u></h3>
+
+	<p>
+		To install the dashboard, install all the needed modules of <b>SOAJS</b> and their depenencies as mentioned in <a href="#/getStarted"><b>Get Started</b></a> Section under How to Install <b>SOAJS</b>.<br/><br/>
+		Once all the modules are installed and the services are running, make sure that you have nginx installed and configured as mentioned in <a href="https://github.com/soajs/soajs.nginx" target="_blank"><b>soajs.nginx</b></a> so that the domains and hosts needed are accessible for you to start working.<br/><br/>
+	</p>
+
+	<h3><u>Import Test Data:</u></h3>
+
+	<p>
+		Install <a href="https://github.com/soajs/soajs.examples" target="_blank">soajs.examples</a>.<br/>
+		Navigate to <b>soajs.example/tools</b> in your Terminal, and you will find a mongo script that imports some test data for you to start with.<br/>
+		<pre><code class="bash"># make sure soajs.mongo.sh is executable
+$ chmod +x soajs.mongo.sh
+
+# execute soajs.mongo.sh
+$ ./soajs.mongo.sh</code></pre>
+	</p>
+	<p>
+		The script will import some test data so that you can login to the dashboard and start using it.<br />
+		<u>Note:</u> You can always use the dashboard without importing the test data.
+	</p><br />
+	<hr/>
+	<h3><u>Using the Dashboard UI:</u></h3>
+	<p>
+		Since nginx has been configured as mentioned in this <a href="https://github.com/soajs/soajs.nginx" target="_blank"><b>Link</b></a>, you can now open your browser and use the <b>Dashboard UI</b> by going to: <a href="http://dashboard.soajs.org" target="_blank">http://dashboard.soajs.org</a>.<br /><br />
+		To Login, you need to provide a tenant key like the one obtained after you imported the test data, please checkout <a href="#/getStarted/example03">example03</a> in the <a href="#/getStarted">Get Started</a> section for additional help on how to use a key with a service.<br />The tenant key should be provided in the header of every request made to the dashboard service.<br /><br />
+		You can always lookup the tenant information under <a href="" ng-click="goToAnchor('documentation','provisioning')">Provisioning</a> section.<br /><br />
+		Once logged in, you can access all the sections and featured mentioned in the <a href="" ng-click="goToAnchor('documentation','dashboard-services')">Dashboard Services</a> Section and manage them accordingly.
+	</p>
+
+	<br/>
+	<hr/>
+	<h3><u>Dashboard UI Features:</u></h3>
+
+	<p>
+		The Dashboard interface is built on <a href="http://www.angularjs.org" target="_blank">AngularJS</a>.<br/><br/>
+		Benefit from the smart tools the dashboard offers to easily navigate and manage <b>SOAJS</b> features.<br/>
+		<img ng-src="/images/documentation/dashboard-grid.png" class="image-border" style="max-width: 800px; margin:5px 0;"/>
+		<br/>
+		Menus and Grids enable you navigate, search, sort and browse the different sections and features.<br/>
+		Quick links to Add, Edit and Remove content and/or configuration.
+		<br/>
+		<img ng-src="/images/documentation/dashboard-form.png" class="image-border" style="max-width: 800px; margin:5px 0;"/><br/>
+		Interactive forms and notification messages offer you all schemas needed to modify the configuration and invoke related API services.
+	</p>
+</div>

@@ -1,0 +1,40 @@
+[
+	{
+		"property": "serviceName",
+		"type": "string",
+		"mandatory": "YES",
+		"notes": "name of the api service."
+	},
+	{
+		"property": "Schema",
+		"type": "Object",
+		"mandatory": "YES",
+		"notes": "Object containing IMFV configuration. Object Properties are route names."
+	},
+
+	{
+		"property": "Schema > routes",
+		"type": "Object",
+		"mandatory": "YES",
+		"notes": "Object where the keys are the api route names and the value is the input configuration for mapping and validation."
+	},
+	{
+		"property": "Schema > commonFields",
+		"type": "Object",
+		"mandatory": "NO",
+		"notes": " Object Containing common inputs configuration used by this service."
+	},
+
+	{
+		"property": "Errors",
+		"type": "Object",
+		"mandatory": "NO",
+		"notes": "Object containing all service error messages and their codes."
+	},
+	{
+		"property": "Other",
+		"type": "Any",
+		"mandatory": "NO",
+		"notes": "Additional config properties used by service api. Properties can be any type of JSON Object element."
+	}
+]

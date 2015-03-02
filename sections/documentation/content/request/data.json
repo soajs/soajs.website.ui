@@ -1,0 +1,42 @@
+[
+  {
+    "property": "req.soajs.inputmaskData",
+    "purpose": "soajs makes it easy by consolidating all the api params from multiple source(post, get, cookie, headers, session, provisioning, …) under one object after formatting and validation."
+  },
+  {
+    "property": "req.soajs.registry",
+    "purpose": "soajs gives you easy access to the specified environment configuration."
+  },
+  {
+    "property": "req.soajs.log",
+    "purpose": "soajs gives you the ability to have unified and standardized api logging (error, debug, info, …). With the power of soajs.agent, the unified logging will be fed into elastic search and the soajs.dashboard.ui to give you amazing analytic information."
+  },
+  {
+    "property": "req.soajs.restResponse",
+    "purpose": "this object will help to standardize your api responses."
+  },
+  {
+    "property": "req.soajs.buildRestResponse",
+    "purpose": "this function builds the standardized json response returned by the api."
+  },
+  {
+    "property": "req.soajs.validator",
+    "purpose": "soajs makes it easy for you to validate json schemas."
+  },
+  {
+    "property": "req.soajs.meta",
+    "purpose": "multitenancy meta configuration."
+  },
+  {
+    "property": "req.soajs.serviceConfig",
+    "purpose": "soajs gives the power to configure each service differently from one tenant to the other as well as empowers you to even have it configured differently down to the user. This configuration is provided by this entry."
+  },
+  {
+    "property": "req.soajs.tenant",
+    "purpose": "contains the tenant information."
+  },
+  {
+    "property": "req.soajs.session",
+    "purpose": "object to read/write data from the multitenant session."
+  }
+]
