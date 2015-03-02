@@ -487,7 +487,7 @@
 				                        "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"
 				                        "http://localhost:4000/urac/login" -d "username=user3&password=654321"</code></pre>
 				<h6>Response:</h6>
-				<div ng-init="loadJSON(path + 'example03/user3_login.json', 'user3_login');">
+				<div ng-init="loadJSON(path + 'example03/tenant1/user3_login.json', 'user3_login');">
 					<div id="user3_login"></div>
 				</div>
 				The login was successful. Add <b>soajsauth</b> property to the headers of the consequent request.<br/>
@@ -498,7 +498,7 @@
 				</code></pre>
 				<h6>Response:</h6>
 
-				<div ng-init="loadJSON(path + 'example03/user3_app1_response.json', 'user3_app1_response');">
+				<div ng-init="loadJSON(path + 'example03/tenant1/user3_app1_response.json', 'user3_app1_response');">
 					<div id="user3_app1_response"></div>
 				</div>
 				(it is supposed to show that user2 was able to access the api bcz it overrides the ACL)
