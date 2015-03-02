@@ -256,7 +256,7 @@
 				</code></pre>
 				<h6>Response:</h6>
 
-				<div ng-init="loadJSON(path + 'example03/tenant1_test2.json', 'tenant1_test2');">
+				<div ng-init="loadJSON(path + 'example03/tenant1/tenant1_test2.json', 'tenant1_test2');">
 					<div id="tenant1_test2"></div>
 				</div>
 				Success! <em>Calls using the second key are allowed to use the service.</em>
@@ -275,7 +275,7 @@
 				                        "key:2423205b6ccd825aaa3dbf7f248f807996c1f39f4e128801107a10ea55eac9686f23b883b778b1763876fe47f7cc651fea232f7aa9dae3dfd1978d4948a3f26b948ebc1b71a9d6cacf08852312866d757b22392d8d3c0e28ee47edb0e7478157"</code></pre>
 				<h6>Response:</h6>
 
-				<div ng-init="loadJSON(path + 'example03/tenant2_test1.json', 'tenant2_test1');">
+				<div ng-init="loadJSON(path + 'example03/tenant2/tenant2_test1.json', 'tenant2_test1');">
 					<div id="tenant2_test1"></div>
 				</div>
 				Success! <em></em>
@@ -286,7 +286,7 @@
 				                        "key:2423205b6ccd825aaa3dbf7f248f807996c1f39f4e128801107a10ea55eac9686f23b883b778b1763876fe47f7cc651fea232f7aa9dae3dfd1978d4948a3f26b948ebc1b71a9d6cacf08852312866d757b22392d8d3c0e28ee47edb0e7478157"</code></pre>
 				<h6>Response:</h6>
 
-				<div ng-init="loadJSON(path + 'example03/tenant2_test2.json', 'tenant2_test2');">
+				<div ng-init="loadJSON(path + 'example03/tenant2/tenant2_test2.json', 'tenant2_test2');">
 					<div id="tenant2_test2"></div>
 				</div>
 				Success! <em>We have access to all the apis of the service</em>
@@ -305,7 +305,7 @@
 				                        "http://rest-proxy:4000/example03/buildName?lastName=Smith"</code></pre>
 				<h6>Response:</h6>
 
-				<div ng-init="loadJSON(path + 'example03/tenant3_test1.json', 'tenant3_test1');">
+				<div ng-init="loadJSON(path + 'example03/tenant3/tenant3_test1.json', 'tenant3_test1');">
 					<div id="tenant3_test1"></div>
 				</div>
 				Success! <em> </em>
@@ -318,7 +318,7 @@
 				                        "http://rest-proxy:4000/example03/testGet?lastName=Smith&firstName=Jack"</code></pre>
 				<h6>Response:</h6>
 
-				<div ng-init="loadJSON(path + 'example03/tenant3_test2.json', 'tenant3_test2');">
+				<div ng-init="loadJSON(path + 'example03/tenant3/tenant3_test2.json', 'tenant3_test2');">
 					<div id="tenant3_test2"></div>
 				</div>
 				Success! <em>!! i was able to access! it should not </em>
@@ -340,17 +340,17 @@
 		<tabset>
 			<tab heading="User 1"><br/>
 
-				<div ng-init="loadCode(path + 'example03/user1.js', 'user1');"></div>
+				<div ng-init="loadCode(path + 'example03/tenant1/user1.js', 'user1');"></div>
 				<div id="user1"></div>
 			</tab>
 			<tab heading="User 2"><br/>
 
-				<div ng-init="loadCode(path + 'example03/user2.js', 'user2');"></div>
+				<div ng-init="loadCode(path + 'example03/tenant1/user2.js', 'user2');"></div>
 				<div id="user2"></div>
 			</tab>
 			<tab heading="User 3" select=""><br/>
 
-				<div ng-init="loadCode(path + 'example03/user3.js', 'user3');"></div>
+				<div ng-init="loadCode(path + 'example03/tenant1/user3.js', 'user3');"></div>
 				<div id="user3"></div>
 			</tab>
 		</tabset>
@@ -404,7 +404,7 @@
 				<em>We are using the key of the first application of tenant 1.</em>
 				<h6>Response:</h6>
 
-				<div ng-init="loadJSON(path + 'example03/user1_login.json', 'user1_login');">
+				<div ng-init="loadJSON(path + 'example03/tenant1/user1_login.json', 'user1_login');">
 					<div id="user1_login"></div>
 				</div>
 				The login was successful and the returned response contains the <b>soajsauth</b> property.<br/>
@@ -433,8 +433,8 @@
 				                        "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"
 				                        "http://localhost:4000/urac/login" -d "username=user2&password=123456"</code></pre>
 				<h6>Response:</h6>
-				<div ng-init="loadJSON(path + 'example03/user2_login.json', 'user2_login');">
-					<div id="user2_login"></div>
+				<div ng-init="loadJSON(path + 'example03/tenant1/user2_app1_login.json', 'user2_app1_login');">
+					<div id="user2_app1_login"></div>
 				</div>
 				The login was successful and the response returned contains the <b>soajsauth</b> property.<br/>
 				Grab the <b>soajsauth</b> property and add it in the headers of the consequent request.<br/>
@@ -445,7 +445,7 @@
 				</code></pre>
 				<h6>Response:</h6>
 
-				<div ng-init="loadJSON(path + 'example03/user2_app1_response.json', 'user2_app1_response');">
+				<div ng-init="loadJSON(path + 'example03/tenant1/user2_app1_response.json', 'user2_app1_response');">
 					<div id="user2_app1_response"></div>
 				</div>
 				(it is supposed to show that user2 was able to access the api bcz it overrides the ACL)
@@ -460,7 +460,7 @@
 				</code></pre>
 				<h6>Response:</h6>
 
-				<div ng-init="loadJSON(path + 'example03/user2_app2_login.json', 'user2_app2_login');">
+				<div ng-init="loadJSON(path + 'example03/tenant1/user2_app2_login.json', 'user2_app2_login');">
 					<div id="user2_app2_login"></div>
 				</div>
 				The login was successful and the response returned contains the <b>soajsauth</b> property.<br/>
@@ -472,7 +472,7 @@
 				</code></pre>
 				<h6>Response:</h6>
 
-				<div ng-init="loadJSON(path + 'example03/user2_app2_response.json', 'user2_app2_response');">
+				<div ng-init="loadJSON(path + 'example03/tenant1/user2_app2_response.json', 'user2_app2_response');">
 					<div id="user2_app2_response"></div>
 				</div>
 				It is supposed to show how the tenant name was changed, specific from the config of the user
