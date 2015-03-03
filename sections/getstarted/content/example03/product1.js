@@ -30,10 +30,10 @@ var product1 = {
 			"acl": {
 				"urac": {},
 				"example03": {
-					"apis": {
 						"apisPermission": "restricted",
-						"/buildName": {}
-					}
+						"apis":{
+							"/buildName": {}
+						}
 				}
 			},
 			"_TTL": 172800
