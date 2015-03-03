@@ -4,85 +4,104 @@
 
 		<h1>Example 03</h1>
 		<hr/>
-		In this example we will show you how to take advantage of multi-tenancy.
-		You can configure multi-tenant and have your services behave differently from one tenant(client) to
-		the other, and even from one user(consumer) to the other.<br/>
-		This example shows you how easy it is to configure ACL and secure your APIs at the product, tenant and user levels.<br/>
-		We will also show you how to edit your service configuration at the tenant level and user level.
+		So far, we have created a service and secured it with <b>oAuth</b> in previous examples. We also mentioned the usage of a tenant and its key in <a href="#/getStarted/example02">Example02</a>. But till now we were only dealing with one tenant and now we are going to take things to a higher level.<br /><br />
+		<b>SOAJS</b> offers the ability to allow different tenants to use the same service, each with their own settings. You can configure multitenancy and have your services behave differently from one tenant(client) to an other, and even from one user(consumer) to an other.<br/><br/>
+		This example shows you how to take advantage of multitenancy and how easy it is to configure ACL and secure your APIs at the product, tenant and user levels. We will also show you how to edit your service configuration at the tenant level and at the user level. We will also introduce the <b>URAC</b> service, where each tenant has registered users.
+		<img ng-src="images/getstarted/example03.png" style="margin:5px 0;" />
 
 		<br/><br/>
-		So far in the previous 2 examples we were dealing with only one tenant.
-		But <b>SOAJS</b> has the ability to allow different tenants to use the same service, each with their own settings.
-
-		We will also introduce the <b>URAC</b> service, where each tenant can have registered users.
 
 		<em>
-			you need a tenant and a user
-			so you need the urac
-			7ott soura
-			<br/>
-			baddak ta3mil provision mitel 02 bass fi users for this tenant
-			the difference between 2 nd 3 enno fi urac
-			start the services w explain what we turned on.
+			<!--you need a tenant and a user-->
+			<!--so you need the urac-->
+			<!--7ott soura-->
+			<!--<br/>-->
+			<!--baddak ta3mil provision mitel 02 bass fi users for this tenant-->
+			<!--the difference between 2 nd 3 enno fi urac-->
+			<!--start the services w explain what we turned on.-->
 			use same api as example 01.
 			w add oauth here as well.
 			mitel example 02 get the token, and hit the url u get same response as 02
 		</em>
-
-		<br/><br/>
-
-
+		<hr/>
 		<h3><u>Installing URAC</u></h3>
-		<p><b>SOAJS</b> (User Registration &amp; Access Control) is an API service that manages the
-		                Users records and their Access Controls.<br>
-		The service is multitenant and provides the ability to have members accounts for the tenant.
-		                Members can login and get additional preferences or priviledges.
-		</p>
-
 		<p>
+			<b>SOAJS</b> (User Registration &amp; Access Control) is a service that manages the Users records and their Access Controls.<br>
+			The service is multitenant and provides the ability to have members accounts for different tenants. Members can login and get additional preferences or privileges.<br /><br />
 			Like any other <b>SOAJS</b> service, <b>urac</b> can be installed via <b>NPM</b>:
 			<pre><code class="bash">$ npm install soajs.urac</code>
 			</pre>
-		Once the service is installed, go ahead and run it:
+			Once the service is installed, go ahead and run it:
 			<pre><code class="bash">$ cd soajs.urac
-			                        $ node index</code></pre>
+$ node index</code>
+			</pre>
+			<p>
+				<b>URAC</b> is now running on http://localhost:4000/urac and will we will use it to login with our users later on when we start the tests.<br />
+			</p>
 		</p>
 		<hr/>
-
-
-
 		<h3><u>Import Provisioning</u></h3>
-
 		<p>
-			Like in <b>Example02</b>, we need to provision some data in order for the tests to function.
-			This provisioning steps allows us to prepare your database. It will
-			create and set the required sample data in the database to simulate a real-life case scenario.
-			<br>
-			For the purpose of this example we have created 3 tenant records, and the first tenant also has 3 registered users.
-			<br>
-			In order to provision, you need to navigate to <b>soajs.examples/tools/</b> and run the following commands:
+			In <a href="#/getStarted/example02">Example02</a>, we provisioned some data in order to test the service. In this example and if you modified the data in the database, we suggest you repeat the provisioning step as demonstrated below. If the data in the database is still intact, skip this step.<br /><br />
+			Provisioning allows us to fill the database with pre-configured data from the sample to simulate a real-life case scenario. For the purpose of this example we have created 3 tenant records, and the first tenant also contains 3 registered users. To provision, you need to navigate to <b>soajs.examples/tools/</b> and run the following commands:
 		<pre><code class="bash">$ cd soajs.examples/tools
-		                        $ chmod +x soajs.mongo.sh
-		                        $ ./soajs.mongo.sh</code>
-			</pre>
+$ chmod +x soajs.mongo.sh
+$ ./soajs.mongo.sh</code></pre>
 		</p>
-
-
-		(tell the user enno el provisioning will expire in a certain amount of time.)
+		Keep in mind that although you just provisioned some sample data, this data will expire at a later stage (7 days).
 		<hr/>
 
 		<h3><u>Start the Service</u></h3>
-		Now we have both the controller and Urac services running, and the provision data is imported.
-		Next we need to run Example03 service.
-
-
+		Now we have both the controller and Urac services running, and the provision data is imported. All we need now is to start <b>Example03</b>:
 		<pre><code class="bash">#start example03
-		                        $ cd soajs.examples/examples03
-		                        $ node index</code></pre>
+$ cd soajs.examples/examples03
+$ node index</code></pre>
+		<p>
+			<b>Example03</b> is now running on http://localhost:4000/example03.<br />
+			Let's do a heartbeat check just to make sure all is working as expected before we begin the tests.<br /><br />
+		</p>
+		<fieldset>
+			<legend>Heartbeat urac</legend>
+			<div>
+				<pre><code class="bash">$ curl -X GET "http://localhost:5001/heartbeat"</code></pre>
+				<h6><u>Response:</u></h6>
+				<pre><code class="bash">{
+	"result":true,
+	"ts":1425372634090,
+	"service": {
+		"service":"urac",
+		"type":"rest",
+		"route":"/heartbeat"
+	}
+}</code>
+				</pre>
+				<p>
+					Notice here that we used port <u>5001</u> to perform a <b>heartbeat</b> check. We previously mentioned in <a href="#/getstarted">Get Started</a>, that a heartbeat operation is made using the maintenance port of a service and that the maintenance port is equal to the port number of the service + 1000.<br />
+					<b>urac</b> service runs on port <u>4001</u> making the maintenance port of this service as <u>5001</u>.
+				</p>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend>Heartbeat Example03</legend>
+			<div>
+				<pre><code class="bash">$ curl -X GET "http://localhost:5012/heartbeat"</code></pre>
+				<h6><u>Response:</u></h6>
+				<pre><code class="bash">{
+	"result":true,
+	"ts":1425372737466,
+	"service": {
+		"service":"example03",
+		"type":"rest",
+		"route":"/heartbeat"
+	}
+}</code>
+				</pre>
+				<p>
+					In the image above, in <b>Registering the Service</b>, we registered example03 in <b>SOAJS</b> with port <u>4012</u> making the maintenance port of this service as <u>5012</u> and as you can see, when we performed a heartbeat operation, the service that it is running and healthy.
+				</p>
+			</div>
+		</fieldset>
 		<hr/>
-
-
-
 		<h3><u>Configuration Levels:</u></h3>
 		Services are configurable at multiple levels, each level having a different scope.
 		A more specific scope will override any options of a more general scope.<br/>

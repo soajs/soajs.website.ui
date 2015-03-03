@@ -40,11 +40,7 @@
 				If you have <b>NodeJs</b> installed, then you can open your terminal and execute the following commands:
                 <pre>
 	                <code class="bash">#install soajs services
-$ npm install soajs.controller
-$ npm install soajs.oauth
-$ npm install soajs.urac
-#install the examples
-$ npm install soajs.examples</code></pre>
+$ npm install soajs.controller</code></pre>
 			</li>
 			<li><h4>Start the services</h4>
 				To start a service, using the command line, navigate to its folder, and run node index.<br>
@@ -59,8 +55,8 @@ $ node index</code></pre>
 			</li>
 			<li>
 				<h4>Testing the Service:</h4>
-				By default, the controller runs on your localhost via port 4000. Every service in <b>SOAJS</b> is equiped with a maintenance port that you can access while the service is running and perform some maintenance operations like heartbeat checcking and  reload configuration.<br />
-				To access the maintenance port of a service, add 1000 to its port, in this case 4000 + 1000 = 5000.<br/>
+				By default, the controller runs on your localhost via port 4000. Every service in <b>SOAJS</b> has its own default port and another maintenance port configured in the registry. So when you start a service, the service will be listening to two ports at the same time; one to process the requests and another used for maintenance operations.<br />
+				You can access the maintenance port while the service is running and perform some maintenance operations like heartbeat checking and reload configuration. To access the maintenance port of a service, add 1000 to its default port number, in this case 4000 + 1000 = 5000.<br/>
 				Let's see what happens when we run both 4000 and 5000 ports on your machine.<br /><br/>
 				<fieldset>
 					<legend>Default Port</legend>
@@ -86,11 +82,7 @@ $ node index</code></pre>
 				<fieldset>
 					<legend>Maintenance Port</legend>
 					<div>
-						<pre><code class="bash">$ curl -X GET "http://localhost:5000</code></pre>
-						<h6><u>Response:</u></h6>
-						<pre><code class="bash">nothing to do!</code></pre>
-						<em>When you invoke the controller maintenance port without specifying what maintenance operation you want to perform, the service simply returns a message "nothing to do!".</em>
-						<p><br /><br />OK!, let's hit the maintenance port again but this time do a heartbeat check.<br /></p>
+						<p>Let's hit the maintenance port and perform a heartbeat check.<br /></p>
 						<pre><code class="bash">$ curl -X GET "http://localhost:5000/heartbeat</code></pre>
 						<h6><u>Response:</u></h6>
 						<pre><code class="bash">{
