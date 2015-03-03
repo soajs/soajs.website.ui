@@ -6,9 +6,10 @@
 	    <b>SOAJS</b> is equipped with an input mapping, filtering and validating mechanism that removes up to 50% of an API code in terms of fetching and cleaning the inputs from POST, GET, SESSION, COOKIES, HEADERS and TENANT CONFIG.<br /><br />
 
 	    <img ng-src="images/documentation/service-folder-tree.png" align="right" style="margin-left:5px; margin-bottom:5px;" class="image-border"/>
-	    Every service requires an <b>IMFV</b> to validate the inputs (parameters) of its APIs. <b>IMFV</b> is usually located in a <u>config.js</u> file within the service directory.<br />
-	    The content of an <u>config.js</u> file is based on two main sections: <b>Error Codes</b> and <b>Validation Schema</b>.
-	    <pre><code class="javascript">module.exports={
+	    Every service uses the <b>IMFV</b> to validate the inputs (parameters) of its APIs. <b>IMFV</b> is usually located in a <u>config.js</u> file within the service directory.<br />
+	    The content of a <u>config.js</u> file is based on two main sections: <b>Error Codes</b> and <b>Validation Schema</b>.
+	    <pre><code class="javascript">//inside config.js
+module.exports={
 	"errors": {},
 	"schema": {}
 }</code>
@@ -37,16 +38,16 @@ service.post("/login", function(req, res) {
 	//...
 };
 		</code></pre>
-		<b>SOAJS</b> built-in <b>bildRestResponse</b> takes 2 parameters, the first being an error object and the second being the response. In most cases, when there is no error, there is a response and vise-versa.<br /><br />
+		<b>SOAJS</b> built-in <b>buildRestResponse</b> takes 2 parameters, the first being an error object and the second being the response. In most cases, when there is no error, there is a response and vise-versa.<br /><br />
 	</p>
 	<hr/>
-	<h3><u>Simple Schema</u></h3>
+	<h3><u>Sample Schema</u></h3>
 	<p>
-		Every API has an entry inside the schema with the inputs that it should received configured. Every entry instructs <b>IMFV</b> where to look for the input using the source attribute and how to validate the input.
+		Every API has an entry inside the schema with the inputs validation, that it should receive, configured. Every entry instructs <b>IMFV</b> where to look for the input using the source attribute and how to validate the input using the validation attribute.
 		<div ng-init="loadCode(path + 'imfv/simple.js', 'simple');">
 			<div id="simple"></div>
 		</div>
-		The above sample Tells <b>IMFV</b> that for API <b>"/testGet"</b> there is a <u>required</u> input named <b>"firstName"</b> who's type is <u>string</u> and has a specific <u>alphanumeric format</u> and it is provided via the <u>querystring</u> when the request is made under the name <b>"firstName"</b>.<br /><br />
+		The above sample Tells <b>IMFV</b> that for API <b>"/testGet"</b> there is a <u>required</u> input named <b>"firstName"</b> who's type is <u>string</u> and has a specific <u>alphanumeric format</u> and it is provided via the <u>querystring</u> as <b>"firstName"</b> when the request is made.<br /><br />
 	</p>
 	<hr/>
 	<h3><u>Sources List:</u></h3>
@@ -63,8 +64,7 @@ service.post("/login", function(req, res) {
 	<h3><u>Default Values:</u></h3>
 	<p>
 		<b>IMFV</b> offers the ability to provide a default value for an input. This means that if the input is not provided, <b>IMFV</b> will use the default value configured for that input.
-		<pre><code class="javascript">
-//...
+		<pre><code class="javascript">//...
 "firstName": {
 	"source": ['query.firstName'],
 	"required": true,
@@ -75,15 +75,15 @@ service.post("/login", function(req, res) {
 },
 //...
 </code></pre>
-		The above code sets the value of <u>firstName</u> to <b>"John"</b> if the request is made to the API without specifying a <u>firstName</u> in the <u>querystring</u>.<br /><br />
+		The above code sets the value of <u>firstName</u> to <b>"John"</b>. If the request is made to the API without specifying a <u>firstName</u> in the <u>querystring</u>, then <b>req.soajs.inputmaskData.firstName</b> will be set to <b>John</b>.<br /><br />
 	</p>
 	<hr/>
 	<h3><u>Types, Properties & Formats:</u></h3>
 	<p>
-		<b>IMFV</b> supports different input types with different properties such as <u>strings</u>, <u>numbers</u>, <u>boolean</u>, <u>arrays</u>, <u>objects</u>, <u>regular expressions</u>... etc. Each of these types has different combination of properties such as <u>string</u>. A <u>string</u> can represent an email, a name, a date or a phone number. Here is a list of what can be used with <b>IMFV</b>:
+		<b>IMFV</b> supports different input types with different properties such as <u>strings</u>, <u>numbers</u>, <u>boolean</u>, <u>arrays</u>, <u>objects</u>, <u>regular expressions</u>... etc. Each of these types has different combination of properties. A <u>string</u> for example can represent an email, a name, a date or a phone number. Here is a list of what can be used with <b>IMFV</b>:
 	</p>
 	<p>
-		<u>Boolean:</u> a boolean input can be either true or false.
+		<u>Boolean:</u> either true or false.
 		<pre><code class="javascript">"married": {
 	"source": ['query.married'],
 	"required": true,
@@ -95,7 +95,7 @@ service.post("/login", function(req, res) {
 		</pre>
 	</p>
 	<p>
-		<u>regexp:</u> a regexp input represents a regular expression. <u>Ex:</u> route paths
+		<u>regexp:</u> represents a regular expression. <u>Ex:</u> /^\/admin\/.+/$
 		<pre><code class="javascript">"route": {
 	"source": ['body.route'],
 	"required": true,
@@ -106,7 +106,7 @@ service.post("/login", function(req, res) {
 		</pre>
 	</p>
 	<p>
-		<u>number:</u> a number input represents both integers and floats.
+		<u>number:</u> represents both integers and floats.
 		<pre><code class="javascript">"price": {
 	"source": ['body.route'],
 	"required": true,
@@ -119,7 +119,7 @@ service.post("/login", function(req, res) {
 		</pre>
 	</p>
 	<p>
-		<u>object:</u> an object input can hold different properties from all mentioned types.
+		<u>object:</u> this input can hold different properties from all mentioned types.
 		<pre><code class="javascript">"profile":{
 	"source": ['body.profile'],
 	"validation":{
@@ -135,7 +135,7 @@ service.post("/login", function(req, res) {
 		</pre>
 	</p>
 	<p>
-		<u>array:</u> an array input can hold different items from all mentioned types.
+		<u>array:</u> this input can hold different items from all mentioned types, each item can have any type mentioned.
 		<pre><code class="javascript">"users":{
 	"source": ['body.users'],
 	"validation":{
@@ -159,7 +159,7 @@ service.post("/login", function(req, res) {
 		</pre>
 	</p>
 	<p>
-		<u>string:</u> a string input can have multiple formats applied to it.
+		<u>string:</u> can have multiple formats applied to it.
 		<pre><code class="javascript">"username":{
 	"source": ['body.username'],
 	"validation":{
@@ -173,29 +173,82 @@ service.post("/login", function(req, res) {
 		<p>
 			When dealing with strings, keep in mind that a string can represent several types of inputs and thus this type is commonly used when providing an api with parameters. Therefore a format option has been added that validates the content of a string to determine if the value resembles the expected outcome. Here is a list of formats provided that can be used:
 		</p>
-		<ul>
-			<li><u>date:</u> 0000-00-00</li>
-			<li><u>time:</u> 00:00:00</li>
-			<li><u>date-time:</u> 0000-00-00T00:00:00.000Z</li>
-			<li><u>route:</u> /service/api/route</li>
-			<li><u>phone:</u> +(000)-000-0000</li>
-			<li><u>email:</u> me@domain.com</li>
-			<li><u>ip-address:</u> 127.0.0.1</li>
-			<li><u>ipv6:</u> FE80:0000:0000:0000:0202:B3FF:FE1E:8329</li>
-			<li><u>uri:</u> http://someurl.com/somepath/somenode</li>
-			<li><u>domain:</u> someurl.com</li>
-			<li><u>host-name:</u> someurl</li>
-			<li><u>alpha:</u> john</li>
-			<li><u>alphanumeric:</u> john179</li>
-			<li><u>color:</u> blue</li>
-			<li><u>style:</u> background-color: blue</li>
-		</ul>
+		<table class="mytable" width="100%">
+			<thead>
+				<tr>
+					<th>Format:</th>
+					<th>Sample:</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>date:</td>
+					<td>0000-00-00</td>
+				</tr>
+				<tr class="even">
+					<td>time:</td>
+					<td>00:00:00</td>
+				</tr>
+				<tr>
+					<td>date-time:</td>
+					<td>0000-00-00T00:00:00.000Z</td>
+				</tr>
+				<tr class="even">
+					<td>route:</td>
+					<td>/service/api/pathparam</td>
+				</tr>
+				<tr>
+					<td>phone:</td>
+					<td>+(000)-000-0000</td>
+				</tr>
+				<tr class="even">
+					<td>email:</td>
+					<td>me@domain.com</td>
+				</tr>
+				<tr>
+					<td>ip-address:</td>
+					<td>127.0.0.1</td>
+				</tr>
+				<tr class="even">
+					<td>ipv6:</td>
+					<td>FE80:0000:0000:0000:0202:B3FF:FE1E:8329</td>
+				</tr>
+				<tr>
+					<td>uri:</td>
+					<td>http://someurl.com/somepath/somenode</td>
+				</tr>
+				<tr class="even">
+					<td>domain:</td>
+					<td>someurl.com</td>
+				</tr>
+				<tr>
+					<td>hostname:</td>
+					<td>someurl</td>
+				</tr>
+				<tr class="even">
+					<td>alpha:</td>
+					<td>John</td>
+				</tr>
+				<tr>
+					<td>alphanumeric:</td>
+					<td>John179</td>
+				</tr>
+				<tr class="even">
+					<td>color:</td>
+					<td>blue</td>
+				</tr>
+				<tr>
+					<td>style:</td>
+					<td>background-color:red</td>
+				</tr>
+			</tbody>
+		</table>
 	</p>
 	<br />
 	<hr/>
 	<h3><u>Complexe Schemas</u></h3>
 	<p>
-		<b>IMFV</b> supports complex schemas such as arrays and objects with basic or even complex schemas internally. It relies <a href="http://json-schema.org/documentation.html" target="_blank">JSON Schema’s</a> operator such as <a href="http://json-schema.org/example2.html" target="_blank">oneOf</a>, <a href="http://json-schema.org/example2.html" target="_blank">anyOf</a>, <a href="http://json-schema.org/example2.html" target="_blank">allOf</a> in the cases where the same input might have different values.<br />
+		<b>IMFV</b> supports complex schemas such as arrays and objects where each of the two contains basic or even more complex schemas internally. It relies on <a href="http://json-schema.org/documentation.html" target="_blank">JSON Schema’s</a> operator such as <a href="http://json-schema.org/example2.html" target="_blank">oneOf</a>, <a href="http://json-schema.org/example2.html" target="_blank">anyOf</a>, <a href="http://json-schema.org/example2.html" target="_blank">allOf</a> in the cases where the same input might have different values.<br />
 		<b>IMFV</b> also uses <a href="http://json-schema.org/example2.html" target="_blank">additionalProperties</a> and <a href="http://json-schema.org/example2.html" target="_blank">patternProperties</a>, from <a href="http://json-schema.org/latest/json-schema-validation.html" target="_blank">JSON Schema</a>, within object schemas giving you validation control on optional api fields and complex input names such as api routes.
 		<div ng-init="loadCode(path + 'imfv/advanced.js', 'advanced');">
 			<div id="advanced"></div>
@@ -256,7 +309,7 @@ service.post("/login", function(req, res) {
 		As illustrated in the above code, <u>username</u> input regardless of the source that provided it, can now be accessed from <b>req.soajs.inputmaskData</b> object. The same applies to all other inputs passed to the requested API.<br /><br />
 	</p>
 	<hr/>
-	<h3><u>Complete Code:</u></h3>
+	<h3><u>Full Sample:</u></h3>
 	<p>
 		The following is a snippet of both <u>config.js</u> and <u>index.js</u> used together to implement a service that is built with <b>SOAJS</b> that focuses on how to use the errors and <b>IMFV</b> schema validation.<br /><br />
 	</p>

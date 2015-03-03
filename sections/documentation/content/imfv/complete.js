@@ -89,7 +89,8 @@ module.exports = {
 				"_TTL": {
 					"source": ["session.user._TTL", "tenantConfig._TTL"],
 					"required": true,
-					'validation': {'type': 'number', "enum": [6, 12, 24, 48]}
+					'validation': {'type': 'number', "enum": [6, 12, 24, 48]},
+					'default': 6
 				}
 			}
 		}
