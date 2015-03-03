@@ -123,7 +123,7 @@ app.service('loadJsonFileContent', ['$http', '$timeout', '$compile', function($h
 			}, 1000);
 
 		}).error(function() {
-			console.log('Error Loading JSON Snippet.');
+			console.log('Error Loading JSON Snippet: ' + path );
 		});
 	}
 }]);

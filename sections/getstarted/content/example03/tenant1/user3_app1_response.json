@@ -1,0 +1,8 @@
+{
+  "result": true,
+  "data": {
+    "tenantName": "Tenant name specific to user three",
+    "fullName": "John Smith"
+  },
+  "soajsauth": "Basic c29hanM6czAxMkdMWXBiX0lybndHR0dlaENwS2Z4NlpoV3dtYzhTeUw="
+}

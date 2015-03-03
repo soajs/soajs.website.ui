@@ -5,8 +5,8 @@
 		<h1>Example 03</h1>
 		<hr/>
 		So far, we have created a service and secured it with <b>oAuth</b> in previous examples. We also mentioned the usage of a tenant and its key in <a href="#/getStarted/example02">Example02</a>. But till now we were only dealing with one tenant and now we are going to take things to a higher level.<br /><br />
-		<b>SOAJS</b> offers the ability to allow different tenants to use the same service, each with their own settings. You can configure multitenancy and have your services behave differently from one tenant(client) to an other, and even from one user(consumer) to an other.<br/><br/>
-		This example shows you how to take advantage of multitenancy and how easy it is to configure ACL and secure your APIs at the product, tenant and user levels. We will also show you how to edit your service configuration at the tenant level and at the user level. We will also introduce the <b>URAC</b> service, where each tenant has registered users.
+		<b>SOAJS</b> offers the ability to allow different tenants to use the same service, each with their own settings. You can configure multitenancy and have your services behave differently from one tenant (client) to another, and even from one user (consumer) to another.<br/><br/>
+		This example shows you how to take advantage of multitenancy and how easy it is to configure ACL and secure your APIs at the product, tenant and user levels. We will also show you how to edit your service configuration at the tenant level and at the user level. We will also introduce the <b>URAC</b> service, where each tenant can have registered users.
 		<img ng-src="images/getstarted/example03.png" style="margin:5px 0;" />
 
 		<br/><br/>
@@ -14,12 +14,10 @@
 		<em>
 			<!--you need a tenant and a user-->
 			<!--so you need the urac-->
-			<!--7ott soura-->
-			<!--<br/>-->
 			<!--baddak ta3mil provision mitel 02 bass fi users for this tenant-->
 			<!--the difference between 2 nd 3 enno fi urac-->
 			<!--start the services w explain what we turned on.-->
-			use same api as example 01.
+
 			w add oauth here as well.
 			mitel example 02 get the token, and hit the url u get same response as 02
 		</em>
@@ -41,9 +39,13 @@ $ node index</code>
 		</p>
 		<hr/>
 		<h3><u>Import Provisioning</u></h3>
+
+
 		<p>
-			In <a href="#/getStarted/example02">Example02</a>, we provisioned some data in order to test the service. In this example and if you modified the data in the database, we suggest you repeat the provisioning step as demonstrated below. If the data in the database is still intact, skip this step.<br /><br />
-			Provisioning allows us to fill the database with pre-configured data from the sample to simulate a real-life case scenario. For the purpose of this example we have created 3 tenant records, and the first tenant also contains 3 registered users. To provision, you need to navigate to <b>soajs.examples/tools/</b> and run the following commands:
+			In <a href="#/getStarted/example02">Example02</a>, we provisioned some data in order to test the service.
+			For this example, and if you modified the data in the database, we suggest you repeat the provisioning step as demonstrated below. If the data in the database is still intact, skip this step.<br /><br />
+			Provisioning allows us to fill the database with pre-configured sample data to simulate a real-life case scenario.
+			For the purpose of this example we have created 3 tenant records, and the first tenant also contains 3 registered users. To provision, you need to navigate to <b>soajs.examples/tools/</b> and run the following commands:
 		<pre><code class="bash">$ cd soajs.examples/tools
 $ chmod +x soajs.mongo.sh
 $ ./soajs.mongo.sh</code></pre>
@@ -65,7 +67,7 @@ $ node index</code></pre>
 			<div>
 				<pre><code class="bash">$ curl -X GET "http://localhost:5001/heartbeat"</code></pre>
 				<h6><u>Response:</u></h6>
-				<pre><code class="bash">{
+				<pre><code class="javascript">{
 	"result":true,
 	"ts":1425372634090,
 	"service": {
@@ -96,8 +98,7 @@ $ node index</code></pre>
 	}
 }</code>
 				</pre>
-				<p>
-					In the image above, in <b>Registering the Service</b>, we registered example03 in <b>SOAJS</b> with port <u>4012</u> making the maintenance port of this service as <u>5012</u> and as you can see, when we performed a heartbeat operation, the service that it is running and healthy.
+				<p>Example03 is  registered   in <b>SOAJS</b> with port <u>4012</u> making the maintenance port of this service as <u>5012</u>. As you can see, when we performed a heartbeat operation, the service is running and healthy.
 				</p>
 			</div>
 		</fieldset>
@@ -124,7 +125,7 @@ $ node index</code></pre>
 		<br/>
 		Below is a record object that describes how a product is created in the database.
 		Let's take a look at the product <b>PROD1</b>.
-		<div ng-init="loadCode(path + 'example03/prod1.js', 'product1');">
+		<div ng-init="loadCode(path + 'example03/product1.js', 'product1');">
 			<div id="product1"></div>
 		</div>
 		This product has three packages.
@@ -340,7 +341,7 @@ $ node index</code></pre>
 				<div ng-init="loadJSON(path + 'example03/tenant3/tenant3_test2.json', 'tenant3_test2');">
 					<div id="tenant3_test2"></div>
 				</div>
-				Success! <em>!! i was able to access! it should not </em>
+				Access Denied! <em>We only have access to one api   </em>
 
 			</div>
 
@@ -349,21 +350,19 @@ $ node index</code></pre>
 		<hr/>
 		<h4><u>User Level:</u></h4>
 
-		Urac is another place to configure ACL, but this time, it's specific to a particular user.<br/>
-		User level is the most specific scope for configuration and ACL and will take precedence over both product and tenant levels.<br/>
+		Urac is another place to apply configuration, but this time, it's specific to a particular user.
+		User level is the most specific scope for configuration and ACL and will take precedence over both product and tenant levels.
 		It applies only to the configured user.<br/>
-		We have created users under tenant 1.
-
-		Here are three sample user records:
-
+		You can override the ACL for a user in two places.
+		You can either adjust the ACL of the whole package, or you can edit the ACL of the specific application using the package. <br>
+		We have created users under Tenant 1. Here are three sample user records:
+		<br>
 		<tabset>
 			<tab heading="User 1"><br/>
-
 				<div ng-init="loadCode(path + 'example03/tenant1/user1.js', 'user1');"></div>
 				<div id="user1"></div>
 			</tab>
 			<tab heading="User 2"><br/>
-
 				<div ng-init="loadCode(path + 'example03/tenant1/user2.js', 'user2');"></div>
 				<div id="user2"></div>
 			</tab>
@@ -379,19 +378,26 @@ $ node index</code></pre>
 				<b>user1</b> does not set its own acl. It takes the default from the tenant configuration.
 			</li>
 			<li>
-				<b>user2</b> has its own ACL entry under "config.packages". It overrides the package default ACL.
-				             user2 has now access to both urac and example03 services.
+				<b>user2</b> has its own ACL entry under "config.packages". It overrides the default ACL for package <b>PROD1_PCK1</b>.
 
+				User2 has now access to both urac and example03 services. <br>
+				Also, user2 has an entry under "config.keys" with the value "41eb3256ce660a891205d0a0eca19421".
+				This corresponds to the key of the second application for Tenant 1 above.
+				When you try to call the api using the external key that corresponds to this key, you will have access to the settings you define in this object.
+
+				Under this entry, you can set more configuration to override the settings of the tenant application for this specific user.
+				We do not need to override the ACL because the second application already has access to example03 service.
+				But we can set a new value for the "tenantName".
 
 			</li>
 			<li>
 				<b>user3</b> also uses its own ACL config.
-                Under the "keys" entry it has an entry with the value of the key "19c03e42c750467c3f8481fbe26f2fef".
+                Under the "config.keys" entry it has an entry with the value of the key "19c03e42c750467c3f8481fbe26f2fef".
 				This is the key of the first application as defined in Tenant 1 above. (This is how we refenrence or link to the application).
                 So for this application, we have now set new configuration for this user.
-                user3 overrides the default ACL and is granted access to "example03" service although neither the tenant nor the product had it.
+                user3 overrides the default ACL and is granted access to "example03/buildName" api although neither the tenant nor the package had it.
 				<br>
-				user3 also sets a new value for "tenantName" under config for this application.
+				User3 also sets a new value for "tenantName" under config for this application.
 
 
 
@@ -426,7 +432,7 @@ $ node index</code></pre>
 				<div ng-init="loadJSON(path + 'example03/tenant1/user1_login.json', 'user1_login');">
 					<div id="user1_login"></div>
 				</div>
-				The login was successful and the returned response contains the <b>soajsauth</b> property.<br/>
+				The login was successful and the returned response contains the <b>soajsauth</b> property.
 				<b>soajsauth</b> is a property returned after login is successful.<br/>
 				This property should be used in all consequent api calls that are only accessible by logged in users.<br/> <br/>
 
@@ -457,9 +463,9 @@ $ node index</code></pre>
 				</div>
 				The login was successful and the response returned contains the <b>soajsauth</b> property.<br/>
 				Grab the <b>soajsauth</b> property and add it in the headers of the consequent request.<br/>
-
+				<br>
 				Hit "example03/buildName" API:
-				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example03/buildName?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxclV4WlRGbXdvS2VtOG1rTERGZW9ocDUwSzFYdDZaaUg=" -H
+				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example03/buildName?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxc1lfTGYzY0NqY1BBb3l4RnNDY1VUd1JLU2p3dlBSUzE=" -H
 				                        "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"
 				</code></pre>
 				<h6>Response:</h6>
@@ -467,7 +473,7 @@ $ node index</code></pre>
 				<div ng-init="loadJSON(path + 'example03/tenant1/user2_app1_response.json', 'user2_app1_response');">
 					<div id="user2_app1_response"></div>
 				</div>
-				(it is supposed to show that user2 was able to access the api bcz it overrides the ACL)
+				User2 was able to access the api.
 			</div>
 		</fieldset>
 		<fieldset>
@@ -483,9 +489,9 @@ $ node index</code></pre>
 					<div id="user2_app2_login"></div>
 				</div>
 				The login was successful and the response returned contains the <b>soajsauth</b> property.<br/>
-
+				<br>
 				Now hit example03/buildName API:
-				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example03/buildName?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxQWdReGJOcU9BZHpGNlA4WHlhVlV1V1BKY3ZJOTkwU0M=" -H
+				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example03/buildName?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxRFo4TjVIOFlVbk9JdGluYWpTdlJBSVFyTW1BdnJXWTE=" -H
 				                        "key:4232477ed993d167ec13ccf8836c29c4550e88551c880d36fd42223ef81e0a6e1f668d42edc70d3d98fa8d28757e951bd7a04cf43829b5c2f38ed8c9ee87f03b79e564dd6aeaf8c37e90c92e6a69dccbd52b5a7812cad139bfbeaab69b023322"
 
 				</code></pre>
@@ -494,33 +500,48 @@ $ node index</code></pre>
 				<div ng-init="loadJSON(path + 'example03/tenant1/user2_app2_response.json', 'user2_app2_response');">
 					<div id="user2_app2_response"></div>
 				</div>
-				It is supposed to show how the tenant name was changed, specific from the config of the user
+
+				Here we notice how the "tenantName" value has been changed. It was taken from user2 configuration for this key.
 			</div>
 		</fieldset>
 
 		<fieldset>
 			<legend>User 3 Login & Call API with first key</legend>
 			<div>
-				Now, using the key from the first app, let's log in as user3:
+				Now, using the key from the first application, let's login as user3:
 				<pre><code class="bash">$ curl -X POST -H
 				                        "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"
 				                        "http://localhost:4000/urac/login" -d "username=user3&password=654321"</code></pre>
 				<h6>Response:</h6>
-				<div ng-init="loadJSON(path + 'example03/user3_login.json', 'user3_login');">
-					<div id="user3_login"></div>
+				<div ng-init="loadJSON(path + 'example03/tenant1/user3_app1_login.json', 'user3_app1_login');">
+					<div id="user3_app1_login"></div>
 				</div>
 				The login was successful. Add <b>soajsauth</b> property to the headers of the consequent request.<br/>
 
+				<br>
 				Hit "example03/buildName" API:
-				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example03/buildName?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxclV4WlRGbXdvS2VtOG1rTERGZW9ocDUwSzFYdDZaaUg=" -H
+				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example03/buildName?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxMkdMWXBiX0lybndHR0dlaENwS2Z4NlpoV3dtYzhTeUw=" -H
 				                        "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"
 				</code></pre>
 				<h6>Response:</h6>
 
-				<div ng-init="loadJSON(path + 'example03/user3_app1_response.json', 'user3_app1_response');">
+				<div ng-init="loadJSON(path + 'example03/tenant1/user3_app1_response.json', 'user3_app1_response');">
 					<div id="user3_app1_response"></div>
 				</div>
-				(it is supposed to show that user2 was able to access the api bcz it overrides the ACL)
+				User3 can access "example03/buildName". And notice the value of "tenantName".
+				<br> <br>
+				Try to hit "example03/testGet" API:
+				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example03/testGet?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxMkdMWXBiX0lybndHR0dlaENwS2Z4NlpoV3dtYzhTeUw=" -H
+				                        "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"
+				</code></pre>
+				<h6>Response:</h6>
+
+				<div ng-init="loadJSON(path + 'example03/tenant1/user3_app1_response2.json', 'user3_app1_response2');">
+					<div id="user3_app1_response2"></div>
+				</div>
+				User3 cannot access "example03/testGet". The key config only granted access to "example03/buildName".
+				The user key configuration even overrides the package config within the same user.
+
 			</div>
 		</fieldset>
 

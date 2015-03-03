@@ -1,0 +1,16 @@
+{
+  "result": true,
+  "data": {
+    "_id": "54ee1bf91856706c2363930a",
+    "username": "user3",
+    "firstName": "user",
+    "lastName": "three",
+    "email": "user3@domain.com",
+    "ts": 1425382204614,
+    "status": "active",
+    "profile": {},
+    "groups": [],
+    "config": {}
+  },
+  "soajsauth": "Basic c29hanM6czAxMkdMWXBiX0lybndHR0dlaENwS2Z4NlpoV3dtYzhTeUw="
+}
