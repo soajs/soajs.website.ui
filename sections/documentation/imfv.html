@@ -3,82 +3,269 @@
 <hr />
 <div>
     <p>
-	    <b>SOAJS</b> is equipped with an input mapping, filtering and validating mechanism that removes up to 50% of an API code in terms of fetching and cleaning the inputs from POST, GET, SESSION, COOKIES ...
-    </p>
-    <br />
-    <p>
-        <b>IMFV</b> reads its configuration and rules from the local configuration of a service (config.js) as mentioned in <a href="#/documentation/service">SOAJS Service</a>. A Standard <u>config.js</u> file contains 2 main entries: <b>errors</b> & <b>schema</b>
-    </p>
-    <br/>
-    <p>
-	    <img ng-src="images/documentation/imfv1.png" align="right" style="margin-left:5px; padding:0;" class="image-border"/>
-        <b><u>Error codes:</u></b> defines the errors that the service will return in case of errors.<br/>
-        These errors are returned in a json format response.<br/><br/><br/>
+	    <b>SOAJS</b> is equipped with an input mapping, filtering and validating mechanism that removes up to 50% of an API code in terms of fetching and cleaning the inputs from POST, GET, SESSION, COOKIES, HEADERS and TENANT CONFIG.<br /><br />
 
-        <b><u>Input schema:</u></b> here is where <b>IMFV</b> reads its configuration.
-        Every entry under schema refers to an API route in the service. Here you can define how <b>IMFV</b> should read the inputs and validate them.<br/><br/><br />
-
-        You also notice that <b>commonFields</b> is present in the schema.<br/>
-        <b>commonFields</b> contains the list of inputs that are used in more than one api and that should be mapped and validated the same way by <b>IMFV</b>.<br/>
+	    <img ng-src="images/documentation/service-folder-tree.png" align="right" style="margin-left:5px; margin-bottom:5px;" class="image-border"/>
+	    Every service requires an <b>IMFV</b> to validate the inputs (parameters) of its APIs. <b>IMFV</b> is usually located in a <u>config.js</u> file within the service directory.<br />
+	    The content of an <u>config.js</u> file is based on two main sections: <b>Error Codes</b> and <b>Validation Schema</b>.
+	    <pre><code class="javascript">module.exports={
+	"errors": {},
+	"schema": {}
+}</code>
+		</pre>
     </p>
-    <hr/>
-    <br/><br/>
-
-    <p>
-        <img ng-src="images/documentation/imfv2.png" align="right" style="margin-left:5px;" class="image-border"/>
-        <b>IMFV</b> can read the input of an api from different sources based on an order.<br/>
-        If the input is not present in the first subscript, it will check the next one(s) till the input is found.
-    </p>
-    <br/>
-    <hr/>
-    <br/><br/>
-
-    <p style="display: table; clear:both;">
-        <img ng-src="images/documentation/imfv3.png" align="left" style="margin-right:30px;" class="image-border"/>
-        <br/><b>IMFV</b> support different input types with different properties such as strings, maximum length, numbers, predefined values, regular expressions and patterns.<br/><br/><br/>
-        <b>IMFV</b> also provides formats that are applied on strings such as alphanumeric, date, time, email, uri, phone …<br/>
-    </p>
-    <hr/>
-    <br/><br/>
-
-    <p>
-        <b>IMFV</b> supports complex schemas such as arrays and objects with basic or even complex schemas internally.<br/><br/>
-        <b>IMFV</b> uses <a href="http://json-schema.org/" target="_blank" title="Open JSON Schema Website in a new tab">JSON Schema’s</a> operator such as oneOf, anyOf, allOf in the cases where the same input might have different values.<br/><br/>
-        <b>IMFV</b> also uses <u>additionalProperties</u> and <u>patternProperties</u>, from <a href="http://json-schema.org/latest/json-schema-validation.html" target="_blank" title="Open JSON Schema Documentation">JSON Schema</a>, within object schemas giving you validation control on optional api fields and complex input names such as api routes.<br/>
-        <img ng-src="images/documentation/imfv4.png" style="margin:5px 0;" class="image-border"/>
-    </p>
-    <a id="example">
-        <div ng-show="padding"><br/><br/><br/></div>
-    </a>
-    <br/>
-    <hr/>
-    <h4>Configuration Details & Sample:</h4>
-    <tabset>
-        <tab heading="Details" select="loadCode(path + 'imfv/simple.js', 'simple');">
-            <table class="myTable">
-                <thead>
-                <tr>
-                    <th>Property</th>
-                    <th>Type</th>
-                    <th>Mandatory</th>
-                    <th>Notes</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr ng-repeat="detail in imfv" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
-                    <td width="20%">{{detail.property}}</td>
-                    <td>{{detail.type}}</td>
-                    <td>{{detail.mandatory}}</td>
-                    <td>{{detail.notes}}</td>
-                </tr>
-                </tbody>
-            </table><hr />
-            <div id="simple"></div>
-            <em>The above snippets shows only the mandatory fields used by <b>IMFV</b> in the local service configuration.</em>
-        </tab>
-        <tab heading="Code Sample" select="loadCode(path + 'imfv/advanced.js', 'advanced');">
-            <br /><div id="advanced"></div>
-            <em>The above snippets shows a combination including all types of properties used by <b>IMFV</b> in the local service configuration.</em>
-        </tab>
-    </tabset>
+	<hr/>
+	<h3><u>Error Codes</u></h3>
+	<p>
+		<b>Error Codes</b> represent the errors that are returned by the service APIs. Each Error consists of a number referred to by code and an error message.
+		<pre><code class="javascript">"errors":{
+	//...
+	401: "unable to login, user not found!",
+	402: "Invalid username provided!"
+	//...
+}</code>
+		</pre>
+		When an error in the service is met, the service will return a code and a message back to the user for clarification. To use the error codes inside the service code <u>index.js</u>, use <b>req.soajs.buildRestResponse</b> and provide the error object constructed from the code and the message as the first parameter.
+		<pre><code class="javascript">//inside index.js
+var config = require("./config");
+var service = new soajs.server.service(...);
+service.post("/login", function(req, res) {
+	//...
+	if(req.soajs.inputmaskData.username === ''){
+		return res.jsonp(req.soajs.buildRestResponse({"code": 402, "msg": config.errors[402]}));
+	}
+	//...
+};
+		</code></pre>
+		<b>SOAJS</b> built-in <b>bildRestResponse</b> takes 2 parameters, the first being an error object and the second being the response. In most cases, when there is no error, there is a response and vise-versa.<br /><br />
+	</p>
+	<hr/>
+	<h3><u>Simple Schema</u></h3>
+	<p>
+		Every API has an entry inside the schema with the inputs that it should received configured. Every entry instructs <b>IMFV</b> where to look for the input using the source attribute and how to validate the input.
+		<div ng-init="loadCode(path + 'imfv/simple.js', 'simple');">
+			<div id="simple"></div>
+		</div>
+		The above sample Tells <b>IMFV</b> that for API <b>"/testGet"</b> there is a <u>required</u> input named <b>"firstName"</b> who's type is <u>string</u> and has a specific <u>alphanumeric format</u> and it is provided via the <u>querystring</u> when the request is made under the name <b>"firstName"</b>.<br /><br />
+	</p>
+	<hr/>
+	<h3><u>Sources List:</u></h3>
+	<p>
+		<b>IMFV</b> can fetch an input from different sources if configured to do so. In the case above, the sources array has only one entry which is <b>"query.firstName"</b>. You can configure <b>IMFV</b> to look in other sources for the input. If the first source doesn't contain the input value, <b>IMFV</b> will jump to the next one and so on till the entire sources array has been processed.
+		<pre><code class="javascript">"input":{
+	"firstName" : {
+		"source": ["query.firstName", "body.firstName", "session.firstName", ...]
+	}
+}</code>
+		</pre>
+	</p>
+	<hr/>
+	<h3><u>Default Values:</u></h3>
+	<p>
+		<b>IMFV</b> offers the ability to provide a default value for an input. This means that if the input is not provided, <b>IMFV</b> will use the default value configured for that input.
+		<pre><code class="javascript">
+//...
+"firstName": {
+	"source": ['query.firstName'],
+	"required": true,
+	"default": "John",
+	"validation": {
+		"type": "string"
+	}
+},
+//...
+</code></pre>
+		The above code sets the value of <u>firstName</u> to <b>"John"</b> if the request is made to the API without specifying a <u>firstName</u> in the <u>querystring</u>.<br /><br />
+	</p>
+	<hr/>
+	<h3><u>Types, Properties & Formats:</u></h3>
+	<p>
+		<b>IMFV</b> supports different input types with different properties such as <u>strings</u>, <u>numbers</u>, <u>boolean</u>, <u>arrays</u>, <u>objects</u>, <u>regular expressions</u>... etc. Each of these types has different combination of properties such as <u>string</u>. A <u>string</u> can represent an email, a name, a date or a phone number. Here is a list of what can be used with <b>IMFV</b>:
+	</p>
+	<p>
+		<u>Boolean:</u> a boolean input can be either true or false.
+		<pre><code class="javascript">"married": {
+	"source": ['query.married'],
+	"required": true,
+	"default": false,
+	"validation": {
+		"type": "boolean"
+	}
+}</code>
+		</pre>
+	</p>
+	<p>
+		<u>regexp:</u> a regexp input represents a regular expression. <u>Ex:</u> route paths
+		<pre><code class="javascript">"route": {
+	"source": ['body.route'],
+	"required": true,
+	"validation": {
+		"type": "regexp"
+	}
+}</code>
+		</pre>
+	</p>
+	<p>
+		<u>number:</u> a number input represents both integers and floats.
+		<pre><code class="javascript">"price": {
+	"source": ['body.route'],
+	"required": true,
+	"validation": {
+		"type": "number",
+		"minimum": 0,   //optional
+		"maximum": 15.4 //optional
+	}
+}</code>
+		</pre>
+	</p>
+	<p>
+		<u>object:</u> an object input can hold different properties from all mentioned types.
+		<pre><code class="javascript">"profile":{
+	"source": ['body.profile'],
+	"validation":{
+		"type":"object",
+		"properties":{
+			"age": { "type": "number", "minimum": 18 },
+			"gender": {"type":"string", "enum": ["male","female"]},
+			"images": {"type":"string", "format":"uri"},
+			"additionalProperties": false
+		}
+	}
+}</code>
+		</pre>
+	</p>
+	<p>
+		<u>array:</u> an array input can hold different items from all mentioned types.
+		<pre><code class="javascript">"users":{
+	"source": ['body.users'],
+	"validation":{
+		"type":"array",
+		"items":{
+			"type":"object",
+			"properties":{
+				"name": { "type": "string", "minLength": 6 },
+				"age": { "type": "number", "minimum": 18 },
+				"gender": {"type":"string", "enum": ["male","female"]},
+				"images": {"type":"string", "format":"uri"},
+				"additionalProperties": false
+			}
+		},
+		"minItems": 1, //optional
+		"maxItems": 10000, //optional
+		"uniqeItems": true, //optional
+		"additionalItems": false //optional
+	}
+}</code>
+		</pre>
+	</p>
+	<p>
+		<u>string:</u> a string input can have multiple formats applied to it.
+		<pre><code class="javascript">"username":{
+	"source": ['body.username'],
+	"validation":{
+		"type":"string",
+		"minLength": 10, //optional
+		"maxLength": 20, //optional
+		"format": "alphanumeric" //optional
+	}
+}</code>
+		</pre>
+		<p>
+			When dealing with strings, keep in mind that a string can represent several types of inputs and thus this type is commonly used when providing an api with parameters. Therefore a format option has been added that validates the content of a string to determine if the value resembles the expected outcome. Here is a list of formats provided that can be used:
+		</p>
+		<ul>
+			<li><u>date:</u> 0000-00-00</li>
+			<li><u>time:</u> 00:00:00</li>
+			<li><u>date-time:</u> 0000-00-00T00:00:00.000Z</li>
+			<li><u>route:</u> /service/api/route</li>
+			<li><u>phone:</u> +(000)-000-0000</li>
+			<li><u>email:</u> me@domain.com</li>
+			<li><u>ip-address:</u> 127.0.0.1</li>
+			<li><u>ipv6:</u> FE80:0000:0000:0000:0202:B3FF:FE1E:8329</li>
+			<li><u>uri:</u> http://someurl.com/somepath/somenode</li>
+			<li><u>domain:</u> someurl.com</li>
+			<li><u>host-name:</u> someurl</li>
+			<li><u>alpha:</u> john</li>
+			<li><u>alphanumeric:</u> john179</li>
+			<li><u>color:</u> blue</li>
+			<li><u>style:</u> background-color: blue</li>
+		</ul>
+	</p>
+	<br />
+	<hr/>
+	<h3><u>Complexe Schemas</u></h3>
+	<p>
+		<b>IMFV</b> supports complex schemas such as arrays and objects with basic or even complex schemas internally. It relies <a href="http://json-schema.org/documentation.html" target="_blank">JSON Schema’s</a> operator such as <a href="http://json-schema.org/example2.html" target="_blank">oneOf</a>, <a href="http://json-schema.org/example2.html" target="_blank">anyOf</a>, <a href="http://json-schema.org/example2.html" target="_blank">allOf</a> in the cases where the same input might have different values.<br />
+		<b>IMFV</b> also uses <a href="http://json-schema.org/example2.html" target="_blank">additionalProperties</a> and <a href="http://json-schema.org/example2.html" target="_blank">patternProperties</a>, from <a href="http://json-schema.org/latest/json-schema-validation.html" target="_blank">JSON Schema</a>, within object schemas giving you validation control on optional api fields and complex input names such as api routes.
+		<div ng-init="loadCode(path + 'imfv/advanced.js', 'advanced');">
+			<div id="advanced"></div>
+		</div><br /><br />
+	</p>
+	<hr/>
+	<h3><u>Common Fields:</u></h3>
+	<p>
+		<b>commonfields</b> is used in <b>IMFV</b> to group inputs that have similar mapping and validation. Consider you have 2 or more APIs that use the same input <b>"firstName"</b> and this input is read and validate the same way across those APIs. To avoid rewriting the configuration and make room for errors, add the input under <b>commonFields</b> then in every API configuration, reference its presence.
+		<pre><code class="javascript">
+//...
+"schema": {
+	"commonFields": {
+		"input": {
+			//add firstName to commonFields
+			"firstName": {
+				"source": ['query.firstName'],
+				"required": true,
+				"default": "John",
+				"validation": {
+					"type": "string"
+				}
+			}
+		}
+	},
+	"/api_route1": {
+		"input":{
+			"commonFields": ['firstName'], //reference firstName from common fields
+			"lastName" : { ... }
+		}
+	},
+	"/api_route2":{
+		"input": {
+			"commonFields": ['firstName'], //reference firstName from common fields
+			"email" : { ... }
+		}
+	}
+}
+//...
+</code>
+		</pre>
+	</p>
+	<hr/>
+	<h3><u>Usage:</u></h3>
+	<p>
+		<b>IMFV</b> consolidates all inputs after validation inside <b>req.soajs.inputmaskData</b> making it easier for developers to use them. Instead of wondering if the input was mapped correctly from the request, simply use <b>req.soajs.inputmaskData</b>[input_name] to retrieve the input value and use it in the code.
+		<pre><code class="javascript">//inside index.js
+var config = require("./config");
+var service = new soajs.server.service(...);
+service.post("/login", function(req, res) {
+	//...
+	if(req.soajs.inputmaskData.username === ''){
+		return res.jsonp(req.soajs.buildRestResponse({"code": 402, "msg": config.errors[402]}));
+	}
+	//...
+};
+</code></pre>
+		As illustrated in the above code, <u>username</u> input regardless of the source that provided it, can now be accessed from <b>req.soajs.inputmaskData</b> object. The same applies to all other inputs passed to the requested API.<br /><br />
+	</p>
+	<hr/>
+	<h3><u>Complete Code:</u></h3>
+	<p>
+		The following is a snippet of both <u>config.js</u> and <u>index.js</u> used together to implement a service that is built with <b>SOAJS</b> that focuses on how to use the errors and <b>IMFV</b> schema validation.<br /><br />
+	</p>
+	<tabset>
+		<tab heading="Service Index" select="loadCode(path + 'imfv/index.js', 'indexjs');">
+			<div id="indexjs"></div>
+		</tab>
+		<tab heading="Service Config" select="loadCode(path + 'imfv/complete.js', 'complete');">
+			<div id="complete"></div>
+		</tab>
+	</tabset>
 </div>
