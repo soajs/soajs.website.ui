@@ -56,8 +56,8 @@ $ ./soajs.mongo.sh</code></pre>
 		<h3><u>Start the Service</u></h3>
 		Now we have both the controller and Urac services running, and the provision data is imported. All we need now is to start <b>Example03</b>:
 		<pre><code class="bash">#start example03
-		                        $ cd soajs.examples/examples03
-		                        $ node index</code></pre>
+$ cd soajs.examples/examples03
+$ node index</code></pre>
 		<p>
 			<b>Example03</b> is now running on http://localhost:4000/example03.<br />
 
@@ -103,7 +103,7 @@ $ ./soajs.mongo.sh</code></pre>
 		</ol>
 		<br>
 		<h4><u>Product Level:</u></h4>
-		A SOAJS product is a way to bundle your services and offer them to clients.
+		A <b>SOAJS</b> product is a way to bundle your services and offer them to clients.
 		Each product can have various packages configured within it.
 		The Product package is the most general scope for configuration.
 
@@ -135,24 +135,14 @@ $ ./soajs.mongo.sh</code></pre>
 		The Tenant scope, allows configuration per application and is applied to all users of the tenant.
 		Specifying the ACL here will override the default ACL from the product.<br/>
 		<br/>
-		Below are three records that represent how tenant records would be created in the database.
-		Each Tenant has an entry called "applications"; this is an array of the applications that would be granted to him by the admin.
-		Each application is defined by the product and package names.
-		If it contains its own "acl" entry, then it would be overriding the default access of the package for this specific tenant.
-		Each tenant application is characterized by a unique key; and each key has an external key.
-		<br/>
-		The external keys would be provided to clients to add to the headers of their calls to identify the application they are trying to access.
-		<br/>
+		Below are three records taken from the database after we provisioned the sample data.<br />
+		Each Tenant has an array of "applications" where each application uses a product package. The application can override the package default ACL if needed (second application in tenant 1 overrides the package ACL by exposing an ACL entry itself). Each application is characterized by a unique key and every key has a external keys. External keys are provided in the headers of requests made to the services that require a tenant to be accessible similar to what we encountered in <a href="#/getStarted/example02">Example02</a>.<br/><br/>
 
-		Also, under each application key we can set certain settings that would be specific to this tenant application.
-		Each key has a "config" entry; there you can define your settings for each service. <br>
-		For example, we need to define the values for hashIterations and seedLength for the password encryption under urac.
+		Under each application key we can set custom tenant configuration for a tenant application.
+		To do that, every key has a "config" entry where you can define your settings for each service that uses this tenant.<br>
+		For example, we need to define the values for <b>hashIterations</b> and <b>seedLength</b> for the password encryption under <b>URAC</b>.
 		<br/><br/>
-		To understand more about tenant applications and keys, checkout the <b>Multitenancy</b>
-		section under <a href="#/documentation/provisioning">provisioning</a> page.<br/>
-
-
-
+		To understand more about tenant applications and keys, checkout the <b>Multitenancy</b> section under <a href="#/documentation/provisioning">provisioning</a> page.<br/>
 		<br/><br/>
 		<tabset>
 			<tab heading="Tenant 1"><br/>
@@ -202,13 +192,12 @@ $ ./soajs.mongo.sh</code></pre>
 		</ul>
 		<br>
 		We also note that the value of "config" > "example03" > "tenantName" is different from one tenant to the other.
-		We will show you below how this value will be affected.
+		When we start the tests, We will show you how this value is affected.
 		<hr/>
 		<br>
 		<h3><u>Service Code:</u></h3>
 		For this example we will use similar APIs as those in <b>Example01</b>.
-		We will edit the service config and set "multitenant" to true, and "acl" to true.
-		<br>
+		We will edit the service config and set "multitenant" to true, and "acl" to true in the <u>index.js</u> file where we declared the service.<br /><br />
 		<tabset>
 			<tab heading="index.js"
 			     select="loadCode(path + 'example03/index.js', 'indexjs');"><br/>
@@ -223,22 +212,17 @@ $ ./soajs.mongo.sh</code></pre>
 		<br>
 		To demonstration how certain configuration values are specific to each tenant,
 		the api "/buildName" reads the value of "tenantName" from the service config and returns it in the response.
-
 		<hr/>
-
-		To better understand how multitenancy works, let us run some tests. <br/><br/>
+		<h3><u>Running the Tests</u></h3>
+		Let's understand how multitenancy exactly works through some tests. <br/><br/>
 		<fieldset>
 			<legend>Tenant 1: 1st Application</legend>
 			<div>
-				<em>The tenant's first application uses <b>PROD1_PCK1</b> package, which does not have "example03" in its ACL.
-				    The application does not have "example03" in its own acl either,
-				    so this application does not have access to example03 service at all.
-				</em>
+				The tenant's first application uses <b>PROD1_PCK1</b> package, which does not have "example03" in its ACL.
+				The application does not have "example03" in its own acl either, therefore this application does not have access to example03 service at all.
 				<br>
 				Let's try to hit example03/buildName using the external key of the first app from the first tenant:<br/>
-				<pre><code class="bash">$ curl -X GET -H
-				                        "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"
-				                        "http://rest-proxy:4000/example03/buildName?lastName=Smith"
+				<pre><code class="bash">$ curl -X GET -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://rest-proxy:4000/example03/buildName?lastName=Smith"
 				</code></pre>
 				<h6>Response:</h6>
 
@@ -251,12 +235,10 @@ $ ./soajs.mongo.sh</code></pre>
 		<fieldset>
 			<legend>Tenant 1: 2nd Application</legend>
 			<div>
-				<em>The second application uses <b>PROD1_PCK1 </b> package, which does not have "example03" in its ACL.
-				    But now this application has set its own ACL and granted access to example03.</em><br/>
+				The second application uses <b>PROD1_PCK1 </b> package, which does not have "example03" in its ACL.
+				But this time, the application has set its own ACL and grants access to example03.<br/>
 				Let's try to hit example03/buildName again using the key of the second application:<br/>
-				<pre><code class="bash">$ curl -X GET -H
-				                        "key:4232477ed993d167ec13ccf8836c29c4550e88551c880d36fd42223ef81e0a6e1f668d42edc70d3d98fa8d28757e951bd7a04cf43829b5c2f38ed8c9ee87f03b79e564dd6aeaf8c37e90c92e6a69dccbd52b5a7812cad139bfbeaab69b023322"
-				                        "http://rest-proxy:4000/example03/buildName?lastName=Smith"
+				<pre><code class="bash">$ curl -X GET -H "key:4232477ed993d167ec13ccf8836c29c4550e88551c880d36fd42223ef81e0a6e1f668d42edc70d3d98fa8d28757e951bd7a04cf43829b5c2f38ed8c9ee87f03b79e564dd6aeaf8c37e90c92e6a69dccbd52b5a7812cad139bfbeaab69b023322" "http://rest-proxy:4000/example03/buildName?lastName=Smith"
 				</code></pre>
 				<h6>Response:</h6>
 
@@ -268,15 +250,12 @@ $ ./soajs.mongo.sh</code></pre>
 				Notice the "tenantName" value in the response is set to "Client One".
 			</div>
 		</fieldset>
-
 		<fieldset>
 			<legend>Tenant 2 Application</legend>
 			<div>
-				<em>The second tenant has an application that uses <b>PROD1_PCK2</b> package and should be able to access example03. <br/>
-				</em>
+				The second tenant has an application that uses <b>PROD1_PCK2</b> package and should be able to access example03. <br/>
 				Let's use the external key from second tenant app and hit "example03/buildName" again:
-				<pre><code class="bash">$ curl -X GET "http://rest-proxy:4000/example03/buildName?lastName=Smith" -H
-				                        "key:2423205b6ccd825aaa3dbf7f248f807996c1f39f4e128801107a10ea55eac9686f23b883b778b1763876fe47f7cc651fea232f7aa9dae3dfd1978d4948a3f26b948ebc1b71a9d6cacf08852312866d757b22392d8d3c0e28ee47edb0e7478157"</code></pre>
+				<pre><code class="bash">$ curl -X GET "http://rest-proxy:4000/example03/buildName?lastName=Smith" -H "key:2423205b6ccd825aaa3dbf7f248f807996c1f39f4e128801107a10ea55eac9686f23b883b778b1763876fe47f7cc651fea232f7aa9dae3dfd1978d4948a3f26b948ebc1b71a9d6cacf08852312866d757b22392d8d3c0e28ee47edb0e7478157"</code></pre>
 				<h6>Response:</h6>
 
 				<div ng-init="loadJSON(path + 'example03/tenant2/tenant2_test1.json', 'tenant2_test1');">
@@ -286,27 +265,21 @@ $ ./soajs.mongo.sh</code></pre>
 				Also, notice the "tenantName" value in the response is set to "Client Two".
 				<br><br>
 				Let us also try to hit the second api of the service "example03/testGet":
-				<pre><code class="bash">$ curl -X GET "http://rest-proxy:4000/example03/testGet?lastName=Smith&firstName=John" -H
-				                        "key:2423205b6ccd825aaa3dbf7f248f807996c1f39f4e128801107a10ea55eac9686f23b883b778b1763876fe47f7cc651fea232f7aa9dae3dfd1978d4948a3f26b948ebc1b71a9d6cacf08852312866d757b22392d8d3c0e28ee47edb0e7478157"</code></pre>
+				<pre><code class="bash">$ curl -X GET "http://rest-proxy:4000/example03/testGet?lastName=Smith&firstName=John" -H "key:2423205b6ccd825aaa3dbf7f248f807996c1f39f4e128801107a10ea55eac9686f23b883b778b1763876fe47f7cc651fea232f7aa9dae3dfd1978d4948a3f26b948ebc1b71a9d6cacf08852312866d757b22392d8d3c0e28ee47edb0e7478157"</code></pre>
 				<h6>Response:</h6>
 
 				<div ng-init="loadJSON(path + 'example03/tenant2/tenant2_test2.json', 'tenant2_test2');">
 					<div id="tenant2_test2"></div>
 				</div>
 				Success! <em>We have access to all the apis of the service</em>
-
 			</div>
 		</fieldset>
 		<fieldset>
 			<legend>Tenant 3 Application</legend>
 			<div>
-				<em>The third application uses <b>PROD1_PCK3</b> package.
-				    This package grants access to only "/buildName" from "example03".</em> <br/>
+				The third application uses <b>PROD1_PCK3</b> package that grants access to only "/buildName" from "example03". <br/>
 				Let's use the third tenant application's external key and hit "example03/buildName":
-
-				<pre><code class="bash">$ curl -X GET -H
-				                        "key:7bc1e66d003a3b2acfce1557cbda7320ec45057be0505fd7e9dec19e9fe74c194b109a48568f53449c1cc607a3cb23d70de86831a2ac4b87f1c0c5d57d19702a74ac22a64531185af11f75967f9ba54cb930149ed8a1384f924be9baa4ed5b0b"
-				                        "http://rest-proxy:4000/example03/buildName?lastName=Smith"</code></pre>
+				<pre><code class="bash">$ curl -X GET -H "key:7bc1e66d003a3b2acfce1557cbda7320ec45057be0505fd7e9dec19e9fe74c194b109a48568f53449c1cc607a3cb23d70de86831a2ac4b87f1c0c5d57d19702a74ac22a64531185af11f75967f9ba54cb930149ed8a1384f924be9baa4ed5b0b" "http://rest-proxy:4000/example03/buildName?lastName=Smith"</code></pre>
 				<h6>Response:</h6>
 
 				<div ng-init="loadJSON(path + 'example03/tenant3/tenant3_test1.json', 'tenant3_test1');">
@@ -317,16 +290,13 @@ $ ./soajs.mongo.sh</code></pre>
 				<br> <br>
 				Let us try to hit "example03/testGet" api. It is not allowed by this application.
 
-				<pre><code class="bash">$ curl -X GET -H
-				                        "key:7bc1e66d003a3b2acfce1557cbda7320ec45057be0505fd7e9dec19e9fe74c194b109a48568f53449c1cc607a3cb23d70de86831a2ac4b87f1c0c5d57d19702a74ac22a64531185af11f75967f9ba54cb930149ed8a1384f924be9baa4ed5b0b"
-				                        "http://rest-proxy:4000/example03/testGet?lastName=Smith&firstName=Jack"</code></pre>
+				<pre><code class="bash">$ curl -X GET -H "key:7bc1e66d003a3b2acfce1557cbda7320ec45057be0505fd7e9dec19e9fe74c194b109a48568f53449c1cc607a3cb23d70de86831a2ac4b87f1c0c5d57d19702a74ac22a64531185af11f75967f9ba54cb930149ed8a1384f924be9baa4ed5b0b" "http://rest-proxy:4000/example03/testGet?lastName=Smith&firstName=Jack"</code></pre>
 				<h6>Response:</h6>
 
 				<div ng-init="loadJSON(path + 'example03/tenant3/tenant3_test2.json', 'tenant3_test2');">
 					<div id="tenant3_test2"></div>
 				</div>
-				Access Denied! <em>We only have access to one api   </em>
-
+				Access Denied! <em>We only have access to one api in this service "<b>/buildName</b>".</em>
 			</div>
 
 
@@ -336,9 +306,8 @@ $ ./soajs.mongo.sh</code></pre>
 
 		Urac is another place to apply configuration, but this time, it's specific to a particular user.
 		User level is the most specific scope for configuration and ACL and will take precedence over both product and tenant levels.
-		It applies only to the configured user.<br/>
-		You can override the ACL for a user in two places.
-		You can either adjust the ACL of the whole package, or you can edit the ACL of the specific application using the package. <br>
+		It applies only to the configured user, and can override the ACL for this user.
+		You can either adjust the ACL of the whole package via the packages entry, or you can edit the ACL of the specific application using the keys entry. <br>
 		We have created users under Tenant 1. Here are three sample user records:
 		<br>
 		<tabset>
@@ -359,57 +328,33 @@ $ ./soajs.mongo.sh</code></pre>
 		<br>
 		<ul>
 			<li>
-				<b>user1</b> does not set its own acl. It takes the default from the tenant configuration.
+				<b>user1</b> does not set his own acl but rather uses the default from the tenant configuration.<br /><br />
 			</li>
 			<li>
-				<b>user2</b> has its own ACL entry under "config.packages". It overrides the default ACL for package <b>PROD1_PCK1</b>.
+				<b>user2</b> has his own ACL entry under "config.packages" and thus overrides the default ACL for package <b>PROD1_PCK1</b>.
+	            User2 has access to both <b>URAC</b> and <b>Example03</b> services. <br />
+	            User2 also has an entry under "config.keys" with the value "41eb3256ce660a891205d0a0eca19421" corresponding to the key of the second application for tenant 1.<br />
 
-				             User2 has now access to both urac and example03 services. <br>
-				             Also, user2 has an entry under "config.keys" with the value "41eb3256ce660a891205d0a0eca19421".
-				             This corresponds to the key of the second application for Tenant 1 above.
-				             When you try to call the api using the external key that corresponds to this key, you will have access to the settings you define in this object.
-
-				             Under this entry, you can set more configuration to override the settings of the tenant application for this specific user.
-				             We do not need to override the ACL because the second application already has access to example03 service.
-				             But we can set a new value for the "tenantName".
-
+				When calling the api using the external key that corresponds to this key, the settings defined under the key will be used.
+	            So let's add some configuration to override the settings of the tenant application for this specific user without overriding the ACL because the second application already has access to <b>Example03</b> service.<br />
+				we will only set a new value for the "tenantName".<br /><br />
 			</li>
 			<li>
 				<b>user3</b> also uses its own ACL config.
-				             Under the "config.keys" entry it has an entry with the value of the key "19c03e42c750467c3f8481fbe26f2fef".
-				             This is the key of the first application as defined in Tenant 1 above. (This is how we refenrence or link to the application).
-				             So for this application, we have now set new configuration for this user.
-				             user3 overrides the default ACL and is granted access to "example03/buildName" api although neither the tenant nor the package had it.
-				<br>
-				             User3 also sets a new value for "tenantName" under config for this application.
-
-
-
+				Under the "config.keys" in the user record, there is a tenant key value "19c03e42c750467c3f8481fbe26f2fef" that corresponds to the first application of tenant 1.
+				For this application, we have now set new configuration for this user only that overrides the default ACL and grants access to "example03/buildName" api although neither the tenant nor the package provide that.<br /><br />
+				User3 also sets a new value for "tenantName" under config in his record.
 			</li>
 		</ul>
-
-		<br>
-		Please checkout the <a href="#/documentation/urac">URAC</a> documentation for additional information on how to override ACL for users.
+		<br />
+		Checkout the <a href="#/documentation/urac">URAC</a> documentation for additional information on how to override ACL for users.
 		<br/><br/>
-
-
-		<fieldset>
-			<legend>Call API before Logging in</legend>
-			<div>
-				Above we had tried to access example03/buildName API using the key from the first application in tenant 1.
-				It failed.
-
-			</div>
-		</fieldset>
-
-
 		<fieldset>
 			<legend>User 1 Login & Call API</legend>
 			<div>
-				Now, let's log in as the user1 from the sample above. Hit the "urac/login" API:
-				<pre><code class="bash">$ curl -X POST -H
-				                        "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"
-				                        "http://localhost:4000/urac/login" -d "username=user1&password=123456"</code></pre>
+				Above we had tried to access example03/buildName API using the key from the first application in tenant 1 and failed.
+				Now, let's log in as user1 from the sample above. Hit the "urac/login" API:
+				<pre><code class="bash">$ curl -X POST -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://localhost:4000/urac/login" -d "username=user1&password=123456"</code></pre>
 				<em>We are using the key of the first application of tenant 1.</em>
 				<h6>Response:</h6>
 
@@ -422,25 +367,21 @@ $ ./soajs.mongo.sh</code></pre>
 
 				Grab the <b>soajsauth</b> property and add it in the headers of the consequent request.<br/>
 				Now hit "example03/buildName" API:
-				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example03/buildName?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxclV4WlRGbXdvS2VtOG1rTERGZW9ocDUwSzFYdDZaaUg=" -H
-				                        "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"
-				</code></pre>
+				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example03/buildName?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxclV4WlRGbXdvS2VtOG1rTERGZW9ocDUwSzFYdDZaaUg=" -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"</code></pre>
 				<h6>Response:</h6>
 
 				<div ng-init="loadJSON(path + 'example03/error154.json', 'userTest1_154');">
 					<div id="userTest1_154"></div>
 				</div>
-				No access. Although logged in, this user does not have any acl overridden. <em></em>
+				No access. Although logged in, this user does not have any acl overridden nor permission to access this api.
 			</div>
 		</fieldset>
 
 		<fieldset>
 			<legend>User 2 Login & Call API with first key</legend>
 			<div>
-				Now, using the key from the first app, let's log in as user2 (hit the urac/login API):
-				<pre><code class="bash">$ curl -X POST -H
-				                        "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"
-				                        "http://localhost:4000/urac/login" -d "username=user2&password=123456"</code></pre>
+				Now, using the key from the first application, let's log in as user2 (hit the urac/login API):
+				<pre><code class="bash">$ curl -X POST -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://localhost:4000/urac/login" -d "username=user2&password=123456"</code></pre>
 				<h6>Response:</h6>
 				<div ng-init="loadJSON(path + 'example03/tenant1/user2_app1_login.json', 'user2_app1_login');">
 					<div id="user2_app1_login"></div>
@@ -449,9 +390,7 @@ $ ./soajs.mongo.sh</code></pre>
 				Grab the <b>soajsauth</b> property and add it in the headers of the consequent request.<br/>
 				<br>
 				Hit "example03/buildName" API:
-				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example03/buildName?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxc1lfTGYzY0NqY1BBb3l4RnNDY1VUd1JLU2p3dlBSUzE=" -H
-				                        "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"
-				</code></pre>
+				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example03/buildName?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxc1lfTGYzY0NqY1BBb3l4RnNDY1VUd1JLU2p3dlBSUzE=" -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"</code></pre>
 				<h6>Response:</h6>
 
 				<div ng-init="loadJSON(path + 'example03/tenant1/user2_app1_response.json', 'user2_app1_response');">
@@ -463,10 +402,8 @@ $ ./soajs.mongo.sh</code></pre>
 		<fieldset>
 			<legend>User 2 Login & Call API with second key</legend>
 			<div>
-				Now, using the key from the second app, let's log in as user2:
-				<pre><code class="bash">$ curl -X POST -d "username=user2&password=123456" "http://rest-proxy:4000/urac/login" -H
-				                        "key:4232477ed993d167ec13ccf8836c29c4550e88551c880d36fd42223ef81e0a6e1f668d42edc70d3d98fa8d28757e951bd7a04cf43829b5c2f38ed8c9ee87f03b79e564dd6aeaf8c37e90c92e6a69dccbd52b5a7812cad139bfbeaab69b023322"
-				</code></pre>
+				Now, using the key from the second application, let's log in as user2:
+				<pre><code class="bash">$ curl -X POST -d "username=user2&password=123456" "http://rest-proxy:4000/urac/login" -H "key:4232477ed993d167ec13ccf8836c29c4550e88551c880d36fd42223ef81e0a6e1f668d42edc70d3d98fa8d28757e951bd7a04cf43829b5c2f38ed8c9ee87f03b79e564dd6aeaf8c37e90c92e6a69dccbd52b5a7812cad139bfbeaab69b023322"</code></pre>
 				<h6>Response:</h6>
 
 				<div ng-init="loadJSON(path + 'example03/tenant1/user2_app2_login.json', 'user2_app2_login');">
@@ -475,16 +412,12 @@ $ ./soajs.mongo.sh</code></pre>
 				The login was successful and the response returned contains the <b>soajsauth</b> property.<br/>
 				<br>
 				Now hit example03/buildName API:
-				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example03/buildName?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxRFo4TjVIOFlVbk9JdGluYWpTdlJBSVFyTW1BdnJXWTE=" -H
-				                        "key:4232477ed993d167ec13ccf8836c29c4550e88551c880d36fd42223ef81e0a6e1f668d42edc70d3d98fa8d28757e951bd7a04cf43829b5c2f38ed8c9ee87f03b79e564dd6aeaf8c37e90c92e6a69dccbd52b5a7812cad139bfbeaab69b023322"
-
-				</code></pre>
+				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example03/buildName?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxRFo4TjVIOFlVbk9JdGluYWpTdlJBSVFyTW1BdnJXWTE=" -H "key:4232477ed993d167ec13ccf8836c29c4550e88551c880d36fd42223ef81e0a6e1f668d42edc70d3d98fa8d28757e951bd7a04cf43829b5c2f38ed8c9ee87f03b79e564dd6aeaf8c37e90c92e6a69dccbd52b5a7812cad139bfbeaab69b023322"</code></pre>
 				<h6>Response:</h6>
 
 				<div ng-init="loadJSON(path + 'example03/tenant1/user2_app2_response.json', 'user2_app2_response');">
 					<div id="user2_app2_response"></div>
 				</div>
-
 				Here we notice how the "tenantName" value has been changed. It was taken from user2 configuration for this key.
 			</div>
 		</fieldset>
@@ -493,9 +426,7 @@ $ ./soajs.mongo.sh</code></pre>
 			<legend>User 3 Login & Call API with first key</legend>
 			<div>
 				Now, using the key from the first application, let's login as user3:
-				<pre><code class="bash">$ curl -X POST -H
-				                        "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"
-				                        "http://localhost:4000/urac/login" -d "username=user3&password=654321"</code></pre>
+				<pre><code class="bash">$ curl -X POST -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://localhost:4000/urac/login" -d "username=user3&password=654321"</code></pre>
 				<h6>Response:</h6>
 				<div ng-init="loadJSON(path + 'example03/tenant1/user3_app1_login.json', 'user3_app1_login');">
 					<div id="user3_app1_login"></div>
@@ -504,9 +435,7 @@ $ ./soajs.mongo.sh</code></pre>
 
 				<br>
 				Hit "example03/buildName" API:
-				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example03/buildName?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxMkdMWXBiX0lybndHR0dlaENwS2Z4NlpoV3dtYzhTeUw=" -H
-				                        "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"
-				</code></pre>
+				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example03/buildName?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxMkdMWXBiX0lybndHR0dlaENwS2Z4NlpoV3dtYzhTeUw=" -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"</code></pre>
 				<h6>Response:</h6>
 
 				<div ng-init="loadJSON(path + 'example03/tenant1/user3_app1_response.json', 'user3_app1_response');">
@@ -515,21 +444,15 @@ $ ./soajs.mongo.sh</code></pre>
 				User3 can access "example03/buildName". And notice the value of "tenantName".
 				<br> <br>
 				Try to hit "example03/testGet" API:
-				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example03/testGet?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxMkdMWXBiX0lybndHR0dlaENwS2Z4NlpoV3dtYzhTeUw=" -H
-				                        "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"
-				</code></pre>
+				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example03/testGet?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxMkdMWXBiX0lybndHR0dlaENwS2Z4NlpoV3dtYzhTeUw=" -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"</code></pre>
 				<h6>Response:</h6>
 
 				<div ng-init="loadJSON(path + 'example03/tenant1/user3_app1_response2.json', 'user3_app1_response2');">
 					<div id="user3_app1_response2"></div>
 				</div>
-				User3 cannot access "example03/testGet". The key config only granted access to "example03/buildName".
-				The user key configuration even overrides the package config within the same user.
-
+				User3 cannot access "example03/testGet". The key configuration only grants access to "example03/buildName".
+				The user key configuration overrides the package configuration within the same user.
 			</div>
 		</fieldset>
-
-
 	</div>
-	<script></script>
 </div>
