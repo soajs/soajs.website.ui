@@ -1,0 +1,34 @@
+{
+	"product": "PROD1",
+	"package": "PROD1_PCK2",
+	"appId": "54d2cb5be64ce51e06000005",
+	"description": "this is a description ...",
+	"acl": {
+	"urac": {},
+	"example02": {},
+	"example03": {}
+},
+	"_TTL": 604800000,
+	"keys": [
+	{
+		"key": "e5eaaf5fdc35c164319330a8a0273feb6",
+		"extKeys": [
+			{
+				"expDate": 1426074994350,
+				"extKey": "7bc1e66d003a3b2acfce1557cbda7320...",
+				"device": {},
+				"geo": {}
+			}
+		],
+		"config": {
+			"urac": {
+				"hashIterations": 1024,
+				"seedLength": 32
+			},
+			"example03": {
+				"tenantName": "My Test Tenant"
+			}
+		}
+	}
+]
+}

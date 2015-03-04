@@ -1,186 +1,184 @@
 <a id="provisioning"></a>
 <h1>Provisioning</h1>
-<hr />
+<hr/>
 <div>
 	<p>
-		Provisioning refers to configuration that is loaded from the database.<br/>
-		This configuration is tenant specific unlike the static local configuration of a service "config.js" <b>OR</b> the registry configuration.<br/>
-		Registry configuration is environment driven, Local configuration is service driven, Provisioning is product and tenant driven.<br/>
-		<b><u>Ex:</u></b>
-	<ul>
-		<li>Multiple Tenants might use the same service but provide it with custom configuration/data.</li>
-		<li>Product packages might include the same service but do not have the same permissions on its APIs.</li>
-	</ul>
-	</p>
-	<br />
-	<p>
-		Products and Tenants can be created and configured using the <a href="" ng-click="goToAnchor('documentation','dashboard-services')">Dashboard</a> of <b>SOAJS</b>.<br />
-		This page explains the purpose of both products and tenants properties.<br />
-		This page also explains the liaison between <b>Productization</b> and <b>Multitenancy</b>.<br />
-		Checkout the <a href="" ng-click="goToAnchor('documentation','dashboard-services')">Dashboard</a> of <b>SOAJS</b> to learn how to create/manage both products and tenants.<br />
+		In SOAJS, provisioning is more related to providing a service with configuration and access controls loaded from the database.
+		In most cases, this information is specific per tenant and most likely differs between one tenant and the other causing the same service to behave and provide responses differently.
+		A service can be provided with up to three different configurations information.
+	<ol>
+		<li>
+			<b>Local Configuration:</b> refers to the configuration stored in <u>config.js</u> and is the same regardless of the tenant using this service or the environment it is operation in. <b>IMFV</b> uses such a configuration to validate the inputs which makes sense because inputs are
+			validated the same way no matter where the service is running.<br/><br/>
+		</li>
+		<li>
+			<b>Registry Configuration:</b> refers to the configuration of a service depending on the environment it is running in. <b>DEV</b> environment is different than <b>PROD</b> environment, one might be used for development and thus might be deployed on a local machine and the other is most
+			likely used on production with load balancing and sharded databases and in that case the configuration is definitely different than other environments.<br/><br/>
+		</li>
+		<li>
+			<b>Provisioned Configuration:</b> refers to configuration loaded from the database using a certain needle or event and is not affected by neither the environment where the service is running in nor the local configuration of the service. In <b>SOAJS</b>, tenants keys are used to load
+			tenant configuration when making calls to a service API.<br/>
+			<b><u>Ex:</u></b>
+			<ul>
+				<li>Multiple Tenants might use the same service but provide it with custom configuration/data. (<a href="#/getStarted/example03">Example03</a>)</li>
+				<li>Product packages might include the same service but do not have the same permissions on its APIs. (<a href="#/getStarted/example03">Example03</a>)</li>
+			</ul>
+		</li>
+	</ol>
 	</p>
 	<br/>
-	<tabset>
-		<tab heading="Productization" select="loadCode(path + 'provisioning/productization.js', 'productizationjs');">
-			<br/>
-			<p>
-				Package your services with different permissions and access controls and offer them as commercial products.<br />
-				Products contain a list of packages where the default access level of our API services are defined.<br/>
-				Each Package offers a variety of access levels on the service apis. If a service is contained in a package, the product can use it.<br />
-				When specifying the access level over a service, you can grant access to the whole service or add some restrictions.<br /><br />
 
-				Products and packages are used by tenants.<br/>
-				Products therefore do not depend on tenants, they can be created and packaged even if no tenant is yet available.<br/><br/>
-				<img ng-src="images/documentation/provisioning1.png" class="image-border" style="margin:5px 0;"/><br/>
-				Start by creating a product and give it a code, name and description.<br/><br/>
-				Add packages to your product and give them codes and TTL.<br/>
-				The TTL specifies how long the package should retain this configuration before it gets reloaded again.<br/><br/>
-				Finally specify the access levels conditions to each of your services in the package.<br/><br/>
-				Under acl, enter the service name and specify its permissions.<br />
-				The access level configuration offers you all the combinations you can think of.<br/>
-			<ul>
-				<li>
-					You can create services APIs that are accessible by the anonymous users.<br />
-					To do that, simply use the access property.
-					True means the api is accessible by logged in users, false means public like <a href="#/getStarted/example01">example01</a>.<br />
-					<em><u>Ex:</u> "access" : true OR "access" : false</em><br /><br />
-					If the api is accessible by a certain group, then the access value is no longer boolean, but becomes an array having the group names as entries.<br />
-					<em><u>Ex:</u> "access" : [ "group1", "group2", ... ]</em><br /><br />
-				</li>
-				<li>
-					You can specify routes in your APIs to be accessible only by logged in users.<br />
-					Create an entry inside the acl object named <b>apis</b>.<br />
-					Inside <b>apis</b>, specify the service routes as object keys and formated as <a href="http://en.wikipedia.org/wiki/Regular_expression" target="_blank">Regular Expressions</a>.<br />
-					For every entry in apis, add a property named <b>access</b> that takes the same values as the above bullet point.<br />
-					This means you can have more control over the api routes.<br />
-					Specify routes that are public, private or accessbile by certain groups only.<br />
-					<em><u>Ex:</u><br />
-						"apis": {
-							<div style="padding-left:20px;">"^/admin/.+$": { "access": ["adminGroup"] },</div>
-							<div style="padding-left:20px;">"^/account/.+$": { "access": true }</div>
-						}<br />
-						The first entry implies that every route that begins with /admin is only accessible by admin group.<br />
-						The second entry implies that every route that begins with /account is accessible by any logged in user.
-					</em><br /><br />
-				</li>
-				<li>
-					You can specify routes in your APIs to be accessible by users who belong to a certain group/role.<br />
-					This option resembles the one above it but differs in how to build the entries in the acl.<br /><br />
-					Create an array entry called <b>apisRegExp</b>. Inside the array add each acl configuration as an object.<br />
-					Every object has a regex to evaluate and compare it with the requested route and access field.<br />
-					The regular expression is named <b>regExp</b> and the access field is called <b>access</b>.<br />
-					The access field is configured exactly like in option 1 and 2 mentioned above.<br />
-					<em><u>Ex:</u><br />
-						"apisRegExp": [
-						<div style="padding-left:20px;">{ "regExp": /^\/admin\/.+$/, "access": ["adminGroup"] },</div>
-						<div style="padding-left:20px;">{ "regExp": /^\/account\/.+$/, "access": true }</div>
-						]<br />
-						The first entry implies that every route that begins with /admin is only accessible by admin group.<br />
-						The second entry implies that every route that begins with /account is accessible by any logged in user.
-					</em><br /><br />
-				</li>
-				<li>
-					In addition to the three above options, you can configure the access controls to be <b>restricted</b> to the entries of either <b>apis</b> or <b>apisRegExp</b> only.<br />
-					To do that, add a forth property called <b>"apisPermission": "restricted"</b>. When adding <b>apisPermission</b>, keep in mind that this property if provided, takes only one value <b>"restricted"</b>, no other value can be given to it.<br />
-					This configuration will force the access control to restrict the access to the apis that are only mentioned under either <b>apis</b> or <b>apisPermission</b> making any request to any other api not mentioned in neither api nor apiRegExp <b>inaccessible</b>.
-				</li>
-			</ul>
-			</p>
-			<hr/>
-			<table class="myTable">
-				<thead>
-					<tr>
-						<th>Property&nbsp;Name</th>
-						<th>Type</th>
-						<th>Mandatory</th>
-						<th>Unique</th>
-						<th>Notes</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr ng-repeat="detail in provisioning.productization" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
-						<td width="20%">{{detail.property}}</td>
-						<td>{{detail.type}}</td>
-						<td>{{detail.mandatory}}</td>
-						<td>{{detail.unique}}</td>
-						<td>{{detail.notes}}</td>
-					</tr>
-				</tbody>
-			</table>
-			<hr/>
-			<div id="productizationjs"></div>
-			<em>The above snippet refers to a product record in the database.</em>
-		</tab>
-		<tab heading="Multitenancy" select="loadCode(path + 'provisioning/multitenancy.js', 'multitenancyjs');">
-			<br/>
+	<p>
+		Products and Tenants can be created and configured using the <a href="" ng-click="goToAnchor('documentation','dashboard-services')">Dashboard</a> of <b>SOAJS</b>. This page explains the purpose of both <b>products</b> and <b>tenants</b> properties and how they work together.
+		Checkout the <a href="" ng-click="goToAnchor('documentation','dashboard-services')">Dashboard</a> of <b>SOAJS</b> to learn how to create/manage both <b>products</b> and <b>tenants</b>.<br/>
+	</p>
+	<hr/>
+	<h3><u>Productization</u></h3>
 
-			<p>
-				<b>SOAJS</b> gives you the ability to create multiple tenants and assign product packages to them.<br/><br/>
+	<p>
+		Once a service is created and ready to be used, one thought jumps in mind: <u>"how can i place this service code in one place and offer its functionality to more than one client?"</u><br/><br/>
+		<b>SOAJS</b> provides the ability to have the same service work with different clients (tenants) and to accomplish that, 2 things need to be done.
+	<ol>
+		<li>Productize the service</li>
+		<li>create tenants and tell them how to use the product</li>
+	</ol>
+	</p><br/>
 
-			<h4><u>1- Declaration:</u></h4>
+	<p>
+		Package the service with different permissions and access controls and offer it as commercial products. Every product contains a list of packages where the default access level of our service APIs are defined. Each Package offers a variety of access levels on the service APIs. If a service
+		is contained in a package, then this product offers the ability to use this service. When specifying the access level over a service, you can grant access to the whole service or add some restrictions.
+	<div ng-init="loadCode(path + 'provisioning/productization.js', 'productizationjs');">
+		<div id="productizationjs"></div>
+	</div>
+	<br/>
+	The above code snippet illustrates one product record named <b>Product One</b> and this product has 3 packages.<br />
+	<ol>
+		<li><b>Package 1</b> has "urac" in its ACL property only and that means it offers access to that service only.</li>
+		<li><b>Package 2</b> has 2 services in its ACL and therefore, using this package means both these services are available.</li>
+		<li><b>Package 3</b> is a bit more complex in how its ACL is built. It offers the access to the "urac" service and only one API from the "example03" service. Section <b>Access Levels</b> below, explains how to configure the ACL in depth.<br/></li>
+	</ol>
+	This product is stored in the database after it is created and is used by different tenants to grant them access to services written using <b>SOAJS</b>. Product records are located in <b>products</b> collection under <b>core_provision</b> database.
+	</p>
+	<hr/>
+	<h3><u>Access Levels</u></h3>
+	<p>
+		When a service should serve different tenants, these tenants should be instructed on how to use the service. Access Levels (ACL) are applied through product packages. ACL can be overridden by tenants applications and URAC. First, let's explain how the ACL works then jump to how to use it and override it. <br /><br />
+		<b>SOAJS</b> ACL offers a lot of flexibility and can be used to grant access to a service or a particular API in that service or to specific groups.<br /><br />
+	</p>
+	<h4><u>Service Access:</u></h4>
+	ACL can provide access to a service by simply adding the service name to its list. The access is granted in three different methods: PUBLIC - PRIVATE for logged in users - PRIVATE for specific groups.
+	<pre><code class="javascript">"acl":{
+	"serviceName0":{}, //public
+	"serviceName1":{
+		"access": false //public
+	},
+	"serviceName2":{
+		"access": true //private for logged in users
+	},
+	"serviceName3":{
+		"access": ['admin', 'vip'] //private for groups: admin & vip
+	}
+}</code></pre>
+	<u>Note:</u> both "<b>serviceName0</b>" and "<b>serviceName1</b>" are public. Either add the service name in the acl object with value equal to an empty object "{}" or add give it a value of "access" equal to false; both are evaluated the same way.<br /><br />
 
-			<p>
-				Create a tenant and give it a code. Assign oAuth security for the tenant if needed.<br />
-				Checkout <a href="#/getStarted/example02">example02</a> on how to use oAuth with a service.
-				<img ng-src="images/documentation/provisioning2.png" class="image-border" style="margin:5px 0;"/>
-			</p>
-			<br/><br/>
+	<h4><u>Access to Specific Routes</u></h4>
+	<p>
+		Access Levels (ACL) can provide access to specific APIs in a service not just access to the whole service.<br />
+		Two methods are provided to get this job done:
+		<ol>
+			<li>Add the APIs one by one in a list, and the ACL will provide access to only these APIs.</li>
+			<li>Use Regular Expressions to group APIs that have common path parameters and apply the same access right on them.</li>
+		</ol>
+	</p>
+	<pre><code class="javascript">"acl": {
+	"serviceName1":{
+		"access": false,
+		"apis": {
+			"/admin/listUsers": { "access": ["admin"] },
+			"/account/myAccount": { "access": true }
+		}
+	}
+}</code></pre>
+	The above snippet states that the access to "<b>serviceName1</b>" is granted publicly but to access <b>/account/myAccount</b> API, you need be a logged user and on top of that, to access <b>/admin/listUsers</b> you need to be logged in and you need belong to the <b>admin</b> group otherwise you are not allowed to access this api.<br /><br />
+	The above method demonstrated how to specify each API in a service and apply the ACL to it. What if you have 10 APIs under <b>/account/</b> or 20 APIs under <b>/admin/</b>, it doesn't make sense to add 30 entries in an ACL object. Let's group all similar APIs under one entry and apply the same ACL on all of them once.
+	<pre><code class="javascript">"acl": {
+	"serviceName1":{
+		"access": false,
+		"apisRegExp": [
+			{
+				/^\/admin\/.+$/: { "access": ["admin"] } //All APIs starting with /admin/...
+			},
+			{
+				/^\/account\/.+$/: { "access": true } //All APIs starting with /account/...
+			}
+		]
+	}
+}</code></pre>
+	Now things make more sense, all APIs accessible by <b>Admin</b> group only start with <b>/admin/...</b> and those that the user can access after her logs in like "edit profile", "change password" ...etc, start with <b>/account/...</b> and require a logged in user to be accessed.<br /><br />
+	<h4><u>Restricted Access</u></h4>
+	<p>
+		There are cases where access to only one API in a service should be granted. All other APIs are not permitted to be used.
+		<pre><code class="javascript">"acl": {
+	"serviceName1":{
+		"apisPermission": "restricted",
+		"apis": {
+			"/account/myAccount" : { "access" : true }
+		}
+	},
+	"serviceName2":{
+		"apisPermission": "restricted",
+		"apisRegExp": [
+			{
+				/^\/account\/.+$/: { "access": true } //All APIs starting with /account/...
+			}
+		]
+	}
+}</code></pre>
+		The above snippet demonstrates the usage of <b>apisPermission</b> that forces the ACL to restrict access to all APIs of a service except the ones mentioned in either <b>apis</b> or <b>apisRegExp</b> regarding <b>serviceName1</b> and also restricts access to <b>serviceName2</b> unless the API starts with <b>/account/</b>.<br /><br />
+		<b>SOAJS</b> provides all possible solutions regarding how to grant access to services for tenants. Keep in mind that the above only shows the ACL of one package in a product. You can have different packages in a product with different ACL and you can also have different products with different packages.<br />
+		The cases and scenarios covered by <b>SOAJS Productization</b> are huge, the system is very flexible and expandable.<br /><br />
+	</p>
+	<hr/>
+	<h3><u>Multitenancy</u></h3>
+	<p>
+		<b>SOAJS</b> gives you the ability to create multiple tenants and assign product packages to them. A tenant represents a client, so to apply the concept of having one service serve several tenants differently such as <a href="#/documentation/urac">URAC</a>, we need to configure our service to use multitenancy, create tenants and assign keys to them and when making calls to the APIs of that service, specify the key of the tenant in those requests.<br /><br />
+		<a href="#/getStarted/example02">Example02</a> demonstrates the usage of one tenant with both <a href="" ng-click="goToAnchor('documentation','oauth')">oAuth</a> and <b>Example02</b> services. <a href="#/getStarted/example03">Example03</a> demonstrates the usage of several tenants and in some cases, several applications of a tenant with <b>Example03</b> service.<br />
+	</p>
+	<hr/>
+	<h4><u>Tenants:</u></h4>
+	<p>
+		In the previous section we mentioned how to create products and package them and configure access levels on different services they offer. Now let's create tenants and assign some product packages to them.<br />
+		Tenants can be created and configured using the <a href="" ng-click="goToAnchor('documentation','dashboard-services')">Dashboard</a> of <b>SOAJS</b>. Tenants have unique identification codes and optional <a href="" ng-click="goToAnchor('documentation','oauth')">oAuth</a> configuration. Checkout <a href="#/getStarted/example02">Example02</a> to learn how to protect a service using <b>oAuth</b>.
+		<div ng-init="loadCode(path + 'provisioning/tenant1.js', 'tenantjs');">
+			<div id="tenantjs"></div>
+		</div>
+		The above snippet represents one tenant records that is stored in the database <b>core_provision</b> under <b>tenants</b>. The tenant is named <b>Test Tenant</b>, disposes of <b>oAuth</b> security information and has an application array.
+	</p>
+	<br/>
+	<h4><u>Applications:</u></h4>
+	<div ng-init="loadJson(path + 'provisioning/app1.json', 'app1js');">
+		<div id="app1js"></div>
+	</div>
 
-			<h4><u>2- Applications:</u></h4>
-
-			<p>
-				Add applications for that tenant.<br/>
-			    Applications use the packages from products with the ability to override the default ACL of these packages.<br />
-				Applications also set the tenant specific service configurations using their keys.
-				<img ng-src="images/documentation/provisioning3.png" class="image-border" style="margin:5px 0;"/>
-			</p>
-			<br/><br/>
-
-			<h4><u>3- Application Keys & ExtKeys:</u></h4>
-
-			<p>
-				External keys are placed in the header of every request made to your APIs.<br/>
-				<b>SOAJS</b> loads the appropriate tenant configuration corresponding to the external key when an api request is made.<br/>
-				These keys are optionally secured via device and geo location.<br />
-				Checkout <a href="#/getStarted/example03">example03</a> on how you can make calls to the same service with different keys where each key has different permission.
-				<img ng-src="images/documentation/provisioning4.png" class="image-border" style="margin:5px 0;"/>
-			</p>
-			<br/><br/>
-
-			<h4><u>4- Application Keys' Configuration:</u></h4>
-
-			<p>
-				This configuration represents the provisioned data of this tenant for the services it will be using.<br/>
-				This configuration is different among tenants.
-				<img ng-src="images/documentation/provisioning5.png" class="image-border" style="margin:5px 0;"/>
-			</p>
-			</p>
-			<br/>
-			<hr/>
-			<table class="myTable">
-				<thead>
-					<tr>
-						<th>Property&nbsp;Name</th>
-						<th>Type</th>
-						<th>Mandatory</th>
-						<th>Unique</th>
-						<th>Notes</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr ng-repeat="detail in provisioning.multitenancy" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
-						<td width="25%">{{detail.property}}</td>
-						<td>{{detail.type}}</td>
-						<td>{{detail.mandatory}}</td>
-						<td>{{detail.unique}}</td>
-						<td>{{detail.notes}}</td>
-					</tr>
-				</tbody>
-			</table>
-			<hr/>
+	<p>
+		The above snippet represents an application in a tenant that uses <b>PROD1_PCK1</b> package and inherits the ACL from that package. Since <b>PROD_PCK1</b> provides access to the <b>URAC</b> service, this application can now use the service and give it some custom configuration as shown in the <b>config.urac</b> entry inside the <b>keys</b> array.<br />
+		Every application needs <b>keys</b> to function, without those <b>keys</b> the application by itself does nothing. Once a key is added to an application, the application can then provide <b>custom configuration</b> to a service and can dispose of external keys for that particular key.<br />
+		<b>External Keys</b> are used in requests made to a service, they are secured using <b>geo</b> and <b>device</b> security and have an <b>expiry date</b>; think of they as <b>license</b> keys. When used, these external keys are checked for device and geo and if valid, they are matched with the key represent. Now that the key has been identified, its configuration is loaded and in the cases above, for <b>URAC</b> the tenant configuration for this key is passed to the service for usage.<br /><br />
+	</p>
+	<div ng-init="loadJson(path + 'provisioning/app2.json', 'app2js');">
+		<div id="app2js"></div>
+	</div>
+	<p>
+		The above snippet is another application in a tenant that uses <b>PROD1_PCK2</b> package but this time, it overrides the ACL of that package with additional permissions. The application grants access to <b>URAC</b>, <b>Example02</b> and <b>Example03</b> and in the key configuration, both <b>URAC</b> and <b>Example03</b> have custom configuration. Keep in mind that the ACL configuration follows the same syntax whether used in packages or in applications.<br /><br />
+	</p>
+	<hr/>
+	<h4><u>Tenant Full Sample:</u></h4>
+	<p>
+		Grouping the above three snippets will result in the below tenant record:
+		<div ng-init="loadCode(path + 'provisioning/multitenancy.js', 'multitenancyjs');">
 			<div id="multitenancyjs"></div>
-			<em>The above snippet refers to a tenant record in the database.</em>
-		</tab>
-	</tabset>
+		</div>
+		Using both <b>Productization</b> and <b>Multitenancy</b> and with the wide combination offered by the <b>Access Levels</b>, <b>SOAJS</b> gives you limitless power to build Service-Oriented Applications that service multiple tenants and confiure their access as you desire with very little effort and time.
+	</p>
 	<script>renderCodeSnippets();</script>
 </div>

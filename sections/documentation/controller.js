@@ -1,10 +1,14 @@
 "use strict";
 var documentationApp = app.components;
 
-documentationApp.controller('documentationtCtrl', ['$scope', '$http', '$routeParams', '$compile', 'loadFileContent', 'loadHTMLContent', function($scope, $http, $routeParams, $compile, loadFileContent, loadHTMLContent) {
+documentationApp.controller('documentationtCtrl', ['$scope', '$http', '$routeParams', '$compile', 'loadFileContent', 'loadHTMLContent', 'loadJsonFileContent', function($scope, $http, $routeParams, $compile, loadFileContent, loadHTMLContent, loadJsonFileContent) {
 	$scope.path = "sections/documentation/content/";
 	$scope.loadCode = function(path, elId) {
 		loadFileContent($scope, path, elId);
+	};
+
+	$scope.loadJson = function(path, elId) {
+		loadJsonFileContent($scope, path, elId);
 	};
 
 	$scope.loadSection = function(sectionName) {
