@@ -17,6 +17,10 @@
 			If you modified the data in the database, we suggest you repeat the provisioning step.
 			If the data in the database is still intact, skip this step.<br/><br/>
 		</p>
+		<pre><code class="bash">$ cd soajs.examples/tools
+$ chmod +x soajs.mongo.sh
+$ ./soajs.mongo.sh</code>
+			</pre>
 		<hr/>
 
 		<h3><u>Start the Service</u></h3>
@@ -46,10 +50,9 @@ $ node index</code></pre>
 		</fieldset>
 		<hr/>
 		<h3><u>What has changed:</u></h3>
-
 		<br>
 		<h4><u>The Product:</u></h4>
-		<br/>
+
 		We applied a modification to the product record <b>PROD1</b>.
 		<div ng-init="loadCode(path + 'example04/product1.js', 'product1');">
 			<div id="product1"></div>
@@ -57,19 +60,26 @@ $ node index</code></pre>
 		<br>
 		We added "oauth" and "example04" services to the acl of the first package.
 		Now this package has access to them, and we can use them in our example.
-		<br/>
-		<em>Note that the sample data has not actually changed in the provisioned product record.
-		    If you had inspected the database while testing Example03 you would have seen it,
-		    but we chose to ignore it in Example03.</em>
-		<hr/>
+		<br/><br/>
+
 		<h4><u>The Tenant:</u></h4>
-		<br>
-		Nothing to change for the tenant.
-		<div ng-init="loadCode(path + 'example03/tenant1.js', 'tenant1');">
+
+		We will add an entry for "oauth" for Tenant 1. All other settings remain the same.
+		<div ng-init="loadCode(path + 'example04/tenant1.js', 'tenant1');">
 			<div id="tenant1"></div>
 		</div>
-
 		<br>
+		<h4><u>oAuth User:</u></h4>
+		We need to create a new oAuth user record that is linked to Tenant 1.
+		<div ng-init="loadCode(path + 'example04/oauth_user.js', 'oauth_user');">
+			<div id="oauth_user"></div>
+		</div>
+		<br/>
+		<em>Note that the sample data has not actually changed.
+		    If you had inspected the database while testing Example03 you would have seen these changes,
+		    but we chose to ignore it in Example03.</em>
+		<hr/>
+
 		<h3><u>Service Code:</u></h3>
 		The code is similar to that in <b>Example03</b>.
 		We only need to edit the service config in <u>index.js</u> file; add the "oauth" entry and set it to true as shown below.
@@ -80,7 +90,6 @@ $ node index</code></pre>
 				<div id="indexjs"></div>
 			</tab>
 			<tab heading="config.js" select=""><br/>
-
 				<div ng-init="loadCode(path + 'example04/config.js', 'configjs');"></div>
 				<div id="configjs"></div>
 			</tab>
@@ -109,8 +118,14 @@ $ node index</code></pre>
 		</fieldset>
 		<fieldset>
 			<legend>Login to oAuth</legend>
-			<div> Like in <a href="#/getStarted/example02">Example02</a>, login to oAuth. <em>Again, using the key from Tenant 1 first application</em><br/>
-				<pre><code class="bash">$ curl -X POST -H "Authorization: Basic MTBkMmNiNWZjMDRjZTUxZTA2MDAwMDAxOnNoaGggdGhpcyBpcyBhIHNlY3JldA==" -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://localhost:4000/oauth/token" -d 'username=oauthuser_tenant1&password=oauthpassword_tenant1&grant_type=password'</code></pre>
+			<div> Like in <a href="#/getStarted/example02">Example02</a>, we need to login to oAuth.
+			      We need to call "oauth/token" and provide two values in the headers:<br>
+				- The external key value from Tenant 1.<br>
+				- Authorization, which it is generated from (tenantId:secret_phrase).  So for Tenant 1
+			in this case it is (<b>54ee2150b7a669fc22b7f6b9</b>:<b>My secret phrase</b>) which evaluates to "NTRlZTIxNTBiN2E2NjlmYzIyYjdmNmI5Ok15IHNlY3JldCBwaHJhc2U=".<em></em><br /><br />
+
+
+				<pre><code class="bash">$ curl -X POST -H "Authorization: Basic NTRlZTIxNTBiN2E2NjlmYzIyYjdmNmI5Ok15IHNlY3JldCBwaHJhc2U=" -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://localhost:4000/oauth/token" -d 'username=oauthuser_tenant1&password=oauthpassword_tenant1&grant_type=password'</code></pre>
 				<h6>Response:</h6>
 
 				<div ng-init="loadJSON(path + 'example04/oauth_login.json', 'oauth_login');">
@@ -126,7 +141,7 @@ $ node index</code></pre>
 			<legend>Call Api again with oAuth token</legend>
 			<div>
 				We will hit "example04/buildName" again with access_token as an additional query parameter:
-				<pre><code class="bash">$ curl -X GET -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://rest-proxy:4000/example04/buildName?lastName=Smith&access_token=e58751473112bca2ed939e0445e55b0f7921f544"</code></pre>
+				<pre><code class="bash">$ curl -X GET -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://rest-proxy:4000/example04/buildName?lastName=Smith&access_token=e59104df7256d2d0a77771303ea81fd68ed39e45"</code></pre>
 				<h6>Response:</h6>
 				<div ng-init="loadJSON(path + 'example04/response1.json', 'response1');">
 					<div id="response1"></div>

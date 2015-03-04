@@ -3,6 +3,11 @@ var tenant1 = {
 	"code": "TN1",
 	"name": "Client 1",
 	"description": "This is a test tenant client",
+	"oauth": {
+		"secret": "My secret phrase",
+		"redirectURI": "http://domain.com",
+		"grants": ["password", "refresh_token"]
+	},
 	"applications": [
 		{
 			"product": "PROD1",

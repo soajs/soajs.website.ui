@@ -6,8 +6,9 @@
 	    <b>SOAJS</b> is equipped with an input mapping, filtering and validating mechanism that removes up to 50% of an API code in terms of fetching and cleaning the inputs from POST, GET, SESSION, COOKIES, HEADERS and TENANT CONFIG.<br /><br />
 
 	    <img ng-src="images/documentation/service-folder-tree.png" align="right" style="margin-left:5px; margin-bottom:5px;" class="image-border"/>
-	    Every service uses the <b>IMFV</b> to validate the inputs (parameters) of its APIs. <b>IMFV</b> is usually located in a <u>config.js</u> file within the service directory.<br />
-	    The content of a <u>config.js</u> file is based on two main sections: <b>Error Codes</b> and <b>Validation Schema</b>.
+	    Every service uses the <b>IMFV</b> (input mapping, filtering and validating) to validate the inputs (parameters) of its APIs. <b>IMFV</b> is usually located in a <u>config.js</u> file within the service directory.<br />
+	    The content of a <u>config.js</u> file is based on two main sections:
+	    <b>Error Codes</b> ("errors" object) and <b>Validation Schema</b> ("schema" object).
 	    <pre><code class="javascript">//inside config.js
 module.exports={
 	"errors": {},
@@ -18,7 +19,7 @@ module.exports={
 	<hr/>
 	<h3><u>Error Codes</u></h3>
 	<p>
-		<b>Error Codes</b> represent the errors that are returned by the service APIs. Each Error consists of a number referred to by code and an error message.
+		<b>Error Codes</b> is a list that contains all the errors that might be returned by the service APIs. Each Error consists of a number referred to by code and an error message.
 		<pre><code class="javascript">"errors":{
 	//...
 	401: "unable to login, user not found!",
@@ -26,7 +27,8 @@ module.exports={
 	//...
 }</code>
 		</pre>
-		When an error in the service is met, the service will return a code and a message back to the user for clarification. To use the error codes inside the service code <u>index.js</u>, use <b>req.soajs.buildRestResponse</b> and provide the error object constructed from the code and the message as the first parameter.
+		When an error in the service occurs, the service will return back to the user a code and a message for clarification.
+		To use the error codes inside the service code <u>index.js</u>, use <b>req.soajs.buildRestResponse</b> and provide the error object constructed from the code and the message as the first parameter.
 		<pre><code class="javascript">//inside index.js
 var config = require("./config");
 var service = new soajs.server.service(...);
@@ -43,11 +45,13 @@ service.post("/login", function(req, res) {
 	<hr/>
 	<h3><u>Sample Schema</u></h3>
 	<p>
-		Every API has an entry inside the schema with the inputs validation, that it should receive, configured. Every entry instructs <b>IMFV</b> where to look for the input using the source attribute and how to validate the input using the validation attribute.
+		Every API has an entry inside the schema object; this is where you configure the inputs that it should receive and their validation.
+		Every entry instructs <b>IMFV</b> where to look for the input using the source attribute and how to validate the input using the validation attribute.
 		<div ng-init="loadCode(path + 'imfv/simple.js', 'simple');">
 			<div id="simple"></div>
 		</div>
-		The above sample Tells <b>IMFV</b> that for API <b>"/testGet"</b> there is a <u>required</u> input named <b>"firstName"</b> who's type is <u>string</u> and has a specific <u>alphanumeric format</u> and it is provided via the <u>querystring</u> as <b>"firstName"</b> when the request is made.<br /><br />
+		The above sample Tells <b>IMFV</b> that for API <b>"/testGet"</b> there is a <u>required</u> input called <b>"firstName"</b>.
+		It's type is <u>string</u> and it has a specific <u>alphanumeric format</u> and it is provided via the <u>query string</u> as <b>"firstName"</b> when the request is made.<br /><br />
 	</p>
 	<hr/>
 	<h3><u>Sources List:</u></h3>
@@ -314,10 +318,12 @@ service.post("/login", function(req, res) {
 		The following is a snippet of both <u>config.js</u> and <u>index.js</u> used together to implement a service that is built with <b>SOAJS</b> that focuses on how to use the errors and <b>IMFV</b> schema validation.<br /><br />
 	</p>
 	<tabset>
-		<tab heading="Service Index" select="loadCode(path + 'imfv/index.js', 'indexjs');">
+		<tab heading="Service Index">
+			<div ng-init="loadCode(path + 'imfv/index.js', 'indexjs');"></div>
 			<div id="indexjs"></div>
 		</tab>
-		<tab heading="Service Config" select="loadCode(path + 'imfv/complete.js', 'complete');">
+		<tab heading="Service Config">
+			<div ng-init="loadCode(path + 'imfv/complete.js', 'complete');"></div>
 			<div id="complete"></div>
 		</tab>
 	</tabset>
