@@ -198,16 +198,18 @@ $ node index</code></pre>
 				Login to <b>oAuth</b> by and provide the following:
 				<ol>
 					<li>
-						<u>Authorization:</u> an encrypted value, generated from (user_id:secret_phrase) in this case (<b>oauthuser</b> : <b>shhh this is a secret</b>).<br />
+						<u>Authorization:</u> an encrypted value, generated from (tenantId:secret_phrase) in this case (<b>10d2cb5fc04ce51e06000001</b>:<b>shhh this is a secret</b>).<br />
 						<em>
-							In this example we will use a generated value from the provisioned configuration we imported earlier on.
+							In this example we will use a generated value from the provisioned configuration we imported earlier.
+							Do not worry about how we got the value at the moment, you can just use it.
+							You can read more about it under <u>Tenants</u> section in the <a href="#/documentation/provisioning">Provisioning</a> documentation page.
 						</em><br /><br />
 					</li>
 					<li>
 						<u>Key:</u> application external key of a tenant.<br />
 						<em>
 							The key represents the extKey value found in tenants database.<br />
-							In this example we are using the first extKey of the first application from the provisioned configuration we imported earlier on.
+							In this example we are using the first extKey of the first application from the provisioned configuration we imported earlier.
 						</em>
 					</li>
 				</ol>
