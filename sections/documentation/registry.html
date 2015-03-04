@@ -24,27 +24,83 @@
     <h4><u>1- General Registry Information</u></h4>
 
     <p>Create and environment and give it a name and a version<br/>
-        <img ng-src="images/documentation/registry2.png" class="image-border" style="margin:10px 0;"/></p><br/><br/>
+		<pre><code class="javascript">var registry ={
+	"name": "dev",
+	"version": "0.1",
+	"environment":"develop",
+	//...
+}</code></pre>
+    </p><br/><br/>
 
     <h4><u>2- Database Configuration</u></h4>
 
-    <p>Define how to connect to the databases when using this environment; db name, prefix, server location, credentials … etc.<br/>
-        <img ng-src="images/documentation/registry3.png" class="image-border" style="margin:10px 0;"/></p><br/><br/>
+    <p>
+	    Define the connection to the database using this environment works; db name, prefix, server location, credentials … etc.<br/>
+        <pre><code class="javascript">"coreDB": {
+	"dashboard": {
+		"name": "core_dashboard",
+		"prefix": dServers.prefix,
+		"servers": dServers.servers,
+		"credentials": dServers.credentials,
+		"URLParam": dOptions.URLParam,
+		"extraParam": dOptions.extraParam
+	}
+	//...
+}</code></pre>
+    </p><br/><br/>
 
-    <a id="rest-apis">
-        <div ng-show="padding"><br/><br/><br/></div>
-    </a>
+    <a id="rest-apis"></a>
     <h4><u>3- REST APIs Configuration</u></h4>
 
-    <p>Define the location, port, authentication method, templates, whether to use external keys or not … for every API service in this environment.<br/>
-        <img ng-src="images/documentation/registry4.png" class="image-border" style="margin:10px 0;"/></p>
-    <ul>
-        <li>
-	        Urac service: APIs have external keys enabled, and templates.<br />
-	        API keys are explained in <a href="" ng-click="goToAnchor('documentation', 'provisioning');">provisioning</a> section under <b>Multitenancy</b>.
-        </li>
-        <li>Example01 service: API is public</li>
-    </ul>
+    <p>
+	    Define the services by providing host, port, url and extKeyRequired;
+	    <ul>
+			<li><b>extKeyRequired:</b>set this value to false for services that are public and accessible without providing tenant keys.</li>
+			<li><b>extKeyRequired:</b>set this value to true for services that are only accessible if a tenant key is provided in the request.</li>
+		</ul>
+        <pre><code class="javascript">"services": {
+    "controller": {
+        "extKeyRequired": false,
+	    "port": 4000,
+	    "host": "rest-proxy",
+	    "maxPoolSize": 100,
+	    "requestTimeout": 30,
+	    "requestTimeoutRenewal": 0,
+	    "authorization": true
+    },
+    "urac": {
+	    "extKeyRequired": true,
+	    "port": 4001,
+	    "host": "rest-proxy",
+	    "url": "http://rest-proxy:4000/urac",
+	    "mail": {
+		    "join": "mail/urac/join.tmpl",
+		    "forgotPassword": "mail/urac/forgotPassword.tmpl",
+		    "addUser": "mail/urac/addUser.tmpl",
+		    "changeUserStatus": "mail/urac/changeUserStatus.tmpl",
+		    "changeEmail": "mail/urac/changeEmail.tmpl"
+        }
+    },
+    "oauth": {
+        "extKeyRequired": true,
+	    "port": 4002,
+	    "host": "rest-proxy",
+	    "url": "http://rest-proxy:4000/oauth"
+    },
+    //...
+    "example01": {
+	    "extKeyRequired": false,
+	    "port": 4010,
+	    "host": "rest-proxy",
+	    "url": "http://rest-proxy:4000/example01"
+    }
+    //...
+}</code></pre>
+		The above snippet shows 5 services each having different information configured. Services like <b>Controller</b>, and <b>example01</b> do not need <u>tenant keys</u> to work and that is why <b>extKeyRequired</b> is set to <u>false</u>. Services like <b>Urac</b>, and <b>OAuth</b> need a <u>tenant key</u> to be accessible so their <b>extKeyRequired</b> is set to <u>true</u>.<br /><br />
+		Notice that <b>extKeyRequired</b>, <b>port</b>, <b>url</b> and <b>host</b> are common among all services; these attributes are the default attributes when declaring a service. Other attributes are additional and considered service specific such as <b>Urac.mail</b> that tells the service where the <u>templates</u> location for <u>email notification</u> is located.<br /><br />
+		Every service require the default attributes to exist so that it can function. Some services based on their business logic might have additional properties, that are dependent on the environment they work in, to be provided so they can function like the <b>Urac</b> and <b>Controller</b> as shown above.
+	</p>
+
     </p>
     <br />
     <hr/>
@@ -70,8 +126,11 @@
                 </tbody>
             </table>
         </tab>
-        <tab heading="Code Sample" select="loadCode(path + 'registry/index.js', 'registryjsCode');">
-            <br /><div id="registryjsCode"></div>
+        <tab heading="Code Sample">
+            <br />
+	        <div ng-init="loadCode(path + 'registry/index.js', 'registryjsCode');">
+		        <div id="registryjsCode"></div>
+	        </div>
             <em>The above snippet is taken from dev.js file which represents the development environment of <b>SOAJS</b> in the registry.</em>
         </tab>
     </tabset>
