@@ -92,13 +92,13 @@ app.service('loadFileContent', ['$http', '$timeout', '$compile', function($http,
 		var att = "jsCode_" + elId;
 		$http.get(path).success(function(data) {
 			context[att] = data.trim();
-			var htmlData = '<pre><div style="text-align:right;"><a href="" onclick="collapseExpand(this);">[ - ]</a></div><code class="javascript">' + context[att] + '</code></pre>';
+			var htmlData = '<pre id="' + att + '"><div style="text-align:right;"><a href="" onclick="collapseExpand(this);">[ - ]</a></div><code class="javascript">' + context[att] + '</code></pre>';
 			var el = angular.element(document.getElementById(elId));
 			el.html(htmlData);
 			$compile(el.contents())(context);
 
 			$timeout(function() {
-				renderCodeSnippets();
+				renderCodeSnippets(att);
 			}, 1000);
 
 		}).error(function() {
@@ -113,17 +113,17 @@ app.service('loadJsonFileContent', ['$http', '$timeout', '$compile', function($h
 		$http.get(path).success(function(data) {
 			context[att] = data;
 			context[att] = JSON.stringify(context[att], null, "\t");
-			var htmlData = '<pre><div style="text-align:right;"><a href="" onclick="collapseExpand(this);">[ - ]</a></div><code class="json">' + context[att] + '</code></pre>';
+			var htmlData = '<pre id="' + att + '"><div style="text-align:right;"><a href="" onclick="collapseExpand(this);">[ - ]</a></div><code class="json">' + context[att] + '</code></pre>';
 			var el = angular.element(document.getElementById(elId));
 			el.html(htmlData);
 			$compile(el.contents())(context);
 
 			$timeout(function() {
-				renderCodeSnippets();
+				renderCodeSnippets(att);
 			}, 1000);
 
 		}).error(function() {
-			console.log('Error Loading JSON Snippet: ' + path );
+			console.log('Error Loading JSON Snippet: ' + path);
 		});
 	}
 }]);
@@ -138,13 +138,13 @@ app.service('loadHTMLContent', ['$http', '$timeout', '$compile', '$sce', functio
 		var att = "htmlCode_" + elId;
 		$http.get(path).success(function(data) {
 			context[att] = $sce.trustAsHtml(htmlEntities(data));
-			var htmlData = '<pre><div style="text-align:right;"><a href="" onclick="collapseExpand(this);">[ - ]</a></div><code class="html" ng-bind-html="' + att + '"></code></pre>';
+			var htmlData = '<pre id="' + att + '"><div style="text-align:right;"><a href="" onclick="collapseExpand(this);">[ - ]</a></div><code class="html" ng-bind-html="' + att + '"></code></pre>';
 			var el = angular.element(document.getElementById(elId));
 			el.html(htmlData);
 			$compile(el.contents())(context);
 
 			$timeout(function() {
-				renderCodeSnippets();
+				renderCodeSnippets(att);
 			}, 100);
 
 		}).error(function() {
@@ -157,13 +157,25 @@ function setCodeSnipet(context, snippet) {
 	context.htmlCode = snippet;
 }
 
-function renderCodeSnippets() {
-	setTimeout(function() {
-		hljs.configure({"tabReplace": "    "});
-		jQuery('pre code').each(function(i, block) {
+var preBasket = [];
+function renderCodeSnippets(preId) {
+	hljs.configure({"tabReplace": "    "});
+	if(!preId) {
+		setTimeout(function() {
+			jQuery('pre code').each(function(i, block) {
+				var parentId = jQuery(block).parent().attr('id');
+				if(preBasket.indexOf(parentId) === -1) {
+					hljs.highlightBlock(block);
+				}
+			});
+		}, 200);
+	}
+	else {
+		preBasket.push(preId);
+		jQuery('pre#' + preId + ' code').each(function(i, block) {
 			hljs.highlightBlock(block);
 		});
-	}, 200);
+	}
 }
 
 function collapseExpand(el) {
