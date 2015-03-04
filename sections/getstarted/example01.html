@@ -59,14 +59,14 @@
 			Go ahead and switch between the two tabs below to see how the link was made between <b>testGet</b> API and its configuration for <b>IMFV</b> and how the input is being read in the API implementation.<br/><br/>
 		</p>
 		<tabset>
-			<tab heading="index.js" select="loadCode(path + 'example01/index.js', 'indexjs');">
+			<tab heading="index.js">
 				<br/>
-
+				<div ng-init="loadCode(path + 'example01/index.js', 'indexjs');"></div>
 				<div id="indexjs"></div>
 			</tab>
-			<tab heading="config.js" select="loadCode(path + 'example01/config.js', 'configjs');">
+			<tab heading="config.js">
 				<br/>
-
+				<div ng-init="loadCode(path + 'example01/config.js', 'configjs');"></div>
 				<div id="configjs"></div>
 			</tab>
 		</tabset>

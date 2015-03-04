@@ -38,6 +38,7 @@
 		</p>
 		</p>
 		<hr/>
+		<a id="provisioning"></a>
 		<h3><u>Import Provisioning</u></h3>
 
 
@@ -199,13 +200,12 @@ $ node index</code></pre>
 		For this example we will use similar APIs as those in <b>Example01</b>.
 		We will edit the service config and set "multitenant" to true, and "acl" to true in the <u>index.js</u> file where we declared the service.<br /><br />
 		<tabset>
-			<tab heading="index.js"
-			     select="loadCode(path + 'example03/index.js', 'indexjs');"><br/>
+			<tab heading="index.js"><br/>
+				<div ng-init="loadCode(path + 'example03/index.js', 'indexjs');">
 				<div id="indexjs"></div>
 			</tab>
-			<tab heading="config.js"
-			     select="loadCode(path + 'example03/config.js', 'configjs');"><br/>
-
+			<tab heading="config.js"><br/>
+				<div ng-init="loadCode(path + 'example03/config.js', 'configjs');">
 				<div id="configjs"></div>
 			</tab>
 		</tabset>
@@ -455,4 +455,5 @@ $ node index</code></pre>
 			</div>
 		</fieldset>
 	</div>
+	<script>renderCodeSnippets();</script>
 </div>

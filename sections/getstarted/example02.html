@@ -161,10 +161,12 @@ $ node index</code></pre>
 		The code of service <b>Example02</b> resembles <a href="#/getStarted/example01">Example01</a> with the exception of oauth which is set to true in the declaration.<br />
 		In this example we will use one of the APIs of <b>Example01</b>. Once we login with <b>oAuth user</b>, we will use the <b>Authorization</b> token to access this API.<br /><br />
 		<tabset>
-			<tab heading="index.js" select="loadCode(path + 'example02/index.js', 'indexjs');"><br/>
+			<tab heading="index.js"><br/>
+				<div ng-init="loadCode(path + 'example02/index.js', 'indexjs');"></div>
 				<div id="indexjs"></div>
 			</tab>
-			<tab heading="config.js" select="loadCode(path + 'example02/config.js', 'configjs');"><br/>
+			<tab heading="config.js"><br/>
+				<div ng-init="loadCode(path + 'example02/config.js', 'configjs');"></div>
 				<div id="configjs"></div>
 			</tab>
 		</tabset>

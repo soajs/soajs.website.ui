@@ -7,9 +7,10 @@ var product1 = {
 		{
 			"code": "PROD1_PCK1",
 			"name": "Package 1",
-			"description": "This is a test package. It offers the urac and example04",
+			"description": "This is a test package. It offers the urac, oauth and example04",
 			"acl": {
 				"urac": {},
+				"oauth": {},
 				"example04":{}
 			},
 			"_TTL": 172800
