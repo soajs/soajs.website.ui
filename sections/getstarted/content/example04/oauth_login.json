@@ -1,6 +1,7 @@
 {
   "token_type": "bearer",
-  "access_token": "e58751473112bca2ed939e0445e55b0f7921f544",
+  "access_token": "e59104df7256d2d0a77771303ea81fd68ed39e45",
   "expires_in": 3600,
-  "refresh_token": "bb09a2f5582425c4ef9440dcce5885cbbe743047"
+  "refresh_token": "edc6e671375dd000d79c2ecc589569469b4d4b9d",
+  "soajsauth": "Basic c29hanM6czAxNG11UTF1cjltZ0cwR05IQ1V5cWUxaWJtakwxb0lqaTA="
 }
