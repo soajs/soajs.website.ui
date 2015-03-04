@@ -202,11 +202,12 @@ $ node index</code></pre>
 		<tabset>
 			<tab heading="index.js"><br/>
 				<div ng-init="loadCode(path + 'example03/index.js', 'indexjs');">
-				<div id="indexjs"></div>
+				<div id="indexjs"></div></div>
 			</tab>
 			<tab heading="config.js"><br/>
 				<div ng-init="loadCode(path + 'example03/config.js', 'configjs');">
 				<div id="configjs"></div>
+					</div>
 			</tab>
 		</tabset>
 		<br>
@@ -454,6 +455,20 @@ $ node index</code></pre>
 				The user key configuration overrides the package configuration within the same user.
 			</div>
 		</fieldset>
+
+		<p>
+
+			Try to play around with additional tests and scenarios on <b>Example03</b> APIs.
+			You can edit the package and tenant records in the database to update the configurations.
+			Do not worry about messing things; you can always reset and reload the provisioning for a clean sample.
+		</p>
+		<p>
+			After you are done, we have one last example.
+			So far we have tried <b>oAuth</b> and multitenancy separately; visit <a href="#/getStarted/example04">Example04</a> to test them all together.
+
+
+		</p>
+
 	</div>
 	<script>renderCodeSnippets();</script>
 </div>

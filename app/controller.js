@@ -52,7 +52,6 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$anchorScrol
 
 	$scope.goToAnchor = function(section, anchor) {
 		$location.path("/" + section + "/" + anchor);
-
 	};
 
 	$scope.$on('$routeChangeSuccess', function() {
@@ -68,7 +67,7 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$anchorScrol
 			}
 		};
 		$scope.scrollToAnchor();
-
+		// TODO make generic
 		$scope.currentLocation = '#/' + $location.path().split("/")[1];
 	});
 
