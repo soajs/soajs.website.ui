@@ -10,14 +10,10 @@ var test = {
 	"description": "this is a description for test tenant",
 	"applications": [
 		{
-			"product": "TPROD",
-			"package": "TPROD_BASIC",
+			"product": "PROD1",
+			"package": "PROD1_PCK1",
 			"appId": ObjectId("30d2cb5fc04ce51e06000001"),
 			"description": "this is a description ...",
-			"acl": {
-				"urac": {},
-				"dashboard": {}
-			},
 			"_TTL": 604800000, // 7 days in milliseconds
 			"keys": [
 				{
@@ -25,50 +21,59 @@ var test = {
 					"extKeys": [
 						{
 							"expDate": new Date().getTime() + 604800000,
-							"extKey": "aa39b5490c4a4ed0e56d7ec1232a428f77",
-							"device": {},
-							"geo": {}
+							"extKey": "aa39b5490c4a4ed0e56d7ec1232a428f77...",
+							"device": {
+								"browser": "ff"
+							},
+							"geo": {
+								"ip": "127.0.0.1"
+							}
 						}
-						//more external keys....
 					],
 					"config": {
 						"urac": {
 							"hashIterations": 1024, //used by hasher
-							"seedLength": 32, //used by hasher
-							"link": {
-								"addUser": "http://.../#/setNewPassword",
-								"changeEmail": "http://.../#/changeEmail/validate",
-								"forgotPassword": "http://.../#/resetPassword",
-								"join": "http://.../#/join/validate"
-							},
-							// token expiry limit in seconds
-							"tokenExpiryTTL": 2 * 24 * 3600 * 1000,
-							//true if registration needs validation
-							"validateJoin": true,
-							"mail": { //urac mail options
-								"join": {
-									"subject": 'Welcome to SOAJS'
-								},
-								"forgotPassword": {
-									"subject": 'Reset Your Password at SOAJS'
-								},
-								"addUser": {
-									"subject": 'Account Created at SOAJS'
-								},
-								"changeUserStatus": {
-									"subject": "Account Status changed at SOAJS"
-								},
-								"changeEmail": {
-									"subject": "Change Account Email at SOAJS"
-								}
-							}
+							"seedLength": 32 //used by hasher
 						}
-						//more services ....
 					}
 				}
-				//more keys....
+			]
+		},
+		{
+			"product": "PROD1",
+			"package": "PROD1_PCK2",
+			"appId": ObjectId("54d2cb5be64ce51e06000005"),
+			"description": "this is a description ...",
+			"acl": {
+				"urac": {},
+				"example02": {},
+				"example03": {}
+			},
+			"_TTL": 604800000, // 7 days in milliseconds
+			"keys": [
+				{
+					"key": "e5eaaf5fdc35c164319330a8a0273feb6",
+					"extKeys": [
+						{
+							"expDate": new Date().getTime() + 604800000,
+							"extKey": "7bc1e66d003a3b2acfce1557cbda7320...",
+							"device": {},
+							"geo": {}
+						}
+					],
+					"config": {
+						"urac": {
+							"hashIterations": 1024, //used by hasher
+							"seedLength": 32 //used by hasher
+							// more configuartion
+						},
+						"example03": {
+							"tenantName": "My Test Tenant" //specific tenant info for service
+							// more configuartion
+						}
+					}
+				}
 			]
 		}
-		//more applications...
 	]
 };
