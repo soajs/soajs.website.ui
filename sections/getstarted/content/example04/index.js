@@ -13,7 +13,9 @@ var service = new soajs.server.service({
 service.get("/buildName", function(req, res) {
 	var tenant = '';
 	if(req.soajs.servicesConfig) {
-		tenant = req.soajs.servicesConfig.example04.tenantName || null;
+		if(req.soajs.servicesConfig.example04) {
+			tenant = req.soajs.servicesConfig.example04.tenantName || null;
+		}
 	}
 	
 	var name = req.soajs.inputmaskData.firstName + ' ' + req.soajs.inputmaskData.lastName;
