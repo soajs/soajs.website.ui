@@ -30,21 +30,15 @@
     "notes": "One Database where key is the dbName and properties are connection details."
   },
   {
-    "property": "REST",
+    "property": "services",
     "type": "String",
     "mandatory": "YES",
-    "notes": "List of REST API Services and their connection details."
+    "notes": "List of Services and their connection details."
   },
   {
-    "property": "REST > _conf",
+    "property": "services > entry",
     "type": "String",
     "mandatory": "YES",
-    "notes": "Global REST API Configuration applicable on all services."
-  },
-  {
-    "property": "REST > entry",
-    "type": "String",
-    "mandatory": "YES",
-    "notes": "One REST API Service where key is the name and properties are connection details."
+    "notes": "One Service where key is the name and properties are connection details."
   }
 ]

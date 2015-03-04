@@ -33,6 +33,7 @@
 		Checkout the <a href="" ng-click="goToAnchor('documentation','dashboard-services')">Dashboard</a> of <b>SOAJS</b> to learn how to create/manage both <b>products</b> and <b>tenants</b>.<br/>
 	</p>
 	<hr/>
+	<a id="productization-anchor"></a>
 	<h3><u>Productization</u></h3>
 
 	<p>
@@ -60,6 +61,7 @@
 	This product is stored in the database after it is created and is used by different tenants to grant them access to services written using <b>SOAJS</b>. Product records are located in <b>products</b> collection under <b>core_provision</b> database.
 	</p>
 	<hr/>
+	<a id="acl-anchor"></a>
 	<h3><u>Access Levels</u></h3>
 	<p>
 		When a service should serve different tenants, these tenants should be instructed on how to use the service. Access Levels (ACL) are applied through product packages. ACL can be overridden by tenants applications and URAC. First, let's explain how the ACL works then jump to how to use it and override it. <br /><br />
@@ -139,6 +141,7 @@
 		The cases and scenarios covered by <b>SOAJS Productization</b> are huge, the system is very flexible and expandable.<br /><br />
 	</p>
 	<hr/>
+	<a id="multitenancy-anchor"></a>
 	<h3><u>Multitenancy</u></h3>
 	<p>
 		<b>SOAJS</b> gives you the ability to create multiple tenants and assign product packages to them. A tenant represents a client, so to apply the concept of having one service serve several tenants differently such as <a href="#/documentation/urac">URAC</a>, we need to configure our service to use multitenancy, create tenants and assign keys to them and when making calls to the APIs of that service, specify the key of the tenant in those requests.<br /><br />

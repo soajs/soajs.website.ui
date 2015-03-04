@@ -17,22 +17,33 @@ var registry = {
 		}
 		//...
 	},
-	"rest": {
-		"_conf": {
-			"cors": {
-				"enabled": true,
-				"origin": '*'
-				//...
-			},
-			"oauth": {
-				"grants": ['password', 'refresh_token'],
-				"debug": false
-			},
-			"cookie": {"secret": "this is a secret sentence"},
-			"session": {
-				"name": "soajsID"
-				//...
+	"services": {
+		"controller": {
+			"port": 4000,
+			"host": "rest-proxy",
+			"maxPoolSize": 100,
+			"requestTimeout": 30,
+			"requestTimeoutRenewal": 0,
+			"authorization": true
+		},
+		"urac": {
+			"extKeyRequired": true,
+			"port": 4001,
+			"host": "rest-proxy",
+			"url": "http://rest-proxy:4000/urac",
+			"mail": {
+				"join": "mail/urac/join.tmpl",
+				"forgotPassword": "mail/urac/forgotPassword.tmpl",
+				"addUser": "mail/urac/addUser.tmpl",
+				"changeUserStatus": "mail/urac/changeUserStatus.tmpl",
+				"changeEmail": "mail/urac/changeEmail.tmpl"
 			}
+		},
+		"oauth": {
+			"extKeyRequired": true,
+			"port": 4002,
+			"host": "rest-proxy",
+			"url": "http://rest-proxy:4000/oauth"
 		},
 		//...
 		"example01": {
