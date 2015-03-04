@@ -4,7 +4,6 @@ var config = require('./config.js');
 var serviceName = "example02";
 
 var service = new soajs.server.service({
-	"serviceName": serviceName,
 	"oauth": true,
 	"session": true,
 	"config": config
@@ -16,5 +15,4 @@ service.get("/buildName", function(req, res) {
 		fullName: fullName
 	}));
 });
-
 service.start();

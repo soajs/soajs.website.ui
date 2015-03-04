@@ -1,10 +1,8 @@
 'use strict';
 var soajs = require('soajs');
 var config = require('./config.js');
-var serviceName = "example01";
 
 var service = new soajs.server.service({
-	"serviceName" : serviceName,
 	"config": config
 });
 
