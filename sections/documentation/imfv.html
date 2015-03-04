@@ -56,13 +56,13 @@ service.post("/login", function(req, res) {
 	<hr/>
 	<h3><u>Sources List:</u></h3>
 	<p>
-		<b>IMFV</b> can fetch an input from different sources if configured to do so. In the case above, the sources array has only one entry which is <b>"query.firstName"</b>. You can configure <b>IMFV</b> to look in other sources for the input. If the first source doesn't contain the input value, <b>IMFV</b> will jump to the next one and so on till the entire sources array has been processed.
+		<b>IMFV</b> can fetch an input from different sources if configured to do so. In the case above, the "source" array has only one entry which is <b>"query.firstName"</b>. However, you can configure <b>IMFV</b> to look in multiple sources for the input. If the first source doesn't contain the input value, <b>IMFV</b> will jump to the next one and so on till the entire "source" array has been processed.
 		<pre><code class="javascript">"input":{
 	"firstName" : {
 		"source": ["query.firstName", "body.firstName", "session.firstName", ...]
 	}
-}</code>
-		</pre>
+}</code></pre>
+	<em>IMFV will look for "firstName" in the following sources, in this order: query string, then posted body, then session... </em>
 	</p>
 	<hr/>
 	<h3><u>Default Values:</u></h3>

@@ -13,7 +13,7 @@
 		<hr/>
 		<h3><u>Import Provisioning</u></h3>
 		<p>
-			In <a href="#/getStarted/example03">Example03</a>, we provisioned some data in order to test the service.
+			In <a _href="#/getStarted/example03" ng-click="goToAnchor(&quot;getStarted/example03&quot;,'provisioning')">Example03</a>, we provisioned some data in order to test the service.
 			If you modified the data in the database, we suggest you repeat the provisioning step.
 			If the data in the database is still intact, skip this step.<br/><br/>
 		</p>
@@ -65,6 +65,7 @@ $ node index</code></pre>
 		<h4><u>The Tenant:</u></h4>
 
 		We will add an entry for "oauth" for Tenant 1. All other settings remain the same.
+		The "oauth" object has three entries: the secret phrase, the redirect Uri and grants.
 		<div ng-init="loadCode(path + 'example04/tenant1.js', 'tenant1');">
 			<div id="tenant1"></div>
 		</div>
