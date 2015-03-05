@@ -3,20 +3,20 @@
 <hr/>
 <div>
 	<p>
-		In SOAJS, provisioning is more related to providing a service with configuration and access controls loaded from the database.
-		In most cases, this information is specific per tenant and most likely differs between one tenant and the other causing the same service to behave and provide responses differently.
+		In SOAJS, provisioning refers to providing a service with configuration and access controls loaded from the database.
+		In most cases, this information is specific per tenant and most likely differs between one tenant and the other, causing the same service to behave and provide responses differently.
 		A service can be provided with up to three different configurations information.
 	<ol>
 		<li>
-			<b>Local Configuration:</b> refers to the configuration stored in <u>config.js</u> and is the same regardless of the tenant using this service or the environment it is operation in. <b>IMFV</b> uses such a configuration to validate the inputs which makes sense because inputs are
+			<b>Local Configuration:</b> refers to the configuration stored in <u>config.js</u> and is the same regardless of the tenant using this service or the environment it is operation in. <b>IMFV</b> uses such a configuration to validate the inputs; this makes sense because inputs are
 			validated the same way no matter where the service is running.<br/><br/>
 		</li>
 		<li>
-			<b>Registry Configuration:</b> refers to the configuration of a service depending on the environment it is running in. <b>DEV</b> environment is different than <b>PROD</b> environment, one might be used for development and thus might be deployed on a local machine and the other is most
+			<b>Registry Configuration:</b> refers to the configuration of a service depending on the environment it is running in. <b>DEV</b> environment is different from <b>PROD</b> environment. <b>DEV</b> is usually used for development and thus might be deployed on a local machine, while <b>PROD</b> is most
 			likely used on production with load balancing and sharded databases and in that case the configuration is definitely different than other environments.<br/><br/>
 		</li>
 		<li>
-			<b>Provisioned Configuration:</b> refers to configuration loaded from the database using a certain needle or event and is not affected by neither the environment where the service is running in nor the local configuration of the service. In <b>SOAJS</b>, tenants keys are used to load
+			<b>Provisioned Configuration:</b> refers to configuration loaded from the database using a certain needle or event and is not affected by neither the environment where the service is running, nor the local configuration of the service. In <b>SOAJS</b>, tenants keys are used to load
 			tenant configuration when making calls to a service API.<br/>
 			<b><u>Ex:</u></b>
 			<ul>
@@ -37,11 +37,11 @@
 	<h3><u>Productization</u></h3>
 
 	<p>
-		Once a service is created and ready to be used, one thought jumps in mind: <u>"how can i place this service code in one place and offer its functionality to more than one client?"</u><br/><br/>
-		<b>SOAJS</b> provides the ability to have the same service work with different clients (tenants) and to accomplish that, 2 things need to be done.
+		Once a service is created and ready to be used, one thought jumps to mind: <u>"how can i place this service code in one place and offer its functionality to more than one client?"</u><br/><br/>
+		<b>SOAJS</b> provides the ability to have the same service work with different clients (tenants); and to accomplish that, 2 things need to be done.
 	<ol>
 		<li>Productize the service</li>
-		<li>create tenants and tell them how to use the product</li>
+		<li>Create tenants and tell them how to use the product</li>
 	</ol>
 	</p><br/>
 
@@ -54,17 +54,17 @@
 	<br/>
 	The above code snippet illustrates one product record named <b>Product One</b> and this product has 3 packages.<br />
 	<ol>
-		<li><b>Package 1</b> has "urac" in its ACL property only and that means it offers access to that service only.</li>
+		<li><b>Package 1</b> has "urac" in its ACL property only, and that means it offers access to that service only.</li>
 		<li><b>Package 2</b> has 2 services in its ACL and therefore, using this package means both these services are available.</li>
 		<li><b>Package 3</b> is a bit more complex in how its ACL is built. It offers the access to the "urac" service and only one API from the "example03" service. Section <b>Access Levels</b> below, explains how to configure the ACL in depth.<br/></li>
 	</ol>
-	This product is stored in the database after it is created and is used by different tenants to grant them access to services written using <b>SOAJS</b>. Product records are located in <b>products</b> collection under <b>core_provision</b> database.
+	This product is stored in the database after it is created, and it is used by different tenants to grant them access to services written using <b>SOAJS</b>. Product records are located in <b>products</b> collection under <b>core_provision</b> database.
 	</p>
 	<hr/>
 	<a id="acl-anchor"></a>
 	<h3><u>Access Levels</u></h3>
 	<p>
-		When a service should serve different tenants, these tenants should be instructed on how to use the service. Access Levels (ACL) are applied through product packages. ACL can be overridden by tenants applications and URAC. First, let's explain how the ACL works then jump to how to use it and override it. <br /><br />
+		When a service is made to serve different tenants, these tenants should be instructed on how to use the service. Access Levels (ACL) are applied through product packages. ACL can be overridden by tenants applications and URAC. First, let's explain how the ACL works then jump to how to use it and override it. <br /><br />
 		<b>SOAJS</b> ACL offers a lot of flexibility and can be used to grant access to a service or a particular API in that service or to specific groups.<br /><br />
 	</p>
 	<h4><u>Service Access:</u></h4>
@@ -96,12 +96,18 @@
 	"serviceName1":{
 		"access": false,
 		"apis": {
-			"/admin/listUsers": { "access": ["admin"] },
-			"/account/myAccount": { "access": true }
+			"/account/myAccount": { "access": true },
+			"/admin/listUsers": { "access": ["admin"] }
 		}
 	}
 }</code></pre>
-	The above snippet states that the access to "<b>serviceName1</b>" is granted publicly but to access <b>/account/myAccount</b> API, you need be a logged user and on top of that, to access <b>/admin/listUsers</b> you need to be logged in and you need belong to the <b>admin</b> group otherwise you are not allowed to access this api.<br /><br />
+	The above snippet states the following:<br>
+	- the access to "<b>serviceName1</b>" is granted publicly<br>
+	- but to access <b>/account/myAccount</b> API specifically, you need be a logged in user, <br>
+	- and also, to access <b>/admin/listUsers</b> you need to be logged in and you need to belong to the <b>admin</b> group,
+	otherwise you are not allowed to access this api.<br />
+	<em>So all other APIs of this service, except <b>/account/myAccount</b> and <b>/admin/listUsers</b> are available without login.</em>
+	<br /><br />
 	The above method demonstrated how to specify each API in a service and apply the ACL to it. What if you have 10 APIs under <b>/account/</b> or 20 APIs under <b>/admin/</b>, it doesn't make sense to add 30 entries in an ACL object. Let's group all similar APIs under one entry and apply the same ACL on all of them once.
 	<pre><code class="javascript">"acl": {
 	"serviceName1":{
@@ -116,10 +122,10 @@
 		]
 	}
 }</code></pre>
-	Now things make more sense, all APIs accessible by <b>Admin</b> group only start with <b>/admin/...</b> and those that the user can access after her logs in like "edit profile", "change password" ...etc, start with <b>/account/...</b> and require a logged in user to be accessed.<br /><br />
+	Now things make more sense; all APIs accessible by <b>Admin</b> group only start with <b>/admin/...</b> and those that the user can access after he logs in like "edit profile", "change password" ...etc, start with <b>/account/...</b> and require a logged in user to be accessed.<br /><br />
 	<h4><u>Restricted Access</u></h4>
 	<p>
-		There are cases where access to only one API in a service should be granted. All other APIs are not permitted to be used.
+		There are cases where access to only certain APIs in a service should be granted. All other APIs are not permitted to be used.
 		<pre><code class="javascript">"acl": {
 	"serviceName1":{
 		"apisPermission": "restricted",
@@ -136,7 +142,9 @@
 		]
 	}
 }</code></pre>
-		The above snippet demonstrates the usage of <b>apisPermission</b> that forces the ACL to restrict access to all APIs of a service except the ones mentioned in either <b>apis</b> or <b>apisRegExp</b> regarding <b>serviceName1</b> and also restricts access to <b>serviceName2</b> unless the API starts with <b>/account/</b>.<br /><br />
+		The above snippet demonstrates the usage of <b>apisPermission</b>; it forces the ACL to restrict access to all APIs of a service except the ones mentioned in either <b>apis</b> or <b>apisRegExp</b>.
+		For <b>serviceName1</b>, only <b>/account/myAccount</b> is available in this acl,
+		and for <b>serviceName2</b>, only the API routes that start with <b>/account/</b> are available.<br /><br />
 		<b>SOAJS</b> provides all possible solutions regarding how to grant access to services for tenants. Keep in mind that the above only shows the ACL of one package in a product. You can have different packages in a product with different ACL and you can also have different products with different packages.<br />
 		The cases and scenarios covered by <b>SOAJS Productization</b> are huge, the system is very flexible and expandable.<br /><br />
 	</p>
@@ -144,7 +152,7 @@
 	<a id="multitenancy-anchor"></a>
 	<h3><u>Multitenancy</u></h3>
 	<p>
-		<b>SOAJS</b> gives you the ability to create multiple tenants and assign product packages to them. A tenant represents a client, so to apply the concept of having one service serve several tenants differently such as <a href="#/documentation/urac">URAC</a>, we need to configure our service to use multitenancy, create tenants and assign keys to them and when making calls to the APIs of that service, specify the key of the tenant in those requests.<br /><br />
+		<b>SOAJS</b> gives you the ability to create multiple tenants and assign product packages to them. A tenant represents a client. So to apply the concept of having one service serve several tenants differently, such as <a href="#/documentation/urac">URAC</a>, we need to configure our service to use multitenancy, create tenants and assign keys to them. And when making calls to the APIs of that service, specify the key of the tenant in those requests.<br /><br />
 		<a href="#/getStarted/example02">Example02</a> demonstrates the usage of one tenant with both <a href="" ng-click="goToAnchor('documentation','oauth')">oAuth</a> and <b>Example02</b> services. <a href="#/getStarted/example03">Example03</a> demonstrates the usage of several tenants and in some cases, several applications of a tenant with <b>Example03</b> service.<br />
 	</p>
 	<hr/>

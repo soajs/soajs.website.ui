@@ -25,7 +25,6 @@ var tenant1 = {
 						"urac": {
 							"hashIterations": 1024,
 							"seedLength": 32,
-							"link": {},
 							"tokenExpiryTTL": 2 * 24 * 3600 * 1000
 						},
 						"example03": {

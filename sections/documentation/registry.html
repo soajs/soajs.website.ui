@@ -11,7 +11,7 @@
         <br/><br/>
 		The registry is located in "<b>soajs/modules/soajs.core/registry/</b>".
         <br/><br/>
-        Every Project can run in different environments where you define for each environment, the DB configuration, the templates, the services and their options. The default one is <b>dev</b>.
+        Every Project can run in different environments. You define for each environment: the DB configuration, the templates, the services and their options. The default one is <b>dev</b>.
         <br/><br/>
         Projects also have templates and configuration files that are used inside the running environment. Configure your database connection and place your service templates in these
         designated areas.
@@ -23,7 +23,7 @@
     <p>
     <h4><u>1- General Registry Information</u></h4>
 
-    <p>Create and environment and give it a name and a version<br/>
+    <p>Create an environment and give it a name and a version<br/>
 		<pre><code class="javascript">var registry ={
 	"name": "dev",
 	"version": "0.1",
@@ -35,7 +35,7 @@
     <h4><u>2- Database Configuration</u></h4>
 
     <p>
-	    Define the connection to the database using this environment works; db name, prefix, server location, credentials … etc.<br/>
+	    Define the connection to the database for this environment; db name, prefix, server location, credentials … etc. (different environments can have different database connections)<br/>
         <pre><code class="javascript">"coreDB": {
 	"dashboard": {
 		"name": "core_dashboard",
@@ -52,12 +52,18 @@
     <a id="rest-apis"></a>
     <h4><u>3- REST APIs Configuration</u></h4>
 
-    <p>
-	    Define the services by providing host, port, url and extKeyRequired;
-	    <ul>
-			<li><b>extKeyRequired:</b>set this value to false for services that are public and accessible without providing tenant keys.</li>
-			<li><b>extKeyRequired:</b>set this value to true for services that are only accessible if a tenant key is provided in the request.</li>
+    <p>Define the services by providing host, port, url and extKeyRequired.<br>
+	<ul>
+		<li>host: The host of the service</li>
+		<li>port: The port that the service is listening on</li>
+		<li>url: The url to access the service on this environment</li>
+		<li>extKeyRequired:
+		<ul>
+			<li><b>when <u>extKeyRequired</u> is false:</b> set it to false for services that are public and accessible without providing tenant keys.</li>
+			<li><b>when <u>extKeyRequired</u> is  true:</b> set it to true for services that are only accessible if a tenant key is provided in the request.</li>
 		</ul>
+		</li>
+	</ul>
         <pre><code class="javascript">"services": {
     "controller": {
         "extKeyRequired": false,
@@ -96,9 +102,11 @@
     }
     //...
 }</code></pre>
-		The above snippet shows 5 services each having different information configured. Services like <b>Controller</b>, and <b>example01</b> do not need <u>tenant keys</u> to work and that is why <b>extKeyRequired</b> is set to <u>false</u>. Services like <b>Urac</b>, and <b>OAuth</b> need a <u>tenant key</u> to be accessible so their <b>extKeyRequired</b> is set to <u>true</u>.<br /><br />
-		Notice that <b>extKeyRequired</b>, <b>port</b>, <b>url</b> and <b>host</b> are common among all services; these attributes are the default attributes when declaring a service. Other attributes are additional and considered service specific such as <b>Urac.mail</b> that tells the service where the <u>templates</u> location for <u>email notification</u> is located.<br /><br />
-		Every service require the default attributes to exist so that it can function. Some services based on their business logic might have additional properties, that are dependent on the environment they work in, to be provided so they can function like the <b>Urac</b> and <b>Controller</b> as shown above.
+		The above snippet shows 4 services; each having different information configured. Services like <b>Controller</b>, and <b>example01</b> do not need <u>tenant keys</u> to work and that is why <b>extKeyRequired</b> is set to <u>false</u>. Services like <b>Urac</b>, and <b>OAuth</b> need a <u>tenant key</u> to be accessible so their <b>extKeyRequired</b> is set to <u>true</u>.<br /><br />
+		Notice that <b>extKeyRequired</b>, <b>port</b>, <b>url</b> and <b>host</b> are common among all services; these attributes are the default attributes when declaring a service. Other attributes are additional and considered service specific, such as <b>Urac.mail</b>; it tells the service where the <u>templates</u> for <u>email notification</u> are located.<br /><br />
+		Every service requires the default attributes to exist so that it can function.
+		Based on their business logic, some services  might need additional properties to be provided so they can function, like the <b>Urac</b> and <b>Controller</b> shown above.
+		These properties are dependent on the running environment.
 	</p>
 
     </p>

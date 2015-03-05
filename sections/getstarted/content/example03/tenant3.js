@@ -26,11 +26,11 @@ var tenant3 = {
 						"urac": {
 							"hashIterations": 1024, //used by hasher
 							"seedLength": 32, //used by hasher
-							"link": {},
 							"tokenExpiryTTL": 2 * 24 * 3600 * 1000
 						},
-						"example03": { "tenantName":"Client Three"}
-
+						"example03": {
+							"tenantName": "Client Three"
+						}
 					}
 				}
 			]

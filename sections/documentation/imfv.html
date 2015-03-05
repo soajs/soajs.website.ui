@@ -28,7 +28,7 @@ module.exports={
 }</code>
 		</pre>
 		When an error in the service occurs, the service will return back to the user a code and a message for clarification.
-		To use the error codes inside the service code <u>index.js</u>, use <b>req.soajs.buildRestResponse</b> and provide the error object constructed from the code and the message as the first parameter.
+		To use the error codes inside the service code <u>index.js</u>, use <b>req.soajs.buildRestResponse</b> and provide the error object as the first parameter. The error object is constructed from the code and the message.
 		<pre><code class="javascript">//inside index.js
 var config = require("./config");
 var service = new soajs.server.service(...);
@@ -135,9 +135,9 @@ service.post("/login", function(req, res) {
 			"additionalProperties": false
 		}
 	}
-}</code>
-		</pre>
-	</p>
+}</code></pre>
+	<em>When the type is "array", define what is the type of the items in the array under "items".</em>
+	</p><br>
 	<p>
 		<u>array:</u> this input can hold different items from all mentioned types, each item can have any type mentioned.
 		<pre><code class="javascript">"users":{
@@ -175,7 +175,7 @@ service.post("/login", function(req, res) {
 }</code>
 		</pre>
 		<p>
-			When dealing with strings, keep in mind that a string can represent several types of inputs and thus this type is commonly used when providing an api with parameters. Therefore a format option has been added that validates the content of a string to determine if the value resembles the expected outcome. Here is a list of formats provided that can be used:
+			When dealing with strings, keep in mind that a string can represent several types of inputs and thus this type is commonly used when providing an api with parameters. Therefore a format option has been added to validate the content of a string and determine if the value resembles the expected outcome. Here is a list of the provided formats that can be used:
 		</p>
 		<table class="mytable" width="100%">
 			<thead>
@@ -250,9 +250,9 @@ service.post("/login", function(req, res) {
 	</p>
 	<br />
 	<hr/>
-	<h3><u>Complexe Schemas</u></h3>
+	<h3><u>Complex Schemas</u></h3>
 	<p>
-		<b>IMFV</b> supports complex schemas such as arrays and objects where each of the two contains basic or even more complex schemas internally. It relies on <a href="http://json-schema.org/documentation.html" target="_blank">JSON Schema’s</a> operator such as <a href="http://json-schema.org/example2.html" target="_blank">oneOf</a>, <a href="http://json-schema.org/example2.html" target="_blank">anyOf</a>, <a href="http://json-schema.org/example2.html" target="_blank">allOf</a> in the cases where the same input might have different values.<br />
+		<b>IMFV</b> supports complex schemas such as arrays and objects, where each of the two contains basic or even more complex schemas internally. It relies on <a href="http://json-schema.org/documentation.html" target="_blank">JSON Schema’s</a> operator such as <a href="http://json-schema.org/example2.html" target="_blank">oneOf</a>, <a href="http://json-schema.org/example2.html" target="_blank">anyOf</a>, <a href="http://json-schema.org/example2.html" target="_blank">allOf</a> in the cases where the same input might have different values.<br />
 		<b>IMFV</b> also uses <a href="http://json-schema.org/example2.html" target="_blank">additionalProperties</a> and <a href="http://json-schema.org/example2.html" target="_blank">patternProperties</a>, from <a href="http://json-schema.org/latest/json-schema-validation.html" target="_blank">JSON Schema</a>, within object schemas giving you validation control on optional api fields and complex input names such as api routes.
 		<div ng-init="loadCode(path + 'imfv/advanced.js', 'advanced');">
 			<div id="advanced"></div>
@@ -262,38 +262,8 @@ service.post("/login", function(req, res) {
 	<h3><u>Common Fields:</u></h3>
 	<p>
 		<b>commonfields</b> is used in <b>IMFV</b> to group inputs that have similar mapping and validation. Consider you have 2 or more APIs that use the same input <b>"firstName"</b> and this input is read and validate the same way across those APIs. To avoid rewriting the configuration and make room for errors, add the input under <b>commonFields</b> then in every API configuration, reference its presence.
-		<pre><code class="javascript">
-//...
-"schema": {
-	"commonFields": {
-		"input": {
-			//add firstName to commonFields
-			"firstName": {
-				"source": ['query.firstName'],
-				"required": true,
-				"default": "John",
-				"validation": {
-					"type": "string"
-				}
-			}
-		}
-	},
-	"/api_route1": {
-		"input":{
-			"commonFields": ['firstName'], //reference firstName from common fields
-			"lastName" : { ... }
-		}
-	},
-	"/api_route2":{
-		"input": {
-			"commonFields": ['firstName'], //reference firstName from common fields
-			"email" : { ... }
-		}
-	}
-}
-//...
-</code>
-		</pre>
+	<div ng-init="loadCode(path + 'imfv/commonFields.js', 'commonFieldsFull');"></div>
+		<div id="commonFieldsFull"></div>
 	</p>
 	<hr/>
 	<h3><u>Usage:</u></h3>
@@ -310,12 +280,12 @@ service.post("/login", function(req, res) {
 	//...
 };
 </code></pre>
-		As illustrated in the above code, <u>username</u> input regardless of the source that provided it, can now be accessed from <b>req.soajs.inputmaskData</b> object. The same applies to all other inputs passed to the requested API.<br /><br />
+		As illustrated in the above code, regardless of the source that provided it, <u>username</u> input can now be accessed from <b>req.soajs.inputmaskData</b> object. The same applies to all other inputs passed to the requested API.<br /><br />
 	</p>
 	<hr/>
 	<h3><u>Full Sample:</u></h3>
 	<p>
-		The following is a snippet of both <u>config.js</u> and <u>index.js</u> used together to implement a service that is built with <b>SOAJS</b> that focuses on how to use the errors and <b>IMFV</b> schema validation.<br /><br />
+		The following is a snippet of both <u>config.js</u> and <u>index.js</u> used together to implement a service that is built with <b>SOAJS</b>; it focuses on how to use the errors and <b>IMFV</b> schema validation.<br /><br />
 	</p>
 	<tabset>
 		<tab heading="Service Index">
