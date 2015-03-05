@@ -9,7 +9,6 @@ req.soajs = {
 	// the logger object
 	"log" : {"error" : function(){}},
 
-
 	// rest response object
 	"restResponse": {},
 

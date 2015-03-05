@@ -63,11 +63,15 @@
     <hr/>
     <br/>
     <tabset>
-        <tab heading="index.js" select="loadCode(path + 'service/index.js', 'indexjs');">
-            <br /><div id="indexjs"></div>
+        <tab heading="index.js">
+            <br />
+	        <div ng-init="loadCode(path + 'service/index.js', 'indexjs');"></div>
+	        <div id="indexjs"></div>
         </tab>
-        <tab heading="registry" select="loadCode(path + 'service/registry.js', 'registryjs');">
-            <br /><div id="registryjs"></div>
+        <tab heading="registry" select="">
+            <br />
+	        <div ng-init="loadCode(path + 'service/registry.js', 'registryjs');"></div>
+	        <div id="registryjs"></div>
         </tab>
         <tab heading="config.js">
             <br />
