@@ -58,15 +58,16 @@ $ node index</code></pre>
 			<div id="product1"></div>
 		</div>
 		<br>
-		We added "oauth" and "example04" services to the acl of the first package.
-		Now this package has access to them, and we can use them in our example.
+		We added "example04" service to the acl of the first package.
+		Now this package has access to it, and we can use its APIs in our example.
 		<br/><br/>
 
 		<h4><u>The Tenant:</u></h4>
-
 		We will add an entry for "oauth" for Tenant 1.
 		The "oauth" object has three entries: the secret phrase, the redirect Uri and grants.
-		We also need to add an entry under "config" for "example04".
+		For the first application, we need to add an entry under "config" for "example04".
+		For the second application, and because it overrides the default acl of the package,
+		we need to grant access to the "example04" service. So the second application can now use it too.
 		All other settings remain the same.
 		<div ng-init="loadCode(path + 'example04/tenant1.js', 'tenant1');">
 			<div id="tenant1"></div>
@@ -109,8 +110,7 @@ $ node index</code></pre>
 				<em>The tenant's first application uses <b>PROD1_PCK1</b> package, which has "example04" in its ACL.</em>
 				<br>
 				We will try to hit "example04/buildName" using the external key of the first app from the first tenant:<br/>
-				<pre><code class="bash">$ curl -X GET -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://rest-proxy:4000/example04/buildName?lastName=Smith"
-				</code></pre>
+				<pre><code class="bash">$ curl -X GET -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://rest-proxy:4000/example04/buildName?lastName=Smith"</code></pre>
 				<h6>Response:</h6>
 
 				<div ng-init="loadJSON(path + 'example04/tenant1_test1.json', 'tenant1_test1');">
@@ -124,7 +124,7 @@ $ node index</code></pre>
 			<div> Like in <a href="#/getStarted/example02">Example02</a>, we need to login to oAuth.
 			      We need to call "oauth/token" and provide two values in the headers:<br>
 				- The external key value from Tenant 1.<br>
-				- Authorization, which it is generated from (tenantId:secret_phrase).  So for Tenant 1
+				- Authorization, which is generated from (tenantId:secret_phrase).  So for Tenant 1,
 			in this case it is (<b>54ee2150b7a669fc22b7f6b9</b>:<b>My secret phrase</b>) which evaluates to "NTRlZTIxNTBiN2E2NjlmYzIyYjdmNmI5Ok15IHNlY3JldCBwaHJhc2U=".<em></em><br /><br />
 
 
@@ -143,7 +143,7 @@ $ node index</code></pre>
 		<fieldset>
 			<legend>Call Api again with oAuth token</legend>
 			<div>
-				We will hit "example04/buildName" again with access_token as an additional query parameter:
+				We will hit "example04/buildName" again with "access_token" as an additional query parameter:
 				<pre><code class="bash">$ curl -X GET -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://rest-proxy:4000/example04/buildName?lastName=Smith&access_token=e59104df7256d2d0a77771303ea81fd68ed39e45"</code></pre>
 				<h6>Response:</h6>
 				<div ng-init="loadJSON(path + 'example04/response1.json', 'response1');">
