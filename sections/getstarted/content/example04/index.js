@@ -19,7 +19,7 @@ service.get("/buildName", function(req, res) {
 	}
 	
 	var name = req.soajs.inputmaskData.firstName + ' ' + req.soajs.inputmaskData.lastName;
-	res.json(req.soajs.buildRestResponse(null, {
+	res.json(req.soajs.buildResponse(null, {
 		tenantName: tenant,
 		fullName: name
 	}));

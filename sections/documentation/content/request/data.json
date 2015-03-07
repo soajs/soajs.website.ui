@@ -16,7 +16,7 @@
     "purpose": "this object will help to standardize your api responses."
   },
   {
-    "property": "req.soajs.buildRestResponse",
+    "property": "req.soajs.buildResponse",
     "purpose": "this function builds the standardized json response returned by the api."
   },
   {

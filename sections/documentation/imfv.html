@@ -28,19 +28,19 @@ module.exports={
 }</code>
 		</pre>
 		When an error in the service occurs, the service will return back to the user a code and a message for clarification.
-		To use the error codes inside the service code <u>index.js</u>, use <b>req.soajs.buildRestResponse</b> and provide the error object as the first parameter. The error object is constructed from the code and the message.
+		To use the error codes inside the service code <u>index.js</u>, use <b>req.soajs.buildResponse</b> and provide the error object as the first parameter. The error object is constructed from the code and the message.
 		<pre><code class="javascript">//inside index.js
 var config = require("./config");
 var service = new soajs.server.service(...);
 service.post("/login", function(req, res) {
 	//...
 	if(req.soajs.inputmaskData.username === ''){
-		return res.jsonp(req.soajs.buildRestResponse({"code": 402, "msg": config.errors[402]}));
+		return res.jsonp(req.soajs.buildResponse({"code": 402, "msg": config.errors[402]}));
 	}
 	//...
 };
 		</code></pre>
-		<b>SOAJS</b> built-in <b>buildRestResponse</b> takes 2 parameters, the first being an error object and the second being the response. In most cases, when there is no error, there is a response and vise-versa.<br /><br />
+		<b>SOAJS</b> built-in <b>buildResponse</b> takes 2 parameters, the first being an error object and the second being the response. In most cases, when there is no error, there is a response and vise-versa.<br /><br />
 	</p>
 	<hr/>
 	<h3><u>Sample Schema</u></h3>
@@ -275,7 +275,7 @@ var service = new soajs.server.service(...);
 service.post("/login", function(req, res) {
 	//...
 	if(req.soajs.inputmaskData.username === ''){
-		return res.jsonp(req.soajs.buildRestResponse({"code": 402, "msg": config.errors[402]}));
+		return res.jsonp(req.soajs.buildResponse({"code": 402, "msg": config.errors[402]}));
 	}
 	//...
 };

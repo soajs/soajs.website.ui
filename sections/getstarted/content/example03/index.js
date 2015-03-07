@@ -13,14 +13,14 @@ var service = new soajs.server.service({
 service.get("/buildName", function (req, res) {
 	var tenant = req.soajs.servicesConfig.example03.tenantName|| null ;
 	var name = req.soajs.inputmaskData.firstName +' ' + req.soajs.inputmaskData.lastName ;
-	res.json(req.soajs.buildRestResponse(null,{
+	res.json(req.soajs.buildResponse(null,{
 		tenantName:tenant,
 		fullName:name
 	}));
 });
 
 service.get("/testGet", function (req, res) {
-	res.json(req.soajs.buildRestResponse(null,{
+	res.json(req.soajs.buildResponse(null,{
 		firstName:req.soajs.inputmaskData.firstName,
 		lastName:req.soajs.inputmaskData.lastName
 	}));
