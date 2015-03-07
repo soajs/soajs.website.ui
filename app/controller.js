@@ -51,24 +51,39 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$anchorScrol
 	$scope.today = new Date().getTime();
 
 	$scope.goToAnchor = function(section, anchor) {
+		console.log("goToAnchor: /" + section + "/" + anchor);
 		$location.path("/" + section + "/" + anchor);
 	};
 
 	$scope.$on('$routeChangeSuccess', function() {
+		console.log( ' on routeChangeSuccess '  );
 		$scope.scrollToAnchor = function() {
 			if($routeParams && $routeParams.anchor) {
 				$timeout(function() {
+					var old = $location.hash();
 					$location.hash($routeParams.anchor);
 					var padEl = angular.element(document.getElementById($routeParams.anchor));
 					padEl.html("<br/> <br/> <br/>");
 					$compile(padEl.contents())($scope);
 					$anchorScroll();
+					//reset to old to keep any additional routing logic from kicking in
+					$location.hash(old);
+					console.log(  '3. abs Url: '+ $location.absUrl());
 				}, 100, false);
 			}
 		};
 		$scope.scrollToAnchor();
-		// TODO make generic
-		$scope.currentLocation = '#/' + $location.path().split("/")[1];
+		// TO DO make generic
+		console.log( ' path '+$location.path() + '; absUrl: '+ $location.absUrl());
+		if($routeParams.anchor)
+		{
+			/*
+			var p = $location.path().split($routeParams.anchor);
+			$scope.currentLocation = '#' + p[0];
+			*/
+		}
+
+
 	});
 
 }]);
