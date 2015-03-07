@@ -13,7 +13,7 @@ req.soajs = {
 	"restResponse": {},
 
 	// build a restResponse and returns it
-	"buildRestResponse": function (error, data) {},
+	"buildResponse": function (error, data) {},
 
 	// the validator object
 	"validator" : {},

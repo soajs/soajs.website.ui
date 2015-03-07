@@ -11,7 +11,7 @@ var service = new soajs.server.service({
 
 service.get("/buildName", function(req, res) {
 	var fullName = req.soajs.inputmaskData.firstName + ' ' + req.soajs.inputmaskData.lastName;
-	res.json(req.soajs.buildRestResponse(null, {
+	res.json(req.soajs.buildResponse(null, {
 		fullName: fullName
 	}));
 });

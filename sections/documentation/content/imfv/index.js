@@ -10,7 +10,7 @@ var service = new soajs.server.service({
 
 service.get("/testGet", function(req, res) {
 	//do some business logic here ...
-	res.json(req.soajs.buildRestResponse(null, {
+	res.json(req.soajs.buildResponse(null, {
 		id: req.soajs.inputmaskData.id,
 		firstName: req.soajs.inputmaskData.firstName
 	}));
@@ -18,7 +18,7 @@ service.get("/testGet", function(req, res) {
 
 service.post("/testPost", function(req, res) {
 	//do some business logic here ...
-	res.json(req.soajs.buildRestResponse(null, {
+	res.json(req.soajs.buildResponse(null, {
 		id: req.soajs.inputmaskData.id,
 		email: req.soajs.inputmaskData.email,
 		_TTL: req.soajs.inputmaskData._TTL,
