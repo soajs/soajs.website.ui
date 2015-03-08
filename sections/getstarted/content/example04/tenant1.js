@@ -51,6 +51,7 @@ var tenant1 = {
 			"acl": {
 				"urac": {},
 				"example03": {},
+				"oauth": {},
 				"example04": {}
 			},
 			"keys": [

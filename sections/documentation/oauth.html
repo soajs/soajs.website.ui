@@ -8,7 +8,7 @@
 				<img ng-src="images/documentation/oauth-config.png" class="image-border" style="margin:5px 0;" align="right"/>
 				<b>SOAJS</b> <b>oAuth</b> is a service that integrates with <a href="oauth.net/2/" target="_blank">oAuth 2.0</a>.<br/>
 				The service simply validates, refreshes and kills access tokens generated via <b>oAuth 2.0</b>.<br/><br/>
-				This service is useless by itself and is used by other services that requires <b>oAuth 2.0</b> security.<br/><br/>
+				This service is useless by itself and is used by other services that require <b>oAuth 2.0</b> security.<br/><br/>
 				When developing a <b>SOAJS</b> service, a configuration is provided to <b>SOAJS</b>.<br/>
 				If the configuration contains < <b>"oauth":true</b> >, then this service cannot be accessed unless an <b>oAuth 2.0</b> access token is provided in every request made to this service.
 			</p>
@@ -41,8 +41,8 @@ $ node index</code></pre>
 			</p>
 			<hr />
 			<h3><u>API:</u></h3>
-			<fieldset ng-repeat="(routeName, routeOptions) in oauth">
-				<legend>{{routeName}}</legend>
+			<fieldset ng-repeat="route in oauth">
+				<legend>{{route.routeName}}</legend>
 				<div>
 					<table class="myTable">
 						<thead>
@@ -55,7 +55,7 @@ $ node index</code></pre>
 							</tr>
 						</thead>
 						<tbody>
-							<tr ng-repeat="field in routeOptions.fields" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
+							<tr ng-repeat="field in route.fields" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
 								<td width="20%">{{field.parameter}}</td>
 								<td>{{field.type}}</td>
 								<td>{{field.source}}</td>
@@ -66,7 +66,7 @@ $ node index</code></pre>
 					</table>
 					<br/>
 					<h6><u>Command:</u></h6>
-					<pre><code class="bash">{{routeOptions.cmd}}</code></pre>
+					<pre><code class="bash">{{route.cmd}}</code></pre>
 				</div>
 			</fieldset>
 		</tab>
