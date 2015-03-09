@@ -12,10 +12,6 @@
     "purpose": "soajs gives you the ability to have unified and standardized api logging (error, debug, info, …). With the power of soajs.agent, the unified logging will be fed into elastic search and the soajs.dashboard.ui to give you amazing analytic information."
   },
   {
-    "property": "req.soajs.restResponse",
-    "purpose": "this object will help to standardize your api responses."
-  },
-  {
     "property": "req.soajs.buildResponse",
     "purpose": "this function builds the standardized json response returned by the api."
   },

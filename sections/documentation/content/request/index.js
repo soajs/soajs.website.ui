@@ -9,10 +9,7 @@ req.soajs = {
 	// the logger object
 	"log" : {"error" : function(){}},
 
-	// rest response object
-	"restResponse": {},
-
-	// build a restResponse and returns it
+	// build a response and returns it
 	"buildResponse": function (error, data) {},
 
 	// the validator object
