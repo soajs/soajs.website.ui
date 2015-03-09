@@ -14,16 +14,16 @@
 
 			<p>
 				The controller's main functionality is to perform heartbeat checks on the remaining services.<br/>
-				This approaches allows the self awareness feature that <b>SOAJS</b> offers.
+				This approach allows the self awareness feature that <b>SOAJS</b> offers.
 			</p>
 			<p>
-				If a service is down or does not exists, the controller will return a message back to the sender without crashing.<br/>
+				If a service is down or does not exist, the controller will return a message back to the sender without crashing.<br/>
 				When a new service is created or added to the cloud, the controller will detect its presence.<br/>
 				All requests to this new service will then be forwarded.
 			</p>
 			<p>
 				The Controller runs on port <b>4000</b>. To request a service in the cloud, simply add the service name after the port number.<br/>
-				To request a specific reoute in that service, type the route path after the service name.<br/><br/>
+				To request a specific route in that service, type the route path after the service name.<br/><br/>
 				<u>Ex:</u>
 			</p>
 			<pre><code class="bash">#CURL -X %method% http:// %controller host% : 4000 / %service name% / %route path% /
@@ -73,12 +73,13 @@ $ node index</code></pre><br />
 	<p>
 		<pre><code class="bash">CURL -X %method% "http://127.0.0.1:4000"</code></pre>
 		The sample demonstrates that to invoke <b>SOAJS</b> Controller, you only need to request the < <u>host</u> : <u>port</u> >.<br />
-		No need to pass arguments yet if you want to check that the controller is up and running.<br />
+		No need to pass arguments yet if the purpose is to check that the controller is up and running.<br />
 		By Default, the controller is configured to use port 4000 as specified in the <a href="" ng-click="goToAnchor('documentation', 'registry');">registry</a>.<br />
-		Keep in mind that calling the controller only will lead nowhere.<br />
+		Keep in mind that calling the controller only, will lead nowhere;
 		This is just to check that the service is running.<br />
 		<h6><u>Response:</u></h6>
 		<pre><code class="json" ng-bind-html="controller|json"></code></pre>
+	<em>The above shows the response of the call to: http://127.0.0.1:4000. No service is called yet</em>
 	</p>
 	<script>renderCodeSnippets();</script>
 </div>

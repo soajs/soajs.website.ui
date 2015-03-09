@@ -45,7 +45,7 @@ var navigation = [
     {
         'id': 'example03',
         'label': 'example03',
-        'url': '#/getStarted/example03',
+        'url': '#/getStarted/example03/:anchor?',
         'tplPath': 'sections/getstarted/example03.html',
         'scripts': ['sections/getstarted/controller.js']
     },
@@ -66,7 +66,7 @@ var navigation = [
     {
         'id': 'documentation',
         'label': 'documentation',
-        'url': '#/documentation/:section?',
+        'url': '#/documentation/:section?/:anchor?',
         'tplPath': 'sections/documentation/page.html',
         'scripts': ['sections/documentation/controller.js']
     }

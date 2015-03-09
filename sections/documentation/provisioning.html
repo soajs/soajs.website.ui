@@ -163,7 +163,7 @@
 		<div ng-init="loadCode(path + 'provisioning/tenant1.js', 'tenantjs');">
 			<div id="tenantjs"></div>
 		</div>
-		The above snippet represents one tenant records that is stored in the database <b>core_provision</b> under <b>tenants</b>. The tenant is named <b>Test Tenant</b>, disposes of <b>oAuth</b> security information and has an application array.
+		The above snippet represents one tenant records that is stored in the database <b>core_provision</b> under <b>tenants</b>. The tenant is called <b>Test Tenant</b>, holds <b>oAuth</b> security information and has an application array.
 	</p>
 	<br/>
 	<h4><u>Applications:</u></h4>
@@ -173,14 +173,14 @@
 
 	<p>
 		The above snippet represents an application in a tenant that uses <b>PROD1_PCK1</b> package and inherits the ACL from that package. Since <b>PROD_PCK1</b> provides access to the <b>URAC</b> service, this application can now use the service and give it some custom configuration as shown in the <b>config.urac</b> entry inside the <b>keys</b> array.<br />
-		Every application needs <b>keys</b> to function, without those <b>keys</b> the application by itself does nothing. Once a key is added to an application, the application can then provide <b>custom configuration</b> to a service and can dispose of external keys for that particular key.<br />
-		<b>External Keys</b> are used in requests made to a service, they are secured using <b>geo</b> and <b>device</b> security and have an <b>expiry date</b>; think of they as <b>license</b> keys. When used, these external keys are checked for device and geo and if valid, they are matched with the key represent. Now that the key has been identified, its configuration is loaded and in the cases above, for <b>URAC</b> the tenant configuration for this key is passed to the service for usage.<br /><br />
+		Every application needs <b>keys</b> to function, without those <b>keys</b> the application by itself does nothing. Once a key is added to an application, the application can then provide <b>custom configuration</b> to a service and can contains external keys for that particular key.<br />
+		<b>External Keys</b> are used in requests made to a service; they are secured using <b>geo</b> and <b>device</b> security and have an <b>expiry date</b>. Think of them as <b>license</b> keys. When used, these external keys are checked for device and geo location, and if valid, they are matched with the key represent. Now that the key has been identified, its configuration is loaded and in the cases above, for <b>URAC</b> the tenant configuration for this key is passed to the service for usage.<br /><br />
 	</p>
 	<div ng-init="loadJson(path + 'provisioning/app2.json', 'app2js');">
 		<div id="app2js"></div>
 	</div>
 	<p>
-		The above snippet is another application in a tenant that uses <b>PROD1_PCK2</b> package but this time, it overrides the ACL of that package with additional permissions. The application grants access to <b>URAC</b>, <b>Example02</b> and <b>Example03</b> and in the key configuration, both <b>URAC</b> and <b>Example03</b> have custom configuration. Keep in mind that the ACL configuration follows the same syntax whether used in packages or in applications.<br /><br />
+		The above snippet is another application in a tenant that uses <b>PROD1_PCK2</b> package, but this time it overrides the ACL of that package with additional permissions. The application grants access to <b>URAC</b>, <b>Example02</b> and <b>Example03</b> and in the key configuration, both <b>URAC</b> and <b>Example03</b> have custom configuration. Keep in mind that the ACL configuration follows the same syntax whether used in packages or in applications.<br /><br />
 	</p>
 	<hr/>
 	<h4><u>Tenant Full Sample:</u></h4>
@@ -189,7 +189,7 @@
 		<div ng-init="loadCode(path + 'provisioning/multitenancy.js', 'multitenancyjs');">
 			<div id="multitenancyjs"></div>
 		</div>
-		Using both <b>Productization</b> and <b>Multitenancy</b> and with the wide combination offered by the <b>Access Levels</b>, <b>SOAJS</b> gives you limitless power to build Service-Oriented Applications that service multiple tenants and confiure their access as you desire with very little effort and time.
+		Using both <b>Productization</b> and <b>Multitenancy</b> and with the wide combination offered by the <b>Access Levels</b>, <b>SOAJS</b> gives you limitless power to build Service-Oriented Applications that service multiple tenants, and configure their access as you desire with very little effort and time.
 	</p>
 	<script>renderCodeSnippets();</script>
 </div>
