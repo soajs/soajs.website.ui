@@ -31,14 +31,14 @@ var navigation = [
     {
         'id': 'example01',
         'label': 'example01',
-        'url': '#/getStarted/example01',
+        'url': '#/getStarted/example01/:anchor?',
         'tplPath': 'sections/getstarted/example01.html',
         'scripts': ['sections/getstarted/controller.js']
     },
     {
         'id': 'example02',
         'label': 'example02',
-        'url': '#/getStarted/example02',
+        'url': '#/getStarted/example02/:anchor?',
         'tplPath': 'sections/getstarted/example02.html',
         'scripts': ['sections/getstarted/controller.js']
     },

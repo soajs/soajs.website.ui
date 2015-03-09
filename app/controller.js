@@ -68,22 +68,10 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$anchorScrol
 					$anchorScroll();
 					//reset to old to keep any additional routing logic from kicking in
 					$location.hash(old);
-					console.log(  '3. abs Url: '+ $location.absUrl());
-				}, 100, false);
+					}, 100, false);
 			}
 		};
 		$scope.scrollToAnchor();
-		// TO DO make generic
-		console.log( ' path '+$location.path() + '; absUrl: '+ $location.absUrl());
-		if($routeParams.anchor)
-		{
-			/*
-			var p = $location.path().split($routeParams.anchor);
-			$scope.currentLocation = '#' + p[0];
-			*/
-		}
-
-
 	});
 
 }]);
