@@ -35,29 +35,21 @@ function sendMail( req, data, cb) {
 
 
 service.post("/sendMessage", function (req, res) {
-	//write your business logic here
 	var data = {  
 		email: req.soajs.inputmaskData['email'],
 		name: req.soajs.inputmaskData['name'],
 		purpose: req.soajs.inputmaskData['purpose'],
 		message: req.soajs.inputmaskData['message']
 	};
-	console.log(data);
 	sendMail( req, data, function(error) {
 		if(error) { 
 			console.log( error );
 			//req.soajs.log.error(error); 
 			return res.jsonp(req.soajs.buildResponse({"code": 100, "msg": config.errors[100]}));
 		}
+		console.log ( ' ** success **  ' );
 		return res.jsonp(req.soajs.buildResponse(null, 'mail sent'));
 	});
-	/*
-	res.json(req.soajs.buildResponse(null,{
-		fullName:fullName
-	}));
-	*/
 });
-
-// http://rest-proxy:4000/contactUs/sendMessage
 
 service.start();
