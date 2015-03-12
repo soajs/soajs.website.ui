@@ -43,6 +43,10 @@ service.post("/login", function(req, res) {
 		<b>SOAJS</b> built-in <b>buildResponse</b> takes 2 parameters, the first being an error object and the second being the response. In most cases, when there is no error, there is a response and vise-versa.<br /><br />
 	</p>
 	<hr/>
+	<!-- To do: Note: imfv gives full support if the type of the request is application json -->
+
+
+	<hr/>
 	<h3><u>Sample Schema</u></h3>
 	<p>
 		Every API has an entry inside the schema object; this is where you configure the inputs that it should receive and their validation.
@@ -57,10 +61,8 @@ service.post("/login", function(req, res) {
 	<h3><u>Sources List:</u></h3>
 	<p>
 		<b>IMFV</b> can fetch an input from different sources if configured to do so. In the case above, the "source" array has only one entry which is <b>"query.firstName"</b>. However, you can configure <b>IMFV</b> to look in multiple sources for the input. If the first source doesn't contain the input value, <b>IMFV</b> will jump to the next one and so on till the entire "source" array has been processed.
-		<pre><code class="javascript">"input":{
-	"firstName" : {
+		<pre><code class="javascript">"firstName" : {
 		"source": ["query.firstName", "body.firstName", "session.firstName", ...]
-	}
 }</code></pre>
 	<em>IMFV will look for "firstName" in the following sources, in this order: query string, then posted body, then session... </em>
 	</p>

@@ -3,18 +3,16 @@ var config = {
 	"schema": {
 		//api route
 		"/testGet": {
-			"input": {
-				'firstName': {
-					'source': ['query.firstName'],
-					'required': true,
-					'validation': {
-						'type': 'string',
-						format: 'alphanumeric'
-						//...
-					}
+			'firstName': {
+				'source': ['query.firstName'],
+				'required': true,
+				'validation': {
+					'type': 'string',
+					format: 'alphanumeric'
+					//...
 				}
-				//...
 			}
+			//...
 		}
 		//...
 	}
