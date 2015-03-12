@@ -12,16 +12,12 @@
 		}
 	},
 	"/api_route1": {
-		"input":{
 			"commonFields": ['firstName'], //reference firstName from common fields
 				"lastName" : { ... }
-		}
 	},
 	"/api_route2":{
-		"input": {
 			"commonFields": ['firstName'], //reference firstName from common fields
 				"email" : { ... }
-		}
 	}
 }
 //...
