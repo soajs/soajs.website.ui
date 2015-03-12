@@ -10,7 +10,7 @@ module.exports = {
 		"to":"admin@simplifycreation.com",
 		"subject": "Contact SOAJS",
 		"transport": {
-			"type": "smtp",
+			"type": "sendmail", // smtp , sendmail, direct
 			"options": {
 				'service': 'gmail',
 				"auth": {

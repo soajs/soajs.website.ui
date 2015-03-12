@@ -2,16 +2,14 @@
 var assert = require('assert');
 var request = require("request");
 var helper = require("../helper.js");
-var ex01 = null;
+var contactUs = helper.requireModule('./index');
 
 describe("contact us", function() {
 	
-	before(function(done) {
-		ex01 = helper.requireModule('./index');		
+	before(function(done) {		
 		setTimeout(function() {			
 			done();
-		}, 500);
-		
+		}, 500);		
 	});
 	
 	beforeEach(function(done) {

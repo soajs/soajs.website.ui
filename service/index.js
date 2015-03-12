@@ -25,8 +25,9 @@ function sendMail( req, data, cb) {
 	if(config.mail.content) {
 		mailOptions.content = config.mail.content;
 	} else {
-		mailOptions.path = '/opt/soajs/node_modules/soajs/modules/soajs.core/registry/profiles/default/templates/mail/contactUs/sendMessage.tmpl';
-	}
+		mailOptions.path = '/opt/essage.tmpl';req.soajs.registry.projectPath + '/templates/' + req.soajs.registry.services.contactUs.mail['sendMessage'] ;
+	}	
+	
 	console.log ( 'mailOptions: ' );
 	console.log(mailOptions);console.log ( ' ******************* ' );
 	
@@ -41,6 +42,7 @@ service.post("/sendMessage", function (req, res) {
 		purpose: req.soajs.inputmaskData['purpose'],
 		message: req.soajs.inputmaskData['message']
 	};
+	//req.soajs.servicesConfig
 	sendMail( req, data, function(error) {
 		if(error) { 
 			console.log( error );
