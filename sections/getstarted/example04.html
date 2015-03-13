@@ -58,8 +58,9 @@ $ node index</code></pre>
 			<div id="product1"></div>
 		</div>
 		<br>
-		We added "example04" and "oauth" services to the acl of the first package.
-		Now this package has access to them, and we can use their APIs in our example.
+		We added "example04" service to the acl of the first package.
+		Now this package has access to it, and we can use its APIs in our example.
+		We also added a fourth package with more complex acl options.
 		<br/><br/>
 
 		<h4><u>The Tenant:</u></h4>
@@ -67,11 +68,12 @@ $ node index</code></pre>
 		The "oauth" object has three entries: the secret phrase, the redirect Uri and grants.
 		For the first application, we need to add an entry under "config" for "example04".
 		For the second application, and because it overrides the default acl of the package,
-		we need to grant access to the "example04" and "oauth" services. So the second application can now use them too.
+		we need to grant access to the "example04" service. So the second application can now use it too.
 		All other settings remain the same.
 		<div ng-init="loadCode(path + 'example04/tenant1.js', 'tenant1');">
 			<div id="tenant1"></div>
 		</div>
+		We also added a third application for Tenant 1; it takes package 4.
 		<br>
 		<h4><u>oAuth User:</u></h4>
 		We need to create a new oAuth user record that is linked to Tenant 1.
@@ -153,8 +155,55 @@ $ node index</code></pre>
 				<br>
 			</div>
 		</fieldset>
+		Next, we will use the key from the third application to run more tests.
+		<fieldset>
+			<legend>Tenant 1: Application 3</legend>
+			<div>
+				The third application using PROD1_PCK4 allows access to "/buildName" only for logged in users.
+				We will hit "example04/buildName".
+				<pre><code class="bash">$ curl -X GET -H "key:4232477ed993d167ec13ccf8836c29c4c3eabd8dc5d6b29af1725af616353c2ef59ab49a11f64affc60fa73a48eda79187085b064d533fb2f2adccf3e48b41088765a3665c91a193cf13808d68194ecc2061ae81639b49c9f1a73150a3123254" "http://rest-proxy:4000/example04/buildName?lastName=Smith&access_token=e59104df7256d2d0a77771303ea81fd68ed39e45"</code></pre>
+				<h6>Response:</h6>
+				<div ng-init="loadJSON(path + 'example04/app3_response1.json', 'app3_response1');">
+					<div id="app3_response1"></div>
+				</div>
+				Failed! You need to login first. <em> </em>
+				<br>
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<legend>Login as user2 and try buildName</legend>
+			<div>
+				Login as user2 using the "urac/login" api, grab the soajsauth value and add it to the headers.
+				Now hit "example04/buildName".
+				<pre><code class="bash">$ curl -X GET -H "soajsauth:Basic c29hanM6czAxc1lfTGYzY0NqY1BBb3l4RnNDY1VUd1JLU2p3dlBSUzE=" -H "key:4232477ed993d167ec13ccf8836c29c4c3eabd8dc5d6b29af1725af616353c2ef59ab49a11f64affc60fa73a48eda79187085b064d533fb2f2adccf3e48b41088765a3665c91a193cf13808d68194ecc2061ae81639b49c9f1a73150a3123254" "http://rest-proxy:4000/example04/buildName?lastName=Smith&access_token=e59104df7256d2d0a77771303ea81fd68ed39e45"</code></pre>
+				<h6>Response:</h6>
+				<div ng-init="loadJSON(path + 'example04/app3_response2.json', 'app3_response2');">
+					<div id="app3_response2"></div>
+				</div>
+				Success! <em> </em>
+				<br>
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<legend>Try buildNameGold</legend>
+			<div>
+				Now, using the same soajsauth value in your headers,
+				hit "example04/buildNameGold".
+				<pre><code class="bash">$ curl -X GET -H "soajsauth:Basic c29hanM6czAxc1lfTGYzY0NqY1BBb3l4RnNDY1VUd1JLU2p3dlBSUzE=" -H "key:4232477ed993d167ec13ccf8836c29c4c3eabd8dc5d6b29af1725af616353c2ef59ab49a11f64affc60fa73a48eda79187085b064d533fb2f2adccf3e48b41088765a3665c91a193cf13808d68194ecc2061ae81639b49c9f1a73150a3123254" "http://rest-proxy:4000/example04/buildNameGold?lastName=Smith&access_token=e59104df7256d2d0a77771303ea81fd68ed39e45"</code></pre>
+				<h6>Response:</h6>
+				<div ng-init="loadJSON(path + 'example04/app3_response3.json', 'app3_response3');">
+					<div id="app3_response3"></div>
+				</div>
+				Acces denied! The api is only allowed for users who belong to the group called "gold".
+				<em>As was shown in Example03, user2 belongs only to group "silver".</em>
+				<br>
+			</div>
+		</fieldset>
+
 		<p>
-			Try to repeat any of the tests we ran on Tenant 1 in <a href="#getStarted/example03">Example03</a>.
+			Try to run more tests like we did in <a href="#getStarted/example03">Example03</a>.
 			You need to attach the <b>access_token</b> parameter to all your calls to reach the <b>Example04</b> service.
 		</p>
 
