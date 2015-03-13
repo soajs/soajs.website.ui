@@ -6,17 +6,25 @@ module.exports = {
 		"100": "Failed to send email"
 	},
 	"mail": {
-		"content": "<p>Dear Admin, <br /> Message from <b>{{ name }}</b> <br />Regards,<br/>SOAJS Team.</p>",
-		"to":"admin@simplifycreation.com",
-		"subject": "Contact SOAJS",
+		"to": "mike@soajs.org",
+		"subject": "Message from SOAJS Website Contact Us Section",
+		headers: {
+			type: 'object',
+			required: false,
+			additionalProperties: {
+				'type': 'string'
+			}
+		},
 		"transport": {
-			"type": "sendmail", // smtp , sendmail, direct
+			//"type": "sendmail", // smtp , sendmail, direct
+			"type": "smtp", // smtp , sendmail, direct
 			"options": {
 				'service': 'gmail',
 				"auth": {
 					'user': 'soajsnotifier@gmail.com',
 					'pass': 'Supernova1985'
 				}
+				//"path": "/usr/sbin/sendmail"
 			}
 		}
 		

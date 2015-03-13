@@ -12,7 +12,6 @@ var request = require("request");
 
 module.exports = {
 	requireModule : function (path) { 
-		//console.log( (process.env.APP_DIR_FOR_CODE_COVERAGE || '../') + path ) ; 
 		return require((process.env.APP_DIR_FOR_CODE_COVERAGE || '../') + path);
 	},
 	requester: function(method, params, cb) {
