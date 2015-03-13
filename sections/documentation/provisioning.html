@@ -109,39 +109,18 @@
 	<em>So all other APIs of this service, except <b>/account/myAccount</b> and <b>/admin/listUsers</b> are available without login.</em>
 	<br /><br />
 	The above method demonstrated how to specify each API in a service and apply the ACL to it. What if you have 10 APIs under <b>/account/</b> or 20 APIs under <b>/admin/</b>, it doesn't make sense to add 30 entries in an ACL object. Let's group all similar APIs under one entry and apply the same ACL on all of them once.
-	<pre><code class="javascript">"acl": {
-	"serviceName1":{
-		"access": false,
-		"apisRegExp": [
-			{
-				/^\/admin\/.+$/: { "access": ["admin"] } //All APIs starting with /admin/...
-			},
-			{
-				/^\/account\/.+$/: { "access": true } //All APIs starting with /account/...
-			}
-		]
-	}
-}</code></pre>
+	
+	<div ng-init="loadCode(path + 'provisioning/aclWithRegex.js', 'aclWithRegex');">
+		<div id="aclWithRegex"></div>
+	</div>
 	Now things make more sense; all APIs accessible by <b>Admin</b> group only start with <b>/admin/...</b> and those that the user can access after he logs in like "edit profile", "change password" ...etc, start with <b>/account/...</b> and require a logged in user to be accessed.<br /><br />
 	<h4><u>Restricted Access</u></h4>
 	<p>
 		There are cases where access to only certain APIs in a service should be granted. All other APIs are not permitted to be used.
-		<pre><code class="javascript">"acl": {
-	"serviceName1":{
-		"apisPermission": "restricted",
-		"apis": {
-			"/account/myAccount" : { "access" : true }
-		}
-	},
-	"serviceName2":{
-		"apisPermission": "restricted",
-		"apisRegExp": [
-			{
-				/^\/account\/.+$/: { "access": true } //All APIs starting with /account/...
-			}
-		]
-	}
-}</code></pre>
+		
+		<div ng-init="loadCode(path + 'provisioning/aclWithRegexRestricted.js', 'aclWithRegexRestricted');">
+			<div id="aclWithRegexRestricted"></div>
+		</div>
 		The above snippet demonstrates the usage of <b>apisPermission</b>; it forces the ACL to restrict access to all APIs of a service except the ones mentioned in either <b>apis</b> or <b>apisRegExp</b>.
 		For <b>serviceName1</b>, only <b>/account/myAccount</b> is available in this acl,
 		and for <b>serviceName2</b>, only the API routes that start with <b>/account/</b> are available.<br /><br />

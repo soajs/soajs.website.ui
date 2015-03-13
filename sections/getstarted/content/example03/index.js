@@ -12,6 +12,7 @@ var service = new soajs.server.service({
 
 service.get("/buildName", function (req, res) {
 	var tenant = req.soajs.servicesConfig.example03.tenantName|| null ;
+	// the value of "tenant" is read from the configuration of the service
 	var name = req.soajs.inputmaskData.firstName +' ' + req.soajs.inputmaskData.lastName ;
 	res.json(req.soajs.buildResponse(null,{
 		tenantName:tenant,
