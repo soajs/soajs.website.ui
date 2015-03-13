@@ -9,7 +9,7 @@
     "ts": 1425056730816,
     "status": "active",
     "profile": {},
-    "groups": [],
+    "groups": ['silver'],
     "config": {
       "packages": {},
       "keys": {}
