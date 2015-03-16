@@ -2,19 +2,19 @@
 <h1>SOAJS Service</h1>
 <hr />
 <div>
-    Building a service with <b>SOAJS</b> is straight forward; simply start by installing <b>SOAJS</b> using npm:
+    Building a service with <b>SOAJS</b> is straight forward; Start by installing <b>SOAJS</b> via npm:
 	<pre>
 		<code class="bash">$ npm install soajs</code>
 	</pre>
 	Once installed, a directory called <b>node_modules</b> will be created and <b>SOAJS</b> will be located inside it.<br />
-	Add your service next to the <b>node_modules</b> directory:<br />
+	Create your service next to the <b>node_modules</b> directory:<br />
     <img ng-src="images/documentation/service-folder-tree.png" align="right" style="margin-left:5px; margin-bottom:5px;" class="image-border"/>
     <ol>
         <li>Create a directory and name it as your service.<br/><u>Ex:</u> <span style="color:red;">"example01"</span>.</li>
         <li>Create 2 files in that directory:
             <ol>
-                <li><u><b>index.js</b></u> used to write your api service code.</li>
-                <li><u><b>config.js</b></u> used for <b>IMFV</b> and api configuration.</li>
+                <li><u><b>index.js</b></u> used to write your the code of the service APIs.</li>
+                <li><u><b>config.js</b></u> used for <b>IMFV</b> and custom service configuration.</li>
             </ol>
         </li>
     </ol>
@@ -22,24 +22,26 @@
     <br/>
     Navigate to the <a href="" ng-click="loadSection('registry');">Registry</a> of <b>SOAJS</b> and add an entry for your service under the <a href="" ng-click="loadSection('registry', 'rest-apis');">REST
     API Configuration</a>.<br/>
-    Configure your service in the registy by specifying:
+    Configure your service in the registry by specifying:
     <ol>
         <li>The host and port that the service is listening on.</li>
-        <li>If it requires a key to be accessible or not; boolean value. Setting this value to true means that this service requires a tenant key to be accessible. All requests to this service should include the tenant key in the headers, otherwise the service will not be invoked.</li>
+        <li>If it requires a key to be accessible or not (<b>boolean</b>).</li>
     </ol>
-    <u>Ex:</u><br>
+	<u>Note:</u> Setting <b>extKeyRequired</b> value to true means that this service requires a tenant key to be accessible. All requests to this service should include the tenant key in the headers, otherwise the service will not be invoked.
+	<br><br><u>Ex:</u><br>
     <img src="images/documentation/registry-example01.png" style="margin:5px 0;" class="image-border"/><br/><br/>
     <p>
         <em>
             Img 1. shows a standard entry in registry.<br/>
-            All requests pass through the controller running on port 4000 for security check before invoking the requested services.
+	        The Service named example01 does not require a tenant key to be accessible, runs on port 4010 and the host is rest-proxy.<br />
+	        Access this service is made through the controller which runs on port 4000 followed by the name of the service as a path parameter.
         </em><br/>
     </p>
     <hr/>
     <h4><u>Basic Example:</u></h4>
 
     <p>
-        The following example demonstrates how to write a service with <b>SOAJS</b> that has one route using the GET protocol.<br/>
+        The following example demonstrates how to write a service with <b>SOAJS</b> that has one route using the GET protocol.
         The service reads 2 inputs from the query string of the request, puts them in a JSON object and returns the object in the response.<br/><br/>
         <img src="images/documentation/example01.png" align="right" style="margin-left:5px; padding:0;" class="image-border"/>
 	    <!-- to do: update image -->
@@ -53,13 +55,10 @@
         <li><b>Line2-</b> Require <b>SOAJS</b> framework.</li>
         <li><b>Line3-</b> Require local configuration file.</li>
         <li><b>Line4-</b> Create a service using <b>SOAJS</b>.<br/><br/><br/></li>
-        <li><b>Line5-</b> Create api <b style="color:red;">“/testGet”</b> that uses the GET protocol. It takes a function with two input objects: the request <b>req</b>, and the response <b>res</b>.
-                          A <b>SOAJS</b> object is added to the <b>req</b>.</li>
-        <li><b>Line6-</b> The api is returning a json response.
-          It uses the <b>SOAJS</b> object added to the <b>req</b> to build the json response (through <b>“soajs.req.buildResponse”</b>)  and to capture the passed params to
-            the api from <b>“inputmaskData”</b>.
+        <li><b>Line5-</b> Create api <b style="color:red;">“/testGet”</b> that uses the GET protocol. It takes a function with two input objects: the request <b>req</b>, and the response <b>res</b>. A <b>SOAJS</b> object is added to the <b>req</b>.</li>
+        <li><b>Line6-</b> The api returns a json response. It uses the <b>SOAJS</b> object added to the <b>req</b> to build the json response (through <b>“req.soajs.req.buildResponse”</b>) and captures the passed params to the api from (<b>“req.soajs.inputmaskData”</b>).
         </li>
-        <li><b>Line11-</b> Start the api server</li>
+        <li><b>Line11-</b> Start the service.</li>
     </ul>
     </p>
     <br/>
@@ -90,12 +89,9 @@
 	<br/>
 	<h3><u>Starting the Service:</u></h3>
 	<p>
-		Before starting any service, install the <a href="#" ng-click="loadSection('imfv','controller');">Controller</a> of <b>SOAJS</b> and run it.
-		All requests to <b>SOAJS</b> services pass through the controller first for clearance checking.
-		To access a service, both the controller and the service should be running.<br /><br/>
+		Before starting any service, install the <a href="#" ng-click="loadSection('imfv','controller');">Controller</a> of <b>SOAJS</b> and run it. All requests to <b>SOAJS</b> services pass through the controller first for clearance checking. To access a service, both the controller and the service should be running.<br /><br/>
 
-		<b>soajs.util</b> is the main utility module for <b>SOAJS</b> and contains the controller.
-		Install this module via NPM and start the controller from within it, then navigate to your service and run it.
+		<b>soajs.util</b> is the main utility module for <b>SOAJS</b> and contains the controller. Install this module via NPM and start the controller within it, then navigate to your service and run it.
 		<pre><code class="bash">$ npm install soajs.util
 $ cd soajs.util/controller/
 $ node index
@@ -106,19 +102,15 @@ $ node index</code>
 		Your service is now running on the port you have assigned to it in the registry as explained at the top of the page.
 		You can access your service by hitting the url of the controller followed by the name of your service and its API.
 		<pre>
-			<code class="bash">curl -X GET "http://localhost:4000/example01/testGet</code>
+			<code class="bash">$ curl -X GET "http://localhost:4000/example01/testGet</code>
 		</pre>
 		The above snippet illustrates that the controller runs by default on <u>localhost</u> port <u>4000</u>.
-		Your service name is added to the path of the request and followed by the API it contains. <br/>
+		Your service name is added as a path parameter to the request and followed by the API it contains that you are trying to hit. <br/>
 	</p>
 	<hr/>
 	<h3><u>Maintenance Check:</u></h3>
 	<p>
-		By default, the controller runs on your localhost via port 4000.
-		Every service in <b>SOAJS</b> has its own default port and another maintenance port configured in the registry.
-		So when you start a service, the service will be listening to two ports at the same time; one to process the requests and another used for maintenance operations.<br />
-		You can access the maintenance port while the service is running and perform some maintenance operations like heartbeat checking and reload configuration.
-		To access the maintenance port of a service, add 1000 to its default port number, in this case 4000 + 1000 = 5000.<br/>
+		By default, the controller runs on your localhost via port 4000. Every service in <b>SOAJS</b> has its own default port and another maintenance port configured in the registry. So when you start a service, the service will be listening to two ports at the same time; one to process the requests and another used for maintenance operations.<br />
 	</p>
 	<fieldset>
 		<legend>Controller Default Port</legend>
@@ -141,6 +133,9 @@ $ node index</code>
 			<p><br/>On its own, the controller is useless but in this case, we just wanted to check that there is a response and verify that it is running and listening on port 4000.</p>
 		</div>
 	</fieldset>
+	<p>
+		You can access the maintenance port while the service is running and perform some maintenance operations like heartbeat checking and reload configuration. To access the maintenance port of a service, add 1000 to its default port number, in this case 4000 + 1000 = 5000.<br/>
+	</p>
 	<fieldset>
 		<legend>Controller Maintenance Port</legend>
 		<div>
@@ -168,17 +163,17 @@ $ node index</code>
 				<code class="bash">$ curl -X GET "http://localhost:5010/heartbeat"</code></pre>
 			<h6><u>Response:</u></h6>
 				<pre><code class="bash">{
-					"result":true,
-					"ts":1425054123486,
-					"service": {
-					"service":"example01",
-					"type":"rest",
-					"route":"/heartbeat"
-					}
-					}</code>
+"result":true,
+	"ts":1425054123486,
+	"service": {
+		"service":"example01",
+		"type":"rest",
+		"route":"/heartbeat"
+	}
+}</code>
 				</pre>
-			<p>Notice here that we used port <u>5010</u> to perform a <b>heartbeat</b> check. A heartbeat operation is made using the maintenance port of a service and that the maintenance port is equal to the port number of the service + 1000.<br />
-				In the image above, in <b>Registering the Service</b>, we registered example01 in <b>SOAJS</b> with port <u>4010</u> making the maintenance port of this service as <u>5010</u>.</p>
+			<p>Notice here that we used port <u>5010</u> to perform a <b>heartbeat</b> check. A heartbeat operation is made using the maintenance port of a service which is equal to the port number of the service + 1000.<br />
+				In the image above, in <b>Registering the Service</b>, we registered example01 in <b>SOAJS</b> with port <u>4010</u> making the maintenance port of this service <u>5010</u>.</p>
 		</div>
 	</fieldset>
 	<fieldset>
@@ -200,8 +195,8 @@ $ node index</code>
 }</code>
 				</pre>
 			<p>
-				Here we attempted to call <b>Example01</b> service without specifying any of its APIs. The returned response was a fail because basically there is no API defined in this service with the value "/" so this event is treated as if an invalid API route was called.<br /><br />
-				Another important thing to notice is how the URL of the service was constructed. Again, all requests to <b>SOAJS</b> services should pass through the <a href="#/documenation/controller">Controller</a> and this why the port used was <u>4000</u> and not <u>4010</u> even though <u>4010</u> is <b>Example01</b> service port in the registry.
+				Here we attempted to call <b>Example01</b> service without specifying any of its APIs. The returned response was a fail because basically there is no API defined in this service with to handle route "/" so this event is treated as if an invalid API route was called.<br /><br />
+				Another important thing to notice is how the URL of the service was constructed. Again, all requests to <b>SOAJS</b> services pass through the <a href="#/documenation/controller">Controller</a> and this why the port used was <u>4000</u> and not <u>4010</u> even though <u>4010</u> is <b>Example01</b> service port in the registry.
 			</p>
 		</div>
 	</fieldset>
