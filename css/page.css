@@ -594,6 +594,7 @@ a {
 
 .image-border {
     padding: 5px;
+    background-color: white;
     border: solid 1px #bbbbbb;
     box-shadow: 10px 10px 5px #888888;
 }
@@ -856,4 +857,8 @@ hr{
 .img-margin-l-b{
     margin-left:5px;
     margin-bottom:5px;
+}
+
+.padding-0{
+    padding:0px;
 }
