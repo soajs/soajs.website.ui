@@ -13,7 +13,7 @@
 			The diagram on the right shows that <a href="#/documentation/oauth">soajs.oauth</a> Service communicates with the <a href="#/documentation/controller">controller</a>. When a request is made, the <b>controller</b> invokes <b>soajs.oauth</b> service to validate this request and if the request is authorized, then the <b>controller</b> forwards the request to the secured service which in this case is referred to as "<b>Example02</b>".<br />
 		</p>
 		<hr/>
-		<h3><u>Installing oAuth</u></h3>
+		<h3>Installing oAuth</h3>
 		<p>
 			Like any other <b>SOAJS</b> service, <b>oAuth</b> can be installed via <b>NPM</b>:
 			<pre><code class="bash">$ npm install soajs.oauth</code>
@@ -23,7 +23,7 @@
 $ node index</code></pre>
 		</p>
 		<hr/>
-		<h3><u>oAuth General Information</u></h3>
+		<h3>oAuth General Information</h3>
 		<p>
 			To use <b>oAuth</b>, we need to create a <u>user record</u> then login with this user credentials, get the <u>token</u> and put that <u>token</u> in the consequent requests that follow. We also need a <b>tenant</b> that is configured to use <b>oAuth</b> so that when the user attempts to login, we can check the credentials of that user with the <b>oAuth secret</b> of that <b>tenant</b> and determine if they are valid or not.<br />
 			<img ng-src="images/getstarted/example02-oauth.png" style="margin:5px 0" /><br />
@@ -31,7 +31,7 @@ $ node index</code></pre>
 			You're probably thinking this is a lot to digest by now but as you keep reading, you will find that with <b>SOAJS</b> applying this security takes minimal effort and that these steps are pretty basic and straight forward.
 		</p>
 		<hr/>
-		<h3><u>Import Provisioning</u></h3>
+		<h3>Import Provisioning</h3>
 		<p>
 			In <a href="#/getStarted">Get Started</a> we installed <b>soajs.examples</b> and then in <a href="#/getStarted/example01">Example01</a>, we stared one service and ran some tests on it.<br />
 			For this example, you need additional database settings.
@@ -57,7 +57,7 @@ $ ./soajs.mongo.sh</code>
 			You do not need to manually take care of it.
 		</p>
 		<hr/>
-		<h3><u>Registering the Service</u></h3>
+		<h3>Registering the Service</h3>
 		<p>
 			<img class="image-border" src="images/getstarted/ex02Registry.png" align="right">
 			Let's register <b>Example02</b> service like we did for <b>Example01</b> in the <a href="#/getStarted/registry">registry</a> of <b>SOAJS</b>. As you can see in the image on the right, both services are registered the same way with one difference: <b>extKeyRequired</b>. <br /><br />
@@ -65,7 +65,7 @@ $ ./soajs.mongo.sh</code>
 			When a service requires a tenant to function, <b>extKeyRequired</b> is set to "true" because when the requests are made to the APIs of this service, each request should provide the <u>tenant key</u> so that <b>SOAJS</b> knows which tenant to load from the database and, in this case, be able to fetch the correct <b>oAuth</b> configuration and use it to <b>Authorize</b> the request.
 		</p>
 		<hr/>
-		<h3><u>Start the Service</u></h3>
+		<h3>Start the Service</h3>
 		<p>
 			By now we have installed <b>oAuth</b>, <b>provisioned</b> the configuration and <b>registered the service</b>, all we need to do is start <b>Example02</b> service and run some tests. Go ahead and start <b>Example02</b> service just like you did in <b>Example01</b>:
 			<pre><code class="bash">$ cd soajs.examples/example02/
@@ -163,7 +163,7 @@ $ node index</code></pre>
 			</div>
 		</fieldset>
 		<hr />
-		<h3><u>Service Code Explained:</u></h3>
+		<h3>Service Code Explained:</h3>
 		Before we jump into the tests, let's take a minute and see what the service will do when we hit its APIs.<br />
 		The code of service <b>Example02</b> resembles <a href="#/getStarted/example01">Example01</a> with the exception of oauth which is set to true in the declaration.<br />
 		In this example we will use one of the APIs of <b>Example01</b>. Once we login with <b>oAuth user</b>, we will use the <b>Authorization</b> token to access this API.<br /><br />
@@ -180,7 +180,7 @@ $ node index</code></pre>
 		<br>
 		<p>The above API, takes 2 parameters from the query string, concatenates them and returns them in a JSON response.</p>
 		<hr />
-		<h3><u>Running The Tests</u></h3>
+		<h3>Running The Tests</h3>
 		<fieldset>
 			<legend>Calling Example02</legend>
 			<div>

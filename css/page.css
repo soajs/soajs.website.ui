@@ -314,10 +314,16 @@ a {
     position: relative;
     width: 84%;
 }
+.banner .about-container ul {
+    padding-left: 10px;
+}
 
 .banner .about-container ul li {
-    list-style: outside;
+    list-style-type: none;
     margin: 0 0 15px 0;
+}
+.banner .about-container .yellow-header {
+    font-weight: bold;
 }
 
 .beaverImg {
@@ -562,7 +568,6 @@ a {
 }
 
 .features-page .main-section-container .feature-list ul li h5 {
-    color: #0b8fa2;
     font-size: 26px;
     font-weight: 400;
     padding: 0 0 10px 20px;
@@ -618,23 +623,24 @@ a {
 
 .myTable {
     border-collapse: separate;
+    color: rgb(61,61,61);
 }
 
 .myTable thead {
     background-color: rgb(104,132,152);
 }
+.myTable th, .myTable td {
+    padding: 10px 8px;
+    font-size: 14px;
+}
 .myTable thead th{
     color: white;
-}
-
-.myTable th,
-.myTable td {
-    padding: 5px 8px;
+    font-size: 16px;
+    padding: 10px 15px;
 }
 
 .myTable tr.even {
-    background-color: #E4F0F1;
-    border-top: solid 1px #cccccc;
+    background-color: rgb(245,245,245);
 }
 
 em {
