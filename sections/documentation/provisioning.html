@@ -34,7 +34,6 @@
 	<hr/>
 	<a id="productization-anchor"></a>
 	<h3>Productization</h3>
-
 	<p>
 		Once a service is created and ready to be used, one thought jumps to mind: <u>"how can i place this service code in one place and offer its functionality to more than one client?"</u><br/><br/>
 		<b>SOAJS</b> provides the ability to have the same service work with different clients (tenants); and to accomplish that, 2 things need to be done.
@@ -66,7 +65,7 @@
 		When a service is made to serve different tenants, these tenants should be instructed on how to use the service. Access Levels (ACL) are applied through product packages. ACL can be overridden by tenants applications and URAC. First, let's explain how the ACL works then jump to how to use it and override it. <br /><br />
 		<b>SOAJS</b> ACL offers a lot of flexibility and can be used to grant access to a service or a particular API in that service or to specific groups.<br /><br />
 	</p>
-	<h4><u>Service Access:</u></h4>
+	<h4>Service Access:</h4>
 	ACL can provide access to a service by simply adding the service name to its list. The access is granted in three different methods: PUBLIC - PRIVATE for logged in users - PRIVATE for specific groups.
 	<pre><code class="javascript">"acl":{
 	"serviceName0":{}, //public
@@ -82,7 +81,7 @@
 }</code></pre>
 	<u>Note:</u> both "<b>serviceName0</b>" and "<b>serviceName1</b>" are public. Either add the service name in the acl object with value equal to an empty object "{}" or add give it a value of "access" equal to false; both are evaluated the same way.<br /><br />
 
-	<h4><u>Access to Specific Routes</u></h4>
+	<h4>Access to Specific Routes</h4>
 	<p>
 		Access Levels (ACL) can provide access to specific APIs in a service not just access to the whole service.<br />
 		Two methods are provided to get this job done:
@@ -113,7 +112,7 @@
 		<div id="aclWithRegex"></div>
 	</div>
 	Now things make more sense; all APIs accessible by <b>Admin</b> group only start with <b>/admin/...</b> and those that the user can access after he logs in like "edit profile", "change password" ...etc, start with <b>/account/...</b> and require a logged in user to be accessed.<br /><br />
-	<h4><u>Restricted Access</u></h4>
+	<h4>Restricted Access</h4>
 	<p>
 		There are cases where access to only certain APIs in a service should be granted. All other APIs are not permitted to be used.
 		
@@ -134,7 +133,7 @@
 		<a href="#/getStarted/example02">Example02</a> demonstrates the usage of one tenant with both <a href="" ng-click="goToAnchor('documentation','oauth')">oAuth</a> and <b>Example02</b> services. <a href="#/getStarted/example03">Example03</a> demonstrates the usage of several tenants and in some cases, several applications of a tenant with <b>Example03</b> service.<br />
 	</p>
 	<hr/>
-	<h4><u>Tenants:</u></h4>
+	<h4>Tenants:</h4>
 	<p>
 		In the previous section we mentioned how to create products and package them and configure access levels on different services they offer. Now let's create tenants and assign some product packages to them.<br />
 		Tenants can be created and configured using the <a href="" ng-click="goToAnchor('documentation','dashboard-services')">Dashboard</a> of <b>SOAJS</b>. Tenants have unique identification codes and optional <a href="" ng-click="goToAnchor('documentation','oauth')">oAuth</a> configuration. Checkout <a href="#/getStarted/example02">Example02</a> to learn how to protect a service using <b>oAuth</b>.
@@ -144,7 +143,7 @@
 		The above snippet represents one tenant records that is stored in the database <b>core_provision</b> under <b>tenants</b>. The tenant is called <b>Test Tenant</b>, holds <b>oAuth</b> security information and has an application array.
 	</p>
 	<br/>
-	<h4><u>Applications:</u></h4>
+	<h4>Applications:</h4>
 	<div ng-init="loadJson(path + 'provisioning/app1.json', 'app1js');">
 		<div id="app1js"></div>
 	</div>
@@ -161,7 +160,7 @@
 		The above snippet is another application in a tenant that uses <b>PROD1_PCK2</b> package, but this time it overrides the ACL of that package with additional permissions. The application grants access to <b>URAC</b>, <b>Example02</b> and <b>Example03</b> and in the key configuration, both <b>URAC</b> and <b>Example03</b> have custom configuration. Keep in mind that the ACL configuration follows the same syntax whether used in packages or in applications.<br /><br />
 	</p>
 	<hr/>
-	<h4><u>Tenant Full Sample:</u></h4>
+	<h4>Tenant Full Sample:</h4>
 	<p>
 		Grouping the above three snippets will result in the below tenant record:
 		<div ng-init="loadCode(path + 'provisioning/multitenancy.js', 'multitenancyjs');">
