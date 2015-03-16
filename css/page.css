@@ -31,9 +31,7 @@ a {
 }
 
 .topbar {
-    /*background-color: #001c20;*/
-    background-color: #1d4766;
-    background-image: -moz-linear-gradient(center top, #1d4766 50%, #123e5e 0%);
+    background-color: white;
     box-sizing: border-box;
     height: 60px;
     position: relative;
@@ -94,16 +92,18 @@ a {
 }
 
 .topbar .topnav li {
+    color: rgb(34,34,34);
     float: left;
     list-style-type: none;
     height: 60px;
+    /*
     border-bottom: 1px solid rgba(0, 0, 0, 0.4);
     border-left: 1px solid rgba(255, 255, 255, 0.1);
     border-right: 1px solid rgba(0, 0, 0, 0.4);
+    */
 }
 
 .topbar .topnav li:first-child:before {
-    border-left: 1px solid rgba(0, 0, 0, 0.4);
     content: " ";
     height: 60px;
     display: block;
@@ -124,36 +124,36 @@ a {
 }
 
 .topbar .topnav li a {
-    color: #fff;
+    color: rgb(34,34,34);
     cursor: pointer;
     display: block;
     font-size: 14px;
-    font-weight: 600;
-    margin: 22px 17px 0;
+    margin: 32px 17px 0;
     padding: 0 3px 5px;
     outline: 0;
 }
 
-.topbar .topnav li.active,
-.topbar .topnav li:hover {
-    background-color: #41647e;
-    background-image: -moz-linear-gradient(center top, #41647e 50%, #355a76 0%);
+.topbar .topnav li.active,.topbar .topnav li:hover {
+    color: rgb(53,90,118);
+    font-weight: bold;
 }
 
 .topbar .topnav li:hover a {
-    color: #ffb500;
+    color:rgb(223,150,48);
     transition: all 0.25s ease 0s;
     text-decoration: none;
 }
 
 .topbar .topnav li.active a {
     text-decoration: none;
-    color: #ffb500;
+    font-weight: bold;
+    font-weight: 600;
+    color: rgb(53,90,118);
 }
 
 .bottom {
     /*background-color: #001c20;*/
-    background-color: #fff;
+    background-color: rgb(61,61,61);
     border-top: 1px solid #bbb;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) inset;
     box-sizing: border-box;
@@ -727,6 +727,7 @@ pre {
 }
 
 fieldset {
+    background-color: white;
     margin: auto;
     padding: 10px;
     margin-bottom: 50px;
@@ -738,4 +739,34 @@ legend {
     margin: auto;
     padding: 0 10px;
     width: auto;
+}
+
+.yellow-header{
+    color:rgb(223,150,48);
+}
+
+.tab-content {
+    background-color: white;
+    padding: 10px;
+    border: none;
+}
+.nav-tabs {
+    border:none;
+}
+.nav-tabs > li > a, .nav-tabs > li.active > a, .nav-tabs > li > a:hover{
+    border:none;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    background-color: #fff;
+    border-color: none;
+    border:none;
+    border-image: none;
+    border-style: none;
+    color: #555;
+    cursor: default;
+}
+
+h1 {
+    color:rgb(223,150,48);
 }

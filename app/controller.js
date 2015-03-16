@@ -56,7 +56,8 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$anchorScrol
 	};
 
 	$scope.$on('$routeChangeSuccess', function() {
-		console.log( ' on routeChangeSuccess '  );
+		$scope.currentLocation = $location.path();
+		//console.log( $scope.currentLocation + ' ** ** ');
 		$scope.scrollToAnchor = function() {
 			if($routeParams && $routeParams.anchor) {
 				$timeout(function() {
@@ -72,6 +73,14 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$anchorScrol
 			}
 		};
 		$scope.scrollToAnchor();
+		if($routeParams.anchor)
+		{
+			var sp = '/'+$routeParams.anchor;
+			//console.log( ' * ' + $location.path());
+			var p = $location.path().split(sp);
+			$scope.currentLocation =  p[0];
+			//console.log( $scope.currentLocation + ' ** ');
+		}
 	});
 
 }]);
