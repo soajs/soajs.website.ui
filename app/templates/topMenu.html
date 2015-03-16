@@ -14,9 +14,9 @@
 
 			<ul class="topnav ng-isolate-scope" ng-class="{'menu-open': menuVisible === true}" click-outside="" is-open="menuVisible">
 				<li ng-click="menuVisible = false" class="getStarted" ng-class="{'active': currentLocation === '/getStarted'}"><a href="#/getStarted">Get Started</a></li>
-				<li class="features" ng-class="{'active': currentLocation === '/features'}"><a href="#/features">Features</a></li>
-				<li class="documentation" ng-class="{'active': currentLocation === '/documentation'}"><a href="#/documentation" >Documentation</a></li>
-				<li class="contactUs" ng-class="{'active': currentLocation === '/contactUs'}"><a href="#/contactUs">Contact Us</a></li>
+				<li ng-click="menuVisible = false" class="features" ng-class="{'active': currentLocation === '/features'}"><a href="#/features">Features</a></li>
+				<li ng-click="menuVisible = false" class="documentation" ng-class="{'active': currentLocation === '/documentation'}"><a href="#/documentation" >Documentation</a></li>
+				<li ng-click="menuVisible = false" class="contactUs" ng-class="{'active': currentLocation === '/contactUs'}"><a href="#/contactUs">Contact Us</a></li>
 			</ul>
 		</div>
 	</div>
