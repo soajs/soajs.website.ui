@@ -46,40 +46,31 @@ app.config([
 	}
 ]);
 
-app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$anchorScroll', '$timeout', '$compile', '$route', function($scope, $location, $routeParams, $anchorScroll, $timeout, $compile, $route) {
+app.controller('mainCtrl', ['$scope', '$location', '$routeParams', function($scope, $location, $routeParams) {
 
 	$scope.today = new Date().getTime();
 
 	$scope.goToAnchor = function(section, anchor) {
-		console.log("goToAnchor: /" + section + "/" + anchor);
+		//console.log("goToAnchor: /" + section + "/" + anchor);
 		$location.path("/" + section + "/" + anchor);
 	};
 
 	$scope.$on('$routeChangeSuccess', function() {
 		$scope.currentLocation = $location.path();
-		//console.log( $scope.currentLocation + ' ** ** ');
-		$scope.scrollToAnchor = function() {
-			if($routeParams && $routeParams.anchor) {
-				$timeout(function() {
-					var old = $location.hash();
-					$location.hash($routeParams.anchor);
-					var padEl = angular.element(document.getElementById($routeParams.anchor));
-					padEl.html("<br/> <br/> <br/>");
-					$compile(padEl.contents())($scope);
-					$anchorScroll();
-					//reset to old to keep any additional routing logic from kicking in
-					$location.hash(old);
-					}, 100, false);
-			}
-		};
-		$scope.scrollToAnchor();
+		var subPagesDetection = $scope.currentLocation.match(/\//g);
+		if(subPagesDetection.length > 1){
+			var p = $location.path().split(/\//);
+			$scope.currentLocation =  "/"+p[1];
+		}
+
+		var body = jQuery("html, body");
+		body.animate({scrollTop:0}, '100');
+
 		if($routeParams.anchor)
 		{
 			var sp = '/'+$routeParams.anchor;
-			//console.log( ' * ' + $location.path());
 			var p = $location.path().split(sp);
 			$scope.currentLocation =  p[0];
-			//console.log( $scope.currentLocation + ' ** ');
 		}
 	});
 

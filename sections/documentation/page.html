@@ -11,29 +11,29 @@
 			<h4>SOAJS</h4>
 			<hr>
 			<ul>
-				<li><a href="" ng-click="goToAnchor('documentation', 'service');">Soajs service</a></li>
-				<li><a href="" ng-click="goToAnchor('documentation', 'request');">SOAJS Request</a></li>
-				<li><a href="" ng-click="goToAnchor('documentation', 'imfv');">IMFV</a></li>
-				<li class="active"><a href="" ng-click="goToAnchor('documentation', 'registry');">Registry</a></li>
-				<li><a href="" ng-click="goToAnchor('documentation', 'provisioning');">Provisioning</a></li>
+				<li ng-class="{'active': (docuLink=== '/documentation/service')}"><a href="#/documentation/service">Soajs service</a></li>
+				<li ng-class="{'active': (docuLink=== '/documentation/request')}"><a href="#/documentation/request">SOAJS Request</a></li>
+				<li ng-class="{'active': (docuLink=== '/documentation/imfv')}"><a href="#/documentation/imfv">IMFV</a></li>
+				<li ng-class="{'active': (docuLink=== '/documentation/registry')}"><a href="#/documentation/registry">Registry</a></li>
+				<li ng-class="{'active': (docuLink=== '/documentation/provisioning')}"><a href="#/documentation/provisioning">Provisioning</a></li>
 			</ul>
 			<br/>
 
 			<h4>Services</h4>
 			<hr>
 			<ul>
-				<li><a href="" ng-click="goToAnchor('documentation', 'controller');">Controller</a></li>
-				<li><a href="" ng-click="goToAnchor('documentation', 'urac');">URAC</a></li>
-				<li><a href="" ng-click="goToAnchor('documentation', 'oauth');">oAuth</a></li>
-				<li><a href="" ng-click="goToAnchor('documentation', 'agent');">Agent</a></li>
+				<li ng-class="{'active': (docuLink=== '/documentation/controller')}"><a href="#/documentation/controller">Controller</a></li>
+				<li ng-class="{'active': (docuLink=== '/documentation/urac')}"><a href="#/documentation/urac">URAC</a></li>
+				<li ng-class="{'active': (docuLink=== '/documentation/oauth')}"><a href="#/documentation/oauth">oAuth</a></li>
+				<li ng-class="{'active': (docuLink=== '/documentation/agent')}"><a href="#/documentation/agent">Agent</a></li>
 			</ul>
 			<br/>
 
 			<h4>Dashboard</h4>
 			<hr>
 			<ul>
-				<li><a href="" ng-click="goToAnchor('documentation','dashboard-services')">Services</a></li>
-				<li><a href="" ng-click="goToAnchor('documentation','dashboard-setup')">How to set it up</a></li>
+				<li ng-class="{'active': (docuLink=== '/documentation/dashboard-services')}"><a href="#/documentation/dashboard-services">Services</a></li>
+				<li ng-class="{'active': (docuLink=== '/documentation/dashboard-setup')}"><a href="#/documentation/dashboard-setup">How to set it up</a></li>
 			</ul>
 		</div>
 			</div>

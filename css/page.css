@@ -9,6 +9,7 @@ body, html {
     font-family: 'Lato', sans-serif;
     background-image: url('../images/bg.png');
     color: rgb(34, 34, 34);
+    line-height:1.9em;
 }
 
 a img {
@@ -84,15 +85,15 @@ a:hover{
     padding: 16px 20px;
 }
 
-.topbar .small-menu::after {
-    clear: both;
-    content: ".";
-    display: block;
-    font-size: 0;
-    height: 0;
-    line-height: 0;
-    visibility: hidden;
-}
+/*.topbar .small-menu::after {*/
+    /*clear: both;*/
+    /*content: ".";*/
+    /*display: block;*/
+    /*font-size: 0;*/
+    /*height: 0;*/
+    /*line-height: 0;*/
+    /*visibility: hidden;*/
+/*}*/
 
 .topbar .topnav {
     float: right;
@@ -110,15 +111,25 @@ a:hover{
     */
 }
 
-.topbar .topnav li:first-child:before {
+/*.topbar .topnav li:first-child:before {*/
+    /*content: " ";*/
+    /*height: 60px;*/
+    /*display: block;*/
+    /*position: relative;*/
+    /*left: -2px;*/
+    /*float: left;*/
+/*}*/
+
+/*.topbar .topnav li:last-child:after {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
     content: " ";
     height: 60px;
     display: block;
     position: relative;
-    left: -2px;
-    float: left;
-}
-
+    right: -2px;
+    top: -48px;
+    float: right;
+}*/
 .topbar .topnav li a {
     color: rgb(34, 34, 34);
     cursor: pointer;
@@ -287,23 +298,24 @@ a:hover{
     color: #123E5E;
 }
 
-.banner .banner-container .yellow-header {
+.banner .tagline .yellow-header {
     font-weight: bold;
-    font-size: 30px;
+    /*font-size: 30px;*/
+    color:#DF9630;
 }
 
 .banner .banner-container .tagline {
     position: relative;
-    font-size: 16px;
+    font-size: 20px;
     z-index: 15;
 }
 
 .banner .about-container {
     box-sizing: border-box;
     margin: 0;
-    padding-top: 50px;
+    padding-top: 20px;
     padding-right: 0px;
-    padding-bottom: 50px;
+    padding-bottom: 10px;
     position: relative;
     font-size: 16px;
 }
@@ -863,6 +875,7 @@ hr.white {
     color: rgb(65, 100, 126);
     text-decoration: none;
     font-weight: bold;
+    text-decoration:underline;
 }
 
 .page h1 {
