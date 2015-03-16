@@ -1,7 +1,45 @@
 <div class="page" ng-controller="homePageCtrl">
 	<div>
+		<div class="banner">
+			<div class="banner-container">
+				<div class="left-main">
+					<div class="tagline">
+						<p><b class="yellow-header">SOAJS</b> is a dream framework that empowers building crazy fast API-nization layers between product frontend (UI/UX) and backend (business logic).</p>
+					</div>
 
-		<div ng-include="'sections/home/mainIntro.html'"></div>
+					<div class="about-container">
+						<p class="yellow-header"><b>SOAJS</b> Advantages:</p>
+						<ul>
+							<li> - Build your APIs without modifying neither the backend nor the frontend of your product.</li>
+							<li> - Develop enterprise-grade APIs that are super fast, secured by design, scalable and multitenant.</li>
+							<li> - Focus on building your product without wasting your time building the api layer and end up stuck maintaining it.</li>
+							<li> - Standardize your APIs from day one while giving full flexibility to engineers to code the business logic layer as well as UI/UX layer.</li>
+							<li> - Create homogeneity and never worry about the consequences of loosing members of your engineering team.</li>
+							<li> - Become hyper agile and build satellite teams without facing any coherency problems among the services.</li>
+						</ul>
+						<!--<p><a href="#/features" class="blueBtn">Features</a></p>-->
+					</div>
+				</div>
+				<div class="beaverImg"><img src="images/beaver.png"></div>
+
+			</div>
+		</div>
+
+		<div class="white-banner">
+			<div class="banner-container">
+				<p ng-show="lastCommit && lastCommit.author !== ''">
+					Latest commit by <a target="_blank" href="">@{{lastCommit.author}}</a>
+					<a target="_blank" href="">{{lastCommit.ago}}</a>
+					<a target="_blank" href=""> Coverage All</a>
+				</p>
+
+				<div class="sharing">
+					<!--<iframe src="http://ghbtns.com/github-btn.html?user=soajs&repo=soajs&type=watch&count=true" height="30" width="118" frameborder="0" scrolling="0" style="width:118px; height: 30px;" allowTransparency="true"></iframe>-->
+					&nbsp;<a href="#/contactUs" class="small-button" style="position: relative; top: -15px;">Contribute</a>
+				</div>
+			</div>
+		</div>
+		<!-- white bar -->
 
 		<!--Features list-->
 		<div class="soajs-features">
@@ -10,9 +48,10 @@
 					<h1>Features</h1>
 
 					<p>Build your product APIs with soajs and take advantage of tons of features that usually take months of work from your engineering team. Now you can be done within minutes.</p>
+					<hr class="white"/>
 				</div>
 				<ul class="feature-list">
-					<li ng-repeat="feature in fList">
+					<li ng-repeat="feature in fList" ng-class-odd="'odd'" ng-class-even="'even'">
 						<div ng-click='goToAnchor("features",feature.id)'>
 							<img class="icon" ng-src="{{feature.icon}}"/>
 							<h5> {{feature.title}} </h5>
@@ -23,28 +62,12 @@
 				</ul>
 			</div>
 		</div>
-
-
-		<!--'What's Next?' section with links to get started page and docs-->
-		<!--<div class="soajs-next-steps">-->
-			<!--<div class="contribute-link-wrapper">-->
-				<!--<a href="#/contactUs"> <span class="long"> How to contribute </span> </a>-->
-			<!--</div>-->
-			<!--<div class="container">-->
-				<!--<div class="calls-to-action">-->
-					<!--<a href="#/getStarted" class="button">Get started</a>-->
-					<!--<a class="doc" href="#/documentation">Documentation</a>-->
-				<!--</div>-->
-			<!--</div>-->
-		<!--</div>-->
 	</div>
 	<div class="powered-by-container">
-		<div class="powered-by">
-			<div class="powered-icon"><a target="_blank" href="http://nodejs.org/"><img src="images/footer/nodeIcon.png"></a></div>
-			<div class="powered-icon"><a target="_blank" href="https://angularjs.org/"><img src="images/footer/angularIcon.png"></a></div>
-			<div class="powered-icon"><a target="_blank" href="http://www.elasticsearch.org/"><img src="images/footer/elasticSearchIcon.png"></a></div>
-			<div class="powered-icon"><a target="_blank" href="http://www.haproxy.org/"><img src="images/footer/haproxyIcon.png"></a></div>
-			<div class="powered-icon"><a target="_blank" href="http://www.mongodb.org/"><img src="images/footer/mongoDb.png"></a></div>
-		</div>
+		<div class="powered-icon"><a target="_blank" href="http://nodejs.org/"><img src="images/footer/nodeIcon.png"></a></div>
+		<div class="powered-icon"><a target="_blank" href="http://www.elasticsearch.org/"><img src="images/footer/elasticSearchIcon.png"></a></div>
+		<div class="powered-icon"><a target="_blank" href="http://www.mongodb.org/"><img src="images/footer/mongoDb.png"></a></div>
+		<div class="powered-icon"><a target="_blank" href="http://www.haproxy.org/"><img src="images/footer/haproxyIcon.png"></a></div>
+		<div class="powered-icon"><a target="_blank" href="https://angularjs.org/"><img src="images/footer/angularIcon.png"></a></div>
 	</div>
 </div>
