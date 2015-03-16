@@ -3,7 +3,7 @@
 		<a href="#/getStarted" class="goBackLink">Go Back</a>
 
 		<h1>Example 03</h1>
-		<hr/>
+		<div class="white-container">
 		So far, we have created a service and secured it with <b>oAuth</b> in previous examples. We also mentioned the usage of a tenant and its key in <a href="#/getStarted/example02">Example02</a>. But till now we were only dealing with one tenant and now we are going to take things to a higher level.<br /><br />
 		<b>SOAJS</b> offers the ability to allow different tenants to use the same service, each with their own settings. You can configure multitenancy and have your services behave differently from one tenant (client) to another, and even from one user (consumer) to another.<br/><br/>
 
@@ -22,7 +22,7 @@
 			mitel example 02 get the token, and hit the url u get same response as 02 -->
 		</em>
 		<hr/>
-		<h3><u>Installing URAC</u></h3>
+		<h3>Installing URAC</h3>
 		<p>
 			<b>SOAJS</b> (User Registration &amp; Access Control) is a service that manages the Users records and their Access Controls.<br>
 			             The service is multitenant and provides the ability to have members accounts for different tenants. Members can login and get additional preferences or privileges.
@@ -41,7 +41,7 @@ $ node index</code>
 		</p>
 		<hr/>
 		<a id="provisioning"></a>
-		<h3><u>Import Provisioning</u></h3>
+		<h3>Import Provisioning</h3>
 
 
 		<p>
@@ -56,7 +56,7 @@ $ ./soajs.mongo.sh</code></pre>
 		Keep in mind that although you just provisioned some sample data, this data will expire at a later stage (7 days).
 		<hr/>
 
-		<h3><u>Start the Service</u></h3>
+		<h3>Start the Service</h3>
 		Now we have both the controller and Urac services running, and the provision data is imported. All we need now is to start <b>Example03</b>:
 		<pre><code class="bash">#start example03
 $ cd soajs.examples/examples03
@@ -95,7 +95,7 @@ $ node index</code></pre>
 			</div>
 		</fieldset>
 		<hr/>
-		<h3><u>Configuration Levels:</u></h3>
+		<h3>Configuration Levels:</h3>
 		Services are configurable at multiple levels, each level having a different scope.
 		A more specific scope will override any options of a more general scope.<br/>
 		The levels from most general to most specific are:
@@ -198,7 +198,7 @@ $ node index</code></pre>
 		When we start the tests, We will show you how this value is affected.
 		<hr/>
 		<br>
-		<h3><u>Service Code:</u></h3>
+		<h3>Service Code:</h3>
 		For this example we will use similar APIs as those in <b>Example01</b>.
 		We will edit the service config and set "multitenant" to true, and "acl" to true in the <u>index.js</u> file where we declared the service.<br /><br />
 		<tabset>
@@ -216,7 +216,7 @@ $ node index</code></pre>
 		To demonstration how certain configuration values are specific to each tenant,
 		the api "/buildName" reads the value of "tenantName" from the service config and returns it in the response.
 		<hr/>
-		<h3><u>Running the Tests</u></h3>
+		<h3>Running the Tests</h3>
 		Let's understand how multitenancy exactly works through some tests. <br/><br/>
 		<fieldset>
 			<legend>Tenant 1: 1st Application</legend>
@@ -472,7 +472,7 @@ $ node index</code></pre>
 
 
 		</p>
-
+</div>
 	</div>
 	<script>renderCodeSnippets();</script>
 </div>

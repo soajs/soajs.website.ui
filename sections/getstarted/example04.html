@@ -3,7 +3,7 @@
 		<a href="#/getStarted" class="goBackLink">Go Back</a>
 
 		<h1>Example 04</h1>
-		<hr/>
+		<div class="white-container">
 		In <a href="#/getStarted/example02">Example02</a> we used <b>oAuth</b> to secure our service, and in <a href="#/getStarted/example03">Example03</a> we examined how to secure a service per tenant.
 
 		In this example we will show you that you can use <b>oAuth</b> together with multitenancy.
@@ -11,7 +11,7 @@
 		<!-- <img ng-src="images/getstarted/example03.png" style="margin:5px 0;"/> -->
 
 		<hr/>
-		<h3><u>Import Provisioning</u></h3>
+		<h3>Import Provisioning</h3>
 		<p>
 			In <a _href="#/getStarted/example03" ng-click="goToAnchor(&quot;getStarted/example03&quot;,'provisioning')">Example03</a>, we provisioned some data in order to test the service.
 			If you modified the data in the database, we suggest you repeat the provisioning step.
@@ -23,7 +23,7 @@ $ ./soajs.mongo.sh</code>
 			</pre>
 		<hr/>
 
-		<h3><u>Start the Service</u></h3>
+		<h3>Start the Service</h3>
 		We already have both the controller and Urac services running, and the provision data is imported.
 		All we need now is to start <b>Example04</b>:
 		<pre><code class="bash">#start example04
@@ -49,7 +49,7 @@ $ node index</code></pre>
 			</div>
 		</fieldset>
 		<hr/>
-		<h3><u>What has changed:</u></h3>
+		<h3>What has changed:</h3>
 		<br>
 		<h4><u>The Product:</u></h4>
 
@@ -86,7 +86,7 @@ $ node index</code></pre>
 		    but we chose to ignore it in Example03.</em>
 		<hr/>
 
-		<h3><u>Service Code:</u></h3>
+		<h3>Service Code:</h3>
 		The code is similar to that in <b>Example03</b>.
 		We only need to edit the service config in <u>index.js</u> file; add the "oauth" entry and set it to true as shown below.
 		Now the service is secured by <b>oAuth</b>.
@@ -207,6 +207,7 @@ $ node index</code></pre>
 			You need to attach the <b>access_token</b> parameter to all your calls to reach the <b>Example04</b> service.
 		</p>
 
+	</div>
 	</div>
 	<script>renderCodeSnippets();</script>
 </div>
