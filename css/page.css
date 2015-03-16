@@ -57,7 +57,7 @@ a:hover{
 .topbar .branding {
     cursor: pointer;
     float: left;
-    width: 215px;
+    width: 200px;
 }
 
 .topbar .branding .logo {
@@ -138,6 +138,7 @@ a:hover{
     margin: 32px 17px 0;
     padding: 0 3px 5px;
     outline: 0;
+    white-space: nowrap;
 }
 
 .topbar .topnav li.active, .topbar .topnav li:hover {
@@ -200,11 +201,13 @@ a:hover{
     padding-top: 3px;
 }
 
-.bottom .sharing-footer div {
+.bottom .sharing-footer .copyright {
     float: left;
     padding-left: 1%;
 }
-
+.bottom .sharing-footer .inner {
+    float: left;
+}
 .bottom .sharing-footer .star {
     padding-left: 0;
 }
@@ -698,7 +701,6 @@ pre {
     margin: 0 auto;
     max-width: 997px;
     padding: 60px 0 20px 0;
-    width: 84%;
     clear: both;
 }
 
@@ -849,7 +851,7 @@ hr.white {
 }
 
 .left-sidebar .left-menu {
-    width: 130px;
+    width: 85%;
 }
 
 .left-sidebar h4 {
@@ -912,7 +914,7 @@ hr.white {
 }
 
 .topbar .getStarted {
-    width: 118px;
+    width: 122px;
 }
 
 .topbar .features {

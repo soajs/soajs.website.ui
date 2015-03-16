@@ -11,10 +11,12 @@
     .hidden-tablet {
         display: none !important;
     }
+    img {
+        max-width:900px;
+    }
     .topbar .nav-container {
         margin: 0 auto;
         width: 97%;
-
     }
     .bottom .sharing-footer {
         margin: 0 auto;
@@ -52,6 +54,15 @@
     .hidden-phone {
         display: none !important;
     }
+    .topbar .topnav {
+        padding-left: 15px;
+    }
+    .topbar .branding {
+        width:175px;
+    }
+    img {
+        max-width:730px;
+    }
 
     .bottom {
         font-size: 16px;
@@ -82,23 +93,55 @@
         width: 100%;
     }
 
+    .main-section-container {
+    }
+
+    .soajs-features .features-container .feature-list li {
+        padding: 0 0 0 30px;
+        position: relative;
+        min-height: 200px;
+        width: 97%;
+        margin: 10px 0 0 0;
+    }
+    .soajs-features .feature-list li img.icon {
+        width:28px;
+        padding-top: 8px;
+        padding-right: 5px;
+        /*width: 50px;*/
+    }
+
+    .powered-by-container {
+        padding: 50px 0 20px;
+        width: 97%;
+    }
+    .powered-by-container .powered-icon {
+        height: 70px;
+    }
+    .powered-by-container .powered-icon img{
+        max-width: 110px;
+    }
+}
+
+
+@media (max-width: 687px) {
+    img {
+        max-width:630px;
+    }
+    .topbar .branding img.logo {
+        width:155px;
+    }
+    .topbar .topnav {
+        padding-left: 5px;
+    }
+    .topbar .branding {
+        width:155px;
+    }
     .topbar .getStarted {
         width: 100%;
     }
 
-    .topbar .features {
+    .topbar .contactUs, .topbar .documentation,.topbar .features {
         width: 100%;
-    }
-
-    .topbar .documentation {
-        width: 100%;
-    }
-
-    .topbar .contactUs {
-        width: 100%;
-    }
-
-    .main-section-container {
     }
 
     .topbar .menu {
@@ -107,7 +150,6 @@
     .topbar .menu.menu-open {
         background-color: #212c2e;
     }
-
 
     .topbar .topnav {
         background-color: #212c2e;
@@ -150,5 +192,34 @@
     .topbar .topnav.menu-open {
         display: block;
     }
+    .powered-by-container .powered-icon img{
+        max-width: 100px;
+    }
+}
 
+@media (max-width: 630px) {
+    body, html {
+        font-size: 14px;
+        line-height: 1.6em;
+    }
+    img {
+        max-width:600px;
+    }
+    .powered-by-container {
+        padding: 30px 0 20px;
+        width: 97%;
+    }
+    .powered-by-container .powered-icon {
+        height: 50px;
+    }
+    .powered-by-container .powered-icon img{
+        max-width: 70px;
+    }
+    .left-sidebar .left-menu {
+        width: 90%;
+        font-size: 12px;
+    }
+    .left-sidebar .left-menu h4{
+        font-size: 14px;
+    }
 }
