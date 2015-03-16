@@ -119,17 +119,6 @@ a:hover{
     float: left;
 }
 
-.topbar .topnav li:last-child:after {
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-    content: " ";
-    height: 60px;
-    display: block;
-    position: relative;
-    right: -2px;
-    top: -48px;
-    float: right;
-}
-
 .topbar .topnav li a {
     color: rgb(34, 34, 34);
     cursor: pointer;

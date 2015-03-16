@@ -1,10 +1,15 @@
 @charset "utf-8";
 /* CSS Document */
+@media (min-width: 1200px) {
+
+}
+
 @media screen and (max-width: 1000px) {
 
 }
 
 @media screen and (min-width: 1000px) {
+
     .topbar .nav-container {
         margin: 0 auto;
         width: 997px;
@@ -12,13 +17,12 @@
     .bottom .sharing-footer {
         margin: 0 auto;
         width: 997px;
-        width: 84%;
     }
     .main-section-container {
         margin: 0 auto;
+        background-color: red;
         width: 997px;
         padding: 0 0 60px;
-        width: 84%;
         display: table;
     }
 
@@ -27,7 +31,6 @@
         width: 997px;
         padding: 220px 0 100px;
         position: relative;
-        width: 84%;
         padding-top: 80px;
     }
     .white-banner .banner-container {
@@ -35,15 +38,63 @@
         margin: 0 auto;
         width: 997px;
         padding: 15px 0;
-        width: 84%;
     }
     .soajs-features .features-container {
         box-sizing: border-box;
         margin: 0 auto;
         width: 997px;
-        width: 84%;
+    }
+    .topbar .topnav li:last-child:after {
+        content: " ";
+        height: 60px;
+        display: block;
+        position: relative;
+        right: -2px;
+        top: -48px;
+        float: right;
     }
 }
+
+@media (min-width: 768px) and (max-width: 999px) {
+    .topbar .nav-container {
+        margin: 0 auto;
+        width: 97%;
+
+    }
+    .bottom .sharing-footer {
+        margin: 0 auto;
+        width: 97%;
+    }
+    .main-section-container {
+        margin: 0 auto;
+        width: 97%;
+        background-color: #008800;
+    }
+
+    .banner .banner-container {
+        margin: 0 auto;width: 97%;
+    }
+    .white-banner .banner-container {
+        margin: 0 auto;width: 97%;
+    }
+    .soajs-features .features-container {
+        margin: 0 auto;width: 97%;
+    }
+    .topbar .topnav {
+        background-color: #e78147;
+        padding-left: 15px;
+    }
+    .topbar .topnav li:last-child:after {
+        content: " ";
+        height: 60px;
+        display: block;
+        position: relative;
+        right: -2px;
+        top: -48px;
+        float: right;
+    }
+}
+
 
 .topbar {
     height: 60px;
@@ -51,8 +102,6 @@
     width: 100%;
     z-index: 100;
 }
-
-
 
 /* logo and logo container */
 .topbar .branding {
