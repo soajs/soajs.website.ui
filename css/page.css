@@ -426,9 +426,9 @@ a {
 .soajs-features .features-container .feature-list li {
     box-sizing: border-box;
     float: left;
-    padding: 0 10px 0 60px;
+    padding: 0 10px 0 80px;
     position: relative;
-    min-height: 170px;
+    min-height: 200px;
     cursor: pointer;
     list-style-type: none;
     width: 48%;
@@ -451,7 +451,7 @@ a {
     left: 0;
     position: absolute;
     top: 0;
-    width: 50px;
+    /*width: 50px;*/
 }
 
 .soajs-features .feature-list li h5 {
