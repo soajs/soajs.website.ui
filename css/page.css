@@ -596,7 +596,7 @@ a {
     padding: 5px;
     background-color: white;
     border: solid 1px #bbbbbb;
-    box-shadow: 10px 10px 5px #888888;
+    box-shadow: 5px 5px 5px #888888;
 }
 
 .left-sidebar {
@@ -624,11 +624,12 @@ a {
 }
 
 .myTable thead {
-    background-color: rgb(104,132,125);
+    background-color: rgb(104,132,152);
 }
 .myTable thead th{
-    background-color: rgb(104,132,125);
+    color: white;
 }
+
 .myTable th,
 .myTable td {
     padding: 5px 8px;
@@ -675,7 +676,7 @@ pre {
 .powered-by-container {
     margin: 0 auto;
     max-width: 997px;
-    padding: 0 0 40px;
+    padding: 60px 0 0 0;
     width: 84%;
     clear: both;
 }
@@ -758,28 +759,32 @@ legend {
     border: none;
 }
 
-.nav-tabs {
+.nav-tabs li a:focus{
+    outline: 0;
+}
+
+.designTab .nav-tabs {
     border:none;
 }
 
-.nav-tabs > li > a,
-.nav-tabs > li.active > a,
-.nav-tabs > li > a:hover{
+.designTab .nav-tabs > li > a,
+.designTab .nav-tabs > li.active > a,
+.designTab .nav-tabs > li > a:hover{
     border:none;
 }
-.nav-tabs > li > a {
+.designTab .nav-tabs > li > a {
      color: rgb(61,61,61);
  }
-.nav-tabs > li.active > a,
-.nav-tabs > li.active > a:hover,
-.nav-tabs > li.active > a:focus {
+.designTab .nav-tabs > li.active > a,
+.designTab .nav-tabs > li.active > a:hover,
+.designTab .nav-tabs > li.active > a:focus {
     background-color: #fff;
     border-color: none;
     border:none;
     border-style: none;
     cursor: default;
 }
-.nav-tabs > li.active > a {
+.designTab .nav-tabs > li.active > a {
     color: rgb(65,100,126);
 }
 .innerTab{
@@ -861,4 +866,25 @@ hr{
 
 .padding-0{
     padding:0px;
+}
+
+.white-container{
+    background-color:#ffffff;
+    padding:10px;
+    border:solid 1px #fff;
+    /*opacity:0.7; */
+}
+
+
+.topbar .getStarted{
+    width: 118px;
+}
+.topbar .features{
+    width: 98px;
+}
+.topbar .documentation{
+    width:142px;
+}
+.topbar .contactUs{
+    width: 113px;
 }

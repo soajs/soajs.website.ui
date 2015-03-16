@@ -1,6 +1,5 @@
 <a id="soajs.urac"></a>
 <h1>SOAJS URAC</h1>
-<hr/>
 <div>
 	<tabset class="designTab">
 		<tab class="mainTab" heading="Service Information"><br />
@@ -20,7 +19,7 @@
 				<img ng-src="images/documentation/urac2.png" style="margin:5px 0;"/>
 			</p>
 			<hr/>
-			<h3><u>Custom Access Levels & Configuration</u></h3>
+			<h3>Custom Access Levels & Configuration</h3>
 			<tabset class="innerTab">
 				<tab heading="Details">
 					<br/>
@@ -48,7 +47,7 @@
 				</tab>
 			</tabset>
 			<hr/>
-			<h3><u>Notification Templates</u></h3>
+			<h3>Notification Templates</h3>
 
 			<p>
 				The following is a list of every notification template used by the <b>URAC</b> depending on the service invoked.<br/>
@@ -56,42 +55,42 @@
 				The URAC currently supports the following templates:
 			</p>
 			<br/>
-			<h4><u>Join</u></h4>
+			<h4>Join</h4>
 
 			<div ng-init="loadHTML(path+'urac/join.tmpl','jointmpl');">
 				<div id="jointmpl"></div>
 			</div>
 			<br/><br/>
 
-			<h4><u>Forgot Password</u></h4>
+			<h4>Forgot Password</h4>
 
 			<div ng-init="loadHTML(path+'urac/forgotPassword.tmpl','forgottmpl');">
 				<div id="forgottmpl"></div>
 			</div>
 			<br/><br/>
 
-			<h4><u>Change Email</u></h4>
+			<h4>Change Email</h4>
 
 			<div ng-init="loadHTML(path+'urac/changeEmail.tmpl','changeEmailtmpl');">
 				<div id="changeEmailtmpl"></div>
 			</div>
 			<br/><br/>
 
-			<h4><u>Change User Status</u></h4>
+			<h4>Change User Status</h4>
 
 			<div ng-init="loadHTML(path+'urac/changeUserStatus.tmpl','userStatustmpl');">
 				<div id="userStatustmpl"></div>
 			</div>
 			<br/><br/>
 
-			<h4><u>Add New User</u></h4>
+			<h4>Add New User</h4>
 
 			<div ng-init="loadHTML(path+'urac/addUser.tmpl','addUsertmpl');">
 				<div id="addUsertmpl"></div>
 			</div>
 		</tab>
 		<tab class="mainTab" heading="Service API">
-			<h3><u>Usage:</u></h3>
+			<h3>Usage:</h3>
 
 			<p>
 				<b>SOAJS</b> URAC is located in <a href="https://github.com/soajs/soajs.urac" target="_blank">soajs.urac</a>.<br/>
@@ -105,7 +104,7 @@ $ node index</code></pre>
 			The service is now running and listening http://127.0.0.1:4000/urac/.
 			</p>
 			<hr />
-			<h3><u>URAC API</u></h3>
+			<h3>URAC API</h3>
 			<fieldset ng-repeat="route in urac">
 				<legend>{{route.routeName}}</legend>
 				<div>
@@ -130,7 +129,7 @@ $ node index</code></pre>
 						</tbody>
 					</table>
 					<br/>
-					<h6><u>Command:</u></h6>
+					<h6>Command:</h6>
 					<pre><code class="bash">{{route.cmd}}</code></pre>
 				</div>
 			</fieldset>

@@ -1,7 +1,6 @@
 <a id="provisioning"></a>
 <h1>Provisioning</h1>
-<hr/>
-<div>
+<div class="white-container">
 	<p>
 		In SOAJS, provisioning refers to providing a service with configuration and access controls loaded from the database.
 		In most cases, this information is specific per tenant and most likely differs between one tenant and the other, causing the same service to behave and provide responses differently.
@@ -34,7 +33,7 @@
 	</p>
 	<hr/>
 	<a id="productization-anchor"></a>
-	<h3><u>Productization</u></h3>
+	<h3>Productization</h3>
 
 	<p>
 		Once a service is created and ready to be used, one thought jumps to mind: <u>"how can i place this service code in one place and offer its functionality to more than one client?"</u><br/><br/>
@@ -62,7 +61,7 @@
 	</p>
 	<hr/>
 	<a id="acl-anchor"></a>
-	<h3><u>Access Levels</u></h3>
+	<h3>Access Levels</h3>
 	<p>
 		When a service is made to serve different tenants, these tenants should be instructed on how to use the service. Access Levels (ACL) are applied through product packages. ACL can be overridden by tenants applications and URAC. First, let's explain how the ACL works then jump to how to use it and override it. <br /><br />
 		<b>SOAJS</b> ACL offers a lot of flexibility and can be used to grant access to a service or a particular API in that service or to specific groups.<br /><br />
@@ -129,7 +128,7 @@
 	</p>
 	<hr/>
 	<a id="multitenancy-anchor"></a>
-	<h3><u>Multitenancy</u></h3>
+	<h3>Multitenancy</h3>
 	<p>
 		<b>SOAJS</b> gives you the ability to create multiple tenants and assign product packages to them. A tenant represents a client. So to apply the concept of having one service serve several tenants differently, such as <a href="#/documentation/urac">URAC</a>, we need to configure our service to use multitenancy, create tenants and assign keys to them. And when making calls to the APIs of that service, specify the key of the tenant in those requests.<br /><br />
 		<a href="#/getStarted/example02">Example02</a> demonstrates the usage of one tenant with both <a href="" ng-click="goToAnchor('documentation','oauth')">oAuth</a> and <b>Example02</b> services. <a href="#/getStarted/example03">Example03</a> demonstrates the usage of several tenants and in some cases, several applications of a tenant with <b>Example03</b> service.<br />
