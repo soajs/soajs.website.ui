@@ -56,7 +56,7 @@
   {
     "id": "dashboard",
     "title": "Admin & maintenance dashboard",
-    "description": "Manage services, productization, multitenancy and push changes to different environments using SOAJS Agent. Control, synchronize and Monitor changes, updates and different behavior all from SOAJ Dashboard.",
+    "description": "Manage services, productization, multitenancy and push changes to different environments using SOAJS Agent. Control, synchronize and Monitor changes, updates and different behavior all from SOAJS Dashboard.",
     "fullDescription": "<p>The Dashboard of Soajs is built on AngularJs. The dashboard keeps you up to date with the multi environments services, tenants and productization.</p><p>Soajs Agent sends the soajs service topology (installed saojs service as well as packages versions), and the OS, Input/Output, network analytic information to the dashboard. The agent also triggers the maintenance routes for all local services, collects all logs and forwards them to elasticsearch. The Agent finally maintains self awarenes among services and stays up to date.</p><br/><p>Service Maintenance Port provides the ability to reload environment registry configuration, productization and multitenant configuration and performs heartbeat and functional checks on services.</p>",
     "icon": "images/homepage/admin-dashboard.png"
   }
