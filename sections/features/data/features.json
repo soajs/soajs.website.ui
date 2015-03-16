@@ -6,7 +6,7 @@
     "rightImage": true,
     "imageLocation": "images/features/awareness.png",
     "fullDescription": "<p>Soajs gives you out of the box a service oriented architecture with self awareness among your services. Performance is improved since the services are distributed over the cloud. Your application can scale and grow as much as needed. Additional nodes can be added. The service are aware of the existence of each other but are not dependent on each other which makes the application modular. If a service is down, the cloud will be aware and will remain functional and this makes soajs reliable.</p>",
-    "icon": "images/icon_database_large.png"
+    "icon": "images/homepage/awareness.png"
   },
   {
     "id": "pec",
@@ -15,7 +15,7 @@
     "leftImage": true,
     "imageLocation": "images/features/multi-env-proj-conf.png",
     "fullDescription": "<p>Take advantage of multi environment capability and build development, staging, and production environments. Enjoy the power and ease of configuring each environment from an infrastructure perspective including different devOps and techOps appetites. Have the ability to create and deploy multiple projects on top of these environments without any collision.</p>",
-    "icon": "images/icon_database_large.png"
+    "icon": "images/homepage/multi-proj-conf-env.png"
   },
   {
     "id": "imfv",
@@ -24,7 +24,7 @@
     "rightImage": true,
     "imageLocation": "images/features/imfv.png",
     "fullDescription": "<p>More than 50% of your API code is to collect, format, and validate the passed parameters from different sources (query, body, header, cookies, session, local config, and tenant or user specific service config &hellip;.)</p><p>IMFV does it all for you; a simple json configuration and you are done. IMFV is based on json schema, support multiple sources with priority, and default values.</p><ul class=\"std-list\"><li>Multi type (string, number, regex, object, array, boolean)</li><li>Multi format (email, phone, date, time, alphanumeric, domain, uri, color, route ...)</li><li>Complex schema (objects, arrays, sub-objects, arrays of objects, objects with arrays... )</li><li>Custom format, types and schemas</li></ul>",
-    "icon": "images/icon_database_large.png"
+    "icon": "images/homepage/imfv.png"
   },
   {
     "id": "security",
@@ -33,7 +33,7 @@
     "leftImage": true,
     "imageLocation": "images/features/security.png",
     "fullDescription": "<p>Soajs offers two security mechanism to protect your apis from outside and unwanted access:<ul class=\"std-list\"><li>API access can be protected using <a href=\"http://oauth.net/2/\">oAuth 2.0</a>.<br />The presence of grant types in this case is required.<br />Grant types have different values such as password or refresh_token or other custom grant types value.</li><li>API access is key driven, if the key is not provided, the API is unaccessible.<br />Each key is secured by an expiration date, device access restriction and geo location access restriction.</li></ul>",
-    "icon": "images/icon_database_large.png"
+    "icon": "images/homepage/security.png"
   },
   {
     "id": "tenantsProducts",
@@ -42,7 +42,7 @@
     "rightImage": true,
     "imageLocation": "images/features/productization-multitenant3.png",
     "fullDescription": "<p>Package your services with different permissions and access controls and offer them as commercial products. Now that your services are productized, you can sell those products to different clients.</p><p>Create different tenants for your clients with applications that have different keys and expiry dates to use the productized services differently depending on the keys&#39; configuration. Tenants use different products and products are used by different tenants. This two way binding saves you lots of effort should you need to offer the same service to different clients that might also require you customize it for them.</p><p>Tenants Applications can override the Access Levels of Packages if needed. [1] - [2]</p>",
-    "icon": "images/icon_database_large.png"
+    "icon": "images/homepage/multi-tenant-productization.png"
   },
   {
     "id": "urac",
@@ -51,13 +51,13 @@
     "leftImage": true,
     "imageLocation": "images/features/urac.png",
     "fullDescription": "<p>Soajs URAC is a service that manages all accounts for different tenants. This service is also equipped with an optional notification system in case registration accounts need to be verified, change email, and forgot password sections where invoked or if administrators add new Accounts.</p><p>Soajs URAC offers the ability to override the service access level as well as configuration for specific users regarding product packages and tenants applications.</p>",
-    "icon": "images/icon_database_large.png"
+    "icon": "images/homepage/urac.png"
   },
   {
     "id": "dashboard",
     "title": "Admin & maintenance dashboard",
     "description": "Manage services, productization, multitenancy and push changes to different environments using SOAJS Agent. Control, synchronize and Monitor changes, updates and different behavior all from SOAJ Dashboard.",
     "fullDescription": "<p>The Dashboard of Soajs is built on AngularJs. The dashboard keeps you up to date with the multi environments services, tenants and productization.</p><p>Soajs Agent sends the soajs service topology (installed saojs service as well as packages versions), and the OS, Input/Output, network analytic information to the dashboard. The agent also triggers the maintenance routes for all local services, collects all logs and forwards them to elasticsearch. The Agent finally maintains self awarenes among services and stays up to date.</p><br/><p>Service Maintenance Port provides the ability to reload environment registry configuration, productization and multitenant configuration and performs heartbeat and functional checks on services.</p>",
-    "icon": "images/icon_database_large.png"
+    "icon": "images/homepage/admin-dashboard.png"
   }
 ]
