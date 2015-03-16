@@ -2,8 +2,8 @@
 /* CSS Document */
 @media screen and (max-width: 1000px) {
 
-
 }
+
 @media screen and (min-width: 1000px) {
     .topbar .nav-container {
         margin: 0 auto;
@@ -29,6 +29,19 @@
         position: relative;
         width: 84%;
         padding-top: 80px;
+    }
+    .white-banner .banner-container {
+        box-sizing: border-box;
+        margin: 0 auto;
+        width: 997px;
+        padding: 15px 0;
+        width: 84%;
+    }
+    .soajs-features .features-container {
+        box-sizing: border-box;
+        margin: 0 auto;
+        width: 997px;
+        width: 84%;
     }
 }
 
@@ -91,11 +104,6 @@
     float: left;
     list-style-type: none;
     height: 60px;
-    /*
-    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-    border-right: 1px solid rgba(0, 0, 0, 0.4);
-    */
 }
 
 .topbar .topnav li:first-child:before {
@@ -242,16 +250,6 @@
     visibility: hidden;
 }
 
-.banner .banner-container {
-    box-sizing: border-box;
-    margin: auto;
-    max-width: 997px;
-    padding: 220px 0 100px;
-    position: relative;
-    width: 84%;
-    padding-top: 80px;
-}
-
 .banner .banner-container .left-main {
     float: left;
     width: 60%;
@@ -286,16 +284,6 @@
     width: 450px;
 }
 
-.banner .about-container {
-    box-sizing: border-box;
-    margin: 0;
-    max-width: 997px;
-    padding-top: 50px;
-    padding-right: 0px;
-    padding-bottom: 50px;
-    position: relative;
-    width: 84%;
-}
 .banner .about-container ul {
     padding-left: 10px;
 }
@@ -322,13 +310,7 @@
     padding:13px 0;
 }
 
-.white-banner .banner-container {
-    box-sizing: border-box;
-    margin: 0 auto;
-    max-width: 997px;
-    padding: 15px 0;
-    width: 84%;
-}
+
 
 .white-banner .banner-container p {
     color: #333;
@@ -368,13 +350,6 @@
     position: relative;
     z-index: 10;
     padding: 50px 0;
-}
-
-.soajs-features .features-container {
-    box-sizing: border-box;
-    margin: 0 auto;
-    max-width: 997px;
-    width: 84%;
 }
 
 .soajs-features .features-container:after {
