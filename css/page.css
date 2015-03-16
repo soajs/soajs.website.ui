@@ -426,13 +426,13 @@ a {
 .soajs-features .features-container .feature-list li {
     box-sizing: border-box;
     float: left;
-    padding: 0 10px 0 80px;
+    padding: 0 10px 0 85px;
     position: relative;
     min-height: 200px;
     cursor: pointer;
     list-style-type: none;
     width: 48%;
-    margin: 10px 1%;
+    margin: 10px 1% 30px 1%;
 }
 
 .soajs-features .feature-list li:after {
@@ -457,13 +457,12 @@ a {
 .soajs-features .feature-list li h5 {
     color: white;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: bold;
 }
 
 .soajs-features .feature-list li p {
     color: white;
     font-size: 15px;
-    font-weight: 400;
     height: auto;
     line-height: 1.9em;
 }
