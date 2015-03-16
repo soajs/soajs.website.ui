@@ -624,23 +624,24 @@ a {
 
 .myTable {
     border-collapse: separate;
+    color: rgb(61,61,61);
 }
 
 .myTable thead {
     background-color: rgb(104,132,152);
 }
+.myTable th, .myTable td {
+    padding: 10px 8px;
+    font-size: 14px;
+}
 .myTable thead th{
     color: white;
-}
-
-.myTable th,
-.myTable td {
-    padding: 5px 8px;
+    font-size: 16px;
+    padding: 10px 15px;
 }
 
 .myTable tr.even {
-    background-color: #E4F0F1;
-    border-top: solid 1px #cccccc;
+    background-color: rgb(245,245,245);
 }
 
 em {
