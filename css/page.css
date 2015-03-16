@@ -313,10 +313,16 @@ a {
     position: relative;
     width: 84%;
 }
+.banner .about-container ul {
+    padding-left: 10px;
+}
 
 .banner .about-container ul li {
-    list-style: outside;
+    list-style-type: none;
     margin: 0 0 15px 0;
+}
+.banner .about-container .yellow-header {
+    font-weight: bold;
 }
 
 .beaverImg {
@@ -561,7 +567,6 @@ a {
 }
 
 .features-page .main-section-container .feature-list ul li h5 {
-    color: #0b8fa2;
     font-size: 26px;
     font-weight: 400;
     padding: 0 0 10px 20px;
