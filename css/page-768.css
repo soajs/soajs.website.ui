@@ -1,19 +1,43 @@
-
-
-
-
-.visible-print {
-     display: none !important;
- }
-@media print {
-    .visible-print {
+@media (min-width: 768px) and (max-width: 999px) {
+    .hidden-desktop {
         display: inherit !important;
     }
-    .hidden-print {
+    .visible-desktop {
+        display: none !important ;
+    }
+    .visible-tablet {
+        display: inherit !important;
+    }
+    .hidden-tablet {
         display: none !important;
     }
-}
+    .topbar .nav-container {
+        margin: 0 auto;
+        width: 97%;
 
+    }
+    .bottom .sharing-footer {
+        margin: 0 auto;
+        width: 97%;
+    }
+    .main-section-container {
+        margin: 0 auto;
+        width: 97%;
+    }
+
+    .banner .banner-container {
+        margin: 0 auto;width: 97%;
+    }
+    .white-banner .banner-container {
+        margin: 0 auto;width: 97%;
+    }
+    .soajs-features .features-container {
+        margin: 0 auto;width: 97%;
+    }
+    .topbar .topnav {
+        padding-left: 15px;
+    }
+}
 
 @media (max-width: 767px) {
     .hidden-desktop {
@@ -75,7 +99,6 @@
     }
 
     .main-section-container {
-        background-color: #784;
     }
 
     .topbar .menu {
@@ -129,50 +152,4 @@
     }
 
 }
-
-@media (max-width: 480px) {
-    .topbar .menu {
-        display: block !important;
-    }
-    .topbar .menu.menu-open {
-        background-color: #212c2e;
-    }
-    .bottom {
-        font-size: 12px;
-        height: auto;
-        padding: 10px 0;
-        background-color: red;
-    }
-    .small-button {
-        font-size: 14px;
-        height: 43px;
-        padding: 8px 20px;
-        margin-right: 10px;
-    }
-}
-@media (max-width: 380px) {
-    .topbar .branding {
-        cursor: pointer;
-        float: left;
-        width: 180px;
-    }
-
-    .bottom {
-        font-size: 12px;
-        height: auto;
-        padding: 10px 0;
-    }
-
-    .small-button {
-        font-size: 12px;
-        height: 30px;
-        padding: 0px 8px 5px;
-        margin-right: 10px;
-        background-color: #DF9630;
-        background-image: none;
-    }
-}
-
-
-
 

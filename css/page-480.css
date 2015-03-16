@@ -1,198 +1,4 @@
 
-@-ms-viewport {
-    width: device-width;
-}
-.hidden {
-    display: none;
-    visibility: hidden;
-}
-.visible-phone {
-    display: none !important;
-}
-.visible-tablet {
-    display: none !important;
-}
-.hidden-desktop {
-    display: none !important;
-}
-.visible-desktop {
-    display: inherit !important;
-}
-
-.topbar .menu {
-    background-color: black;
-    box-sizing: border-box;
-    cursor: pointer;
-    display: none;
-    float: right;
-    height: 100% !important;
-    padding: 16px 20px;
-}
-.topbar .menu::after {
-    clear: both;
-    content: ".";
-    display: block;
-    font-size: 0;
-    height: 0;
-    line-height: 0;
-    visibility: hidden;
-}
-
-.topbar .menu .menu-button-stripe {
-    border-bottom: 4px solid #fff;
-    box-sizing: border-box;
-    height: 5px;
-    margin-bottom: 5px;
-    width: 35px;
-}
-.topbar .nav.menu-open {
-    display: block;
-}
-
-@media (min-width: 768px) and (max-width: 979px) {
-    .hidden-desktop {
-        display: inherit !important;
-    }
-    .visible-desktop {
-        display: none !important ;
-    }
-    .visible-tablet {
-        display: inherit !important;
-    }
-    .hidden-tablet {
-        display: none !important;
-    }
-}
-
-.visible-print {
-     display: none !important;
- }
-@media print {
-    .visible-print {
-        display: inherit !important;
-    }
-    .hidden-print {
-        display: none !important;
-    }
-}
-
-
-@media (max-width: 767px) {
-    .hidden-desktop {
-        display: inherit !important;
-    }
-    .visible-desktop {
-        display: none !important;
-    }
-    .visible-phone {
-        display: inherit !important;
-    }
-    .hidden-phone {
-        display: none !important;
-    }
-
-    .bottom {
-        font-size: 16px;
-    }
-    .small-button {
-        font-size: 16px;
-        height: 43px;
-        padding: 8px 30px;
-        margin-right: 10px;
-    }
-    .topbar .nav-container {
-        width: 100%;
-    }
-    .bottom .sharing-footer {
-        width: 100%;
-    }
-    .main-section-container {
-        width: 100%;
-    }
-
-    .banner .banner-container {
-        width: 100%;
-    }
-    .white-banner .banner-container {
-        width: 100%;
-    }
-    .soajs-features .features-container {
-        width: 100%;
-    }
-
-    .topbar .getStarted {
-        width: 100%;
-    }
-
-    .topbar .features {
-        width: 100%;
-    }
-
-    .topbar .documentation {
-        width: 100%;
-    }
-
-    .topbar .contactUs {
-        width: 100%;
-    }
-
-    .main-section-container {
-        background-color: #784;
-    }
-
-    .topbar .menu {
-        display: block !important;
-    }
-    .topbar .menu.menu-open {
-        background-color: #212c2e;
-    }
-
-
-    .topbar .topnav {
-        background-color: #212c2e;
-        display: none;
-        padding: 0;
-        position: absolute;
-        right: 0;
-        top: 60px;
-        width: 200px;
-    }
-    .topbar .topnav li {
-        border-bottom: 1px solid #001c20;
-        float: none;
-        font-size: 20px;
-        height: 45px;
-    }
-    .topbar .topnav li.no-mobile {
-        display: none;
-    }
-    .topbar .topnav li a {
-        box-sizing: border-box;
-        color: #fff;
-        display: block;
-        font-weight: 400;
-        margin: 0;
-        padding: 12px 25px 13px;
-        width: 100%;
-    }
-    .topbar .topnav li a.current {
-        border-bottom: medium none;
-        color: #41bac2;
-        font-weight: 600;
-    }
-    .topbar .topnav li:last-child {
-        border-bottom: medium none;
-    }
-    .topbar .topnav li:last-child a {
-        padding-bottom: 16px;
-    }
-    .topbar .topnav.menu-open {
-        display: block;
-    }
-
-}
-
-
 @media (max-width: 480px) {
     .topbar .menu {
         display: block !important;
@@ -201,35 +7,40 @@
         background-color: #212c2e;
     }
     .bottom {
-        font-size: 12px;
+        font-size: 13px;
         height: auto;
         padding: 10px 0;
-        background-color: red;
     }
     .small-button {
         font-size: 14px;
         height: 43px;
-        padding: 8px 20px;
+        padding: 5px 20px;
         margin-right: 10px;
     }
 }
 @media (max-width: 380px) {
+    .topbar .branding {
+        cursor: pointer;
+        float: left;
+        width: 180px;
+    }
+
     .bottom {
         font-size: 12px;
         height: auto;
         padding: 10px 0;
-        background-color: blue;
     }
+
     .small-button {
         font-size: 12px;
         height: 30px;
-        padding: 7px 8px;
+        padding: 0px 8px 5px;
         margin-right: 10px;
-        background-color: #DF9630;
+        margin-top: 5px;
+        background-color: #FFB500;
         background-image: none;
     }
 }
-
 
 
 
