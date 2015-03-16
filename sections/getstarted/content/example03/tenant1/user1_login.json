@@ -9,8 +9,7 @@
     "ts": 1425051598289,
     "status": "active",
     "profile": {},
-    "groups": [],
-
+    "groups": ['gold'],
     "config": {
       "packages": {},
       "keys": {}

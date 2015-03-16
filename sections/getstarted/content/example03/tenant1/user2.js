@@ -8,7 +8,7 @@ var user2 = {
 	"ts":  1425383129777,
 	"status": "active",
 	"profile": {},
-	"groups": [],
+	"groups": ['silver'],
 	"config": {
 		"packages": {
 			"PROD1_PCK1": {

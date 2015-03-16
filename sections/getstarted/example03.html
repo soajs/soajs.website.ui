@@ -331,11 +331,13 @@ $ node index</code></pre>
 		<br>
 		<ul>
 			<li>
-				<b>user1</b> does not set his own acl but rather uses the default from the tenant configuration.<br /><br />
+				<b>user1</b> does not set his own acl but rather uses the default from the tenant configuration.
+	             User1 belongs to group "gold".<br /><br />
 			</li>
 			<li>
 				<b>user2</b> has his own ACL entry under "config.packages" and thus overrides the default ACL for package <b>PROD1_PCK1</b>.
-	            User2 has access to both <b>URAC</b> and <b>Example03</b> services. <br />
+	             User2 belongs to group "silver".
+	             User2 has access to both <b>URAC</b> and <b>Example03</b> services. <br />
 	            User2 also has an entry under "config.keys" with the value "41eb3256ce660a891205d0a0eca19421" corresponding to the key of the second application for tenant 1.<br />
 
 				When calling the api using the external key that corresponds to this key, the settings defined under the key will be used.

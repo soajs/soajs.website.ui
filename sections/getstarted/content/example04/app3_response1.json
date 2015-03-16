@@ -1,0 +1,12 @@
+{
+  "result": false,
+  "errors": {
+    "codes": [161],
+    "details": [
+      {
+        "code": 161,
+        "message": "You need to be logged in to access this API."
+      }
+    ]
+  }
+}

@@ -51,7 +51,6 @@ var tenant1 = {
 			"acl": {
 				"urac": {},
 				"example03": {},
-				"oauth": {},
 				"example04": {}
 			},
 			"keys": [
@@ -80,6 +79,40 @@ var tenant1 = {
 					}
 				}
 			]
+		},
+		{
+			"product": "PROD1",
+			"package": "PROD1_PCK4",
+			"appId": ObjectId('54f97a043d52cde7117559aa'),
+			"description": "Tenant 1 takes package 4",
+			"_TTL": 172800,
+			"keys": [
+				{
+					"key": "50026064e77e9eabf9e1328c14b22d46",
+					"extKeys": [
+						{
+							"expDate": new Date().getTime() + 86400000,
+							"extKey": "4232477ed993d167ec13ccf8836c29c4c3eabd8dc5d6b29af1725af616353c2ef59ab49a11f64affc60fa73a48eda79187085b064d533fb2f2adccf3e48b41088765a3665c91a193cf13808d68194ecc2061ae81639b49c9f1a73150a3123254",
+							"device": null,
+							"geo": null
+						}
+					],
+					"config": {
+						"urac": {
+							"hashIterations": 1024, //used by hasher
+							"seedLength": 32, //used by hasher
+							"tokenExpiryTTL": 2 * 24 * 3600 * 1000
+						},
+						"example03": {
+							"tenantName": "Client One"
+						},
+						"example04": {
+
+						}
+					}
+				}
+			]
 		}
+
 	]
 };

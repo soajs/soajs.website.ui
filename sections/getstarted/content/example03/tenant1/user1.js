@@ -8,7 +8,7 @@ var user1 = {
 	"ts":  1425383129777,
 	"status": "active",
 	"profile": {},
-	"groups": [],
+	"groups": ['gold'],
 	"config": {
 	}
 };

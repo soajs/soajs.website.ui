@@ -39,6 +39,41 @@ var product1 = {
 				}
 			},
 			"_TTL": 172800
+		},
+		{
+			"code": "PROD1_PCK4",
+			"name": "Package 4",
+			"description": "",
+			"acl": {
+				"urac": {
+					"access": false,
+					"apisRegExp": [
+						{
+							"regExp": /^\/admin\/.+$/,
+							"access": ["gold"]
+						},
+						{
+							'regExp': /^\/account\/.+$/,
+							'access': true
+						}
+					]
+				},
+				"example04": {
+					"access": false,
+					"apis":{
+						"/buildName":{
+							"access": true
+						},
+						"/buildNameGold":{
+							"access": ['gold']
+						}
+					}
+				},
+				"example03": {
+					"access": false
+				}
+			},
+			"_TTL": 86400000
 		}
 	]
 };
