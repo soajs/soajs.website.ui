@@ -252,6 +252,13 @@ service.post("/login", function(req, res) {
 	</p>
 	<br />
 	<hr/>
+	<h3><u>Type Casting</u></h3>
+	<p>
+		<b>IMFV</b> supports all inputs provided if the request headers states that it hold a "content-type" of value "application/json". This means that the arriving input is a JSON input and do not need to apply type casting on them. Any request that does not contain this header, will provide the inputs as strings and therefore these inputs need to be parsed before validation otherwise they will all fail.
+		continue here ...
+	</p>
+	<br />
+	<hr/>
 	<h3><u>Complex Schemas</u></h3>
 	<p>
 		<b>IMFV</b> supports complex schemas such as arrays and objects, where each of the two contains basic or even more complex schemas internally. It relies on <a href="http://json-schema.org/documentation.html" target="_blank">JSON Schema’s</a> operator such as <a href="http://json-schema.org/example2.html" target="_blank">oneOf</a>, <a href="http://json-schema.org/example2.html" target="_blank">anyOf</a>, <a href="http://json-schema.org/example2.html" target="_blank">allOf</a> in the cases where the same input might have different values.<br />

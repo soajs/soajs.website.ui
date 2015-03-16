@@ -3,7 +3,9 @@
 <hr />
 <div>
     Building a service with <b>SOAJS</b> is straight forward; simply start by installing <b>SOAJS</b> using npm:
-	<pre><code class="bash">$ npm install soajs</code></pre>
+	<pre>
+		<code class="bash">$ npm install soajs</code>
+	</pre>
 	Once installed, a directory called <b>node_modules</b> will be created and <b>SOAJS</b> will be located inside it.<br />
 	Add your service next to the <b>node_modules</b> directory:<br />
     <img ng-src="images/documentation/service-folder-tree.png" align="right" style="margin-left:5px; margin-bottom:5px;" class="image-border"/>
@@ -84,4 +86,139 @@
         </tab>
     </tabset>
     <script>renderCodeSnippets();</script>
+	<hr/>
+	<br/>
+	<h3><u>Starting the Service:</u></h3>
+	<p>
+		Before starting any service, install the <a href="#" ng-click="loadSection('imfv','controller');">Controller</a> of <b>SOAJS</b> and run it.
+		All requests to <b>SOAJS</b> services pass through the controller first for clearance checking.
+		To access a service, both the controller and the service should be running.<br /><br/>
+
+		<b>soajs.util</b> is the main utility module for <b>SOAJS</b> and contains the controller.
+		Install this module via NPM and start the controller from within it, then navigate to your service and run it.
+		<pre><code class="bash">$ npm install soajs.util
+$ cd soajs.util/controller/
+$ node index
+
+$ cd ../example01
+$ node index</code>
+		</pre>
+		Your service is now running on the port you have assigned to it in the registry as explained at the top of the page.
+		You can access your service by hitting the url of the controller followed by the name of your service and its API.
+		<pre>
+			<code class="bash">curl -X GET "http://localhost:4000/example01/testGet</code>
+		</pre>
+		The above snippet illustrates that the controller runs by default on <u>localhost</u> port <u>4000</u>.
+		Your service name is added to the path of the request and followed by the API it contains. <br/>
+	</p>
+	<hr/>
+	<h3><u>Maintenance Check:</u></h3>
+	<p>
+		By default, the controller runs on your localhost via port 4000.
+		Every service in <b>SOAJS</b> has its own default port and another maintenance port configured in the registry.
+		So when you start a service, the service will be listening to two ports at the same time; one to process the requests and another used for maintenance operations.<br />
+		You can access the maintenance port while the service is running and perform some maintenance operations like heartbeat checking and reload configuration.
+		To access the maintenance port of a service, add 1000 to its default port number, in this case 4000 + 1000 = 5000.<br/>
+	</p>
+	<fieldset>
+		<legend>Controller Default Port</legend>
+		<div>
+			<pre><code class="bash">$ curl -X GET "http://localhost:4000</code></pre>
+			<h6><u>Response:</u></h6>
+						<pre><code class="bash">{
+	"result": false,
+		"errors": {
+			"codes": [ 130 ],
+			"details": [
+				{
+					"code": 130,
+					"message": "Unknown service."
+				}
+			]
+	}
+}</code></pre>
+			<em>When you invoke the controller on the default port and without specifying a service, the controller simply returns an error message.</em>
+			<p><br/>On its own, the controller is useless but in this case, we just wanted to check that there is a response and verify that it is running and listening on port 4000.</p>
+		</div>
+	</fieldset>
+	<fieldset>
+		<legend>Controller Maintenance Port</legend>
+		<div>
+			<p>Let's hit the maintenance port and perform a heartbeat check.<br /></p>
+			<pre><code class="bash">$ curl -X GET "http://localhost:5000/heartbeat</code></pre>
+			<h6><u>Response:</u></h6>
+						<pre><code class="bash">{
+	"result": true,
+		"ts": 1425041775082,
+		"service": {
+		"service": "CONTROLLER",
+		"type": "rest",
+		"route": "/heartbeat"
+	}
+}</code></pre>
+			<em>You can perform a heartbeat check on any service using this approach. Simply call the maintenance port of a service and invoke the "/heartbeat" api to check if it is running.</em>
+			<p><br/>Great! the service is healthy and running as expected.</p>
+		</div>
+	</fieldset>
+	<fieldset>
+		<legend>Heartbeat Your Service</legend>
+		<div>
+			At the begining, we showed a snippet where we chose to configure our service to run on port 4010.
+			<pre>
+				<code class="bash">$ curl -X GET "http://localhost:5010/heartbeat"</code></pre>
+			<h6><u>Response:</u></h6>
+				<pre><code class="bash">{
+					"result":true,
+					"ts":1425054123486,
+					"service": {
+					"service":"example01",
+					"type":"rest",
+					"route":"/heartbeat"
+					}
+					}</code>
+				</pre>
+			<p>Notice here that we used port <u>5010</u> to perform a <b>heartbeat</b> check. A heartbeat operation is made using the maintenance port of a service and that the maintenance port is equal to the port number of the service + 1000.<br />
+				In the image above, in <b>Registering the Service</b>, we registered example01 in <b>SOAJS</b> with port <u>4010</u> making the maintenance port of this service as <u>5010</u>.</p>
+		</div>
+	</fieldset>
+	<fieldset>
+		<legend>Calling Your Service</legend>
+		<div>
+			<pre><code class="bash">$ curl -X GET "http://localhost:4000/example01"</code></pre>
+			<h6><u>Response:</u></h6>
+				<pre><code class="bash">{
+	"result":false,
+		"errors": {
+			"codes": [ 151 ],
+			"details": [
+			{
+				"code": 151,
+				"message": "You are trying to reach an unknown rest service!"
+			}
+		]
+	}
+}</code>
+				</pre>
+			<p>
+				Here we attempted to call <b>Example01</b> service without specifying any of its APIs. The returned response was a fail because basically there is no API defined in this service with the value "/" so this event is treated as if an invalid API route was called.<br /><br />
+				Another important thing to notice is how the URL of the service was constructed. Again, all requests to <b>SOAJS</b> services should pass through the <a href="#/documenation/controller">Controller</a> and this why the port used was <u>4000</u> and not <u>4010</u> even though <u>4010</u> is <b>Example01</b> service port in the registry.
+			</p>
+		</div>
+	</fieldset>
+	<fieldset>
+		<legend>Calling <b>testGet</b> API in Your Service</legend>
+		<div>
+			<pre><code class="bash">$ curl -X GET "http://localhost:4000/example01/testGet?firstName=John&lastName=Smith&email=john@smith.com" </code> </pre>
+			<h6>Response</h6>
+
+			<div ng-init="loadJson(path + 'service/result02.json', 'result02js');">
+				<div id="result02js"></div>
+			</div><br />
+			<p>This time the API returned a valid response with the JSON Object containing all the parameters we specified.</p>
+		</div>
+	</fieldset>
+	<hr/>
+	<p>
+		Checkout <a href="#/getStarted">Get Started</a> Section along with the examples it offers to learn how to download the examples and run them and how to make calls to services, check if they are healthy, secure them and productize them.
+	</p>
 </div>

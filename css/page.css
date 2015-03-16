@@ -6,6 +6,7 @@ body, html {
     text-align: left;
     margin: 0;
     padding: 0;
+    font-family: 'Lato', sans-serif;
 }
 
 a img {
@@ -61,7 +62,6 @@ a {
 
 .topbar .branding .version {
     color: #fff;
-    font-family: nexa_lightregular, Helvetica, Arial, sans-serif;
     font-size: 12px;
     opacity: 0.7;
     display: block;
@@ -70,6 +70,24 @@ a {
 }
 
 /* main menu */
+.topbar .small-menu {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: none;
+    float: right;
+    height: 100% !important;
+    padding: 16px 20px;
+}
+.topbar .small-menu::after {
+    clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
 .topbar .topnav {
     float: right;
 }
@@ -108,7 +126,6 @@ a {
     color: #fff;
     cursor: pointer;
     display: block;
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-size: 14px;
     font-weight: 600;
     margin: 22px 17px 0;
@@ -133,43 +150,6 @@ a {
     color: #ffb500;
 }
 
-.topbar .topnav ul.exampleMenu {
-    background-color: #123E5E;
-    background-image: none;
-    padding: 0;
-    margin-top: 12px;
-    display: none;
-}
-
-.topbar .topnav li:hover > ul.exampleMenu {
-    display: block;
-    background-color: #123E5E;
-    background-image: none;
-}
-
-.topbar .topnav .exampleMenu li {
-    float: none;
-    list-style-type: none;
-    color: white;
-    padding: 10px 0 10px 20px;
-    border-left: none;
-    border-right: none;
-    height: auto;
-}
-
-.topbar .topnav .exampleMenu li:last-child:after,
-.topbar .topnav .exampleMenu li:first-child:before {
-    display: none;
-}
-
-.topbar .topnav .exampleMenu li a {
-    margin: 0;
-    padding: 0;
-}
-
-/*
-    FOOTER, COPYRIGHT AND MENU
-*/
 .bottom {
     /*background-color: #001c20;*/
     background-color: #123e5e;
@@ -177,7 +157,6 @@ a {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) inset;
     box-sizing: border-box;
     color: #fff;
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-size: 0.9em;
     font-weight: 400;
     height: auto;
@@ -266,7 +245,6 @@ a {
     /*background-color: #df9630;*/
     /*opacity:0.9;*/
     box-sizing: border-box;
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
     overflow-x: hidden;
 }
 
@@ -350,7 +328,6 @@ a {
 
 .white-banner {
     background-color: #fff;
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
     height: 50px;
 }
 
@@ -366,7 +343,6 @@ a {
     color: #333;
     display: block;
     float: left;
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-size: 15px;
 }
 
@@ -396,7 +372,6 @@ a {
 }
 
 .soajs-features {
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
     background-color: #eeeeee;
     position: relative;
     z-index: 10;
@@ -429,7 +404,6 @@ a {
     color: #0b8fa2;
     /*color: #df9630;*/
     /*color: #1D4766;*/
-    font-family: nexa_lightregular, Helvetica, Arial, sans-serif;
     font-size: 28px;
     font-weight: 300;
     padding-bottom: 10px;
@@ -438,7 +412,6 @@ a {
 
 .soajs-features .features-container .features p {
     color: #001c20;
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-size: 20px;
     font-style: italic;
     font-weight: 300;
@@ -483,7 +456,6 @@ a {
     color: #0b8fa2;
     /*color: #df9630;*/
     /*color: #1D4766;*/
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-size: 18px;
     font-weight: 400;
 }
@@ -499,7 +471,6 @@ a {
 .soajs-next-steps {
     background-color: #fff;
     color: #001c20;
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
     padding: 35px 0;
     position: relative;
 }
@@ -593,7 +564,6 @@ a {
 
 .features-page .main-section-container .feature-list ul li h5 {
     color: #0b8fa2;
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-size: 26px;
     font-weight: 400;
     padding: 0 0 10px 20px;
