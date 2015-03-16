@@ -8,8 +8,6 @@
 
 		In this example we will show you that you can use <b>oAuth</b> together with multitenancy.
 		Everything is similar to Example03 with few exceptions.
-		<!-- <img ng-src="images/getstarted/example03.png" style="margin:5px 0;"/> -->
-
 		<hr/>
 		<h3>Import Provisioning</h3>
 		<p>
@@ -49,9 +47,9 @@ $ node index</code></pre>
 			</div>
 		</fieldset>
 		<hr/>
-		<h3>What has changed:</h3>
+		<h3>What has changed</h3>
 		<br>
-		<h4><u>The Product:</u></h4>
+		<h4>The Product</h4>
 
 		We applied a modification to the product record <b>PROD1</b>.
 		<div ng-init="loadCode(path + 'example04/product1.js', 'product1');">
@@ -63,7 +61,7 @@ $ node index</code></pre>
 		We also added a fourth package with more complex acl options.
 		<br/><br/>
 
-		<h4><u>The Tenant:</u></h4>
+		<h4>The Tenant</h4>
 		We will add an entry for "oauth" for Tenant 1.
 		The "oauth" object has three entries: the secret phrase, the redirect Uri and grants.
 		For the first application, we need to add an entry under "config" for "example04".
@@ -75,7 +73,7 @@ $ node index</code></pre>
 		</div>
 		We also added a third application for Tenant 1; it takes package 4.
 		<br>
-		<h4><u>oAuth User:</u></h4>
+		<h4>oAuth User</h4>
 		We need to create a new oAuth user record that is linked to Tenant 1.
 		<div ng-init="loadCode(path + 'example04/oauth_user.js', 'oauth_user');">
 			<div id="oauth_user"></div>
@@ -86,7 +84,7 @@ $ node index</code></pre>
 		    but we chose to ignore it in Example03.</em>
 		<hr/>
 
-		<h3>Service Code:</h3>
+		<h3>Service Code</h3>
 		The code is similar to that in <b>Example03</b>.
 		We only need to edit the service config in <u>index.js</u> file; add the "oauth" entry and set it to true as shown below.
 		Now the service is secured by <b>oAuth</b>.

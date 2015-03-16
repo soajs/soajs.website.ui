@@ -3,13 +3,11 @@
 		<a href="#/getStarted" class="goBackLink">Go Back</a>
 		<h1>Example 02</h1>
 		<div class="white-container">
-		<p>
+			<img ng-src="images/getstarted/getstarted.png" align="right" style="margin:0 0 0 5px;" /><p>
 			In the previous example, we showed you how to create a service, register it and run it. We also showed you how to do a heartbeat check on both your service and the controller. Finally we provided you with some sample tests you can run and see how the service responds to different scenarios and how <a href="#/documentation/imfv">IMFV</a> works.<br />
 		</p>
 		<p>
-			<img ng-src="images/getstarted/getstarted.png" align="right" style="margin:0 0 0 5px;" />
 			Now we are going to take one of the APIs from <a href="#/getStarted/example01">Example01</a> and use it in this example but we will secure this service via <a href="http://oauth.net/" target="_blank">oAuth</a>.<br /><br />When securing a service with <b>oAuth</b>, the service becomes accessible only to logged in <b>oAuth</b> users. Every request made to the service is first validated by <b>SOAJS</b> <a href="#/documentation/oauth">oAuth Service</a> before it gets forwarded to that service.<br /><br />
-
 			The diagram on the right shows that <a href="#/documentation/oauth">soajs.oauth</a> Service communicates with the <a href="#/documentation/controller">controller</a>. When a request is made, the <b>controller</b> invokes <b>soajs.oauth</b> service to validate this request and if the request is authorized, then the <b>controller</b> forwards the request to the secured service which in this case is referred to as "<b>Example02</b>".<br />
 		</p>
 		<hr/>
@@ -163,7 +161,7 @@ $ node index</code></pre>
 			</div>
 		</fieldset>
 		<hr />
-		<h3>Service Code Explained:</h3>
+		<h3>Service Code Explained</h3>
 		Before we jump into the tests, let's take a minute and see what the service will do when we hit its APIs.<br />
 		The code of service <b>Example02</b> resembles <a href="#/getStarted/example01">Example01</a> with the exception of oauth which is set to true in the declaration.<br />
 		In this example we will use one of the APIs of <b>Example01</b>. Once we login with <b>oAuth user</b>, we will use the <b>Authorization</b> token to access this API.<br /><br />

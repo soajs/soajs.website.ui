@@ -1,7 +1,7 @@
 <div class="page">
-	<div class="main-section-container">
-
-		<div ng-controller="contactCtrl"><br>
+	<div class="main-section-container"><br>
+		<div class="white-container">
+		<div ng-controller="contactCtrl">
 			<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
 			<br>
 			We are very happy you have decided to get in touch with <b>SOAJS</b> TEAM.<br/>
@@ -25,8 +25,10 @@
 				<textarea required class="form-control" placeholder="Write your message here..." tooltip="Provide as much information as possible in your message..." rows="10" ng-model="contact.message"></textarea>
 				<br>
 				<input type="submit" class="btn btn-primary pull-right" value="Submit"/>
+				<br class="clearfix">
 			</form>
 		</div>
+	</div>
 	</div>
 </div>
 

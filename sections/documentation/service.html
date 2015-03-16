@@ -1,6 +1,5 @@
 <a id="service"></a>
 <h1>SOAJS Service</h1>
-
 <div class="white-container">
     Building a service with <b>SOAJS</b> is straight forward; Start by installing <b>SOAJS</b> via npm:
 	<pre>
@@ -38,7 +37,7 @@
         </em><br/>
     </p>
     <hr/>
-    <h4>Basic Example:</h4>
+    <h4>Basic Example</h4>
 
     <p>
         The following example demonstrates how to write a service with <b>SOAJS</b> that has one route using the GET protocol.
@@ -49,7 +48,7 @@
 
     <p>
 
-    <h3><b>Code walkthrough:</b></h3>
+    <h4>Code walkthrough</h4>
     <ul>
         <li><b>Line1-</b> "strict mode” JavaScript.</li>
         <li><b>Line2-</b> Require <b>SOAJS</b> framework.</li>
@@ -87,7 +86,7 @@
     <script>renderCodeSnippets();</script>
 	<hr/>
 	<br/>
-	<h3>Starting the Service:</h3>
+	<h3>Starting the Service</h3>
 	<p>
 		Before starting any service, install the <a href="#" ng-click="loadSection('imfv','controller');">Controller</a> of <b>SOAJS</b> and run it. All requests to <b>SOAJS</b> services pass through the controller first for clearance checking. To access a service, both the controller and the service should be running.<br /><br/>
 
@@ -108,7 +107,7 @@ $ node index</code>
 		Your service name is added as a path parameter to the request and followed by the API it contains that you are trying to hit. <br/>
 	</p>
 	<hr/>
-	<h3>Maintenance Check:</h3>
+	<h3>Maintenance Check</h3>
 	<p>
 		By default, the controller runs on your localhost via port 4000. Every service in <b>SOAJS</b> has its own default port and another maintenance port configured in the registry. So when you start a service, the service will be listening to two ports at the same time; one to process the requests and another used for maintenance operations.<br />
 	</p>
