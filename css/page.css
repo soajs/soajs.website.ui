@@ -153,7 +153,7 @@ a {
 
 .bottom {
     /*background-color: #001c20;*/
-    background-color: #123e5e;
+    background-color: #fff;
     border-top: 1px solid #bbb;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) inset;
     box-sizing: border-box;
@@ -203,25 +203,25 @@ a {
 
 .bottom .small-button {
     /*background-color: #0b8fa2;*/
-    background-color: #df9630;
-    border-radius: 18px;
-    box-sizing: border-box;
     display: block;
+    background: url('../images/yellow-btn-bg.png') repeat-x;
+    border-radius: 5px;
+    font-size:18px;
+    height:43px;
+    padding: 8px 40px;
     float: right;
     margin-right: 15px;
     margin-top: -5px;
-    padding: 5px 10px;
     text-align: center;
-    width: 120px;
 }
 
-.bottom .small-button:hover {
+/*.bottom .small-button:hover {*/
     /*background-color: #41bac2;*/
-    background-color: #ffb500;
-    color: #fff;
-    text-decoration: none;
-    transition: all 250ms ease 0s;
-}
+    /*background-color: #ffb500;*/
+    /*color: #fff;*/
+    /*text-decoration: none;*/
+    /*transition: all 250ms ease 0s;*/
+/*}*/
 
 .bottom .star {
     float: left;
