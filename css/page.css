@@ -201,7 +201,7 @@ a {
     padding-left: 0;
 }
 
-.bottom .small-button {
+.small-button {
     /*background-color: #0b8fa2;*/
     display: block;
     background: url('../images/yellow-btn-bg.png') repeat-x;
@@ -213,6 +213,7 @@ a {
     margin-right: 15px;
     margin-top: -5px;
     text-align: center;
+    color:white;
 }
 
 /*.bottom .small-button:hover {*/
@@ -329,7 +330,8 @@ a {
 
 .white-banner {
     background-color: #fff;
-    height: 50px;
+    height: 60px;
+    padding:13px 0;
 }
 
 .white-banner .banner-container {
