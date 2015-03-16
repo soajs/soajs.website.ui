@@ -1,11 +1,10 @@
 <a id="soajs.oauth"></a>
 <h1>SOAJS OAUTH</h1>
-
 <div>
 	<tabset class="designTab">
 		<tab heading="Service Information"><br />
 			<p>
-				<img ng-src="images/documentation/oauth-config.png" class="image-border" style="margin:5px 0;" align="right"/>
+				<img ng-src="images/documentation/oauth-config.png" class="image-border img-margin-t-b" align="right"/>
 				<b>SOAJS</b> <b>oAuth</b> is a service that integrates with <a href="oauth.net/2/" target="_blank">oAuth 2.0</a>.<br/>
 				The service simply validates, refreshes and kills access tokens generated via <b>oAuth 2.0</b>.<br/><br/>
 				This service is useless by itself and is used by other services that require <b>oAuth 2.0</b> security.<br/><br/>
@@ -13,8 +12,7 @@
 				If the configuration contains < <b>"oauth":true</b> >, then this service cannot be accessed unless an <b>oAuth 2.0</b> access token is provided in every request made to this service.
 			</p>
 			<hr/>
-			<h4>Workflow:</h4>
-
+			<h4>Workflow</h4>
 			<p>
 				The following diagram illustrates how <b>oAuth 2.0</b> works with <b>SOAJS</b> services.
 			</p>
@@ -26,7 +24,7 @@
 			</p>
 		</tab>
 		<tab heading="Service API">
-			<h3>Usage:</h3>
+			<h3>Usage</h3>
 
 			<p>
 				<b>SOAJS</b> oAuth is located in <a href="https://github.com/soajs/soajs.oauth" target="_blank">soajs.oauth</a>.<br/>
@@ -40,7 +38,7 @@ $ node index</code></pre>
 			The service is now running and listening http://127.0.0.1:4000/oauth/.
 			</p>
 			<hr />
-			<h3>API:</h3>
+			<h3>API</h3>
 			<fieldset ng-repeat="route in oauth">
 				<legend>{{route.routeName}}</legend>
 				<div>

@@ -41,10 +41,7 @@ service.post("/login", function(req, res) {
 		<b>SOAJS</b> built-in <b>buildResponse</b> takes 2 parameters, the first being an error object and the second being the response. In most cases, when there is no error, there is a response and vise-versa.<br /><br />
 	</p>
 	<hr/>
-	<!-- To do: Note: imfv gives full support if the type of the request is application json -->
 
-
-	<hr/>
 	<h3>Sample Schema</h3>
 	<p>
 		Every API has an entry inside the schema object; this is where you configure the inputs that it should receive and their validation.
@@ -56,7 +53,7 @@ service.post("/login", function(req, res) {
 		It's type is <u>string</u> and it has a specific <u>alphanumeric format</u> and it is provided via the <u>query string</u> as <b>"firstName"</b> when the request is made.<br /><br />
 	</p>
 	<hr/>
-	<h3>Sources List:</h3>
+	<h3>Sources List</h3>
 	<p>
 		<b>IMFV</b> can fetch an input from different sources if configured to do so. In the case above, the "source" array has only one entry which is <b>"query.firstName"</b>. However, you can configure <b>IMFV</b> to look in multiple sources for the input. If the first source doesn't contain the input value, <b>IMFV</b> will jump to the next one and so on till the entire "source" array has been processed.
 		<pre><code class="javascript">"firstName" : {
@@ -65,7 +62,7 @@ service.post("/login", function(req, res) {
 	<em>IMFV will look for "firstName" in the following sources, in this order: query string, then posted body, then session... </em>
 	</p>
 	<hr/>
-	<h3>Default Values:</h3>
+	<h3>Default Values</h3>
 	<p>
 		<b>IMFV</b> offers the ability to provide a default value for an input. This means that if the input is not provided, <b>IMFV</b> will use the default value configured for that input.
 		<pre><code class="javascript">//...
@@ -82,7 +79,7 @@ service.post("/login", function(req, res) {
 		The above code sets the value of <u>firstName</u> to <b>"John"</b>. If the request is made to the API without specifying a <u>firstName</u> in the <u>querystring</u>, then <b>req.soajs.inputmaskData.firstName</b> will be set to <b>John</b>.<br /><br />
 	</p>
 	<hr/>
-	<h3>Types, Properties & Formats:</h3>
+	<h3>Types, Properties & Formats</h3>
 	<p>
 		<b>IMFV</b> supports different input types with different properties such as <u>strings</u>, <u>numbers</u>, <u>boolean</u>, <u>arrays</u>, <u>objects</u>, <u>regular expressions</u>... etc. Each of these types has different combination of properties. A <u>string</u> for example can represent an email, a name, a date or a phone number. Here is a list of what can be used with <b>IMFV</b>:
 	</p>
@@ -180,8 +177,8 @@ service.post("/login", function(req, res) {
 		<table class="mytable" width="100%">
 			<thead>
 				<tr>
-					<th>Format:</th>
-					<th>Sample:</th>
+					<th>Format</th>
+					<th>Sample</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -266,14 +263,14 @@ service.post("/login", function(req, res) {
 		</div><br /><br />
 	</p>
 	<hr/>
-	<h3>Common Fields:</h3>
+	<h3>Common Fields</h3>
 	<p>
 		<b>commonfields</b> is used in <b>IMFV</b> to group inputs that have similar mapping and validation. Consider you have 2 or more APIs that use the same input <b>"firstName"</b> and this input is read and validate the same way across those APIs. To avoid rewriting the configuration and make room for errors, add the input under <b>commonFields</b> then in every API configuration, reference its presence.
 	<div ng-init="loadCode(path + 'imfv/commonFields.js', 'commonFieldsFull');"></div>
 		<div id="commonFieldsFull"></div>
 	</p>
 	<hr/>
-	<h3>Usage:</h3>
+	<h3>Usage</h3>
 	<p>
 		<b>IMFV</b> consolidates all inputs after validation inside <b>req.soajs.inputmaskData</b> making it easier for developers to use them. Instead of wondering if the input was mapped correctly from the request, simply use <b>req.soajs.inputmaskData</b>[input_name] to retrieve the input value and use it in the code.
 		<pre><code class="javascript">//inside index.js
@@ -290,7 +287,7 @@ service.post("/login", function(req, res) {
 		As illustrated in the above code, regardless of the source that provided it, <u>username</u> input can now be accessed from <b>req.soajs.inputmaskData</b> object. The same applies to all other inputs passed to the requested API.<br /><br />
 	</p>
 	<hr/>
-	<h3>Full Sample:</h3>
+	<h3>Full Sample</h3>
 	<p>
 		The following is a snippet of both <u>config.js</u> and <u>index.js</u> used together to implement a service that is built with <b>SOAJS</b>; it focuses on how to use the errors and <b>IMFV</b> schema validation.<br /><br />
 	</p>

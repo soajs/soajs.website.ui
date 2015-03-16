@@ -10,7 +10,7 @@
 			This makes <b>SOAJS</b> self-aware of all services running in its cloud and can be used to create APIs between the Frontend and Backend of a product without the need of modifying the code of that product.
 		</p>
 		<hr/>
-		<h3>Infrastructure:</h3>
+		<h3>Infrastructure</h3>
 		<p>
 			Before we start, let's take a look at the infrastructure of <b>SOAJS</b> and understand what we will be dealing with.<br />
 			<img ng-src="images/getstarted/getstarted.png" style="margin:5px 0" /><br />
@@ -22,14 +22,14 @@
 		<p>
 			To help you get started, we have created 3 examples that show you the power and easiness of <b>SOAJS</b> and how to build APIs super fast. First thing you need is to install <b>SOAJS</b> on your machine. You can do that using 2 methods:<br /><br />
 		</p>
-		<h4><u>Docker Installation:</u></h4>
+		<h4>Docker Installation</h4>
 		If you are familiar with <a href="https://www.docker.com/" target="_blank">Docker</a>, you can use it to install <b>SOAJS</b> on your machine.<br/>
 		<b>Docker</b> installs <b>SOAJS</b> on your machine, sets up the needed environment & dependencies and also loads a pre-configured sample data in the database so you can start working immediately.
 		<pre>
 			<code class="bash">$ docker install soajs(this line will be updated once docker is completed)</code>
 		</pre>
 		<br />
-		<h4><u>Manual Installation:</u></h4>
+		<h4>Manual Installation</h4>
 		<ol class="manual-install">
 			<li><h4>Prerequisites</h4>
 				Before you install <b>SOAJS</b>, make sure you have the following technologies installed: <br>
@@ -55,7 +55,7 @@ $ node index</code></pre>
 				Repeat this step in all other services: oAuth, URAC and examples 01 - 02 - 03 -04 to get them running.<br />
 			</li>
 			<li>
-				<h4>Testing the Service:</h4>
+				<h4>Testing the Service</h4>
 				By default, the controller runs on your localhost via port 4000. Every service in <b>SOAJS</b> has its own default port and another maintenance port configured in the registry. So when you start a service, the service will be listening to two ports at the same time; one to process the requests and another used for maintenance operations.<br />
 				You can access the maintenance port while the service is running and perform some maintenance operations like heartbeat checking and reload configuration. To access the maintenance port of a service, add 1000 to its default port number, in this case 4000 + 1000 = 5000.<br/>
 				Let's see what happens when we run both 4000 and 5000 ports on your machine.<br /><br/>
@@ -102,7 +102,7 @@ $ node index</code></pre>
 			</li>
 		</ol>
 		<hr />
-		<h3>Examples:</h3>
+		<h3>Examples</h3>
 		We have four ready examples for you to get started. Now that you have the controller running, you can test those examples and learn how to create a service, add some security and protect it, use the same service with different tenants and apply different access controls on your service.<br /><br />
 		<ul>
 			<li>

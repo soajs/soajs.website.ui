@@ -95,7 +95,7 @@ $ node index</code></pre>
 			</div>
 		</fieldset>
 		<hr/>
-		<h3>Configuration Levels:</h3>
+		<h3>Configuration Levels</h3>
 		Services are configurable at multiple levels, each level having a different scope.
 		A more specific scope will override any options of a more general scope.<br/>
 		The levels from most general to most specific are:
@@ -105,7 +105,7 @@ $ node index</code></pre>
 			<li>User (very specific)</li>
 		</ol>
 		<br>
-		<h4><u>Product Level:</u></h4>
+		<h4>Product Level</h4>
 		A <b>SOAJS</b> product is a way to bundle your services and offer them to clients.
 		Each product can have various packages configured within it.
 		The Product package is the most general scope for configuration.
@@ -134,7 +134,7 @@ $ node index</code></pre>
 
 		For Additional Information on Productization, checkout the <a href="#/documentation/provisioning">provisioning</a> page.<br/>
 		<hr/>
-		<h4><u>Tenant Level:</u></h4>
+		<h4>Tenant Level</h4>
 		The Tenant scope, allows configuration per application and is applied to all users of the tenant.
 		Specifying the ACL here will override the default ACL from the product.<br/>
 		<br/>
@@ -198,7 +198,7 @@ $ node index</code></pre>
 		When we start the tests, We will show you how this value is affected.
 		<hr/>
 		<br>
-		<h3>Service Code:</h3>
+		<h3>Service Code</h3>
 		For this example we will use similar APIs as those in <b>Example01</b>.
 		We will edit the service config and set "multitenant" to true, and "acl" to true in the <u>index.js</u> file where we declared the service.<br /><br />
 		<tabset>
@@ -305,7 +305,7 @@ $ node index</code></pre>
 
 		</fieldset>
 		<hr/>
-		<h4><u>User Level:</u></h4>
+		<h4>User Level</h4>
 
 		Urac is another place to apply configuration, but this time, it's specific to a particular user.
 		User level is the most specific scope for configuration and ACL and will take precedence over both product and tenant levels.
