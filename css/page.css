@@ -9,6 +9,7 @@ body, html {
     font-family: 'Lato', sans-serif;
     background-image: url('../images/bg.png');
     color: rgb(34, 34, 34);
+    line-height:1.9em;
 }
 
 a img {
@@ -874,6 +875,7 @@ hr.white {
     color: rgb(65, 100, 126);
     text-decoration: none;
     font-weight: bold;
+    text-decoration:underline;
 }
 
 .page h1 {

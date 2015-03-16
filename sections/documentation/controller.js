@@ -15,7 +15,7 @@ documentationApp.controller('documentationtCtrl', ['$scope', '$http', '$routePar
 		var angularElement = angular.element(document.getElementById('documentationPreview'));
 
 		$http.get('sections/documentation/content/' + sectionName + '/data.json').success(function(data) {
-			$scope[sectionName.replace("-","_")] = data;
+			$scope[sectionName.replace("-", "_")] = data;
 		});
 
 		$http.get('sections/documentation/' + sectionName + ".html").success(function(data) {
@@ -25,6 +25,8 @@ documentationApp.controller('documentationtCtrl', ['$scope', '$http', '$routePar
 		}).error(function() {
 			alert("Error fetching documentation page. Please try again.");
 		});
+
+		$scope.docuLink = "/documentation/" + sectionName;
 	};
 
 	if($routeParams && $routeParams.section) {
