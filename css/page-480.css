@@ -65,9 +65,6 @@
     .features-page .main-section-container .feature-list ul li .std-list li{
         font-size: 12px;
     }
-    #getStartedPage img{
-        max-width: 300px;
-    }
     .soajs-features .feature-list li p {
         font-size: 13px;
         line-height: 1.6em;
@@ -107,10 +104,6 @@
     .banner .banner-container {
         padding: 50px 0 50px;
     }
-    #getStartedPage img{
-        width: 250px;
-    }
-
 }
 @media (max-width: 325px) {
     body, html {
