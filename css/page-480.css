@@ -1,11 +1,24 @@
 
 @media (max-width: 480px) {
+    body, html {
+        font-size: 13px;
+        line-height:1.5em;
+    }
+
+    .white-container{
+        padding: 7px 10px;
+    }
+
     .topbar .menu {
         display: block !important;
     }
     .topbar .menu.menu-open {
         background-color: #212c2e;
     }
+    .beaverImg {
+        display: none;
+    }
+
     .bottom {
         font-size: 13px;
         height: auto;
@@ -14,15 +27,53 @@
     .small-button {
         font-size: 14px;
         height: 43px;
-        padding: 5px 20px;
+        padding: 10px 20px 8px;
         margin-right: 10px;
     }
+    .left-sidebar {
+        float: none;
+        width:100%;
+        height:160px;
+        padding-top: 5px;
+    }
+    .left-sidebar:after {
+        clear: both;
+        content: " ";
+        display: block;
+    }
+    .section{
+        float:left;
+        padding-left: 7px;
+        padding-right: 7px;
+        width: 100px;
+    }
+
+    .right-sidebar {
+        float: none;
+        width: 100%;
+        display: block;
+        clear: both;
+    }
+
+    .features-page .main-section-container .feature-list ul li {
+        padding: 30px 0;
+    }
+    .features-page .main-section-container .feature-list ul li p{
+        font-size: 12px;
+        line-height:1.4em;
+    }
+    .features-page .main-section-container .feature-list ul li .std-list li{
+        font-size: 12px;
+    }
 }
+
 @media (max-width: 380px) {
+    body, html {
+        font-size: 12px;
+        line-height:1.4em;
+    }
+
     .topbar .branding {
-        cursor: pointer;
-        float: left;
-        width: 180px;
     }
 
     .bottom {
@@ -34,14 +85,86 @@
     .small-button {
         font-size: 12px;
         height: 30px;
-        padding: 0px 8px 5px;
+        padding: 6px 14px 8px;
+        margin-right: 8px;
+        margin-top: 5px;
+        background-color: #FFB500;
+        background-image: none;
+    }
+    .powered-by-container{
+        display: none;
+    }
+    .powered-by-container .powered-icon img{
+        max-width: 30px;
+    }
+    .banner .banner-container {
+        padding: 50px 0 50px;
+    }
+
+}
+@media (max-width: 325px) {
+    body, html {
+        font-size: 12px;
+        line-height:1.3em;
+    }
+    img {
+        max-width: 85%;
+    }
+    .topbar .nav-container {
+        width: 320px;
+    }
+    .bottom .sharing-footer {
+        width: 320px;
+    }
+    .main-section-container {
+        width: 320px;
+        padding: 0 0 60px;
+    }
+
+    .banner .banner-container {
+        width: 320px;
+        padding: 50px 0 50px;
+    }
+    .white-banner .banner-container {
+        width: 320px;
+        padding: 10px 0;
+    }
+    .soajs-features .features-container {
+        width: 320px;
+    }
+    .powered-by-container {
+        width: 320px;
+    }
+
+    .topbar .branding {
+
+    }
+
+    .bottom {
+        font-size: 12px;
+        height: auto;
+        padding: 10px 0;
+    }
+
+    .small-button {
+        font-size: 12px;
+        height: 30px;
+        padding: 7px 10px;
         margin-right: 10px;
         margin-top: 5px;
         background-color: #FFB500;
         background-image: none;
     }
+
+    .copyright{
+        width:150px;
+    }
+    .bottom .copyright {
+        padding-top: 0px;
+    }
+    .bottom .sharing-footer .inner {
+        margin-top:1px;
+    }
+
 }
-
-
-
 

@@ -11,10 +11,12 @@
     .hidden-tablet {
         display: none !important;
     }
+    img {
+        max-width: 85%;
+    }
     .topbar .nav-container {
         margin: 0 auto;
         width: 97%;
-
     }
     .bottom .sharing-footer {
         margin: 0 auto;
@@ -29,13 +31,52 @@
         margin: 0 auto;width: 97%;
     }
     .white-banner .banner-container {
-        margin: 0 auto;width: 97%;
+        margin: 0 auto;
+        width: 97%;
     }
     .soajs-features .features-container {
         margin: 0 auto;width: 97%;
     }
     .topbar .topnav {
         padding-left: 15px;
+    }
+
+    .beaverImg{
+        width: 40%;
+        text-align: right;
+        border: 1px solid red;
+    }
+    .beaverImg img {
+        max-width: 95%;
+        align-self: right;
+    }
+    .banner .banner-container .tagline {
+        position: relative;
+        font-size: 18px;
+    }
+
+    .banner .about-container {
+        padding-top: 15px;
+        padding-bottom: 10px;
+        position: relative;
+        font-size: 14px;
+    }
+
+    .white-banner .banner-container p {
+        float: left;
+        font-size: 13px;
+    }
+    .soajs-features .features-container .feature-list li {
+        min-height: 200px;
+        width: 47%;
+        margin: 10px 0 0 0;
+    }
+    .feature-list td.left, .feature-list td.right{
+        width: 40%;
+    }
+    .features-page .left img, .features-page .right img {
+        width: 98%;
+        max-width: 98%;
     }
 }
 
@@ -53,6 +94,21 @@
         display: none !important;
     }
 
+    .topbar .branding {
+        width:175px;
+    }
+    img {
+        max-width: 85%;
+    }
+    .beaverImg{
+        width: 40%;
+        text-align: right;
+        border: 1px solid blue;
+    }
+    .beaverImg img {
+        max-width: 95%;
+        align-self: right;
+    }
     .bottom {
         font-size: 16px;
     }
@@ -82,23 +138,80 @@
         width: 100%;
     }
 
+    .main-section-container {
+    }
+
+    .soajs-features .features-container .feature-list li {
+        padding: 0 0 20px 30px;
+        position: relative;
+        height: auto;
+        width: 97%;
+        margin: 10px 0 0 0;
+    }
+    .soajs-features .feature-list li img.icon {
+        display: none;
+        /*width: 50px;*/
+    }
+
+    .powered-by-container {
+        padding: 50px 0 20px;
+        width: 97%;
+    }
+    .powered-by-container .powered-icon {
+        height: 70px;
+    }
+    .powered-by-container .powered-icon img{
+        max-width: 110px;
+    }
+    .banner .banner-container .tagline {
+        position: relative;
+        font-size: 16px;
+    }
+
+    .banner .about-container {
+        padding-top: 15px;
+        padding-bottom: 10px;
+        position: relative;
+        font-size: 13px;
+    }
+
+    .white-banner .banner-container p {
+        float: left;
+        font-size: 12px;
+    }
+
+    .features-page .main-section-container .feature-list ul li {
+        padding: 45px 0;
+        position: relative;
+        width: 100%;
+    }
+
+    .feature-list td.left, .feature-list td.right{
+        width: 35%;
+    }
+    .feature-list .left img, .feature-list .right img{
+        width: 98%;
+        max-width: 98%;
+    }
+}
+
+
+@media (max-width: 687px) {
+    .topbar .branding img.logo {
+        width:155px;
+    }
+    .topbar .topnav {
+        padding-left: 5px;
+    }
+    .topbar .branding {
+        width:155px;
+    }
     .topbar .getStarted {
         width: 100%;
     }
 
-    .topbar .features {
+    .topbar .contactUs, .topbar .documentation,.topbar .features {
         width: 100%;
-    }
-
-    .topbar .documentation {
-        width: 100%;
-    }
-
-    .topbar .contactUs {
-        width: 100%;
-    }
-
-    .main-section-container {
     }
 
     .topbar .menu {
@@ -107,7 +220,6 @@
     .topbar .menu.menu-open {
         background-color: #212c2e;
     }
-
 
     .topbar .topnav {
         background-color: #212c2e;
@@ -150,5 +262,65 @@
     .topbar .topnav.menu-open {
         display: block;
     }
+    .powered-by-container .powered-icon img{
+        max-width: 100px;
+    }
 
+    .beaverImg{
+        float: none;
+        clear: both;
+        width: 80%;
+        border: 1px solid green;
+    }
+    .banner .banner-container .left-main{
+        float: none;
+        width: 80%;
+        margin: 0 auto;
+    }
+    .feature-list img{
+    }
+    .features-page .main-section-container .feature-list ul li {
+        padding: 35px 0;
+    }
+    .features-page .main-section-container .feature-list ul li p{
+        font-size: 13px;
+        line-height: 1.6em;
+    }
+    .features-page .main-section-container .feature-list ul li .std-list li{
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 630px) {
+    body, html {
+        font-size: 14px;
+        line-height: 1.6em;
+    }
+    img {
+        max-width: 75%;
+    }
+    .powered-by-container {
+        padding: 30px 0 20px;
+        width: 97%;
+    }
+    .powered-by-container .powered-icon {
+        height: 50px;
+    }
+    .powered-by-container .powered-icon img{
+        max-width: 70px;
+    }
+    .left-sidebar .left-menu {
+        width: 90%;
+        font-size: 12px;
+    }
+    .left-sidebar .left-menu h4{
+        font-size: 14px;
+    }
+    .feature-list td.left, .feature-list td.right{
+        width: 0;
+        display: none;
+    }
+    .feature-list .left img, .feature-list .right img{
+        display: none;
+    }
 }
