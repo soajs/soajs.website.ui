@@ -185,7 +185,7 @@ a:hover{
     border-radius: 5px;
     font-size: 18px;
     height: 43px;
-    padding: 8px 40px;
+    padding: 6px 40px 8px;
     float: right;
     margin-right: 15px;
     margin-top: -5px;
@@ -929,4 +929,9 @@ hr.white {
 
 #dashboard-form, #dashboard-grid{
     max-width: 750px;
+}
+.btn-primary {
+    background-color: #DF9630;
+    border-color: #DF9630;
+    color: #fff;
 }

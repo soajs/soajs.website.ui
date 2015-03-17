@@ -134,7 +134,7 @@
         line-height: 1.7em;
     }
     .topbar .branding {
-        width:174px;
+        width:173px;
     }
     img{
         max-width: 85%;
@@ -172,7 +172,6 @@
     .beaverImg{
         width: 40%;
         text-align: right;
-        border: 1px solid blue;
     }
     .beaverImg img {
         max-width: 95%;
@@ -184,7 +183,7 @@
     .small-button {
         font-size: 16px;
         height: 43px;
-        padding: 8px 30px;
+        padding: 6px 30px 8px;
         margin-right: 10px;
     }
     .topbar .nav-container {
@@ -205,10 +204,6 @@
     .soajs-features .features-container {
         width: 100%;
     }
-
-    .main-section-container {
-    }
-
     .soajs-features .features-container .feature-list li {
         padding: 0 0 20px 30px;
         position: relative;
@@ -265,26 +260,31 @@
     #dashboard-form, #dashboard-grid{
         width: 90% ;
     }
+    .left-sidebar .left-menu {
+        width: 89%;
+    }
+    .left-sidebar  {
+        padding-left: 5px;
+    }
 }
 
 
 @media (max-width: 687px) {
+
     body, html {
         font-size: 14px;
         line-height: 1.8em;
+    }
+    .banner .banner-container {
+        padding: 70px 0 70px;
     }
     ul li, p {
         font-size: 14px;
         line-height: 1.8em;
     }
-    .topbar .branding img.logo {
-        width:155px;
-    }
+
     .topbar .topnav {
         padding-left: 5px;
-    }
-    .topbar .branding {
-        width:155px;
     }
     .topbar .topnav li.active a {
         border-bottom: none;
@@ -363,6 +363,13 @@
         font-weight: normal;
         color:white;
     }
+    .topbar .branding {
+        width: 175px;
+    }
+    .topbar .branding img.logo {
+        width:173px;
+        max-width:173px;
+    }
     .powered-by-container .powered-icon img{
         max-width: 100px;
     }
@@ -371,7 +378,6 @@
         float: none;
         clear: both;
         width: 80%;
-        border: 1px solid green;
     }
     .banner .banner-container .left-main{
         float: none;
@@ -407,6 +413,9 @@
     ul li, p {
         font-size: 14px;
         line-height: 1.6em;
+    }
+    .topbar .branding img.logo {
+        width:173px;
     }
     .soajs-features .feature-list li p {
         font-size: 14px;

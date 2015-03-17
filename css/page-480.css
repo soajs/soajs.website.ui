@@ -4,7 +4,9 @@
         font-size: 13px;
         line-height:1.5em;
     }
-
+    .banner .banner-container {
+        padding: 50px 0 50px;
+    }
     .white-container{
         padding: 7px 10px;
     }
@@ -69,9 +71,6 @@
         line-height:1.4em;
     }
 
-    .topbar .branding {
-    }
-
     .bottom {
         font-size: 12px;
         height: auto;
@@ -93,9 +92,7 @@
     .powered-by-container .powered-icon img{
         max-width: 30px;
     }
-    .banner .banner-container {
-        padding: 50px 0 50px;
-    }
+
     .copyright{
         width:150px;
     }
@@ -140,15 +137,10 @@
         width: 320px;
     }
 
-    .topbar .branding {
-
-    }
-
     .bottom {
         font-size: 12px;
         height: auto;
         padding: 10px 0;
-        background-color: green;
     }
 
     .small-button {
