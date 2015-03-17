@@ -4,7 +4,9 @@
         font-size: 13px;
         line-height:1.5em;
     }
-
+    .banner .banner-container {
+        padding: 50px 0 50px;
+    }
     .white-container{
         padding: 7px 10px;
     }
@@ -25,57 +27,20 @@
         padding: 10px 0;
     }
     .small-button {
-        font-size: 14px;
+        font-size: 13px;
         height: 43px;
         padding: 10px 20px 8px;
         margin-right: 10px;
     }
-    .left-sidebar {
-        float: none;
-        width:100%;
-        padding-top: 5px;
-        z-index: 100;
-        height:auto;
-        border-bottom-style: dotted;
-        border-bottom-color: rgb(61, 61, 61);
-        border-bottom-width: 1px;
-        cursor:pointer;
-    }
-    .left-sidebar:after {
-        clear: both;
-        content: " ";
-        display: block;
-    }
     .left-sidebar section{
-        float:left;
-        padding-left: 7px;
-        padding-right: 7px;
-        width: 100px;
-        position:relative;
+        width: 108px;
     }
-    .left-sidebar section hr, .left-sidebar section br, .left-sidebar section ul{
-        display:none;
+    .left-sidebar section#dashbd{
+        width: 118px;
     }
-
-    .left-sidebar section:hover > ul{
-        display:block;
-        position:absolute;
-        z-index: 100;
-        padding:0 10px 5px 10px;
-        background-color:white;
-        border-style: dotted;
-        border-color: rgb(61, 61, 61);
-        border-width: 1px;
-        transition:all ease 0.25s;
+    .left-sidebar section#soajs{
+        width: 115px;
     }
-
-    .right-sidebar {
-        float: none;
-        width: 100%;
-        display: block;
-        clear: both;
-    }
-
     .features-page .main-section-container .feature-list ul li {
         padding: 30px 0;
     }
@@ -90,15 +55,20 @@
         font-size: 13px;
         line-height: 1.6em;
     }
+    #registry1png{
+        width:270px;
+        float: none;
+    }
+    #urac-override-acl{
+        width: 92%;
+        max-width: 92%;
+    }
 }
 
 @media (max-width: 380px) {
     body, html {
         font-size: 12px;
         line-height:1.4em;
-    }
-
-    .topbar .branding {
     }
 
     .bottom {
@@ -122,8 +92,15 @@
     .powered-by-container .powered-icon img{
         max-width: 30px;
     }
-    .banner .banner-container {
-        padding: 50px 0 50px;
+
+    .copyright{
+        width:150px;
+    }
+    .bottom .copyright {
+        padding-top: 0px;
+    }
+    .bottom .sharing-footer .inner {
+        margin-top:1px;
     }
 }
 @media (max-width: 325px) {
@@ -160,15 +137,10 @@
         width: 320px;
     }
 
-    .topbar .branding {
-
-    }
-
     .bottom {
         font-size: 12px;
         height: auto;
         padding: 10px 0;
-        background-color: green;
     }
 
     .small-button {
@@ -180,16 +152,5 @@
         background-color: #FFB500;
         background-image: none;
     }
-
-    .copyright{
-        width:150px;
-    }
-    .bottom .copyright {
-        padding-top: 0px;
-    }
-    .bottom .sharing-footer .inner {
-        margin-top:1px;
-    }
-
 }
 

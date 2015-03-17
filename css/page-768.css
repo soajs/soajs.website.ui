@@ -21,6 +21,9 @@
         width: 85%;
         display: block;
     }
+    #urac-override-acl{
+        width: 450px;
+    }
     .topbar .nav-container {
         margin: 0 auto;
         width: 97%;
@@ -35,14 +38,20 @@
     }
 
     .banner .banner-container {
-        margin: 0 auto;width: 97%;
+        margin: 0 auto;
+        width: 97%;
     }
     .white-banner .banner-container {
         margin: 0 auto;
         width: 97%;
     }
+    .powered-by-container {
+        margin: 0 auto;
+        width: 97%;
+    }
     .soajs-features .features-container {
-        margin: 0 auto;width: 97%;
+        margin: 0 auto;
+        width: 97%;
     }
     .topbar .topnav {
         padding-left: 15px;
@@ -89,8 +98,23 @@
         max-width: 140px;
         max-height: 70px;
     }
-    #getstarted_ex02, #ex02Registry, #registry-example01{
-        align:right;
+    #ex02Registry, #registry-example01{
+        float:right;
+    }
+    .image-right{
+        float: right;
+    }
+    #getstarted_ex02{
+        float:none;
+    }
+    #indexjsImg{
+        float:none;
+    }
+    #registry1png{
+        width:270px;
+    }
+    #dashboard-form, #dashboard-grid{
+        width: 90% ;
     }
 }
 
@@ -107,28 +131,53 @@
     .hidden-phone {
         display: none !important;
     }
+    body, html {
+        font-size: 14px;
+        line-height: 1.7em;
+    }
+    ul li, p {
+        font-size: 14px;
+        line-height: 1.7em;
+    }
     .topbar .branding {
-        width:174px;
+        width:173px;
     }
     img{
         max-width: 85%;
     }
-
-    #example03png, #example01png, #example02-oauth, #getstarted_ex02, #ex02Registry, #getStartedImg{
+    #indexjsImg{
+        float:none;
+    }
+    #controllerpng, #urac2png, #uracpng{
+        width: 92%;
+        max-width: 92%;
+    }
+    #urac-override-acl{
+        width: 450px;
+    }
+    #example03png, #example01png, #example02-oauth, #getstarted_ex02, #ex02Registry, #getStartedImg, #oAuth-workflow{
         width: 85%;
         display: block;
+        float: none;
     }
     #registry-example01{
-        width: 55%;
+        width: 323px;
         display: block;
     }
     #ex02Registry, #registry-example01{
         margin-bottom: 10px;
     }
+    #registry1png{
+        width:240px;
+        float: right;
+    }
+    .image-right{
+        float: none;
+        display: block;
+    }
     .beaverImg{
         width: 40%;
         text-align: right;
-        border: 1px solid blue;
     }
     .beaverImg img {
         max-width: 95%;
@@ -140,7 +189,7 @@
     .small-button {
         font-size: 16px;
         height: 43px;
-        padding: 8px 30px;
+        padding: 6px 30px 8px;
         margin-right: 10px;
     }
     .topbar .nav-container {
@@ -161,10 +210,6 @@
     .soajs-features .features-container {
         width: 100%;
     }
-
-    .main-section-container {
-    }
-
     .soajs-features .features-container .feature-list li {
         padding: 0 0 20px 30px;
         position: relative;
@@ -218,18 +263,34 @@
     ul.topnav{
         padding-left: 20px;
     }
+    #dashboard-form, #dashboard-grid{
+        width: 90% ;
+    }
+    .left-sidebar .left-menu {
+        width: 89%;
+    }
+    .left-sidebar  {
+        padding-left: 5px;
+    }
 }
 
 
 @media (max-width: 687px) {
-    .topbar .branding img.logo {
-        width:155px;
+
+    body, html {
+        font-size: 14px;
+        line-height: 1.8em;
     }
+    .banner .banner-container {
+        padding: 70px 0 70px;
+    }
+    ul li, p {
+        font-size: 14px;
+        line-height: 1.8em;
+    }
+
     .topbar .topnav {
         padding-left: 5px;
-    }
-    .topbar .branding {
-        width:155px;
     }
     .topbar .topnav li.active a {
         border-bottom: none;
@@ -308,6 +369,13 @@
         font-weight: normal;
         color:white;
     }
+    .topbar .branding {
+        width: 175px;
+    }
+    .topbar .branding img.logo {
+        width:173px;
+        max-width:173px;
+    }
     .powered-by-container .powered-icon img{
         max-width: 100px;
     }
@@ -316,7 +384,6 @@
         float: none;
         clear: both;
         width: 80%;
-        border: 1px solid green;
     }
     .banner .banner-container .left-main{
         float: none;
@@ -335,15 +402,26 @@
     .features-page .main-section-container .feature-list ul li .std-list li{
         font-size: 13px;
     }
-    #getStartedPage img{
+    #indexjsImg{
         clear: both;
+        width: 85%;
+    }
+    #dashboardpng{
+        width: 85%;
     }
 }
 
-@media (max-width: 630px) {
+@media (max-width: 640px) {
     body, html {
         font-size: 14px;
         line-height: 1.6em;
+    }
+    ul li, p {
+        font-size: 14px;
+        line-height: 1.6em;
+    }
+    .topbar .branding img.logo {
+        width:173px;
     }
     .soajs-features .feature-list li p {
         font-size: 14px;
@@ -375,9 +453,80 @@
     .feature-list .left img, .feature-list .right img{
         display: none;
     }
-    #getStartedPage img{
-        margin: 5px 0px;
-        padding: 0px;
-        width: 400px;
+
+    .left-sidebar {
+        float: none;
+        width:100%;
+        padding-top: 5px;
+        z-index: 100;
+        height:auto;
+        border-bottom-style: dotted;
+        border-bottom-color: rgb(61, 61, 61);
+        border-bottom-width: 1px;
+        cursor:pointer;
+    }
+    .left-sidebar:after {
+        clear: both;
+        content: " ";
+        display: block;
+    }
+    .left-sidebar section{
+        float:left;
+        padding-left: 7px;
+        padding-right: 7px;
+        width: 120px;
+        position:relative;
+        outline: 0;
+    }
+    .left-sidebar section h4{
+        padding-left: 10px;
+        margin-bottom: 5px;
+    }
+
+    .left-sidebar section hr, .left-sidebar section br, .left-sidebar section ul{
+        display:none;
+    }
+
+    .left-sidebar section:hover {
+
+    }
+    .left-sidebar section:hover > ul{
+        display:block;
+        position:absolute;
+        z-index: 100;
+        padding: 0 10px 5px 10px;
+        background-color:white;
+        border-style: dotted;
+        border-color: rgb(61, 61, 61);
+        border-width: 1px;
+        transition:all ease 0.25s;
+    }
+
+    .right-sidebar {
+        float: none;
+        width: 100%;
+        display: block;
+        clear: both;
+    }
+    .main-section-container h1{
+        padding-left: 15px;
+    }
+
+    .myTable th, .myTable td {
+        padding: 10px 8px;
+        font-size: 12px;
+    }
+
+    .myTable thead th {
+        font-size: 14px;
+        padding: 10px 8px;
+    }
+    #urac-override-acl{
+        width: 85%;
+        max-width: 92%;
+    }
+    #dashboardpng{
+        width: 90%;
+        max-width: 92%;
     }
 }

@@ -7,7 +7,7 @@
 	</pre>
 	Once installed, a directory called <b>node_modules</b> will be created and SOAJS will be located inside it.<br />
 	Create your service next to the <b>node_modules</b> directory:<br />
-    <img ng-src="images/documentation/service-folder-tree.png" align="right" class="image-border img-margin-l-b"/>
+    <img ng-src="images/documentation/service-folder-tree.png" id="service-folder-tree" class="image-border img-margin-l-b image-right"/>
     <ol>
         <li>Create a directory and name it as your service.<br/><u>Ex:</u> <span style="color:red;">"example01"</span>.</li>
         <li>Create 2 files in that directory:
@@ -42,18 +42,18 @@
     <p>
         The following example demonstrates how to write a service with SOAJS that has one route using the GET protocol.
         The service reads 2 inputs from the query string of the request, puts them in a JSON object and returns the object in the response.<br/><br/>
-        <img src="images/documentation/example01.png" align="right" class="image-border img-margin-l-b padding-0"/>
+        <img src="images/documentation/example01.png" id="indexjsImg" class="image-right image-border img-margin-l-b padding-0"/>
 	    <!-- to do: update image -->
     </p>
 
     <p>
 
     <h4>Code walkthrough</h4>
-    <ul>
+    <ul id="codeList">
         <li><b>Line1-</b> "strict mode” JavaScript.</li>
         <li><b>Line2-</b> Require SOAJS framework.</li>
         <li><b>Line3-</b> Require local configuration file.</li>
-        <li><b>Line4-</b> Create a service using SOAJS.<br/><br/><br/></li>
+        <li id="line4"><b>Line4-</b> Create a service using SOAJS.<br/></li>
         <li><b>Line5-</b> Create api <b style="color:red;">“/testGet”</b> that uses the GET protocol. It takes a function with two input objects: the request <b>req</b>, and the response <b>res</b>. A SOAJS object is added to the <b>req</b>.</li>
         <li><b>Line6-</b> The api returns a json response. It uses the SOAJS object added to the <b>req</b> to build the json response (through <b>“req.soajs.req.buildResponse”</b>) and captures the passed params to the api from (<b>“req.soajs.inputmaskData”</b>).
         </li>
