@@ -115,6 +115,7 @@ a:hover{
     color: rgb(223, 150, 48);
     transition: all 0.25s ease 0s;
     text-decoration: none;
+    border-bottom:solid 4px rgb(223, 150, 48);
 }
 
 .topbar .topnav li.active a {
@@ -122,6 +123,7 @@ a:hover{
     font-weight: bold;
     font-weight: 600;
     color: rgb(53, 90, 118);
+    border-bottom:solid 4px rgb(53, 90, 118);
 }
 
 .bottom {

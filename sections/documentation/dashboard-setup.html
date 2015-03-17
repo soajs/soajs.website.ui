@@ -4,14 +4,67 @@
 <div class="white-container">
 	<h3>Installation</h3>
 	<p>
-		To install the dashboard, install all the needed modules of SOAJS and their depenencies as mentioned in <a href="#/getStarted"><b>Get Started</b></a> Section under How to Install SOAJS.<br/><br/>
-		Once all the modules are installed and the services are running, make sure that you have nginx installed and configured as mentioned in <a href="https://github.com/soajs/soajs.nginx" target="_blank"><b>soajs.nginx</b></a> so that the domains and hosts needed are accessible for you to start working.<br/><br/>
+		SOAJS requires that your machine has the following technologies installed and running so that you can download it and start using it:<br />
+		- <a href="http://www.mongodb.org" target="_blank">MongoDB</a> ( version 2.6.7 or higher)<br>
+		- <a href="http://nodejs.org" target="_blank">NodeJS</a> (version 0.10.25 or higher)<br>
+	</p>
+	<p>
+		First you need to install all the needed modules of SOAJS and their dependencies as mentioned in <a href="#/getStarted">Get Started</a> Section under How to Install SOAJS.<br />
+		<ul>
+			<li><a href="https://www.npmjs.com/packages/soajs.util" target="_blank">soajs.util</a>
+				<pre><code class="bash">$ npm install soajs.util</code></pre>
+			</li>
+			<li><a href="https://www.npmjs.com/packages/soajs.oauth" target="_blank">soajs.oauth</a>
+				<pre><code class="bash">$ npm install soajs.oauth</code></pre>
+			</li>
+			<li><a href="https://www.npmjs.com/packages/soajs.urac" target="_blank">soajs.urac</a>
+				<pre><code class="bash">$ npm install soajs.urac</code></pre>
+			</li>
+			<li><a href="https://www.npmjs.com/packages/soajs.examples" target="_blank">soajs.examples</a>
+				<pre><code class="bash">$ npm install soajs.examples</code></pre>
+			</li>
+			<li><a href="https://www.npmjs.com/packages/soajs.dashboard" target="_blank">soajs.dashboard</a>
+				<pre><code class="bash">$ npm install soajs.dashboard</code></pre>
+			</li>
+		</ul>
+		Once all the modules are installed, run their services:<br />
+		<pre><code class="bash">$ cd soajs.util/controller
+$ node .
+$ cd ../agent/
+$ node .
+$ cd ../soajs.oauth
+$ node .
+$ cd ../soajs.urac
+$ node .
+$ cd ../soajs.dashboard
+$ node .</code></pre>
+		Make sure that you have <a href="http://nginx.org" target="_blank">nginx</a> installed and configured as mentioned in soajs.util/nginx.<br /> Basically nginx configuration for SOAJS creates 2 virtual hosts the first being and address for the controller referred to as rest-proxy and the second being and address to open the dashboard referred to as dashboard.soajs.org.<br />
+		<pre><code class="bash">#virtual host for controller
+server {
+	server_name  api.soajs.org;
+	location / {
+		proxy_pass          http://soajs.controller;
+		proxy_set_header    X-Forwarded-Proto 	    $scheme;
+		proxy_set_header    Host             	    $http_host;
+		proxy_set_header    X-NginX-Proxy     	    true;
+		proxy_set_header    Connection        	    "";
+	}
+}
+# virtual host for dashboard UI
+server {
+	server_name  dashboard.soajs.org;
+	location / {
+		root   /opt/soajs/soajs.dashboard/ui/;
+		index  index.html index.htm;
+	}
+}
+		</code></pre>
 	</p>
 
 	<h3>Import Test Data</h3>
 
 	<p>
-		Install <a href="https://github.com/soajs/soajs.examples" target="_blank">soajs.examples</a>.<br/>
+		Now that all the needed modules are installed, nginx is configured, import the sample data to the database.
 		Navigate to <b>soajs.example/tools</b> in your Terminal, and you will find a mongo script that imports some test data for you to start with.<br/>
 		<pre><code class="bash"># make sure soajs.mongo.sh is executable
 $ chmod +x soajs.mongo.sh
@@ -26,25 +79,22 @@ $ ./soajs.mongo.sh</code></pre>
 	<hr/>
 	<h3>Using the Dashboard UI</h3>
 	<p>
-		Since nginx has been configured as mentioned in this <a href="https://github.com/soajs/soajs.nginx" target="_blank"><b>Link</b></a>, you can now open your browser and use the <b>Dashboard UI</b> by going to: <a href="http://dashboard.soajs.org" target="_blank">http://dashboard.soajs.org</a>.<br /><br />
-		To Login, you need to provide a tenant key like the one obtained after you imported the test data, please checkout <a href="#/getStarted/example03">example03</a> in the <a href="#/getStarted">Get Started</a> section for additional help on how to use a key with a service.<br />The tenant key should be provided in the header of every request made to the dashboard service.<br /><br />
-		You can always lookup the tenant information under <a href="#/documentation/provisioning">Provisioning</a> section.<br /><br />
-		Once logged in, you can access all the sections and featured mentioned in the <a href="#/documentation/dashboard-services">Dashboard Services</a> Section and manage them accordingly.
+		Since nginx has been configured, you can now open your browser and use the Dashboard UI by going to: <a href="http://dashboard.soajs.org" target="_blank">http://dashboard.soajs.org</a>.<br /><br />
+		Login using the test administrator account, this account has full privilege to all features, and create the environments, products, tenants and users you want.<br />
+		The dashboard UI is configured to work with the dashboard service by providing the test tenant key that has access to all services. You can modify the value of this key after you create some real tenants. Simple navigate to <b>soajs.dashboard/ui/config.js</b> and change the value of the key in that file.
 	</p>
-
-	<br/>
 	<hr/>
-	<h3>Dashboard UI Features</h3>
+	<h3>Dashboard UI Snapshots</h3>
 
 	<p>
-		The Dashboard interface is built on <a href="http://www.angularjs.org" target="_blank">AngularJS</a>.<br/><br/>
-		Benefit from the smart tools the dashboard offers to easily navigate and manage SOAJS features.<br/>
+		The Dashboard interface is built on <a href="http://www.angularjs.org" target="_blank">AngularJS</a>.<br/>
+		Benefit from the easy of use that the dashboard UI offers to easily navigate and manage SOAJS topology and provisioned data.<br/>
 		<img ng-src="/images/documentation/dashboard-grid.png" class="image-border" style="max-width: 800px; margin:5px 0;"/>
 		<br/>
-		Menus and Grids enable you navigate, search, sort and browse the different sections and features.<br/>
-		Quick links to Add, Edit and Remove content and/or configuration.
+		Menus and Grids enable you navigate, browse, search and locate, sort and find the different sections and records to accomodate the change that is needed whether to modify environments, products, tenants, users and other sections.<br/><br/>
+		Quick links to Add, Edit and Remove content and/or configuration provide GUI interfaces and forms that once submitted will interact with the dashboard service, URAC and other services APIs.
 		<br/>
 		<img ng-src="/images/documentation/dashboard-form.png" class="image-border" style="max-width: 800px; margin:5px 0;"/><br/>
-		Interactive forms and notification messages offer you all schemas needed to modify the configuration and invoke related API services.
+		Interactive notification messages keep you alerted of the status of every request made whether successful or failure and in case of failure, they provide a clarifying message of the error that occured.
 	</p>
 </div>
