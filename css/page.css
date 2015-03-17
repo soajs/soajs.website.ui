@@ -690,6 +690,7 @@ pre {
 .goBackLink {
     float: right;
     margin-top: 20px;
+    margin-right: 8px;
 }
 
 .examples h5 {
@@ -891,4 +892,37 @@ hr.white {
 
 .hljs {
     background-color: #f5f5f5;
+}
+
+.topbar .menu {
+    background-color: rgb(223, 150, 48);
+    box-sizing: border-box;
+    cursor: pointer;
+    display: none;
+    float: right;
+    height: 100% !important;
+    padding: 16px 20px;
+}
+.topbar .menu::after {
+    clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+.topbar .menu .menu-button-stripe {
+    border-bottom: 4px solid #fff;
+    box-sizing: border-box;
+    height: 5px;
+    margin-bottom: 5px;
+    width: 35px;
+}
+.topbar .nav.menu-open {
+    display: block;
+}
+
+#service-folder-tree{
+    width: 216px;
 }

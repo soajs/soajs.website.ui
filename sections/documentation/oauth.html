@@ -4,7 +4,7 @@
 	<tabset class="designTab">
 		<tab heading="Service Information"><br />
 			<p>
-				<img ng-src="images/documentation/oauth-config.png" class="image-border img-margin-t-b" align="right"/>
+				<img ng-src="images/documentation/oauth-config.png" id="oauth-config" class="image-border img-margin-t-b image-right"/>
 				SOAJS oAuth is a service that integrates with <a href="oauth.net/2/" target="_blank">oAuth 2.0</a>.<br/>
 				The service simply validates, refreshes and kills access tokens generated via <b>oAuth 2.0</b>. This service is useless by itself and is used by other services that require <b>oAuth 2.0</b> security. When developing a SOAJS service, a configuration is provided to SOAJS, this configuration should contain < <b>"oauth":true</b> >, then this service cannot be accessed unless an <b>oAuth 2.0</b> access token is provided in every request made to this service.
 			</p>
@@ -13,7 +13,7 @@
 			<p>
 				The following diagram illustrates how <b>oAuth 2.0</b> works with SOAJS services.
 			</p>
-			<img ng-src="images/documentation/oAuth-workflow.png" style="margin:5px 0"/>
+			<img ng-src="images/documentation/oAuth-workflow.png" id="oAuth-workflow" class="img-margin-t-b"/>
 			<br/>
 			<hr/>
 			<p>

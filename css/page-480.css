@@ -30,52 +30,15 @@
         padding: 10px 20px 8px;
         margin-right: 10px;
     }
-    .left-sidebar {
-        float: none;
-        width:100%;
-        padding-top: 5px;
-        z-index: 100;
-        height:auto;
-        border-bottom-style: dotted;
-        border-bottom-color: rgb(61, 61, 61);
-        border-bottom-width: 1px;
-        cursor:pointer;
-    }
-    .left-sidebar:after {
-        clear: both;
-        content: " ";
-        display: block;
-    }
     .left-sidebar section{
-        float:left;
-        padding-left: 7px;
-        padding-right: 7px;
-        width: 100px;
-        position:relative;
+        width: 108px;
     }
-    .left-sidebar section hr, .left-sidebar section br, .left-sidebar section ul{
-        display:none;
+    .left-sidebar section#dashbd{
+        width: 118px;
     }
-
-    .left-sidebar section:hover > ul{
-        display:block;
-        position:absolute;
-        z-index: 100;
-        padding:0 10px 5px 10px;
-        background-color:white;
-        border-style: dotted;
-        border-color: rgb(61, 61, 61);
-        border-width: 1px;
-        transition:all ease 0.25s;
+    .left-sidebar section#soajs{
+        width: 115px;
     }
-
-    .right-sidebar {
-        float: none;
-        width: 100%;
-        display: block;
-        clear: both;
-    }
-
     .features-page .main-section-container .feature-list ul li {
         padding: 30px 0;
     }
@@ -89,6 +52,14 @@
     .soajs-features .feature-list li p {
         font-size: 13px;
         line-height: 1.6em;
+    }
+    #registry1png{
+        width:270px;
+        float: none;
+    }
+    #urac-override-acl{
+        width: 92%;
+        max-width: 92%;
     }
 }
 
