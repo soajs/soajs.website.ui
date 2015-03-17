@@ -620,6 +620,7 @@ a:hover{
 }
 
 .left-sidebar {
+    padding-top: 40px;
     float: left;
     width: 18%;
     color: rgb(61, 61, 61);
