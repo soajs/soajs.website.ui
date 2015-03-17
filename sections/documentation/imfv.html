@@ -2,10 +2,10 @@
 <h1>IMFV</h1>
 <div class="white-container">
     <p>
-	    <b>SOAJS</b> is equipped with an input mapping, filtering and validating mechanism that removes up to 50% of an API code in terms of fetching and cleaning the inputs from POST, GET, SESSION, COOKIES, HEADERS and TENANT CONFIG.<br /><br />
+	    SOAJS is equipped with an input mapping, filtering and validating mechanism that removes up to 50% of an API code in terms of fetching and cleaning the inputs from POST, GET, SESSION, COOKIES, HEADERS and TENANT CONFIG.<br /><br />
 
 	    <img ng-src="images/documentation/service-folder-tree.png" align="right" style="margin-left:5px; margin-bottom:5px;" class="image-border"/>
-	    Every service uses the <b>IMFV</b> (input mapping, filtering and validating) to validate the inputs (parameters) of its APIs. <b>IMFV</b> is usually located in a <u>config.js</u> file within the service directory. The content of this file is based on two main sections:
+	    Every service uses the IMFV (input mapping, filtering and validating) to validate the inputs (parameters) of its APIs. IMFV is usually located in a <u>config.js</u> file within the service directory. The content of this file is based on two main sections:
 	    <b>Error Codes</b> ("errors" object) and <b>Validation Schema</b> ("schema" object).
 	    <pre><code class="javascript">//inside config.js
 module.exports={
@@ -38,24 +38,24 @@ service.post("/login", function(req, res) {
 	//...
 };
 		</code></pre>
-		<b>SOAJS</b> built-in <b>buildResponse</b> takes 2 parameters, the first being an error object and the second being the response. In most cases, when there is no error, there is a response and vise-versa.<br /><br />
+		SOAJS built-in <b>buildResponse</b> takes 2 parameters, the first being an error object and the second being the response. In most cases, when there is no error, there is a response and vise-versa.<br /><br />
 	</p>
 	<hr/>
 
 	<h3>Sample Schema</h3>
 	<p>
 		Every API has an entry inside the schema object; this is where you configure the inputs that it should receive and their validation.
-		Every entry instructs <b>IMFV</b> where to look for the input using the source attribute and how to validate the input using the validation attribute.
+		Every entry instructs IMFV where to look for the input using the source attribute and how to validate the input using the validation attribute.
 		<div ng-init="loadCode(path + 'imfv/simple.js', 'simple');">
 			<div id="simple"></div>
 		</div>
-		The above sample Tells <b>IMFV</b> that for API <b>"/testGet"</b> there is a <u>required</u> input called <b>"firstName"</b>.
+		The above sample Tells IMFV that for API <b>"/testGet"</b> there is a <u>required</u> input called <b>"firstName"</b>.
 		It's type is <u>string</u> and it has a specific <u>alphanumeric format</u> and it is provided via the <u>query string</u> as <b>"firstName"</b> when the request is made.<br /><br />
 	</p>
 	<hr/>
 	<h3>Sources List</h3>
 	<p>
-		<b>IMFV</b> can fetch an input from different sources if configured to do so. In the case above, the "source" array has only one entry which is <b>"query.firstName"</b>. However, you can configure <b>IMFV</b> to look in multiple sources for the input. If the first source doesn't contain the input value, <b>IMFV</b> will jump to the next one and so on till the entire "source" array has been processed.
+		IMFV can fetch an input from different sources if configured to do so. In the case above, the "source" array has only one entry which is <b>"query.firstName"</b>. However, you can configure IMFV to look in multiple sources for the input. If the first source doesn't contain the input value, IMFV will jump to the next one and so on till the entire "source" array has been processed.
 		<pre><code class="javascript">"firstName" : {
 		"source": ["query.firstName", "body.firstName", "session.firstName", ...]
 }</code></pre>
@@ -64,7 +64,7 @@ service.post("/login", function(req, res) {
 	<hr/>
 	<h3>Default Values</h3>
 	<p>
-		<b>IMFV</b> offers the ability to provide a default value for an input. This means that if the input is not provided, <b>IMFV</b> will use the default value configured for that input.
+		IMFV offers the ability to provide a default value for an input. This means that if the input is not provided, IMFV will use the default value configured for that input.
 		<pre><code class="javascript">//...
 "firstName": {
 	"source": ['query.firstName'],
@@ -81,7 +81,7 @@ service.post("/login", function(req, res) {
 	<hr/>
 	<h3>Types, Properties & Formats</h3>
 	<p>
-		<b>IMFV</b> supports different input types with different properties such as <u>strings</u>, <u>numbers</u>, <u>boolean</u>, <u>arrays</u>, <u>objects</u>, <u>regular expressions</u>... etc. Each of these types has different combination of properties. A <u>string</u> for example can represent an email, a name, a date or a phone number. Here is a list of what can be used with <b>IMFV</b>:
+		IMFV supports different input types with different properties such as <u>strings</u>, <u>numbers</u>, <u>boolean</u>, <u>arrays</u>, <u>objects</u>, <u>regular expressions</u>... etc. Each of these types has different combination of properties. A <u>string</u> for example can represent an email, a name, a date or a phone number. Here is a list of what can be used with IMFV:
 	</p>
 	<p>
 		<u>Boolean:</u> either true or false.
@@ -249,15 +249,15 @@ service.post("/login", function(req, res) {
 	<hr/>
 	<h3>Type Casting</h3>
 	<p>
-		<b>IMFV</b> supports all inputs provided if the request headers states that it hold a "content-type" of value "application/json". This means that the arriving input is a JSON input and do not need to apply type casting on them. Any request that does not contain this header, will provide the inputs as strings and therefore these inputs need to be parsed before validation otherwise they will all fail.
+		IMFV supports all inputs provided if the request headers states that it hold a "content-type" of value "application/json". This means that the arriving input is a JSON input and do not need to apply type casting on them. Any request that does not contain this header, will provide the inputs as strings and therefore these inputs need to be parsed before validation otherwise they will all fail.
 		continue here ...
 	</p>
 	<br />
 	<hr/>
 	<h3>Complex Schemas</h3>
 	<p>
-		<b>IMFV</b> supports complex schemas such as arrays and objects, where each of the two contains basic or even more complex schemas internally. It relies on <a href="http://json-schema.org/documentation.html" target="_blank">JSON Schema’s</a> operator such as <a href="http://json-schema.org/example2.html" target="_blank">oneOf</a>, <a href="http://json-schema.org/example2.html" target="_blank">anyOf</a>, <a href="http://json-schema.org/example2.html" target="_blank">allOf</a> in the cases where the same input might have different values.<br />
-		<b>IMFV</b> also uses <a href="http://json-schema.org/example2.html" target="_blank">additionalProperties</a> and <a href="http://json-schema.org/example2.html" target="_blank">patternProperties</a>, from <a href="http://json-schema.org/latest/json-schema-validation.html" target="_blank">JSON Schema</a>, within object schemas giving you validation control on optional api fields and complex input names such as api routes.
+		IMFV supports complex schemas such as arrays and objects, where each of the two contains basic or even more complex schemas internally. It relies on <a href="http://json-schema.org/documentation.html" target="_blank">JSON Schema’s</a> operator such as <a href="http://json-schema.org/example2.html" target="_blank">oneOf</a>, <a href="http://json-schema.org/example2.html" target="_blank">anyOf</a>, <a href="http://json-schema.org/example2.html" target="_blank">allOf</a> in the cases where the same input might have different values.<br />
+		IMFV also uses <a href="http://json-schema.org/example2.html" target="_blank">additionalProperties</a> and <a href="http://json-schema.org/example2.html" target="_blank">patternProperties</a>, from <a href="http://json-schema.org/latest/json-schema-validation.html" target="_blank">JSON Schema</a>, within object schemas giving you validation control on optional api fields and complex input names such as api routes.
 		<div ng-init="loadCode(path + 'imfv/advanced.js', 'advanced');">
 			<div id="advanced"></div>
 		</div><br /><br />
@@ -265,14 +265,14 @@ service.post("/login", function(req, res) {
 	<hr/>
 	<h3>Common Fields</h3>
 	<p>
-		<b>commonfields</b> is used in <b>IMFV</b> to group inputs that have similar mapping and validation. Consider you have 2 or more APIs that use the same input <b>"firstName"</b> and this input is read and validate the same way across those APIs. To avoid rewriting the configuration and make room for errors, add the input under <b>commonFields</b> then in every API configuration, reference its presence.
+		<b>commonfields</b> is used in IMFV to group inputs that have similar mapping and validation. Consider you have 2 or more APIs that use the same input <b>"firstName"</b> and this input is read and validate the same way across those APIs. To avoid rewriting the configuration and make room for errors, add the input under <b>commonFields</b> then in every API configuration, reference its presence.
 	<div ng-init="loadCode(path + 'imfv/commonFields.js', 'commonFieldsFull');"></div>
 		<div id="commonFieldsFull"></div>
 	</p>
 	<hr/>
 	<h3>Usage</h3>
 	<p>
-		<b>IMFV</b> consolidates all inputs after validation inside <b>req.soajs.inputmaskData</b> making it easier for developers to use them. Instead of wondering if the input was mapped correctly from the request, simply use <b>req.soajs.inputmaskData</b>[input_name] to retrieve the input value and use it in the code.
+		IMFV consolidates all inputs after validation inside <b>req.soajs.inputmaskData</b> making it easier for developers to use them. Instead of wondering if the input was mapped correctly from the request, simply use <b>req.soajs.inputmaskData</b>[input_name] to retrieve the input value and use it in the code.
 		<pre><code class="javascript">//inside index.js
 var config = require("./config");
 var service = new soajs.server.service(...);
@@ -289,7 +289,7 @@ service.post("/login", function(req, res) {
 	<hr/>
 	<h3>Full Sample</h3>
 	<p>
-		The following is a snippet of both <u>config.js</u> and <u>index.js</u> used together to implement a service that is built with <b>SOAJS</b>; it focuses on how to use the errors and <b>IMFV</b> schema validation.<br /><br />
+		The following is a snippet of both <u>config.js</u> and <u>index.js</u> used together to implement a service that is built with SOAJS; it focuses on how to use the errors and IMFV schema validation.<br /><br />
 	</p>
 	<tabset>
 		<tab heading="Service Index">

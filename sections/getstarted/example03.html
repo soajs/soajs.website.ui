@@ -4,10 +4,10 @@
 
 		<h1>Example 03</h1>
 		<div class="white-container">
-		So far, we have created a service and secured it with <b>oAuth</b> in previous examples. We also mentioned the usage of a tenant and its key in <a href="#/getStarted/example02">Example02</a>. But till now we were only dealing with one tenant and now we are going to take things to a higher level.<br /><br />
-		<b>SOAJS</b> offers the ability to allow different tenants to use the same service, each with their own settings. You can configure multitenancy and have your services behave differently from one tenant (client) to another, and even from one user (consumer) to another.<br/><br/>
+		So far, we have created a service and secured it with oAuth in previous examples. We also mentioned the usage of a tenant and its key in <a href="#/getStarted/example02">Example02</a>. But till now we were only dealing with one tenant and now we are going to take things to a higher level.<br /><br />
+		SOAJS offers the ability to allow different tenants to use the same service, each with their own settings. You can configure multitenancy and have your services behave differently from one tenant (client) to another, and even from one user (consumer) to another.<br/><br/>
 
-		In this example, we will introduce the <b>URAC</b> service, where each tenant can have registered users.
+		In this example, we will introduce the <a href='#/documentation/urac'>URAC</a> service, where each tenant can have registered users.
 		This example shows you how to take advantage of multitenancy and how easy it is to configure ACL and secure your APIs at the product, tenant and user levels.
 		We will also show you how to edit your service configuration at the tenant level and at the user level.
 
@@ -24,11 +24,11 @@
 		<hr/>
 		<h3>Installing URAC</h3>
 		<p>
-			<b>SOAJS</b> (User Registration &amp; Access Control) is a service that manages the Users records and their Access Controls.<br>
+			SOAJS (User Registration &amp; Access Control) is a service that manages the Users records and their Access Controls.<br>
 			             The service is multitenant and provides the ability to have members accounts for different tenants. Members can login and get additional preferences or privileges.
 			             Please visit the <a href="#/documentation/urac">URAC</a> documentation page for a detailed explanation of how it functions.
 			<br /> <br />
-			             Like any other <b>SOAJS</b> service, <b>urac</b> can be installed via <b>NPM</b>:
+			             Like any other SOAJS service, <a href='#/documentation/urac'>URAC</a> can be installed via NPM:
 			<pre><code class="bash">$ npm install soajs.urac</code>
 			</pre>
 		Once the service is installed, go ahead and run it:
@@ -36,7 +36,7 @@
 $ node index</code>
 			</pre>
 		<p>
-			<b>URAC</b> is now running on http://localhost:4000/urac and will we will use it to login with our users later on when we start the tests.<br />
+			<a href='#/documentation/urac'>URAC</a> is now running on http://localhost:4000/urac and will we will use it to login with our users later on when we start the tests.<br />
 		</p>
 		</p>
 		<hr/>
@@ -77,7 +77,7 @@ $ node index</code></pre>
 
 				<p>
 					Notice here that we used port <u>5001</u> to perform a <b>heartbeat</b> check. We previously mentioned in <a href="#/getstarted">Get Started</a>, that a heartbeat operation is made using the maintenance port of a service and that the maintenance port is equal to the port number of the service + 1000.<br />
-					<b>urac</b> service runs on port <u>4001</u> making the maintenance port of this service as <u>5001</u>.
+					<a href='#/documentation/urac'>URAC</a> service runs on port <u>4001</u> making the maintenance port of this service as <u>5001</u>.
 				</p>
 			</div>
 		</fieldset>
@@ -90,7 +90,7 @@ $ node index</code></pre>
 					<div id="heartbeat_example03"></div>
 				</div>
 
-				<p>Example03 is  registered in <b>SOAJS</b> with port <u>4012</u> making the maintenance port of this service as <u>5012</u>. As you can see, when we performed a heartbeat operation, the service is running and healthy.
+				<p>Example03 is  registered in SOAJS with port <u>4012</u> making the maintenance port of this service as <u>5012</u>. As you can see, when we performed a heartbeat operation, the service is running and healthy.
 				</p>
 			</div>
 		</fieldset>
@@ -106,7 +106,7 @@ $ node index</code></pre>
 		</ol>
 		<br>
 		<h4>Product Level</h4>
-		A <b>SOAJS</b> product is a way to bundle your services and offer them to clients.
+		A SOAJS product is a way to bundle your services and offer them to clients.
 		Each product can have various packages configured within it.
 		The Product package is the most general scope for configuration.
 
@@ -143,7 +143,7 @@ $ node index</code></pre>
 
 		Under each application key we can set custom tenant configuration for a tenant application.
 		To do that, every key has a "config" entry where you can define your settings for each service that uses this tenant.<br>
-		For example, we need to define the values for <b>hashIterations</b> and <b>seedLength</b> for the password encryption under <b>URAC</b>.
+		For example, we need to define the values for <b>hashIterations</b> and <b>seedLength</b> for the password encryption under <a href='#/documentation/urac'>URAC</a>.
 		<br/><br/>
 		To understand more about tenant applications and keys, checkout the <b>Multitenancy</b> section under <a href="#/documentation/provisioning">provisioning</a> page.<br/>
 		<br/><br/>
@@ -337,7 +337,7 @@ $ node index</code></pre>
 			<li>
 				<b>user2</b> has his own ACL entry under "config.packages" and thus overrides the default ACL for package <b>PROD1_PCK1</b>.
 	             User2 belongs to group "silver".
-	             User2 has access to both <b>URAC</b> and <b>Example03</b> services. <br />
+	             User2 has access to both <a href='#/documentation/urac'>URAC</a> and <b>Example03</b> services. <br />
 	            User2 also has an entry under "config.keys" with the value "41eb3256ce660a891205d0a0eca19421" corresponding to the key of the second application for tenant 1.<br />
 
 				When calling the api using the external key that corresponds to this key, the settings defined under the key will be used.
@@ -468,7 +468,7 @@ $ node index</code></pre>
 		</p>
 		<p>
 			After you are done, we have one last example.
-			So far we have tried <b>oAuth</b> and multitenancy separately; visit <a href="#/getStarted/example04">Example04</a> to test them all together.
+			So far we have tried oAuth and multitenancy separately; visit <a href="#/getStarted/example04">Example04</a> to test them all together.
 
 
 		</p>

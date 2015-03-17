@@ -7,7 +7,7 @@
 		A service can be provided with up to three different configurations information.
 	<ol>
 		<li>
-			<b>Local Configuration:</b> refers to the configuration stored in <u>config.js</u> and is the same regardless of the tenant using this service or the environment it is operation in. <b>IMFV</b> uses such a configuration to validate the inputs; this makes sense because inputs are
+			<b>Local Configuration:</b> refers to the configuration stored in config.js and is the same regardless of the tenant using this service or the environment it is operation in. <a href="#/documentation/imfv">IMFV</a> uses such a configuration to validate the inputs; this makes sense because inputs are
 			validated the same way no matter where the service is running.<br/><br/>
 		</li>
 		<li>
@@ -15,7 +15,7 @@
 			likely used on production with load balancing and sharded databases and in that case the configuration is definitely different than other environments.<br/><br/>
 		</li>
 		<li>
-			<b>Provisioned Configuration:</b> refers to configuration loaded from the database using a certain needle or event and is not affected by neither the environment where the service is running, nor the local configuration of the service. In <b>SOAJS</b>, tenants keys are used to load
+			<b>Provisioned Configuration:</b> refers to configuration loaded from the database using a certain needle or event and is not affected by neither the environment where the service is running, nor the local configuration of the service. In SOAJS, tenants keys are used to load
 			tenant configuration when making calls to a service API.<br/>
 			<b><u>Ex:</u></b>
 			<ul>
@@ -28,15 +28,15 @@
 	<br/>
 
 	<p>
-		Products and Tenants can be created and configured using the <a href="#/documentation/dashboard-services">Dashboard</a> of <b>SOAJS</b>. This page explains the purpose of both <b>products</b> and <b>tenants</b> properties and how they work together.
-		Checkout the <a href="#/documentation/dashboard-services">Dashboard</a> of <b>SOAJS</b> to learn how to create/manage both <b>products</b> and <b>tenants</b>.<br/>
+		Products and Tenants can be created and configured using the <a href="#/documentation/dashboard-services">Dashboard</a> of SOAJS. This page explains the purpose of both <b>products</b> and <b>tenants</b> properties and how they work together.
+		Checkout the <a href="#/documentation/dashboard-services">Dashboard</a> of SOAJS to learn how to create/manage both <b>products</b> and <b>tenants</b>.<br/>
 	</p>
 	<hr/>
 	<a id="productization-anchor"></a>
 	<h3>Productization</h3>
 	<p>
 		Once a service is created and ready to be used, one thought jumps to mind: <u>"how can i place this service code in one place and offer its functionality to more than one client?"</u><br/><br/>
-		<b>SOAJS</b> provides the ability to have the same service work with different clients (tenants); and to accomplish that, 2 things need to be done.
+		SOAJS provides the ability to have the same service work with different clients (tenants); and to accomplish that, 2 things need to be done.
 	<ol>
 		<li>Productize the service</li>
 		<li>Create tenants and tell them how to use the product</li>
@@ -56,14 +56,14 @@
 		<li><b>Package 2</b> has 2 services in its ACL and therefore, using this package means both these services are available.</li>
 		<li><b>Package 3</b> is a bit more complex in how its ACL is built. It offers the access to the "urac" service and only one API from the "example03" service. Section <b>Access Levels</b> below, explains how to configure the ACL in depth.<br/></li>
 	</ol>
-	This product is stored in the database after it is created, and it is used by different tenants to grant them access to services written using <b>SOAJS</b>. Product records are located in <b>products</b> collection under <b>core_provision</b> database.
+	This product is stored in the database after it is created, and it is used by different tenants to grant them access to services written using SOAJS. Product records are located in <b>products</b> collection under <b>core_provision</b> database.
 	</p>
 	<hr/>
 	<a id="acl-anchor"></a>
 	<h3>Access Levels</h3>
 	<p>
 		When a service is made to serve different tenants, these tenants should be instructed on how to use the service. Access Levels (ACL) are applied through product packages. ACL can be overridden by tenants applications and URAC. First, let's explain how the ACL works then jump to how to use it and override it. <br /><br />
-		<b>SOAJS</b> ACL offers a lot of flexibility and can be used to grant access to a service or a particular API in that service or to specific groups.<br /><br />
+		SOAJS ACL offers a lot of flexibility and can be used to grant access to a service or a particular API in that service or to specific groups.<br /><br />
 	</p>
 	<h4>Service Access</h4>
 	ACL can provide access to a service by simply adding the service name to its list. The access is granted in three different methods: PUBLIC - PRIVATE for logged in users - PRIVATE for specific groups.
@@ -122,25 +122,25 @@
 		The above snippet demonstrates the usage of <b>apisPermission</b>; it forces the ACL to restrict access to all APIs of a service except the ones mentioned in either <b>apis</b> or <b>apisRegExp</b>.
 		For <b>serviceName1</b>, only <b>/account/myAccount</b> is available in this acl,
 		and for <b>serviceName2</b>, only the API routes that start with <b>/account/</b> are available.<br /><br />
-		<b>SOAJS</b> provides all possible solutions regarding how to grant access to services for tenants. Keep in mind that the above only shows the ACL of one package in a product. You can have different packages in a product with different ACL and you can also have different products with different packages.<br />
+		SOAJS provides all possible solutions regarding how to grant access to services for tenants. Keep in mind that the above only shows the ACL of one package in a product. You can have different packages in a product with different ACL and you can also have different products with different packages.<br />
 		The cases and scenarios covered by <b>SOAJS Productization</b> are huge, the system is very flexible and expandable.<br /><br />
 	</p>
 	<hr/>
 	<a id="multitenancy-anchor"></a>
 	<h3>Multitenancy</h3>
 	<p>
-		<b>SOAJS</b> gives you the ability to create multiple tenants and assign product packages to them. A tenant represents a client. So to apply the concept of having one service serve several tenants differently, such as <a href="#/documentation/urac">URAC</a>, we need to configure our service to use multitenancy, create tenants and assign keys to them. And when making calls to the APIs of that service, specify the key of the tenant in those requests.<br /><br />
+		SOAJS gives you the ability to create multiple tenants and assign product packages to them. A tenant represents a client. So to apply the concept of having one service serve several tenants differently, such as <a href="#/documentation/urac">URAC</a>, we need to configure our service to use multitenancy, create tenants and assign keys to them. And when making calls to the APIs of that service, specify the key of the tenant in those requests.<br /><br />
 		<a href="#/getStarted/example02">Example02</a> demonstrates the usage of one tenant with both <a href="#/documentation/oauth">oAuth</a> and <b>Example02</b> services. <a href="#/getStarted/example03">Example03</a> demonstrates the usage of several tenants and in some cases, several applications of a tenant with <b>Example03</b> service.<br />
 	</p>
 	<hr/>
 	<h4>Tenants</h4>
 	<p>
 		In the previous section we mentioned how to create products and package them and configure access levels on different services they offer. Now let's create tenants and assign some product packages to them.<br />
-		Tenants can be created and configured using the <a href="#/documentation/dashboard-services">Dashboard</a> of <b>SOAJS</b>. Tenants have unique identification codes and optional <a href="#/documentation/oauth">oAuth</a> configuration. Checkout <a href="#/getStarted/example02">Example02</a> to learn how to protect a service using <b>oAuth</b>.
+		Tenants can be created and configured using the <a href="#/documentation/dashboard-services">Dashboard</a> of SOAJS. Tenants have unique identification codes and optional <a href="#/documentation/oauth">oAuth</a> configuration. Checkout <a href="#/getStarted/example02">Example02</a> to learn how to protect a service using <a href="#/documentation/oauth">oAuth</a>.
 		<div ng-init="loadCode(path + 'provisioning/tenant1.js', 'tenantjs');">
 			<div id="tenantjs"></div>
 		</div>
-		The above snippet represents one tenant records that is stored in the database <b>core_provision</b> under <b>tenants</b>. The tenant is called <b>Test Tenant</b>, holds <b>oAuth</b> security information and has an application array.
+		The above snippet represents one tenant records that is stored in the database <b>core_provision</b> under <b>tenants</b>. The tenant is called Test Tenant, holds <a href="#/documentation/oauth">oAuth</a> security information and has an application array.
 	</p>
 	<br/>
 	<h4>Applications</h4>
@@ -149,15 +149,15 @@
 	</div>
 
 	<p>
-		The above snippet represents an application in a tenant that uses <b>PROD1_PCK1</b> package and inherits the ACL from that package. Since <b>PROD_PCK1</b> provides access to the <b>URAC</b> service, this application can now use the service and give it some custom configuration as shown in the <b>config.urac</b> entry inside the <b>keys</b> array.<br />
-		Every application needs <b>keys</b> to function, without those <b>keys</b> the application by itself does nothing. Once a key is added to an application, the application can then provide <b>custom configuration</b> to a service and can contains external keys for that particular key.<br />
-		<b>External Keys</b> are used in requests made to a service; they are secured using <b>geo</b> and <b>device</b> security and have an <b>expiry date</b>. Think of them as <b>license</b> keys. When used, these external keys are checked for device and geo location, and if valid, they are matched with the key represent. Now that the key has been identified, its configuration is loaded and in the cases above, for <b>URAC</b> the tenant configuration for this key is passed to the service for usage.<br /><br />
+		The above snippet represents an application in a tenant that uses <b>PROD1_PCK1</b> package and inherits the ACL from that package. Since <b>PROD_PCK1</b> provides access to the <a href="#/documentation/urac">URAC</a> service, this application can now use the service and give it some custom configuration as shown in the <b>config.urac</b> entry inside the <b>keys</b> array.<br />
+		Every application needs <b>keys</b> to function, without those <b>keys</b> the application by itself does nothing. Once a key is added to an application, the application can then provide custom configuration to a service and can contains external keys for that particular key.<br />
+		<b>External Keys</b> are used in requests made to a service; they are secured using <b>geo</b> and <b>device</b> security and have an <b>expiry date</b>. Think of them as <b>license</b> keys. When used, these external keys are checked for device and geo location, and if valid, they are matched with the key represent. Now that the key has been identified, its configuration is loaded and in the cases above, for <a href="#/documentation/urac">URAC</a> the tenant configuration for this key is passed to the service for usage.<br /><br />
 	</p>
 	<div ng-init="loadJson(path + 'provisioning/app2.json', 'app2js');">
 		<div id="app2js"></div>
 	</div>
 	<p>
-		The above snippet is another application in a tenant that uses <b>PROD1_PCK2</b> package, but this time it overrides the ACL of that package with additional permissions. The application grants access to <b>URAC</b>, <b>Example02</b> and <b>Example03</b> and in the key configuration, both <b>URAC</b> and <b>Example03</b> have custom configuration. Keep in mind that the ACL configuration follows the same syntax whether used in packages or in applications.<br /><br />
+		The above snippet is another application in a tenant that uses <b>PROD1_PCK2</b> package, but this time it overrides the ACL of that package with additional permissions. The application grants access to <a href="#/documentation/urac">URAC</a>, <b>Example02</b> and <b>Example03</b> and in the key configuration, both <a href="#/documentation/urac">URAC</a> and <b>Example03</b> have custom configuration. Keep in mind that the ACL configuration follows the same syntax whether used in packages or in applications.<br /><br />
 	</p>
 	<hr/>
 	<h4>Tenant Full Sample</h4>
@@ -166,7 +166,7 @@
 		<div ng-init="loadCode(path + 'provisioning/multitenancy.js', 'multitenancyjs');">
 			<div id="multitenancyjs"></div>
 		</div>
-		Using both <b>Productization</b> and <b>Multitenancy</b> and with the wide combination offered by the <b>Access Levels</b>, <b>SOAJS</b> gives you limitless power to build Service-Oriented Applications that service multiple tenants, and configure their access as you desire with very little effort and time.
+		Using both <b>Productization</b> and <b>Multitenancy</b> and with the wide combination offered by the <b>Access Levels</b>, SOAJS gives you limitless power to build Service-Oriented Applications that service multiple tenants, and configure their access as you desire with very little effort and time.
 	</p>
 	<script>renderCodeSnippets();</script>
 </div>

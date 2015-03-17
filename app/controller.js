@@ -63,9 +63,6 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', function($sco
 			$scope.currentLocation =  "/"+p[1];
 		}
 
-		var body = jQuery("html, body");
-		body.animate({scrollTop:0}, '100');
-
 		if($routeParams.anchor)
 		{
 			var sp = '/'+$routeParams.anchor;

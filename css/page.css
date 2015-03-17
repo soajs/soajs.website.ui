@@ -85,16 +85,6 @@ a:hover{
     padding: 16px 20px;
 }
 
-/*.topbar .small-menu::after {*/
-    /*clear: both;*/
-    /*content: ".";*/
-    /*display: block;*/
-    /*font-size: 0;*/
-    /*height: 0;*/
-    /*line-height: 0;*/
-    /*visibility: hidden;*/
-/*}*/
-
 .topbar .topnav {
     float: right;
 }
@@ -104,38 +94,14 @@ a:hover{
     float: left;
     list-style-type: none;
     height: 60px;
-    /*
-    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-    border-right: 1px solid rgba(0, 0, 0, 0.4);
-    */
 }
 
-/*.topbar .topnav li:first-child:before {*/
-    /*content: " ";*/
-    /*height: 60px;*/
-    /*display: block;*/
-    /*position: relative;*/
-    /*left: -2px;*/
-    /*float: left;*/
-/*}*/
-
-/*.topbar .topnav li:last-child:after {
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-    content: " ";
-    height: 60px;
-    display: block;
-    position: relative;
-    right: -2px;
-    top: -48px;
-    float: right;
-}*/
 .topbar .topnav li a {
     color: rgb(34, 34, 34);
     cursor: pointer;
     display: block;
     font-size: 14px;
-    margin: 32px 17px 0;
+    margin: 15px 17px 0;
     padding: 0 3px 5px;
     outline: 0;
     white-space: nowrap;
@@ -608,7 +574,7 @@ a:hover{
 
 .std-list li {
     list-style-type: disc !important;
-    padding: 5px 0 5px 30px !important;
+    padding: 5px 0 5px 10px !important;
     margin-left: 35px;
 }
 
