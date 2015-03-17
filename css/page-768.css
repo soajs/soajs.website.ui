@@ -420,6 +420,12 @@
         font-size: 14px;
         line-height: 1.6em;
     }
+    fieldset legend{
+        font-size: 16px;
+    }
+    pre code{
+        font-size: 12px;
+    }
     .topbar .branding img.logo {
         width:173px;
     }
@@ -474,21 +480,24 @@
         float:left;
         padding-left: 7px;
         padding-right: 7px;
-        width: 120px;
+        width: 28%;
         position:relative;
         outline: 0;
     }
+
     .left-sidebar section h4{
         padding-left: 10px;
         margin-bottom: 5px;
     }
-
     .left-sidebar section hr, .left-sidebar section br, .left-sidebar section ul{
         display:none;
     }
 
     .left-sidebar section:hover {
 
+    }
+    .left-sidebar section ul li {
+        padding-top: 10px;
     }
     .left-sidebar section:hover > ul{
         display:block;
@@ -519,7 +528,6 @@
 
     .myTable thead th {
         font-size: 14px;
-        padding: 10px 8px;
     }
     #urac-override-acl{
         width: 85%;
@@ -528,5 +536,8 @@
     #dashboardpng{
         width: 90%;
         max-width: 92%;
+    }
+    .small-button {
+        padding: 6px 25px 8px;
     }
 }
