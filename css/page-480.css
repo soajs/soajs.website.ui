@@ -25,7 +25,7 @@
         padding: 10px 0;
     }
     .small-button {
-        font-size: 14px;
+        font-size: 13px;
         height: 43px;
         padding: 10px 20px 8px;
         margin-right: 10px;
@@ -96,6 +96,15 @@
     .banner .banner-container {
         padding: 50px 0 50px;
     }
+    .copyright{
+        width:150px;
+    }
+    .bottom .copyright {
+        padding-top: 0px;
+    }
+    .bottom .sharing-footer .inner {
+        margin-top:1px;
+    }
 }
 @media (max-width: 325px) {
     body, html {
@@ -151,16 +160,5 @@
         background-color: #FFB500;
         background-image: none;
     }
-
-    .copyright{
-        width:150px;
-    }
-    .bottom .copyright {
-        padding-top: 0px;
-    }
-    .bottom .sharing-footer .inner {
-        margin-top:1px;
-    }
-
 }
 

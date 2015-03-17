@@ -107,6 +107,9 @@
     #registry1png{
         width:270px;
     }
+    #dashboard-form, #dashboard-grid{
+        width: 90% ;
+    }
 }
 
 @media (max-width: 767px) {
@@ -259,6 +262,9 @@
     ul.topnav{
         padding-left: 20px;
     }
+    #dashboard-form, #dashboard-grid{
+        width: 90% ;
+    }
 }
 
 
@@ -388,6 +394,9 @@
         clear: both;
         width: 85%;
     }
+    #dashboardpng{
+        width: 85%;
+    }
 }
 
 @media (max-width: 640px) {
@@ -499,6 +508,10 @@
     }
     #urac-override-acl{
         width: 85%;
+        max-width: 92%;
+    }
+    #dashboardpng{
+        width: 90%;
         max-width: 92%;
     }
 }

@@ -926,3 +926,7 @@ hr.white {
 #service-folder-tree{
     width: 216px;
 }
+
+#dashboard-form, #dashboard-grid{
+    max-width: 750px;
+}
