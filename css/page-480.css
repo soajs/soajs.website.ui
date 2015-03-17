@@ -4,7 +4,15 @@
         font-size: 13px;
         line-height:1.5em;
     }
-
+    .page h1{
+        font-size: 16pt;
+    }
+    h3 {
+        font-size: 16px;
+    }
+    h4, .h4 {
+        font-size: 14px;
+    }
     pre code{
         font-size: 11px;
     }
@@ -44,8 +52,9 @@
         padding: 10px 17px 8px;
         margin-right: 10px;
     }
+    /*
     .left-sidebar section{
-
+        width: 29%;
     }
     .left-sidebar section#dashbd{
         width: 34%;
@@ -53,6 +62,7 @@
     .left-sidebar section#soajs{
         width: 32%;
     }
+    */
     .features-page .main-section-container .feature-list ul li {
         padding: 30px 0;
     }
@@ -78,9 +88,29 @@
     .left-sidebar .left-menu section section h4{
         font-size: 12px;
     }
-    .left-sidebar .left-menu ul li a{
-        font-size: 10px;
+    .left-sidebar section:hover > ul{
+        width: 100px;
     }
+    .left-sidebar section#dashbd:hover > ul{
+        width: 120px;
+    }
+    .left-sidebar section#soajs:hover > ul{
+        width: 115px;
+    }
+    .left-sidebar .left-menu ul li a{
+        font-size: 12px;
+    }
+    .powered-by-container h1{
+        font-size: 14pt;
+        margin-top: 10px;
+    }
+    .powered-by-container .powered-icon img{
+        max-width: 70px;
+    }
+    #registry-example01{
+        width: 313px;
+    }
+
 }
 
 @media (max-width: 400px) {
@@ -131,6 +161,9 @@
     }
     .left-sidebar section:hover > ul {
         padding: 0 7px 5px 7px;
+        margin-left: -10px;
+        z-index: 100;
+        padding: 0 15px 5px 17px;
     }
     .left-sidebar section{
         padding-left: 5px;

@@ -15,7 +15,7 @@
         border-bottom:solid 4px rgb(53, 90, 118);
     }
     img{
-        max-width: 85%;
+        max-width: 88%;
     }
     #example03png{
         width: 85%;
@@ -155,13 +155,17 @@
     #urac-override-acl{
         width: 450px;
     }
-    #example03png, #example01png, #example02-oauth, #getstarted_ex02, #ex02Registry, #getStartedImg, #oAuth-workflow{
+    #example03png, #example01png, #example02-oauth, #getstarted_ex02, #getStartedImg, #oAuth-workflow{
         width: 85%;
         display: block;
         float: none;
     }
+    #ex02Registry{
+        display: block;
+        float: none;
+    }
     #registry-example01{
-        width: 323px;
+
         display: block;
     }
     #ex02Registry, #registry-example01{
@@ -193,22 +197,26 @@
         margin-right: 10px;
     }
     .topbar .nav-container {
-        width: 100%;
+        width: 98%;
     }
     .bottom .sharing-footer {
-        width: 100%;
+        margin: 0 auto;
+        width: 98%;
     }
     .main-section-container {
-        width: 100%;
+        width: 98%;;
     }
     .banner .banner-container {
-        width: 100%;
+        width: 98%;
     }
     .white-banner .banner-container {
-        width: 100%;
+        width: 98%;
+    }
+    .powered-by-container {
+        width: 98%;
     }
     .soajs-features .features-container {
-        width: 100%;
+        width: 98%;
     }
     .soajs-features .features-container .feature-list li {
         padding: 0 0 20px 30px;
@@ -221,10 +229,7 @@
         display: none;
     }
 
-    .powered-by-container {
-        padding: 50px 0 20px;
-        width: 100%;
-    }
+
     .powered-by-container .powered-icon {
         height: 70px;
     }
@@ -426,6 +431,15 @@
     pre code{
         font-size: 12px;
     }
+    .page h1 {
+        font-size: 18pt;
+    }
+    h3 {
+        font-size: 18px;
+    }
+    h4, .h4 {
+        font-size: 16px;
+    }
     .topbar .branding img.logo {
         width:173px;
     }
@@ -434,16 +448,19 @@
         line-height: 1.6em;
     }
     img {
-        max-width: 75%;
+        max-width: 85%;
     }
     .powered-by-container {
-        padding: 30px 0 20px;
+    }
+    .powered-by-container h1{
+        font-size: 20px;
+        margin-top: 15px;
     }
     .powered-by-container .powered-icon {
         height: 50px;
     }
     .powered-by-container .powered-icon img{
-        max-width: 70px;
+        max-width: 100px;
     }
     .left-sidebar .left-menu {
         width: 90%;
@@ -480,11 +497,13 @@
         float:left;
         padding-left: 7px;
         padding-right: 7px;
-        width: 28%;
+        width: 31%;
         position:relative;
         outline: 0;
     }
-
+    .left-sidebar .left-menu {
+        width: 99%;
+    }
     .left-sidebar section h4{
         padding-left: 10px;
         margin-bottom: 5px;
@@ -502,13 +521,12 @@
     .left-sidebar section:hover > ul{
         display:block;
         position:absolute;
+        margin-left: -10px;
         z-index: 100;
-        padding: 0 10px 5px 10px;
+        padding: 0 15px 5px 20px;
         background-color:white;
-        border-style: dotted;
         border-color: rgb(61, 61, 61);
-        border-width: 1px;
-        transition:all ease 0.25s;
+        transition:all ease 0.5s;
     }
 
     .right-sidebar {
@@ -539,5 +557,8 @@
     }
     .small-button {
         padding: 6px 25px 8px;
+    }
+    #example03png, #example01png, #example02-oauth, #getstarted_ex02, #oAuth-workflow{
+        width: 93%;
     }
 }

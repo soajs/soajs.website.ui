@@ -3,7 +3,6 @@
 @-ms-viewport {
     width: device-width;
 }
-
 .hidden {
     display: none;
     visibility: hidden;
@@ -32,9 +31,7 @@
     }
 }
 
-
 @media screen and (min-width: 1000px) {
-
     .topbar .nav-container {
         margin: 0 auto;
         width: 997px;
@@ -47,13 +44,11 @@
         margin: 0 auto;
         width: 997px;
         padding: 0 0 60px;
-        display: table;
     }
 
     .banner .banner-container {
-        margin: auto;
+        margin: 0 auto;
         width: 997px;
-        padding: 220px 0 100px;
         position: relative;
         padding-top: 80px;
     }
@@ -64,16 +59,12 @@
         padding: 15px 0;
     }
     .soajs-features .features-container {
-        box-sizing: border-box;
         margin: 0 auto;
         width: 997px;
     }
     .powered-by-container {
         margin: 0 auto;
         width: 997px;
-    }
-    img {
-        max-width: 95%;
     }
     .soajs-features .features-container .feature-list li {
         min-height: 200px;
@@ -94,5 +85,35 @@
     }
     #urac-override-acl{
         width: 450px;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .topbar .nav-container {
+        margin: 0 auto;
+        width: 1197px;
+    }
+    .bottom .sharing-footer {
+        margin: 0 auto;
+        width: 1197px;
+    }
+    .main-section-container {
+        margin: 0 auto;
+        width: 1197px;
+    }
+
+    .banner .banner-container {
+        margin: 0 auto;
+        width: 1197px;
+    }
+    .white-banner .banner-container {
+        width: 1197px;
+    }
+    .soajs-features .features-container {
+        margin: 0 auto;
+        width: 1197px;
+    }
+    .powered-by-container {
+        margin: 0 auto;
+        width: 1197px;
     }
 }
