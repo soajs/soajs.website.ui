@@ -33,19 +33,40 @@
     .left-sidebar {
         float: none;
         width:100%;
-        height:160px;
         padding-top: 5px;
+        z-index: 100;
+        height:auto;
+        border-bottom-style: dotted;
+        border-bottom-color: rgb(61, 61, 61);
+        border-bottom-width: 1px;
+        cursor:pointer;
     }
     .left-sidebar:after {
         clear: both;
         content: " ";
         display: block;
     }
-    .section{
+    .left-sidebar section{
         float:left;
         padding-left: 7px;
         padding-right: 7px;
         width: 100px;
+        position:relative;
+    }
+    .left-sidebar section hr, .left-sidebar section br, .left-sidebar section ul{
+        display:none;
+    }
+
+    .left-sidebar section:hover > ul{
+        display:block;
+        position:absolute;
+        z-index: 100;
+        padding:0 10px 5px 10px;
+        background-color:white;
+        border-style: dotted;
+        border-color: rgb(61, 61, 61);
+        border-width: 1px;
+        transition:all ease 0.25s;
     }
 
     .right-sidebar {
