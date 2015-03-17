@@ -58,19 +58,23 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', function($sco
 	$scope.$on('$routeChangeSuccess', function() {
 		$scope.currentLocation = $location.path();
 		var subPagesDetection = $scope.currentLocation.match(/\//g);
-		if(subPagesDetection.length > 1){
+		if(subPagesDetection.length > 1) {
 			var p = $location.path().split(/\//);
-			$scope.currentLocation =  "/"+p[1];
+			$scope.currentLocation = "/" + p[1];
 		}
 
-		if($routeParams.anchor)
-		{
-			var sp = '/'+$routeParams.anchor;
+		if($routeParams.anchor) {
+			var sp = '/' + $routeParams.anchor;
 			var p = $location.path().split(sp);
-			$scope.currentLocation =  p[0];
+			$scope.currentLocation = p[0];
 		}
 	});
 
+	$scope.copyrightYear = "2015";
+	var thisYear = new Date().getFullYear();
+	if(thisYear > 2015) {
+		$scope.copyrightYear += " - " + 2015;
+	}
 }]);
 
 app.directive('topMenu', function() {
