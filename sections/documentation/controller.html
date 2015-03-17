@@ -63,11 +63,8 @@ $ node index</code></pre><br />
 	<h3>Calling the Service</h3>
 	<p>
 		<pre><code class="bash">CURL -X %method% "http://127.0.0.1:4000"</code></pre>
-		The sample demonstrates that to invoke SOAJS Controller, you only need to request the < <u>host</u> : <u>port</u> >.<br />
-		No need to pass arguments yet if the purpose is to check that the controller is up and running.<br />
 		By Default, the controller is configured to use port 4000 as specified in the <a href="#/documentation/registry">registry</a>.<br />
-		Keep in mind that calling the controller only, will lead nowhere;
-		This is just to check that the service is running.<br />
+
 		<h6><u>Response:</u></h6>
 		<pre><code class="json" ng-bind-html="controller|json"></code></pre>
 	<em>The above shows the response of the call to: http://127.0.0.1:4000. No service is called yet</em>

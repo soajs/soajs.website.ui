@@ -660,8 +660,9 @@ pre {
 .powered-by-container {
     margin: 0 auto;
     width: 997px;
-    padding: 60px 0 20px 0;
+    padding: 10px 0 20px 0;
     clear: both;
+    text-align:center;
 }
 
 .powered-by-container:after {

@@ -1,31 +1,32 @@
 <div class="page features-page" ng-controller="FeaturesPageCtrl">
-    <div class="main-section-container">
-	    <h1>SOAJS Features</h1>
-	    <div class="white-container">
-	    <p>
-		    SOAJS is equipped with many features that help you build your product APIs super fast by providing your engineers all the needed tools to avoid creating features that usually take month of work and once deployed require a lot of effort ot maintain.<br />
-		    Use SOAJS and build those APIs in minutes and direct your engineer to focus more on the business logic instead of wasting time developing simple APIs and then get stuck maintaining them.<br />
-		    You can find out what SOAJS is capable of offering your engineers by going through the list of features below.
-	    </p>
-        <div class="feature-list">
-            <ul>
-                <li ng-repeat="feature in featureList">
-                    <a id="{{feature.id}}"></a>
-                    <h3 > {{feature.title}} </h3>
-                    <table cellspacing="5">
-                        <tr>
-                            <td class="left" valign="top" ng-show="feature.leftImage">
-	                            <img ng-src="{{feature.imageLocation}}" />
-                            </td>
-                            <td valign="top" ng-bind-html="feature.fullDescription|toTrustedHtml"></td>
-	                        <td class="right" valign="top" ng-show="feature.rightImage">
-		                        <img ng-src="{{feature.imageLocation}}" />
-	                        </td>
-                        </tr>
-                    </table>
-                </li>
-            </ul>
-        </div>
-		    </div>
-    </div>
+	<div class="main-section-container">
+		<h1>SOAJS Features</h1>
+
+		<div class="white-container">
+			<p>
+				SOAJS is an open source framework equipped with many features to help you build your product APIs super fast. Don't start from 0% and let important features at the framework level be an after thought. SOAJS framework provides your engineers with the needed tools and gives them a kick start to build your product APIs fast.
+				Use SOAJS and build those APIs in minutes and orient your engineer to focus more on the business logic instead of wasting time developing an API framework and then get stuck maintaining or rewriting it. Find out what SOAJS is capable of offering by going through the list of features below.
+			</p>
+			<div class="feature-list">
+				<ul>
+					<li ng-repeat="feature in featureList">
+						<a id="{{feature.id}}"></a>
+
+						<h3> {{feature.title}} </h3>
+						<table cellspacing="5">
+							<tr>
+								<td class="left" valign="top" ng-show="feature.leftImage">
+									<img ng-src="{{feature.imageLocation}}"/>
+								</td>
+								<td valign="top" ng-bind-html="feature.fullDescription|toTrustedHtml"></td>
+								<td class="right" valign="top" ng-show="feature.rightImage">
+									<img ng-src="{{feature.imageLocation}}"/>
+								</td>
+							</tr>
+						</table>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
 </div>
