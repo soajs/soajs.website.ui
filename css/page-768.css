@@ -38,14 +38,20 @@
     }
 
     .banner .banner-container {
-        margin: 0 auto;width: 97%;
+        margin: 0 auto;
+        width: 97%;
     }
     .white-banner .banner-container {
         margin: 0 auto;
         width: 97%;
     }
+    .powered-by-container {
+        margin: 0 auto;
+        width: 97%;
+    }
     .soajs-features .features-container {
-        margin: 0 auto;width: 97%;
+        margin: 0 auto;
+        width: 97%;
     }
     .topbar .topnav {
         padding-left: 15px;
