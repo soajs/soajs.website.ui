@@ -238,10 +238,9 @@ a:hover{
     box-sizing: border-box;
     margin: auto;
     max-width: 997px;
-    padding: 220px 0 100px;
+    padding: 80px 0 100px;
     position: relative;
     width: 84%;
-    padding-top: 80px;
 }
 
 .banner .banner-container .left-main {
@@ -414,7 +413,6 @@ a:hover{
     float: left;
     padding: 0 0 0 100px;
     position: relative;
-    min-height: 200px;
     cursor: pointer;
     list-style-type: none;
     width: 47%;
@@ -565,19 +563,17 @@ a:hover{
     padding-top:5px;
 }
 
-.features-page .left img,
-.features-page .right img {
-    max-width: 385px;
-}
-
 /* OTHER CSS CLASSES */
 
 .std-list li {
     list-style-type: disc !important;
     padding: 5px 0 5px 10px !important;
     margin-left: 35px;
-}
 
+}
+.features-page .main-section-container .feature-list ul li .std-list li {
+    width: auto;
+}
 .image-border {
     padding: 5px;
     background-color: white;
@@ -842,7 +838,6 @@ hr.white {
 
 .page h3 {
     color: rgb(65, 100, 126);
-    text-decoration: none;
     font-weight: bold;
     text-decoration:underline;
 }
@@ -882,14 +877,15 @@ hr.white {
 
 .topbar .getStarted {
     width: 122px;
+    white-space: nowrap;
 }
 
 .topbar .features {
-    width: 98px;
+    width: 99px;
 }
 
 .topbar .documentation {
-    width: 142px;
+    width: 143px;
 }
 
 .topbar .contactUs {

@@ -100,4 +100,15 @@
         margin: 0 auto;
         width: 997px;
     }
+    img {
+        max-width: 95%;
+    }
+    .soajs-features .features-container .feature-list li {
+        min-height: 200px;
+        width: 47%;
+        margin: 10px 0 0 0;
+    }
+    .features-page .left img, .features-page .right img {
+        max-width: 385px;
+    }
 }
