@@ -1,0 +1,423 @@
+[
+  {
+    "routeName": "/topology",
+    "cmd": "CURL -X GET http://localhost:4000/agent/topology",
+    "response": {
+      "result": true,
+      "data": {}
+    }
+  },
+  {
+    "routeName": "/compute/all",
+    "cmd": "CURL -X GET http://localhost:4000/agent/compute/all",
+    "response": {
+      "result": true,
+      "data": {
+        "hostname": "myComputer.local",
+        "uptime": 433004,
+        "cpus": [
+          {
+            "model": "Intel(R) Core(TM) i7-2675QM CPU @ 2.20GHz",
+            "speed": 2200,
+            "times": {
+              "user": 17076020,
+              "nice": 0,
+              "sys": 12621310,
+              "idle": 114229750,
+              "irq": 0
+            }
+          },
+          {
+            "model": "Intel(R) Core(TM) i7-2675QM CPU @ 2.20GHz",
+            "speed": 2200,
+            "times": {
+              "user": 672700,
+              "nice": 0,
+              "sys": 1001120,
+              "idle": 141902690,
+              "irq": 0
+            }
+          },
+          {
+            "model": "Intel(R) Core(TM) i7-2675QM CPU @ 2.20GHz",
+            "speed": 2200,
+            "times": {
+              "user": 12237130,
+              "nice": 0,
+              "sys": 6909380,
+              "idle": 124430060,
+              "irq": 0
+            }
+          }
+        ],
+        "net": {
+          "lo0": [
+            {
+              "address": "::1",
+              "family": "IPv6",
+              "internal": true
+            },
+            {
+              "address": "127.0.0.1",
+              "family": "IPv4",
+              "internal": true
+            },
+            {
+              "address": "fe80::1",
+              "family": "IPv6",
+              "internal": true
+            }
+          ],
+          "en0": [
+            {
+              "address": "fe80::3e07:54ff:fe62:1c5d",
+              "family": "IPv6",
+              "internal": false
+            },
+            {
+              "address": "192.168.5.102",
+              "family": "IPv4",
+              "internal": false
+            }
+          ]
+        },
+        "mem": {
+          "total": 17179869184,
+          "free": 48259072
+        },
+        "load": [
+          1.82373046875,
+          2.1171875,
+          2.13232421875
+        ]
+      }
+    }
+  },
+  {
+    "routeName": "/heartbeat",
+    "cmd": "CURL -X GET http://localhost:4000/agent/heartbeat",
+    "response": {
+      "result": true,
+      "data": {
+        "controller": {
+          "result": true,
+          "ts": 1426589191718,
+          "service": {
+            "service": "CONTROLLER",
+            "type": "rest",
+            "route": "/heartbeat"
+          }
+        },
+        "urac": {
+          "result": true,
+          "ts": 1426589191720,
+          "service": {
+            "service": "urac",
+            "type": "rest",
+            "route": "/heartbeat"
+          }
+        },
+        "oauth": {
+          "result": true,
+          "ts": 1426589191721,
+          "service": {
+            "service": "oauth",
+            "type": "rest",
+            "route": "/heartbeat"
+          }
+        },
+        "dashboard": {
+          "result": true,
+          "ts": 1426589258816,
+          "service": {
+            "service": "dashboard",
+            "type": "rest",
+            "route": "/heartbeat"
+          }
+        },
+        "agent": {
+          "result": true,
+          "ts": 1426589191725,
+          "service": {
+            "service": "agent",
+            "type": "rest",
+            "route": "/heartbeat"
+          }
+        }
+      }
+    }
+  },
+  {
+    "routeName": "/loadProvision",
+    "cmd": "CURL -X GET http://localhost:4000/agent/loadProvision",
+    "response": {
+      "result": true,
+      "data": {
+        "controller": "nothing to do!",
+        "urac": {
+          "result": true,
+          "ts": 1426589278041,
+          "service": {
+            "service": "urac",
+            "type": "rest",
+            "route": "/loadProvision"
+          }
+        },
+        "oauth": {
+          "result": true,
+          "ts": 1426589278039,
+          "service": {
+            "service": "oauth",
+            "type": "rest",
+            "route": "/loadProvision"
+          }
+        },
+        "dashboard": {
+          "result": true,
+          "ts": 1426589278043,
+          "service": {
+            "service": "dashboard",
+            "type": "rest",
+            "route": "/loadProvision"
+          }
+        },
+        "agent": {
+          "result": true,
+          "ts": 1426589278044,
+          "service": {
+            "service": "agent",
+            "type": "rest",
+            "route": "/loadProvision"
+          }
+        }
+      }
+    }
+  },
+  {
+    "routeName": "/reloadRegistry",
+    "cmd": "CURL -X GET http://localhost:4000/agent/reloadRegistry",
+    "response": {
+      "result": true,
+      "data": {
+        "controller": {
+          "name": "dev",
+          "version": "0.0",
+          "environment": "develop",
+          "tenantMetaDB": {
+            "urac": {
+              "name": "#TENANT_NAME#_urac",
+              "prefix": "",
+              "servers": [
+                {
+                  "host": "data-proxy",
+                  "port": 27017
+                }
+              ],
+              "credentials": null,
+              "URLParam": {
+                "connectTimeoutMS": 0,
+                "socketTimeoutMS": 0,
+                "maxPoolSize": 5,
+                "wtimeoutMS": 0,
+                "slaveOk": true
+              },
+              "extraParam": {
+                "db": {
+                  "native_parser": true
+                },
+                "server": {
+                  "auto_reconnect": true
+                }
+              }
+            }
+          },
+          "coreDB": {
+            "provision": {
+              "name": "core_provision",
+              "prefix": "",
+              "servers": [
+                {
+                  "host": "data-proxy",
+                  "port": 27017
+                }
+              ],
+              "credentials": null,
+              "URLParam": {
+                "connectTimeoutMS": 0,
+                "socketTimeoutMS": 0,
+                "maxPoolSize": 5,
+                "wtimeoutMS": 0,
+                "slaveOk": true
+              },
+              "extraParam": {
+                "db": {
+                  "native_parser": true
+                },
+                "server": {
+                  "auto_reconnect": true
+                }
+              }
+            },
+            "session": {
+              "name": "core_session",
+              "prefix": "",
+              "servers": [
+                {
+                  "host": "data-proxy",
+                  "port": 27017
+                }
+              ],
+              "credentials": null,
+              "URLParam": {
+                "connectTimeoutMS": 0,
+                "socketTimeoutMS": 0,
+                "maxPoolSize": 5,
+                "wtimeoutMS": 0,
+                "slaveOk": true
+              },
+              "extraParam": {
+                "db": {
+                  "native_parser": true
+                },
+                "server": {
+                  "auto_reconnect": true
+                }
+              },
+              "store": {},
+              "collection": "sessions",
+              "stringify": false,
+              "expireAfter": 1209600000
+            }
+          },
+          "serviceConfig": {
+            "key": {
+              "algorithm": "aes256",
+              "password": "shhhh this is a secret"
+            },
+            "logger": {
+              "src": true,
+              "level": "debug"
+            },
+            "cors": {
+              "enabled": true,
+              "origin": "*",
+              "credentials": "true",
+              "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+              "headers": "key,soajsauth,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type",
+              "maxage": 1728000
+            },
+            "oauth": {
+              "grants": [
+                "password",
+                "refresh_token"
+              ],
+              "debug": false
+            },
+            "maintenancePortInc": 1000,
+            "cookie": {
+              "secret": "this is a secret sentence"
+            },
+            "session": {
+              "name": "soajsID",
+              "secret": "this is soajs app server",
+              "cookie": {
+                "path": "/",
+                "httpOnly": true,
+                "secure": false,
+                "domain": "soajs.com",
+                "maxAge": null
+              },
+              "resave": false,
+              "saveUninitialized": false
+            }
+          },
+          "services": {
+            "controller": {
+              "port": 4000,
+              "host": "rest-proxy",
+              "maxPoolSize": 100,
+              "requestTimeout": 30,
+              "requestTimeoutRenewal": 0,
+              "authorization": true
+            },
+            "urac": {
+              "extKeyRequired": true,
+              "port": 4001,
+              "host": "rest-proxy",
+              "url": "http://rest-proxy:4000/urac",
+              "mail": {
+                "join": "mail/urac/join.tmpl",
+                "forgotPassword": "mail/urac/forgotPassword.tmpl",
+                "addUser": "mail/urac/addUser.tmpl",
+                "changeUserStatus": "mail/urac/changeUserStatus.tmpl",
+                "changeEmail": "mail/urac/changeEmail.tmpl"
+              }
+            },
+            "oauth": {
+              "extKeyRequired": true,
+              "port": 4002,
+              "host": "rest-proxy",
+              "url": "http://rest-proxy:4000/oauth"
+            },
+            "dashboard": {
+              "extKeyRequired": true,
+              "port": 4003,
+              "host": "rest-proxy",
+              "url": "http://rest-proxy:4000/dashboard"
+            },
+            "agent": {
+              "extKeyRequired": false,
+              "port": 4004,
+              "host": "rest-proxy",
+              "url": "http://rest-proxy:4000/agent",
+              "requestTimeoutRenewal": 10,
+              "requestTimeout": 30,
+              "topologyDir": "/opt/soajs/"
+            }
+          },
+          "projectPath": "/opt/soajs/node_modules/soajs/modules/soajs.core/registry/profiles/default/"
+        },
+        "urac": {
+          "result": true,
+          "ts": 1426589301350,
+          "service": {
+            "service": "urac",
+            "type": "rest",
+            "route": "/reloadRegistry"
+          },
+          "data": "similar content to controller data response above ... "
+        },
+        "oauth": {
+          "result": true,
+          "ts": 1426589301348,
+          "service": {
+            "service": "oauth",
+            "type": "rest",
+            "route": "/reloadRegistry"
+          },
+          "data": "similar content to controller data response above ... "
+        },
+        "dashboard": {
+          "result": true,
+          "ts": 1426589301347,
+          "service": {
+            "service": "dashboard",
+            "type": "rest",
+            "route": "/reloadRegistry"
+          },
+          "data": "similar content to controller data response above ... "
+        },
+        "agent": {
+          "result": true,
+          "ts": 1426589301349,
+          "service": {
+            "service": "agent",
+            "type": "rest",
+            "route": "/reloadRegistry"
+          },
+          "data": "similar content to controller data response above ... "
+        }
+      }
+    }
+  }
+]

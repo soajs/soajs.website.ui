@@ -759,7 +759,7 @@ legend {
     border: none;
 }
 
-.designTab .nav-tabs > li > a {
+.designTab .tabs > li > a {
     color: rgb(61, 61, 61);
 }
 
