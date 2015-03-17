@@ -279,6 +279,16 @@
     }
     .feature-list img{
     }
+    .features-page .main-section-container .feature-list ul li {
+        padding: 35px 0;
+    }
+    .features-page .main-section-container .feature-list ul li p{
+        font-size: 13px;
+        line-height: 1.6em;
+    }
+    .features-page .main-section-container .feature-list ul li .std-list li{
+        font-size: 13px;
+    }
 }
 
 @media (max-width: 630px) {

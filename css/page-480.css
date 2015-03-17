@@ -27,7 +27,7 @@
     .small-button {
         font-size: 14px;
         height: 43px;
-        padding: 8px 20px;
+        padding: 10px 20px 8px;
         margin-right: 10px;
     }
     .left-sidebar {
@@ -54,6 +54,17 @@
         display: block;
         clear: both;
     }
+
+    .features-page .main-section-container .feature-list ul li {
+        padding: 30px 0;
+    }
+    .features-page .main-section-container .feature-list ul li p{
+        font-size: 12px;
+        line-height:1.4em;
+    }
+    .features-page .main-section-container .feature-list ul li .std-list li{
+        font-size: 12px;
+    }
 }
 
 @media (max-width: 380px) {
@@ -69,13 +80,12 @@
         font-size: 12px;
         height: auto;
         padding: 10px 0;
-        background-color: green;
     }
 
     .small-button {
         font-size: 12px;
         height: 30px;
-        padding: 8px 14px;
+        padding: 6px 14px 8px;
         margin-right: 8px;
         margin-top: 5px;
         background-color: #FFB500;
@@ -90,6 +100,7 @@
     .banner .banner-container {
         padding: 50px 0 50px;
     }
+
 }
 @media (max-width: 325px) {
     body, html {

@@ -13,7 +13,7 @@
 		<h3>Infrastructure</h3>
 		<p>
 			Before we start, let's take a look at the infrastructure of SOAJS and understand what we will be dealing with.<br />
-			<img ng-src="images/getstarted/getstarted.png" style="margin:5px 0" /><br />
+			<img ng-src="images/getstarted/getstarted.png" class="img-margin-t-b" /><br />
 			SOAJS uses a gateway architecture meaning all requests go through one entry point before being processed. This entry point is referred to as the <a href="#/documenation/controller">Controller</a> and all requests pass through that Controller and then get forwarded to their corresponding service after undergoing some security checks. Some of the requested services are protected by <a href="#/documenation/oauth">oAuth</a>, in that case, when the request reaches the Controller, it is first forwarded to the oAuth service for validation and if valid, it is then forwarded to the corresponding service.<br />
 			Now that you know how SOAJS functions, go ahead install it and checkout the examples to learn how to build APIs super fast.<br />
 		</p>
