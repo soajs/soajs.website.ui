@@ -65,6 +65,13 @@
     .features-page .main-section-container .feature-list ul li .std-list li{
         font-size: 12px;
     }
+    #getStartedPage img{
+        max-width: 300px;
+    }
+    .soajs-features .feature-list li p {
+        font-size: 13px;
+        line-height: 1.6em;
+    }
 }
 
 @media (max-width: 380px) {
@@ -99,6 +106,9 @@
     }
     .banner .banner-container {
         padding: 50px 0 50px;
+    }
+    #getStartedPage img{
+        width: 250px;
     }
 
 }
@@ -144,6 +154,7 @@
         font-size: 12px;
         height: auto;
         padding: 10px 0;
+        background-color: green;
     }
 
     .small-button {

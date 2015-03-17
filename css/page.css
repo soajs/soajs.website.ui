@@ -49,8 +49,7 @@ a:hover{
 .topbar .nav-container {
     box-sizing: border-box;
     margin: 0 auto;
-    max-width: 997px;
-    width: 84%;
+    width: 997px;
 }
 
 /* logo and logo container */
@@ -158,9 +157,8 @@ a:hover{
 .bottom .sharing-footer {
     box-sizing: border-box;
     margin: 0 auto;
-    max-width: 997px;
+    width: 997px;
     padding-top: 5px;
-    width: 84%;
 }
 
 .bottom .copyright {
@@ -209,9 +207,8 @@ a:hover{
 
 .main-section-container {
     margin: 0 auto;
-    max-width: 997px;
+    width: 997px;
     padding: 0 0 60px;
-    width: 84%;
     display: table;
 }
 
@@ -237,10 +234,9 @@ a:hover{
 .banner .banner-container {
     box-sizing: border-box;
     margin: auto;
-    max-width: 997px;
+    width: 997px;
     padding: 80px 0 100px;
     position: relative;
-    width: 84%;
 }
 
 .banner .banner-container .left-main {
@@ -319,9 +315,8 @@ a:hover{
 .white-banner .banner-container {
     box-sizing: border-box;
     margin: 0 auto;
-    max-width: 997px;
+    width: 997px;
     padding: 15px 0;
-    width: 84%;
 }
 
 .white-banner .banner-container p {
@@ -367,7 +362,7 @@ a:hover{
 .soajs-features .features-container {
     box-sizing: border-box;
     margin: 0 auto;
-    max-width: 997px;
+    width: 997px;
 }
 
 .soajs-features .features-container:after {
@@ -662,7 +657,7 @@ pre {
 
 .powered-by-container {
     margin: 0 auto;
-    max-width: 997px;
+    width: 997px;
     padding: 60px 0 20px 0;
     clear: both;
 }

@@ -11,8 +11,12 @@
     .hidden-tablet {
         display: none !important;
     }
-    img {
+    img{
         max-width: 85%;
+    }
+    #example03png{
+        width: 85%;
+        display: block;
     }
     .topbar .nav-container {
         margin: 0 auto;
@@ -78,6 +82,10 @@
         width: 98%;
         max-width: 98%;
     }
+    .powered-by-container .powered-icon img {
+        max-width: 140px;
+        max-height: 70px;
+    }
 }
 
 @media (max-width: 767px) {
@@ -97,8 +105,13 @@
     .topbar .branding {
         width:175px;
     }
-    img {
+    img{
         max-width: 85%;
+
+    }
+    #example03png{
+        width: 85%;
+        display: block;
     }
     .beaverImg{
         width: 40%;
@@ -127,7 +140,6 @@
     .main-section-container {
         width: 100%;
     }
-
     .banner .banner-container {
         width: 100%;
     }
@@ -150,12 +162,11 @@
     }
     .soajs-features .feature-list li img.icon {
         display: none;
-        /*width: 50px;*/
     }
 
     .powered-by-container {
         padding: 50px 0 20px;
-        width: 97%;
+        width: 100%;
     }
     .powered-by-container .powered-icon {
         height: 70px;
@@ -182,7 +193,6 @@
 
     .features-page .main-section-container .feature-list ul li {
         padding: 45px 0;
-        position: relative;
         width: 100%;
     }
 
@@ -206,11 +216,8 @@
     .topbar .branding {
         width:155px;
     }
-    .topbar .getStarted {
-        width: 100%;
-    }
 
-    .topbar .contactUs, .topbar .documentation,.topbar .features {
+    .topbar .contactUs, .topbar .documentation,.topbar .features, .topbar .getStarted {
         width: 100%;
     }
 
@@ -289,10 +296,17 @@
     .features-page .main-section-container .feature-list ul li .std-list li{
         font-size: 13px;
     }
+    #getStartedPage img{
+        clear: both;
+    }
 }
 
 @media (max-width: 630px) {
     body, html {
+        font-size: 14px;
+        line-height: 1.6em;
+    }
+    .soajs-features .feature-list li p {
         font-size: 14px;
         line-height: 1.6em;
     }
@@ -301,7 +315,6 @@
     }
     .powered-by-container {
         padding: 30px 0 20px;
-        width: 97%;
     }
     .powered-by-container .powered-icon {
         height: 50px;
@@ -322,5 +335,10 @@
     }
     .feature-list .left img, .feature-list .right img{
         display: none;
+    }
+    #getStartedPage img{
+        margin: 5px 0px;
+        padding: 0px;
+        width: 400px;
     }
 }
