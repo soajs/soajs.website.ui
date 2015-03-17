@@ -4,7 +4,7 @@
 <div>
 	<tabset class="designTab">
 		<tab heading="Service Information"><br>
-			The Dashboard is a service API that allows you to manage and configure SOAJS services and components.<br/><br/>
+			The Dashboard is a service that allows you to manage and configure SOAJS services and components.<br/><br/>
 			<ol>
 				<li>Manage all your products in Productization section.</li>
 				<li>Manage all your tenants and keys in Multitenancy section.</li>
@@ -13,16 +13,30 @@
 			</ol>
 			<img ng-src="images/documentation/dashboard.png" style="margin:5px 0;"/>
 			<hr/>
+			<h3>Installation</h3>
+
+			<p>
+				SOAJS Dashboard is located in <a href="https://www.npmjs.com/packages/soajs.dashboard" target="_blank">soajs.dashboard</a>.<br/>
+				Install:<br/>
+				<pre><code class="bash">$ npm install soajs.dashboard</code></pre>
+				<br/>
+				Then navigate to the directory where it is installed and run the service.<br/>
+				<pre><code class="bash">$ cd soajs.dashboard
+$ node index</code></pre>
+				<br/>
+				The service is now running and accessible via the controller on http://localhost:4000/dashboard.
+			</p>
+			<hr/>
 			<h3>Dashboard Services</h3>
 
 			<p>
-				The dashboard service covers 3 sections needed for you application to start.<br/>
-				The dashboard gives you access to Environments, Productization and Multitenancy.
+				The dashboard service covers 3 sections needed for you application to function.<br/>
+				The dashboard gives you access to <a href="#/documenation/registry">Environments</a>, <a href="#/documenation/provisioning">Productization</a> and <a href="#/documenation/provisioning">Multitenancy</a>.
 			</p>
 			<br/>
 			<h4>Environments</h4>
 			<p>
-				Create and manage environments as you desire.<br/>
+				Create and manage environments as you need without worrying about collision while deployment.<br/>
 				Simply hit the api of SOAJS Dashboard and provide the inputs needed to create a new environment.<br/>
 				You can also perform similar requests to update an existing environment or remove it.<br/><br/>
 				Once your environments are added and ready to be used, use the <a href="#/documentation/agent">Agent</a> to push them to the
@@ -34,9 +48,7 @@
 			<br/>
 			<h4>Productization</h4>
 			<p>
-				Create and manage the products and their packages.<br/>
-				Products contain packages. These package are used by tenants' applications to function.<br/>
-				Packages provide Access Level control over the API services.<br/><br/>
+				Create and manage the products and their packages. Every product has a list of packages and these packages are used by tenants' applications to function. Packages provide Access Level control over the API services.<br/>
 				Checkout the Productization section in <a href="#/documentation/provisioning">Provisioning</a> to learn more about the schemas and functionality of products and
 				packages.
 			</p>
@@ -46,16 +58,12 @@
 			<br/>
 			<h4>Multitenancy</h4>
 			<p>
-				Create and manage the tenants and their applications.<br/>
-				Add oAuth security to your tenants if you need to.<br/><br/>
-				Tenants applications contains keys. These keys provide the services you created with data that should be loaded from the database.<br/>
-				This data is specific per tenant such as templates location and headlines, mail configuration, URAC links ...etc.<br/><br/>
+				Create and manage the tenants and their applications, add oAuth security to your tenants if needed. Tenants applications have keys and these keys provide the services you create with data that should be loaded from the database. This data is specific per tenant such as templates location, headlines, mail configuration, URAC ...etc.<br/>
 
 				Keys offer the ability to generate external keys that are used in the header of requests made to the services.<br/>
 				These keys have expiry dates and device and geo location security.<br/><br/>
 
-				oAuth security is a simple configuration that later on should be used with the <a href="#/documentation/oauth">oAuth</a> service of SOAJS.<br/>
-				The service will compare the credentials passed at login with the values of the tenant to determine if access should be granted or not.<br/><br/>
+				oAuth security is a simple configuration that later on is used with the <a href="#/documentation/oauth">oAuth</a> service of SOAJS to protect the services. oAuth service compares the credentials passed at login with the values of the tenant to determine if access should be granted or not.<br/><br/>
 
 				Checkout the Multitenancy section in <a href="#/documentation/provisioning">Provisioning</a> to learn more about the schemas and functionality of tenants.
 			</p>
@@ -63,11 +71,11 @@
 				<div id="tenantjs"></div>
 			</div>
 		</tab>
-		<tab heading="Service Information">
-			<h3>Usage</h3>
+		<tab heading="Service APIs">
+			<h3>Installation</h3>
 
 			<p>
-				SOAJS Dashboard is located in <a href="https://github.com/soajs/soajs.dashboard" target="_blank">soajs.dashboard</a>.<br/>
+				SOAJS Dashboard is located in <a href="https://www.npmjs.com/packages/soajs.dashboard" target="_blank">soajs.dashboard</a>.<br/>
 				Install:<br/>
 			<pre><code class="bash">$ npm install soajs.dashboard</code></pre>
 			<br/>
@@ -75,10 +83,10 @@
 		<pre><code class="bash">$ cd soajs.dashboard
 $ node index</code></pre>
 			<br/>
-			The service is now running and listening http://127.0.0.1:4000/dashboard/.
+			The service is now running and accessible via the controller on http://localhost:4000/dashboard.
 			</p>
 			<hr/>
-			<h3>API Call</h3>
+			<h3>APIs</h3>
 			<fieldset ng-repeat="route in dashboard_services">
 				<legend>{{route.routeName}}</legend>
 				<div>
