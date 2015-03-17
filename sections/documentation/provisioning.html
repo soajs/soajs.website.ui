@@ -7,7 +7,7 @@
 		A service can be provided with up to three different configurations information.
 	<ol>
 		<li>
-			<b>Local Configuration:</b> refers to the configuration stored in <u>config.js</u> and is the same regardless of the tenant using this service or the environment it is operation in. <b>IMFV</b> uses such a configuration to validate the inputs; this makes sense because inputs are
+			<b>Local Configuration:</b> refers to the configuration stored in config.js and is the same regardless of the tenant using this service or the environment it is operation in. <a href="#/documentation/imfv">IMFV</a> uses such a configuration to validate the inputs; this makes sense because inputs are
 			validated the same way no matter where the service is running.<br/><br/>
 		</li>
 		<li>
@@ -136,11 +136,11 @@
 	<h4>Tenants</h4>
 	<p>
 		In the previous section we mentioned how to create products and package them and configure access levels on different services they offer. Now let's create tenants and assign some product packages to them.<br />
-		Tenants can be created and configured using the <a href="#/documentation/dashboard-services">Dashboard</a> of SOAJS. Tenants have unique identification codes and optional <a href="#/documentation/oauth">oAuth</a> configuration. Checkout <a href="#/getStarted/example02">Example02</a> to learn how to protect a service using <b>oAuth</b>.
+		Tenants can be created and configured using the <a href="#/documentation/dashboard-services">Dashboard</a> of SOAJS. Tenants have unique identification codes and optional <a href="#/documentation/oauth">oAuth</a> configuration. Checkout <a href="#/getStarted/example02">Example02</a> to learn how to protect a service using <a href="#/documentation/oauth">oAuth</a>.
 		<div ng-init="loadCode(path + 'provisioning/tenant1.js', 'tenantjs');">
 			<div id="tenantjs"></div>
 		</div>
-		The above snippet represents one tenant records that is stored in the database <b>core_provision</b> under <b>tenants</b>. The tenant is called <b>Test Tenant</b>, holds <b>oAuth</b> security information and has an application array.
+		The above snippet represents one tenant records that is stored in the database <b>core_provision</b> under <b>tenants</b>. The tenant is called Test Tenant, holds <a href="#/documentation/oauth">oAuth</a> security information and has an application array.
 	</p>
 	<br/>
 	<h4>Applications</h4>
@@ -149,15 +149,15 @@
 	</div>
 
 	<p>
-		The above snippet represents an application in a tenant that uses <b>PROD1_PCK1</b> package and inherits the ACL from that package. Since <b>PROD_PCK1</b> provides access to the <b>URAC</b> service, this application can now use the service and give it some custom configuration as shown in the <b>config.urac</b> entry inside the <b>keys</b> array.<br />
-		Every application needs <b>keys</b> to function, without those <b>keys</b> the application by itself does nothing. Once a key is added to an application, the application can then provide <b>custom configuration</b> to a service and can contains external keys for that particular key.<br />
-		<b>External Keys</b> are used in requests made to a service; they are secured using <b>geo</b> and <b>device</b> security and have an <b>expiry date</b>. Think of them as <b>license</b> keys. When used, these external keys are checked for device and geo location, and if valid, they are matched with the key represent. Now that the key has been identified, its configuration is loaded and in the cases above, for <b>URAC</b> the tenant configuration for this key is passed to the service for usage.<br /><br />
+		The above snippet represents an application in a tenant that uses <b>PROD1_PCK1</b> package and inherits the ACL from that package. Since <b>PROD_PCK1</b> provides access to the <a href="#/documentation/urac">URAC</a> service, this application can now use the service and give it some custom configuration as shown in the <b>config.urac</b> entry inside the <b>keys</b> array.<br />
+		Every application needs <b>keys</b> to function, without those <b>keys</b> the application by itself does nothing. Once a key is added to an application, the application can then provide custom configuration to a service and can contains external keys for that particular key.<br />
+		<b>External Keys</b> are used in requests made to a service; they are secured using <b>geo</b> and <b>device</b> security and have an <b>expiry date</b>. Think of them as <b>license</b> keys. When used, these external keys are checked for device and geo location, and if valid, they are matched with the key represent. Now that the key has been identified, its configuration is loaded and in the cases above, for <a href="#/documentation/urac">URAC</a> the tenant configuration for this key is passed to the service for usage.<br /><br />
 	</p>
 	<div ng-init="loadJson(path + 'provisioning/app2.json', 'app2js');">
 		<div id="app2js"></div>
 	</div>
 	<p>
-		The above snippet is another application in a tenant that uses <b>PROD1_PCK2</b> package, but this time it overrides the ACL of that package with additional permissions. The application grants access to <b>URAC</b>, <b>Example02</b> and <b>Example03</b> and in the key configuration, both <b>URAC</b> and <b>Example03</b> have custom configuration. Keep in mind that the ACL configuration follows the same syntax whether used in packages or in applications.<br /><br />
+		The above snippet is another application in a tenant that uses <b>PROD1_PCK2</b> package, but this time it overrides the ACL of that package with additional permissions. The application grants access to <a href="#/documentation/urac">URAC</a>, <b>Example02</b> and <b>Example03</b> and in the key configuration, both <a href="#/documentation/urac">URAC</a> and <b>Example03</b> have custom configuration. Keep in mind that the ACL configuration follows the same syntax whether used in packages or in applications.<br /><br />
 	</p>
 	<hr/>
 	<h4>Tenant Full Sample</h4>

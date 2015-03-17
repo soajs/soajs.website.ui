@@ -58,8 +58,8 @@
 		<li>url: The url to access the service on this environment</li>
 		<li>extKeyRequired:
 		<ul>
-			<li><b>when <u>extKeyRequired</u> is false:</b> set it to false for services that are public and accessible without providing tenant keys.</li>
-			<li><b>when <u>extKeyRequired</u> is  true:</b> set it to true for services that are only accessible if a tenant key is provided in the request.</li>
+			<li>when <b>extKeyRequired</b> is false: set it to false for services that are public and accessible without providing tenant keys.</li>
+			<li>when <b>extKeyRequired</b> is  true: set it to true for services that are only accessible if a tenant key is provided in the request.</li>
 		</ul>
 		</li>
 	</ul>
@@ -101,10 +101,10 @@
     }
     //...
 }</code></pre>
-		The above snippet shows 4 services; each having different information configured. Services like Controller, and <b>example01</b> do not need <u>tenant keys</u> to work and that is why <b>extKeyRequired</b> is set to <u>false</u>. Services like <b>Urac</b>, and <b>OAuth</b> need a <u>tenant key</u> to be accessible so their <b>extKeyRequired</b> is set to <u>true</u>.<br /><br />
-		Notice that <b>extKeyRequired</b>, <b>port</b>, <b>url</b> and <b>host</b> are common among all services; these attributes are the default attributes when declaring a service. Other attributes are additional and considered service specific, such as <b>Urac.mail</b>; it tells the service where the <u>templates</u> for <u>email notification</u> are located.<br /><br />
+		The above snippet shows 4 services; each having different information configured. Services like Controller, and <b>example01</b> do not need tenant keys to work and that is why <b>extKeyRequired</b> is set to <b>false</b>. Services like <a href='#/documenation/urac'>URAC</a>, and <a href="#/documentation/oauth">oAuth</a> need a <b>tenant key</b> to be accessible so their <b>extKeyRequired</b> is set to <b>true</b>.<br /><br />
+		Notice that <b>extKeyRequired</b>, <b>port</b>, <b>url</b> and <b>host</b> are common among all services; these attributes are the default attributes when declaring a service. Other attributes are additional and considered service specific, such as <b>Urac.mail</b>; it tells the service where the templates for email notification are located.<br /><br />
 		Every service requires the default attributes to exist so that it can function.
-		Based on their business logic, some services  might need additional properties to be provided so they can function, like the <b>Urac</b> and Controller shown above.
+		Based on their business logic, some services  might need additional properties to be provided so they can function, like the <a href='#/documenation/urac'>URAC</a> and Controller shown above.
 		These properties are dependent on the running environment.
 	</p>
 

@@ -13,7 +13,7 @@
         <li>Create 2 files in that directory:
             <ol>
                 <li><u><b>index.js</b></u> used to write your the code of the service APIs.</li>
-                <li><u><b>config.js</b></u> used for <b>IMFV</b> and custom service configuration.</li>
+                <li><u><b>config.js</b></u> used for <a href="#/documentation/imfv">IMFV</a> and custom service configuration.</li>
             </ol>
         </li>
     </ol>
@@ -88,9 +88,9 @@
 	<br/>
 	<h3>Starting the Service</h3>
 	<p>
-		Before starting any service, install the <a href="#" ng-click="loadSection('imfv','controller');">Controller</a> of SOAJS and run it. All requests to SOAJS services pass through the controller first for clearance checking. To access a service, both the controller and the service should be running.<br /><br/>
+		Before starting any service, install the <a href="#/documentation/controller">Controller</a> of SOAJS and run it. All requests to SOAJS services pass through the controller first for clearance checking. To access a service, both the controller and the service should be running.<br /><br/>
 
-		<b>soajs.util</b> is the main utility module for SOAJS and contains the controller. Install this module via NPM and start the controller within it, then navigate to your service and run it.
+		<a href="https://www.npmjs.com/package/soajs.util" target="_blank">soajs.util</a> is the main utility module for SOAJS and contains the controller. Install this module via NPM and start the controller within it, then navigate to your service and run it.
 		<pre><code class="bash">$ npm install soajs.util
 $ cd soajs.util/controller/
 $ node index
