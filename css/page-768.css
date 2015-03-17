@@ -11,6 +11,9 @@
     .hidden-tablet {
         display: none !important;
     }
+    .topbar .topnav li.active a {
+        border-bottom:solid 4px rgb(53, 90, 118);
+    }
     img{
         max-width: 85%;
     }
@@ -86,6 +89,9 @@
         max-width: 140px;
         max-height: 70px;
     }
+    #getstarted_ex02, #ex02Registry, #registry-example01{
+        align:right;
+    }
 }
 
 @media (max-width: 767px) {
@@ -101,17 +107,23 @@
     .hidden-phone {
         display: none !important;
     }
-
     .topbar .branding {
-        width:175px;
+        width:174px;
     }
     img{
         max-width: 85%;
-
     }
-    #example03png{
+
+    #example03png, #example01png, #example02-oauth, #getstarted_ex02, #ex02Registry, #getStartedImg{
         width: 85%;
         display: block;
+    }
+    #registry-example01{
+        width: 55%;
+        display: block;
+    }
+    #ex02Registry, #registry-example01{
+        margin-bottom: 10px;
     }
     .beaverImg{
         width: 40%;
@@ -203,6 +215,9 @@
         width: 98%;
         max-width: 98%;
     }
+    ul.topnav{
+        padding-left: 20px;
+    }
 }
 
 
@@ -216,7 +231,12 @@
     .topbar .branding {
         width:155px;
     }
-
+    .topbar .topnav li.active a {
+        border-bottom: none;
+    }
+    .topbar .topnav li:hover a {
+        border-bottom: none;
+    }
     .topbar .contactUs, .topbar .documentation,.topbar .features, .topbar .getStarted {
         width: 100%;
     }
@@ -225,11 +245,11 @@
         display: block !important;
     }
     .topbar .menu.menu-open {
-        background-color: #212c2e;
+        background-color: rgb(53, 90, 118);
     }
 
     .topbar .topnav {
-        background-color: #212c2e;
+        background-color: rgb(53, 90, 118);
         display: none;
         padding: 0;
         position: absolute;
@@ -238,7 +258,7 @@
         width: 200px;
     }
     .topbar .topnav li {
-        border-bottom: 1px solid #001c20;
+        border-bottom: 1px solid rgb(65, 100, 126);;
         float: none;
         font-size: 20px;
         height: 45px;
@@ -252,13 +272,18 @@
         display: block;
         font-weight: 400;
         margin: 0;
-        padding: 12px 25px 13px;
+        padding: 7px 25px 13px 25px;
         width: 100%;
     }
     .topbar .topnav li a.current {
         border-bottom: medium none;
         color: #41bac2;
         font-weight: 600;
+    }
+    .topbar .topnav li.active a {
+        color: white;
+        font-weight: 700;
+        text-decoration: underline;
     }
     .topbar .topnav li:last-child {
         border-bottom: medium none;
@@ -268,6 +293,20 @@
     }
     .topbar .topnav.menu-open {
         display: block;
+    }
+
+    .topbar .topnav li.active, .topbar .topnav li:hover {
+        background-color: rgb(223, 150, 48);
+        transition: all 0.25s ease 0s;
+        text-decoration: none;
+        font-weight: normal;
+        color:white;
+    }
+    .topbar .topnav li.active a, .topbar .topnav li:hover a {
+
+        text-decoration: none;
+        font-weight: normal;
+        color:white;
     }
     .powered-by-container .powered-icon img{
         max-width: 100px;

@@ -33,7 +33,7 @@
 }
 
 .topbar .menu {
-    background-color: black;
+    background-color: rgb(223, 150, 48);
     box-sizing: border-box;
     cursor: pointer;
     display: none;
@@ -64,6 +64,7 @@
 
 
 @media screen and (min-width: 1000px) {
+
     .topbar .nav-container {
         margin: 0 auto;
         width: 997px;
@@ -111,5 +112,8 @@
     }
     .features-page .left img, .features-page .right img {
         max-width: 385px;
+    }
+    #getstarted_ex02, #ex02Registry, #registry-example01{
+        align:right;
     }
 }
