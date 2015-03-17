@@ -369,7 +369,6 @@
         color:white;
     }
     .topbar .topnav li.active a, .topbar .topnav li:hover a {
-
         text-decoration: none;
         font-weight: normal;
         color:white;
@@ -480,7 +479,7 @@
     .left-sidebar {
         float: none;
         width:100%;
-        padding-top: 5px;
+        padding-top: 15px;
         z-index: 100;
         height:auto;
         border-bottom-style: dotted;
@@ -516,19 +515,27 @@
 
     }
     .left-sidebar section ul li {
-        padding-top: 10px;
+        padding-top: 15px;
+    }
+
+    .left-sidebar section ul {
+
     }
     .left-sidebar section:hover > ul{
         display:block;
         position:absolute;
         margin-left: -10px;
         z-index: 100;
-        padding: 0 15px 5px 20px;
+        padding: 0 15px 15px 20px;
         background-color:white;
         border-color: rgb(61, 61, 61);
         transition:all ease 0.5s;
+        opacity: .9;
+        background-color: rgb(65, 100, 126);
     }
-
+    .left-sidebar section ul li a{
+        color: #ffffff;
+    }
     .right-sidebar {
         float: none;
         width: 100%;
