@@ -4,7 +4,7 @@
 	<tabset class="designTab">
 		<tab class="mainTab" heading="Service Information"><br />
 			<p>
-				SOAJS User Registration & Access Control is an API service that Manages the Users records and their Access Controls.<br/>
+				SOAJS User Registration & Access Control is a service that Manages the Users records and their Access Controls.<br/>
 				The service is Multitenant and provides the:
 			</p>
 			<ul>
@@ -13,46 +13,46 @@
 				<li>ability to register and login for anonymous users.</li>
 			</ul>
 			<p>
-				The <b>URAC</b> is also equipped with templates used by SOAJS notification system.<br/>
+				The URAC is also equipped with templates used by SOAJS notification system.<br/>
 				The templates are configurable and can be themed.<br/>
-				<b>URAC</b> Templates are rendered using <a href="http://www.swig.org" target="_blank">SWIG</a> and contain data from <b>URAC</b> service.<br/>
+				URAC Templates are rendered using <a href="http://www.swig.org" target="_blank">SWIG</a> and contain data from URAC service.<br/>
 				<img ng-src="images/documentation/urac2.png" style="margin:5px 0;"/>
 			</p>
 			<hr/>
+			<h3>Installation</h3>
+			<p>
+				SOAJS URAC is located in <a href="https://npmjs.com/packages/soajs.urac" target="_blank">soajs.urac</a>.<br />
+				Install:<br />
+			<pre><code class="bash">$ npm install soajs.urac</code></pre><br />
+			Then navigate to the directory where it is installed and run the service.<br />
+			<pre><code class="bash">$ cd soajs.urac
+$ node index</code></pre><br />
+			The service is now running and accessible via the controller followed by its name: http://localhost:4000/urac
+			</p>
+			<hr/>
 			<h3>Custom Access Levels & Configuration</h3>
-			<tabset class="innerTab">
-				<tab heading="Details">
-					<br/>
+			<br/>
 
-					<p>
-						The <b>URAC</b> offers the ability to override the service access level as well as configuration for specific users regarding product packages and tenants applications.<br/><br/>
-						<img ng-src="images/documentation/urac-override-acl.png" align="right" style="margin:5px; padding:0; width:450px;" class="image-border"/>
-						Every User Record has a config entry used to override the default access levels.<br/><br/>
-						The config can override the default package access levels and/or the default tenant access levels or service configuration.<br/><br/>
-						To override the package access levels for a specific user, add under <b>config</b> &raquo; <b>packages</b> the name of the package and place the configuration there.<br/><br/>
-						The same applies when overriding the tenant configuration or access levels for a specific user.<br/>Under <b>config</b> &raquo; <b>keys</b>, add the key value that matches the
-						tenant
-						application key and place the configuration there.<br/><br/><br/><br/>
-						Now this user record has custom access levels and configuration that overrides the defaults.<br/>
-						When he logs in, these permissions and configuration will be used instead of the tenant's and the product package's.<br/>
-						<img ng-src="images/features/urac.png" style=""/>
-						<br><em>The following graph demonstrates the order of how the ACL and the configuration is loaded for users.</em><br/><br/>
-					</p>
-				</tab>
-				<tab heading="Code Sample">
-					<br/>
-					<div ng-init="loadCode(path + 'urac/userRecord.js', 'user-record-sample');"></div>
-					<div id="user-record-sample"></div>
-					<em>The following snippet represents a user record in the database.</em>
-				</tab>
-			</tabset>
+			<p>
+				The URAC offers the ability to override the service access level as well as configuration for specific users regarding product packages and tenants applications.<br/><br/>
+				<img ng-src="images/documentation/urac-override-acl.png" align="right" style="margin:5px; padding:0; width:450px;" class="image-border"/>
+				Every User Record has a config entry used to override the default access levels.<br/><br/>
+				The config can override the default package access levels and/or the default tenant access levels or service configuration.<br/><br/>
+				To override the package access levels for a specific user, add under <b>config</b> &raquo; <b>packages</b> the name of the package and place the configuration there.	The same applies when overriding the tenant configuration or access levels for a specific user.<br/>Under <b>config</b> &raquo; <b>keys</b>, add the key value that matches the
+				tenant application key and place the configuration there.<br/><br/>
+				Now this user record has custom access levels and configuration that overrides the defaults. When he logs in, these permissions and configuration will be used instead of the tenant's and the product package's.<br/>
+				<img ng-src="images/features/urac.png" style=""/>
+				<br><em>The following graph demonstrates the order of how the ACL and the configuration is loaded for users.</em><br/><br/>
+			</p>
+			<div ng-init="loadCode(path + 'urac/userRecord.js', 'user-record-sample');"></div>
+			<div id="user-record-sample"></div>
+			<em>The following snippet represents a user record in the database.</em>
 			<hr/>
 			<h3>Notification Templates</h3>
 
 			<p>
-				The following is a list of every notification template used by the <b>URAC</b> depending on the service invoked.<br/>
-				These templates are located in the <a href="#/documentation/registry">Registry</a>. The URAC looks up the corresponding template, loads and uses it when needed.<br/>
-				The URAC currently supports the following templates:
+				The following is a list of every notification template used by the URAC depending on the service invoked.<br/>
+				These templates are located in the <a href="#/documentation/registry">Registry</a>. The URAC looks up the corresponding template, loads and uses it when needed. The URAC currently supports the following templates:
 			</p>
 			<br/>
 			<h4>Join</h4>
@@ -92,21 +92,21 @@
 		<tab class="mainTab" heading="Service API">
 			<h3>Usage</h3>
 			<p>
-				SOAJS URAC is located in <a href="https://github.com/soajs/soajs.urac" target="_blank">soajs.urac</a>.<br/>
+				SOAJS URAC is located in <a href="https://npmjs.com/packages/soajs.urac" target="_blank">soajs.urac</a>.<br/>
 				Install:<br/>
-			<pre><code class="bash">$ npm install -d soajs.urac</code></pre>
+			<pre><code class="bash">$ npm install soajs.urac</code></pre>
 			<br/>
 			Then navigate to the directory where it is installed and run the service.<br/>
 			<pre><code class="bash">$ cd soajs.urac
 $ node index</code></pre>
 			<br/>
-			The service is now running and listening http://127.0.0.1:4000/urac/.
+			The service is now running and accessible via the controller on http://localhost:4000/urac.
 			</p>
 			<hr />
-			<h3>URAC API</h3>
+			<h3>APIs</h3>
 			<fieldset ng-repeat="route in urac">
 				<legend>{{route.routeName}}</legend>
-				<div>
+				<div class="examples">
 					<table class="myTable">
 						<thead>
 							<tr>

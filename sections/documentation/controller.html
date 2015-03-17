@@ -3,7 +3,7 @@
 <div class="white-container">
 	<p>
 		SOAJS Controller is the main gateway to its cloud of service APIs.<br/>
-        All requests are made to this gateway first and then forwarded based on the route requested.
+        All requests are made to this gateway first and then forwarded based on the route requested after clearance checking.
 	</p>
 	<hr/>
 	<h3>Features</h3>
@@ -12,17 +12,9 @@
 			<u><b>Self Awareness:</b></u><br/>
 
 			<p>
-				The controller's main functionality is to perform heartbeat checks on the remaining services.<br/>
-				This approach allows the self awareness feature that SOAJS offers.
-			</p>
-			<p>
-				If a service is down or does not exist, the controller will return a message back to the sender without crashing.<br/>
-				When a new service is created or added to the cloud, the controller will detect its presence.<br/>
-				All requests to this new service will then be forwarded.
-			</p>
-			<p>
-				The Controller runs on port <b>4000</b>. To request a service in the cloud, simply add the service name after the port number.<br/>
-				To request a specific route in that service, type the route path after the service name.<br/><br/>
+				The controller's main functionality is to validate the request and redirect it to the requested service. Before redirecting to the requested service, the controller checks if the service is alive and running. This approach allows the self awareness feature that SOAJS offers.<br/><br/>
+				If a service is down or does not exist, the controller will return a message back to the sender without crashing. When a new service is created or added to the cloud, the controller will detect its presence. All requests to this new service will then be forwarded.<br/><br/>
+				The Controller runs on port <b>4000</b>. To request a service in the cloud, simply add the service name after the port number as a path parameter. To request a specific API in that service, type the route path after the service name.<br/><br/>
 				<u>Ex:</u>
 			</p>
 			<pre><code class="bash">#CURL -X %method% http:// %controller host% : 4000 / %service name% / %route path% /
@@ -39,9 +31,9 @@ CURL -X POST "http://127.0.0.1:4000/urac/login"</code></pre>
 			</p>
 			<ol>
 				<li>Checks that the key exists.</li>
-				<li>Retrieves the ACL of the tenant of this key and checks if the tenant has permission to use the requested service.</li>
-				<li>Performs a heartbeat check to make sure the service is alive.</li>
-				<li>Checks the Authorization of the header if the service requires authorization to be accessed.</li>
+				<li>Retrieves the ACL of the tenant that this key belongs to and checks if the tenant has permission to use the requested service.</li>
+				<li>Performs a heartbeat check to make sure the service is healthy and running.</li>
+				<li>Checks the Authorization of the header if the service is oAuth protected and requires authorization to be accessed.</li>
 				<li>Forwards the request if all is ok.</li>
 			</ol>
 			<img ng-src="images/documentation/controller.png" style="margin:5px 0;" />
@@ -59,11 +51,11 @@ CURL -X POST "http://127.0.0.1:4000/urac/login"</code></pre>
 	<hr/>
 	<h3>Usage</h3>
 	<p>
-		SOAJS controller is located in <a href="https://github.com/soajs/soajs.controller" target="_blank">soajs.controller</a>.<br />
+		SOAJS controller is located in <a href="https://npmjs.com/packages/soajs.util" target="_blank">soajs.util</a>.<br />
 		Install:<br />
-		<pre><code class="bash">$ npm install -d soajs.controller</code></pre><br />
+		<pre><code class="bash">$ npm install soajs.util</code></pre><br />
 		Then navigate to the directory where it is installed and run the service.<br />
-		<pre><code class="bash">$ cd soajs.controller
+		<pre><code class="bash">$ cd soajs.util/controller
 $ node index</code></pre><br />
 		The service is now running and listening to port 4000.
 	</p>
