@@ -4,9 +4,9 @@
 
 		<h1>Example 04</h1>
 		<div class="white-container">
-		In <a href="#/getStarted/example02">Example02</a> we used <b>oAuth</b> to secure our service, and in <a href="#/getStarted/example03">Example03</a> we examined how to secure a service per tenant.
+		In <a href="#/getStarted/example02">Example02</a> we used <a href="#/documentation/oauth">oAuth</a> to secure our service, and in <a href="#/getStarted/example03">Example03</a> we examined how to secure a service per tenant.
 
-		In this example we will show you that you can use <b>oAuth</b> together with multitenancy.
+		In this example we will show you that you can use oAuth together with multitenancy.
 		Everything is similar to Example03 with few exceptions.
 		<hr/>
 		<h3>Import Provisioning</h3>
@@ -87,7 +87,7 @@ $ node index</code></pre>
 		<h3>Service Code</h3>
 		The code is similar to that in <b>Example03</b>.
 		We only need to edit the service config in <u>index.js</u> file; add the "oauth" entry and set it to true as shown below.
-		Now the service is secured by <b>oAuth</b>.
+		Now the service is secured by oAuth.
 		<tabset>
 			<tab heading="index.js"><br/>
 				<div ng-init="loadCode(path + 'example04/index.js', 'indexjs');"></div>
@@ -134,7 +134,7 @@ $ node index</code></pre>
 				<div ng-init="loadJSON(path + 'example04/oauth_login.json', 'oauth_login');">
 					<div id="oauth_login"></div>
 				</div>
-			      Like in Example02, the login to <b>oAuth</b> returned a token value. We need to add this <b>access_token</b> value to the consequent api calls.
+			      Like in Example02, the login to oAuth returned a token value. We need to add this <b>access_token</b> value to the consequent api calls.
 
 			</div>
 		</fieldset>

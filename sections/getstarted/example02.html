@@ -7,13 +7,13 @@
 			In the previous example, we showed you how to create a service, register it and run it. We also showed you how to do a heartbeat check on both your service and the controller. Finally we provided you with some sample tests you can run and see how the service responds to different scenarios and how <a href="#/documentation/imfv">IMFV</a> works.<br />
 		</p>
 		<p>
-			Now we are going to take one of the APIs from <a href="#/getStarted/example01">Example01</a> and use it in this example but we will secure this service via <a href="http://oauth.net/" target="_blank">oAuth</a>.<br /><br />When securing a service with <b>oAuth</b>, the service becomes accessible only to logged in <b>oAuth</b> users. Every request made to the service is first validated by SOAJS <a href="#/documentation/oauth">oAuth Service</a> before it gets forwarded to that service.<br /><br />
+			Now we are going to take one of the APIs from <a href="#/getStarted/example01">Example01</a> and use it in this example but we will secure this service via <a href="http://oauth.net/" target="_blank">oAuth</a>.<br /><br />When securing a service with oAuth, the service becomes accessible only to logged in oAuth users. Every request made to the service is first validated by SOAJS <a href="#/documentation/oauth">oAuth Service</a> before it gets forwarded to that service.<br /><br />
 			The diagram on the right shows that <a href="#/documentation/oauth">soajs.oauth</a> Service communicates with the <a href="#/documentation/controller">controller</a>. When a request is made, the Controller invokes <b>soajs.oauth</b> service to validate this request and if the request is authorized, then the Controller forwards the request to the secured service which in this case is referred to as "<b>Example02</b>".<br />
 		</p>
 		<hr/>
 		<h3>Installing oAuth</h3>
 		<p>
-			Like any other SOAJS service, <b>oAuth</b> can be installed via NPM:
+			Like any other SOAJS service, oAuth can be installed via NPM:
 			<pre><code class="bash">$ npm install soajs.oauth</code>
 			</pre>
 			Once the service is installed, go ahead and run it:
@@ -23,7 +23,7 @@ $ node index</code></pre>
 		<hr/>
 		<h3>oAuth General Information</h3>
 		<p>
-			To use <b>oAuth</b>, we need to create a <u>user record</u> then login with this user credentials, get the <u>token</u> and put that <u>token</u> in the consequent requests that follow. We also need a <b>tenant</b> that is configured to use <b>oAuth</b> so that when the user attempts to login, we can check the credentials of that user with the <b>oAuth secret</b> of that <b>tenant</b> and determine if they are valid or not.<br />
+			To use oAuth, we need to create a <u>user record</u> then login with this user credentials, get the <u>token</u> and put that <u>token</u> in the consequent requests that follow. We also need a tenant that is configured to use oAuth so that when the user attempts to login, we can check the credentials of that user with the <b>oAuth secret</b> of that tenant and determine if they are valid or not.<br />
 			<img ng-src="images/getstarted/example02-oauth.png" style="margin:5px 0" /><br />
 			Tenants are <a href="#/documentation/provisioning">provisioned</a> in the database, their configuration differs from one tenant to another and is not dependent on a service or an <a href="#/documentation/registry">environment</a>. Storing this configuration in the database allows the administrator to customize it at any stage without changing the code of neither the service (<u>index.js</u> OR <u>config.js</u>) nor the <a href="#/documentation/registry">registry</a>. SOAJS offers the ability to have multiple tenants, with different configuration and access controls, use the same service in the same environment.<br /><br />
 			You're probably thinking this is a lot to digest by now but as you keep reading, you will find that with SOAJS applying this security takes minimal effort and that these steps are pretty basic and straight forward.
@@ -36,7 +36,7 @@ $ node index</code></pre>
 			Through this provisioning steps, we can setup your database; we will
 			create and set the required sample data in the database to simulate a real-life case scenario.
 
-			You can import (provision) a sample configuration that is provided in <b>soajs.examples/tools/</b> into the database to create an <b>oAuth</b> user record, a <b>tenant</b> with <b>oAuth</b> configuration and use them later on in this example.<br />
+			You can import (provision) a sample configuration that is provided in <b>soajs.examples/tools/</b> into the database to create an oAuth user record, a tenant with oAuth configuration and use them later on in this example.<br />
 
 			To do that, navigate to <b>soajs.examples/tools/</b> and run the following commands:
 			<pre><code class="bash">$ cd soajs.examples/tools
@@ -44,7 +44,7 @@ $ chmod +x soajs.mongo.sh
 $ ./soajs.mongo.sh</code>
 			</pre>
 			The above command will run a shell script that executes some mongo commands and import the data we need.<br />
-			Once the data is imported we will have an <b>oAuth</b> user record with <b>username= oauthuser</b> and <b>password= oauthpassword</b> and a tenant with <b>oAuth secret phrase= shhh this is a secret</b>.<br />
+			Once the data is imported we will have an oAuth user record with <b>username= oauthuser</b> and <b>password= oauthpassword</b> and a tenant with <b>oAuth secret phrase= shhh this is a secret</b>.<br />
 			We will use these 3 variables later on when we make the calls to the <b>Example02</b> service APIs.
 		</p>
 		<p style="word-wrap: break-word;">
@@ -60,12 +60,12 @@ $ ./soajs.mongo.sh</code>
 			<img class="image-border" src="images/getstarted/ex02Registry.png" align="right">
 			Let's register <b>Example02</b> service like we did for <b>Example01</b> in the <a href="#/getStarted/registry">registry</a> of SOAJS. As you can see in the image on the right, both services are registered the same way with one difference: <b>extKeyRequired</b>. <br /><br />
 			<b>extKeyRequired</b> is set to "true" for <b>Example02</b> service because as mentioned in the above section <b>Installing oAuth</b>, we need a tenant to get things running.<br /><br />
-			When a service requires a tenant to function, <b>extKeyRequired</b> is set to "true" because when the requests are made to the APIs of this service, each request should provide the <u>tenant key</u> so that SOAJS knows which tenant to load from the database and, in this case, be able to fetch the correct <b>oAuth</b> configuration and use it to <b>Authorize</b> the request.
+			When a service requires a tenant to function, <b>extKeyRequired</b> is set to "true" because when the requests are made to the APIs of this service, each request should provide the <u>tenant key</u> so that SOAJS knows which tenant to load from the database and, in this case, be able to fetch the correct oAuth configuration and use it to Authorize the request.
 		</p>
 		<hr/>
 		<h3>Start the Service</h3>
 		<p>
-			By now we have installed <b>oAuth</b>, <b>provisioned</b> the configuration and <b>registered the service</b>, all we need to do is start <b>Example02</b> service and run some tests. Go ahead and start <b>Example02</b> service just like you did in <b>Example01</b>:
+			By now we have installed oAuth, provisioned the configuration and registered the service, all we need to do is start <b>Example02</b> service and run some tests. Go ahead and start <b>Example02</b> service just like you did in <b>Example01</b>:
 			<pre><code class="bash">$ cd soajs.examples/example02/
 $ node index</code></pre>
 			<b>Example02</b> is now running on http://localhost:4000/example02.<br />
@@ -88,7 +88,7 @@ $ node index</code></pre>
 				</pre>
 				<p>
 					Notice here that we used port <u>5002</u> to perform a <b>heartbeat</b> check. We previously mentioned in <a href="#/getstarted">Get Started</a>, that a heartbeat operation is made using the maintenance port of a service and that the maintenance port is equal to the port number of the service + 1000.<br />
-					<b>oAuth</b> service runs on port <u>4002</u> making the maintenance port of this service as <u>5002</u>.
+					oAuth service runs on port <u>4002</u> making the maintenance port of this service as <u>5002</u>.
 				</p>
 			</div>
 		</fieldset>
@@ -131,8 +131,8 @@ $ node index</code></pre>
 }</code>
 				</pre>
 				<p>
-					We just made a call to <b>oAuth</b> service without specifying any credentials and we already checked that the service is running when we performed a heartbeat operation. But the service returned a fail response.<br />
-					When we installed <b>oAuth</b> we mentioned that we needed a tenant and we also mentioned that when a service needs a tenant, the request should provide a key when calling any of its APIs. Because we didn't specify a key yet, <b>oAuth</b> service returned a fail response with a message saying it needs a key to be accessible.
+					We just made a call to oAuth service without specifying any credentials and we already checked that the service is running when we performed a heartbeat operation. But the service returned a fail response.<br />
+					When we installed oAuth we mentioned that we needed a tenant and we also mentioned that when a service needs a tenant, the request should provide a key when calling any of its APIs. Because we didn't specify a key yet, oAuth service returned a fail response with a message saying it needs a key to be accessible.
 				</p>
 			</div>
 		</fieldset>
@@ -155,7 +155,7 @@ $ node index</code></pre>
 }</code>
 				</pre>
 				<p>
-					We just made a call to <b>Example02</b> service without specifying any credentials and we already checked that the service is running when we performed a heartbeat operation. But the service returned a fail response just like <b>oAuth</b> Service.<br />
+					We just made a call to <b>Example02</b> service without specifying any credentials and we already checked that the service is running when we performed a heartbeat operation. But the service returned a fail response just like oAuth Service.<br />
 					Basically we are not doing anything wrong here, we are simply showing that to access both these services, you need to provide a tenant key otherwise SOAJS will no allow you to go forward.
 				</p>
 			</div>
@@ -192,15 +192,15 @@ $ node index</code></pre>
 					<div id="noTokenResult"></div>
 				</div>
 				<p>
-					You can see here that the error code has changed. We are still unable to access the service because we need the "<b>access token</b>" from <b>oAuth</b> but the response no longer tells us we need to provide a key.<br />
-					The service is protected by <b>oAuth</b> and to acquire the "<b>access token</b>" we need to login first to <b>oAuth</b> using "<b>oauthuser</b>" and "<b>oauthpassword</b>" credentials.
+					You can see here that the error code has changed. We are still unable to access the service because we need the "<b>access token</b>" from oAuth but the response no longer tells us we need to provide a key.<br />
+					The service is protected by oAuth and to acquire the "<b>access token</b>" we need to login first to oAuth using "<b>oauthuser</b>" and "<b>oauthpassword</b>" credentials.
 				</p>
 			</div>
 		</fieldset>
 		<fieldset>
 			<legend>Login to oAuth</legend>
 			<div>
-				Login to <b>oAuth</b> by and provide the following:
+				Login to oAuth by and provide the following:
 				<ol>
 					<li>
 						<u>Authorization:</u> an encrypted value, generated from (tenantId:secret_phrase) in this case (<b>10d2cb5fc04ce51e06000001</b>:<b>shhh this is a secret</b>).<br />
@@ -250,8 +250,8 @@ $ node index</code></pre>
 		<fieldset>
 			<legend>Logout from oAuth</legend>
 			<div>
-				When you're done from the <b>Example02</b> APIs, it is recommend you logout from <b>oAuth</b>. In case you forgot to logout, the <b>access_token</b> will eventually expire and become unusable. But it is always considered best practice that you add a logout step at the end of your request.<br />
-				Just call the <b>oAuth</b> service again, provide the tenant <b>key</b> and the <b>access_token</b> but make the request to the <b>/kill</b> API and the token will be deactivated.
+				When you're done from the <b>Example02</b> APIs, it is recommend you logout from oAuth. In case you forgot to logout, the <b>access_token</b> will eventually expire and become unusable. But it is always considered best practice that you add a logout step at the end of your request.<br />
+				Just call the oAuth service again, provide the tenant <b>key</b> and the <b>access_token</b> but make the request to the <b>/kill</b> API and the token will be deactivated.
 				<pre><code class="bash">$ curl -X GET -H  "key:aa39b5490c4a4ed0e56d7ec1232a428f771e8bb83cfcee16de14f735d0f5da587d5968ec4f785e38570902fd24e0b522b46cb171872d1ea038e88328e7d973ff47d9392f72b2d49566209eb88eb60aed8534a965cf30072c39565bd8d72f68ac" "http://localhost:4000/oauth/kill?access_token=e58751473112bca2ed939e0445e55b0f7921f544"</code></pre>
 				<h6>Response</h6>
 				<div ng-init="loadJSON(path + 'example02/oauth_kill.json', 'oauth_kill');">
@@ -260,8 +260,8 @@ $ node index</code></pre>
 			</div>
 		</fieldset>
 		<p>
-			As you can see it takes little effort to secure your service with <b>oAuth</b>. You only needed to start <b>oAuth</b> service, login and use the token in the requests made to the protected service. You can secure any service in SOAJS by just turning on the <b>oauth</b> property to "true" while creating this service. The rest is handled by SOAJS magic.<br /><br />
-			Try to conduct additional tests and scenarios on <b>Example02</b> APIs and <b>oAuth</b>. When you are ready to jump to the next level, click on <a href="#/getStarted/example03">Example03</a> to see how you can make the same service work with different tenants using different configurations and how to apply different Access Controls using tenants, packages and URAC.
+			As you can see it takes little effort to secure your service with oAuth. You only needed to start oAuth service, login and use the token in the requests made to the protected service. You can secure any service in SOAJS by just turning on the oAuth property to "true" while creating this service. The rest is handled by SOAJS magic.<br /><br />
+			Try to conduct additional tests and scenarios on <b>Example02</b> APIs and oAuth. When you are ready to jump to the next level, click on <a href="#/getStarted/example03">Example03</a> to see how you can make the same service work with different tenants using different configurations and how to apply different Access Controls using tenants, packages and URAC.
 		</p>
 			</div>
 		<script>renderCodeSnippets();</script>

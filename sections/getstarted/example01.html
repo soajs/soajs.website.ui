@@ -9,13 +9,13 @@
 			The service "<b>Example01</b>" will be public and will not be secured and accessible by everyone.<br/>
 			<img ng-src="images/getstarted/example01.png" style="margin:5px 0"/><br/>
 			The service is split up into 2 files: <u>index.js</u> and <u>config.js</u>.<br/>
-			The <u>index.js</u> contains the code that handles the APIs invoked and <u>config.js</u> contains the <b>IMFV</b> configuration used by the <u>index.js</u> to understand how to treat the parameters passed to those APIs.
+			The <u>index.js</u> contains the code that handles the APIs invoked and <u>config.js</u> contains the <a href='#/documentation/imfv'>IMFV</a> configuration used by the <u>index.js</u> to understand how to treat the parameters passed to those APIs.
 		</p>
 		<hr/>
 		<h3>Code Explanation</h3>
 		<p>
 			As mentioned in the <a href="#/documentation/service">documentation</a> section, each service is created by building two files: <u>index.js</u> and <u>config.js</u>.<br>
-			<b>Example01</b> has 5 APIs, these APIs are defined in <u>index.js</u> and each API has a representation in <u>config.js</u> to enable its <b>IMFV</b>.<br />
+			<b>Example01</b> has 5 APIs, these APIs are defined in <u>index.js</u> and each API has a representation in <u>config.js</u> to enable its <a href='#/documentation/imfv'>IMFV</a>.<br />
 			The first API of <b>Example01</b> uses the GET protocol and reads some parameters <b>firstName</b> - <b>lastName</b> - <b>email</b> then creates a JSON response out of them and returns it.<br/>
 		</p>
 		<table class="myTable" width="100%">
@@ -53,9 +53,9 @@
 			</tbod>
 		</table><br />
 		<p>
-			The above table is provided to <b>IMFV</b> in the <u>config.js</u> by creating an entry under <b>schema</b> and naming it exaclty like the API name is written in <u>index.js</u>, in this case "<b>/testGet</b>", then specifying for every parameter of that API the source, validation type and if the parameter is required or not.<br/>
-			<b>IMFV</b> consolidates all the inputs in one place so when you want use them, you don't need to worry where the input came from essentially and if you read it from the correct souce or made a typo somewhere.<br />
-			Go ahead and switch between the two tabs below to see how the link was made between <b>testGet</b> API and its configuration for <b>IMFV</b> and how the input is being read in the API implementation.<br/><br/>
+			The above table is provided to <a href='#/documentation/imfv'>IMFV</a> in the <u>config.js</u> by creating an entry under <b>schema</b> and naming it exaclty like the API name is written in <u>index.js</u>, in this case "<b>/testGet</b>", then specifying for every parameter of that API the source, validation type and if the parameter is required or not.<br/>
+			<a href='#/documentation/imfv'>IMFV</a> consolidates all the inputs in one place so when you want use them, you don't need to worry where the input came from essentially and if you read it from the correct souce or made a typo somewhere.<br />
+			Go ahead and switch between the two tabs below to see how the link was made between <b>testGet</b> API and its configuration for <a href='#/documentation/imfv'>IMFV</a> and how the input is being read in the API implementation.<br/><br/>
 		</p>
 		<tabset>
 			<tab heading="index.js">
@@ -72,7 +72,7 @@
 		<hr/>
 		<h3>Installing the Service</h3>
 		<p>
-			<b>Example01</b> along with other examples are included in <b>soajs.examples</b>. This package provides you with examples on how to use SOAJS to get you up to speed quickly. Since we installed the controller earlier on, let's install this package and use <b>Example01</b> in this section:
+			<b>Example01</b> along with other examples are included in <a href="https://www.npmjs.com/package/soajs.examples" target="_blank">soajs.examples</a>. This package provides you with examples on how to use SOAJS to get you up to speed quickly. Since we installed the controller earlier on, let's install this package and use <b>Example01</b> in this section:
 			<pre><code class="bash">$ npm install soajs.examples</code>
 			</pre>
 			Once the package is installed, you will find four examples <b>Example01</b> - <b>Example02</b> - <b>Example03</b> - <b>Example04</b>, we will be using <b>Example01</b> in this phase and the remaining 3 later on.
@@ -82,7 +82,7 @@
 		<p>
 			<img ng-src="images/documentation/registry-example01.png" class="image-border" align="right" style="margin: 5px 0 0 5px;" />
 			Before you Run the service, you need to register it with SOAJS. To register a service, add an entry for it in the <a href="#/documentation/registry">Registry</a> under the environment you are working with.<br /><br />
-			When you install SOAJS, the <b>Registry</b> already contains an entry for <b>Example01</b>, so for this example you don't have to worry about the registry at the moment because this example is already registered.<br />
+			When you install SOAJS, the <a href="#/documentation/registry">Registry</a> already contains an entry for <b>Example01</b>, so for this example you don't have to worry about the registry at the moment because this example is already registered.<br />
 			You can always checkout the <a href="#/documentation/registry">Registry</a> for more details on how the services are registered and what are the environments we just mentioned and how to use them.<br/><br/>
 			As mentioned in <a href="#/getStarted">Get Started</a>, all requests go through the <a href="#/documentation/controller">Controller</a> first then get forwarded to their corresponding services.<br />
 			Therefore the link to use in this example should have the following schema: http://<b>%controller%</b> / <b>%service name%</b> / <b>%api%</b><br/>
@@ -160,7 +160,7 @@ $ node index</code></pre>
 				</div>
 				<br/>
 				<p>
-					The API returned a false response because when we triggered the call, we did not specify a <b>lastName</b> in the querystring and we configured this API to read this parameter and make sure it is provided. <b>IMFV</b> did not find <b>lastName</b> in the parameters and thus stopped the request from continuing and returned an error message back to us.
+					The API returned a false response because when we triggered the call, we did not specify a <b>lastName</b> in the querystring and we configured this API to read this parameter and make sure it is provided. <a href='#/documentation/imfv'>IMFV</a> did not find <b>lastName</b> in the parameters and thus stopped the request from continuing and returned an error message back to us.
 				</p>
 			</div>
 		</fieldset>
@@ -258,13 +258,13 @@ $ node index</code></pre>
 				</div>
 				<br/>
 				<p>
-					This API succeeded the call even though <b>firstName</b> was not provided as a paramter while making the call. If you re-examin the <b>IMFV</b> configuration of this API, you notice an entry named "<b>default</b>" with the vlue "<b>John</b>" assigned to it.<br />
-					In the previous test, we made a call and specified <b>firstName</b> to be "<b>James</b>" and the returned response was "<b>James Smith</b>" but here we only provided the <b>lastName</b> as a paramter so <b>IMFV</b> noticed that there is a default value for the <b>firstName</b> parameter and since it wasn't provided by the request, it used it.
+					This API succeeded the call even though <b>firstName</b> was not provided as a paramter while making the call. If you re-examin the <a href='#/documentation/imfv'>IMFV</a> configuration of this API, you notice an entry named "<b>default</b>" with the vlue "<b>John</b>" assigned to it.<br />
+					In the previous test, we made a call and specified <b>firstName</b> to be "<b>James</b>" and the returned response was "<b>James Smith</b>" but here we only provided the <b>lastName</b> as a paramter so <a href='#/documentation/imfv'>IMFV</a> noticed that there is a default value for the <b>firstName</b> parameter and since it wasn't provided by the request, it used it.
 				</p>
 			</div>
 		</fieldset>
 		<p>
-			By now you have seen how easy it is to configure <b>IMFV</b> for a service, how quick and simple it is to write an API service and how to perform maintenance operations on a service. Imagine how much time and effort you have saved just by creating two files and writing few lines of code in each of them.<br />
+			By now you have seen how easy it is to configure <a href='#/documentation/imfv'>IMFV</a> for a service, how quick and simple it is to write an API service and how to perform maintenance operations on a service. Imagine how much time and effort you have saved just by creating two files and writing few lines of code in each of them.<br />
 			Try to conduct additional tests and scenarios on <b>Example01</b> APIs. When you are ready to jump to the next level, click on <a href="#/getStarted/example02">Example 02</a> to see how you can secure your service and add oAuth to it.
 		</p>
 			</div>
