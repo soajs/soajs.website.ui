@@ -72,7 +72,7 @@
 		<hr/>
 		<h3>Installing the Service</h3>
 		<p>
-			<b>Example01</b> along with other examples are included in <b>soajs.examples</b>. This package provides you with examples on how to use <b>SOAJS</b> to get you up to speed quickly. Since we installed the controller earlier on, let's install this package and use <b>Example01</b> in this section:
+			<b>Example01</b> along with other examples are included in <b>soajs.examples</b>. This package provides you with examples on how to use SOAJS to get you up to speed quickly. Since we installed the controller earlier on, let's install this package and use <b>Example01</b> in this section:
 			<pre><code class="bash">$ npm install soajs.examples</code>
 			</pre>
 			Once the package is installed, you will find four examples <b>Example01</b> - <b>Example02</b> - <b>Example03</b> - <b>Example04</b>, we will be using <b>Example01</b> in this phase and the remaining 3 later on.
@@ -81,8 +81,8 @@
 		<h3>Registering the Service</h3>
 		<p>
 			<img ng-src="images/documentation/registry-example01.png" class="image-border" align="right" style="margin: 5px 0 0 5px;" />
-			Before you Run the service, you need to register it with <b>SOAJS</b>. To register a service, add an entry for it in the <a href="#/documentation/registry">Registry</a> under the environment you are working with.<br /><br />
-			When you install <b>SOAJS</b>, the <b>Registry</b> already contains an entry for <b>Example01</b>, so for this example you don't have to worry about the registry at the moment because this example is already registered.<br />
+			Before you Run the service, you need to register it with SOAJS. To register a service, add an entry for it in the <a href="#/documentation/registry">Registry</a> under the environment you are working with.<br /><br />
+			When you install SOAJS, the <b>Registry</b> already contains an entry for <b>Example01</b>, so for this example you don't have to worry about the registry at the moment because this example is already registered.<br />
 			You can always checkout the <a href="#/documentation/registry">Registry</a> for more details on how the services are registered and what are the environments we just mentioned and how to use them.<br/><br/>
 			As mentioned in <a href="#/getStarted">Get Started</a>, all requests go through the <a href="#/documentation/controller">Controller</a> first then get forwarded to their corresponding services.<br />
 			Therefore the link to use in this example should have the following schema: http://<b>%controller%</b> / <b>%service name%</b> / <b>%api%</b><br/>
@@ -118,7 +118,7 @@ $ node index</code></pre>
 }</code>
 				</pre>
 				<p>Notice here that we used port <u>5010</u> to perform a <b>heartbeat</b> check. We previously mentioned in <a href="#/getstarted">Get Started</a>, that a heartbeat operation is made using the maintenance port of a service and that the maintenance port is equal to the port number of the service + 1000.<br />
-					In the image above, in <b>Registering the Service</b>, we registered example01 in <b>SOAJS</b> with port <u>4010</u> making the maintenance port of this service as <u>5010</u>.</p>
+					In the image above, in <b>Registering the Service</b>, we registered example01 in SOAJS with port <u>4010</u> making the maintenance port of this service as <u>5010</u>.</p>
 			</div>
 		</fieldset>
 		<fieldset>
@@ -141,14 +141,14 @@ $ node index</code></pre>
 				</pre>
 				<p>
 					Here we attempted to call <b>Example01</b> service without specifying any of its APIs. The returned response was a fail because basically there is no API defined in this service with the value "/" so this event is treated as if an invalid API route was called.<br /><br />
-					Another important thing to notice is how the URL of the service was constructed. Again, all requests to <b>SOAJS</b> services should pass through the <a href="#/documenation/controller">Controller</a> and this why the port used was <u>4000</u> and not <u>4010</u> even though <u>4010</u> is <b>Example01</b> service port in the registry.
+					Another important thing to notice is how the URL of the service was constructed. Again, all requests to SOAJS services should pass through the <a href="#/documenation/controller">Controller</a> and this why the port used was <u>4000</u> and not <u>4010</u> even though <u>4010</u> is <b>Example01</b> service port in the registry.
 				</p>
 			</div>
 		</fieldset>
 		<hr/>
 		<h3>Running Some Tests</h3>
 		<p>
-			Both our <b>Controller</b> and <b>Example01</b> services are now running, so let's start running some tests on the routes of Example01 and see what happens. Trigger the API by using a CURL command from the terminal.<br/><br/>
+			Both our Controller and <b>Example01</b> services are now running, so let's start running some tests on the routes of Example01 and see what happens. Trigger the API by using a CURL command from the terminal.<br/><br/>
 		</p>
 		<fieldset>
 			<legend><b>/testGet api: Fail</b></legend>

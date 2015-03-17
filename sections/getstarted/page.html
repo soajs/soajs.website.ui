@@ -4,27 +4,27 @@
 
 		<div class="white-container">
 		<p>
-			<b>SOAJS</b> refers to Service-Oriented Architecture built using JavaScript.<br />
+			SOAJS refers to Service-Oriented Architecture built using JavaScript.<br />
 			Service-Oriented architecture (SOA) is a design pattern in which application components provide services to other components via a communications protocol, typically over a network. The principles of service-orientation are independent of any vendor, product or technology.<br /><br />
 			Services can be combined to provide the functionality of a large software application. SOA makes it easier for software components on computers connected over a network to cooperate. Every computer can run any number of services, and each service is built in a way that ensures that the service can exchange information with any other service in the network without human interaction and without the need to make changes to the underlying program itself.<br /><br />
-			This makes <b>SOAJS</b> self-aware of all services running in its cloud and can be used to create APIs between the Frontend and Backend of a product without the need of modifying the code of that product.
+			This makes SOAJS self-aware of all services running in its cloud and can be used to create APIs between the Frontend and Backend of a product without the need of modifying the code of that product.
 		</p>
 		<hr/>
 		<h3>Infrastructure</h3>
 		<p>
-			Before we start, let's take a look at the infrastructure of <b>SOAJS</b> and understand what we will be dealing with.<br />
+			Before we start, let's take a look at the infrastructure of SOAJS and understand what we will be dealing with.<br />
 			<img ng-src="images/getstarted/getstarted.png" style="margin:5px 0" /><br />
-			<b>SOAJS</b> uses a gateway architecture meaning all requests go through one entry point before being processed. This entry point is referred to as the <a href="#/documenation/controller">Controller</a> and all requests pass through that <b>Controller</b> and then get forwarded to their corresponding service after undergoing some security checks. Some of the requested services are protected by <a href="#/documenation/oauth">oAuth</a>, in that case, when the request reaches the <b>controller</b>, it is first forwarded to the <b>oAuth</b> service for validation and if valid, it is then forwarded to the corresponding service.<br />
-			Now that you know how <b>SOAJS</b> functions, go ahead install it and checkout the examples to learn how to build APIs super fast.<br />
+			SOAJS uses a gateway architecture meaning all requests go through one entry point before being processed. This entry point is referred to as the <a href="#/documenation/controller">Controller</a> and all requests pass through that Controller and then get forwarded to their corresponding service after undergoing some security checks. Some of the requested services are protected by <a href="#/documenation/oauth">oAuth</a>, in that case, when the request reaches the Controller, it is first forwarded to the oAuth service for validation and if valid, it is then forwarded to the corresponding service.<br />
+			Now that you know how SOAJS functions, go ahead install it and checkout the examples to learn how to build APIs super fast.<br />
 		</p>
 		<hr/>
 		<h3>Install SOAJS</h3>
 		<p>
-			To help you get started, we have created 3 examples that show you the power and easiness of <b>SOAJS</b> and how to build APIs super fast. First thing you need is to install <b>SOAJS</b> on your machine. You can do that using 2 methods:<br /><br />
+			To help you get started, we have created 3 examples that show you the power and easiness of SOAJS and how to build APIs super fast. First thing you need is to install SOAJS on your machine. You can do that using 2 methods:<br /><br />
 		</p>
 		<h4>Docker Installation</h4>
-		If you are familiar with <a href="https://www.docker.com/" target="_blank">Docker</a>, you can use it to install <b>SOAJS</b> on your machine.<br/>
-		<b>Docker</b> installs <b>SOAJS</b> on your machine, sets up the needed environment & dependencies and also loads a pre-configured sample data in the database so you can start working immediately.
+		If you are familiar with <a href="https://www.docker.com/" target="_blank">Docker</a>, you can use it to install SOAJS on your machine.<br/>
+		<b>Docker</b> installs SOAJS on your machine, sets up the needed environment & dependencies and also loads a pre-configured sample data in the database so you can start working immediately.
 		<pre>
 			<code class="bash">$ docker install soajs(this line will be updated once docker is completed)</code>
 		</pre>
@@ -32,13 +32,13 @@
 		<h4>Manual Installation</h4>
 		<ol class="manual-install">
 			<li><h4>Prerequisites</h4>
-				Before you install <b>SOAJS</b>, make sure you have the following technologies installed: <br>
+				Before you install SOAJS, make sure you have the following technologies installed: <br>
 				- <a href="http://www.mongodb.org" target="_blank">MongoDB</a> ( version 2.6.7 or higher)<br>
 				- <a href="http://nodejs.org" target="_blank">NodeJS</a> (version 0.10.25 or higher)<br>
 			</li>
 			<li><h4>Installing SOAJS</h4>
-				<b>SOAJS</b> in an <b>NPM</b> repository and can be installed using <b>NPM</b> command in your terminal.<br />
-				If you have <b>NodeJs</b> installed, then you can open your terminal and execute the following commands:
+				SOAJS in an NPM repository and can be installed using NPM command in your terminal.<br />
+				If you have <a href="http://nodejs.org" target="_blank">NodeJS</a> installed, then you can open your terminal and execute the following commands:
                 <pre>
 	                <code class="bash">#install soajs services
 $ npm install soajs.util</code></pre>
@@ -56,7 +56,7 @@ $ node index</code></pre>
 			</li>
 			<li>
 				<h4>Testing the Service</h4>
-				By default, the controller runs on your localhost via port 4000. Every service in <b>SOAJS</b> has its own default port and another maintenance port configured in the registry. So when you start a service, the service will be listening to two ports at the same time; one to process the requests and another used for maintenance operations.<br />
+				By default, the controller runs on your localhost via port 4000. Every service in SOAJS has its own default port and another maintenance port configured in the registry. So when you start a service, the service will be listening to two ports at the same time; one to process the requests and another used for maintenance operations.<br />
 				You can access the maintenance port while the service is running and perform some maintenance operations like heartbeat checking and reload configuration. To access the maintenance port of a service, add 1000 to its default port number, in this case 4000 + 1000 = 5000.<br/>
 				Let's see what happens when we run both 4000 and 5000 ports on your machine.<br /><br/>
 				<fieldset>
@@ -106,8 +106,8 @@ $ node index</code></pre>
 		We have four ready examples for you to get started. Now that you have the controller running, you can test those examples and learn how to create a service, add some security and protect it, use the same service with different tenants and apply different access controls on your service.<br /><br />
 		<ul>
 			<li>
-				<a href="#/getStarted/example01">Example 01 </a>: Learn how to create a Service and use <b>IMFV</b>.<br />
-				In this example we show you how fast it is to create a service and how to use the <b>IMFV</b> of <b>SOAJS</b> to retrieve and validate all the parameters that are sent to this service.<br /><br />
+				<a href="#/getStarted/example01">Example 01 </a>: Learn how to create a Service and use <a href='#/documentation/imfv'>IMFV</a>.<br />
+				In this example we show you how fast it is to create a service and how to use the <a href='#/documentation/imfv'>IMFV</a> of SOAJS to retrieve and validate all the parameters that are sent to this service.<br /><br />
 			</li>
 			<li>
 				<a href="#/getStarted/example02">Example 02</a>: Learn how to secure your service using oAuth 2.0.<br />

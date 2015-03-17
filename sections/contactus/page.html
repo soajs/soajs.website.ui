@@ -4,7 +4,7 @@
 		<div ng-controller="contactCtrl">
 			<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
 			<br>
-			We are very happy you have decided to get in touch with <b>SOAJS</b> TEAM.<br/>
+			We are very happy you have decided to get in touch with SOAJS TEAM.<br/>
 			Just fill out the form below and tell us the purpose of your message and we will get back to you.<br/><br/>
 
 			<form name="contactForm" ng-submit="contactForm.$valid && sendContact()" novalidate>

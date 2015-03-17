@@ -5,7 +5,7 @@
 		<h1>Example 03</h1>
 		<div class="white-container">
 		So far, we have created a service and secured it with <b>oAuth</b> in previous examples. We also mentioned the usage of a tenant and its key in <a href="#/getStarted/example02">Example02</a>. But till now we were only dealing with one tenant and now we are going to take things to a higher level.<br /><br />
-		<b>SOAJS</b> offers the ability to allow different tenants to use the same service, each with their own settings. You can configure multitenancy and have your services behave differently from one tenant (client) to another, and even from one user (consumer) to another.<br/><br/>
+		SOAJS offers the ability to allow different tenants to use the same service, each with their own settings. You can configure multitenancy and have your services behave differently from one tenant (client) to another, and even from one user (consumer) to another.<br/><br/>
 
 		In this example, we will introduce the <b>URAC</b> service, where each tenant can have registered users.
 		This example shows you how to take advantage of multitenancy and how easy it is to configure ACL and secure your APIs at the product, tenant and user levels.
@@ -24,11 +24,11 @@
 		<hr/>
 		<h3>Installing URAC</h3>
 		<p>
-			<b>SOAJS</b> (User Registration &amp; Access Control) is a service that manages the Users records and their Access Controls.<br>
+			SOAJS (User Registration &amp; Access Control) is a service that manages the Users records and their Access Controls.<br>
 			             The service is multitenant and provides the ability to have members accounts for different tenants. Members can login and get additional preferences or privileges.
 			             Please visit the <a href="#/documentation/urac">URAC</a> documentation page for a detailed explanation of how it functions.
 			<br /> <br />
-			             Like any other <b>SOAJS</b> service, <b>urac</b> can be installed via <b>NPM</b>:
+			             Like any other SOAJS service, <b>urac</b> can be installed via NPM:
 			<pre><code class="bash">$ npm install soajs.urac</code>
 			</pre>
 		Once the service is installed, go ahead and run it:
@@ -90,7 +90,7 @@ $ node index</code></pre>
 					<div id="heartbeat_example03"></div>
 				</div>
 
-				<p>Example03 is  registered in <b>SOAJS</b> with port <u>4012</u> making the maintenance port of this service as <u>5012</u>. As you can see, when we performed a heartbeat operation, the service is running and healthy.
+				<p>Example03 is  registered in SOAJS with port <u>4012</u> making the maintenance port of this service as <u>5012</u>. As you can see, when we performed a heartbeat operation, the service is running and healthy.
 				</p>
 			</div>
 		</fieldset>
@@ -106,7 +106,7 @@ $ node index</code></pre>
 		</ol>
 		<br>
 		<h4>Product Level</h4>
-		A <b>SOAJS</b> product is a way to bundle your services and offer them to clients.
+		A SOAJS product is a way to bundle your services and offer them to clients.
 		Each product can have various packages configured within it.
 		The Product package is the most general scope for configuration.
 
