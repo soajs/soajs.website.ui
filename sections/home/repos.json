@@ -13,7 +13,7 @@
       "id": "soajs/soajs"
     },
     "coveralls": {
-      "id": "soajs"
+      "id": "soajs/soajs"
     },
     "documentation": "#/documentation/",
     "github": "soajs"
