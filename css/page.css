@@ -125,9 +125,12 @@ a:hover{
     color: rgb(53, 90, 118);
     border-bottom:solid 4px rgb(53, 90, 118);
 }
-
-.bottom {
+#section-footer{
     background-color: white;
+    clear: both;
+    width: 100%;
+}
+.bottom {
     color: rgb(61, 61, 61);
     box-sizing: border-box;
     font-size: 18px;

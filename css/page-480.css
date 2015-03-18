@@ -62,7 +62,6 @@
 
     .bottom {
         font-size: 13px;
-        height: auto;
         padding: 10px 0;
     }
     .small-button {
@@ -165,10 +164,9 @@
     }
     .banner .banner-container .left-main{
     }
-    ol{
+    .main-section-container ol, .main-section-container ul{
         padding-left: 20px;
     }
-
 }
 
 @media (max-width: 400px) {
@@ -176,7 +174,9 @@
         font-size: 12px;
         line-height:1.4em;
     }
-
+    #section-footer{
+        width: 375px;
+    }
     .topbar .nav-container {
         width: 375px;
     }
@@ -185,9 +185,6 @@
     }
     .bottom {
         font-size: 12px;
-        height: auto;
-        padding: 10px 0;
-        width: 100%;
     }
     .main-section-container {
         width: 375px;
@@ -280,21 +277,29 @@
         font-size: 10px;
         line-height: 1.3em;
     }
-    .topbar .nav-container {
-        width: 320px; margin: 0;
+    .bottom {
+        font-size: 12px;
+        padding: 10px 0;
     }
     .bottom .sharing-footer {
-        width: 320px; margin: 0;
+        width: 320px;
     }
+    #section-footer{
+        width: 320px;
+    }
+    .topbar .nav-container {
+        width: 320px;
+    }
+
     .main-section-container {
-        width: 320px; margin: 0;
+        width: 320px;
     }
     .banner .banner-container {
-        width: 320px; margin: 0;
+        width: 320px;
         padding: 50px 0 50px;
     }
     .white-banner .banner-container {
-        width: 320px; margin: 0;
+        width: 320px;
     }
     .powered-by-container {
         width: 320px;
@@ -302,7 +307,6 @@
     }
     .soajs-features .features-container {
         width: 320px;
-        margin: 0;
     }
     .soajs-features{
         width: 320px;
@@ -310,10 +314,7 @@
     .soajs-features .features-container .feature-list li {
         /*width: 90%;*/
     }
-    .bottom {
-        font-size: 12px;
-        padding: 10px 0;
-    }
+
     .small-button {
         font-size: 12px;
         height: 30px;

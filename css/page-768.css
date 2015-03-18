@@ -164,18 +164,18 @@
     }
     #ex02Registry{
         display: block;
-        float: none;
+        margin-bottom: 10px;
     }
     #registry-example01{
-
         display: block;
-    }
-    #ex02Registry, #registry-example01{
         margin-bottom: 10px;
     }
     #registry1png{
         width:240px;
         float: right;
+    }
+    #oauth-config{
+        width:auto;
     }
     .image-right{
         float: none;
