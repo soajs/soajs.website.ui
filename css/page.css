@@ -235,7 +235,7 @@ a:hover{
 
 .banner .banner-container {
     box-sizing: border-box;
-    margin: auto;
+    margin: 0 auto;
     width: 997px;
     padding: 80px 0 100px;
     position: relative;
@@ -545,13 +545,13 @@ a:hover{
     line-height: 0;
     visibility: hidden;
 }
-
+/*
 .features-page .main-section-container .feature-list ul li h5 {
     font-size: 26px;
     font-weight: 400;
     padding: 0 0 10px 20px;
 }
-
+*/
 .features-page .main-section-container .feature-list ul li p {
     color: #001c20;
     font-size: 15px;
@@ -728,6 +728,7 @@ legend {
     margin: auto;
     padding: 0 10px;
     width: auto;
+    text-align: left;
 }
 
 .yellow-header {
@@ -903,6 +904,8 @@ hr.white {
     float: right;
     height: 100% !important;
     padding: 16px 20px;
+    position: absolute;
+    right: 0; top:0;
 }
 .topbar .menu::after {
     clear: both;
@@ -935,4 +938,7 @@ hr.white {
     background-color: #DF9630;
     border-color: #DF9630;
     color: #fff;
+}
+em{
+    line-height: 1.6em;
 }

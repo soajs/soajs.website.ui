@@ -4,6 +4,26 @@
         font-size: 13px;
         line-height:1.5em;
     }
+    .page h1{
+        font-size: 16pt;
+    }
+    h3 {
+        font-size: 16px;
+    }
+    h4, .h4 {
+        font-size: 14px;
+    }
+    pre code{
+        font-size: 11px;
+    }
+    .myTable td {
+        font-size: 11px;
+        padding: 8px 5px;
+    }
+    .myTable thead th {
+        font-size: 12px;
+        padding: 8px 5px;
+    }
     .banner .banner-container {
         padding: 50px 0 50px;
     }
@@ -14,9 +34,7 @@
     .topbar .menu {
         display: block !important;
     }
-    .topbar .menu.menu-open {
-        background-color: #212c2e;
-    }
+
     .beaverImg {
         display: none;
     }
@@ -29,18 +47,20 @@
     .small-button {
         font-size: 13px;
         height: 43px;
-        padding: 10px 20px 8px;
+        padding: 10px 17px 8px;
         margin-right: 10px;
     }
+    /*
     .left-sidebar section{
-        width: 108px;
+        width: 29%;
     }
     .left-sidebar section#dashbd{
-        width: 118px;
+        width: 34%;
     }
     .left-sidebar section#soajs{
-        width: 115px;
+        width: 32%;
     }
+    */
     .features-page .main-section-container .feature-list ul li {
         padding: 30px 0;
     }
@@ -63,14 +83,49 @@
         width: 92%;
         max-width: 92%;
     }
+    .left-sidebar .left-menu section section h4{
+        font-size: 12px;
+    }
+    .left-sidebar section:hover > ul{
+        width: 100px;
+    }
+    .left-sidebar section#dashbd:hover > ul{
+        width: 120px;
+    }
+    .left-sidebar section#soajs:hover > ul{
+        width: 115px;
+    }
+    .left-sidebar .left-menu ul li a{
+        font-size: 12px;
+    }
+    .powered-by-container h1{
+        font-size: 14pt;
+        margin-top: 10px;
+    }
+    .powered-by-container .powered-icon img{
+        max-width: 70px;
+    }
+    #registry-example01{
+        width: 313px;
+    }
+
 }
 
-@media (max-width: 380px) {
-    body, html {
+@media (max-width: 400px) {
+    body, html, p, ul li {
         font-size: 12px;
         line-height:1.4em;
     }
-
+    .myTable td {
+        font-size: 10px;
+        padding: 8px 5px;
+    }
+    fieldset{
+        width: 100%;
+    }
+    fieldset legend{
+        font-size: 13px;
+    }
     .bottom {
         font-size: 12px;
         height: auto;
@@ -102,8 +157,18 @@
     .bottom .sharing-footer .inner {
         margin-top:1px;
     }
+    .left-sidebar section:hover > ul {
+        padding-left:  17px;
+    }
+    .left-sidebar section{
+        padding-left: 5px;
+        padding-right: 4px;
+    }
+    .left-sidebar section h4{
+        padding-left: 7px;
+    }
 }
-@media (max-width: 325px) {
+@media (max-width: 350px) {
     body, html {
         font-size: 12px;
         line-height:1.3em;
@@ -112,29 +177,29 @@
         max-width: 85%;
     }
     .topbar .nav-container {
-        width: 320px;
+        width: 350px;
     }
     .bottom .sharing-footer {
-        width: 320px;
+        width: 350px;
     }
     .main-section-container {
-        width: 320px;
+        width: 350px;
         padding: 0 0 60px;
     }
 
     .banner .banner-container {
-        width: 320px;
+        width: 350px;
         padding: 50px 0 50px;
     }
     .white-banner .banner-container {
-        width: 320px;
+        width: 350px;
         padding: 10px 0;
     }
     .soajs-features .features-container {
-        width: 320px;
+        width: 350px;
     }
     .powered-by-container {
-        width: 320px;
+        width: 350px;
     }
 
     .bottom {
