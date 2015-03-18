@@ -10,7 +10,7 @@ homeApp.controller('homePageCtrl', ['$scope', '$http', function($scope, $http) {
 		$scope.fList = data;
 	});
 
-	$http.get("sections/home/repos.js").success(function(data) {
+	$http.get("sections/home/repos.json").success(function(data) {
 		$scope.repos = data;
 	});
 }]);

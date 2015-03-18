@@ -1,24 +1,4 @@
-[
-	{
-		"label": "SOAJS",
-		"npm":{
-			"id":"soajs",
-			"svg":"soajs",
-			"key":""
-		},
-		"grunt":{
-			"key": ""
-		},
-		"travis":{
-			"id":"soajs/soajs"
-		},
-		"coveralls":{
-			"id":"soajs"
-		},
-		"documentation": "#/documentation/",
-		"github": "soajs"
-	},
-	{
+{
 		"label": "Utilities",
 		"npm":{
 			"id":"soajs.util",
@@ -90,4 +70,3 @@
 		},
 		"documentation": "#/documentation/dashboard-services"
 	}
-]

@@ -1,0 +1,40 @@
+[
+  {
+    "label": "SOAJS",
+    "npm": {
+      "id": "soajs",
+      "svg": "soajs",
+      "key": ""
+    },
+    "grunt": {
+      "key": ""
+    },
+    "travis": {
+      "id": "soajs/soajs"
+    },
+    "coveralls": {
+      "id": "soajs"
+    },
+    "documentation": "#/documentation/",
+    "github": "soajs"
+  },
+  {
+    "label": "SOAJS Connect Mongo",
+    "npm": {
+      "id": "soajs",
+      "svg": "soajs",
+      "key": ""
+    },
+    "grunt": {
+      "key": ""
+    },
+    "travis": {
+      "id": "soajs/connect-mongo-soajs"
+    },
+    "coveralls": {
+      "id": "soajs/connect-mongo-soajs"
+    },
+    "documentation": "#/documentation/",
+    "github": "soajs/connect-mongo-soajs"
+  }
+]
