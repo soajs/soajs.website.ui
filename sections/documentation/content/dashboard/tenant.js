@@ -34,7 +34,7 @@ var tenantRecord = {
 						}
 					],
 					"config": {
-						"DEV": {
+						"dev": {
 							"mail": {
 								"from": "me@localhost.com",
 								"transport": {

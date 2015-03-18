@@ -25,15 +25,24 @@
 
 		<div class="white-banner">
 			<div class="banner-container">
-				<p ng-show="lastCommit && lastCommit.author !== ''">
-					Latest commit by <a target="_blank" href="">@{{lastCommit.author}}</a>
-					<a target="_blank" href="">{{lastCommit.ago}}</a>
-					<a target="_blank" href=""> Coverage All</a>
-				</p>
+				<div class="repos">
+					<ul>
+						<li ng-repeat="repo in repos">
+							<span class="repoLabel">{{repo.label}}</span>
+							<br/>
+							<a href="{{repo.documentation}}" title="Go to {{repo.label}} Documentation"><img alt="wiki" ng-src="images/repos/wiki.png" /> Documentation</a><br />
 
-				<div class="sharing">
-					<!--<iframe src="http://ghbtns.com/github-btn.html?user=soajs&repo=soajs&type=watch&count=true" height="30" width="118" frameborder="0" scrolling="0" style="width:118px; height: 30px;" allowTransparency="true"></iframe>-->
-					&nbsp;<a href="#/contactUs" class="small-button" style="position: relative; top: -15px;">Contribute</a>
+							<a href="http://badge.fury.io/js/{{repo.npm.id}}"><img style="max-width:100%;" data-canonical-src="https://badge.fury.io/js/{{repo.npm.svg}}.svg" alt="NPM version" src="https://camo.githubusercontent.com/{{repo.npm.key}}"></a><br/>
+
+							<a href="https://travis-ci.org/{{repo.travis.id}}/qunit-promises"><img data-bindattr-732="732" src="https://travis-ci.org/{{repo.travis.id}}.svg" alt="Build status"></a><br/>
+
+							<a href="https://coveralls.io/r/{{repo.coveralls.id}}/qunit-promises"><img src="https://coveralls.io/repos/{{repo.coveralls.id}}/qunit-promises/badge.png" alt="Coverage Status"></a><br/>
+
+							<a href="http://gruntjs.com/"><img style="max-width:100%;" data-canonical-src="https://cdn.gruntjs.com/builtwith.png" alt="Built with Grunt" src="https://camo.githubusercontent.com/{{repo.grunt.key}}"></a><br/>
+
+							<iframe src="http://ghbtns.com/github-btn.html?user=soajs&repo=soajs&type=watch&count=true" height="30" width="118" frameborder="0" scrolling="0" style="width:118px; height: 30px;" allowTransparency="true"></iframe>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -65,6 +74,7 @@
 		<h1>Powered By</h1>
 		<hr/>
 		<br/>
+
 		<div class="powered-icon"><a target="_blank" href="http://nodejs.org/"><img src="images/footer/nodeIcon.png"></a></div>
 		<div class="powered-icon"><a target="_blank" href="http://www.elasticsearch.org/"><img src="images/footer/elasticSearchIcon.png"></a></div>
 		<div class="powered-icon"><a target="_blank" href="http://www.mongodb.org/"><img src="images/footer/mongoDb.png"></a></div>

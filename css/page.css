@@ -314,7 +314,8 @@ a:hover{
 
 .white-banner {
     background-color: #fff;
-    height: 60px;
+    width:100%;
+    display:table;
     padding: 13px 0;
 }
 
@@ -322,24 +323,55 @@ a:hover{
     box-sizing: border-box;
     margin: 0 auto;
     width: 997px;
-    padding: 15px 0;
 }
 
-.white-banner .banner-container p {
-    color: #333;
-    display: block;
-    float: left;
-    font-size: 15px;
+.white-banner .banner-container .repos ul {
+    margin: 0 auto;
+    padding: 0;
+    list-style-type: none;
+    font-size:12px;
+    width:997px;
 }
 
-.white-banner .banner-container p a {
-    color: #41bac2;
-    /*color: #df9630;*/
-    padding-left: 20px;
+.white-banner .banner-container .repos ul li{
+    float:left;
+    margin:5px;
+    border:solid 1px #f1f1f1;
+    padding:5px;
+    display:block;
+    border-radius:5px;
+    width:189px;
+}
+
+.white-banner .banner-container .repos ul li .repoLabel{
+    font-size:14px;
+    font-weight:bold;
+    text-align:center;
+    display:inline-block;
+    width:100%;
+}
+.white-banner .banner-container .repos ul li a{
+    margin-bottom:5px;
+}
+
+.white-banner .banner-container .repos ul li a img{
+    max-height:18px;
+}
+
+.white-banner .banner-container .repos ul li:hover{
+    border:solid 1px #FFB500;
+    transition: all ease 0.25s;
 }
 
 .white-banner .banner-container .sharing {
-    float: right;
+    text-align:center;
+    clear: both;
+}
+
+.white-banner .banner-container .sharing .small-button{
+    float:none;
+    width:200px;
+    margin:0 auto;
 }
 
 .white-banner .banner-container .sharing:after {
