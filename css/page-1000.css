@@ -74,6 +74,9 @@
     .features-page .left img, .features-page .right img {
         max-width: 385px;
     }
+    .examples img{
+        width: auto;
+    }
     #getstarted_ex02, #ex02Registry, #registry-example01{
         float:right;
     }
@@ -89,6 +92,7 @@
     .soajs-features .features-container .feature-list li.odd {
         margin-right: 6%
     }
+
 }
 @media screen and (min-width: 1200px) {
     .topbar .nav-container {

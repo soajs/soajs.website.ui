@@ -17,6 +17,9 @@
     .topbar .topnav li.active a {
         border-bottom: solid 4px rgb(53, 90, 118);
     }
+    .examples img{
+        width: auto;
+    }
     img{
         max-width: 88%;
     }

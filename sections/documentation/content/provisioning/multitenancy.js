@@ -31,9 +31,11 @@ var test = {
 						}
 					],
 					"config": {
-						"urac": {
-							"hashIterations": 1024, //used by hasher
-							"seedLength": 32 //used by hasher
+						"dev": {
+							"urac": {
+								"hashIterations": 1024, //used by hasher
+								"seedLength": 32 //used by hasher
+							}
 						}
 					}
 				}

@@ -11,11 +11,9 @@ body, html {
     color: rgb(34, 34, 34);
     line-height:1.9em;
 }
-
 a img {
     border: none;
 }
-
 a {
     color: rgb(65, 100, 126);
     font-weight: 400;
@@ -26,7 +24,9 @@ a {
 a:hover{
     color: #DA9437;
 }
-
+.examples img{
+    width: 300px;
+}
 /*
     HEADER, LOGO AND TOP MENU
 */

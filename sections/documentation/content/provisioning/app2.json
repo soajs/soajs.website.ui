@@ -21,13 +21,15 @@
 			}
 		],
 		"config": {
-			"urac": {
-				"hashIterations": 1024,
-				"seedLength": 32
-			},
-			"example03": {
-				"tenantName": "My Test Tenant"
-			}
+          "dev": {
+            "urac": {
+              "hashIterations": 1024,
+              "seedLength": 32
+            },
+            "example03": {
+              "tenantName": "My Test Tenant"
+            }
+          }
 		}
 	}
 ]
