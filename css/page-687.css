@@ -1,0 +1,299 @@
+@media (max-width: 687px) {
+    body, html {
+        font-size: 14px;
+        line-height: 1.7em;
+    }
+    .banner .banner-container {
+        padding: 70px 0 70px;
+    }
+
+    .topbar .topnav li.active a {
+        border-bottom: none;
+    }
+    .topbar .topnav li:hover a {
+        border-bottom: none;
+    }
+    .topbar .contactUs, .topbar .documentation,.topbar .features, .topbar .getStarted {
+        width: 100%;
+    }
+
+    .topbar .menu {
+        display: block !important;
+    }
+    .topbar .menu.menu-open {
+        background-color: rgb(53, 90, 118);
+    }
+
+    .topbar .topnav {
+        background-color: rgb(53, 90, 118);
+        display: none;
+        padding: 0;
+        position: absolute;
+        right: 0;
+        top: 60px;
+        width: 200px;
+    }
+    .topbar .topnav li {
+        border-bottom: 1px solid rgb(65, 100, 126);;
+        float: none;
+        font-size: 20px;
+        height: 45px;
+    }
+    .topbar .topnav li.no-mobile {
+        display: none;
+    }
+    .topbar .topnav li a {
+        box-sizing: border-box;
+        color: #fff;
+        display: block;
+        font-weight: 400;
+        margin: 0;
+        padding: 7px 25px 13px 25px;
+        width: 100%;
+    }
+    .topbar .topnav li a.current {
+        border-bottom: medium none;
+        color: #41bac2;
+        font-weight: 600;
+    }
+    .topbar .topnav li.active a {
+        color: white;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+    .topbar .topnav li:last-child {
+        border-bottom: medium none;
+    }
+    .topbar .topnav li:last-child a {
+        padding-bottom: 16px;
+    }
+    .topbar .topnav.menu-open {
+        display: block;
+    }
+
+    .topbar .topnav li.active, .topbar .topnav li:hover {
+        background-color: rgb(223, 150, 48);
+        transition: all 0.25s ease 0s;
+        text-decoration: none;
+        font-weight: normal;
+        color:white;
+    }
+    .topbar .topnav li.active a, .topbar .topnav li:hover a {
+        text-decoration: none;
+        font-weight: normal;
+        color:white;
+    }
+    .topbar .branding {
+        width: 175px;
+    }
+    .topbar .branding img.logo {
+        width:173px;
+        max-width:173px;
+    }
+    .powered-by-container .powered-icon img{
+        max-width: 100px;
+    }
+
+    .beaverImg{
+        float: none;
+        clear: both;
+        width: 80%;
+    }
+    .banner .banner-container .left-main{
+        float: none;
+        clear: both;
+        width: 85%;
+        margin: 0 auto;
+    }
+    .feature-list img{
+    }
+    .features-page .main-section-container .feature-list ul li {
+        padding: 35px 0;
+    }
+    .features-page .main-section-container .feature-list ul li p{
+        font-size: 13px;
+        line-height: 1.6em;
+    }
+    .features-page .main-section-container .feature-list ul li .std-list li{
+        font-size: 13px;
+    }
+    #indexjsImg{
+        clear: both;
+        width: 85%;
+    }
+    #dashboardpng{
+        width: 85%;
+    }
+    .soajs-features .features-container .features p {
+        font-size: 15px;
+        width: 90%;
+        margin: 0 auto;
+    }
+    .soajs-features .features-container .features h1 {
+        font-size: 26px;
+    }
+    .soajs-features{
+        padding: 40px 0;
+    }
+    .soajs-features .feature-list li h5{
+        font-size: 16px;
+    }
+    .soajs-features .features-container .feature-list li.odd {
+        margin-right: 0;
+    }
+}
+
+
+@media (max-width: 640px) {
+    html, body, ul li, p {
+        font-size: 14px;
+        line-height: 1.6em;
+    }
+    fieldset legend{
+        font-size: 16px;
+    }
+    pre code{
+        font-size: 12px;
+    }
+    .page h1 {
+        font-size: 18pt;
+    }
+    h3 {
+        font-size: 18px;
+    }
+    h4, .h4 {
+        font-size: 16px;
+    }
+    img{
+        width: 90%;
+    }
+    .topbar .branding img.logo {
+        width:173px;
+    }
+    .soajs-features .feature-list li p {
+        font-size: 14px;
+        line-height: 1.6em;
+    }
+
+    .powered-by-container h1{
+        font-size: 20px;
+        margin-top: 15px;
+    }
+    .powered-by-container .powered-icon {
+        height: 50px;
+    }
+    .powered-by-container .powered-icon img{
+        max-width: 100px;
+    }
+    .left-sidebar .left-menu {
+        width: 90%;
+        font-size: 12px;
+    }
+    .left-sidebar .left-menu h4{
+        font-size: 14px;
+    }
+    .feature-list td.left, .feature-list td.right{
+        width: 0;
+        display: none;
+    }
+    .feature-list .left img, .feature-list .right img{
+        display: none;
+    }
+
+    .left-sidebar {
+        float: none;
+        width:100%;
+        padding-top: 15px;
+        z-index: 100;
+        height:auto;
+        border-bottom-style: dotted;
+        border-bottom-color: rgb(61, 61, 61);
+        border-bottom-width: 1px;
+        cursor:pointer;
+    }
+    .left-sidebar:after {
+        clear: both;
+        content: " ";
+        display: block;
+    }
+    .left-sidebar section{
+        float:left;
+        padding-left: 7px;
+        padding-right: 7px;
+        width: 31%;
+        position:relative;
+        outline: 0;
+    }
+    .left-sidebar .left-menu {
+        width: 99%;
+    }
+    .left-sidebar section h4{
+        padding-left: 10px;
+        margin-bottom: 5px;
+    }
+    .left-sidebar section hr, .left-sidebar section br, .left-sidebar section ul{
+        display:none;
+    }
+
+    .left-sidebar section ul li {
+        padding-top: 15px;
+    }
+
+    .left-sidebar section:hover > ul{
+        display:block;
+        position:absolute;
+        margin-left: -10px;
+        z-index: 100;
+        padding: 0 15px 15px 20px;
+        border-color: rgb(61, 61, 61);
+        transition:all ease 0.5s;
+        opacity: .9;
+        background-color: rgb(65, 100, 126);
+    }
+    .left-sidebar section ul li a{
+        color: #ffffff;
+    }
+    .right-sidebar {
+        float: none;
+        width: 100%;
+        display: block;
+        clear: both;
+    }
+    .main-section-container h1{
+        padding-left: 15px;
+    }
+
+    .myTable th, .myTable td {
+        padding: 10px 8px;
+        font-size: 12px;
+    }
+
+    .myTable thead th {
+        font-size: 14px;
+    }
+    #urac-override-acl{
+        width: 85%;
+        max-width: 90%;
+    }
+    #dashboardpng{
+        width: 90%;
+        max-width: 90%;
+    }
+    .small-button {
+        padding: 8px 25px 8px;
+        font-size: 15px;
+    }
+    #example03png, #example01png, #example02-oauth, #getstarted_ex02, #oAuth-workflow{
+        width: 90%;
+    }
+    fieldset{
+        word-break: break-all;
+    }
+    pre code{
+        font-size: 11px;
+    }
+
+
+
+
+}

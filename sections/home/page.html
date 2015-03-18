@@ -4,7 +4,9 @@
 			<div class="banner-container">
 				<div class="left-main">
 					<div class="tagline">
-						<p>SOAJS is an open source dream framework that empowers building crazy fast the API-nization layer between the product frontend (UI/UX) and backend (business logic). SOAJS comes with tons of advantages and some of these advantages are:</p>
+						<p>SOAJS is an open source dream framework that empowers building crazy fast the API-nization layer between the product frontend (UI/UX) and backend (business logic). SOAJS
+						   comes with tons of advantages and some of these advantages are:
+						</p>
 					</div>
 					<div class="about-container">
 						<ul>
@@ -28,19 +30,31 @@
 				<div class="repos">
 					<ul>
 						<li ng-repeat="repo in repos">
-							<span class="repoLabel">{{repo.label}}</span>
-							<br/>
-							<a href="{{repo.documentation}}" title="Go to {{repo.label}} Documentation"><img alt="wiki" ng-src="images/repos/wiki.png" /></a> <a href="{{repo.documentation}}" title="Go to {{repo.label}} Documentation">Documentation</a><br />
+							<div id="repo{{repo.label}}" class="repoinner">
 
-							<a href="http://badge.fury.io/js/{{repo.npm.id}}"><img style="max-width:100%;" data-canonical-src="https://badge.fury.io/js/{{repo.npm.svg}}.svg" alt="NPM version" ng-src="https://camo.githubusercontent.com/{{repo.npm.key}}"></a><br/>
+								<span class="repoLabel">{{repo.label}}</span>
+								<div class="repoLinks wikiLink"><a href="{{repo.documentation}}" title="Go to {{repo.label}} Documentation"><img alt="wiki" ng-src="images/repos/wiki.png" /></a>
+									<a href="{{repo.documentation}}" title="Go to {{repo.label}} Documentation">Documentation</a></div>
 
-							<a href="https://travis-ci.org/{{repo.travis.id}}/qunit-promises"><img data-bindattr-732="732" ng-src="https://travis-ci.org/{{repo.travis.id}}.svg" alt="Build status"></a><br/>
+								<div class="repoLinks">
+									<a href="http://badge.fury.io/js/{{repo.npm.id}}"><img style="max-width:100%;" data-canonical-src="https://badge.fury.io/js/{{repo.npm.svg}}.svg" alt="NPM version" src="https://camo.githubusercontent.com/{{repo.npm.key}}"></a>
+								</div>
+								<div class="repoLinks">
+									<a href="https://travis-ci.org/{{repo.travis.id}}/qunit-promises"><img data-bindattr-732="732" src="https://travis-ci.org/{{repo.travis.id}}.svg" alt="Build status"></a>
+								</div>
 
-							<a href="https://coveralls.io/r/{{repo.coveralls.id}}/qunit-promises"><img ng-src="https://coveralls.io/repos/{{repo.coveralls.id}}/qunit-promises/badge.png" alt="Coverage Status"></a><br/>
+								<div class="repoLinks">
+									<a href="https://coveralls.io/r/{{repo.coveralls.id}}/qunit-promises"><img src="https://coveralls.io/repos/{{repo.coveralls.id}}/qunit-promises/badge.png" alt="Coverage Status"></a>
+								</div>
 
-							<a href="http://gruntjs.com/"><img style="max-width:100%;" data-canonical-src="https://cdn.gruntjs.com/builtwith.png" alt="Built with Grunt" ng-src="https://camo.githubusercontent.com/{{repo.grunt.key}}"></a><br/>
+								<div class="repoLinks">
+									<a href="http://gruntjs.com/"><img style="max-width:100%;" data-canonical-src="https://cdn.gruntjs.com/builtwith.png" alt="Built with Grunt" src="https://camo.githubusercontent.com/{{repo.grunt.key}}"></a>
+								</div>
 
-							<iframe src="http://ghbtns.com/github-btn.html?user=soajs&repo={{repo.github}}&type=watch&count=true" height="30" width="118" frameborder="0" scrolling="0" style="width:118px; height: 30px;" allowTransparency="true"></iframe>
+								<div class="repoLinks gitLink">
+									<iframe src="http://ghbtns.com/github-btn.html?user=soajs&repo=soajs&type=watch&count=true" frameborder="0" scrolling="0" style="" allowTransparency="true"></iframe>
+								</div>
+							</div>
 						</li>
 					</ul>
 				</div>

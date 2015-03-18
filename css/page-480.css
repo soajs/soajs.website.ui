@@ -1,9 +1,26 @@
 
 @media (max-width: 480px) {
-    body, html {
+    .banner .banner-container .tagline {
+        font-size: 15px;
+    }
+
+    .white-banner .banner-container p {
+        font-size: 12px;
+    }
+
+    #dashboard-form, #dashboard-grid{
+        width: 90% ;
+    }
+    .left-sidebar .left-menu {
+        width: 89%;
+    }
+    .left-sidebar  {
+        padding-left: 5px;
+    }
+
+    body, html, ul li, p {
         font-size: 13px;
         line-height:1.5em;
-        color:red;
     }
     .page h1{
         font-size: 16pt;
@@ -45,7 +62,6 @@
 
     .bottom {
         font-size: 13px;
-        height: auto;
         padding: 10px 0;
     }
     .small-button {
@@ -54,19 +70,13 @@
         padding: 10px 17px 8px;
         margin-right: 10px;
     }
-    /*
-    .left-sidebar section{
-        width: 29%;
+    .small-button {
+        /*padding: 6px 25px 8px; */
     }
-    .left-sidebar section#dashbd{
-        width: 34%;
-    }
-    .left-sidebar section#soajs{
-        width: 32%;
-    }
-    */
+
     .features-page .main-section-container .feature-list ul li {
         padding: 30px 0;
+        width: 100%;
     }
     .features-page .main-section-container .feature-list ul li p{
         font-size: 12px;
@@ -75,8 +85,24 @@
     .features-page .main-section-container .feature-list ul li .std-list li{
         font-size: 12px;
     }
+    .image-right{
+        float: none;
+        display: block;
+    }
+    #indexjsImg{
+        float:none;
+    }
     #registry1png{
         width:270px;
+        float: none;
+    }
+    #controllerpng, #urac2png, #uracpng{
+        width: 92%;
+        max-width: 92%;
+    }
+    #example03png, #example01png, #example02-oauth, #getstarted_ex02, #getStartedImg, #oAuth-workflow{
+        width: 85%;
+        display: block;
         float: none;
     }
     #urac-override-acl{
@@ -119,6 +145,9 @@
     .soajs-features .features-container .features h1 {
         font-size: 24px;
     }
+    .soajs-features .feature-list li img{
+        display: none;
+    }
     .soajs-features{
         padding: 35px 0;
     }
@@ -130,9 +159,13 @@
         font-size: 14px;
     }
     .banner .about-container {
-
+        padding-top: 15px;
+        font-size: 13px;
     }
     .banner .banner-container .left-main{
+    }
+    .main-section-container ol, .main-section-container ul{
+        padding-left: 20px;
     }
 }
 
@@ -140,9 +173,10 @@
     body, html, p, ul li {
         font-size: 12px;
         line-height:1.4em;
-        color:blue;
     }
-
+    #section-footer{
+        width: 375px;
+    }
     .topbar .nav-container {
         width: 375px;
     }
@@ -151,9 +185,6 @@
     }
     .bottom {
         font-size: 12px;
-        height: auto;
-        padding: 10px 0;
-        width: 100%;
     }
     .main-section-container {
         width: 375px;
@@ -174,13 +205,14 @@
         padding: 30px 0;
         width: 375px;
     }
+    .soajs-features .features-container .feature-list li {
+        width: 300px;
+    }
     .myTable td {
         font-size: 10px;
         padding: 8px 5px;
     }
-    fieldset{
-        /* width: 100%; */
-    }
+
     fieldset legend{
         font-size: 13px;
     }
@@ -200,9 +232,6 @@
     .powered-by-container{
         display: none;
         width: 10px;
-    }
-    .soajs-features .features-container .feature-list li {
-        width: 300px;
     }
 
     .copyright{
@@ -228,9 +257,14 @@
     }
     #ex02Registry{
         width: 90%;
+        display: block;
+        float: none;
+        margin-bottom: 10px;
     }
     #registry-example01{
         width: 250px;
+        display: block;
+        margin-bottom: 10px;
     }
 }
 
@@ -243,22 +277,29 @@
         font-size: 10px;
         line-height: 1.3em;
     }
-    .topbar .nav-container {
-        width: 320px; margin: 0;
+    .bottom {
+        font-size: 12px;
+        padding: 10px 0;
     }
     .bottom .sharing-footer {
-        width: 320px; margin: 0;
+        width: 320px;
+    }
+    #section-footer{
+        width: 320px;
+    }
+    .topbar .nav-container {
+        width: 320px;
     }
 
     .main-section-container {
-        width: 320px; margin: 0;
+        width: 320px;
     }
     .banner .banner-container {
-        width: 320px; margin: 0;
+        width: 320px;
         padding: 50px 0 50px;
     }
     .white-banner .banner-container {
-        width: 320px; margin: 0;
+        width: 320px;
     }
     .powered-by-container {
         width: 320px;
@@ -266,17 +307,12 @@
     }
     .soajs-features .features-container {
         width: 320px;
-        margin: 0;
     }
     .soajs-features{
         width: 320px;
     }
     .soajs-features .features-container .feature-list li {
         /*width: 90%;*/
-    }
-    .bottom {
-        font-size: 12px;
-        padding: 10px 0;
     }
 
     .small-button {
@@ -293,7 +329,11 @@
         padding: 8px 5px;
     }
     .insideFieldsetMain{
-        width: 277px;
+        width: 276px;
     }
+    .insideFieldsetMain pre{
+        width: 276px;
+    }
+
 }
 

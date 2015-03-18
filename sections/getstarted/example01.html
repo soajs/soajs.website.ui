@@ -103,7 +103,7 @@ $ node index</code></pre>
 		Let's do a heartbeat check just to make sure all is working as expected before we begin the tests.<br /><br />
 		</p>
 		<fieldset>
-			<legend>Heartbeat Example01</legend>
+			<legend>Heartbeat Example01</legend><div class="insideFieldsetMain">
 			<div>
 				<pre><code class="bash">$ curl -X GET "http://localhost:5010/heartbeat"</code></pre>
 				<h6><u>Response:</u></h6>
@@ -119,10 +119,10 @@ $ node index</code></pre>
 				</pre>
 				<p>Notice here that we used port <u>5010</u> to perform a <b>heartbeat</b> check. We previously mentioned in <a href="#/getstarted">Get Started</a>, that a heartbeat operation is made using the maintenance port of a service and that the maintenance port is equal to the port number of the service + 1000.<br />
 					In the image above, in <b>Registering the Service</b>, we registered example01 in SOAJS with port <u>4010</u> making the maintenance port of this service as <u>5010</u>.</p>
-			</div>
+			</div></div>
 		</fieldset>
 		<fieldset>
-			<legend>Calling Example01</legend>
+			<legend>Calling Example01</legend><div class="insideFieldsetMain">
 			<div>
 				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example01"</code></pre>
 				<h6><u>Response:</u></h6>
@@ -143,7 +143,7 @@ $ node index</code></pre>
 					Here we attempted to call <b>Example01</b> service without specifying any of its APIs. The returned response was a fail because basically there is no API defined in this service with the value "/" so this event is treated as if an invalid API route was called.<br /><br />
 					Another important thing to notice is how the URL of the service was constructed. Again, all requests to SOAJS services should pass through the <a href="#/documenation/controller">Controller</a> and this why the port used was <u>4000</u> and not <u>4010</u> even though <u>4010</u> is <b>Example01</b> service port in the registry.
 				</p>
-			</div>
+			</div></div>
 		</fieldset>
 		<hr/>
 		<h3>Running Some Tests</h3>
@@ -151,7 +151,7 @@ $ node index</code></pre>
 			Both our Controller and <b>Example01</b> services are now running, so let's start running some tests on the routes of Example01 and see what happens. Trigger the API by using a CURL command from the terminal.<br/><br/>
 		</p>
 		<fieldset>
-			<legend><b>/testGet api: Fail</b></legend>
+			<legend><b>/testGet api: Fail</b></legend><div class="insideFieldsetMain">
 			<div>
 				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example01/testGet?firstName=John" </code> </pre>
 				<h6>Response</h6>
@@ -162,10 +162,10 @@ $ node index</code></pre>
 				<p>
 					The API returned a false response because when we triggered the call, we did not specify a <b>lastName</b> in the querystring and we configured this API to read this parameter and make sure it is provided. <a href='#/documentation/imfv'>IMFV</a> did not find <b>lastName</b> in the parameters and thus stopped the request from continuing and returned an error message back to us.
 				</p>
-			</div>
+			</div></div>
 		</fieldset>
 		<fieldset>
-			<legend><b>/testGet api: Success</b></legend>
+			<legend><b>/testGet api: Success</b></legend><div class="insideFieldsetMain">
 			<div>
 				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example01/testGet?firstName=John&lastName=Smith&email=john@smith.com" </code> </pre>
 				<h6>Response</h6>
@@ -174,10 +174,10 @@ $ node index</code></pre>
 					<div id="result02"></div>
 				</div><br />
 				<p>This time the API returned a valid response with the JSON Object containing all the parameters we specified.</p>
-			</div>
+			</div></div>
 		</fieldset>
 		<fieldset>
-			<legend><b>/testPost api: Success</b></legend>
+			<legend><b>/testPost api: Success</b></legend><div class="insideFieldsetMain">
 			<div>
 				<pre><code class="bash">$ curl -X POST -H "Content-type:application/json" -H "Accept:application/json" "http://localhost:4000/example01/testPost" -d '{"firstName":"John","lastName":"Smith"}'</code> </pre>
 				<h6>Response</h6>
@@ -185,10 +185,10 @@ $ node index</code></pre>
 				<div ng-init="loadJSON(path + 'example01/testPost1.json', 'testPost1');">
 					<div id="testPost1"></div>
 				</div>
-			</div>
+			</div></div>
 		</fieldset>
 		<fieldset>
-			<legend><b>/testPost api: Success</b></legend>
+			<legend><b>/testPost api: Success</b></legend><div class="insideFieldsetMain">
 			<div>
 				<pre><code class="bash">$ curl -X POST -H "Content-type:application/json" -H "Accept:application/json" "http://localhost:4000/example01/testPost" -d '{"firstName":"John","lastName":"Smith","email":"john@smith.com"}'</code></pre>
 				<h6>Response</h6>
@@ -196,10 +196,10 @@ $ node index</code></pre>
 				<div ng-init="loadJSON(path + 'example01/testPost2.json', 'testPost2');">
 					<div id="testPost2"></div>
 				</div>
-			</div>
+			</div></div>
 		</fieldset>
 		<fieldset>
-			<legend><b>/testPost api: Fail</b></legend>
+			<legend><b>/testPost api: Fail</b></legend><div class="insideFieldsetMain">
 			<div>
 				<pre><code class="bash">$ curl -X POST -H "Content-type:application/json" -H "Accept:application/json" "http://localhost:4000/example01/testPost" -d '{"firstName":"Johnx","lastName":"Smith"}'</code></pre>
 
@@ -212,10 +212,10 @@ $ node index</code></pre>
 				<p>
 					This test failed because not only do we need to provide a <b>firstName</b> parameter when calling this API, but we also need to make sure that the value is always equal to "John".
 				</p>
-			</div>
+			</div></div>
 		</fieldset>
 		<fieldset>
-			<legend><b>/testPut api: Success Test</b></legend>
+			<legend><b>/testPut api: Success Test</b></legend><div class="insideFieldsetMain">
 			<div>
 				<pre><code class="bash">$ curl -X PUT -H "Content-type:application/json" -H "Accept:application/json" "http://localhost:4000/example01/testPut" -d '{"firstName":"John","lastName":"Smith"}'</code></pre>
 				<h6>Response</h6>
@@ -223,10 +223,10 @@ $ node index</code></pre>
 				<div ng-init="loadJSON(path + 'example01/testPut1.json', 'testPut1');">
 					<div id="testPut1"></div>
 				</div>
-			</div>
+			</div></div>
 		</fieldset>
 		<fieldset>
-			<legend><b>/testDel api: Success</b></legend>
+			<legend><b>/testDel api: Success</b></legend><div class="insideFieldsetMain">
 			<div>
 				<pre><code class="bash">$ curl -X DELETE "http://localhost:4000/example01/testDel?firstName=John&lastName=Smith"</code></pre>
 				<h6>Response</h6>
@@ -234,19 +234,19 @@ $ node index</code></pre>
 				<div ng-init="loadJSON(path + 'example01/testDel1.json', 'testDel1');">
 					<div id="testDel1"></div>
 				</div>
-			</div>
+			</div></div>
 		</fieldset>
 		<fieldset>
-			<legend><b>/buildName api: Success</b></legend>
+			<legend><b>/buildName api: Success</b></legend><div class="insideFieldsetMain">
 			<div>
 				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example01/buildName?firstName=James&lastName=Smith"</code></pre>
 				<h6>Response</h6>
 				<div ng-init="loadJSON(path + 'example01/buildName1.json', 'buildName1');">
 					<div id="buildName1"></div>
 				</div>
-			</div>
+			</div></div>
 		</fieldset>
-		<fieldset>
+		<fieldset><div class="insideFieldsetMain">
 			<legend><b>/buildName api: Test 2</b></legend>
 			<div>
 				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example01/buildName?lastName=Smith"</code></pre>
@@ -261,7 +261,7 @@ $ node index</code></pre>
 					This API succeeded the call even though <b>firstName</b> was not provided as a paramter while making the call. If you re-examin the <a href='#/documentation/imfv'>IMFV</a> configuration of this API, you notice an entry named "<b>default</b>" with the vlue "<b>John</b>" assigned to it.<br />
 					In the previous test, we made a call and specified <b>firstName</b> to be "<b>James</b>" and the returned response was "<b>James Smith</b>" but here we only provided the <b>lastName</b> as a paramter so <a href='#/documentation/imfv'>IMFV</a> noticed that there is a default value for the <b>firstName</b> parameter and since it wasn't provided by the request, it used it.
 				</p>
-			</div>
+			</div></div>
 		</fieldset>
 		<p>
 			By now you have seen how easy it is to configure <a href='#/documentation/imfv'>IMFV</a> for a service, how quick and simple it is to write an API service and how to perform maintenance operations on a service. Imagine how much time and effort you have saved just by creating two files and writing few lines of code in each of them.<br />

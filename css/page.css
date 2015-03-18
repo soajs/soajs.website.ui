@@ -125,9 +125,12 @@ a:hover{
     color: rgb(53, 90, 118);
     border-bottom:solid 4px rgb(53, 90, 118);
 }
-
-.bottom {
+#section-footer{
     background-color: white;
+    clear: both;
+    width: 100%;
+}
+.bottom {
     color: rgb(61, 61, 61);
     box-sizing: border-box;
     font-size: 18px;
@@ -359,7 +362,10 @@ a:hover{
     border:solid 1px #FFB500;
     transition: all ease 0.25s;
 }
-
+.white-banner .banner-container .repos ul li .gitLink iframe{
+    width:118px;
+    height: 30px;
+}
 .white-banner .banner-container .sharing {
     text-align:center;
     clear: both;
@@ -747,9 +753,9 @@ pre {
 
 fieldset {
     background-color: white;
-    margin: auto;
     padding: 10px;
-    margin-bottom: 50px;
+    margin: auto;
+    margin-bottom:50px;
     border: solid 1px #cccccc;
 }
 

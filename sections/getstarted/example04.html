@@ -122,13 +122,12 @@ $ node index</code></pre>
 		</fieldset>
 		<fieldset><legend>Login to oAuth</legend>
 			<div class="insideFieldsetMain">
-
 			<div> Like in <a href="#/getStarted/example02">Example02</a>, we need to login to oAuth.
 			      We need to call "oauth/token" and provide two values in the headers:<br>
 				- The external key value from Tenant 1.<br>
 				- Authorization, which is generated from (tenantId:secret_phrase).  So for Tenant 1,
-			in this case it is (<b>54ee2150b7a669fc22b7f6b9</b>:<b>My secret phrase</b>) which evaluates to "NTRlZTIxNTBiN2E2NjlmYzIyYjdmNmI5Ok15IHNlY3JldCBwaHJhc2U=".<em></em><br /><br />
-
+			in this case it is (<b>54ee2150b7a669fc22b7f6b9</b>:<b>My secret phrase</b>) which evaluates to "NTRlZTIxNTBiN2E2NjlmYzIyYjdmNmI5Ok15IHNlY3JldCBwaHJhc2U=".
+				<br /><br />
 
 				<pre><code class="bash">$ curl -X POST -H "Authorization: Basic NTRlZTIxNTBiN2E2NjlmYzIyYjdmNmI5Ok15IHNlY3JldCBwaHJhc2U=" -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://localhost:4000/oauth/token" -d 'username=oauthuser_tenant1&password=oauthpassword_tenant1&grant_type=password'</code></pre>
 				<h6>Response:</h6>
@@ -158,7 +157,7 @@ $ node index</code></pre>
 		Next, we will use the key from the third application to run more tests.
 		<fieldset><legend>Tenant 1: Application 3</legend>
 			<div class="insideFieldsetMain">
-			<div>
+			<div style="word-break:break-all;">
 				The third application using PROD1_PCK4 allows access to "/buildName" only for logged in users.
 				We will hit "example04/buildName".
 				<pre><code class="bash">$ curl -X GET -H "key:4232477ed993d167ec13ccf8836c29c4c3eabd8dc5d6b29af1725af616353c2ef59ab49a11f64affc60fa73a48eda79187085b064d533fb2f2adccf3e48b41088765a3665c91a193cf13808d68194ecc2061ae81639b49c9f1a73150a3123254" "http://rest-proxy:4000/example04/buildName?lastName=Smith&access_token=e59104df7256d2d0a77771303ea81fd68ed39e45"</code></pre>
@@ -173,7 +172,6 @@ $ node index</code></pre>
 
 		<fieldset><legend>Login as user2 and try buildName</legend>
 			<div class="insideFieldsetMain">
-
 			<div>
 				Login as user2 using the "urac/login" api, grab the soajsauth value and add it to the headers.
 				Now hit "example04/buildName".
@@ -189,7 +187,6 @@ $ node index</code></pre>
 
 		<fieldset><legend>Try buildNameGold</legend>
 			<div class="insideFieldsetMain">
-
 			<div>
 				Now, using the same soajsauth value in your headers,
 				hit "example04/buildNameGold".
