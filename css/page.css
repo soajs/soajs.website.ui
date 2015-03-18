@@ -715,9 +715,9 @@ pre {
 
 fieldset {
     background-color: white;
-    margin: auto;
     padding: 10px;
-    margin-bottom: 50px;
+    margin: auto;
+    margin-bottom:50px;
     border: solid 1px #cccccc;
 }
 
