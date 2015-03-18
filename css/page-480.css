@@ -130,9 +130,11 @@
         font-size: 14px;
     }
     .banner .about-container {
-
     }
     .banner .banner-container .left-main{
+    }
+    .manual-install{
+        padding-left: 20px;
     }
 }
 
