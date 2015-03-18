@@ -258,7 +258,7 @@ $ node index</code></pre>
 			<div>
 				The second tenant has an application that uses <b>PROD1_PCK2</b> package and should be able to access example03. <br/>
 				Let's use the external key from second tenant app and hit "example03/buildName" again:
-				<pre><code class="bash">$ curl -X GET "http://rest-proxy:4000/example03/buildName?lastName=Smith" -H "key:2423205b6ccd825aaa3dbf7f248f807996c1f39f4e128801107a10ea55eac9686f23b883b778b1763876fe47f7cc651fea232f7aa9dae3dfd1978d4948a3f26b948ebc1b71a9d6cacf08852312866d757b22392d8d3c0e28ee47edb0e7478157"</code></pre>
+				<pre><code class="bash">$ curl -X GET "http://rest-proxy:4000/example03/buildName?lastName=Thomas" -H "key:2423205b6ccd825aaa3dbf7f248f807996c1f39f4e128801107a10ea55eac9686f23b883b778b1763876fe47f7cc651fea232f7aa9dae3dfd1978d4948a3f26b948ebc1b71a9d6cacf08852312866d757b22392d8d3c0e28ee47edb0e7478157"</code></pre>
 				<h6>Response:</h6>
 
 				<div ng-init="loadJSON(path + 'example03/tenant2/tenant2_test1.json', 'tenant2_test1');">
