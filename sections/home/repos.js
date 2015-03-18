@@ -15,7 +15,8 @@
 		"coveralls":{
 			"id":"soajs"
 		},
-		"documentation": "#/documentation/"
+		"documentation": "#/documentation/",
+		"github": "soajs"
 	},
 	{
 		"label": "Utilities",
