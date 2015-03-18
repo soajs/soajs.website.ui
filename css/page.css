@@ -349,7 +349,8 @@ a:hover{
     text-align:center;
 }
 .white-banner .banner-container .repos ul li a{
-    margin-bottom:5px;
+    display: inline-block;
+    margin-bottom: 3px;
 }
 
 .white-banner .banner-container .repos ul li a img{
