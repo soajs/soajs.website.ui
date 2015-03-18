@@ -121,6 +121,17 @@
     .soajs-features .features-container .feature-list li.odd {
         margin-right: 6%
     }
+
+    /* repose*/
+    .white-banner .banner-container .repos ul {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .white-banner .banner-container .repos ul li{
+        border-radius:5px;
+        width: 19%;
+    }
 }
 
 @media (max-width: 767px) {
@@ -327,6 +338,7 @@
     .white-banner .banner-container .repos ul li .repoLabel{
         font-size:13px;
         width:100%;
+        text-align: left;
     }
     .white-banner .banner-container .repos ul li a{
         margin-bottom:0px;

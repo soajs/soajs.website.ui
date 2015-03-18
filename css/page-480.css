@@ -167,6 +167,9 @@
     .main-section-container ol, .main-section-container ul{
         padding-left: 20px;
     }
+    .white-banner .banner-container .repos {
+        display: none;
+    }
 }
 
 @media (max-width: 400px) {
