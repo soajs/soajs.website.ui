@@ -32,6 +32,9 @@
 						<li ng-repeat="repo in repos">
 							<div id="repo{{repo.label}}" class="repoinner">
 								<span class="repoLabel">{{repo.label}}</span>
+							<span class="repoLabel">{{repo.label}}</span>
+							<br/>
+							<a href="{{repo.documentation}}" title="Go to {{repo.label}} Documentation"><img alt="wiki" ng-src="images/repos/wiki.png" /></a> <a href="{{repo.documentation}}" title="Go to {{repo.label}} Documentation">Documentation</a><br />
 
 								<div class="repoLinks wikiLink"><a href="{{repo.documentation}}" title="Go to {{repo.label}} Documentation"><img alt="wiki" ng-src="images/repos/wiki.png"/>
 									Documentation</a></div>
