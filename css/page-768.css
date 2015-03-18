@@ -278,5 +278,66 @@
     .left-sidebar  {
         padding-left: 5px;
     }
+
+
+    /* repos */
+    .white-banner .banner-container .repos ul {
+        font-size:10px;
+        width: 100%;
+    }
+
+    .white-banner .banner-container .repos ul li{
+        float:none;
+        margin:5px;
+        display:block;
+        border-radius:5px;
+        width: 100%;
+        clear: both;
+    }
+    .white-banner .banner-container .repos ul li:after {
+        clear: both;
+        content: ".";
+        display: block;
+        font-size: 0;
+        height: 0;
+        line-height: 0;
+        visibility: hidden;
+    }
+    .white-banner .banner-container .repos ul li .repoLinks{
+        float: left;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .white-banner .banner-container .repos ul .repoinner{
+        clear: both;
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .white-banner .banner-container .repos ul li .wikiLink{
+        padding-left: 0px;
+    }
+    .white-banner .banner-container .repos ul li .gitLink{
+        padding-right: 0px;
+    }
+    .white-banner .banner-container .repos ul li .gitLink iframe{
+        width: 90px;
+        height: 20px;
+    }
+    .white-banner .banner-container .repos ul li .repoLabel{
+        font-size:13px;
+        width:100%;
+    }
+    .white-banner .banner-container .repos ul li a{
+        margin-bottom:0px;
+    }
+
+    .white-banner .banner-container .repos ul li a img{
+        max-height:13px;
+    }
+
+    .white-banner .banner-container .repos ul li:hover{
+    }
+
 }
 

@@ -362,7 +362,10 @@ a:hover{
     border:solid 1px #FFB500;
     transition: all ease 0.25s;
 }
-
+.white-banner .banner-container .repos ul li .gitLink iframe{
+    width:118px;
+    height: 30px;
+}
 .white-banner .banner-container .sharing {
     text-align:center;
     clear: both;
