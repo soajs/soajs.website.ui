@@ -1,3 +1,6 @@
+.topbar .topnav {
+    padding-left: 5px;
+}
 @media (min-width: 768px) and (max-width: 999px) {
     .hidden-desktop {
         display: inherit !important;
@@ -12,7 +15,7 @@
         display: none !important;
     }
     .topbar .topnav li.active a {
-        border-bottom:solid 4px rgb(53, 90, 118);
+        border-bottom: solid 4px rgb(53, 90, 118);
     }
     img{
         max-width: 88%;
@@ -53,10 +56,6 @@
         margin: 0 auto;
         width: 97%;
     }
-    .topbar .topnav {
-        padding-left: 15px;
-    }
-
     .beaverImg{
         width: 40%;
         text-align: right;
@@ -116,6 +115,9 @@
     #dashboard-form, #dashboard-grid{
         width: 90% ;
     }
+    .soajs-features .features-container .feature-list li.odd {
+        margin-right: 6%
+    }
 }
 
 @media (max-width: 767px) {
@@ -141,9 +143,6 @@
     }
     .topbar .branding {
         width:173px;
-    }
-    img{
-        max-width: 85%;
     }
     #indexjsImg{
         float:none;
@@ -222,13 +221,14 @@
         padding: 0 0 20px 30px;
         position: relative;
         height: auto;
-        width: 97%;
+        width: 95%;
+        float: none;
+        clear: both;
         margin: 10px 0 0 0;
     }
     .soajs-features .feature-list li img.icon {
         display: none;
     }
-
 
     .powered-by-container .powered-icon {
         height: 70px;
@@ -277,11 +277,11 @@
     .left-sidebar  {
         padding-left: 5px;
     }
+
 }
 
 
 @media (max-width: 687px) {
-
     body, html {
         font-size: 14px;
         line-height: 1.8em;
@@ -294,9 +294,6 @@
         line-height: 1.8em;
     }
 
-    .topbar .topnav {
-        padding-left: 5px;
-    }
     .topbar .topnav li.active a {
         border-bottom: none;
     }
@@ -391,7 +388,8 @@
     }
     .banner .banner-container .left-main{
         float: none;
-        width: 80%;
+        clear: both;
+        width: 85%;
         margin: 0 auto;
     }
     .feature-list img{
@@ -412,6 +410,23 @@
     }
     #dashboardpng{
         width: 85%;
+    }
+    .soajs-features .features-container .features p {
+        font-size: 15px;
+        width: 90%;
+        margin: 0 auto;
+    }
+    .soajs-features .features-container .features h1 {
+        font-size: 26px;
+    }
+    .soajs-features{
+        padding: 40px 0;
+    }
+    .soajs-features .feature-list li h5{
+        font-size: 16px;
+    }
+    .soajs-features .features-container .feature-list li.odd {
+        margin-right: 0;
     }
 }
 
@@ -439,6 +454,9 @@
     h4, .h4 {
         font-size: 16px;
     }
+    img{
+        width: 90%;
+    }
     .topbar .branding img.logo {
         width:173px;
     }
@@ -446,11 +464,7 @@
         font-size: 14px;
         line-height: 1.6em;
     }
-    img {
-        max-width: 85%;
-    }
-    .powered-by-container {
-    }
+
     .powered-by-container h1{
         font-size: 20px;
         margin-top: 15px;

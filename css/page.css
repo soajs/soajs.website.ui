@@ -139,7 +139,7 @@ a:hover{
 
 .bottom:after {
     clear: both;
-    content: ".";
+    content: " ";
     display: block;
     font-size: 0;
     height: 0;
@@ -221,6 +221,7 @@ a:hover{
     /*opacity:0.9;*/
     box-sizing: border-box;
     overflow-x: hidden;
+    overflow: visible; /**/
 }
 
 .banner:after {
@@ -238,7 +239,8 @@ a:hover{
     margin: 0 auto;
     width: 997px;
     padding: 80px 0 100px;
-    position: relative;
+    /*position: relative; */
+    clear:both;
 }
 
 .banner .banner-container .left-main {
@@ -271,7 +273,6 @@ a:hover{
 }
 
 .banner .banner-container .tagline {
-    position: relative;
     font-size: 20px;
     z-index: 15;
 }
@@ -297,7 +298,7 @@ a:hover{
 }
 
 .banner .about-container ul li span {
-    color: black;
+    color: black; /* check */
 }
 
 .beaverImg {
@@ -414,10 +415,6 @@ a:hover{
     list-style-type: none;
     width: 47%;
     margin: 10px 0 0 0;
-}
-
-.soajs-features .features-container .feature-list li.odd {
-    margin-right: 6%
 }
 
 .soajs-features .feature-list li:after {
@@ -941,4 +938,8 @@ hr.white {
 }
 em{
     line-height: 1.6em;
+}
+
+.soajs-features{
+
 }

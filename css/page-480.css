@@ -3,6 +3,7 @@
     body, html {
         font-size: 13px;
         line-height:1.5em;
+        color:red;
     }
     .page h1{
         font-size: 16pt;
@@ -14,7 +15,10 @@
         font-size: 14px;
     }
     pre code{
-        font-size: 11px;
+        font-size: 10px;
+    }
+    .banner .banner-container .left-main{
+        width: 92%;
     }
     .myTable td {
         font-size: 11px;
@@ -71,10 +75,6 @@
     .features-page .main-section-container .feature-list ul li .std-list li{
         font-size: 12px;
     }
-    .soajs-features .feature-list li p {
-        font-size: 13px;
-        line-height: 1.6em;
-    }
     #registry1png{
         width:270px;
         float: none;
@@ -107,29 +107,85 @@
     }
     #registry-example01{
         width: 313px;
+        max-width: 313px;
     }
+    .soajs-features .features-container .feature-list li {
+        padding-left: 10px;
+    }
+    .soajs-features .features-container .features p {
+        font-size: 14px;
+        line-height: 1.6em;
+    }
+    .soajs-features .features-container .features h1 {
+        font-size: 24px;
+    }
+    .soajs-features{
+        padding: 35px 0;
+    }
+    .soajs-features .feature-list li p {
+        font-size: 13px;
+        line-height: 1.6em;
+    }
+    .soajs-features .feature-list li h5{
+        font-size: 14px;
+    }
+    .banner .about-container {
 
+    }
+    .banner .banner-container .left-main{
+    }
 }
 
 @media (max-width: 400px) {
     body, html, p, ul li {
         font-size: 12px;
         line-height:1.4em;
+        color:blue;
+    }
+
+    .topbar .nav-container {
+        width: 375px;
+    }
+    .bottom .sharing-footer {
+        width: 375px;
+    }
+    .bottom {
+        font-size: 12px;
+        height: auto;
+        padding: 10px 0;
+        width: 100%;
+    }
+    .main-section-container {
+        width: 375px;
+    }
+    .banner .banner-container {
+        width: 375px;
+    }
+    .white-banner .banner-container {
+        width: 375px;
+    }
+    .powered-by-container {
+        width: 375px;
+    }
+    .soajs-features .features-container {
+        width: 375px;
+    }
+    .soajs-features{
+        padding: 30px 0;
+        width: 375px;
     }
     .myTable td {
         font-size: 10px;
         padding: 8px 5px;
     }
     fieldset{
-        width: 100%;
+        /* width: 100%; */
     }
     fieldset legend{
         font-size: 13px;
     }
-    .bottom {
-        font-size: 12px;
-        height: auto;
-        padding: 10px 0;
+    .banner .about-container ul{
+        width:250px;
     }
 
     .small-button {
@@ -143,9 +199,10 @@
     }
     .powered-by-container{
         display: none;
+        width: 10px;
     }
-    .powered-by-container .powered-icon img{
-        max-width: 30px;
+    .soajs-features .features-container .feature-list li {
+        width: 300px;
     }
 
     .copyright{
@@ -167,44 +224,56 @@
     .left-sidebar section h4{
         padding-left: 7px;
     }
+    .soajs-features .features-container .features p {
+    }
+    #ex02Registry{
+        width: 90%;
+    }
+    #registry-example01{
+        width: 250px;
+    }
 }
-@media (max-width: 350px) {
-    body, html {
-        font-size: 12px;
+
+@media (max-width: 340px) {
+    body, html, ul li, p {
+        font-size: 11px;
         line-height:1.3em;
-    }
-    img {
-        max-width: 85%;
-    }
-    .topbar .nav-container {
-        width: 350px;
-    }
-    .bottom .sharing-footer {
-        width: 350px;
-    }
-    .main-section-container {
-        width: 350px;
-        padding: 0 0 60px;
+        color: #78FA89;
     }
 
+    .topbar .nav-container {
+        width: 320px; margin: 0;
+    }
+    .bottom .sharing-footer {
+        width: 320px; margin: 0;
+    }
+
+    .main-section-container {
+        width: 320px; margin: 0;
+    }
     .banner .banner-container {
-        width: 350px;
+        width: 320px; margin: 0;
         padding: 50px 0 50px;
     }
     .white-banner .banner-container {
-        width: 350px;
-        padding: 10px 0;
-    }
-    .soajs-features .features-container {
-        width: 350px;
+        width: 320px; margin: 0;
     }
     .powered-by-container {
-        width: 350px;
+        width: 320px;
+        margin: 0;
     }
-
+    .soajs-features .features-container {
+        width: 320px;
+        margin: 0;
+    }
+    .soajs-features{
+        width: 320px;
+    }
+    .soajs-features .features-container .feature-list li {
+        /*width: 90%;*/
+    }
     .bottom {
         font-size: 12px;
-        height: auto;
         padding: 10px 0;
     }
 
@@ -216,6 +285,10 @@
         margin-top: 5px;
         background-color: #FFB500;
         background-image: none;
+    }
+    .myTable thead th {
+        font-size: 11px;
+        padding: 8px 5px;
     }
 }
 

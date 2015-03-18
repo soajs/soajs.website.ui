@@ -86,6 +86,9 @@
     #urac-override-acl{
         width: 450px;
     }
+    .soajs-features .features-container .feature-list li.odd {
+        margin-right: 6%
+    }
 }
 @media screen and (min-width: 1200px) {
     .topbar .nav-container {
