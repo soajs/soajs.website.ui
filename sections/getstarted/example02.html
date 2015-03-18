@@ -72,8 +72,8 @@ $ node index</code></pre>
 			<b>Example02</b> is now running on http://localhost:4000/example02.<br />
 			Let's do a heartbeat check just to make sure all is working as expected before we begin the tests.<br /><br />
 		</p>
-		<fieldset>
-			<legend>Heartbeat oAuth</legend>
+		<fieldset><legend>Heartbeat oAuth</legend><div class="insideFieldsetMain">
+
 			<div>
 				<pre><code class="bash">$ curl -X GET "http://localhost:5002/heartbeat"</code></pre>
 				<h6><u>Response:</u></h6>
@@ -91,10 +91,10 @@ $ node index</code></pre>
 					Notice here that we used port <u>5002</u> to perform a <b>heartbeat</b> check. We previously mentioned in <a href="#/getstarted">Get Started</a>, that a heartbeat operation is made using the maintenance port of a service and that the maintenance port is equal to the port number of the service + 1000.<br />
 					oAuth service runs on port <u>4002</u> making the maintenance port of this service as <u>5002</u>.
 				</p>
-			</div>
+			</div></div>
 		</fieldset>
-		<fieldset>
-			<legend>Heartbeat Example02</legend>
+		<fieldset><legend>Heartbeat Example02</legend><div class="insideFieldsetMain">
+
 			<div>
 				<pre><code class="bash">$ curl -X GET "http://localhost:5011/heartbeat"</code></pre>
 				<h6><u>Response:</u></h6>
@@ -111,10 +111,10 @@ $ node index</code></pre>
 				<p>
 					In the image above, in <b>Registering the Service</b>, we registered example02 in SOAJS with port <u>4011</u> making the maintenance port of this service as <u>5011</u> and as you can see, when we performed a heartbeat operation, the service that it is running and healthy.
 				</p>
-			</div>
+			</div></div>
 		</fieldset>
-		<fieldset>
-			<legend>Calling oAuth</legend>
+		<fieldset><legend>Calling oAuth</legend><div class="insideFieldsetMain">
+
 			<div>
 				<pre><code class="bash">$ curl -X GET "http://localhost:4000/oauth"</code></pre>
 				<h6><u>Response:</u></h6>
@@ -135,10 +135,9 @@ $ node index</code></pre>
 					We just made a call to oAuth service without specifying any credentials and we already checked that the service is running when we performed a heartbeat operation. But the service returned a fail response.<br />
 					When we installed oAuth we mentioned that we needed a tenant and we also mentioned that when a service needs a tenant, the request should provide a key when calling any of its APIs. Because we didn't specify a key yet, oAuth service returned a fail response with a message saying it needs a key to be accessible.
 				</p>
-			</div>
+			</div></div>
 		</fieldset>
-		<fieldset>
-			<legend>Calling Example02</legend>
+		<fieldset><legend>Calling Example02</legend><div class="insideFieldsetMain">
 			<div>
 				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example02"</code></pre>
 				<h6><u>Response:</u></h6>
@@ -159,7 +158,7 @@ $ node index</code></pre>
 					We just made a call to <b>Example02</b> service without specifying any credentials and we already checked that the service is running when we performed a heartbeat operation. But the service returned a fail response just like oAuth Service.<br />
 					Basically we are not doing anything wrong here, we are simply showing that to access both these services, you need to provide a tenant key otherwise SOAJS will no allow you to go forward.
 				</p>
-			</div>
+			</div></div>
 		</fieldset>
 		<hr />
 		<h3>Service Code Explained</h3>
@@ -180,8 +179,7 @@ $ node index</code></pre>
 		<p>The above API, takes 2 parameters from the query string, concatenates them and returns them in a JSON response.</p>
 		<hr />
 		<h3>Running The Tests</h3>
-		<fieldset>
-			<legend>Calling Example02</legend>
+		<fieldset><legend>Calling Example02</legend><div class="insideFieldsetMain">
 			<div>
 				Let's call example02 <b>/buildName</b> API and provide a tenant key that we acquired from provisioning. Set the key in the header of the request and add the parameters to the querystring and fire the request.
 				<pre>
@@ -196,10 +194,10 @@ $ node index</code></pre>
 					You can see here that the error code has changed. We are still unable to access the service because we need the "<b>access token</b>" from oAuth but the response no longer tells us we need to provide a key.<br />
 					The service is protected by oAuth and to acquire the "<b>access token</b>" we need to login first to oAuth using "<b>oauthuser</b>" and "<b>oauthpassword</b>" credentials.
 				</p>
-			</div>
+			</div></div>
 		</fieldset>
-		<fieldset>
-			<legend>Login to oAuth</legend>
+		<fieldset><legend>Login to oAuth</legend><div class="insideFieldsetMain">
+
 			<div>
 				Login to oAuth by and provide the following:
 				<ol>
@@ -231,10 +229,9 @@ $ node index</code></pre>
 					<div id="loginReturn"></div>
 				</div>
 				We can now use this <b>access_token</b> in the consequent requests to access <b>Example02</b> APIs.
-			</div>
+			</div></div>
 		</fieldset>
-		<fieldset>
-			<legend>Call Example02 API Again</legend>
+		<fieldset><legend>Call Example02 API Again</legend><div class="insideFieldsetMain">
 			<div>
 				The <b>access_token</b> we obtained from the previous login request should be appended it to all consequent API calls made to this service in order to be authorized and accessible.<br />
 				Call the api with the <b>access_token</b> as an additional query parameter:<br>
@@ -246,10 +243,9 @@ $ node index</code></pre>
 					<div id="oauth_token"></div>
 				</div>
 				Notice here that the API calls we made to <b>Example02</b> only require we provide a <b>tenant key</b> in the <b>header</b> and the <b>access_token</b> as a <b>querystring</b> parameter. SOAJS will use the key to fetch the correct <b>secret phrase</b> of the tenant, do some <u>encryption</u> steps and then compare it with the <b>access_token</b> provided. If there is a match, the request is forwarded to the service and in this case we got a valid response.
-			</div>
+			</div></div>
 		</fieldset>
-		<fieldset>
-			<legend>Logout from oAuth</legend>
+		<fieldset><legend>Logout from oAuth</legend><div class="insideFieldsetMain">
 			<div>
 				When you're done from the <b>Example02</b> APIs, it is recommend you logout from oAuth. In case you forgot to logout, the <b>access_token</b> will eventually expire and become unusable. But it is always considered best practice that you add a logout step at the end of your request.<br />
 				Just call the oAuth service again, provide the tenant <b>key</b> and the <b>access_token</b> but make the request to the <b>/kill</b> API and the token will be deactivated.
@@ -258,7 +254,7 @@ $ node index</code></pre>
 				<div ng-init="loadJSON(path + 'example02/oauth_kill.json', 'oauth_kill');">
 					<div id="oauth_kill"></div>
 				</div>
-			</div>
+			</div></div>
 		</fieldset>
 		<p>
 			As you can see it takes little effort to secure your service with oAuth. You only needed to start oAuth service, login and use the token in the requests made to the protected service. You can secure any service in SOAJS by just turning on the oAuth property to "true" while creating this service. The rest is handled by SOAJS magic.<br /><br />

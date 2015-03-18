@@ -240,7 +240,10 @@
         line-height:1.3em;
         color: #78FA89;
     }
-
+    em{
+        font-size: 10px;
+        line-height: 1.3em;
+    }
     .topbar .nav-container {
         width: 320px; margin: 0;
     }
@@ -289,6 +292,9 @@
     .myTable thead th {
         font-size: 11px;
         padding: 8px 5px;
+    }
+    .insideFieldsetMain{
+        width: 277px;
     }
 }
 

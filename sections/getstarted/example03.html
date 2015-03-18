@@ -66,8 +66,7 @@ $ node index</code></pre>
 
          Let's do a heartbeat check just to make sure all is working as expected before we begin the tests.<br /><br />
 		</p>
-		<fieldset>
-			<legend>Heartbeat urac</legend>
+		<fieldset><legend>Heartbeat urac</legend><div class="insideFieldsetMain">
 			<div>
 				<pre><code class="bash">$ curl -X GET "http://localhost:5001/heartbeat"</code></pre>
 				<h6><u>Response:</u></h6>
@@ -79,10 +78,11 @@ $ node index</code></pre>
 					Notice here that we used port <u>5001</u> to perform a <b>heartbeat</b> check. We previously mentioned in <a href="#/getstarted">Get Started</a>, that a heartbeat operation is made using the maintenance port of a service and that the maintenance port is equal to the port number of the service + 1000.<br />
 					<a href='#/documentation/urac'>URAC</a> service runs on port <u>4001</u> making the maintenance port of this service as <u>5001</u>.
 				</p>
-			</div>
+			</div></div>
 		</fieldset>
-		<fieldset>
-			<legend>Heartbeat Example03</legend>
+		<fieldset><legend>Heartbeat Example03</legend>
+			<div class="insideFieldsetMain">
+
 			<div>
 				<pre><code class="bash">$ curl -X GET "http://localhost:5012/heartbeat"</code></pre>
 				<h6><u>Response:</u></h6>
@@ -92,7 +92,7 @@ $ node index</code></pre>
 
 				<p>Example03 is  registered in SOAJS with port <u>4012</u> making the maintenance port of this service as <u>5012</u>. As you can see, when we performed a heartbeat operation, the service is running and healthy.
 				</p>
-			</div>
+			</div></div>
 		</fieldset>
 		<hr/>
 		<h3>Configuration Levels</h3>
@@ -218,8 +218,8 @@ $ node index</code></pre>
 		<hr/>
 		<h3>Running the Tests</h3>
 		Let's understand how multitenancy exactly works through some tests. <br/><br/>
-		<fieldset>
-			<legend>Tenant 1: 1st Application</legend>
+		<fieldset><legend>Tenant 1: 1st Application</legend>
+			<div class="insideFieldsetMain">
 			<div>
 				The tenant's first application uses <b>PROD1_PCK1</b> package, which does not have "example03" in its ACL.
 				The application does not have "example03" in its own acl either, therefore this application does not have access to example03 service at all.
@@ -233,10 +233,10 @@ $ node index</code></pre>
 					<div id="tenant1_test1"></div>
 				</div>
 				As expected, access denied! <em>Calls using this key do not have access to the example03 service.</em>
-			</div>
+			</div></div>
 		</fieldset>
-		<fieldset>
-			<legend>Tenant 1: 2nd Application</legend>
+		<fieldset><legend>Tenant 1: 2nd Application</legend>
+			<div class="insideFieldsetMain">
 			<div>
 				The second application uses <b>PROD1_PCK1 </b> package, which does not have "example03" in its ACL.
 				But this time, the application has set its own ACL and grants access to example03.<br/>
@@ -251,10 +251,10 @@ $ node index</code></pre>
 				Success! <em>Calls using the second key are allowed to use the service.</em>
 				<br>
 				Notice the "tenantName" value in the response is set to "Client One".
-			</div>
+			</div></div>
 		</fieldset>
-		<fieldset>
-			<legend>Tenant 2 Application</legend>
+		<fieldset><legend>Tenant 2 Application</legend>
+			<div class="insideFieldsetMain">
 			<div>
 				The second tenant has an application that uses <b>PROD1_PCK2</b> package and should be able to access example03. <br/>
 				Let's use the external key from second tenant app and hit "example03/buildName" again:
@@ -275,10 +275,10 @@ $ node index</code></pre>
 					<div id="tenant2_test2"></div>
 				</div>
 				Success! <em>We have access to all the apis of the service</em>
-			</div>
+			</div></div>
 		</fieldset>
-		<fieldset>
-			<legend>Tenant 3 Application</legend>
+		<fieldset><legend>Tenant 3 Application</legend><div class="insideFieldsetMain">
+
 			<div>
 				The third application uses <b>PROD1_PCK3</b> package that grants access to only "/buildName" from "example03". <br/>
 				Let's use the third tenant application's external key and hit "example03/buildName":
@@ -301,8 +301,7 @@ $ node index</code></pre>
 				</div>
 				Access Denied! <em>We only have access to one api in this service "<b>/buildName</b>".</em>
 			</div>
-
-
+			</div>
 		</fieldset>
 		<hr/>
 		<h4>User Level</h4>
@@ -354,8 +353,8 @@ $ node index</code></pre>
 		<br />
 		Checkout the <a href="#/documentation/urac">URAC</a> documentation for additional information on how to override ACL for users.
 		<br/><br/>
-		<fieldset>
-			<legend>User 1 Login & Call API</legend>
+		<fieldset><legend>User 1 Login & Call API</legend><div class="insideFieldsetMain">
+
 			<div>
 				Above we had tried to access example03/buildName API using the key from the first application in tenant 1 and failed.
 				Now, let's log in as user1 from the sample above. Hit the "urac/login" API:
@@ -379,11 +378,11 @@ $ node index</code></pre>
 					<div id="userTest1_154"></div>
 				</div>
 				No access. Although logged in, this user does not have any acl overridden nor permission to access this api.
-			</div>
+			</div></div>
 		</fieldset>
 
-		<fieldset>
-			<legend>User 2 Login & Call API with first key</legend>
+		<fieldset><legend>User 2 Login & Call API with first key</legend><div class="insideFieldsetMain">
+
 			<div>
 				Now, using the key from the first application, let's log in as user2 (hit the urac/login API):
 				<pre><code class="bash">$ curl -X POST -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://localhost:4000/urac/login" -d "username=user2&password=123456"</code></pre>
@@ -402,10 +401,10 @@ $ node index</code></pre>
 					<div id="user2_app1_response"></div>
 				</div>
 				User2 was able to access the api.
-			</div>
+			</div></div>
 		</fieldset>
-		<fieldset>
-			<legend>User 2 Login & Call API with second key</legend>
+		<fieldset><legend>User 2 Login & Call API with second key</legend><div class="insideFieldsetMain">
+
 			<div>
 				Now, using the key from the second application, let's log in as user2:
 				<pre><code class="bash">$ curl -X POST -d "username=user2&password=123456" "http://rest-proxy:4000/urac/login" -H "key:4232477ed993d167ec13ccf8836c29c4550e88551c880d36fd42223ef81e0a6e1f668d42edc70d3d98fa8d28757e951bd7a04cf43829b5c2f38ed8c9ee87f03b79e564dd6aeaf8c37e90c92e6a69dccbd52b5a7812cad139bfbeaab69b023322"</code></pre>
@@ -424,11 +423,11 @@ $ node index</code></pre>
 					<div id="user2_app2_response"></div>
 				</div>
 				Here we notice how the "tenantName" value has been changed. It was taken from user2 configuration for this key.
-			</div>
+			</div></div>
 		</fieldset>
 
-		<fieldset>
-			<legend>User 3 Login & Call API with first key</legend>
+		<fieldset><legend>User 3 Login & Call API with first key</legend><div class="insideFieldsetMain">
+
 			<div>
 				Now, using the key from the first application, let's login as user3:
 				<pre><code class="bash">$ curl -X POST -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://localhost:4000/urac/login" -d "username=user3&password=654321"</code></pre>
@@ -457,7 +456,7 @@ $ node index</code></pre>
 				</div>
 				User3 cannot access "example03/testGet". The key configuration only grants access to "example03/buildName".
 				The user key configuration overrides the package configuration within the same user.
-			</div>
+			</div></div>
 		</fieldset>
 
 		<p>
@@ -469,8 +468,6 @@ $ node index</code></pre>
 		<p>
 			After you are done, we have one last example.
 			So far we have tried oAuth and multitenancy separately; visit <a href="#/getStarted/example04">Example04</a> to test them all together.
-
-
 		</p>
 </div>
 	</div>

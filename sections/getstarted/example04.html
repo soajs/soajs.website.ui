@@ -32,8 +32,8 @@ $ node index</code></pre>
 			                 Let's do a heartbeat check just to make sure all is working as expected before we begin the tests.<br/><br/>
 		</p>
 
-		<fieldset>
-			<legend>Heartbeat Example04</legend>
+		<fieldset><legend>Heartbeat Example04</legend>
+			<div class="insideFieldsetMain">
 			<div>
 				<pre><code class="bash">$ curl -X GET "http://localhost:5013/heartbeat"</code></pre>
 				<h6><u>Response:</u></h6>
@@ -44,7 +44,7 @@ $ node index</code></pre>
 				<p>Example04 is registered in SOAJS with port <u>4013</u> making the maintenance port of this service as <u>5013</u>.
 				   As you can see, the service is running.
 				</p>
-			</div>
+			</div></div>
 		</fieldset>
 		<hr/>
 		<h3>What has changed</h3>
@@ -104,8 +104,9 @@ $ node index</code></pre>
 
 		We are ready to run the tests.
 		We will repeat some tests for Tenant 1. Just replace "example03" by "example04". <br/><br/>
-		<fieldset>
-			<legend>Tenant 1: 1st Application</legend>
+		<fieldset><legend>Tenant 1: 1st Application</legend>
+			<div class="insideFieldsetMain">
+
 			<div>
 				<em>The tenant's first application uses <b>PROD1_PCK1</b> package, which has "example04" in its ACL.</em>
 				<br>
@@ -117,10 +118,11 @@ $ node index</code></pre>
 					<div id="tenant1_test1"></div>
 				</div>
 				Access denied! We need to login with oauth first.
-			</div>
+			</div></div>
 		</fieldset>
-		<fieldset>
-			<legend>Login to oAuth</legend>
+		<fieldset><legend>Login to oAuth</legend>
+			<div class="insideFieldsetMain">
+
 			<div> Like in <a href="#/getStarted/example02">Example02</a>, we need to login to oAuth.
 			      We need to call "oauth/token" and provide two values in the headers:<br>
 				- The external key value from Tenant 1.<br>
@@ -136,12 +138,12 @@ $ node index</code></pre>
 				</div>
 			      Like in Example02, the login to oAuth returned a token value. We need to add this <b>access_token</b> value to the consequent api calls.
 
-			</div>
+			</div></div>
 		</fieldset>
 
 
-		<fieldset>
-			<legend>Call Api again with oAuth token</legend>
+		<fieldset><legend>Call Api again with oAuth token</legend>
+			<div class="insideFieldsetMain">
 			<div>
 				We will hit "example04/buildName" again with "access_token" as an additional query parameter:
 				<pre><code class="bash">$ curl -X GET -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://rest-proxy:4000/example04/buildName?lastName=Smith&access_token=e59104df7256d2d0a77771303ea81fd68ed39e45"</code></pre>
@@ -151,11 +153,11 @@ $ node index</code></pre>
 				</div>
 				Success! <em> </em>
 				<br>
-			</div>
+			</div></div>
 		</fieldset>
 		Next, we will use the key from the third application to run more tests.
-		<fieldset>
-			<legend>Tenant 1: Application 3</legend>
+		<fieldset><legend>Tenant 1: Application 3</legend>
+			<div class="insideFieldsetMain">
 			<div>
 				The third application using PROD1_PCK4 allows access to "/buildName" only for logged in users.
 				We will hit "example04/buildName".
@@ -166,11 +168,12 @@ $ node index</code></pre>
 				</div>
 				Failed! You need to login first. <em> </em>
 				<br>
-			</div>
+			</div></div>
 		</fieldset>
 
-		<fieldset>
-			<legend>Login as user2 and try buildName</legend>
+		<fieldset><legend>Login as user2 and try buildName</legend>
+			<div class="insideFieldsetMain">
+
 			<div>
 				Login as user2 using the "urac/login" api, grab the soajsauth value and add it to the headers.
 				Now hit "example04/buildName".
@@ -181,11 +184,12 @@ $ node index</code></pre>
 				</div>
 				Success! <em> </em>
 				<br>
-			</div>
+			</div></div>
 		</fieldset>
 
-		<fieldset>
-			<legend>Try buildNameGold</legend>
+		<fieldset><legend>Try buildNameGold</legend>
+			<div class="insideFieldsetMain">
+
 			<div>
 				Now, using the same soajsauth value in your headers,
 				hit "example04/buildNameGold".
@@ -197,14 +201,13 @@ $ node index</code></pre>
 				Acces denied! The api is only allowed for users who belong to the group called "gold".
 				<em>As was shown in Example03, user2 belongs only to group "silver".</em>
 				<br>
-			</div>
+			</div></div>
 		</fieldset>
 
 		<p>
 			Try to run more tests like we did in <a href="#getStarted/example03">Example03</a>.
 			You need to attach the <b>access_token</b> parameter to all your calls to reach the <b>Example04</b> service.
 		</p>
-
 	</div>
 	</div>
 	<script>renderCodeSnippets();</script>

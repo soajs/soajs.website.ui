@@ -621,9 +621,10 @@ a:hover{
     background-color: rgb(245, 245, 245);
 }
 
-em {
+em{
     color: grey;
     font-size: 12px;
+    line-height: 1.6em;
 }
 
 pre {
@@ -937,7 +938,7 @@ hr.white {
     color: #fff;
 }
 em{
-    line-height: 1.6em;
+
 }
 
 .soajs-features{
