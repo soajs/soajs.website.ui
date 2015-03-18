@@ -130,7 +130,7 @@
 
     .white-banner .banner-container .repos ul li{
         border-radius:5px;
-        width: 19%;
+        width: 18%;
     }
 }
 
@@ -201,7 +201,7 @@
         align-self: right;
     }
     .bottom {
-        font-size: 16px;
+        font-size: 14px;
     }
     .small-button {
         font-size: 16px;
@@ -292,6 +292,9 @@
 
 
     /* repos */
+    .wikiLink img{
+        width: 13px;
+    }
     .white-banner .banner-container .repos ul {
         font-size:10px;
         width: 100%;
@@ -337,7 +340,6 @@
     }
     .white-banner .banner-container .repos ul li .repoLabel{
         font-size:13px;
-        width:100%;
         text-align: left;
     }
     .white-banner .banner-container .repos ul li a{
@@ -345,11 +347,13 @@
     }
 
     .white-banner .banner-container .repos ul li a img{
-        max-height:13px;
+
     }
 
     .white-banner .banner-container .repos ul li:hover{
     }
-
+    .travis, .coveralls  {
+        padding-top: 3px;
+    }
 }
 

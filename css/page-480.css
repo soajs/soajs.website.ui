@@ -170,6 +170,9 @@
     .white-banner .banner-container .repos {
         display: none;
     }
+    .bottom .copyright{
+        width:155px;
+    }
 }
 
 @media (max-width: 400px) {
@@ -237,12 +240,6 @@
         width: 10px;
     }
 
-    .copyright{
-        width:150px;
-    }
-    .bottom .copyright {
-        padding-top: 0px;
-    }
     .bottom .sharing-footer .inner {
         margin-top:1px;
     }
@@ -283,6 +280,9 @@
     .bottom {
         font-size: 12px;
         padding: 10px 0;
+    }
+    .bottom .copyright{
+        width:150px;
     }
     .bottom .sharing-footer {
         width: 320px;
