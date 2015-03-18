@@ -90,6 +90,12 @@ app.filter('toTrustedHtml', ['$sce', function($sce) {
 	};
 }]);
 
+app.filter('trustAsResourceUrl', ['$sce', function($sce) {
+	return function(val) {
+		return $sce.trustAsResourceUrl(val);
+	};
+}]);
+
 app.service('loadFileContent', ['$http', '$timeout', '$compile', function($http, $timeout, $compile) {
 	return function(context, path, elId) {
 		var att = "jsCode_" + elId;
