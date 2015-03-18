@@ -15,8 +15,7 @@
 			likely used on production with load balancing and sharded databases and in that case the configuration is definitely different than other environments.<br/><br/>
 		</li>
 		<li>
-			<b>Provisioned Configuration:</b> refers to configuration loaded from the database using a certain needle or event and is not affected by neither the environment where the service is running, nor the local configuration of the service. In SOAJS, tenants keys are used to load
-			tenant configuration when making calls to a service API.<br/>
+			<b>Provisioned Configuration:</b> refers to configuration loaded from the database using a certain needle or event and is not affected by neither the environment where the service is running, nor the local configuration of the service. In SOAJS, tenants keys are used to load tenant configuration when making calls to a service API. Tenant Configuration is Environment Driven, meaning that the tenant has a configuration per environment, it might be same or different.<br/>
 			<b><u>Ex:</u></b>
 			<ul>
 				<li>Multiple Tenants might use the same service but provide it with custom configuration/data. (<a href="#/getStarted/example03">Example03</a>)</li>
@@ -151,13 +150,28 @@
 	<p>
 		The above snippet represents an application in a tenant that uses <b>PROD1_PCK1</b> package and inherits the ACL from that package. Since <b>PROD_PCK1</b> provides access to the <a href="#/documentation/urac">URAC</a> service, this application can now use the service and give it some custom configuration as shown in the <b>config.urac</b> entry inside the <b>keys</b> array.<br />
 		Every application needs <b>keys</b> to function, without those <b>keys</b> the application by itself does nothing. Once a key is added to an application, the application can then provide custom configuration to a service and can contains external keys for that particular key.<br />
-		<b>External Keys</b> are used in requests made to a service; they are secured using <b>geo</b> and <b>device</b> security and have an <b>expiry date</b>. Think of them as <b>license</b> keys. When used, these external keys are checked for device and geo location, and if valid, they are matched with the key represent. Now that the key has been identified, its configuration is loaded and in the cases above, for <a href="#/documentation/urac">URAC</a> the tenant configuration for this key is passed to the service for usage.<br /><br />
+		<b>External Keys</b> are used in requests made to a service; they are secured using <b>geo</b> and <b>device</b> security and have an <b>expiry date</b>. Think of them as <b>license</b> keys. When used, these external keys are checked for device and geo location, and if valid, they are matched with the key represent. Now that the key has been identified, its configuration is loaded and in the cases above, for <a href="#/documentation/urac">URAC</a> the tenant configuration for this key is passed to the service for usage.<br />
 	</p>
 	<div ng-init="loadJson(path + 'provisioning/app2.json', 'app2js');">
 		<div id="app2js"></div>
 	</div>
 	<p>
 		The above snippet is another application in a tenant that uses <b>PROD1_PCK2</b> package, but this time it overrides the ACL of that package with additional permissions. The application grants access to <a href="#/documentation/urac">URAC</a>, <b>Example02</b> and <b>Example03</b> and in the key configuration, both <a href="#/documentation/urac">URAC</a> and <b>Example03</b> have custom configuration. Keep in mind that the ACL configuration follows the same syntax whether used in packages or in applications.<br /><br />
+	</p>
+	<br/>
+	<h4>Tenant Application Configuration</h4>
+	<p>
+		When loading the configuration of a tenant, the environment is checked first then configuration is extracted from it. In the above sample, the configuration is stored under <b>dev</b> environment. This means that if the application is running in <b>dev</b> environment based on the <a href="#/documentation/registry">registry</a> configuration, when invoked, only this configuration is loaded for the URAC service for this given key. If the application is running in another environment, this configuration is not used.<br />
+		The loaded tenant configuration, will exclude the environment. If you look at the above sample code, both <b>urac</b> and <b>example03</b> are in <b>dev</b> environment but when this configuration is loaded, <b>dev</b> is removed and its content is loaded only resembling something like the below:
+		<pre><code class="json"> "urac": {
+	"hashIterations": 1024,
+	"seedLength": 32
+},
+"example03": {
+	"tenantName": "My Test Tenant"
+}</code></pre>
+		This configuration is then passed on to the service and is accessible via <b>req.soajs.serviceConfig.urac</b> and <b>req.soajs.serviceConfig.example03</b>. The service does not need to know what other configuration this tenant has for other environments. The service is multi environment and only uses what it needs for the environment it is currently running in.
+		<br /><br />
 	</p>
 	<hr/>
 	<h4>Tenant Full Sample</h4>

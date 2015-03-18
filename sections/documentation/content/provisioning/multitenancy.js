@@ -64,14 +64,16 @@ var test = {
 						}
 					],
 					"config": {
-						"urac": {
-							"hashIterations": 1024, //used by hasher
-							"seedLength": 32 //used by hasher
-							// more configuartion
-						},
-						"example03": {
-							"tenantName": "My Test Tenant" //specific tenant info for service
-							// more configuartion
+						"dev":{
+							"urac": {
+								"hashIterations": 1024, //used by hasher
+								"seedLength": 32 //used by hasher
+								// more configuartion
+							},
+							"example03": {
+								"tenantName": "My Test Tenant" //specific tenant info for service
+								// more configuartion
+							}
 						}
 					}
 				}
