@@ -32,22 +32,22 @@
 						<li ng-repeat="repo in repos">
 							<div id="repo{{repo.label}}" class="repoinner">
 
-								<span class="repoLabel">{{repo.label}}</span>
+								<div class="repoLabel">{{repo.label}}</div>
 								<div class="repoLinks wikiLink"><a href="{{repo.documentation}}" title="Go to {{repo.label}} Documentation"><img alt="wiki" ng-src="images/repos/wiki.png" /></a>
 									<a href="{{repo.documentation}}" title="Go to {{repo.label}} Documentation">Documentation</a></div>
 
-								<div class="repoLinks">
+								<div class="repoLinks npm">
 									<a href="http://badge.fury.io/js/{{repo.npm.id}}"><img style="max-width:100%;" data-canonical-src="https://badge.fury.io/js/{{repo.npm.svg}}.svg" alt="NPM version" ng-src="https://camo.githubusercontent.com/{{repo.npm.key}}"></a>
 								</div>
-								<div class="repoLinks">
+								<div class="repoLinks travis">
 									<a href="https://travis-ci.org/{{repo.travis.id}}/qunit-promises"><img data-bindattr-732="732" ng-src="https://travis-ci.org/{{repo.travis.id}}.svg" alt="Build status"></a>
 								</div>
 
-								<div class="repoLinks">
+								<div class="repoLinks coveralls">
 									<a href="https://coveralls.io/r/{{repo.coveralls.id}}/qunit-promises"><img ng-src="https://coveralls.io/repos/{{repo.coveralls.id}}/qunit-promises/badge.png" alt="Coverage Status"></a>
 								</div>
 
-								<div class="repoLinks">
+								<div class="repoLinks grunt">
 									<a href="http://gruntjs.com/"><img style="max-width:100%;" data-canonical-src="https://cdn.gruntjs.com/builtwith.png" alt="Built with Grunt" ng-src="https://camo.githubusercontent.com/{{repo.grunt.key}}"></a>
 								</div>
 

@@ -347,8 +347,6 @@ a:hover{
     font-size:14px;
     font-weight:bold;
     text-align:center;
-    display:inline-block;
-    width:100%;
 }
 .white-banner .banner-container .repos ul li a{
     margin-bottom:5px;
