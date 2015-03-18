@@ -30,7 +30,7 @@
 						<li ng-repeat="repo in repos">
 							<span class="repoLabel">{{repo.label}}</span>
 							<br/>
-							<a href="{{repo.documentation}}" title="Go to {{repo.label}} Documentation"><img alt="wiki" ng-src="images/repos/wiki.png" /> Documentation</a><br />
+							<a href="{{repo.documentation}}" title="Go to {{repo.label}} Documentation"><img alt="wiki" ng-src="images/repos/wiki.png" /></a> <a href="{{repo.documentation}}" title="Go to {{repo.label}} Documentation">Documentation</a><br />
 
 							<a href="http://badge.fury.io/js/{{repo.npm.id}}"><img style="max-width:100%;" data-canonical-src="https://badge.fury.io/js/{{repo.npm.svg}}.svg" alt="NPM version" src="https://camo.githubusercontent.com/{{repo.npm.key}}"></a><br/>
 
