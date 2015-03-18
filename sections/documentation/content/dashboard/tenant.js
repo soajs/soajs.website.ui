@@ -87,7 +87,9 @@ var tenantRecord = {
 						}
 					],
 					"config": {
-						"urac": {}
+						"dev": {
+							"urac": {}
+						}
 					}
 				}
 			]
@@ -114,7 +116,9 @@ var tenantRecord = {
 						}
 					],
 					"config": {
-						"urac": {}
+						"dev": {
+							"urac": {}
+						}
 					}
 				}
 			]

@@ -20,10 +20,12 @@
 				}
 			],
 			"config": {
-				"urac": {
-					"hashIterations": 1024,
-					"seedLength": 32
-				}
+              "dev": {
+                "urac": {
+                  "hashIterations": 1024,
+                  "seedLength": 32
+                }
+              }
 			}
 		}
 	]

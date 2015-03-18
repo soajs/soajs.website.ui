@@ -22,13 +22,15 @@ var tenant1 = {
 						}
 					],
 					"config": {
-						"urac": {
-							"hashIterations": 1024,
-							"seedLength": 32,
-							"tokenExpiryTTL": 2 * 24 * 3600 * 1000
-						},
-						"example03": {
-							"tenantName": "Client One"
+						"dev": {
+							"urac": {
+								"hashIterations": 1024,
+								"seedLength": 32,
+								"tokenExpiryTTL": 2 * 24 * 3600 * 1000
+							},
+							"example03": {
+								"tenantName": "Client One"
+							}
 						}
 					}
 				}
@@ -56,14 +58,16 @@ var tenant1 = {
 						}
 					],
 					"config": {
-						"urac": {
-							"hashIterations": 1024,
-							"seedLength": 32,
-							"link": {},
-							"tokenExpiryTTL": 2 * 24 * 3600 * 1000
-						},
-						"example03": {
-							"tenantName": "Client One"
+						"dev": {
+							"urac": {
+								"hashIterations": 1024,
+								"seedLength": 32,
+								"link": {},
+								"tokenExpiryTTL": 2 * 24 * 3600 * 1000
+							},
+							"example03": {
+								"tenantName": "Client One"
+							}
 						}
 					}
 				}
