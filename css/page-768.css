@@ -38,6 +38,9 @@
         margin: 0 auto;
         width: 97%;
     }
+    .small-button{
+        padding: 6px 35px 8px;
+    }
     .main-section-container {
         margin: 0 auto;
         width: 97%;
@@ -128,9 +131,9 @@
         width: 100%;
     }
 
-    .white-banner .banner-container .repos ul li{
+    .white-banner .banner-container .repos ul li .repoinner{
         border-radius:5px;
-        width: 18%;
+        width: 15%;
     }
 }
 
@@ -301,12 +304,14 @@
     }
 
     .white-banner .banner-container .repos ul li{
+        /*
         float:none;
         margin:5px;
         display:block;
         border-radius:5px;
         width: 100%;
         clear: both;
+        */
     }
     .white-banner .banner-container .repos ul li:after {
         clear: both;
