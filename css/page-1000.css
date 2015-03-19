@@ -32,39 +32,6 @@
 }
 
 @media screen and (min-width: 1025px) {
-    .topbar .nav-container {
-        margin: 0 auto;
-        width: 997px;
-    }
-    .bottom .sharing-footer {
-        margin: 0 auto;
-        width: 997px;
-    }
-    .main-section-container {
-        margin: 0 auto;
-        width: 997px;
-        padding: 0 0 60px;
-    }
-
-    .banner .banner-container {
-        margin: 0 auto;
-        width: 997px;
-        position: relative;
-        padding-top: 80px;
-    }
-    .white-banner .banner-container {
-        box-sizing: border-box;
-        margin: 0 auto;
-        width: 997px;
-    }
-    .soajs-features .features-container {
-        margin: 0 auto;
-        width: 997px;
-    }
-    .powered-by-container {
-        margin: 0 auto;
-        width: 997px;
-    }
     .soajs-features .features-container .feature-list li {
         min-height: 200px;
         width: 47%;
@@ -91,48 +58,27 @@
     .soajs-features .features-container .feature-list li.odd {
         margin-right: 6%
     }
-
-    #repoSOAJS{
-        margin-left: 0;
-    }
-    #repoExamples{
-        margin-right: 0;
-    }
-    #repoMongo .repoLabel {
-
+    .white-banner .banner-container .repos ul li a img{
+        max-height: 20px;
     }
 }
 @media screen and (min-width: 1220px) {
-    .topbar .nav-container {
-        margin: 0 auto;
+    .main-section-container, .banner .banner-container, .white-banner .banner-container,
+    .soajs-features .features-container, .powered-by-container,
+    .bottom .sharing-footer, .topbar .nav-container,
+    .white-banner .banner-container .repos ul{
         width: 1197px;
     }
-    .bottom .sharing-footer {
-        margin: 0 auto;
-        width: 1197px;
+    .white-banner .banner-container .repos ul li{
+        width: 565px;
+        height: 80px;
     }
-    .main-section-container {
-        margin: 0 auto;
-        width: 1197px;
-    }
-    .banner .banner-container {
-        margin: 0 auto;
-        width: 1197px;
-    }
-    .white-banner .banner-container {
-        width: 1197px;
+    .white-banner .banner-container .repos ul li.even{
+        margin-left: 50px
     }
     .white-banner .banner-container .repos ul {
     }
     .repos ul li img .grunt{
         width: auto;
-    }
-    .soajs-features .features-container {
-        margin: 0 auto;
-        width: 1197px;
-    }
-    .powered-by-container {
-        margin: 0 auto;
-        width: 1197px;
     }
 }

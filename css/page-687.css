@@ -7,10 +7,7 @@
         padding: 70px 0 70px;
     }
 
-    .topbar .topnav li.active a {
-        border-bottom: none;
-    }
-    .topbar .topnav li:hover a {
+    .topbar .topnav li.active a, .topbar .topnav li:hover a {
         border-bottom: none;
     }
     .topbar .contactUs, .topbar .documentation,.topbar .features, .topbar .getStarted {
@@ -105,8 +102,7 @@
         width: 85%;
         margin: 0 auto;
     }
-    .feature-list img{
-    }
+
     .features-page .main-section-container .feature-list ul li {
         padding: 35px 0;
     }
@@ -298,12 +294,13 @@
         font-size:13px;
     }
     .white-banner .banner-container .repos ul li .repoLinks{
-        height: 30px;
         vertical-align: baseline;
     }
+    /*
     .white-banner .banner-container .repos ul li img{
         width: auto;
     }
+    */
     /**/
     .copyright{
         width:180px;

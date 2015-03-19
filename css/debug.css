@@ -1,25 +1,35 @@
+@media (max-width: 1025px) {
+    .bottom .copyright:after{
+        content: " 1025";
+    }
+}
+@media (max-width: 687px) {
+    .bottom .copyright:after{
+        content: " 687";
+    }
+}
 @media (max-width: 640px) {
     .bottom .copyright:after {
-        content: "640";
+        content: " 640";
         font-size: 10;
     }
 }
 @media (max-width: 500px) {
     .bottom .copyright:after {
-        content: "500";
+        content: " 500";
         font-size: 10;
     }
 }
 @media (max-width: 450px) {
     .bottom .copyright:after{
-        content: "450";
+        content: " 450";
         font-size: 10;
     }
 }
 
 @media (max-width: 400px) {
     .bottom .copyright:after{
-        content: "400";
+        content: " 400";
         font-size: 10;
     }
 }
@@ -30,25 +40,25 @@
 }
 @media (max-width: 380px) {
     .bottom .copyright:after{
-        content: "** 380";
+        content: " 380";
     }
 }
 @media (max-width: 370px) {
     .bottom .copyright:after{
-        content: "** 370";
+        content: " 370";
     }
 }
 
 
 @media (max-width: 340px) {
     .bottom .copyright:after{
-        content: "340";
+        content: " (340)";
         font-size: 10;
     }
 }
 
 @media (max-width: 320px) {
     .bottom .copyright:after{
-        content: "320";
+        content: " (320)";
     }
 }

@@ -2,66 +2,36 @@
     padding-left: 5px;
 }
 @media (min-width: 768px) and (max-width: 1024px) {
-    .hidden-desktop {
-        display: inherit !important;
-    }
-    .visible-desktop {
-        display: none !important ;
-    }
-    .visible-tablet {
-        display: inherit !important;
-    }
-    .hidden-tablet {
-        display: none !important;
-    }
     .topbar .topnav li.active a {
         border-bottom: solid 4px rgb(53, 90, 118);
     }
     .examples img{
         width: auto;
     }
-    img{
-        max-width: 88%;
+
+    img{/*
+        max-width: 88%;*/
     }
     #example03png{
         width: 85%;
-        display: block;
     }
     #urac-override-acl{
         width: 450px;
     }
-    .topbar .nav-container {
-        margin: 0 auto;
-        width: 97%;
-    }
-    .bottom .sharing-footer {
-        margin: 0 auto;
-        width: 97%;
-    }
-    .small-button{
-        padding: 6px 35px 8px;
-    }
-    .main-section-container {
-        margin: 0 auto;
-        width: 97%;
-    }
 
-    .banner .banner-container {
-        margin: 0 auto;
+    .topbar .nav-container, .bottom .sharing-footer, .main-section-container,
+    .banner .banner-container, .powered-by-container, .soajs-features .features-container{
         width: 97%;
     }
     .white-banner .banner-container {
         margin: 0 auto;
         width: 99%;
     }
-    .powered-by-container {
-        margin: 0 auto;
-        width: 97%;
+
+    .small-button{
+        padding: 6px 35px 8px;
     }
-    .soajs-features .features-container {
-        margin: 0 auto;
-        width: 97%;
-    }
+
     .beaverImg{
         width: 40%;
         text-align: right;
@@ -119,7 +89,7 @@
         width:270px;
     }
     #dashboard-form, #dashboard-grid{
-        width: 90% ;
+        width: 90%;
     }
     .soajs-features .features-container .feature-list li.odd {
         margin-right: 6%
@@ -137,6 +107,7 @@
     .white-banner .banner-container .repos ul li.even{
         margin-left: 1%;
     }
+    .white-banner .banner-container .repos ul li a img{}
     .white-banner .banner-container .repos ul .coveralls img {
         max-width: 80px;
     }
@@ -144,7 +115,7 @@
 
 @media (max-width: 900px) {
     .white-banner .banner-container .repos ul li{
-        height:110px;
+        height:100px;
         width: 48%;
     }
     .white-banner .banner-container .repos ul li.even{
@@ -158,18 +129,6 @@
     }
 }
 @media (max-width: 767px) {
-    .hidden-desktop {
-        display: inherit !important;
-    }
-    .visible-desktop {
-        display: none !important;
-    }
-    .visible-phone {
-        display: inherit !important;
-    }
-    .hidden-phone {
-        display: none !important;
-    }
     body, html {
         font-size: 14px;
         line-height: 1.7em;
@@ -178,6 +137,11 @@
         font-size: 14px;
         line-height: 1.7em;
     }
+    .topbar .nav-container, .main-section-container, .white-banner .banner-container, .banner .banner-container,
+    .powered-by-container, .soajs-features .features-container, .bottom .sharing-footer{
+        width: 98%;
+    }
+
     .topbar .branding {
         width:173px;
     }
@@ -232,28 +196,7 @@
         padding: 6px 30px 8px;
         margin-right: 10px;
     }
-    .topbar .nav-container {
-        width: 98%;
-    }
-    .bottom .sharing-footer {
-        margin: 0 auto;
-        width: 98%;
-    }
-    .main-section-container {
-        width: 98%;;
-    }
-    .banner .banner-container {
-        width: 98%;
-    }
-    .white-banner .banner-container {
-        width: 98%;
-    }
-    .powered-by-container {
-        width: 98%;
-    }
-    .soajs-features .features-container {
-        width: 98%;
-    }
+
     .soajs-features .features-container .feature-list li {
         padding: 0 0 20px 30px;
         position: relative;
@@ -324,14 +267,6 @@
     }
 
     .white-banner .banner-container .repos ul li{
-        /*
-        float:none;
-        margin:5px;
-        display:block;
-        border-radius:5px;
-        width: 100%;
-        clear: both;
-        */
         width: 48%;
     }
     .white-banner .banner-container .repos ul li:after {
@@ -344,12 +279,6 @@
         visibility: hidden;
     }
 
-    .white-banner .banner-container .repos ul li .wikiLink{
-        padding-left: 0px;
-    }
-    .white-banner .banner-container .repos ul li .gitLink{
-        padding-right: 0px;
-    }
     .white-banner .banner-container .repos ul li .gitLink iframe{
         width: 90px;
         height: 20px;
@@ -358,12 +287,8 @@
         font-size:13px;
         text-align: left;
     }
-    .white-banner .banner-container .repos ul li a{
-        margin-bottom:0px;
-    }
 
     .white-banner .banner-container .repos ul .coveralls img {
         max-width: 80px;
     }
 }
-

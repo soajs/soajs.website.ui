@@ -339,7 +339,7 @@ a:hover{
     /*padding:5px;*/
     display:block;
     border-radius:5px;
-    width:478px;
+    width: 49%;
     height: 75px;
 }
 
@@ -1007,13 +1007,13 @@ hr.white {
 #dashboard-form, #dashboard-grid{
     max-width: 750px;
 }
+#example03png{
+    display: block;
+}
 .btn-primary {
     background-color: #DF9630;
     border-color: #DF9630;
     color: #fff;
-}
-em{
-
 }
 
 .soajs-features{
