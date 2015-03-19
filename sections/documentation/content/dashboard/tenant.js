@@ -48,10 +48,10 @@ var tenantRecord = {
 								"hashIterations": 1024,
 								"seedLength": 32,
 								"link": {
-									"addUser": "http://rest-proxy:4000/urac/setNewPassword",
-									"changeEmail": "http://rest-proxy:4000/urac/changeEmail/validate",
-									"forgotPassword": "http://rest-proxy:4000/urac/resetPassword",
-									"join": "http://rest-proxy:4000/urac/join/validate"
+									"addUser": "http://127.0.0.1:4000/urac/setNewPassword",
+									"changeEmail": "http://127.0.0.1:4000/urac/changeEmail/validate",
+									"forgotPassword": "http://127.0.0.1:4000/urac/resetPassword",
+									"join": "http://127.0.0.1:4000/urac/join/validate"
 								},
 								"tokenExpiryTTL": 172800,
 								"validateJoin": true,

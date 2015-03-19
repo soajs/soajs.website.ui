@@ -8,8 +8,8 @@ var registry = {
 		"example01": {
 			"extKeyRequired": false,
 			"port": 4010,
-			"host": "rest-proxy",
-			"url": "http://rest-proxy:4000/example01"
+			"host": "127.0.0.1",
+			"url": "http://127.0.0.1:4000/example01"
 		}
 		//...
 	}

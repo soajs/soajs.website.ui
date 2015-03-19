@@ -19,7 +19,7 @@ describe("contact us", function() {
 
 	it('fail - no params', function(done) {
 		var testPostOptions = {
-			url: 'http://rest-proxy:4000/contactUs/sendMessage',
+			url: 'http://127.0.0.1:4000/contactUs/sendMessage',
 			method : "POST",
 			json: true,
 			body: {}
