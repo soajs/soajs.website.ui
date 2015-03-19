@@ -209,7 +209,7 @@
               "prefix": "",
               "servers": [
                 {
-                  "host": "data-proxy",
+                  "host": "127.0.0.1",
                   "port": 27017
                 }
               ],
@@ -237,7 +237,7 @@
               "prefix": "",
               "servers": [
                 {
-                  "host": "data-proxy",
+                  "host": "127.0.0.1",
                   "port": 27017
                 }
               ],
@@ -263,7 +263,7 @@
               "prefix": "",
               "servers": [
                 {
-                  "host": "data-proxy",
+                  "host": "127.0.0.1",
                   "port": 27017
                 }
               ],
@@ -334,7 +334,7 @@
           "services": {
             "controller": {
               "port": 4000,
-              "host": "rest-proxy",
+              "host": "127.0.0.1",
               "maxPoolSize": 100,
               "requestTimeout": 30,
               "requestTimeoutRenewal": 0,
@@ -343,8 +343,8 @@
             "urac": {
               "extKeyRequired": true,
               "port": 4001,
-              "host": "rest-proxy",
-              "url": "http://rest-proxy:4000/urac",
+              "host": "127.0.0.1",
+              "url": "http://127.0.0.1:4000/urac",
               "mail": {
                 "join": "mail/urac/join.tmpl",
                 "forgotPassword": "mail/urac/forgotPassword.tmpl",
@@ -356,20 +356,20 @@
             "oauth": {
               "extKeyRequired": true,
               "port": 4002,
-              "host": "rest-proxy",
-              "url": "http://rest-proxy:4000/oauth"
+              "host": "127.0.0.1",
+              "url": "http://127.0.0.1:4000/oauth"
             },
             "dashboard": {
               "extKeyRequired": true,
               "port": 4003,
-              "host": "rest-proxy",
-              "url": "http://rest-proxy:4000/dashboard"
+              "host": "127.0.0.1",
+              "url": "http://127.0.0.1:4000/dashboard"
             },
             "agent": {
               "extKeyRequired": false,
               "port": 4004,
-              "host": "rest-proxy",
-              "url": "http://rest-proxy:4000/agent",
+              "host": "127.0.0.1",
+              "url": "http://127.0.0.1:4000/agent",
               "requestTimeoutRenewal": 10,
               "requestTimeout": 30,
               "topologyDir": "/opt/soajs/"

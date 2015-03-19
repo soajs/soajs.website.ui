@@ -20,7 +20,7 @@ var registry = {
 	"services": {
 		"controller": {
 			"port": 4000,
-			"host": "rest-proxy",
+			"host": "127.0.0.1",
 			"maxPoolSize": 100,
 			"requestTimeout": 30,
 			"requestTimeoutRenewal": 0,
@@ -29,8 +29,8 @@ var registry = {
 		"urac": {
 			"extKeyRequired": true,
 			"port": 4001,
-			"host": "rest-proxy",
-			"url": "http://rest-proxy:4000/urac",
+			"host": "127.0.0.1",
+			"url": "http://127.0.0.1:4000/urac",
 			"mail": {
 				"join": "mail/urac/join.tmpl",
 				"forgotPassword": "mail/urac/forgotPassword.tmpl",
@@ -42,15 +42,15 @@ var registry = {
 		"oauth": {
 			"extKeyRequired": true,
 			"port": 4002,
-			"host": "rest-proxy",
-			"url": "http://rest-proxy:4000/oauth"
+			"host": "127.0.0.1",
+			"url": "http://127.0.0.1:4000/oauth"
 		},
 		//...
 		"example01": {
 			"extKeyRequired": false,
 			"port": 4010,
-			"host": "rest-proxy",
-			"url": "http://rest-proxy:4000/example01"
+			"host": "127.0.0.1",
+			"url": "http://127.0.0.1:4000/example01"
 		}
 		//...
 	}

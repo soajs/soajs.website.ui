@@ -111,7 +111,7 @@ $ node index</code></pre>
 				<em>The tenant's first application uses <b>PROD1_PCK1</b> package, which has "example04" in its ACL.</em>
 				<br>
 				We will try to hit "example04/buildName" using the external key of the first app from the first tenant:<br/>
-				<pre><code class="bash">$ curl -X GET -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://rest-proxy:4000/example04/buildName?lastName=Smith"</code></pre>
+				<pre><code class="bash">$ curl -X GET -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://127.0.0.1:4000/example04/buildName?lastName=Smith"</code></pre>
 				<h6>Response:</h6>
 
 				<div ng-init="loadJSON(path + 'example04/tenant1_test1.json', 'tenant1_test1');">
@@ -145,7 +145,7 @@ $ node index</code></pre>
 			<div class="insideFieldsetMain">
 			<div>
 				We will hit "example04/buildName" again with "access_token" as an additional query parameter:
-				<pre><code class="bash">$ curl -X GET -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://rest-proxy:4000/example04/buildName?lastName=Smith&access_token=e59104df7256d2d0a77771303ea81fd68ed39e45"</code></pre>
+				<pre><code class="bash">$ curl -X GET -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://127.0.0.1:4000/example04/buildName?lastName=Smith&access_token=e59104df7256d2d0a77771303ea81fd68ed39e45"</code></pre>
 				<h6>Response:</h6>
 				<div ng-init="loadJSON(path + 'example04/response1.json', 'response1');">
 					<div id="response1"></div>
@@ -160,7 +160,7 @@ $ node index</code></pre>
 			<div style="word-break:break-all;">
 				The third application using PROD1_PCK4 allows access to "/buildName" only for logged in users.
 				We will hit "example04/buildName".
-				<pre><code class="bash">$ curl -X GET -H "key:4232477ed993d167ec13ccf8836c29c4c3eabd8dc5d6b29af1725af616353c2ef59ab49a11f64affc60fa73a48eda79187085b064d533fb2f2adccf3e48b41088765a3665c91a193cf13808d68194ecc2061ae81639b49c9f1a73150a3123254" "http://rest-proxy:4000/example04/buildName?lastName=Smith&access_token=e59104df7256d2d0a77771303ea81fd68ed39e45"</code></pre>
+				<pre><code class="bash">$ curl -X GET -H "key:4232477ed993d167ec13ccf8836c29c4c3eabd8dc5d6b29af1725af616353c2ef59ab49a11f64affc60fa73a48eda79187085b064d533fb2f2adccf3e48b41088765a3665c91a193cf13808d68194ecc2061ae81639b49c9f1a73150a3123254" "http://127.0.0.1:4000/example04/buildName?lastName=Smith&access_token=e59104df7256d2d0a77771303ea81fd68ed39e45"</code></pre>
 				<h6>Response:</h6>
 				<div ng-init="loadJSON(path + 'example04/app3_response1.json', 'app3_response1');">
 					<div id="app3_response1"></div>
@@ -175,7 +175,7 @@ $ node index</code></pre>
 			<div>
 				Login as user2 using the "urac/login" api, grab the soajsauth value and add it to the headers.
 				Now hit "example04/buildName".
-				<pre><code class="bash">$ curl -X GET -H "soajsauth:Basic c29hanM6czAxc1lfTGYzY0NqY1BBb3l4RnNDY1VUd1JLU2p3dlBSUzE=" -H "key:4232477ed993d167ec13ccf8836c29c4c3eabd8dc5d6b29af1725af616353c2ef59ab49a11f64affc60fa73a48eda79187085b064d533fb2f2adccf3e48b41088765a3665c91a193cf13808d68194ecc2061ae81639b49c9f1a73150a3123254" "http://rest-proxy:4000/example04/buildName?lastName=Smith&access_token=e59104df7256d2d0a77771303ea81fd68ed39e45"</code></pre>
+				<pre><code class="bash">$ curl -X GET -H "soajsauth:Basic c29hanM6czAxc1lfTGYzY0NqY1BBb3l4RnNDY1VUd1JLU2p3dlBSUzE=" -H "key:4232477ed993d167ec13ccf8836c29c4c3eabd8dc5d6b29af1725af616353c2ef59ab49a11f64affc60fa73a48eda79187085b064d533fb2f2adccf3e48b41088765a3665c91a193cf13808d68194ecc2061ae81639b49c9f1a73150a3123254" "http://127.0.0.1:4000/example04/buildName?lastName=Smith&access_token=e59104df7256d2d0a77771303ea81fd68ed39e45"</code></pre>
 				<h6>Response:</h6>
 				<div ng-init="loadJSON(path + 'example04/app3_response2.json', 'app3_response2');">
 					<div id="app3_response2"></div>
@@ -190,7 +190,7 @@ $ node index</code></pre>
 			<div>
 				Now, using the same soajsauth value in your headers,
 				hit "example04/buildNameGold".
-				<pre><code class="bash">$ curl -X GET -H "soajsauth:Basic c29hanM6czAxc1lfTGYzY0NqY1BBb3l4RnNDY1VUd1JLU2p3dlBSUzE=" -H "key:4232477ed993d167ec13ccf8836c29c4c3eabd8dc5d6b29af1725af616353c2ef59ab49a11f64affc60fa73a48eda79187085b064d533fb2f2adccf3e48b41088765a3665c91a193cf13808d68194ecc2061ae81639b49c9f1a73150a3123254" "http://rest-proxy:4000/example04/buildNameGold?lastName=Smith&access_token=e59104df7256d2d0a77771303ea81fd68ed39e45"</code></pre>
+				<pre><code class="bash">$ curl -X GET -H "soajsauth:Basic c29hanM6czAxc1lfTGYzY0NqY1BBb3l4RnNDY1VUd1JLU2p3dlBSUzE=" -H "key:4232477ed993d167ec13ccf8836c29c4c3eabd8dc5d6b29af1725af616353c2ef59ab49a11f64affc60fa73a48eda79187085b064d533fb2f2adccf3e48b41088765a3665c91a193cf13808d68194ecc2061ae81639b49c9f1a73150a3123254" "http://127.0.0.1:4000/example04/buildNameGold?lastName=Smith&access_token=e59104df7256d2d0a77771303ea81fd68ed39e45"</code></pre>
 				<h6>Response:</h6>
 				<div ng-init="loadJSON(path + 'example04/app3_response3.json', 'app3_response3');">
 					<div id="app3_response3"></div>
