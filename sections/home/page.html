@@ -32,23 +32,17 @@
 						<li ng-repeat="badge in repos">
 							<div id="repo{{badge.label}}" class="repoinner">
 
-								<div class="repoLabel">{{badge.label}}</div>
-								<div class="repoLinks wikiLink"><a href="{{badge.documentation}}" title="Go to {{badge.label}} Documentation"><img alt="wiki" ng-src="images/repos/wiki.png" /></a>
-									<a href="{{badge.documentation}}" title="Go to {{badge.label}} Documentation">Documentation</a></div>
+								<div class="repoLabel">{{badge.label}} <a href="{{badge.documentation}}" title="Go to {{badge.label}} Documentation"><img alt="wiki" ng-src="images/repos/wiki.png" /></a></div>
 
 								<div class="repoLinks npm">
-									<a href="http://badge.fury.io/js/{{badge.npm.id}}" target="_blank"><img style="max-width:100%;" data-canonical-src="https://badge.fury.io/js/{{badge.npm.svg}}.svg" alt="NPM version" ng-src="https://camo.githubusercontent.com/{{badge.npm.key}}"></a>
+									<a href="https://badge.fury.io/js/{{badge.npm}}" target="_blank"><img style="max-width:100%;" ng-src="https://badge.fury.io/js/{{badge.npm}}.svg" alt="NPM version"></a>
 								</div>
 								<div class="repoLinks travis">
-									<a href="https://travis-ci.org/{{badge.travis.id}}" target="_blank"><img data-bindattr-732="732" ng-src="https://travis-ci.org/{{badge.travis.id}}.svg" alt="Build status"></a>
+									<a href="https://travis-ci.org/{{badge.travis}}" target="_blank"><img data-bindattr-732="732" ng-src="https://travis-ci.org/{{badge.travis}}.svg" alt="Build status"></a>
 								</div>
 
 								<div class="repoLinks coveralls">
-									<a href="https://coveralls.io/r/{{badge.coveralls.id}}" target="_blank"><img ng-src="https://coveralls.io/repos/{{badge.coveralls.id}}/badge.svg" alt="Coverage Status"></a>
-								</div>
-
-								<div class="repoLinks grunt">
-									<a href="http://gruntjs.com/" target="_blank"><img style="max-width:100%;" data-canonical-src="https://cdn.gruntjs.com/builtwith.png" alt="Built with Grunt" ng-src="https://cdn.gruntjs.com/builtwith.png"></a>
+									<a href="https://coveralls.io/r/{{badge.coveralls}}" target="_blank"><img ng-src="https://coveralls.io/repos/{{badge.coveralls}}/badge.svg" alt="Coverage Status"></a>
 								</div>
 
 								<div class="repoLinks gitLink">

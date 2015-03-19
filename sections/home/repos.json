@@ -1,113 +1,57 @@
 [
   {
     "label": "SOAJS",
-    "npm": {
-      "id": "soajs",
-      "svg": "soajs",
-      "key": ""
-    },
-    "travis": {
-      "id": "soajs/soajs"
-    },
-    "coveralls": {
-      "id": "soajs/soajs"
-    },
+    "npm": "soajs",
+    "travis":"soajs/soajs",
+    "coveralls":"soajs/soajs",
     "documentation": "#/documentation/",
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs&type=watch&count=true"
   },
   {
-    "label": "SOAJS Connect Mongo",
-    "npm": {
-      "id": "soajs",
-      "svg": "soajs",
-      "key": ""
-    },
-    "travis": {
-      "id": "soajs/connect-mongo-soajs"
-    },
-    "coveralls": {
-      "id": "soajs/connect-mongo-soajs"
-    },
+    "label": "Connect Mongo SOAJS",
+    "npm": "connect-mongo-soajs",
+    "travis":"soajs/connect-mongo-soajs",
+    "coveralls": "soajs/connect-mongo-soajs",
     "documentation": "#/documentation/",
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=connect-mongo-soajs&type=watch&count=true"
   },
   {
     "label": "Utilities",
-    "npm":{
-      "id":"soajs.util",
-      "svg":"soajs.util",
-      "key":""
-    },
-    "travis":{
-      "id":"soajs/soajs.util"
-    },
-    "coveralls":{
-      "id":"soajs/soajs.util"
-    },
+    "npm":"soajs.util",
+    "travis":"soajs/soajs.util",
+    "coveralls":"soajs/soajs.util",
     "documentation": "#/documentation/controller",
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.util&type=watch&count=true"
   },
   {
     "label": "URAC",
-    "npm":{
-      "id":"soajs.urac",
-      "svg":"soajs.urac",
-      "key":""
-    },
-    "travis":{
-      "id":"soajs/soajs.urac"
-    },
-    "coveralls":{
-      "id":"soajs/soajs.urac"
-    },
+    "npm":"soajs.urac",
+    "travis":"soajs/soajs.urac",
+    "coveralls":"soajs/soajs.urac",
     "documentation": "#/documentation/urac",
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.urac&type=watch&count=true"
   },
   {
     "label": "oAuth",
-    "npm":{
-      "id":"soajs.oauth",
-      "svg":"soajs.oauth",
-      "key":""
-    },
-    "travis":{
-      "id":"soajs/soajs.oauth"
-    },
-    "coveralls":{
-      "id":"soajs/soajs.oauth"
-    },
+    "npm":"soajs.oauth",
+    "travis":"soajs/soajs.oauth",
+    "coveralls":"soajs/soajs.oauth",
     "documentation": "#/documentation/oauth",
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.oauth&type=watch&count=true"
   },
   {
     "label": "Dashboard",
-    "npm":{
-      "id":"soajs.dashboard",
-      "svg":"soajs.dashboard",
-      "key":""
-    },
-    "travis":{
-      "id":"soajs/soajs.dashboard"
-    },
-    "coveralls":{
-      "id":"soajs/soajs.dashboard"
-    },
+    "npm":"soajs.dashboard",
+    "travis":"soajs/soajs.dashboard",
+    "coveralls":"soajs/soajs.dashboard",
     "documentation": "#/documentation/dashboard-services",
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.dashboard&type=watch&count=true"
   },
   {
     "label": "Examples",
-    "npm":{
-      "id":"soajs.examples",
-      "svg":"soajs.examples",
-      "key":""
-    },
-    "travis":{
-      "id":"soajs/soajs.examples"
-    },
-    "coveralls":{
-      "id":"soajs/soajs.examples"
-    },
+    "npm":"soajs.examples",
+    "travis":"soajs/soajs.examples",
+    "coveralls":"soajs/soajs.examples",
     "documentation": "#/getStarted",
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.examples&type=watch&count=true"
   }
