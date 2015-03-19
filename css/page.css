@@ -593,7 +593,7 @@ a:hover{
 .features-page .main-section-container .feature-list ul li {
     box-sizing: border-box;
     clear: both;
-    padding: 45px 0;
+    padding-bottom: 40px;
     position: relative;
     width: 100%;
 }
@@ -620,6 +620,14 @@ a:hover{
     font-weight: 400;
     line-height: 1.9em;
     padding-top:5px;
+}
+
+.features-page table tr.odd .middle{
+    padding:0 40px 0 20px;
+}
+
+.features-page table tr.even .middle{
+    padding:0 20px 0 40px;
 }
 
 /* OTHER CSS CLASSES */
