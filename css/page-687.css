@@ -294,20 +294,9 @@
     }
     .white-banner .banner-container .repos ul li .repoLabel{
         font-size:13px;
-       /* width:100%;*/
-        float: left;
-        width: 90px;
-    }
-    .white-banner .banner-container .repos ul li .repoLabel:after {
-        content: " : ";
-        font-size: 13px;
-        height: 20px;
     }
     .white-banner .banner-container .repos ul li .wikiLink{
         /*padding-left: 20px;*/
-    }
-    .white-banner .banner-container .repos ul li .coveralls{
-        clear: left;
     }
     .white-banner .banner-container .repos ul li .repoLinks{
         height: 30px;

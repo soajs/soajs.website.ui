@@ -341,6 +341,7 @@ a:hover{
     display:block;
     border-radius:5px;
     width:478px;
+    height: 75px;
 }
 
 .white-banner .banner-container .repos ul li.even{
@@ -353,6 +354,7 @@ a:hover{
     width:100%;
     clear:both;
     padding-left:5px;
+    background-color: #efefef;
 }
 
 .white-banner .banner-container .repos ul li div .repoLinks{
@@ -372,6 +374,7 @@ a:hover{
 
 .white-banner .banner-container .repos ul li a img{
     max-height:18px;
+    width: auto;
 }
 
 .white-banner .banner-container .repos ul li:hover{
@@ -390,8 +393,8 @@ a:hover{
 }
 
 .white-banner .banner-container .repos ul li .gitLink iframe{
-    width:118px;
-    height: 30px;
+    width:90px;
+    height: 26px;
 }
 .white-banner .banner-container .sharing {
     text-align:center;

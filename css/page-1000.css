@@ -31,7 +31,7 @@
     }
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1025px) {
     .topbar .nav-container {
         margin: 0 auto;
         width: 997px;
@@ -91,23 +91,18 @@
     .soajs-features .features-container .feature-list li.odd {
         margin-right: 6%
     }
-    .white-banner .banner-container .repos ul li .repoinner{
-        width: 135px;
-        margin: 4px;
-        padding: 4px;
-    }
+
     #repoSOAJS{
         margin-left: 0;
     }
     #repoExamples{
         margin-right: 0;
     }
-    #repoSOAJS .repoLabel {
-        font-size: 12px;
-        line-height: 1.5em;
+    #repoMongo .repoLabel {
+
     }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1220px) {
     .topbar .nav-container {
         margin: 0 auto;
         width: 1197px;
@@ -128,8 +123,6 @@
         width: 1197px;
     }
     .white-banner .banner-container .repos ul {
-        width:1197px;
-        border: 1px solid red;
     }
     .repos ul li img .grunt{
         width: auto;

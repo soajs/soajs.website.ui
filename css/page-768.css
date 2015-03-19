@@ -1,7 +1,7 @@
 .topbar .topnav {
     padding-left: 5px;
 }
-@media (min-width: 768px) and (max-width: 999px) {
+@media (min-width: 768px) and (max-width: 1024px) {
     .hidden-desktop {
         display: inherit !important;
     }
@@ -52,7 +52,7 @@
     }
     .white-banner .banner-container {
         margin: 0 auto;
-        width: 97%;
+        width: 99%;
     }
     .powered-by-container {
         margin: 0 auto;
@@ -125,18 +125,38 @@
         margin-right: 6%
     }
 
-    /* repose*/
+    /* repos*/
     .white-banner .banner-container .repos ul {
         margin: 0 auto;
         width: 100%;
     }
 
-    .white-banner .banner-container .repos ul li .repoinner{
-        border-radius:5px;
-        width: 15%;
+    .white-banner .banner-container .repos ul li{
+        width: 49%;
+    }
+    .white-banner .banner-container .repos ul li.even{
+        margin-left: 1%;
+    }
+    .white-banner .banner-container .repos ul .coveralls img {
+        max-width: 80px;
     }
 }
 
+@media (max-width: 900px) {
+    .white-banner .banner-container .repos ul li{
+        height:110px;
+        width: 48%;
+    }
+    .white-banner .banner-container .repos ul li.even{
+        margin-left: 2%;
+    }
+    .white-banner .banner-container .repos ul .coveralls{
+        clear: left;
+    }
+    .white-banner .banner-container .repos ul .coveralls img {
+        width: auto;
+    }
+}
 @media (max-width: 767px) {
     .hidden-desktop {
         display: inherit !important;
@@ -312,6 +332,7 @@
         width: 100%;
         clear: both;
         */
+        width: 48%;
     }
     .white-banner .banner-container .repos ul li:after {
         clear: both;
@@ -322,17 +343,7 @@
         line-height: 0;
         visibility: hidden;
     }
-    .white-banner .banner-container .repos ul li .repoLinks{
-        float: left;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-    .white-banner .banner-container .repos ul .repoinner{
-        clear: both;
-        display: block;
-        width: 100%;
-        margin: 0 auto;
-    }
+
     .white-banner .banner-container .repos ul li .wikiLink{
         padding-left: 0px;
     }
@@ -351,14 +362,8 @@
         margin-bottom:0px;
     }
 
-    .white-banner .banner-container .repos ul li a img{
-
-    }
-
-    .white-banner .banner-container .repos ul li:hover{
-    }
-    .travis, .coveralls  {
-        padding-top: 3px;
+    .white-banner .banner-container .repos ul .coveralls img {
+        max-width: 80px;
     }
 }
 
