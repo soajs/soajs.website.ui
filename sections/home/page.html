@@ -29,10 +29,10 @@
 			<div class="banner-container">
 				<div class="repos">
 					<ul>
-						<li ng-repeat="badge in repos">
+						<li ng-repeat="badge in repos" ng-class-even ="'even'" ng-class-odd ="'odd'">
 							<div id="repo{{badge.label}}" class="repoinner">
 
-								<div class="repoLabel">{{badge.label}} <a href="{{badge.documentation}}" title="Go to {{badge.label}} Documentation"><img alt="wiki" ng-src="images/repos/wiki.png" /></a></div>
+								<div class="repoLabel"><a href="{{badge.documentation}}">{{badge.label}}</a></div>
 
 								<div class="repoLinks npm">
 									<a href="https://badge.fury.io/js/{{badge.npm}}" target="_blank"><img style="max-width:100%;" ng-src="https://badge.fury.io/js/{{badge.npm}}.svg" alt="NPM version"></a>
