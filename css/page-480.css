@@ -188,56 +188,42 @@
     }
 }
 @media (max-width: 450px) {
-    .bottom .copyright:after{
-        content: "450";
-        font-size: 10;
-    }
     .white-banner .banner-container .repos {
         display: none;
     }
 }
 @media (max-width: 400px) {
-    .bottom .copyright:after{
-        content: "400";
-        font-size: 10;
-    }
     body, html, p, ul li {
         font-size: 12px;
         line-height:1.4em;
     }
-    #section-footer{
-        width: 375px;
-    }
+
     .topbar .nav-container {
-        width: 375px;
+        width: 99%;
     }
     .bottom .sharing-footer {
-        width: 375px;
+        width: 99%;
     }
     .bottom {
         font-size: 12px;
     }
     .main-section-container {
-        width: 375px;
+        width: 99%;
     }
     .banner .banner-container {
-        width: 375px;
+        width: 99%;
     }
     .white-banner .banner-container {
-        width: 375px;
+        width: 99%;
     }
     .powered-by-container {
-        width: 375px;
+        width: 99%;
     }
     .soajs-features .features-container {
-        width: 375px;
+        width: 99%;
     }
     .soajs-features{
         padding: 30px 0;
-        width: 375px;
-    }
-    .soajs-features .features-container .feature-list li {
-        width: 300px;
     }
     .myTable td {
         font-size: 10px;
@@ -250,7 +236,9 @@
     .banner .about-container ul{
         width:250px;
     }
-
+    .bottom .copyright{
+        width:150px;
+    }
     .small-button {
         font-size: 12px;
         height: 30px;
@@ -265,9 +253,6 @@
         width: 10px;
     }
 
-    .bottom .sharing-footer .inner {
-        margin-top:1px;
-    }
     .left-sidebar section:hover > ul {
         padding-left:  17px;
     }
@@ -278,8 +263,7 @@
     .left-sidebar section h4{
         padding-left: 7px;
     }
-    .soajs-features .features-container .features p {
-    }
+
     #ex02Registry{
         width: 90%;
         display: block;
@@ -312,39 +296,25 @@
     .bottom .copyright{
         width:270px;
     }
-    .bottom .copyright:after{
-        content: "340";
-        font-size: 10;
-    }
-    .bottom .sharing-footer {
-        width: 320px;
-    }
+
     #section-footer{
-        width: 320px;
-    }
-    .topbar .nav-container {
-        width: 320px;
+        width: 320px; /**/
     }
 
-    .main-section-container {
+    .main-section-container, .soajs-features .features-container ,
+    .topbar .nav-container, .white-banner .banner-container, .bottom .sharing-footer {
         width: 320px;
     }
     .banner .banner-container {
         width: 320px;
         padding: 50px 0 50px;
     }
-    .white-banner .banner-container {
-        width: 320px;
-    }
     .powered-by-container {
         width: 320px;
         margin: 0;
     }
-    .soajs-features .features-container {
-        width: 320px;
-    }
     .soajs-features{
-        width: 320px;
+        width: 320px; /**/
     }
     .soajs-features .features-container .feature-list li {
         /*width: 90%;*/

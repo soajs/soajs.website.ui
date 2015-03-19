@@ -224,7 +224,6 @@ a:hover{
     /*opacity:0.9;*/
     box-sizing: border-box;
     overflow-x: hidden;
-    overflow: visible; /**/
 }
 
 .banner:after {

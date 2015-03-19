@@ -199,7 +199,9 @@
     .feature-list .left img, .feature-list .right img{
         display: none;
     }
-
+    .features-page table tr.odd td.middle, .features-page table tr.even td.middle{
+        padding: 0;
+    }
     .left-sidebar {
         float: none;
         width:100%;
@@ -294,9 +296,6 @@
     }
     .white-banner .banner-container .repos ul li .repoLabel{
         font-size:13px;
-    }
-    .white-banner .banner-container .repos ul li .wikiLink{
-        /*padding-left: 20px;*/
     }
     .white-banner .banner-container .repos ul li .repoLinks{
         height: 30px;
