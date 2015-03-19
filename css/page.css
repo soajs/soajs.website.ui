@@ -335,16 +335,17 @@ a:hover{
 
 .white-banner .banner-container .repos ul li{
     float:left;
+}
+.white-banner .banner-container .repos ul li .repoinner{
     margin:5px;
     border:solid 1px #f1f1f1;
     padding:5px;
     display:block;
     border-radius:5px;
-    width:189px;
+    width:160px;
 }
-
 .white-banner .banner-container .repos ul li .repoLabel{
-    font-size:14px;
+    font-size:13px;
     font-weight:bold;
     text-align:center;
 }
@@ -356,8 +357,10 @@ a:hover{
 .white-banner .banner-container .repos ul li a img{
     max-height:18px;
 }
-
-.white-banner .banner-container .repos ul li:hover{
+.repos ul li .grunt img{
+    width: 120px;
+}
+.white-banner .banner-container .repos ul li:hover .repoinner{
     border:solid 1px #FFB500;
     transition: all ease 0.25s;
 }
