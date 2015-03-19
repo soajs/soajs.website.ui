@@ -223,7 +223,6 @@
 
     .banner .about-container {
         padding-top: 15px;
-        font-size: 13px;
     }
 
     .white-banner .banner-container p {
@@ -255,7 +254,9 @@
     .left-sidebar  {
         padding-left: 5px;
     }
-
+    .left-main{
+        margin-left: 5px;
+    }
 
     /* repos */
     .wikiLink img{

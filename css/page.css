@@ -326,6 +326,10 @@ a:hover{
 
 .white-banner .banner-container .repos ul {
     margin: 0 auto;
+    width:997px;
+}
+.white-banner .banner-container .repos ul {
+    margin: 0 auto;
     padding: 0;
     list-style-type: none;
     font-size:12px;
