@@ -47,7 +47,7 @@
   {
     "id": "urac",
     "title": "URAC",
-    "description": "SOAJS comes with a User Registration &amp; Access Control (URAC) service that empowers you to provide user driven API access control as well as configuration. In addition URAC is a full user/group records management equipped with advanced notification system.",
+    "description": "SOAJS comes with a User Registration & Access Control (URAC) service that empowers you to provide user driven API access control as well as configuration. In addition URAC is a full user/group records management equipped with advanced notification system.",
     "leftImage": true,
     "imageLocation": "images/features/urac.png",
     "fullDescription": "<p>SOAJS comes with a User Registration &amp; Access Control (URAC) service that manages users' accounts for different tenants. This service empowers you to provide user driven API access control as well as configuration. URAC is also equipped with an advanced notification system and template options.</p><p>The URAC also provides the ability to override the service access level as well as configuration for specific users regarding product packages and tenants applications (1 - 2 - 3 - 4).</p>",
