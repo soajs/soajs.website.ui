@@ -14,11 +14,11 @@
 
 						<h3> {{feature.title}} </h3>
 						<table cellspacing="5">
-							<tr>
+							<tr ng-class-even="'even'" ng-class-odd="'odd'">
 								<td class="left" valign="top" ng-show="feature.leftImage">
 									<img ng-src="{{feature.imageLocation}}"/>
 								</td>
-								<td valign="top" ng-bind-html="feature.fullDescription|toTrustedHtml"></td>
+								<td valign="top" class="middle" ng-bind-html="feature.fullDescription|toTrustedHtml"></td>
 								<td class="right" valign="top" ng-show="feature.rightImage">
 									<img ng-src="{{feature.imageLocation}}"/>
 								</td>
