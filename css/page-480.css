@@ -155,10 +155,6 @@
     .soajs-features .feature-list li h5{
         font-size: 14px;
     }
-    .banner .about-container {
-        padding-top: 15px;
-        font-size: 13px;
-    }
     .banner .banner-container .left-main{
     }
     .main-section-container ol, .main-section-container ul{
@@ -230,7 +226,7 @@
         font-size: 13px;
     }
     .banner .about-container ul{
-        width:250px;
+        padding-left: 20px;
     }
     .bottom .copyright{
         width:150px;

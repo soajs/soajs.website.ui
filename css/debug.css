@@ -3,6 +3,12 @@
         content: " 1025";
     }
 }
+@media (max-width: 768px) {
+    .bottom .copyright:after{
+        content: " 768";
+    }
+}
+
 @media (max-width: 687px) {
     .bottom .copyright:after{
         content: " 687";
