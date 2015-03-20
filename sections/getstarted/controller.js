@@ -16,17 +16,6 @@ myApp.controller('example01Ctrl', [ '$scope', 'loadFileContent', 'loadJsonFileCo
         loadJsonFileContent($scope, path, elId);
     };
 
-		if($routeParams && $routeParams.anchor && $routeParams.anchor !== '' && jQuery) {
-			setTimeout(function() {
-
-				var elId = jQuery('#'+ $routeParams.anchor);
-				jQuery("html body").animate({
-					scrollTop: elId.offset().top - 50
-				}, 500);
-
-			}, 500);
-		}
-
 }]);
 myApp.controller('example02Ctrl', [ '$scope', 'loadFileContent','loadJsonFileContent', function($scope, loadFileContent,loadJsonFileContent) {
     $scope.path = "sections/getstarted/content/";
