@@ -31,7 +31,7 @@
     }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1024px) {
     .soajs-features .features-container .feature-list li {
         min-height: 200px;
         width: 47%;

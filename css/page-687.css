@@ -171,6 +171,9 @@
         /*display: none;*/
         background-image: url(../images/beaver.png);
     }
+    .two{
+        width: 100%;
+    }
     #beaverAlone{/*
         display: inline;
         width: 40%;
