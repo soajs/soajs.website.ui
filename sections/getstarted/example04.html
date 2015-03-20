@@ -2,7 +2,7 @@
 	<div class="main-section-container examples">
 		<a href="#/getStarted" class="goBackLink">Go Back</a>
 
-		<h1>Example 04</h1>
+		<a id="top"></a><h1>Example 04</h1>
 		<div class="white-container">
 		In <a href="#/getStarted/example02">Example02</a> we used <a href="#/documentation/oauth">oAuth</a> to secure our service, and in <a href="#/getStarted/example03">Example03</a> we examined how to secure a service per tenant.
 
@@ -126,7 +126,7 @@ $ node index</code></pre>
 			      We need to call "oauth/token" and provide two values in the headers:<br>
 				- The external key value from Tenant 1.<br>
 				- Authorization, which is generated from (tenantId:secret_phrase).  So for Tenant 1,
-			in this case it is (<b>54ee2150b7a669fc22b7f6b9</b>:<b>My secret phrase</b>) which evaluates to "NTRlZTIxNTBiN2E2NjlmYzIyYjdmNmI5Ok15IHNlY3JldCBwaHJhc2U=".
+			in this case it is (<b>54ee2150b7a669fc22b7f6b9</b>:<b>My secret phrase</b>) which evaluates to <span class="breakWord">"NTRlZTIxNTBiN2E2NjlmYzIyYjdmNmI5Ok15IHNlY3JldCBwaHJhc2U="</span>.
 				<br /><br />
 
 				<pre><code class="bash">$ curl -X POST -H "Authorization: Basic NTRlZTIxNTBiN2E2NjlmYzIyYjdmNmI5Ok15IHNlY3JldCBwaHJhc2U=" -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://127.0.0.1:4000/oauth/token" -d 'username=oauthuser_tenant1&password=oauthpassword_tenant1&grant_type=password'</code></pre>
@@ -206,6 +206,7 @@ $ node index</code></pre>
 			You need to attach the <b>access_token</b> parameter to all your calls to reach the <b>Example04</b> service.
 		</p>
 	</div>
+		<a href="#/getStarted/example04/top" class="goBackLink">Back to Top</a>
 	</div>
 	<script>renderCodeSnippets();</script>
 </div>

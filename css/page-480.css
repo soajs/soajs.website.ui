@@ -1,4 +1,7 @@
 @media (max-width: 500px) {
+    .breakWord{
+        word-break: break-all;
+    }
     .banner .banner-container .tagline {
         font-size: 15px;
     }

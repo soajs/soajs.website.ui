@@ -299,11 +299,9 @@
     #example03png, #example01png, #example02-oauth, #getstarted_ex02, #oAuth-workflow{
         width: 90%;
     }
-    fieldset{
-        word-break: break-all;
-    }
     pre code{
         font-size: 11px;
+        word-break: break-all;
     }
     .white-banner .banner-container .repos ul li .repoLabel{
         font-size:13px;

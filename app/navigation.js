@@ -52,7 +52,7 @@ var navigation = [
 		{
 			'id': 'example04',
 			'label': 'example04',
-			'url': '#/getStarted/example04',
+			'url': '#/getStarted/example04/:anchor?',
 			'tplPath': 'sections/getstarted/example04.html',
 			'scripts': ['sections/getstarted/controller.js']
 		},

@@ -16,5 +16,6 @@ featuresApp.controller('FeaturesPageCtrl', ['$scope', '$http', '$routeParams', f
 
 			}, 500);
 		}
+
 	});
 }]);
