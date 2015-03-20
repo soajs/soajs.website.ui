@@ -28,14 +28,14 @@ $ ./soajs.mongo.sh</code>
 $ cd soajs.examples/examples04
 $ node index</code></pre>
 		<p>
-			<b>Example04</b> is now running on http://localhost:4000/example04.<br/>
-			                 Let's do a heartbeat check just to make sure all is working as expected before we begin the tests.<br/><br/>
+			<b>Example04</b> is now running on http://127.0.0.1:4000/example04.<br/>
+            Let's do a heartbeat check just to make sure all is working as expected before we begin the tests.<br/><br/>
 		</p>
 
 		<fieldset><legend>Heartbeat Example04</legend>
 			<div class="insideFieldsetMain">
 			<div>
-				<pre><code class="bash">$ curl -X GET "http://localhost:5013/heartbeat"</code></pre>
+				<pre><code class="bash">$ curl -X GET "http://127.0.0.1:5013/heartbeat"</code></pre>
 				<h6><u>Response:</u></h6>
 
 				<div ng-init="loadJSON(path + 'example04/heartbeat_example04.json', 'heartbeat_example04');">
@@ -129,7 +129,7 @@ $ node index</code></pre>
 			in this case it is (<b>54ee2150b7a669fc22b7f6b9</b>:<b>My secret phrase</b>) which evaluates to "NTRlZTIxNTBiN2E2NjlmYzIyYjdmNmI5Ok15IHNlY3JldCBwaHJhc2U=".
 				<br /><br />
 
-				<pre><code class="bash">$ curl -X POST -H "Authorization: Basic NTRlZTIxNTBiN2E2NjlmYzIyYjdmNmI5Ok15IHNlY3JldCBwaHJhc2U=" -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://localhost:4000/oauth/token" -d 'username=oauthuser_tenant1&password=oauthpassword_tenant1&grant_type=password'</code></pre>
+				<pre><code class="bash">$ curl -X POST -H "Authorization: Basic NTRlZTIxNTBiN2E2NjlmYzIyYjdmNmI5Ok15IHNlY3JldCBwaHJhc2U=" -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://127.0.0.1:4000/oauth/token" -d 'username=oauthuser_tenant1&password=oauthpassword_tenant1&grant_type=password'</code></pre>
 				<h6>Response:</h6>
 
 				<div ng-init="loadJSON(path + 'example04/oauth_login.json', 'oauth_login');">
