@@ -141,7 +141,9 @@
     .five, .four, .three{
         width:  45%
     }
-
+    .two{
+        width:55%;
+    }
     .banner .about-container {
         padding-top: 15px;
         width: 95%;
@@ -282,9 +284,6 @@
         /*padding-right: 10px;
         background-image: url(../images/bigImg3.png);
         */
-    }
-    .two{
-        width:55%;
     }
     /* repos */
     .wikiLink img{
