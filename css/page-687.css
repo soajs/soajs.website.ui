@@ -166,9 +166,22 @@
     }
 
     .banner .banner-container .left-main{
-        background-image: url(../images/beaver.png);
+
         background-repeat: no-repeat;
         background-size: 50%;
+    }
+    #beaverImg2{
+        background-image: url(../images/beaver.png);
+        display: none;
+    }
+    #beaverAlone{
+        display: inline;
+        width: 40%;
+        float: right;
+        padding-top: 20px;
+    }
+    .five, .four, .three{
+        width:  100%
     }
     .banner .banner-container .tagline p{
         /*width: 90%;*/

@@ -61,6 +61,25 @@
     .white-banner .banner-container .repos ul li a img{
         max-height: 20px;
     }
+
+    .beaverImg {
+
+    }
+    #beaverImg1{
+        position: absolute;
+        float: right;
+        right: 0;
+        bottom: 0;
+        width: 48%;
+        height: 95%;
+        background-size: 95%;
+    }
+    .banner .about-container  {
+        width: 50%;
+    }
+    .banner .banner-container .tagline {
+        width: 95%;
+    }
 }
 @media screen and (min-width: 1220px) {
     .main-section-container, .banner .banner-container, .white-banner .banner-container,
@@ -85,5 +104,12 @@
     }
     .banner .banner-container .left-main {
         background-size: auto 100%;
+    }
+
+    .beaverImg {
+
+    }
+    .banner .about-container, .banner .banner-container .tagline {
+        width: 50%;
     }
 }

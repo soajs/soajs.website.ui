@@ -1,14 +1,16 @@
 .topbar .topnav {
     padding-left: 5px;
 }
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
     .topbar .topnav li.active a {
         border-bottom: solid 4px rgb(53, 90, 118);
     }
     .examples img{
         width: auto;
     }
-
+    #beaverImg1{
+        width: 48%;
+    }
     img{/*
         max-width: 88%;*/
     }
@@ -30,11 +32,6 @@
 
     .small-button{
         padding: 6px 35px 8px;
-    }
-
-    .beaverImg img {
-        max-width: 95%;
-        align-self: right;
     }
 
     .banner .banner-container .left-main {
@@ -127,7 +124,29 @@
         width: auto;
     }
 }
-@media (max-width: 767px) {
+
+@media (max-width: 820px) {
+    .beaverImg{
+        display: none;
+    }
+    #beaverImg2{
+        display: inline;
+        float: right;
+        width: 50%;
+        height: 85%;
+    }
+    .five, .four, .three{
+        width:  45%
+    }
+    .banner .about-container {
+        padding-top: 15px;
+        width: 95%;
+    }
+    .banner .about-container ul{
+        padding-right: 10px;
+    }
+}
+@media (max-width: 768px) {
     body, html {
         font-size: 14px;
         line-height: 1.7em;
@@ -178,14 +197,7 @@
         float: none;
         display: block;
     }
-    .beaverImg{
-        width: 40%;
-        text-align: right;
-    }
-    .beaverImg img {
-        max-width: 95%;
-        align-self: right;
-    }
+
     .bottom {
         font-size: 14px;
     }
@@ -214,8 +226,8 @@
     .powered-by-container .powered-icon img{
         max-width: 110px;
     }
-    .banner .banner-container .tagline {
-        font-size: 16px;
+    .banner .banner-container .tagline p{
+        font-size: 18px;
     }
     .banner .banner-container .tagline {
         font-size: 18px;
@@ -223,6 +235,7 @@
     }
     .banner .about-container {
         padding-top: 15px;
+        width: 95%;
     }
 
     .white-banner .banner-container p {

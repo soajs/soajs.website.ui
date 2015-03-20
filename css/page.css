@@ -219,8 +219,6 @@ a:hover{
 
 /* HOMEPAGE */
 .banner {
-    /*background-color: #E9B66E;*/
-    /*background-color: #df9630;*/
     /*opacity:0.9;*/
     box-sizing: border-box;
     overflow-x: hidden;
@@ -240,32 +238,61 @@ a:hover{
     box-sizing: border-box;
     margin: 0 auto;
     width: 997px;
-    padding: 80px 0 100px;
+    padding: 50px 0 80px;
     /*position: relative; */
     clear:both;
 }
 
 .banner .banner-container .left-main {
     padding-right: 10px;
+    /*
     background-image: url(../images/bigImg.png);
     background-position: right bottom;
     background-repeat: no-repeat;
     background-size: 45%;
+    */
+    position: relative;
+}
+#beaverAlone{
+    display: none;
+}
+#beaverImg2{
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+#beaverImg1{
+    position: absolute;
+    float: right;
+    right: 0;
+    bottom: 0;
+    width: 45%;
+    height: 95%;
+}
+.beaverImg {
+    background-image: url(../images/bigImg.png);
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    background-size: 95%;
+    /*border: 1px solid red;*/
+}
+.banner .about-container, .banner .banner-container .tagline {
+    width: 50%;
 }
 .banner .banner-container .tagline {
     font-size: 20px;
     z-index: 15;
-    width: 50%;
+    padding-top: 30px;
 }
 .banner .about-container {
     box-sizing: border-box;
     margin: 0;
     padding-top: 20px;
     padding-right: 0px;
-    padding-bottom: 0px;
+    padding-bottom: 20px;
     position: relative;
     font-size: 16px;
-    width: 50%;
 }
 .banner .banner-container .blueBtn {
     font-size: 18px;
@@ -302,11 +329,6 @@ a:hover{
 
 .banner .about-container ul li span {
     color: black; /* check */
-}
-
-.beaverImg {
-    float: right;
-    display: none;
 }
 
 .white-banner {
@@ -391,6 +413,7 @@ a:hover{
 .white-banner .banner-container .repos ul li:hover .repoLabel a{
     color:white;
     text-decoration: none;
+    width: 100%;
 }
 
 .white-banner .banner-container .repos ul li .gitLink iframe{
