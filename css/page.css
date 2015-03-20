@@ -337,7 +337,7 @@ a:hover{
 }
 
 .banner .about-container ul li span {
-    color: black; /* check */
+    color: rgb(34, 34, 34);
 }
 
 .white-banner {
