@@ -1,7 +1,7 @@
 [
   {
     "routeName": "/token",
-    "cmd": "CURL -X POST http://localhost:4000/oauth/token -d 'username=oauthuser&password=oauthpass&grant_type=password'",
+    "cmd": "CURL -X POST http://127.0.0.1:4000/oauth/token -d 'username=oauthuser&password=oauthpass&grant_type=password'",
     "fields": [
       {
         "parameter": "username",
@@ -31,7 +31,7 @@
   },
   {
     "routeName": "/kill",
-    "cmd": "CURL -X GET http://localhost:4000/oauth/kill -d 'access_token=someOAuthAcessToken'",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/oauth/kill -d 'access_token=someOAuthAcessToken'",
     "fields": [
       {
         "parameter": "access_token",

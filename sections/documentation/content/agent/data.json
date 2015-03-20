@@ -1,7 +1,7 @@
 [
   {
     "routeName": "/topology",
-    "cmd": "CURL -X GET http://localhost:4000/agent/topology",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/agent/topology",
     "response": {
       "result": true,
       "data": {}
@@ -9,7 +9,7 @@
   },
   {
     "routeName": "/compute/all",
-    "cmd": "CURL -X GET http://localhost:4000/agent/compute/all",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/agent/compute/all",
     "response": {
       "result": true,
       "data": {
@@ -95,7 +95,7 @@
   },
   {
     "routeName": "/heartbeat",
-    "cmd": "CURL -X GET http://localhost:4000/agent/heartbeat",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/agent/heartbeat",
     "response": {
       "result": true,
       "data": {
@@ -149,7 +149,7 @@
   },
   {
     "routeName": "/loadProvision",
-    "cmd": "CURL -X GET http://localhost:4000/agent/loadProvision",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/agent/loadProvision",
     "response": {
       "result": true,
       "data": {
@@ -195,7 +195,7 @@
   },
   {
     "routeName": "/reloadRegistry",
-    "cmd": "CURL -X GET http://localhost:4000/agent/reloadRegistry",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/agent/reloadRegistry",
     "response": {
       "result": true,
       "data": {

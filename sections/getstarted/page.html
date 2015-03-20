@@ -40,14 +40,14 @@
 				SOAJS in an NPM repository and can be installed using NPM command in your terminal.<br />
 				If you have <a href="http://nodejs.org" target="_blank">NodeJS</a> installed, then you can open your terminal and execute the following commands:
                 <pre>
-	                <code class="bash">#install soajs services
-$ npm install soajs.util</code></pre>
+	                <code class="bash">#install soajs controller
+$ npm install soajs.controller</code></pre>
 			</li>
 			<li><h4>Start the services</h4>
 				To start a service, using the command line, navigate to its folder, and run node index.<br>
                 <pre>
-	                <code class="bash"># navigate to soajs.util/controller directory
-$ cd soajs.util/controller;
+	                <code class="bash"># navigate to soajs.controller directory
+$ cd soajs.controller;
 # start the service
 $ node index</code></pre>
 				<em>Checkout the <a href="#/documentation/controller">Controller</a> section under documention for more information.</em>
@@ -56,13 +56,13 @@ $ node index</code></pre>
 			</li>
 			<li>
 				<h4>Testing the Service</h4>
-				By default, the controller runs on your localhost via port 4000. Every service in SOAJS has its own default port and another maintenance port configured in the registry. So when you start a service, the service will be listening to two ports at the same time; one to process the requests and another used for maintenance operations.<br />
+				By default, the controller runs on 127.0.0.1 via port 4000. Every service in SOAJS has its own default port and another maintenance port configured in the registry. So when you start a service, the service will be listening to two ports at the same time; one to process the requests and another used for maintenance operations.<br />
 				You can access the maintenance port while the service is running and perform some maintenance operations like heartbeat checking and reload configuration. To access the maintenance port of a service, add 1000 to its default port number, in this case 4000 + 1000 = 5000.<br/>
 				Let's see what happens when we run both 4000 and 5000 ports on your machine.<br /><br/>
 				<fieldset>
 					<legend>Default Port</legend>
 					<div>
-						<pre><code class="bash">$ curl -X GET "http://localhost:4000</code></pre>
+						<pre><code class="bash">$ curl -X GET "http://127.0.0.1:4000</code></pre>
 						<h6><u>Response:</u></h6>
 						<pre><code class="bash">{
 	"result": false,
@@ -84,7 +84,7 @@ $ node index</code></pre>
 					<legend>Maintenance Port</legend>
 					<div>
 						<p>Let's hit the maintenance port and perform a heartbeat check.<br /></p>
-						<pre><code class="bash">$ curl -X GET "http://localhost:5000/heartbeat</code></pre>
+						<pre><code class="bash">$ curl -X GET "http://127.0.0.1:5000/heartbeat</code></pre>
 						<h6><u>Response:</u></h6>
 						<pre><code class="bash">{
 	"result": true,

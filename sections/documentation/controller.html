@@ -51,18 +51,18 @@ CURL -X POST "http://127.0.0.1:4000/urac/login"</code></pre>
 	<hr/>
 	<h3>Usage</h3>
 	<p>
-		SOAJS controller is located in <a href="https://npmjs.com/packages/soajs.util" target="_blank">soajs.util</a>.<br />
+		SOAJS controller is located in <a href="https://npmjs.com/packages/soajs.controller" target="_blank">soajs.controller</a>.<br />
 		Install:<br />
-		<pre><code class="bash">$ npm install soajs.util</code></pre><br />
+		<pre><code class="bash">$ npm install soajs.controller</code></pre><br />
 		Then navigate to the directory where it is installed and run the service.<br />
-		<pre><code class="bash">$ cd soajs.util/controller
+		<pre><code class="bash">$ cd soajs.controller
 $ node index</code></pre><br />
 		The service is now running and listening to port 4000.
 	</p>
 	<hr />
 	<h3>Testing the Service</h3>
 	<p>
-		By default, the controller runs on your localhost via port 4000. Every service in SOAJS has its own default port and another maintenance port configured in the registry. So when you start a service, the service will be listening to two ports at the same time; one to process the requests and another used for maintenance operations.<br />
+		By default, the controller runs on 127.0.0.1 via port 4000. Every service in SOAJS has its own default port and another maintenance port configured in the registry. So when you start a service, the service will be listening to two ports at the same time; one to process the requests and another used for maintenance operations.<br />
 		You can always change the default values of any service inside the <a href="#/documentation/registry">registry</a> as well as other properties like timeout, poolSize ... etc. Simply go to the <a href="#/documentation/registry">registry</a>, under the profile of your project and open the configuration file of the environment that is running. Lookup services section, in this case, an specific entry for the controller is located there along with the properties that this service disposes of.
 		<pre><code class="json">"controller": {
 	"port": 4000,
@@ -79,7 +79,7 @@ $ node index</code></pre><br />
 	<fieldset>
 		<legend>Default Port</legend>
 		<div>
-			<pre><code class="bash">$ curl -X GET "http://localhost:4000</code></pre>
+			<pre><code class="bash">$ curl -X GET "http://127.0.0.1:4000</code></pre>
 			<h6><u>Response:</u></h6>
 			<pre><code class="bash">{
 	"result": false,
@@ -96,8 +96,8 @@ $ node index</code></pre><br />
 			<em>When you invoke the controller on the default port and without specifying a service, the controller simply returns an error message.</em>
 			<p><br/>On its own, the controller is useless but in this case, we just wanted to check that there is a response and verify that it is running and listening on port 4000. Later on when you create a service, run both the controller and the service then using this approach, call the controller on the default port followed by the service name and the service API as path parameters so that the service responds.<br />
 				Link Schema: http://<b>%controller%</b> / <b>%service name%</b> / <b>%api%</b><br />
-				<u>Ex:</u> <a href="http://localhost:4000/example01/testGet?name=johnDoe" target="_blank">http://localhost:4000/example01/testGet?name=johnDoe</a><br />
-				<em>localhost:4000 here represents the address of the controller.<br/>
+				<u>Ex:</u> <a href="http://127.0.0.1:4000/example01/testGet?name=johnDoe" target="_blank">http://127.0.0.1:4000/example01/testGet?name=johnDoe</a><br />
+				<em>127.0.0.1:4000 here represents the address of the controller.<br/>
 					example01 is the name of the service.<br/>
 					testGet is the api we are calling.
 				</em>
@@ -108,7 +108,7 @@ $ node index</code></pre><br />
 		<legend>Maintenance Port</legend>
 		<div>
 			<p>Let's hit the maintenance port: 5000<br /></p>
-			<pre><code class="bash">$ curl -X GET "http://localhost:5000</code></pre>
+			<pre><code class="bash">$ curl -X GET "http://127.0.0.1:5000</code></pre>
 			<h6><u>Response:</u></h6>
 			<pre><code class="bash">nothing to do!</code></pre>
 			<em>When you invoke the controller on the maintenance port and without specifying an operation, the controller simply returns a "nothing to do!" message.</em>
@@ -119,7 +119,7 @@ $ node index</code></pre><br />
 		<legend>Maintenance Port with Operation</legend>
 		<div>
 			<p>Let's hit the maintenance port and perform a heartbeat check.<br /></p>
-			<pre><code class="bash">$ curl -X GET "http://localhost:5000/heartbeat</code></pre>
+			<pre><code class="bash">$ curl -X GET "http://127.0.0.1:5000/heartbeat</code></pre>
 			<h6><u>Response:</u></h6>
 			<pre><code class="bash">{
 	"result": true,
