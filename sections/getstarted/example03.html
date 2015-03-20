@@ -36,7 +36,7 @@
 $ node index</code>
 			</pre>
 		<p>
-			<a href='#/documentation/urac'>URAC</a> is now running on http://localhost:4000/urac and will we will use it to login with our users later on when we start the tests.<br />
+			<a href='#/documentation/urac'>URAC</a> is now running on http://127.0.0.1:4000/urac and will we will use it to login with our users later on when we start the tests.<br />
 		</p>
 		</p>
 		<hr/>
@@ -62,13 +62,13 @@ $ ./soajs.mongo.sh</code></pre>
 $ cd soajs.examples/examples03
 $ node index</code></pre>
 		<p>
-			<b>Example03</b> is now running on http://localhost:4000/example03.<br />
+			<b>Example03</b> is now running on http://127.0.0.1:4000/example03.<br />
 
          Let's do a heartbeat check just to make sure all is working as expected before we begin the tests.<br /><br />
 		</p>
 		<fieldset><legend>Heartbeat urac</legend><div class="insideFieldsetMain">
 			<div>
-				<pre><code class="bash">$ curl -X GET "http://localhost:5001/heartbeat"</code></pre>
+				<pre><code class="bash">$ curl -X GET "http://127.0.0.1:5001/heartbeat"</code></pre>
 				<h6><u>Response:</u></h6>
 				<div ng-init="loadJSON(path + 'example03/heartbeat_urac.json', 'heartbeat_urac');">
 					<div id="heartbeat_urac"></div>
@@ -84,7 +84,7 @@ $ node index</code></pre>
 			<div class="insideFieldsetMain">
 
 			<div>
-				<pre><code class="bash">$ curl -X GET "http://localhost:5012/heartbeat"</code></pre>
+				<pre><code class="bash">$ curl -X GET "http://127.0.0.1:5012/heartbeat"</code></pre>
 				<h6><u>Response:</u></h6>
 				<div ng-init="loadJSON(path + 'example03/heartbeat_example03.json', 'heartbeat_example03');">
 					<div id="heartbeat_example03"></div>
@@ -358,7 +358,7 @@ $ node index</code></pre>
 			<div>
 				Above we had tried to access example03/buildName API using the key from the first application in tenant 1 and failed.
 				Now, let's log in as user1 from the sample above. Hit the "urac/login" API:
-				<pre><code class="bash">$ curl -X POST -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://localhost:4000/urac/login" -d "username=user1&password=123456"</code></pre>
+				<pre><code class="bash">$ curl -X POST -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://127.0.0.1:4000/urac/login" -d "username=user1&password=123456"</code></pre>
 				<em>We are using the key of the first application of tenant 1.</em>
 				<h6>Response:</h6>
 
@@ -371,7 +371,7 @@ $ node index</code></pre>
 
 				Grab the <b>soajsauth</b> property and add it in the headers of the consequent request.<br/>
 				Now hit "example03/buildName" API:
-				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example03/buildName?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxclV4WlRGbXdvS2VtOG1rTERGZW9ocDUwSzFYdDZaaUg=" -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"</code></pre>
+				<pre><code class="bash">$ curl -X GET "http://127.0.0.1:4000/example03/buildName?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxclV4WlRGbXdvS2VtOG1rTERGZW9ocDUwSzFYdDZaaUg=" -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"</code></pre>
 				<h6>Response:</h6>
 
 				<div ng-init="loadJSON(path + 'example03/error154.json', 'userTest1_154');">
@@ -385,7 +385,7 @@ $ node index</code></pre>
 
 			<div>
 				Now, using the key from the first application, let's log in as user2 (hit the urac/login API):
-				<pre><code class="bash">$ curl -X POST -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://localhost:4000/urac/login" -d "username=user2&password=123456"</code></pre>
+				<pre><code class="bash">$ curl -X POST -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://127.0.0.1:4000/urac/login" -d "username=user2&password=123456"</code></pre>
 				<h6>Response:</h6>
 				<div ng-init="loadJSON(path + 'example03/tenant1/user2_app1_login.json', 'user2_app1_login');">
 					<div id="user2_app1_login"></div>
@@ -394,7 +394,7 @@ $ node index</code></pre>
 				Grab the <b>soajsauth</b> property and add it in the headers of the consequent request.<br/>
 				<br>
 				Hit "example03/buildName" API:
-				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example03/buildName?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxc1lfTGYzY0NqY1BBb3l4RnNDY1VUd1JLU2p3dlBSUzE=" -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"</code></pre>
+				<pre><code class="bash">$ curl -X GET "http://127.0.0.1:4000/example03/buildName?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxc1lfTGYzY0NqY1BBb3l4RnNDY1VUd1JLU2p3dlBSUzE=" -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"</code></pre>
 				<h6>Response:</h6>
 
 				<div ng-init="loadJSON(path + 'example03/tenant1/user2_app1_response.json', 'user2_app1_response');">
@@ -416,7 +416,7 @@ $ node index</code></pre>
 				The login was successful and the response returned contains the <b>soajsauth</b> property.<br/>
 				<br>
 				Now hit example03/buildName API:
-				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example03/buildName?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxRFo4TjVIOFlVbk9JdGluYWpTdlJBSVFyTW1BdnJXWTE=" -H "key:4232477ed993d167ec13ccf8836c29c4550e88551c880d36fd42223ef81e0a6e1f668d42edc70d3d98fa8d28757e951bd7a04cf43829b5c2f38ed8c9ee87f03b79e564dd6aeaf8c37e90c92e6a69dccbd52b5a7812cad139bfbeaab69b023322"</code></pre>
+				<pre><code class="bash">$ curl -X GET "http://127.0.0.1:4000/example03/buildName?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxRFo4TjVIOFlVbk9JdGluYWpTdlJBSVFyTW1BdnJXWTE=" -H "key:4232477ed993d167ec13ccf8836c29c4550e88551c880d36fd42223ef81e0a6e1f668d42edc70d3d98fa8d28757e951bd7a04cf43829b5c2f38ed8c9ee87f03b79e564dd6aeaf8c37e90c92e6a69dccbd52b5a7812cad139bfbeaab69b023322"</code></pre>
 				<h6>Response:</h6>
 
 				<div ng-init="loadJSON(path + 'example03/tenant1/user2_app2_response.json', 'user2_app2_response');">
@@ -430,7 +430,7 @@ $ node index</code></pre>
 
 			<div>
 				Now, using the key from the first application, let's login as user3:
-				<pre><code class="bash">$ curl -X POST -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://localhost:4000/urac/login" -d "username=user3&password=654321"</code></pre>
+				<pre><code class="bash">$ curl -X POST -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://127.0.0.1:4000/urac/login" -d "username=user3&password=654321"</code></pre>
 				<h6>Response:</h6>
 				<div ng-init="loadJSON(path + 'example03/tenant1/user3_app1_login.json', 'user3_app1_login');">
 					<div id="user3_app1_login"></div>
@@ -439,7 +439,7 @@ $ node index</code></pre>
 
 				<br>
 				Hit "example03/buildName" API:
-				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example03/buildName?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxMkdMWXBiX0lybndHR0dlaENwS2Z4NlpoV3dtYzhTeUw=" -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"</code></pre>
+				<pre><code class="bash">$ curl -X GET "http://127.0.0.1:4000/example03/buildName?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxMkdMWXBiX0lybndHR0dlaENwS2Z4NlpoV3dtYzhTeUw=" -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"</code></pre>
 				<h6>Response:</h6>
 
 				<div ng-init="loadJSON(path + 'example03/tenant1/user3_app1_response.json', 'user3_app1_response');">
@@ -448,7 +448,7 @@ $ node index</code></pre>
 				User3 can access "example03/buildName". And notice the value of "tenantName".
 				<br> <br>
 				Try to hit "example03/testGet" API:
-				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example03/testGet?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxMkdMWXBiX0lybndHR0dlaENwS2Z4NlpoV3dtYzhTeUw=" -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"</code></pre>
+				<pre><code class="bash">$ curl -X GET "http://127.0.0.1:4000/example03/testGet?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxMkdMWXBiX0lybndHR0dlaENwS2Z4NlpoV3dtYzhTeUw=" -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"</code></pre>
 				<h6>Response:</h6>
 
 				<div ng-init="loadJSON(path + 'example03/tenant1/user3_app1_response2.json', 'user3_app1_response2');">
