@@ -10,6 +10,7 @@
     }
     #beaverImg1{
         width: 48%;
+        margin-right: 10px;
     }
     img{/*
         max-width: 88%;*/
@@ -127,12 +128,13 @@
 }
 
 @media (max-width: 820px) {
-    .beaverImg{
-        display: none;
-    }
+
     #beaverImg2{
-        display: inline;
-        float: right;
+        display: none;
+        width: 50%;
+        height: 85%;
+    }
+    #beaverImg1{
         width: 50%;
         height: 85%;
     }
@@ -309,5 +311,9 @@
 
     .white-banner .banner-container .repos ul .coveralls img {
         max-width: 80px;
+    }
+
+    #beaverImg1{
+        margin-right: 10px;
     }
 }
