@@ -13,11 +13,11 @@
 	},
 	"/api_route1": {
 			"commonFields": ['firstName'], //reference firstName from common fields
-				"lastName" : { ... }
+			"lastName" : { ... }
 	},
 	"/api_route2":{
 			"commonFields": ['firstName'], //reference firstName from common fields
-				"email" : { ... }
+			"email" : { ... }
 	}
 }
 //...

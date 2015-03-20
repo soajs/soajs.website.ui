@@ -85,7 +85,7 @@
 @media screen and (min-width: 1220px) {
     .main-section-container, .banner .banner-container, .white-banner .banner-container,
     .soajs-features .features-container, .powered-by-container,
-    .bottom .sharing-footer, .topbar .nav-container{
+    .bottom .sharing-footer, .topbar .nav-container, .whyBeaver-container{
         width: 1197px;
     }
     .white-banner .banner-container .repos ul {
@@ -107,10 +107,10 @@
         background-size: auto 100%;
     }
 
-    .beaverImg {
-
-    }
     .banner .about-container, .banner .banner-container .tagline {
         width: 50%;
+    }
+    #dashboard-form, #dashboard-grid{
+        max-width: 900px;
     }
 }

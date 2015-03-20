@@ -1,27 +1,25 @@
-@media (max-width: 687px) {
+@media (max-width: 687px){
     body, html {
         font-size: 14px;
         line-height: 1.7em;
     }
-    .banner .banner-container {
+    .banner .banner-container{
         padding: 70px 0 70px;
     }
-
-    .topbar .topnav li.active a, .topbar .topnav li:hover a {
+    .topbar .topnav li.active a, .topbar .topnav li:hover a{
         border-bottom: none;
     }
-    .topbar .contactUs, .topbar .documentation,.topbar .features, .topbar .getStarted {
+    .topbar .contactUs, .topbar .documentation,.topbar .features, .topbar .getStarted{
         width: 100%;
     }
-
-    .topbar .menu {
+    .topbar .menu{
         display: block !important;
     }
-    .topbar .menu.menu-open {
+    .topbar .menu.menu-open{
         background-color: rgb(53, 90, 118);
     }
 
-    .topbar .topnav {
+    .topbar .topnav{
         background-color: rgb(53, 90, 118);
         display: none;
         padding: 0;
@@ -30,16 +28,16 @@
         top: 60px;
         width: 200px;
     }
-    .topbar .topnav li {
+    .topbar .topnav li{
         border-bottom: 1px solid rgb(65, 100, 126);;
         float: none;
         font-size: 20px;
         height: 45px;
     }
-    .topbar .topnav li.no-mobile {
+    .topbar .topnav li.no-mobile{
         display: none;
     }
-    .topbar .topnav li a {
+    .topbar .topnav li a{
         box-sizing: border-box;
         color: #fff;
         display: block;
@@ -48,7 +46,7 @@
         padding: 7px 25px 13px 25px;
         width: 100%;
     }
-    .topbar .topnav li a.current {
+    .topbar .topnav li a.current{
         border-bottom: medium none;
         color: #41bac2;
         font-weight: 600;
@@ -166,7 +164,6 @@
     }
 
     .banner .banner-container .left-main{
-
         background-repeat: no-repeat;
         background-size: 50%;
     }

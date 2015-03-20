@@ -250,7 +250,7 @@
         font-size: 12px;
     }
     .topbar .nav-container, .bottom .sharing-footer, .main-section-container, .soajs-features .features-container,
-    .banner .banner-container, .white-banner .banner-container, .powered-by-container {
+    .banner .banner-container, .white-banner .banner-container, .powered-by-container, .whyBeaver {
         width: 99%;
     }
     .soajs-features .feature-list li h5{
@@ -330,7 +330,7 @@
         width: 320px;
         margin: 0 auto;
     }
-    .main-section-container, .soajs-features .features-container ,
+    .main-section-container, .soajs-features .features-container, .whyBeaver-container,
     .topbar .nav-container, .white-banner .banner-container, .bottom .sharing-footer {
         width: 320px;
     }

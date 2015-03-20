@@ -763,7 +763,17 @@ pre {
 .ng-valid.ng-dirty {
     border-color: #78FA89
 }
-
+.whyBeaver{
+    margin: 0 auto;
+    width: 997px;
+    padding: 10px 0 20px 0;
+    background-color: #41647d;
+}
+.whyBeaver-container{
+    margin: 0 auto;
+    width: 997px;
+    padding: 10px 0 20px 0;
+}
 .powered-by-container {
     margin: 0 auto;
     width: 997px;
