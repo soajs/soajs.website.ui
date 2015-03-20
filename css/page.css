@@ -765,9 +765,9 @@ pre {
 }
 .whyBeaver{
     margin: 0 auto;
-    width: 997px;
-    padding: 10px 0 20px 0;
-    background-color: #41647d;
+    width: 100%;
+    padding: 10px 0 40px 0;
+    background-color: #ffffff;
 }
 .whyBeaver-container{
     margin: 0 auto;
