@@ -69,6 +69,17 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', function($sco
 			$scope.currentLocation = p[0];
 		}
 	});
+	/*
+	if($routeParams && $routeParams.anchor && $routeParams.anchor !== '' && jQuery) {
+		setTimeout(function() {
+
+			var elId = jQuery('#'+ $routeParams.anchor);
+			jQuery("html body").animate({
+				scrollTop: elId.offset().top - 50
+			}, 500);
+
+		}, 500);
+	}*/
 
 	$scope.copyrightYear = "2015";
 	var thisYear = new Date().getFullYear();

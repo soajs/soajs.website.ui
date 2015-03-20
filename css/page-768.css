@@ -74,6 +74,7 @@
     }
     .image-right{
         float: right;
+        margin-left: 5px;
     }
     #getstarted_ex02{
         float:none;

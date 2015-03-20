@@ -228,11 +228,13 @@
         display: none;
     }
 }
+
 @media (max-width: 470px) {
     .white-banner .banner-container .repos {
         display: none;
     }
 }
+
 @media (max-width: 400px) {
     body, html, p, ul li {
         font-size: 12px;
@@ -318,12 +320,8 @@
         width:270px;
     }
 
-    #section-footer{
-        width: 320px;
-        margin: 0 auto;
-    }
-    .soajs-features{
-        width: 320px; /**/
+    #section-footer, .soajs-features{
+        /*width: 320px;*/
         margin: 0 auto;
     }
     .main-section-container, .soajs-features .features-container ,
@@ -358,6 +356,8 @@
     .insideFieldsetMain pre{
         width: 276px;
     }
-
+    #oauth-config{
+        width: 280px;
+    }
 }
 

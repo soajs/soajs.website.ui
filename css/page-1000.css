@@ -48,6 +48,7 @@
     }
     .image-right{
         float: right;
+        margin-left: 5px;
     }
     #registry1png{
         width:270px;
