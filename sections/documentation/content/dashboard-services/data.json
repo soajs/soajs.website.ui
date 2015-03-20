@@ -1,7 +1,7 @@
 [
   {
     "routeName": "/environment/list",
-    "cmd": "CURL -X GET http://localhost:4000/dashboard/environment/list",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/dashboard/environment/list",
     "fields": [
       {
         "parameter": "N/A",
@@ -15,7 +15,7 @@
   },
   {
     "routeName": "/environment/add",
-    "cmd": "CURL -X POST http://localhost:4000/dashboard/environment/add -d 'code=DEV&description=development&ips=['127.0.0.1']'",
+    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/environment/add -d 'code=DEV&description=development&ips=['127.0.0.1']'",
     "fields": [
       {
         "parameter": "code",
@@ -45,7 +45,7 @@
   },
   {
     "routeName": "/environment/update",
-    "cmd": "CURL -X POST http://localhost:4000/dashboard/environment/update?id=1 -d 'description=development&ips=['127.0.0.1']'",
+    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/environment/update?id=1 -d 'description=development&ips=['127.0.0.1']'",
     "fields": [
       {
         "parameter": "id",
@@ -75,7 +75,7 @@
   },
   {
     "routeName": "/environment/delete",
-    "cmd": "CURL -X GET http://localhost:4000/dashboard/environment/delete?id=1",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/dashboard/environment/delete?id=1",
     "fields": [
       {
         "parameter": "id",
@@ -89,7 +89,7 @@
   },
   {
     "routeName": "/product/list",
-    "cmd": "CURL -X GET http://localhost:4000/dashboard/product/list",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/dashboard/product/list",
     "fields": [
       {
         "parameter": "N/A",
@@ -103,7 +103,7 @@
   },
   {
     "routeName": "/product/get",
-    "cmd": "CURL -X GET http://localhost:4000/dashboard/product/get?id=1",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/dashboard/product/get?id=1",
     "fields": [
       {
         "parameter": "id",
@@ -117,7 +117,7 @@
   },
   {
     "routeName": "/product/add",
-    "cmd": "CURL -X POST http://localhost:4000/dashboard/product/add -d 'code=PROD&name=My Product&description=my product description...'",
+    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/product/add -d 'code=PROD&name=My Product&description=my product description...'",
     "fields": [
       {
         "parameter": "code",
@@ -147,7 +147,7 @@
   },
   {
     "routeName": "/product/update",
-    "cmd": "CURL -X POST http://localhost:4000/dashboard/product/update?id=1 -d 'name=My Product&description=my product description...'",
+    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/product/update?id=1 -d 'name=My Product&description=my product description...'",
     "fields": [
       {
         "parameter": "id",
@@ -177,7 +177,7 @@
   },
   {
     "routeName": "/product/delete",
-    "cmd": "CURL -X GET http://localhost:4000/dashboard/product/delete?id=1",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/dashboard/product/delete?id=1",
     "fields": [
       {
         "parameter": "id",
@@ -191,7 +191,7 @@
   },
   {
     "routeName": "/product/packages/list",
-    "cmd": "CURL -X GET http://localhost:4000/dashboard/product/packages/list?id=1",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/dashboard/product/packages/list?id=1",
     "fields": [
       {
         "parameter": "id",
@@ -205,7 +205,7 @@
   },
   {
     "routeName": "/product/packages/add",
-    "cmd": "CURL -X POST http://localhost:4000/dashboard/product/packages/add?id=1 -d 'code=BASIC&name=My Product&description=my product description...&_TTL=3600000&acl={'urac':{'access':true}}'",
+    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/product/packages/add?id=1 -d 'code=BASIC&name=My Product&description=my product description...&_TTL=3600000&acl={'urac':{'access':true}}'",
     "fields": [
       {
         "parameter": "id",
@@ -259,7 +259,7 @@
   },
   {
     "routeName": "/product/packages/update",
-    "cmd": "CURL -X POST http://localhost:4000/dashboard/product/packages/update?id=1&code=BASIC -d 'name=My Product&description=my product description...&_TTL=3600000&acl={'urac':{'access':true}}'",
+    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/product/packages/update?id=1&code=BASIC -d 'name=My Product&description=my product description...&_TTL=3600000&acl={'urac':{'access':true}}'",
     "fields": [
       {
         "parameter": "id",
@@ -313,7 +313,7 @@
   },
   {
     "routeName": "/product/packages/delete",
-    "cmd": "CURL -X GET http://localhost:4000/dashboard/product/packages/delete?id=1&code=BASIC",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/dashboard/product/packages/delete?id=1&code=BASIC",
     "fields": [
       {
         "parameter": "id",
@@ -335,7 +335,7 @@
   },
   {
     "routeName": "/tenant/list",
-    "cmd": "CURL -X GET http://localhost:4000/dashboard/tenant/list",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/dashboard/tenant/list",
     "fields": [
       {
         "parameter": "N/A",
@@ -349,7 +349,7 @@
   },
   {
     "routeName": "/tenant/get",
-    "cmd": "CURL -X GET http://localhost:4000/dashboard/tenant/get?id=1",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/dashboard/tenant/get?id=1",
     "fields": [
       {
         "parameter": "id",
@@ -363,7 +363,7 @@
   },
   {
     "routeName": "/tenant/add",
-    "cmd": "CURL -X POST http://localhost:4000/dashboard/tenant/add -d 'name=tenantName&description=tenant Description&code=TEST'",
+    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/tenant/add -d 'name=tenantName&description=tenant Description&code=TEST'",
     "fields": [
       {
         "parameter": "description",
@@ -393,7 +393,7 @@
   },
   {
     "routeName": "/tenant/delete",
-    "cmd": "CURL -X GET http://localhost:4000/dashboard/tenant/delete?id=1",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/dashboard/tenant/delete?id=1",
     "fields": [
       {
         "parameter": "id",
@@ -407,7 +407,7 @@
   },
   {
     "routeName": "/tenant/update",
-    "cmd": "CURL -X POST http://localhost:4000/dashboard/tenant/update?id=1 -d 'name=new Name&description=new Des'",
+    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/tenant/update?id=1 -d 'name=new Name&description=new Des'",
     "fields": [
       {
         "parameter": "id",
@@ -437,7 +437,7 @@
   },
   {
     "routeName": "/tenant/oauth/list",
-    "cmd": "CURL -X GET http://localhost:4000/dashboard/tenant/oauth/list?id=11",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/dashboard/tenant/oauth/list?id=11",
     "fields": [
       {
         "parameter": "id",
@@ -451,7 +451,7 @@
   },
   {
     "routeName": "/tenant/oauth/add",
-    "cmd": "CURL -X POST http://localhost:4000/dashboard/tenant/oauth/add?id=11 -d 'secret=secret phrase&redirectURI=...'",
+    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/tenant/oauth/add?id=11 -d 'secret=secret phrase&redirectURI=...'",
     "fields": [
       {
         "parameter": "id",
@@ -481,7 +481,7 @@
   },
   {
     "routeName": "/tenant/oauth/update",
-    "cmd": "CURL -X POST http://localhost:4000/dashboard/tenant/oauth/update?id=11 -d 'secret=secret phrase&redirectURI=...'",
+    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/tenant/oauth/update?id=11 -d 'secret=secret phrase&redirectURI=...'",
     "fields": [
       {
         "parameter": "id",
@@ -511,7 +511,7 @@
   },
   {
     "routeName": "/tenant/oauth/delete",
-    "cmd": "CURL -X GET http://localhost:4000/dashboard/tenant/oauth/delete?id=11",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/dashboard/tenant/oauth/delete?id=11",
     "fields": [
       {
         "parameter": "id",
@@ -525,7 +525,7 @@
   },
   {
     "routeName": "/tenant/application/list",
-    "cmd": "CURL -X GET http://localhost:4000/dashboard/tenant/application/list?id=11",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/dashboard/tenant/application/list?id=11",
     "fields": [
       {
         "parameter": "id",
@@ -539,7 +539,7 @@
   },
   {
     "routeName": "/tenant/application/add",
-    "cmd": "CURL -X POST http://localhost:4000/dashboard/tenant/application/add?id=11 -d '_TTL=3600000&description=application description...&acl={}&productCode=PROD&packageCode=BASIC",
+    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/tenant/application/add?id=11 -d '_TTL=3600000&description=application description...&acl={}&productCode=PROD&packageCode=BASIC",
     "fields": [
       {
         "parameter": "id",
@@ -593,7 +593,7 @@
   },
   {
     "routeName": "/tenant/application/update",
-    "cmd": "CURL -X POST http://localhost:4000/dashboard/tenant/application/update?id=11&appId=5 -d '_TTL=3600000&description=application description...&acl={}&productCode=PROD&packageCode=BASIC' ",
+    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/tenant/application/update?id=11&appId=5 -d '_TTL=3600000&description=application description...&acl={}&productCode=PROD&packageCode=BASIC' ",
     "fields": [
       {
         "parameter": "id",
@@ -655,7 +655,7 @@
   },
   {
     "routeName": "/tenant/application/delete",
-    "cmd": "CURL -X GET http://localhost:4000/dashboard/tenant/application/delete?id=11&appId=5",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/dashboard/tenant/application/delete?id=11&appId=5",
     "fields": [
       {
         "parameter": "id",
@@ -677,7 +677,7 @@
   },
   {
     "routeName": "/tenant/application/key/list",
-    "cmd": "CURL -X GET http://localhost:4000/dashboard/tenant/application/key/list?id=11&appId=5",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/dashboard/tenant/application/key/list?id=11&appId=5",
     "fields": [
       {
         "parameter": "id",
@@ -699,7 +699,7 @@
   },
   {
     "routeName": "/tenant/application/key/add",
-    "cmd": "CURL -X POST http://localhost:4000/dashboard/tenant/application/key/add?id=11&appId=5",
+    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/tenant/application/key/add?id=11&appId=5",
     "fields": [
       {
         "parameter": "id",
@@ -721,7 +721,7 @@
   },
   {
     "routeName": "/tenant/application/key/delete",
-    "cmd": "CURL -X GET http://localhost:4000/dashboard/tenant/application/key/delete?id=11&appId=5&key=mainKey1",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/dashboard/tenant/application/key/delete?id=11&appId=5&key=mainKey1",
     "fields": [
       {
         "parameter": "id",
@@ -751,7 +751,7 @@
   },
   {
     "routeName": "/tenant/application/key/ext/list",
-    "cmd": "CURL -X GET http://localhost:4000/dashboard/tenant/application/key/ext/list?id=11&appId=5&key=mainKey1",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/dashboard/tenant/application/key/ext/list?id=11&appId=5&key=mainKey1",
     "fields": [
       {
         "parameter": "id",
@@ -781,7 +781,7 @@
   },
   {
     "routeName": "/tenant/application/key/ext/add",
-    "cmd": "CURL -X POST http://localhost:4000/dashboard/tenant/application/key/ext/add?id=11&appId=5&key=mainKey1 -d 'expDate=123445679482&device={}&geo={}'",
+    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/tenant/application/key/ext/add?id=11&appId=5&key=mainKey1 -d 'expDate=123445679482&device={}&geo={}'",
     "fields": [
       {
         "parameter": "id",
@@ -835,7 +835,7 @@
   },
   {
     "routeName": "/tenant/application/key/ext/update",
-    "cmd": "CURL -X POST http://localhost:4000/dashboard/tenant/application/key/ext/update?id=11&appId=5&key=mainKey1 -d 'extKey=externalApplicationKeyValue&expDate=123445679482&device={}&geo={}'",
+    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/tenant/application/key/ext/update?id=11&appId=5&key=mainKey1 -d 'extKey=externalApplicationKeyValue&expDate=123445679482&device={}&geo={}'",
     "fields": [
       {
         "parameter": "id",
@@ -897,7 +897,7 @@
   },
   {
     "routeName": "/tenant/application/key/ext/delete",
-    "cmd": "CURL -X POST http://localhost:4000/dashboard/tenant/application/key/ext/delete?id=11&appId=5&key=mainKey1 -d 'extKey=externalApplicationKeyValue'",
+    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/tenant/application/key/ext/delete?id=11&appId=5&key=mainKey1 -d 'extKey=externalApplicationKeyValue'",
     "fields": [
       {
         "parameter": "id",
@@ -935,7 +935,7 @@
   },
   {
     "routeName": "/tenant/application/key/config/list",
-    "cmd": "CURL -X GET http://localhost:4000/dashboard/tenant/application/key/config/list?id=11&appId=5&key=mainKey1 ",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/dashboard/tenant/application/key/config/list?id=11&appId=5&key=mainKey1 ",
     "fields": [
       {
         "parameter": "id",
@@ -965,7 +965,7 @@
   },
   {
     "routeName": "/tenant/application/key/config/update",
-    "cmd": "CURL -X POST http://localhost:4000/dashboard/tenant/application/key/config/update -d 'id=11&appId=5&key=mainKey1&envCode=DEV&config={'urac':{'access': true}}'",
+    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/tenant/application/key/config/update -d 'id=11&appId=5&key=mainKey1&envCode=DEV&config={'urac':{'access': true}}'",
     "fields": [
       {
         "parameter": "id",

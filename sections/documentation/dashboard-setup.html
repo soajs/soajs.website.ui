@@ -11,8 +11,11 @@
 	<p>
 		First you need to install all the needed modules of SOAJS and their dependencies as mentioned in <a href="#/getStarted">Get Started</a> Section under How to Install SOAJS.<br />
 		<ul>
-			<li><a href="https://www.npmjs.com/packages/soajs.util" target="_blank">soajs.util</a>
-				<pre><code class="bash">$ npm install soajs.util</code></pre>
+			<li><a href="https://www.npmjs.com/packages/soajs.controller" target="_blank">soajs.controller</a>
+				<pre><code class="bash">$ npm install soajs.controller</code></pre>
+			</li>
+			<li><a href="https://www.npmjs.com/packages/soajs.agent" target="_blank">soajs.agent</a>
+				<pre><code class="bash">$ npm install soajs.agent</code></pre>
 			</li>
 			<li><a href="https://www.npmjs.com/packages/soajs.oauth" target="_blank">soajs.oauth</a>
 				<pre><code class="bash">$ npm install soajs.oauth</code></pre>
@@ -28,9 +31,9 @@
 			</li>
 		</ul>
 		Once all the modules are installed, run their services:<br />
-		<pre><code class="bash">$ cd soajs.util/controller
+		<pre><code class="bash">$ cd soajs.controller
 $ node .
-$ cd ../agent/
+$ cd ../soajs.agent
 $ node .
 $ cd ../soajs.oauth
 $ node .
@@ -54,7 +57,7 @@ server {
 server {
 	server_name  dashboard.soajs.org;
 	location / {
-		root   /opt/soajs/soajs.dashboard/ui/;
+		root   /opt/soajs/node_modules/soajs.dashboard/ui/;
 		index  index.html index.htm;
 	}
 }
