@@ -172,7 +172,7 @@
         clear: none;
     }
     .banner .banner-container .left-main {
-        background-image: url(../images/beaver2.png);
+        background-image: none;
     }
     .banner .about-container {
         width: 90%;

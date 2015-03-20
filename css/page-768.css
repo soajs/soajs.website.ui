@@ -38,9 +38,6 @@
     }
 
     .banner .banner-container .left-main {
-        padding-right: 10px;
-        background-image: url(../images/bigImg3.png);
-        background-size: 50%;
         background-position: right bottom;
     }
     .banner .banner-container .tagline {
@@ -261,8 +258,9 @@
         margin-left: 5px;
     }
     .banner .banner-container .left-main {
-        padding-right: 10px;
+        /*padding-right: 10px;
         background-image: url(../images/bigImg3.png);
+        */
     }
     /* repos */
     .wikiLink img{
