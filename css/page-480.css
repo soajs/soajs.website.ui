@@ -2,50 +2,63 @@
     .banner .banner-container .tagline {
         font-size: 15px;
     }
+
     .white-banner .banner-container p {
         font-size: 12px;
     }
-    #dashboard-form, #dashboard-grid{
-        width: 90% ;
+
+    #dashboard-form, #dashboard-grid {
+        width: 90%;
     }
+
     .left-sidebar .left-menu {
         width: 89%;
     }
-    .left-sidebar  {
+
+    .left-sidebar {
         padding-left: 5px;
     }
 
     body, html, ul li, p {
         font-size: 13px;
-        line-height:1.5em;
+        line-height: 1.5em;
     }
-    .page h1{
+
+    .page h1 {
         font-size: 16pt;
     }
+
     h3 {
         font-size: 16px;
     }
+
     h4, .h4 {
         font-size: 14px;
     }
-    pre code{
+
+    pre code {
         font-size: 10px;
     }
-    .banner .banner-container .left-main{
+
+    .banner .banner-container .left-main {
         width: 92%;
     }
+
     .myTable td {
         font-size: 11px;
         padding: 8px 5px;
     }
+
     .myTable thead th {
         font-size: 12px;
         padding: 8px 5px;
     }
+
     .banner .banner-container {
         padding: 50px 0 50px;
     }
-    .white-container{
+
+    .white-container {
         padding: 7px 10px;
     }
 
@@ -57,12 +70,14 @@
         font-size: 13px;
         padding: 10px 0;
     }
+
     .small-button {
         font-size: 13px;
         height: 43px;
         padding: 10px 17px 8px;
         margin-right: 10px;
     }
+
     .small-button {
         /*padding: 6px 25px 8px; */
     }
@@ -71,112 +86,143 @@
         padding: 30px 0;
         width: 100%;
     }
-    .features-page .main-section-container .feature-list ul li p{
+
+    .features-page .main-section-container .feature-list ul li p {
         font-size: 12px;
-        line-height:1.4em;
+        line-height: 1.4em;
     }
-    .features-page .main-section-container .feature-list ul li .std-list li{
+
+    .features-page .main-section-container .feature-list ul li .std-list li {
         font-size: 12px;
     }
-    .image-right{
+
+    .image-right {
         float: none;
         display: block;
     }
-    #indexjsImg{
-        float:none;
-    }
-    #registry1png{
-        width:270px;
+
+    #indexjsImg {
         float: none;
     }
-    #controllerpng, #urac2png, #uracpng{
+
+    #registry1png {
+        width: 270px;
+        float: none;
+    }
+
+    #controllerpng, #urac2png, #uracpng {
         width: 92%;
         max-width: 92%;
     }
-    #example03png, #example01png, #example02-oauth, #getstarted_ex02, #getStartedImg, #oAuth-workflow{
+
+    #example03png, #example01png, #example02-oauth, #getstarted_ex02, #getStartedImg, #oAuth-workflow {
         width: 85%;
         display: block;
         float: none;
     }
-    #urac-override-acl{
+
+    #urac-override-acl {
         width: 92%;
         max-width: 92%;
     }
-    .left-sidebar .left-menu section section h4{
+
+    .left-sidebar .left-menu section section h4 {
         font-size: 12px;
     }
-    .left-sidebar section:hover > ul{
+
+    .left-sidebar section:hover > ul {
         width: 100px;
     }
-    .left-sidebar section#dashbd:hover > ul{
+
+    .left-sidebar section#dashbd:hover > ul {
         width: 120px;
     }
-    .left-sidebar section#soajs:hover > ul{
+
+    .left-sidebar section#soajs:hover > ul {
         width: 115px;
     }
-    .left-sidebar .left-menu ul li a{
+
+    .left-sidebar .left-menu ul li a {
         font-size: 12px;
     }
-    .powered-by-container h1{
+
+    .powered-by-container h1 {
         font-size: 14pt;
         margin-top: 10px;
     }
-    .powered-by-container .powered-icon img{
+
+    .powered-by-container .powered-icon img {
         max-width: 70px;
     }
 
     .soajs-features .features-container .feature-list li {
         padding-left: 10px;
     }
+
     .soajs-features .features-container .features p {
         font-size: 14px;
         line-height: 1.6em;
     }
+
     .soajs-features .features-container .features h1 {
         font-size: 24px;
     }
-    .soajs-features .feature-list li img{
+
+    .soajs-features .feature-list li img {
         display: none;
     }
-    .soajs-features{
+
+    .soajs-features {
         padding: 35px 0;
     }
+
     .soajs-features .feature-list li p {
         font-size: 13px;
         line-height: 1.6em;
     }
-    .soajs-features .feature-list li h5{
+
+    .soajs-features .feature-list li h5 {
         font-size: 14px;
     }
-    .banner .banner-container .left-main{
+
+    .banner .banner-container .left-main {
     }
-    .main-section-container ol, .main-section-container ul{
+
+    .main-section-container ol, .main-section-container ul {
         padding-left: 20px;
     }
+
     .white-banner .banner-container .repos {
         /*display: none;*/
     }
-    .bottom .copyright{
-        width:155px;
+
+    .bottom .copyright {
+        width: 155px;
     }
 
     /*repos*/
-    .white-banner .banner-container .repos ul li{
+    .white-banner .banner-container .repos ul li {
         width: 98%;
         height: 75px;
     }
-    .white-banner .banner-container .repos ul li.even{
+
+    .white-banner .banner-container .repos ul li.even {
         margin-left: 0px;
     }
-    .white-banner .banner-container .repos ul .coveralls{
+
+    .white-banner .banner-container .repos ul .coveralls {
         clear: none;
     }
+
     .banner .banner-container .left-main {
         background-image: none;
     }
+
     .banner .about-container {
         width: 90%;
     }
+}
+
 @media (max-width: 470px) {
     .white-banner .banner-container .repos {
         display: none;

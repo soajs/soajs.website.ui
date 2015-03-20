@@ -1,7 +1,6 @@
 "use strict";
 var contactUsApp = app.components;
 contactUsApp.controller('contactCtrl', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
-	// $scope.contact.email = "enassif@kyube.com";
 	$scope.alerts = [];
 
 	$scope.closeAlert = function(index) {
@@ -21,7 +20,7 @@ contactUsApp.controller('contactCtrl', ['$scope', '$http', '$timeout', function(
 				data: $scope.contact,
 				headers: {'Content-Type': 'application/json'}
 			}).success(function(data, status, headers, config) {
-				if(data.result === true){
+				if(data.result === true) {
 					$scope.contact = {
 						name: '',
 						email: '',
@@ -33,7 +32,7 @@ contactUsApp.controller('contactCtrl', ['$scope', '$http', '$timeout', function(
 					$scope.alerts.push({'type': 'success', 'msg': "Thank you for contacting us. We will get back to you shortly."});
 					$scope.closeAllAlerts();
 				}
-				else{
+				else {
 					$scope.alerts.push({'type': 'danger', 'msg': "Sorry, wasn't able to send your message to the team. Try again later."});
 					$scope.closeAllAlerts();
 				}
