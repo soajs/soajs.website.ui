@@ -27,6 +27,15 @@ a:hover{
 .examples img{
     width: 300px;
 }
+
+.redFlag{
+    width:100%;
+    margin:5px 0;
+    padding:10px;
+    border:solid 2px #990000;
+    background-color:#ea9999;
+    border-radius: 5px;
+}
 /*
     HEADER, LOGO AND TOP MENU
 */
