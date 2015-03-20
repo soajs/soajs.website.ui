@@ -4,9 +4,15 @@
 		<div ng-controller="contactCtrl">
 			<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
 			<br>
-			SOAJS TEAM is looking forward to get in touch with you, please fill out the form below and we will get back to you as soon as possible.<br/>
-			Our Team is reachable by clicking this link: <a href="mailto:team@soajs.org">team@soajs.org</a>.
-			<!--<form name="contactForm" ng-submit="contactForm.$valid && sendContact()" novalidate>-->
+			SOAJS TEAM is looking forward to get in touch with you,
+			please email us to <a href="mailto:team@soajs.org">team@soajs.org</a>, and we will get back to you as soon as possible.
+
+			<!--
+			SOAJS TEAM is looking forward to get in touch with you,
+
+			please fill out the form below and we will get back to you as soon as possible.<br/>
+
+			<form name="contactForm" ng-submit="contactForm.$valid && sendContact()" novalidate>-->
 				<!--<label> Name </label>-->
 				<!--<input ng-model="contact.name" type="text" placeholder="Full Name" class="form-control" tooltip="Enter your full name..." required/><br />-->
 				<!--<label>Email</label>-->
