@@ -20,7 +20,7 @@
 						<br/><br/>
 					</div>
 				</div>
-				<div class="beaverImg"><img src="images/beaver.png"></div>
+				<div class="beaverImg"><img src="images/bigImg2.png"></div>
 
 			</div>
 		</div>
@@ -34,18 +34,18 @@
 
 								<div class="repoLabel"><a href="{{badge.documentation}}">{{badge.label}}</a></div>
 
-								<div class="repoLinks npm">
+								<div class="repoLinks npm" ng-show="badge.npm">
 									<a href="https://badge.fury.io/js/{{badge.npm}}" target="_blank"><img style="max-width:100%;" ng-src="https://badge.fury.io/js/{{badge.npm}}.svg" alt="NPM version"></a>
 								</div>
-								<div class="repoLinks travis">
+								<div class="repoLinks travis" ng-show="badge.travis">
 									<a href="https://travis-ci.org/{{badge.travis}}" target="_blank"><img data-bindattr-732="732" ng-src="https://travis-ci.org/{{badge.travis}}.svg" alt="Build status"></a>
 								</div>
 
-								<div class="repoLinks coveralls">
+								<div class="repoLinks coveralls" ng-show="badge.coveralls">
 									<a href="https://coveralls.io/r/{{badge.coveralls}}" target="_blank"><img ng-src="https://coveralls.io/repos/{{badge.coveralls}}/badge.svg" alt="Coverage Status"></a>
 								</div>
 
-								<div class="repoLinks gitLink">
+								<div class="repoLinks gitLink" ng-show="badge.github">
 									<iframe ng-src="{{badge.github | trustAsResourceUrl}}" frameborder="0" scrolling="0" style="" allowTransparency="true"></iframe>
 								</div>
 							</div>

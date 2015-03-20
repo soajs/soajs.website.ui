@@ -18,13 +18,13 @@
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=connect-mongo-soajs&type=watch&count=true"
   },
   {
-    "id": "Utilities",
-    "label": "Utilities",
-    "npm":"soajs.util",
-    "travis":"soajs/soajs.util",
-    "coveralls":"soajs/soajs.util",
+    "id": "Controller",
+    "label": "Controller",
+    "npm":"soajs.controller",
+    "travis":"soajs/soajs.controller",
+    "coveralls":"soajs/soajs.controller",
     "documentation": "#/documentation/controller",
-    "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.util&type=watch&count=true"
+    "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.controller&type=watch&count=true"
   },
   {
     "id": "URAC",
@@ -61,5 +61,10 @@
     "coveralls":"soajs/soajs.examples",
     "documentation": "#/getStarted",
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.examples&type=watch&count=true"
+  },
+  {
+    "id": "Nginx",
+    "label": "Nginx",
+    "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.nginx&type=watch&count=true"
   }
 ]
