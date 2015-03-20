@@ -248,13 +248,14 @@ a:hover{
 .banner .banner-container .left-main {
     padding-right: 10px;
     background-image: url(../images/bigImg2.png);
-    background-position: right;
+    background-position: right bottom;
     background-repeat: no-repeat;
+    background-size: 45%;
 }
 .banner .banner-container .tagline {
     font-size: 20px;
     z-index: 15;
-    width: 54%;
+    width: 50%;
 }
 .banner .about-container {
     box-sizing: border-box;
@@ -264,7 +265,7 @@ a:hover{
     padding-bottom: 0px;
     position: relative;
     font-size: 16px;
-    width: 54%;
+    width: 50%;
 }
 .banner .banner-container .blueBtn {
     font-size: 18px;
@@ -288,10 +289,6 @@ a:hover{
     /*font-size: 30px;*/
     color:#DF9630;
 }
-
-
-
-
 
 .banner .about-container ul {
     padding-left: 10px;

@@ -32,11 +32,6 @@
         padding: 6px 35px 8px;
     }
 
-    .beaverImg{
-        width: 40%;
-        text-align: right;
-        border: 1px solid red;
-    }
     .beaverImg img {
         max-width: 95%;
         align-self: right;
@@ -49,17 +44,15 @@
         background-position: right bottom;
     }
     .banner .banner-container .tagline {
-        position: relative;
-        font-size: 18px;
-        width: 90%;
+        width: 94%;
     }
 
     .banner .about-container {
         padding-top: 15px;
         padding-bottom: 10px;
         position: relative;
-        font-size: 14px;
-        width: 50%;
+        font-size: 15px;
+        width: 47%;
     }
 
     .white-banner .banner-container p {
@@ -218,7 +211,6 @@
     .soajs-features .feature-list li img.icon {
         display: none;
     }
-
     .powered-by-container .powered-icon {
         height: 70px;
     }
@@ -226,10 +218,12 @@
         max-width: 110px;
     }
     .banner .banner-container .tagline {
-        position: relative;
         font-size: 16px;
     }
-
+    .banner .banner-container .tagline {
+        font-size: 18px;
+        width: 90%;
+    }
     .banner .about-container {
         padding-top: 15px;
     }

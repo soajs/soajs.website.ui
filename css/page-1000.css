@@ -83,4 +83,7 @@
     .repos ul li img .grunt{
         width: auto;
     }
+    .banner .banner-container .left-main {
+        background-size: auto 100%;
+    }
 }

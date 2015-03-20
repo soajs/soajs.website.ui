@@ -53,10 +53,6 @@
         display: block !important;
     }
 
-    .beaverImg {
-        display: none;
-    }
-
     .bottom {
         font-size: 13px;
         padding: 10px 0;
@@ -175,7 +171,12 @@
     .white-banner .banner-container .repos ul .coveralls{
         clear: none;
     }
-}
+    .banner .banner-container .left-main {
+        background-image: url(../images/beaver2.png);
+    }
+    .banner .about-container {
+        width: 90%;
+    }
 @media (max-width: 470px) {
     .white-banner .banner-container .repos {
         display: none;
