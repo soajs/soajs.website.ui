@@ -170,18 +170,19 @@
         background-repeat: no-repeat;
         background-size: 50%;
     }
-    #beaverImg2{
+    .beaverImg{
+        /*display: none;*/
         background-image: url(../images/beaver.png);
-        display: none;
     }
-    #beaverAlone{
+    #beaverAlone{/*
         display: inline;
         width: 40%;
         float: right;
         padding-top: 20px;
+        */
     }
     .five, .four, .three{
-        width:  100%
+        width:  60%
     }
     .banner .banner-container .tagline p{
         /*width: 90%;*/
