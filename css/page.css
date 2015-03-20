@@ -540,6 +540,7 @@ a:hover{
     color: white;
     font-size: 18px;
     font-weight: bold;
+    line-height: 1.4em;
 }
 
 .soajs-features .feature-list li p {
@@ -1034,7 +1035,7 @@ hr.white {
 }
 
 #service-folder-tree{
-    width: 216px;
+    width: auto;
 }
 
 #dashboard-form, #dashboard-grid{

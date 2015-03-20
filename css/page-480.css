@@ -327,7 +327,7 @@
     }
 
     #section-footer, .soajs-features{
-        /*width: 320px;*/
+        width: 320px;
         margin: 0 auto;
     }
     .main-section-container, .soajs-features .features-container ,
