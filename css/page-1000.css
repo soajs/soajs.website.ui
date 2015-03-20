@@ -43,7 +43,7 @@
     .examples img{
         width: auto;
     }
-    #getstarted_ex02, #ex02Registry, #registry-example01{
+    #getstarted_ex02, #ex02Registry{
         float:right;
     }
     .image-right{

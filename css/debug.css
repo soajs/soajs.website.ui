@@ -1,8 +1,14 @@
-@media (max-width: 1025px) {
+@media (max-width: 1024px) {
     .bottom .copyright:after{
-        content: " 1025";
+        content: "*";
     }
 }
+@media (max-width: 800px) {
+    .bottom .copyright:after{
+        content: " 800";
+    }
+}
+
 @media (max-width: 768px) {
     .bottom .copyright:after{
         content: " 768";
@@ -17,22 +23,34 @@
 @media (max-width: 640px) {
     .bottom .copyright:after {
         content: " 640";
-        font-size: 10;
+    }
+}
+@media (max-width: 600px) {
+    .bottom .copyright:after{
+        content: " 600";
     }
 }
 @media (max-width: 500px) {
     .bottom .copyright:after {
         content: " 500";
-        font-size: 10;
+    }
+}
+@media (max-width: 480px) {
+    .bottom .copyright:after {
+        content: " 480";
     }
 }
 @media (max-width: 450px) {
     .bottom .copyright:after{
         content: " 450";
+    }
+}
+@media (max-width: 420px) {
+    .bottom .copyright:after{
+        content: " 420";
         font-size: 10;
     }
 }
-
 @media (max-width: 400px) {
     .bottom .copyright:after{
         content: " 400";

@@ -112,10 +112,10 @@ a:hover{
 }
 
 .topbar .topnav li:hover a {
-    color: rgb(223, 150, 48);
+    color: #DF9630; /* yellow*/
     transition: all 0.25s ease 0s;
     text-decoration: none;
-    border-bottom:solid 4px rgb(223, 150, 48);
+    border-bottom:solid 4px #DF9630;
 }
 
 .topbar .topnav li.active a {
@@ -246,11 +246,26 @@ a:hover{
 }
 
 .banner .banner-container .left-main {
-    float: left;
-    width: 54%;
     padding-right: 10px;
+    background-image: url(../images/bigImg2.png);
+    background-position: right;
+    background-repeat: no-repeat;
 }
-
+.banner .banner-container .tagline {
+    font-size: 20px;
+    z-index: 15;
+    width: 54%;
+}
+.banner .about-container {
+    box-sizing: border-box;
+    margin: 0;
+    padding-top: 20px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    position: relative;
+    font-size: 16px;
+    width: 54%;
+}
 .banner .banner-container .blueBtn {
     font-size: 18px;
     font-weight: bold;
@@ -274,20 +289,9 @@ a:hover{
     color:#DF9630;
 }
 
-.banner .banner-container .tagline {
-    font-size: 20px;
-    z-index: 15;
-}
 
-.banner .about-container {
-    box-sizing: border-box;
-    margin: 0;
-    padding-top: 20px;
-    padding-right: 0px;
-    padding-bottom: 10px;
-    position: relative;
-    font-size: 16px;
-}
+
+
 
 .banner .about-container ul {
     padding-left: 10px;
@@ -305,10 +309,7 @@ a:hover{
 
 .beaverImg {
     float: right;
-}
-
-.beaverImg img {
-    /*width: 380px;*/
+    display: none;
 }
 
 .white-banner {
@@ -426,7 +427,6 @@ a:hover{
 }
 
 .soajs-features {
-    /*background-color: #eeeeee;*/
     background-color: #41647d;
     position: relative;
     z-index: 10;
@@ -809,7 +809,7 @@ legend {
 }
 
 .yellow-header {
-    color: rgb(223, 150, 48);
+    color: #DF9630;
 }
 
 .tab-content {
@@ -900,7 +900,7 @@ hr.white {
 }
 
 .left-sidebar li.active a {
-    color: rgb(223, 150, 48);
+    color: #DF9630;
 }
 
 .bottom #right-button {
@@ -920,7 +920,7 @@ hr.white {
 }
 
 .page h1 {
-    color: rgb(223, 150, 48);
+    color: #DF9630; /* rgb(223, 150, 48) */
     font-weight: bold;
     font-size: 24pt;
     margin-bottom: 15px;

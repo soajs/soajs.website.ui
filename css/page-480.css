@@ -128,10 +128,7 @@
     .powered-by-container .powered-icon img{
         max-width: 70px;
     }
-    #registry-example01{
-        width: 313px;
-        max-width: 313px;
-    }
+
     .soajs-features .features-container .feature-list li {
         padding-left: 10px;
     }
@@ -169,7 +166,7 @@
 
     /*repos*/
     .white-banner .banner-container .repos ul li{
-        width: 99%;
+        width: 98%;
         height: 75px;
     }
     .white-banner .banner-container .repos ul li.even{
@@ -179,7 +176,7 @@
         clear: none;
     }
 }
-@media (max-width: 450px) {
+@media (max-width: 470px) {
     .white-banner .banner-container .repos {
         display: none;
     }
@@ -189,30 +186,15 @@
         font-size: 12px;
         line-height:1.4em;
     }
-
-    .topbar .nav-container {
-        width: 99%;
-    }
-    .bottom .sharing-footer {
-        width: 99%;
-    }
     .bottom {
         font-size: 12px;
     }
-    .main-section-container {
+    .topbar .nav-container, .bottom .sharing-footer, .main-section-container, .soajs-features .features-container,
+    .banner .banner-container, .white-banner .banner-container, .powered-by-container {
         width: 99%;
     }
-    .banner .banner-container {
-        width: 99%;
-    }
-    .white-banner .banner-container {
-        width: 99%;
-    }
-    .powered-by-container {
-        width: 99%;
-    }
-    .soajs-features .features-container {
-        width: 99%;
+    .soajs-features .feature-list li h5{
+        line-height: 1.4em;
     }
     .soajs-features{
         padding: 30px 0;
@@ -260,11 +242,6 @@
         width: 90%;
         display: block;
         float: none;
-        margin-bottom: 10px;
-    }
-    #registry-example01{
-        width: 250px;
-        display: block;
         margin-bottom: 10px;
     }
     .white-banner .banner-container .repos {
