@@ -80,14 +80,19 @@
 		<hr/>
 		<h3>Registering the Service</h3>
 		<p>
-			<img ng-src="images/documentation/registry-example01.png" class="image-border" id="registry-example01" class="img-margin-l-b" />
-			Before you Run the service, you need to register it with SOAJS. To register a service, add an entry for it in the <a href="#/documentation/registry">Registry</a> under the environment you are working with.<br /><br />
+			Before you Run the service, you need to register it with SOAJS. To register a service, add an entry for it in the <a href="#/documentation/registry">Registry</a> under the environment you are working with.
+			<pre><code class="json">"example01":{
+	"extKeyRequired": false,
+	"port": 4010,
+	"host":"127.0.0.1",
+	"url": "http://127.0.0.1/example01"
+}</code></pre>
 			When you install SOAJS, the <a href="#/documentation/registry">Registry</a> already contains an entry for <b>Example01</b>, so for this example you don't have to worry about the registry at the moment because this example is already registered.<br />
 			You can always checkout the <a href="#/documentation/registry">Registry</a> for more details on how the services are registered and what are the environments we just mentioned and how to use them.<br/><br/>
 			As mentioned in <a href="#/getStarted">Get Started</a>, all requests go through the <a href="#/documentation/controller">Controller</a> first then get forwarded to their corresponding services.<br />
 			Therefore the link to use in this example should have the following schema: http://<b>%controller%</b> / <b>%service name%</b> / <b>%api%</b><br/>
-			<u>Ex:</u> <a href="http://localhost:4000/example01/testGet" target="_blank">http://localhost:4000/example01/testGet</a><br/>
-			<em>localhost:4000 here represents the address of the controller.<br/>
+			<u>Ex:</u> <a href="http://127.0.0.1:4000/example01/testGet" target="_blank">http://127.0.0.1:4000/example01/testGet</a><br/>
+			<em>127.0.0.1:4000 here represents the address of the controller.<br/>
 				example01 is the name of the service.<br/>
 				testGet is the api we are calling.
 			</em>
@@ -99,13 +104,13 @@
 		<pre><code class="bash"># navigate to soajs.examples/example01 service and start it
 $ cd soajs.examples/example01/
 $ node index</code></pre>
-		<b>Example01</b> is now running on http://localhost:4000/example01.<br />
+		<b>Example01</b> is now running on http://127.0.0.1:4000/example01.<br />
 		Let's do a heartbeat check just to make sure all is working as expected before we begin the tests.<br /><br />
 		</p>
 		<fieldset>
 			<legend>Heartbeat Example01</legend><div class="insideFieldsetMain">
 			<div>
-				<pre><code class="bash">$ curl -X GET "http://localhost:5010/heartbeat"</code></pre>
+				<pre><code class="bash">$ curl -X GET "http://127.0.0.1:5010/heartbeat"</code></pre>
 				<h6><u>Response:</u></h6>
 				<pre><code class="bash">{
 	"result":true,
@@ -124,7 +129,7 @@ $ node index</code></pre>
 		<fieldset>
 			<legend>Calling Example01</legend><div class="insideFieldsetMain">
 			<div>
-				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example01"</code></pre>
+				<pre><code class="bash">$ curl -X GET "http://127.0.0.1:4000/example01"</code></pre>
 				<h6><u>Response:</u></h6>
 				<pre><code class="bash">{
 	"result":false,
@@ -153,7 +158,7 @@ $ node index</code></pre>
 		<fieldset>
 			<legend><b>/testGet api: Fail</b></legend><div class="insideFieldsetMain">
 			<div>
-				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example01/testGet?firstName=John" </code> </pre>
+				<pre><code class="bash">$ curl -X GET "http://127.0.0.1:4000/example01/testGet?firstName=John" </code> </pre>
 				<h6>Response</h6>
 				<div ng-init="loadJSON(path + 'example01/result01.json', 'result01');">
 					<div id="result01"></div>
@@ -167,7 +172,7 @@ $ node index</code></pre>
 		<fieldset>
 			<legend><b>/testGet api: Success</b></legend><div class="insideFieldsetMain">
 			<div>
-				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example01/testGet?firstName=John&lastName=Smith&email=john@smith.com" </code> </pre>
+				<pre><code class="bash">$ curl -X GET "http://127.0.0.1:4000/example01/testGet?firstName=John&lastName=Smith&email=john@smith.com" </code> </pre>
 				<h6>Response</h6>
 
 				<div ng-init="loadJSON(path + 'example01/result02.json', 'result02');">
@@ -179,7 +184,7 @@ $ node index</code></pre>
 		<fieldset>
 			<legend><b>/testPost api: Success</b></legend><div class="insideFieldsetMain">
 			<div>
-				<pre><code class="bash">$ curl -X POST -H "Content-type:application/json" -H "Accept:application/json" "http://localhost:4000/example01/testPost" -d '{"firstName":"John","lastName":"Smith"}'</code> </pre>
+				<pre><code class="bash">$ curl -X POST -H "Content-type:application/json" -H "Accept:application/json" "http://127.0.0.1:4000/example01/testPost" -d '{"firstName":"John","lastName":"Smith"}'</code> </pre>
 				<h6>Response</h6>
 
 				<div ng-init="loadJSON(path + 'example01/testPost1.json', 'testPost1');">
@@ -190,7 +195,7 @@ $ node index</code></pre>
 		<fieldset>
 			<legend><b>/testPost api: Success</b></legend><div class="insideFieldsetMain">
 			<div>
-				<pre><code class="bash">$ curl -X POST -H "Content-type:application/json" -H "Accept:application/json" "http://localhost:4000/example01/testPost" -d '{"firstName":"John","lastName":"Smith","email":"john@smith.com"}'</code></pre>
+				<pre><code class="bash">$ curl -X POST -H "Content-type:application/json" -H "Accept:application/json" "http://127.0.0.1:4000/example01/testPost" -d '{"firstName":"John","lastName":"Smith","email":"john@smith.com"}'</code></pre>
 				<h6>Response</h6>
 
 				<div ng-init="loadJSON(path + 'example01/testPost2.json', 'testPost2');">
@@ -201,7 +206,7 @@ $ node index</code></pre>
 		<fieldset>
 			<legend><b>/testPost api: Fail</b></legend><div class="insideFieldsetMain">
 			<div>
-				<pre><code class="bash">$ curl -X POST -H "Content-type:application/json" -H "Accept:application/json" "http://localhost:4000/example01/testPost" -d '{"firstName":"Johnx","lastName":"Smith"}'</code></pre>
+				<pre><code class="bash">$ curl -X POST -H "Content-type:application/json" -H "Accept:application/json" "http://127.0.0.1:4000/example01/testPost" -d '{"firstName":"Johnx","lastName":"Smith"}'</code></pre>
 
 				<h6>Response</h6>
 
@@ -217,7 +222,7 @@ $ node index</code></pre>
 		<fieldset>
 			<legend><b>/testPut api: Success Test</b></legend><div class="insideFieldsetMain">
 			<div>
-				<pre><code class="bash">$ curl -X PUT -H "Content-type:application/json" -H "Accept:application/json" "http://localhost:4000/example01/testPut" -d '{"firstName":"John","lastName":"Smith"}'</code></pre>
+				<pre><code class="bash">$ curl -X PUT -H "Content-type:application/json" -H "Accept:application/json" "http://127.0.0.1:4000/example01/testPut" -d '{"firstName":"John","lastName":"Smith"}'</code></pre>
 				<h6>Response</h6>
 
 				<div ng-init="loadJSON(path + 'example01/testPut1.json', 'testPut1');">
@@ -228,7 +233,7 @@ $ node index</code></pre>
 		<fieldset>
 			<legend><b>/testDel api: Success</b></legend><div class="insideFieldsetMain">
 			<div>
-				<pre><code class="bash">$ curl -X DELETE "http://localhost:4000/example01/testDel?firstName=John&lastName=Smith"</code></pre>
+				<pre><code class="bash">$ curl -X DELETE "http://127.0.0.1:4000/example01/testDel?firstName=John&lastName=Smith"</code></pre>
 				<h6>Response</h6>
 
 				<div ng-init="loadJSON(path + 'example01/testDel1.json', 'testDel1');">
@@ -239,7 +244,7 @@ $ node index</code></pre>
 		<fieldset>
 			<legend><b>/buildName api: Success</b></legend><div class="insideFieldsetMain">
 			<div>
-				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example01/buildName?firstName=James&lastName=Smith"</code></pre>
+				<pre><code class="bash">$ curl -X GET "http://127.0.0.1:4000/example01/buildName?firstName=James&lastName=Smith"</code></pre>
 				<h6>Response</h6>
 				<div ng-init="loadJSON(path + 'example01/buildName1.json', 'buildName1');">
 					<div id="buildName1"></div>
@@ -249,7 +254,7 @@ $ node index</code></pre>
 		<fieldset><div class="insideFieldsetMain">
 			<legend><b>/buildName api: Test 2</b></legend>
 			<div>
-				<pre><code class="bash">$ curl -X GET "http://localhost:4000/example01/buildName?lastName=Smith"</code></pre>
+				<pre><code class="bash">$ curl -X GET "http://127.0.0.1:4000/example01/buildName?lastName=Smith"</code></pre>
 
 				<h6>Response</h6>
 
