@@ -14,12 +14,14 @@ contactUsApp.controller('contactCtrl', ['$scope', '$http', '$timeout', function(
 	$scope.sendContact = function() {
 		$scope.alerts.push({'type': 'warning', 'msg': "Your message is being sent, please wait ..."});
 		if($scope.contactForm.$valid) {
+			$scope.contact.captcha = document.getElementById('g-recaptcha-response').value;
 			$http({
 				method: 'POST',
-				url: 'http://api.soajs.org/contactUs/sendMessage',
+				url: '/sections/contactus/sendMail.php',
 				data: $scope.contact,
-				headers: {'Content-Type': 'application/json'}
+				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 			}).success(function(data, status, headers, config) {
+				grecaptcha.reset();
 				if(data.result === true) {
 					$scope.contact = {
 						name: '',
