@@ -29,9 +29,11 @@ app.config([
 				});
 			}
 			else {
-				$routeProvider.when(navigationEntry.url.replace('#', ''), {
-					templateUrl: navigationEntry.tplPath
-				});
+				if(navigationEntry.tplPath && navigationEntry.tplPath !== '') {
+					$routeProvider.when(navigationEntry.url.replace('#', ''), {
+						templateUrl: navigationEntry.tplPath
+					});
+				}
 			}
 		});
 
@@ -55,8 +57,25 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', function($sco
 		$location.path("/" + section + "/" + anchor);
 	};
 
-	$scope.$on('$routeChangeSuccess', function() {
+	$scope.$on('$routeChangeSuccess', function(event, current, previous) {
 		$scope.currentLocation = $location.path();
+		for(var entry = 0; entry < navigation.length; entry++) {
+			var urlOnly = navigation[entry].url.replace('/:anchor?', '').replace("/:section?", '');
+			if(urlOnly === '#' + $scope.currentLocation) {
+				if(navigation[entry].title && navigation[entry].title !== '') {
+					jQuery('head title').html(navigation[entry].title);
+				}
+
+				if(navigation[entry].keywords && navigation[entry].keywords !== '') {
+					jQuery('head meta[name=keywords]').attr('content', navigation[entry].keywords);
+				}
+
+				if(navigation[entry].description && navigation[entry].description !== '') {
+					jQuery('head meta[name=description]').attr('content', navigation[entry].description);
+				}
+			}
+		}
+
 		var subPagesDetection = $scope.currentLocation.match(/\//g);
 		if(subPagesDetection.length > 1) {
 			var p = $location.path().split(/\//);
@@ -70,22 +89,24 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', function($sco
 		}
 	});
 	/*
-	if($routeParams && $routeParams.anchor && $routeParams.anchor !== '' && jQuery) {
-		setTimeout(function() {
+	 if($routeParams && $routeParams.anchor && $routeParams.anchor !== '' && jQuery) {
+	 setTimeout(function() {
 
-			var elId = jQuery('#'+ $routeParams.anchor);
-			jQuery("html body").animate({
-				scrollTop: elId.offset().top - 50
-			}, 500);
+	 var elId = jQuery('#'+ $routeParams.anchor);
+	 jQuery("html body").animate({
+	 scrollTop: elId.offset().top - 50
+	 }, 500);
 
-		}, 500);
-	}*/
+	 }, 500);
+	 }*/
 
 	$scope.copyrightYear = "2015";
 	var thisYear = new Date().getFullYear();
 	if(thisYear > 2015) {
 		$scope.copyrightYear += " - " + 2015;
 	}
+
+
 }]);
 
 app.directive('topMenu', function() {
