@@ -22,13 +22,6 @@ var navigation = [
 		'scripts': ['sections/contactus/controller.js']
 	},
 	{
-		'id': 'contactUs2',
-		'label': 'contactUs2',
-		'url': '#/contactUs2',
-		'tplPath': 'sections/contactus/page2.html',
-		'scripts': ['sections/contactus/controller.js']
-	},
-	{
 		'id': 'getStarted',
 		'label': 'getStarted',
 		'url': '#/getStarted',

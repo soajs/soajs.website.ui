@@ -38,7 +38,7 @@
     }
 
     $postedData = json_decode(file_get_contents("php://input"));
-    $to = "mike.hajj@gmail.com";
+    $to = "team@soajs.org";
     $name = $postedData->name;
     $purpose = $postedData->purpose;
     $email = $postedData->email;
