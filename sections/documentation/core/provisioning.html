@@ -45,7 +45,7 @@
 	<p>
 		Package the service with different permissions and access controls and offer it as commercial products. Every product contains a list of packages where the default access level of our service APIs are defined. Each Package offers a variety of access levels on the service APIs. If a service
 		is contained in a package, then this product offers the ability to use this service. When specifying the access level over a service, you can grant access to the whole service or add some restrictions.
-	<div ng-init="loadCode(path + 'provisioning/productization.js', 'productizationjs');">
+	<div ng-init="loadCode(path + 'core/provisioning/productization.js', 'productizationjs');">
 		<div id="productizationjs"></div>
 	</div>
 	<br/>
@@ -107,7 +107,7 @@
 	<br /><br />
 	The above method demonstrated how to specify each API in a service and apply the ACL to it. What if you have 10 APIs under <b>/account/</b> or 20 APIs under <b>/admin/</b>, it doesn't make sense to add 30 entries in an ACL object. Let's group all similar APIs under one entry and apply the same ACL on all of them once.
 	
-	<div ng-init="loadCode(path + 'provisioning/aclWithRegex.js', 'aclWithRegex');">
+	<div ng-init="loadCode(path + 'core/provisioning/aclWithRegex.js', 'aclWithRegex');">
 		<div id="aclWithRegex"></div>
 	</div>
 	Now things make more sense; all APIs accessible by <b>Admin</b> group only start with <b>/admin/...</b> and those that the user can access after he logs in like "edit profile", "change password" ...etc, start with <b>/account/...</b> and require a logged in user to be accessed.<br /><br />
@@ -115,7 +115,7 @@
 	<p>
 		There are cases where access to only certain APIs in a service should be granted. All other APIs are not permitted to be used.
 		
-		<div ng-init="loadCode(path + 'provisioning/aclWithRegexRestricted.js', 'aclWithRegexRestricted');">
+		<div ng-init="loadCode(path + 'core/provisioning/aclWithRegexRestricted.js', 'aclWithRegexRestricted');">
 			<div id="aclWithRegexRestricted"></div>
 		</div>
 		The above snippet demonstrates the usage of <b>apisPermission</b>; it forces the ACL to restrict access to all APIs of a service except the ones mentioned in either <b>apis</b> or <b>apisRegExp</b>.
@@ -136,14 +136,14 @@
 	<p>
 		In the previous section we mentioned how to create products and package them and configure access levels on different services they offer. Now let's create tenants and assign some product packages to them.<br />
 		Tenants can be created and configured using the <a href="#/documentation/dashboard-services">Dashboard</a> of SOAJS. Tenants have unique identification codes and optional <a href="#/documentation/oauth">oAuth</a> configuration. Checkout <a href="#/getStarted/example02">Example02</a> to learn how to protect a service using <a href="#/documentation/oauth">oAuth</a>.
-		<div ng-init="loadCode(path + 'provisioning/tenant1.js', 'tenantjs');">
+		<div ng-init="loadCode(path + 'core/provisioning/tenant1.js', 'tenantjs');">
 			<div id="tenantjs"></div>
 		</div>
 		The above snippet represents one tenant records that is stored in the database <b>core_provision</b> under <b>tenants</b>. The tenant is called Test Tenant, holds <a href="#/documentation/oauth">oAuth</a> security information and has an application array.
 	</p>
 	<br/>
 	<h4>Applications</h4>
-	<div ng-init="loadJson(path + 'provisioning/app1.json', 'app1js');">
+	<div ng-init="loadJson(path + 'core/provisioning/app1.json', 'app1js');">
 		<div id="app1js"></div>
 	</div>
 
@@ -152,7 +152,7 @@
 		Every application needs <b>keys</b> to function, without those <b>keys</b> the application by itself does nothing. Once a key is added to an application, the application can then provide custom configuration to a service and can contains external keys for that particular key.<br />
 		<b>External Keys</b> are used in requests made to a service; they are secured using <b>geo</b> and <b>device</b> security and have an <b>expiry date</b>. Think of them as <b>license</b> keys. When used, these external keys are checked for device and geo location, and if valid, they are matched with the key represent. Now that the key has been identified, its configuration is loaded and in the cases above, for <a href="#/documentation/urac">URAC</a> the tenant configuration for this key is passed to the service for usage.<br />
 	</p>
-	<div ng-init="loadJson(path + 'provisioning/app2.json', 'app2js');">
+	<div ng-init="loadJson(path + 'core/provisioning/app2.json', 'app2js');">
 		<div id="app2js"></div>
 	</div>
 	<p>
@@ -177,7 +177,7 @@
 	<h4>Tenant Full Sample</h4>
 	<p>
 		Grouping the above three snippets will result in the below tenant record:
-		<div ng-init="loadCode(path + 'provisioning/multitenancy.js', 'multitenancyjs');">
+		<div ng-init="loadCode(path + 'core/provisioning/multitenancy.js', 'multitenancyjs');">
 			<div id="multitenancyjs"></div>
 		</div>
 		Using both <b>Productization</b> and <b>Multitenancy</b> and with the wide combination offered by the <b>Access Levels</b>, SOAJS gives you limitless power to build Service-Oriented Applications that service multiple tenants, and configure their access as you desire with very little effort and time.

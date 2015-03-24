@@ -46,7 +46,7 @@ service.post("/login", function(req, res) {
 	<p>
 		Every API has an entry inside the schema object; this is where you configure the inputs that it should receive and their validation.
 		Every entry instructs IMFV where to look for the input using the source attribute and how to validate the input using the validation attribute.
-		<div ng-init="loadCode(path + 'imfv/simple.js', 'simple');">
+		<div ng-init="loadCode(path + 'core/imfv/simple.js', 'simple');">
 			<div id="simple"></div>
 		</div>
 		The above sample Tells IMFV that for API <b>"/testGet"</b> there is a <u>required</u> input called <b>"firstName"</b>.
@@ -258,7 +258,7 @@ service.post("/login", function(req, res) {
 	<p>
 		IMFV supports complex schemas such as arrays and objects, where each of the two contains basic or even more complex schemas internally. It relies on <a href="http://json-schema.org/documentation.html" target="_blank">JSON Schema’s</a> operator such as <a href="http://json-schema.org/example2.html" target="_blank">oneOf</a>, <a href="http://json-schema.org/example2.html" target="_blank">anyOf</a>, <a href="http://json-schema.org/example2.html" target="_blank">allOf</a> in the cases where the same input might have different values.<br />
 		IMFV also uses <a href="http://json-schema.org/example2.html" target="_blank">additionalProperties</a> and <a href="http://json-schema.org/example2.html" target="_blank">patternProperties</a>, from <a href="http://json-schema.org/latest/json-schema-validation.html" target="_blank">JSON Schema</a>, within object schemas giving you validation control on optional api fields and complex input names such as api routes.
-		<div ng-init="loadCode(path + 'imfv/advanced.js', 'advanced');">
+		<div ng-init="loadCode(path + 'core/imfv/advanced.js', 'advanced');">
 			<div id="advanced"></div>
 		</div><br /><br />
 	</p>
@@ -266,7 +266,7 @@ service.post("/login", function(req, res) {
 	<h3>Common Fields</h3>
 	<p>
 		<b>commonfields</b> is used in IMFV to group inputs that have similar mapping and validation. Consider you have 2 or more APIs that use the same input <b>"firstName"</b> and this input is read and validate the same way across those APIs. To avoid rewriting the configuration and make room for errors, add the input under <b>commonFields</b> then in every API configuration, reference its presence.
-	<div ng-init="loadCode(path + 'imfv/commonFields.js', 'commonFieldsFull');"></div>
+	<div ng-init="loadCode(path + 'core/imfv/commonFields.js', 'commonFieldsFull');"></div>
 		<div id="commonFieldsFull"></div>
 	</p>
 	<hr/>
@@ -293,11 +293,11 @@ service.post("/login", function(req, res) {
 	</p>
 	<tabset>
 		<tab heading="Service Index">
-			<div ng-init="loadCode(path + 'imfv/index.js', 'indexjs');"></div>
+			<div ng-init="loadCode(path + 'core/imfv/index.js', 'indexjs');"></div>
 			<div id="indexjs"></div>
 		</tab>
 		<tab heading="Service Config">
-			<div ng-init="loadCode(path + 'imfv/complete.js', 'complete');"></div>
+			<div ng-init="loadCode(path + 'core/imfv/complete.js', 'complete');"></div>
 			<div id="complete"></div>
 		</tab>
 	</tabset>

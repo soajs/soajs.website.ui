@@ -11,14 +11,15 @@ documentationApp.controller('documentationtCtrl', ['$scope', '$http', '$routePar
 		loadJsonFileContent($scope, path, elId);
 	};
 
-	$scope.loadSection = function(sectionName) {
+	$scope.loadSection = function(sectionName, subSectionName) {
 		var angularElement = angular.element(document.getElementById('documentationPreview'));
-
-		$http.get('sections/documentation/content/' + sectionName + '/data.json').success(function(data) {
-			$scope[sectionName.replace("-", "_")] = data;
+		$http.get('sections/documentation/content/' + sectionName + '/' + subSectionName + '/data.json').success(function(data) {
+			$scope[subSectionName.replace("-", "_")] = data;
+		}).error(function(error){
+			console.log(error);
 		});
 
-		$http.get('sections/documentation/' + sectionName + ".html").success(function(data) {
+		$http.get('sections/documentation/' + sectionName + '/' + subSectionName + ".html").success(function(data) {
 			angularElement.html(data);
 			$compile(angularElement.contents())($scope);
 			renderCodeSnippets();
@@ -26,14 +27,14 @@ documentationApp.controller('documentationtCtrl', ['$scope', '$http', '$routePar
 			alert("Error fetching documentation page. Please try again.");
 		});
 
-		$scope.docuLink = "/documentation/" + sectionName;
+		$scope.docuLink = "/documentation/" + sectionName + '/' + subSectionName;
 	};
 
 	if($routeParams && $routeParams.section) {
-		$scope.loadSection($routeParams.section);
+		$scope.loadSection($routeParams.section, $routeParams.subSection);
 	}
 	else {
-		$scope.loadSection('service');
+		$scope.loadSection('core', 'service');
 	}
 
 	$scope.loadHTML = function(path, elId) {

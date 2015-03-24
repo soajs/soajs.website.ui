@@ -44,7 +44,7 @@ $ node index</code></pre><br />
 				<img ng-src="images/features/urac.png" style="" id="uracpng"/>
 				<br><em>The following graph demonstrates the order of how the ACL and the configuration is loaded for users.</em><br/><br/>
 			</p>
-			<div ng-init="loadCode(path + 'urac/userRecord.js', 'user-record-sample');"></div>
+			<div ng-init="loadCode(path + 'services/urac/userRecord.js', 'user-record-sample');"></div>
 			<div id="user-record-sample"></div>
 			<em>The following snippet represents a user record in the database.</em>
 			<hr/>
@@ -57,35 +57,35 @@ $ node index</code></pre><br />
 			<br/>
 			<h4>Join</h4>
 
-			<div ng-init="loadHTML(path+'urac/join.tmpl','jointmpl');">
+			<div ng-init="loadHTML(path+'services/urac/join.tmpl','jointmpl');">
 				<div id="jointmpl"></div>
 			</div>
 			<br/><br/>
 
 			<h4>Forgot Password</h4>
 
-			<div ng-init="loadHTML(path+'urac/forgotPassword.tmpl','forgottmpl');">
+			<div ng-init="loadHTML(path+'services/urac/forgotPassword.tmpl','forgottmpl');">
 				<div id="forgottmpl"></div>
 			</div>
 			<br/><br/>
 
 			<h4>Change Email</h4>
 
-			<div ng-init="loadHTML(path+'urac/changeEmail.tmpl','changeEmailtmpl');">
+			<div ng-init="loadHTML(path+'services/urac/changeEmail.tmpl','changeEmailtmpl');">
 				<div id="changeEmailtmpl"></div>
 			</div>
 			<br/><br/>
 
 			<h4>Change User Status</h4>
 
-			<div ng-init="loadHTML(path+'urac/changeUserStatus.tmpl','userStatustmpl');">
+			<div ng-init="loadHTML(path+'services/urac/changeUserStatus.tmpl','userStatustmpl');">
 				<div id="userStatustmpl"></div>
 			</div>
 			<br/><br/>
 
 			<h4>Add New User</h4>
 
-			<div ng-init="loadHTML(path+'urac/addUser.tmpl','addUsertmpl');">
+			<div ng-init="loadHTML(path+'services/urac/addUser.tmpl','addUsertmpl');">
 				<div id="addUsertmpl"></div>
 			</div>
 		</tab>

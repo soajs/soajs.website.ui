@@ -70,7 +70,7 @@ var navigation = [
 		'id': 'documentation',
 		'label': 'documentation',
 		'title': 'SOAJS | Documentation',
-		'url': '#/documentation/:section?/:anchor?',
+		'url': '#/documentation/:section?/:subSection?/:anchor?',
 		'tplPath': 'sections/documentation/page.html',
 		'scripts': ['sections/documentation/controller.js']
 	},

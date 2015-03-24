@@ -73,12 +73,12 @@
     <tabset>
         <tab heading="index.js">
             <br />
-	        <div ng-init="loadCode(path + 'service/index.js', 'indexjs');"></div>
+	        <div ng-init="loadCode(path + 'core/service/index.js', 'indexjs');"></div>
 	        <div id="indexjs"></div>
         </tab>
         <tab heading="registry" select="">
             <br />
-	        <div ng-init="loadCode(path + 'service/registry.js', 'registryjs');"></div>
+	        <div ng-init="loadCode(path + 'core/service/registry.js', 'registryjs');"></div>
 	        <div id="registryjs"></div>
         </tab>
         <tab heading="config.js">
@@ -211,7 +211,7 @@ $ node index</code>
 			<pre><code class="bash">$ curl -X GET "http://127.0.0.1:4000/example01/testGet?firstName=John&lastName=Smith&email=john@smith.com" </code> </pre>
 			<h6>Response</h6>
 
-			<div ng-init="loadJson(path + 'service/result02.json', 'result02js');">
+			<div ng-init="loadJson(path + 'core/service/result02.json', 'result02js');">
 				<div id="result02js"></div>
 			</div><br />
 			<p>This time the API returned a valid response with the JSON Object containing all the parameters we specified.</p>
