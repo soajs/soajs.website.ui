@@ -143,10 +143,10 @@ tenants
 	<p>
 		We installed Nginx in the previous step, now we are going to configure it by pointing out the configuration files that SOAJS needs. To do that, first locate the Nginx configuration file on your machine:
 		<pre><code class="bash">$ whereis nginx.conf</code></pre>
-		By default on Ubuntu, nginx.conf is located in /etc/nignx/nginx.conf. Open that file in edit mode, scroll to the bottom and instruct nginx to also look at the soajs.utilities/nginx/conf/ folder and load all configuration files in it, add the line before the closing bracelet of http inside nginx.conf.
+		By default on Ubuntu, nginx.conf is located in /etc/nignx/nginx.conf. Open that file in edit mode, scroll to the bottom and instruct nginx to also look at the soajs.utilities/deployment/allinone/nginx/conf/ folder and load all configuration files in it, add the line before the closing bracelet of http inside nginx.conf.
 		<pre><code class="javascript">http {
 	# default nginx configuration goes here
-	include /opt/soajs/soajs.utilities/nginx/conf/*.conf;
+	include /opt/soajs/soajs.utilities/deployment/allinone/nginx/conf/*.conf;
 }</code></pre>
 		This line will now load the Nginx configuration that SOAJS needs when Nginx starts.<br />
 		Edit your hosts file and add 2 entries to point out that these domains are on your local machine.
