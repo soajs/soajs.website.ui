@@ -1,3 +1,6 @@
+$ pwd
+/opt/soajs
+
 $ ll -la
 drwxr-xr-x   8 admin  root    272 Mar 20 17:56 .
 drwxr-xr-x   9 admin  root    306 Mar 25 14:06 ..

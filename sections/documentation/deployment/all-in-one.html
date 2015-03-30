@@ -4,7 +4,7 @@
 	<p>
 		In <a href="#/documentation/deployment/overview">Overview</a> we showed the below diagram and mentioned the technologies needed to get SOAJS up and running on either one machine or a cloud. In this Section we will demonstrate how to install SOAJS and these needed technologies as well as how to configure them all on one machine thus the term <b>All In One</b>.<br />
 		<img ng-src="images/documentation/deployment-pre-overview.png" class="img-margin-t-b" /><br /><br />
-		SOAJS is designed to work on a cloud and installing everything on one machine is considered best practice in the case of a development environment only. Once you finish this section, the diagram below that was mentioned previously in overview will be installed and running on one machine.<br />
+		SOAJS is designed to work in a cloud environment meaning its services should be spread on different nodes. Installing everything on one machine is considered best practice in the case of a development environment so that the developer can work and monitor all in one place. Once you finish this section, the diagram below that was mentioned previously in overview will be installed and running on one machine.<br />
 		<img ng-src="images/documentation/deployment-overview3.png" class="img-margin-t-b" /><br /><br />
 	</p>
 	<hr/>
@@ -19,10 +19,10 @@
 		<pre><code class="bash">$ npm install soajs.utilities
 $ cd soajs.utilities/deployment/docker</code>
 		</pre>
-		When you install SOAJS all in one via Docker, all the configuration steps are taken care of and SOAJS should run right after installation. To learn more about the configuration steps, please jump to the configuration section below where we explain how to configure the servers, the database, nginx ... etc in detail after you attempt to manually install SOAJS. This way you will be able to modify the configuration created via Docker installation at any future point.
+		When you install SOAJS all in one via Docker, all the configuration steps are taken care of and SOAJS should run right after installation. To learn more about the configuration steps, please jump to the configuration section below where we explain how to configure the servers, the database, nginx ... etc in detail. The configuration can be updated at any time and regardless of the installation method used. This way you will be able to modify the configuration created via Docker installation or after manual installation.
 	</p>
 	<br />
-	<h4>Manual:</h4>
+	<h4>Manual Installation:</h4>
 	<p>
 		You can always install SOAJS manually but this requires additional steps than Docker. Start by installing the technologies needed by SOAJS on your machine. Here are the steps you need to begin with:
 	</p>
@@ -91,12 +91,12 @@ $ npm install soajs.utilities
 	<p>
 		Let's start by running MongoDB, configure SOAJS registry to find it and thus connect to it and import some sample data to use later on. Open your terminal and start MongoDB:
 		<pre><code class="bash">$ mongod</code></pre>
-		The above step will start MongoDB on your local machine which becomes accessible via port 27017. The terminal you used to run MongoDB in it can no longer be closed, closing it will stop MongoDB server. Test that MongoDB is running by opening a second terminal and connecting to the server:
+		The above step will start MongoDB on your local machine which becomes accessible via port 27017. The terminal you used to run MongoDB in can no longer be closed, closing it will stop MongoDB server. Test that MongoDB is running by opening a second terminal and connecting to the server:
 		<pre><code class="bash">$ mongo
 $ mongo > show dbs</code></pre>
 		The above 2 commands, connect to mongo and run command show databases which will list the database inside mongo. If any of the above command did not run or return the expected response, please make sure you installed MongoDB correctly or checkout the forums and troubleshooting sections of mongo on the <a href="http://www.mongodb.org" target="_blank">Official MongoDB Website</a>.<br /><br />
 
-		Mongo runs by default on 127.0.0.1:27017 so we need to make sure that SOAJS connects to that ip address and that port when it wants to talk to mongo. Go to the profiles folder of SOAJS, you will find the default project there named <b>default</b>. If you do not know where the profiles folder resides, please read the <a href="#/documentation/core/registry">Registry</a> section. Inside the default project, or any project you want to create later on, there is a <b>configuration</b> folder that contains a file called <b>servers.js</b>. Edit that file and make sure that 127.0.0.1 is listed as a host entry and 27017 as a port in the servers array.
+		Mongo runs by default on 127.0.0.1:27017 so we need to make sure that SOAJS connects to that ip address and that port when it wants to talk to mongo. Navigate to the profiles folder of SOAJS, you will find the default project there named <b>default</b>. If you do not know where the profiles folder resides, please read the <a href="#/documentation/core/registry">Registry</a> section. Inside the default project, there is a <b>configuration</b> folder that contains a file called <b>servers.js</b>. Edit that file and make sure that 127.0.0.1 is listed as a host entry and 27017 as a port in the servers array.
 		<pre><code class="javascript">module.exports = {
 	"prefix": "",
 	"credentials": null,
@@ -107,9 +107,9 @@ $ mongo > show dbs</code></pre>
 		}
 	]
 };</code></pre>
-		This file instructs SOAJS how to connect to mongo. You can always change the host/port values depending on where you installed mongodb.<br />
-		Now let's import some data to the database so we can use them later on. Navigate to soajs.mongodb.data/modules/dashboardui/ and in your terminal execute the shell script <b>import.sh</b>, this script will create 1 tenant, 1 product, 1 user and 1 group. We will use this sample data later on when everything is running.
-		<pre><code class="bash">$ cd soajs.mongodb.data/modules/dashboardui/
+		This file instructs SOAJS how to connect to mongo. You can always change the host/port values depending on where you installed mongodb and add credentials if needed or prefixes in the configuration.<br />
+		Now let's import some data to the database so we can use them later on. Navigate to soajs.mongodb.data/modules/dashboard-ui/ and in your terminal execute the shell script <b>import.sh</b>, this script will create 1 tenant, 1 product, 1 user and 1 group. We will use this sample data later on when everything is running.
+		<pre><code class="bash">$ cd soajs.mongodb.data/modules/dashboard-ui/
 $ chmod +x import.sh
 $ ./import.sh</code></pre>
 		Go back to the terminal where you connected to mongo, and run <b>show dbs</b> again, you will see that core_provision and dashboard_urac database in the list of databases.
