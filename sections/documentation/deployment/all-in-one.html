@@ -1,0 +1,211 @@
+<a id="all-in-one"></a>
+<h1>All In One</h1>
+<div class="white-container">
+	<p>
+		In <a href="#/documentation/deployment/overview">Overview</a> we showed the below diagram and mentioned the technologies needed to get SOAJS up and running on either one machine or a cloud. In this Section we will demonstrate how to install SOAJS and these needed technologies as well as how to configure them all on one machine thus the term <b>All In One</b>.<br />
+		<img ng-src="images/documentation/deployment-pre-overview.png" class="img-margin-t-b" /><br /><br />
+		SOAJS is designed to work on a cloud and installing everything on one machine is considered best practice in the case of a development environment only. Once you finish this section, the diagram below that was mentioned previously in overview will be installed and running on one machine.<br />
+		<img ng-src="images/documentation/deployment-overview3.png" class="img-margin-t-b" /><br /><br />
+	</p>
+	<hr/>
+	<h3>Installation</h3>
+	<p>
+		You can install SOAJS in full on one machine. Two methods are provided to install SOAJS.
+	</p>
+	<h4>Docker:</h4>
+	<p>
+		SOAJS can be installed using <a href="http://www.docker.com" target="_blank">Docker</a>. Docker will provide you with an image that contains the required technologies installed and pre-configured as well as SOAJS components ready to be used. Once you install SOAJS via Docker, simply navigate to the services and start them.<br />
+		Docker steps are located in <a href="https://www.npmjs.org/packages/soajs.utilitites" target="_blank">soajs.utilities</a>/deployment/allinone/ folder. Simply install soajs.utitilities via NPM then navigate to deployment/allinone folder and follow the docker instructions.
+		<pre><code class="bash">$ npm install soajs.utilities
+$ cd soajs.utilities/deployment/docker</code>
+		</pre>
+		When you install SOAJS all in one via Docker, all the configuration steps are taken care of and SOAJS should run right after installation. To learn more about the configuration steps, please jump to the configuration section below where we explain how to configure the servers, the database, nginx ... etc in detail after you attempt to manually install SOAJS. This way you will be able to modify the configuration created via Docker installation at any future point.
+	</p>
+	<br />
+	<h4>Manual:</h4>
+	<p>
+		You can always install SOAJS manually but this requires additional steps than Docker. Start by installing the technologies needed by SOAJS on your machine. Here are the steps you need to begin with:
+	</p>
+	<pre><code class="bash">#install MongoDB latest stable version
+$ apt-get install mongodb
+
+# install NodeJs latest stable version
+$ apt-get install nodejs
+
+# install Nginx latest stable version
+$ apt-get install nginx
+
+# install HAproxy latest stable version
+$ apt-get install haproxy
+		</code>
+	</pre>
+	<p>
+		Now that the needed technologies are installed, we suggest you create the following folder schema to place SOAJS and its components:
+	</p>
+	<pre><code class="bash">$ mkdir -p /opt/soajs/node_modules/</code></pre>
+	<p>
+		The above command will create a folder on the root level named <b>opt</b> with <b>soajs</b> folder inside it and <b>node_modules</b> folder inside <b>soajs</b>. When you install soajs in the next steps, all the core modules will be located in node_modules folder. This way when you create your services, simply require soajs in your code and it will be loaded.<br />
+
+		The next step requires we install the core components of soajs by running the following commands:
+	</p>
+	<pre><code class="bash">$ cd /opt/soajs/node_modules/
+
+#install the controller
+$ npm install soajs.controller
+
+#install the urac
+$ npm install soajs.urac
+
+#install the dashboard
+$ npm install soajs.dashboard
+
+#install the oAuth service
+$ npm install soajs.oauth
+
+#install the sample data
+$ npm install soajs.mongodb.data
+
+#install the utilities
+$ cd /opt/soajs/
+$ npm install soajs.utilities
+</code></pre>
+	<p>
+		When you are done with the NPM command above you should have a folder schema that resembles the following:
+		<div ng-init="loadCode(path + 'deployment/all-in-one/folder-list.txt', 'folder-list');"></div>
+		<div id="folder-list"></div>
+		To verify that the modules are installed correctly with their dependencies, once you are done with the above steps, simply run the following command:
+	</p>
+	<pre><code class="bash">$ npm list</code></pre>
+	<p>
+		This command will list all the modules inside node_modules and their dependencies structured in a tree view format and you can check that ur modules are all there.
+	</p>
+	<div ng-init="loadCode(path + 'deployment/all-in-one/tree-npm-list.txt', 'tree-npm-list');"></div>
+	<div id="tree-npm-list"></div>
+	<br/>
+	<hr/>
+	<h3>Configuration &amp; Startup</h3>
+	<p>
+		Whether you installed SOAJS via Docker or manually, here we focus on how to configure the components of SOAJS.<br />
+	</p>
+	<h4>Step 1: MongoDb</h4>
+	<p>
+		Let's start by running MongoDB, configure SOAJS registry to find it and thus connect to it and import some sample data to use later on. Open your terminal and start MongoDB:
+		<pre><code class="bash">$ mongod</code></pre>
+		The above step will start MongoDB on your local machine which becomes accessible via port 27017. The terminal you used to run MongoDB in it can no longer be closed, closing it will stop MongoDB server. Test that MongoDB is running by opening a second terminal and connecting to the server:
+		<pre><code class="bash">$ mongo
+$ mongo > show dbs</code></pre>
+		The above 2 commands, connect to mongo and run command show databases which will list the database inside mongo. If any of the above command did not run or return the expected response, please make sure you installed MongoDB correctly or checkout the forums and troubleshooting sections of mongo on the <a href="http://www.mongodb.org" target="_blank">Official MongoDB Website</a>.<br /><br />
+
+		Mongo runs by default on 127.0.0.1:27017 so we need to make sure that SOAJS connects to that ip address and that port when it wants to talk to mongo. Go to the profiles folder of SOAJS, you will find the default project there named <b>default</b>. If you do not know where the profiles folder resides, please read the <a href="#/documentation/core/registry">Registry</a> section. Inside the default project, or any project you want to create later on, there is a <b>configuration</b> folder that contains a file called <b>servers.js</b>. Edit that file and make sure that 127.0.0.1 is listed as a host entry and 27017 as a port in the servers array.
+		<pre><code class="javascript">module.exports = {
+	"prefix": "",
+	"credentials": null,
+	"servers": [
+		{
+			"host": "127.0.0.1",
+			"port": 27017
+		}
+	]
+};</code></pre>
+		This file instructs SOAJS how to connect to mongo. You can always change the host/port values depending on where you installed mongodb.<br />
+		Now let's import some data to the database so we can use them later on. Navigate to soajs.mongodb.data/modules/dashboardui/ and in your terminal execute the shell script <b>import.sh</b>, this script will create 1 tenant, 1 product, 1 user and 1 group. We will use this sample data later on when everything is running.
+		<pre><code class="bash">$ cd soajs.mongodb.data/modules/dashboardui/
+$ chmod +x import.sh
+$ ./import.sh</code></pre>
+		Go back to the terminal where you connected to mongo, and run <b>show dbs</b> again, you will see that core_provision and dashboard_urac database in the list of databases.
+		<pre><code class="bash">$ mongo > show dbs
+core_provision  0.078GB
+local           0.078GB
+dashboard_urac  0.078GB
+admin           (empty)
+
+# switch to core_provision db
+$ mongo > use core_provision
+
+# list collections in the db
+$ mongo > show collections
+environment
+oauth_token
+oauth_urac
+products
+system.indexes
+tenants
+</code></pre>
+		<em>core_provision database has 5 collections and the system.indexes, Great!.</em><br />
+		We only configured one server in the servers list, our attempt is to configure Mongo to connect to one standalone server and not multiple servers. You can configure multiple servers for <a href="http://docs.mongodb.org/manual/replication" target="_blank">Replica Sets</a> and load distribution purposes; we will mention how to do that in the <a href="#/documentation/deployment/cloud-awareness">Cloud awareness</a> section while installing SOAJS on a cloud.<br />
+		Mongo is now running, SOAJS is communicating with Mongo and the sample data is imported, let's configure the servers and services and start them.
+	</p>
+	<br/>
+	<h4>Step 2: Nginx</h4>
+	<p>
+		We installed Nginx in the previous step, now we are going to configure it by pointing out the configuration files that SOAJS needs. To do that, first locate the Nginx configuration file on your machine:
+		<pre><code class="bash">$ whereis nginx.conf</code></pre>
+		By default on Ubuntu, nginx.conf is located in /etc/nignx/nginx.conf. Open that file in edit mode, scroll to the bottom and instruct nginx to also look at the soajs.utilities/nginx/conf/ folder and load all configuration files in it, add the line before the closing bracelet of http inside nginx.conf.
+		<pre><code class="javascript">include /opt/soajs/soajs.utilities/nginx/conf/*.conf;</code></pre>
+		This line will now load the Nginx configuration that SOAJS needs when Nginx starts.<br />
+		Edit your hosts file and add 2 entries to point out that these domains are on your local machine.
+		<pre><code class="bash">$ sudo gedit /etc/hosts</code></pre>
+		When the hosts file is loaded in gEdit editor, add the following:
+		<pre><code class="javascript">127.0.0.1	api.soajs.org
+127.0.0.1	dashboard.soajs.org</code></pre>
+		Go ahead and Start Nginx Now:
+		<pre><code class="bash">$ sudo Nginx</code></pre>
+		When Nginx starts, test the configuration you just created by opening your browser and invoking 2 domains: <b>api.soajs.org</b> and <b>dashboard.soajs.org</b>. Nginx will reply with a <b>502 Bad Gateway</b> Error instead of Server not Found. Till this point, this is normal because we haven't started any service yet, but the important thing is that Nginx is now redirecting the requests to a local SOAJS server assuming that the later is up and running.
+	</p>
+	<br/>
+	<h4>Step 4: HAproxy</h4>
+	<p>
+
+	</p>
+	<br/>
+	<hr/>
+	<h4>Step 5: SOAJS Services</h4>
+	<p>
+		So far we configured all the prerequisites that SOAJS needs to work and tested them. Let's start the services one at a time:
+		<pre><code class="bash">#navigate to soajs.controller in a new terminal
+$ cd /opt/soajs/node_modules/soajs.controller
+$ node .
+
+#navigate to soajs.urac in a new terminal
+$ cd /opt/soajs/node_modules/soajs.urac
+$ node .
+
+#navigate to soajs.oauth in a new terminal
+$ cd /opt/soajs/node_modules/soajs.oauth
+$ node .
+
+#navigate to soajs.dashboard in a new terminal
+$ cd /opt/soajs/node_modules/soajs.dashboard/service
+$ node .</code>
+		</pre>
+		When you run node . in every terminal you opened to start the above service, the terminal cannot be close or the service will stop running. All four services are now running, let's make some test calls and when done, use the dashboard to login.
+	</p>
+	<br/>
+	<hr/>
+	<h4>Step 5: Testing the services</h4>
+	<p>
+		We mentioned in the <a href="#/documentation/services/controller">Controller</a> section that you can run a maintenance check on any service built with SOAJS. When a service starts, it will listen to two ports: the default port and the maintenance port.<br />
+		Let's run some maintenance heartbeat requests to see the status of our services:
+		<pre><code class="bash"># in a new terminal
+$ curl -X GET "http://127.0.0.1:5000/heartbeat"
+{"result":true,"ts":1427373613796,"service":{"service":"CONTROLLER","type":"rest","route":"/heartbeat"}}
+</code></pre>
+		We just ran a heartbeat check on the controller. The controller runs on port 4000 making his maintenance port 4000 + 1000 = 5000. Make a request to port 5000 followed by /hearbeat as a path parameter. You can perform the same operation for any other service. In the <a href="#/documentation/core/registry">registry</a> of SOAJS under dev environment, the services are configured to run on specific port numbers. The controller uses 4000, Urac 4001, oAuth 4002 and Dashboard 4003. This means their maintenance ports are equal to 5000, 5001, 5002, 5003. Let's run the heartbeat on every service other than the controller:
+		<pre><code class="bash"># in the same terminal
+$ curl -X GET "http://127.0.0.1:5001/heartbeat"
+{"result":true,"ts":1427373613796,"service":{"service":"URAC","type":"rest","route":"/heartbeat"}}
+
+$ curl -X GET "http://127.0.0.1:5002/heartbeat"
+{"result":true,"ts":1427373613796,"service":{"service":"OAUTH","type":"rest","route":"/heartbeat"}}
+
+$ curl -X GET "http://127.0.0.1:5003/heartbeat"
+{"result":true,"ts":1427373613796,"service":{"service":"DASHBOARD","type":"rest","route":"/heartbeat"}}
+</code></pre>
+		HOUSTON WE HAVE LIFTOFF!!!
+	</p>
+	<br />
+	<hr/>
+	<p>
+		Our services are healthy, up and running and we already imported the sample data to the database so let's stop with the curl commands and head on to the dashboard GUI, login and have some fun. In your browser, open <a href="http://dashboard.soajs.org" target="_blank">http://dashboard.soajs.org</a>, login with username: administrator and password: password. Once inside, change these credentials in Edit Profile section, you can also navigate through the sections of the dashboard to manage tenants, products and other information as explained in <a href="#/documentation/services/dashboard-service">Dashboard Services</a> and <a href="#/documentation/ui/dashboard-setup">Dashboard UI</a>
+	</p>
+</div>

@@ -4,14 +4,26 @@
 	<p>
 		In order to deploy SOAJS whether on one machine or a cloud, you need to know which services should be installed and started and how the database should be configured as well as how the whole architecture is designed. In this section we only provide an overview of the architecture and in the next two sections we show you how to set up soajs on one machine or how to deploy it on a cloud. <br /><br />
 
-		SOAJS is based on <a href="http://www.mongodb.org" target="_blank"><b>MongoDB</b></a> and <a href="http://www.nodejs.org" target="_blank"><b>NodeJs</b></a> and uses <a href="http://www.nginx.com" target="_blank"><b>Nginx</b></a> and <a href="http://www.haproxy.com" target="_blank"><b>HAProxy</b></a> as well. NodeJs is the scripting language of SOAJS and the database is provided by MongoDB as <a href="http://en.wikipedia.org/wiki/NoSQL" target="_blank"><b>NOSQL</b></a>. Nginx is used to assign hosts for the IP addresses of the different services that will be included and finally HAProxy is used for upstreaming, performance and scalability in the case of cloud deployment.<br />
+		SOAJS requires <a href="http://www.mongodb.org" target="_blank"><b>MongoDB</b></a>, <a href="http://www.nodejs.org" target="_blank"><b>NodeJs</b></a>, <a href="http://www.nginx.com" target="_blank"><b>Nginx</b></a> and <a href="http://www.haproxy.com" target="_blank"><b>HAProxy</b></a> so it can work properly on a cloud. NodeJs is the scripting language of SOAJS and the database is provided by MongoDB as <a href="http://en.wikipedia.org/wiki/NoSQL" target="_blank"><b>NOSQL</b></a>. Nginx is used to assign hosts for the IP addresses of the different services that will be included and finally HAProxy is used for upstreaming, performance and scalability in the case of cloud deployment.<br />
 		<img ng-src="images/documentation/deployment-pre-overview.png" class="img-margin-t-b" /><br />
 
-		In this section we will focus on how soajs services and mongodb work together. Once this section is understood, you can jump to how to install soajs on a single machine or deploy it on the cloud. <br/>
+		In this section we will focus on how soajs services and mongodb work together. So our concern till now is to get MongoDB up and running, NodeJs installed and working and we will leave Nginx and HAproxy till later, when we discuss how to deploy SOAJs.<br />
+		Once this section is understood, you can jump to how to install soajs on a single machine or deploy it on the cloud. <br/>
 		Let's begin with the components that use soajs core databases to provide you with the functionality you need to get soajs working and begin using it: <b>Dashboard</b> and <b>URAC</b>.<br />
 		<u>Note:</u><br />
 		Throughout the documentation, both <b>Controller</b> and <b>oAuth</b> will be mentioned since they are both part of the core components of soajs.
 	</p>
+	<hr/>
+	<h3>Pre-Requisites</h3>
+	<p>
+		As mentioned above, SOAJS requires some technologies to be installed on the machine before it can function so make sure you have these technologies installed and available on your machine:
+	</p>
+		<ul>
+			<li><a href="http://www.mongodb.org" target="_blank">MongoDB</a> ( version 2.6.7 or higher)</li>
+			<li><a href="http://www.nodejs.org" target="_blank">NodeJs</a> (version 0.10.25 or higher)</li>
+			<li><a href="http://www.nginx.com" target="_blank">Nginx</a> ( Optional for Now )</li>
+			<li><a href="http://www.haproxy.com" target="_blank">HAproxy</a> ( Optional for Now )</li>
+		</ul>
 	<hr/>
 	<h3>The Dashboard</h3>
 	<p>
@@ -21,7 +33,7 @@
 		In this section, when referring to the dashboard, we will only consider the service and its APIs since we are only focusing on the backbone of soajs and how it is interconnected. To learn more about the dashboard GUI, please refer to the <a href="#/documentation/ui/dashboard-setup">How to set up the Dashboard</a>.<br />
 	</p>
 	<br />
-	<h4>Database Structure</h4>
+	<h4>Database:</h4>
 	<p>
 		The dashboard offers APIs to add and manage environments that are present in your project profile. When you create a new environment in your project profile as explained in <a href="#/documentation/core/registry">Registry</a>, you place the configuration needed for your application to function under that environment. What you should also do, is create a record for this environment in the database so that when you configure your tenants to use services, you specify that configuration based on the environment you create using these dashboard APIs. Additional information on what API to call and what data to provide this API with can be found in <a a href="#/documentation/services/dashboard-services">Dashboard Service.</a><br />
 	</p>

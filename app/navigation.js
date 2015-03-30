@@ -78,26 +78,26 @@ var navigation = [
 		'id': 'service',
 		'label': 'soajs service',
 		'title': 'SOAJS | Documentation | Service',
-		'url': '#/documentation/service'
+		'url': '#/documentation/core/service'
 	},
 	{
 		'id': 'request',
 		'label': 'soajs request',
 		'title': 'SOAJS | Documentation | Request',
-		'url': '#/documentation/request'
+		'url': '#/documentation/core/request'
 	},
 	{
 		'id': 'imfv',
 		'label': 'soajs imfv',
 		'title': 'SOAJS | Documentation | IMFV',
-		'url': '#/documentation/imfv'
+		'url': '#/documentation/core/imfv'
 	},
 	{
 		'id': 'registry',
 		'label': 'soajs registry',
 		'title': 'SOAJS | Documentation | Registry',
 
-		'url': '#/documentation/registry'
+		'url': '#/documentation/core/registry'
 	},
 	{
 		'id': 'provisioning',
@@ -109,7 +109,7 @@ var navigation = [
 		'id': 'controller',
 		'label': 'soajs controller',
 		'title': 'SOAJS | Documentation | Controller',
-		'url': '#/documentation/controller'
+		'url': '#/documentation/core/controller'
 	},
 	{
 		'id': 'service',
@@ -121,31 +121,49 @@ var navigation = [
 		'id': 'urac',
 		'label': 'soajs urac',
 		'title': 'SOAJS | Documentation | Urac',
-		'url': '#/documentation/urac'
+		'url': '#/documentation/services/urac'
 	},
 	{
 		'id': 'oauth',
 		'label': 'soajs oauth',
 		'title': 'SOAJS | Documentation | oAuth',
-		'url': '#/documentation/oauth'
+		'url': '#/documentation/services/oauth'
 	},
 	{
 		'id': 'agent',
 		'label': 'soajs agent',
 		'title': 'SOAJS | Documentation | Agent',
-		'url': '#/documentation/agent'
+		'url': '#/documentation/services/agent'
 	},
 	{
 		'id': 'dashboard-services',
 		'label': 'soajs dashboard-services',
 		'title': 'SOAJS | Documentation | Dashboard Services',
-		'url': '#/documentation/dashboard-services'
+		'url': '#/documentation/services/dashboard-services'
 	},
 	{
 		'id': 'dashboard-setup',
 		'label': 'soajs dashboard-setup',
 		'title': 'SOAJS | Documentation | Dashboard Setup',
-		'url': '#/documentation/dashboard-setup'
+		'url': '#/documentation/ui/dashboard-setup'
+	},
+	{
+		'id': 'overview',
+		'label': 'soajs deployment overview',
+		'title': 'SOAJS | Deployment | Overview',
+		'url': '#/documentation/deployment/overview'
+	},
+	{
+		'id': 'all-in-one',
+		'label': 'soajs all-in-one',
+		'title': 'SOAJS | Deployment | Dashboard Setup',
+		'url': '#/documentation/deployment/all-in-one'
+	},
+	{
+		'id': 'cloud-awareness',
+		'label': 'soajs cloud-awareness',
+		'title': 'SOAJS | Deployment | Dashboard Setup',
+		'url': '#/documentation/deployment/cloud-awareness'
 	}
 ];
 
