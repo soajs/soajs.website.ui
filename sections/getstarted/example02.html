@@ -36,13 +36,14 @@ $ node index</code></pre>
 			For this example, you need additional database settings.
 			Through this provisioning steps, we can setup your database; we will
 			create and set the required sample data in the database to simulate a real-life case scenario.
+			<br>If you have not already done so,  you need to install the <b>soajs.mongodb.data</b> package. This package contains sample data needed by the different services to run properly.
+			<pre><code class="bash">$ npm install soajs.examples</code></pre>
+			<br>You can import (provision) a sample configuration that is provided in <b>soajs.mongodb.data/modules/examples/</b> into the database to create an oAuth user record, a tenant with oAuth configuration and use them later on in this example.<br />
 
-			You can import (provision) a sample configuration that is provided in <b>soajs.examples/tools/</b> into the database to create an oAuth user record, a tenant with oAuth configuration and use them later on in this example.<br />
-
-			To do that, navigate to <b>soajs.examples/tools/</b> and run the following commands:
-			<pre><code class="bash">$ cd soajs.examples/tools
-$ chmod +x soajs.mongo.sh
-$ ./soajs.mongo.sh</code>
+			To do that, navigate to <b>soajs.mongodb.data/modules/examples/</b> and run the following commands:
+			<pre><code class="bash">$ cd soajs.mongodb.data/modules/examples
+$ chmod +x import.sh
+$ ./import.sh</code>
 			</pre>
 			The above command will run a shell script that executes some mongo commands and import the data we need.<br />
 			Once the data is imported we will have an oAuth user record with <b>username= oauthuser</b> and <b>password= oauthpassword</b> and a tenant with <b>oAuth secret phrase= shhh this is a secret</b>.<br />

@@ -42,10 +42,11 @@ $ node index</code>
 			In <a href="#/getStarted/example02">Example02</a>, we provisioned some data in order to test the service.
 			For this example, and if you modified the data in the database, we suggest you repeat the provisioning step as demonstrated below. If the data in the database is still intact, skip this step.<br /><br />
 			Provisioning allows us to fill the database with pre-configured sample data to simulate a real-life case scenario.
-			For the purpose of this example we have created 3 tenant records, and the first tenant also contains 3 registered users. To provision, you need to navigate to <b>soajs.examples/tools/</b> and run the following commands:
-		<pre><code class="bash">$ cd soajs.examples/tools
-$ chmod +x soajs.mongo.sh
-$ ./soajs.mongo.sh</code></pre>
+			For the purpose of this example we have created 3 tenant records, and the first tenant also contains 3 registered users.
+			To provision, you need to navigate to <b>soajs.mongodb.data/modules/examples/</b> and run the import script:
+		<pre><code class="bash">$ cd soajs.mongodb.data/modules/examples
+$ chmod +x import.sh
+$ ./import.sh</code></pre>
 		</p>
 		Keep in mind that although you just provisioned some sample data, this data will expire at a later stage (7 days).
 		<hr/>
