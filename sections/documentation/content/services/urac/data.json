@@ -23,7 +23,7 @@
   },
   {
     "routeName": "logout",
-    "cmd": "CURL -X GET http://127.0.0.1:4000/urac/logout -d 'username=john'",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/urac/logout?username=john",
     "fields": [
       {
         "parameter": "username",
@@ -83,7 +83,7 @@
   },
   {
     "routeName": "join/validate",
-    "cmd": "CURL -X GET http://127.0.0.1:4000/urac/join/validate -d 'token=abcdef'",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/urac/join/validate?token=abcdef",
     "fields": [
       {
         "parameter": "token",
@@ -97,7 +97,7 @@
   },
   {
     "routeName": "forgotPassword",
-    "cmd": "CURL -X GET http://127.0.0.1:4000/urac/forgotPassword -d 'username=john&email=johndoe@domain.com'",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/urac/forgotPassword?username=john&email=johndoe@domain.com",
     "fields": [
       {
         "parameter": "username",
@@ -119,7 +119,7 @@
   },
   {
     "routeName": "resetPassword",
-    "cmd": "CURL -X POST http://127.0.0.1:4000/urac/resetPassword -d 'token=abcdef&password=johnpassword&confirmation=johnpassword'",
+    "cmd": "CURL -X POST http://127.0.0.1:4000/urac/resetPassword?token=abcdef -d 'password=johnpassword&confirmation=johnpassword'",
     "fields": [
       {
         "parameter": "token",
@@ -149,7 +149,7 @@
   },
   {
     "routeName": "changeEmail/validate",
-    "cmd": "CURL -X GET http://127.0.0.1:4000/urac/changeEmail/validate -d 'token=abcdef'",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/urac/changeEmail/validate?token=abcdef",
     "fields": [
       {
         "parameter": "token",
@@ -237,7 +237,7 @@
   },
   {
     "routeName": "account/editProfile",
-    "cmd": "CURL -X POST http://127.0.0.1:4000/urac/account/editProfile?uId=123 -d 'username=john&firstName=John&lastName=Doe&profile={'gender':'male'}'",
+    "cmd": "CURL -X POST http://127.0.0.1:4000/urac/account/editProfile?uId=123 -d \"username=john&firstName=John&lastName=Doe&profile={'gender':'male'}\"",
     "fields": [
       {
         "parameter": "uId",
@@ -316,6 +316,14 @@
         "mandatory": true,
         "default": "",
         "notes": ""
+      },
+      {
+        "parameter": "groups",
+        "type": "array",
+        "source": "body",
+        "mandatory": false,
+        "default": "",
+        "notes": "array of group code values"
       }
     ]
   },
@@ -392,6 +400,14 @@
         "mandatory": true,
         "default": "",
         "notes": "restricted to either 'active' OR 'inactive'"
+      },
+      {
+        "parameter": "groups",
+        "type": "array",
+        "source": "body",
+        "mandatory": false,
+        "default": "",
+        "notes": "array of group code values"
       }
     ]
   },
@@ -423,7 +439,7 @@
   },
   {
     "routeName": "admin/group/add",
-    "cmd": "CURL -X POST http://127.0.0.1:4000/urac/admin/group/add -d \"code=gold&name=Gold&description=Group Description\" ",
+    "cmd": "CURL -X POST http://127.0.0.1:4000/urac/admin/group/add -d 'code=gold&name=Gold&description=Group Description' ",
     "fields": [
       {
         "parameter": "code",
@@ -453,7 +469,7 @@
   },
   {
   "routeName": "admin/group/edit",
-  "cmd": "CURL -X POST http://127.0.0.1:4000/urac/admin/group/edit?gId=5 -d \"name=Gold Group&description=Group Description\"",
+  "cmd": "CURL -X POST http://127.0.0.1:4000/urac/admin/group/edit?gId=5 -d 'name=Gold Group&description=Group Description'",
   "fields": [
       {
         "parameter": "gId",
@@ -497,7 +513,7 @@
   },
   {
     "routeName": "admin/group/addUsers",
-    "cmd": "CURL -X POST http://127.0.0.1:4000/urac/admin/group/addUsers -d 'groupCode=bronze&users=[user1,user2]' ",
+    "cmd": "CURL -X POST http://127.0.0.1:4000/urac/admin/group/addUsers -d 'groupCode=bronze&users[]=user1&users[]=user2' ",
     "fields": [
       {
         "parameter": "code",
