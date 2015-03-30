@@ -16,9 +16,11 @@
 	<div class="redFlag">Will be completed soon.</div>
 	<p>
 		SOAJS can be installed using <a href="http://www.docker.com" target="_blank">Docker</a>. Docker will provide you with an image that contains the required technologies installed and pre-configured as well as SOAJS components ready to be used. Once you install SOAJS via Docker, simply navigate to the services and start them.<br />
-		Docker steps are located in <a href="https://www.npmjs.org/packages/soajs.utilitites" target="_blank">soajs.utilities</a>/deployment/allinone/ folder. Simply install soajs.utitilities via NPM then navigate to deployment/allinone folder and follow the docker instructions.
-		<pre><code class="bash">$ npm install soajs.utilities
-$ cd soajs.utilities/deployment/docker</code>
+		Start by installing Docker on your machine so you can download the image.
+		<pre><code class="bash">$ wget -qO- https://get.docker.com/ | sh</code>
+		</pre>
+		Once Docker is installed, use it to download and install the pre-configured all in one image of SOAJS.
+		<pre><code class="bash">$ docker run --name soajs-allinone --link soajs-allinone-link</code>
 		</pre>
 		When you install SOAJS all in one via Docker, all the configuration steps are taken care of and SOAJS should run right after installation. To learn more about the configuration steps, please jump to the configuration section below where we explain how to configure the servers, the database, nginx ... etc in detail. The configuration can be updated at any time and regardless of the installation method used. This way you will be able to modify the configuration created via Docker installation or after manual installation.
 	</p>
@@ -159,7 +161,19 @@ tenants
 	<br/>
 	<h4>Step 3: HAproxy</h4>
 	<p>
+		In the first step we installed HAproxy which is a proxy to balance, redirect, forward and manipulate the incoming traffic. HAproxy is basically used in the case of cloud architecture; to distribute the load on multiple nodes and balance the traffic. Using HAproxy on one machine is kind of irrelevant but when you want to replicate the same architecture you have on your production server, it is good to have everything installed and running so you can track and pinpoint all issues that you are facing on production which is our case here.<br /><br />
+		Configure HAproxy requires little effort. Since we already installed soajs.utilities, just navigate to soajs.utilities/deployment/allinone/. Locate your haproxy.cfg, on Ubuntu it is usually located at /etc/haproxy/haproxy.cfg, rename the default configuration file haproxy.cfg and copy the one in soajs.utilities, then start HAproxy.
+		<pre><code class="bash"># go to all in one folder
+$ cd soajs.utilities/deployment/allinone/
 
+# rename default config file
+$ mv /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.bckp.cfg
+
+# copy soajs.utilities haproxy to /etc/haproxy/
+$ cp ./haproxy.cfg /etc/haproxy/
+
+# start haproxy
+$ service haproxy start</code></pre>
 	</p>
 	<br/>
 	<h4>Step 4: SOAJS Services</h4>

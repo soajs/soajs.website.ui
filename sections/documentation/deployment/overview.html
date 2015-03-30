@@ -4,7 +4,7 @@
 	<p>
 		In order to deploy SOAJS whether on one machine or a cloud, you need to know which services should be installed and started and how the database should be configured as well as how the whole architecture is designed. In this section we only provide an overview of the architecture and in the next two sections we show you how to set up soajs on one machine or how to deploy it on a cloud. <br /><br />
 
-		SOAJS requires <a href="http://www.mongodb.org" target="_blank"><b>MongoDB</b></a>, <a href="http://www.nodejs.org" target="_blank"><b>NodeJs</b></a>, <a href="http://www.nginx.com" target="_blank"><b>Nginx</b></a> and <a href="http://www.haproxy.com" target="_blank"><b>HAProxy</b></a> so it can work properly on a cloud. NodeJs is the scripting language of SOAJS and the database is provided by MongoDB as <a href="http://en.wikipedia.org/wiki/NoSQL" target="_blank"><b>NOSQL</b></a>. Nginx is used to assign hosts for the IP addresses of the different services that will be included and finally HAProxy is used for upstreaming, performance and scalability in the case of cloud deployment.<br />
+		SOAJS requires <a href="http://www.mongodb.org" target="_blank"><b>MongoDB</b></a>, <a href="http://www.nodejs.org" target="_blank"><b>NodeJs</b></a>, <a href="http://www.nginx.com" target="_blank"><b>Nginx</b></a> and <a href="http://www.haproxy.org" target="_blank"><b>HAProxy</b></a> so it can work properly on a cloud. NodeJs is the scripting language of SOAJS and the database is provided by MongoDB as <a href="http://en.wikipedia.org/wiki/NoSQL" target="_blank"><b>NOSQL</b></a>. Nginx is used to assign hosts for the IP addresses of the different services that will be included and finally HAProxy is used for upstreaming, performance and scalability in the case of cloud deployment.<br />
 		<img ng-src="images/documentation/deployment-pre-overview.png" class="img-margin-t-b" /><br />
 
 		In this section we will focus on how soajs services and mongodb work together. So our concern till now is to get MongoDB up and running, NodeJs installed and working and we will leave Nginx and HAproxy till later, when we discuss how to deploy SOAJs.<br />
@@ -22,7 +22,7 @@
 			<li><a href="http://www.mongodb.org" target="_blank">MongoDB</a> ( version 2.6.7 or higher)</li>
 			<li><a href="http://www.nodejs.org" target="_blank">NodeJs</a> (version 0.10.25 or higher)</li>
 			<li><a href="http://www.nginx.com" target="_blank">Nginx</a> ( Optional for Now )</li>
-			<li><a href="http://www.haproxy.com" target="_blank">HAproxy</a> ( Optional for Now )</li>
+			<li><a href="http://www.haproxy.org" target="_blank">HAproxy</a> ( Optional for Now )</li>
 		</ul>
 	<hr/>
 	<h3>The Dashboard</h3>
@@ -78,6 +78,7 @@
 		Every tenant that uses the URAC has its own database to hold the records of its users and groups. These databases are independent of the core databases and the URAC does not modify any of the core database collections content, it only reads from the core databases to load the configuration it needs based on the key and anything beyond that gets added/modified in its own database.
 		<img ng-src="images/documentation/deployment-overview3.png" class="img-margin-t-b" /><br />
 		The above image adds the URAC service along with the previous services mentioned. As you can see, URAC reads from core_provision tenants collection to load the configuration it needs and the tenant name that the key belongs to, then it performs the remaining operations like login, logout, add user ... in its own database, the database name that the URAC uses follows the name of the tenant that the key provided in the request belongs to.
+		<img ng-src="images/documentation/deployment-overview4.png" style="max-width:95%" class="img-margin-t-b" />
 	</p>
 	<hr/>
 	<p>
