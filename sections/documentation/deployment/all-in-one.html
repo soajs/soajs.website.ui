@@ -13,6 +13,7 @@
 		You can install SOAJS in full on one machine. Two methods are provided to install SOAJS.
 	</p>
 	<h4>Docker:</h4>
+	<div class="redFlag">Will be completed soon.</div>
 	<p>
 		SOAJS can be installed using <a href="http://www.docker.com" target="_blank">Docker</a>. Docker will provide you with an image that contains the required technologies installed and pre-configured as well as SOAJS components ready to be used. Once you install SOAJS via Docker, simply navigate to the services and start them.<br />
 		Docker steps are located in <a href="https://www.npmjs.org/packages/soajs.utilitites" target="_blank">soajs.utilities</a>/deployment/allinone/ folder. Simply install soajs.utitilities via NPM then navigate to deployment/allinone folder and follow the docker instructions.
@@ -132,7 +133,7 @@ system.indexes
 tenants
 </code></pre>
 		<em>core_provision database has 5 collections and the system.indexes, Great!.</em><br />
-		We only configured one server in the servers list, our attempt is to configure Mongo to connect to one standalone server and not multiple servers. You can configure multiple servers for <a href="http://docs.mongodb.org/manual/replication" target="_blank">Replica Sets</a> and load distribution purposes; we will mention how to do that in the <a href="#/documentation/deployment/cloud-awareness">Cloud awareness</a> section while installing SOAJS on a cloud.<br />
+		We only configured one server in the servers list, our attempt is to configure Mongo to connect to one standalone server and not multiple servers. You can configure multiple servers for <a href="http://docs.mongodb.org/manual/replication" target="_blank">Replica Sets</a> and distribution the load; we will mention how to do that in the <a href="#/documentation/deployment/cloud-awareness">Cloud awareness</a> section while installing SOAJS on a cloud of nodes.<br />
 		Mongo is now running, SOAJS is communicating with Mongo and the sample data is imported, let's configure the servers and services and start them.
 	</p>
 	<br/>
@@ -141,7 +142,10 @@ tenants
 		We installed Nginx in the previous step, now we are going to configure it by pointing out the configuration files that SOAJS needs. To do that, first locate the Nginx configuration file on your machine:
 		<pre><code class="bash">$ whereis nginx.conf</code></pre>
 		By default on Ubuntu, nginx.conf is located in /etc/nignx/nginx.conf. Open that file in edit mode, scroll to the bottom and instruct nginx to also look at the soajs.utilities/nginx/conf/ folder and load all configuration files in it, add the line before the closing bracelet of http inside nginx.conf.
-		<pre><code class="javascript">include /opt/soajs/soajs.utilities/nginx/conf/*.conf;</code></pre>
+		<pre><code class="javascript">http {
+	# default nginx configuration goes here
+	include /opt/soajs/soajs.utilities/nginx/conf/*.conf;
+}</code></pre>
 		This line will now load the Nginx configuration that SOAJS needs when Nginx starts.<br />
 		Edit your hosts file and add 2 entries to point out that these domains are on your local machine.
 		<pre><code class="bash">$ sudo gedit /etc/hosts</code></pre>
@@ -153,13 +157,12 @@ tenants
 		When Nginx starts, test the configuration you just created by opening your browser and invoking 2 domains: <b>api.soajs.org</b> and <b>dashboard.soajs.org</b>. Nginx will reply with a <b>502 Bad Gateway</b> Error instead of Server not Found. Till this point, this is normal because we haven't started any service yet, but the important thing is that Nginx is now redirecting the requests to a local SOAJS server assuming that the later is up and running.
 	</p>
 	<br/>
-	<h4>Step 4: HAproxy</h4>
+	<h4>Step 3: HAproxy</h4>
 	<p>
 
 	</p>
 	<br/>
-	<hr/>
-	<h4>Step 5: SOAJS Services</h4>
+	<h4>Step 4: SOAJS Services</h4>
 	<p>
 		So far we configured all the prerequisites that SOAJS needs to work and tested them. Let's start the services one at a time:
 		<pre><code class="bash">#navigate to soajs.controller in a new terminal
@@ -181,7 +184,6 @@ $ node .</code>
 		When you run node . in every terminal you opened to start the above service, the terminal cannot be close or the service will stop running. All four services are now running, let's make some test calls and when done, use the dashboard to login.
 	</p>
 	<br/>
-	<hr/>
 	<h4>Step 5: Testing the services</h4>
 	<p>
 		We mentioned in the <a href="#/documentation/services/controller">Controller</a> section that you can run a maintenance check on any service built with SOAJS. When a service starts, it will listen to two ports: the default port and the maintenance port.<br />
