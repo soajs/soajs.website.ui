@@ -15,7 +15,7 @@
 			<li><a href="https://www.npmjs.com/packages/soajs.controller" target="_blank">soajs.controller</a>
 				<pre><code class="bash">$ npm install soajs.controller</code></pre>
 			</li>
-			<li><a href="https://www.npmjs.com/packages/soajs.agent" target="_blank">soajs.agent</a>
+			<li style="display:none"><a href="https://www.npmjs.com/packages/soajs.agent" target="_blank">soajs.agent</a>
 				<pre><code class="bash">$ npm install soajs.agent</code></pre>
 			</li>
 			<li><a href="https://www.npmjs.com/packages/soajs.oauth" target="_blank">soajs.oauth</a>
@@ -24,8 +24,8 @@
 			<li><a href="https://www.npmjs.com/packages/soajs.urac" target="_blank">soajs.urac</a>
 				<pre><code class="bash">$ npm install soajs.urac</code></pre>
 			</li>
-			<li><a href="https://www.npmjs.com/packages/soajs.examples" target="_blank">soajs.examples</a>
-				<pre><code class="bash">$ npm install soajs.examples</code></pre>
+			<li><a href="https://www.npmjs.com/packages/soajs.mongodb.data" target="_blank">soajs.mongodb.data</a>
+				<pre><code class="bash">$ npm install soajs.mongodb.data</code></pre>
 			</li>
 			<li><a href="https://www.npmjs.com/packages/soajs.dashboard" target="_blank">soajs.dashboard</a>
 				<pre><code class="bash">$ npm install soajs.dashboard</code></pre>
@@ -34,13 +34,11 @@
 		Once all the modules are installed, run their services:<br />
 		<pre><code class="bash">$ cd soajs.controller
 $ node .
-$ cd ../soajs.agent
-$ node .
 $ cd ../soajs.oauth
 $ node .
 $ cd ../soajs.urac
 $ node .
-$ cd ../soajs.dashboard
+$ cd ../soajs.dashboard/service
 $ node .</code></pre>
 		Make sure that you have <a href="http://nginx.org" target="_blank">nginx</a> installed and configured from <a href="https://github.com/soajs/soajs.utilities/tree/master/nginx" target="_blank">soajs.utilities/nginx</a>.<br /> Basically nginx configuration for SOAJS creates 2 virtual hosts the first being and address for the controller referred to as 127.0.0.1 and the second being and address to open the dashboard referred to as dashboard.soajs.org.<br />
 		<pre><code class="bash">#virtual host for controller
@@ -69,15 +67,24 @@ server {
 
 	<p>
 		Now that all the needed modules are installed, nginx is configured, import the sample data to the database.
-		Navigate to <b>soajs.example/tools</b> in your Terminal, and you will find a mongo script that imports some test data for you to start with.<br/>
-		<pre><code class="bash"># make sure soajs.mongo.sh is executable
-$ chmod +x soajs.mongo.sh
+		Navigate to <b>soajs.mongodb.data/modules/dashboard-ui</b> in your Terminal, and you will find a mongo script that imports some test data for you to start with.<br/>
+		<pre><code class="bash"># make sure import.sh is executable
+$ chmod +x import.sh
 
-# execute soajs.mongo.sh
-$ ./soajs.mongo.sh</code></pre>
+# execute import.sh
+$ ./import.sh</code></pre>
 	</p>
 	<p>
 		The script will import some test data so that you can login to the dashboard and start using it.<br />
+		The imported data creates the following configuration:
+		<ul><em>These records are locked and cannot be deleted.</em>
+		<li>a product that contains one package which gives access to the services needed to run the dashboard </li>
+		<li>a tenant that has one application which uses the above package</li>
+		<li>an environment called "DEV"</li>
+		<li>an administrator group and a user to login to the dashboard</li>
+		You can now login to the dashboard using username: <b>admin</b>, and password: <b>password</b>
+		</ul>
+
 		<u>Note:</u> You can always use the dashboard without importing the test data.
 	</p><br />
 	<hr/>

@@ -249,11 +249,11 @@
       },
       {
         "parameter": "acl",
-        "type": "string",
+        "type": "object",
         "source": "body",
         "mandatory": false,
         "default": "",
-        "notes": "stringified object containing the access level of the package over the service(s)"
+        "notes": "object containing the access level of the package over the service(s)"
       }
     ]
   },
@@ -303,11 +303,11 @@
       },
       {
         "parameter": "acl",
-        "type": "string",
+        "type": "object",
         "source": "body",
         "mandatory": false,
         "default": "",
-        "notes": "stringified object containing the access level of the package over the service(s)"
+        "notes": "object containing the access level of the package over the service(s)"
       }
     ]
   },
