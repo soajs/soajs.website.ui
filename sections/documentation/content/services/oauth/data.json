@@ -31,7 +31,7 @@
   },
   {
     "routeName": "/kill",
-    "cmd": "CURL -X GET http://127.0.0.1:4000/oauth/kill -d 'access_token=someOAuthAcessToken'",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/oauth/kill?access_token=someOAuthAcessToken",
     "fields": [
       {
         "parameter": "access_token",

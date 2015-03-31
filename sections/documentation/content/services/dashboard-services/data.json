@@ -15,7 +15,7 @@
   },
   {
     "routeName": "/environment/add",
-    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/environment/add -d 'code=DEV&description=development&ips=['127.0.0.1']'",
+    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/environment/add -d \"code=DEV&description=development&ips[]='127.0.0.1'\"",
     "fields": [
       {
         "parameter": "code",
@@ -35,17 +35,17 @@
       },
       {
         "parameter": "ips",
-        "type": "string",
+        "type": "array",
         "source": "body",
         "mandatory": true,
         "default": "",
-        "notes": "stringified array of ip addresses"
+        "notes": "array of ip addresses"
       }
     ]
   },
   {
     "routeName": "/environment/update",
-    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/environment/update?id=1 -d 'description=development&ips=['127.0.0.1']'",
+    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/environment/update?id=1 -d \"description=development&ips[]='127.0.0.1'\"",
     "fields": [
       {
         "parameter": "id",
@@ -65,11 +65,11 @@
       },
       {
         "parameter": "ips",
-        "type": "string",
+        "type": "array",
         "source": "body",
         "mandatory": true,
         "default": "",
-        "notes": "stringified array of ip addresses"
+        "notes": "array of ip addresses"
       }
     ]
   },
@@ -205,7 +205,7 @@
   },
   {
     "routeName": "/product/packages/add",
-    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/product/packages/add?id=1 -d 'code=BASIC&name=My Product&description=my product description...&_TTL=3600000&acl={'urac':{'access':true}}'",
+    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/product/packages/add?id=1 -d \"code=BASIC&name=My Product&description=my product description&_TTL=48&acl={'urac':{'access':true}}\"",
     "fields": [
       {
         "parameter": "id",
@@ -259,7 +259,7 @@
   },
   {
     "routeName": "/product/packages/update",
-    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/product/packages/update?id=1&code=BASIC -d 'name=My Product&description=my product description...&_TTL=3600000&acl={'urac':{'access':true}}'",
+    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/product/packages/update?id=1&code=BASIC -d \"name=My Product&description=my product description...&_TTL=48&acl={'urac':{'access':true}}\"",
     "fields": [
       {
         "parameter": "id",
@@ -539,7 +539,7 @@
   },
   {
     "routeName": "/tenant/application/add",
-    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/tenant/application/add?id=11 -d '_TTL=3600000&description=application description...&acl={}&productCode=PROD&packageCode=BASIC",
+    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/tenant/application/add?id=11 -d '_TTL=24&description=application description...&acl={}&productCode=PROD&packageCode=BASIC",
     "fields": [
       {
         "parameter": "id",
@@ -593,7 +593,7 @@
   },
   {
     "routeName": "/tenant/application/update",
-    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/tenant/application/update?id=11&appId=5 -d '_TTL=3600000&description=application description...&acl={}&productCode=PROD&packageCode=BASIC' ",
+    "cmd": "CURL -X POST http://127.0.0.1:4000/dashboard/tenant/application/update?id=11&appId=5 -d '_TTL=24&description=application description...&acl={}&productCode=PROD&packageCode=BASIC' ",
     "fields": [
       {
         "parameter": "id",
