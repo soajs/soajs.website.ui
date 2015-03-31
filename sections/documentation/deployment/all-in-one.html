@@ -22,6 +22,11 @@
 		Once Docker is installed, use it to download and install the pre-configured all in one image of SOAJS.
 		<pre><code class="bash">$ docker run --name soajs-allinone --link soajs-allinone-link</code>
 		</pre>
+		<div class="redFlag">
+			do we want to use docker compose as well?<br />
+			if yes maybe we can put the docker.yml file in soajs.utilities/deployment/allinone/docker.yml
+		</div><br />
+
 		When you install SOAJS all in one via Docker, all the configuration steps are taken care of and SOAJS should run right after installation. To learn more about the configuration steps, please jump to the configuration section below where we explain how to configure the servers, the database, nginx ... etc in detail. The configuration can be updated at any time and regardless of the installation method used. This way you will be able to modify the configuration created via Docker installation or after manual installation.
 	</p>
 	<br />
@@ -36,11 +41,7 @@ $ apt-get install mongodb
 $ apt-get install nodejs
 
 # install Nginx latest stable version
-$ apt-get install nginx
-
-# install HAproxy latest stable version
-$ apt-get install haproxy
-		</code>
+$ apt-get install nginx</code>
 	</pre>
 	<p>
 		Now that the needed technologies are installed, we suggest you create the following folder schema to place SOAJS and its components:
@@ -154,29 +155,13 @@ tenants
 		When the hosts file is loaded in gEdit editor, add the following:
 		<pre><code class="javascript">127.0.0.1	api.soajs.org
 127.0.0.1	dashboard.soajs.org</code></pre>
+		<em>You can also copy these entries from soajs.utilities/deployment/allinone/hosts to your /etc/hosts file.</em><br />
 		Go ahead and Start Nginx Now:
 		<pre><code class="bash">$ sudo Nginx</code></pre>
 		When Nginx starts, test the configuration you just created by opening your browser and invoking 2 domains: <b>api.soajs.org</b> and <b>dashboard.soajs.org</b>. Nginx will reply with a <b>502 Bad Gateway</b> Error instead of Server not Found. Till this point, this is normal because we haven't started any service yet, but the important thing is that Nginx is now redirecting the requests to a local SOAJS server assuming that the later is up and running.
 	</p>
 	<br/>
-	<h4>Step 3: HAproxy</h4>
-	<p>
-		In the first step we installed HAproxy which is a proxy to balance, redirect, forward and manipulate the incoming traffic. HAproxy is basically used in the case of cloud architecture; to distribute the load on multiple nodes and balance the traffic. Using HAproxy on one machine is kind of irrelevant but when you want to replicate the same architecture you have on your production server, it is good to have everything installed and running so you can track and pinpoint all issues that you are facing on production which is our case here.<br /><br />
-		Configure HAproxy requires little effort. Since we already installed soajs.utilities, just navigate to soajs.utilities/deployment/allinone/. Locate your haproxy.cfg, on Ubuntu it is usually located at /etc/haproxy/haproxy.cfg, rename the default configuration file haproxy.cfg and copy the one in soajs.utilities, then start HAproxy.
-		<pre><code class="bash"># go to all in one folder
-$ cd soajs.utilities/deployment/allinone/
-
-# rename default config file
-$ mv /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.bckp.cfg
-
-# copy soajs.utilities haproxy to /etc/haproxy/
-$ cp ./haproxy.cfg /etc/haproxy/
-
-# start haproxy
-$ service haproxy start</code></pre>
-	</p>
-	<br/>
-	<h4>Step 4: SOAJS Services</h4>
+	<h4>Step 3: SOAJS Services</h4>
 	<p>
 		So far we configured all the prerequisites that SOAJS needs to work and tested them. Let's start the services one at a time:
 		<pre><code class="bash">#navigate to soajs.controller in a new terminal
@@ -198,7 +183,7 @@ $ node .</code>
 		When you run node . in every terminal you opened to start the above service, the terminal cannot be close or the service will stop running. All four services are now running, let's make some test calls and when done, use the dashboard to login.
 	</p>
 	<br/>
-	<h4>Step 5: Testing the services</h4>
+	<h4>Step 4: Testing the services</h4>
 	<p>
 		We mentioned in the <a href="#/documentation/services/controller">Controller</a> section that you can run a maintenance check on any service built with SOAJS. When a service starts, it will listen to two ports: the default port and the maintenance port.<br />
 		Let's run some maintenance heartbeat requests to see the status of our services:
