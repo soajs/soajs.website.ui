@@ -22,7 +22,7 @@
         width: 450px;
     }
 
-    .topbar .nav-container, .bottom .sharing-footer, .main-section-container,
+    .topbar .nav-container, .bottom .sharing-footer, .main-section-container, .whyBeaver-container,
     .banner .banner-container, .powered-by-container, .soajs-features .features-container{
         width: 97%;
     }
