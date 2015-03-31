@@ -35,20 +35,21 @@
 						<li ng-repeat="badge in repos" ng-class-even ="'even'" ng-class-odd ="'odd'">
 							<div id="repo{{badge.id}}" class="repoinner">
 
-								<div class="repoLabel" ng-show="badge.documentation"><a href="{{badge.documentation}}">{{badge.label}}</a></div>
-								<div class="repoLabel" ng-show="!badge.documentation"><a>{{badge.label}}</a></div>
-								<div class="repoLinks npm" ng-show="badge.npm">
+								<div class="repoLabel" ng-if="badge.documentation"><a href="{{badge.documentation}}">{{badge.label}}</a></div>
+								<div class="repoLabel" ng-if="!badge.documentation"><a>{{badge.label}}</a></div>
+
+								<div class="repoLinks npm" ng-if="badge.npm">
 									<a href="https://badge.fury.io/js/{{badge.npm}}" target="_blank"><img style="max-width:100%;" ng-src="https://badge.fury.io/js/{{badge.npm}}.svg" alt="NPM version"></a>
 								</div>
-								<div class="repoLinks travis" ng-show="badge.travis">
+								<div class="repoLinks travis" ng-if="badge.travis">
 									<a href="https://travis-ci.org/{{badge.travis}}" target="_blank"><img data-bindattr-732="732" ng-src="https://travis-ci.org/{{badge.travis}}.svg" alt="Build status"></a>
 								</div>
 
-								<div class="repoLinks coveralls" ng-show="badge.coveralls">
+								<div class="repoLinks coveralls" ng-if="badge.coveralls">
 									<a href="https://coveralls.io/r/{{badge.coveralls}}" target="_blank"><img ng-src="https://coveralls.io/repos/{{badge.coveralls}}/badge.svg" alt="Coverage Status"></a>
 								</div>
 
-								<div class="repoLinks gitLink" ng-show="badge.github">
+								<div class="repoLinks gitLink" ng-if="badge.github">
 									<iframe ng-src="{{badge.github | trustAsResourceUrl}}" frameborder="0" scrolling="0" style="" allowTransparency="true"></iframe>
 								</div>
 							</div>
@@ -92,17 +93,23 @@
 		<div class="powered-icon"><a target="_blank" href="http://www.haproxy.org/"><img src="images/footer/haproxyIcon.png"></a></div>
 		<div class="powered-icon"><a target="_blank" href="https://angularjs.org/"><img src="images/footer/angularIcon.png"></a></div>
 	</div>
-	<div class="whyBeaver"><div class="whyBeaver-container">
-		<h1>Why the beaver?</h1>
-		<p>
-			We have chosen the beaver as our representative because of its smart and powerful building technique.
-			It is able to build a robust structure by securing its foundation;
-			starting from the bottom layer, and working its way upward.
-		</p>
+	<div class="whyBeaver">
+		<div class="whyBeaver-container">
+			<h1>Why the beaver?</h1>
+			<p>
+				We have chosen the beaver as our representative because of its smart and powerful building technique.
+				It is able to build a robust structure by securing its foundation;
+				starting from the bottom layer, and working its way upward.
+			</p>
 
-		<p>Like the beaver, SOAJS allows you to build, from day one,
-		a very solid enterprise level service oriented architecture that is
-		reliable and scalable.
-		Nothing would be an after thought. You never need to re-write your code if you want to grow your services.</p>
-	</div></div>
+			<p>Like the beaver, SOAJS allows you to build, from day one,
+			a very solid enterprise level service oriented architecture that is
+			reliable and scalable.
+			Nothing would be an after thought. You never need to re-write your code if you want to grow your services.</p>
+			<div id="twitter-badge">
+				<!--<a href="https://twitter.com/soajsorg" class="twitter-follow-button" data-show-count="false" data-size="small">Follow @soajsorg</a>-->
+				<!--<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>-->
+			</div>
+		</div>
+	</div>
 </div>

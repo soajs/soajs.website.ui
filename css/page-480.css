@@ -233,11 +233,21 @@
     #beaverAlone{
         display: none;
     }
+
+    #twitter-badge{
+        float:right;
+        margin:20px 0 0 0;
+    }
 }
 
 @media (max-width: 470px) {
     .white-banner .banner-container .repos {
         display: none;
+    }
+
+    #twitter-badge{
+        float:right;
+        margin:20px 0 0 0;
     }
 }
 
@@ -364,6 +374,11 @@
     }
     #oauth-config{
         width: 280px;
+    }
+
+    #twitter-badge{
+        float:right;
+        margin:20px 0 0 0;
     }
 }
 

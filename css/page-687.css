@@ -130,6 +130,10 @@
     .soajs-features .features-container .feature-list li.odd {
         margin-right: 0;
     }
+    #twitter-badge{
+        float:right;
+        margin:20px 0 0 0;
+    }
 }
 
 @media (max-width: 640px) {
@@ -319,6 +323,11 @@
     .copyright{
         width:180px;
         padding-top: 0;
+    }
+
+    #twitter-badge{
+        float:right;
+        margin:20px 0 0 0;
     }
 
 }

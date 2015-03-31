@@ -109,6 +109,11 @@
     .white-banner .banner-container .repos ul .coveralls img {
         max-width: 90px;
     }
+
+    #twitter-badge{
+        float:right;
+        margin:20px 0 0 0;
+    }
 }
 
 @media (max-width: 900px) {
