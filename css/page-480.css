@@ -20,14 +20,6 @@
         width: 90%;
     }
 
-    .left-sidebar .left-menu {
-        width: 89%;
-    }
-
-    .left-sidebar {
-        padding-left: 5px;
-    }
-
     body, html, ul li, p {
         font-size: 13px;
         line-height: 1.5em;
@@ -82,15 +74,14 @@
 
     .small-button {
         font-size: 13px;
-        height: 43px;
-        padding: 10px 17px 8px;
+        height: 39px;
+        padding: 8px 17px 8px;
         margin-right: 10px;
+        background: url('../images/yellow-btn-bg2.png') repeat-x;
     }
-
-    .small-button {
-        /*padding: 6px 25px 8px; */
+    .twitter-icon img{
+        margin-top: 0px;
     }
-
     .features-page .main-section-container .feature-list ul li {
         padding: 30px 0;
         width: 100%;
@@ -134,7 +125,18 @@
         width: 92%;
         max-width: 92%;
     }
+    .left-sidebar .left-menu {
+        width: 98%;
+    }
 
+    .left-sidebar {
+        padding-left: 0px;
+    }
+    .left-sidebar section{
+        padding-left: 1%;
+        padding-right: 3%;
+        width: auto;
+    }
     .left-sidebar .left-menu section section h4 {
         font-size: 12px;
     }
@@ -208,7 +210,9 @@
     .bottom .copyright {
         width: 155px;
     }
-
+    #section-footer .bottom .copyright {
+        width: 155px;
+    }
     /*repos*/
     .white-banner .banner-container .repos ul li {
         width: 98%;
@@ -249,6 +253,9 @@
         float:right;
         margin:20px 0 0 0;
     }
+    #section-footer .bottom  .copyright{
+        width: 300px;
+    }
 }
 
 @media (max-width: 400px) {
@@ -260,7 +267,7 @@
         font-size: 12px;
     }
     .topbar .nav-container, .bottom .sharing-footer, .main-section-container, .soajs-features .features-container,
-    .banner .banner-container, .white-banner .banner-container, .powered-by-container, .whyBeaver {
+    .banner .banner-container, .white-banner .banner-container, .powered-by-container {
         width: 99%;
     }
     .soajs-features .feature-list li h5{
@@ -292,17 +299,24 @@
         background-color: #FFB500;
         background-image: none;
     }
+    .twitter-icon img{
+        width: 30px;
+        margin-top: 5px;
+    }
     .powered-by-container{
         display: none;
         width: 10px;
     }
 
+    .left-sidebar .left-menu h4{
+        font-size: 13px;
+    }
     .left-sidebar section:hover > ul {
         padding-left:  17px;
     }
     .left-sidebar section{
         padding-left: 5px;
-        padding-right: 4px;
+        padding-right: 5px;
     }
     .left-sidebar section h4{
         padding-left: 7px;
@@ -336,7 +350,7 @@
         width:270px;
     }
 
-    #section-footer, .soajs-features{
+    #section-footer, .soajs-features, .whyBeaver{
         width: 320px;
         margin: 0 auto;
     }

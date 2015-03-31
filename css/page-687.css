@@ -134,6 +134,11 @@
         float:right;
         margin:20px 0 0 0;
     }
+
+    #section-footer .bottom .copyright {
+        width: 175px;
+        padding-top: 0;
+    }
 }
 
 @media (max-width: 640px) {
@@ -204,7 +209,7 @@
     }
     .left-sidebar .left-menu {
         font-size: 12px;
-        width: 99%;
+        width: 100%;
     }
 
     .left-sidebar .left-menu h4{
@@ -240,11 +245,10 @@
         float:left;
         padding-left: 7px;
         padding-right: 7px;
-        width: 31%;
+        width: 24%;
         position:relative;
         outline: 0;
     }
-
     .left-sidebar section h4{
         padding-left: 10px;
         margin-bottom: 5px;
@@ -320,8 +324,8 @@
     }
     */
     /**/
-    .copyright{
-        width:180px;
+    .bottom .copyright{
+        width:175px;
         padding-top: 0;
     }
 

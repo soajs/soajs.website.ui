@@ -175,13 +175,10 @@ a:hover{
     padding-top: 5px;
 }
 
-.bottom .copyright {
-    padding-top: 3px;
-}
-
-.bottom .sharing-footer .copyright {
+.bottom .copyright{
     float: left;
     padding-left: 1%;
+    padding-top: 3px;
 }
 .bottom .sharing-footer .inner {
     float: left;
@@ -200,7 +197,7 @@ a:hover{
     padding: 6px 40px 8px;
     float: right;
     margin-right: 15px;
-    margin-top: -5px;
+    /*margin-top: -5px;*/
     text-align: center;
     color: white;
 }
@@ -209,7 +206,13 @@ a:hover{
     color: #000;
     text-decoration: none;
 }
-
+.twitter-icon{
+    margin-right: 15px;
+}
+.twitter-icon img{
+    margin-top: 2px;
+    width: 40px;
+}
 .bottom .star {
     float: left;
     width: 70%;

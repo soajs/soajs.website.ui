@@ -30,6 +30,11 @@
         content: " 600";
     }
 }
+@media (max-width: 560px) {
+    .bottom .copyright:after{
+        content: " 560";
+    }
+}
 @media (max-width: 500px) {
     .bottom .copyright:after {
         content: " 500";
@@ -38,6 +43,11 @@
 @media (max-width: 480px) {
     .bottom .copyright:after {
         content: " 480";
+    }
+}
+@media (max-width: 470px) {
+    .bottom .copyright:after{
+        content: " 470";
     }
 }
 @media (max-width: 450px) {
@@ -73,7 +83,6 @@
     }
 }
 
-
 @media (max-width: 340px) {
     .bottom .copyright:after{
         content: " (340)";
@@ -85,4 +94,8 @@
     .bottom .copyright:after{
         content: " (320)";
     }
+}
+
+#right-button{
+    /*border: 1px solid red;*/
 }

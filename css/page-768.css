@@ -133,7 +133,6 @@
 }
 
 @media (max-width: 820px) {
-
     #beaverImg2{
         display: none;
         width: 50%;
@@ -215,6 +214,9 @@
 
     .bottom {
         font-size: 14px;
+    }
+    .bottom .copyright {
+        padding-top: 8px;
     }
     .small-button {
         font-size: 16px;
