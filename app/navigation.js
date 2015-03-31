@@ -156,13 +156,13 @@ var navigation = [
 	{
 		'id': 'all-in-one',
 		'label': 'soajs all-in-one',
-		'title': 'SOAJS | Deployment | Dashboard Setup',
+		'title': 'SOAJS | Deployment | All In One',
 		'url': '#/documentation/deployment/all-in-one'
 	},
 	{
 		'id': 'cloud-awareness',
 		'label': 'soajs cloud-awareness',
-		'title': 'SOAJS | Deployment | Dashboard Setup',
+		'title': 'SOAJS | Deployment | Cloud Awareness',
 		'url': '#/documentation/deployment/cloud-awareness'
 	}
 ];
