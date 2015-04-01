@@ -1,0 +1,55 @@
+# create the necessary data directory for each member of the set to use
+$ mkdir -p /data/mongodb/core-0 /data/mongodb/core-1 /data/mongodb/core-2 /data/mongodb/core-3 /data/mongodb/core-4
+
+# start 5 instances of mongod for the same set
+$ mongod --port 27017 --dbpath /data/mongodb/core-0 --replSet core --smallfiles --oplogSize 128
+$ mongod --port 27018 --dbpath /data/mongodb/core-1 --replSet core --smallfiles --oplogSize 128
+$ mongod --port 27019 --dbpath /data/mongodb/core-2 --replSet core --smallfiles --oplogSize 128
+$ mongod --port 27020 --dbpath /data/mongodb/core-3 --replSet core --smallfiles --oplogSize 128
+$ mongod --port 27021 --dbpath /data/mongodb/core-4 --replSet core --smallfiles --oplogSize 128
+
+# connect to mongo on the first port
+$ mongo --port 27017
+
+mongo> var rsCoreConf = {
+  _id: "core",
+  members: [
+    { _id: 0, host: "mongo-core:27017" },
+    { _id: 1, host: "mongo-core:27018" },
+    { _id: 2, host: "mongo-core:27019" },
+    { _id: 3, host: "mongo-core:27020" },
+    { _id: 4, host: "mongo-core:27021" },
+  ]
+};
+
+# initiate the replica set
+mongo> rs.initiate(rsCoreConf)
+
+# verify initialization
+mongo> rs.conf()
+{
+  "_id" : "core",
+  "version" : 1,
+  "members" : [
+    {
+      "_id" : 0,
+      "host" : "mongo-core:27017"
+    },
+    {
+      "_id" : 1,
+      "host" : "mongo-core:27019"
+    },
+    {
+      "_id" : 2,
+      "host" : "mongo-core:27019"
+    },
+    {
+      "_id" : 3,
+      "host" : "mongo-core:27020"
+    },
+    {
+      "_id" : 4,
+      "host" : "mongo-core:27021"
+    }
+  ]
+}

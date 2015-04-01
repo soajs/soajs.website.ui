@@ -1,6 +1,265 @@
 <a id="cloud-awareness"></a>
 <h1>Cloud Awareness</h1>
 <div class="white-container">
+	<div class="redFlag">Will be completed soon.</div>
+	<p>
+		In <a href="#/documentation/deployment/overview">Overview</a> we showed the below diagram and mentioned the technologies needed to get SOAJS up and running on either one machine or a cloud. In this Section we will demonstrate how to install SOAJS and these needed technologies as well as how
+		to configure them on different nodes creating a cloud.<br/>
+		SOAJS is designed to work in a cloud environment meaning its services should be spread on different nodes, therefore we need multiple servers at our disposal and this can accomplish this via virtualization. In this section we will not discuss which virtualization should be used to create the
+		servers, this is left up to you to pick the technology you desire, we will focus more on how many servers we need and for what exactly.
+	</p>
+	<br/>
+	<hr/>
+	<h3>Cloud Architecture</h3>
+
+	<p>
+		The cloud architecture is split up to two Environments: <b>Dashboard</b> - <b>Custom</b>.<br/>
+		The Dashboard Environment is used to manage the content of core databases such as provisioned tenants, products and environments. The Dashboard also manages the users that have access to this environment ( members of the administrator group ). This environment is independent from the custom
+		environments and the database layer. This environment contains a list of nodes that provided access and services to the database to managed the mentioned data types.<br/><br/>
+		The Custom Environment on the other hand summarizes three environments that you might use while developing any project:
+	</p>
+	<ul>
+		<li>Staging: This environment is used by quality engineers to test the updates and fixes that are pushed by developers after completion. Quality Engineers deploy the update on an environment that resembles the live production environment and conduct several testing approaches and cases to
+			make sure the update works correctly in all scenarios before signing it off.
+		</li>
+		<li>CAT: This environment is known as staging or client approval test and is basically a replica of production. Once an update is pushed by a quality engineer, it is deployed on this environment for the client to see and approve it.</li>
+		<li>Production: This is live environment that the client uses to interact and serve his customers. Updates that he approves from CAT are deployed on this environment and become live for the public.</li>
+	</ul>
+	<p>
+		There are cases where not all three environments are used depending on the project type and size but what is important to understand is the similarity between these three environments. In terms of cloud architecture, they are basically the same but their usage is different; production
+		environment might have more nodes than the other two since it servers public users and will scale based on traffic needs whereas the other two are restricted between the development company and the client himself.<br/>
+		Because these environments are similar, we will pick one of them (Production) and show how to get such an environment up and running with all of SOAJS services distributed.
+	</p>
+	<br/>
+	<hr/>
+	<h3>Installation:</h3>
+	<p>
+		Our aim is to install the database servers, Dashboard and Production environment on separate servers and create the cloud of SOAJS services. This requires several steps and configuration that are grouped under 3 categories: Database - Dashboard Environment - Production Environment.<br/><br/>
+	</p>
+	<accordion close-others="oneAtATime">
+		<accordion-group heading="Step 1: Databases: CORE - PROD">
+			<p>
+				We begin first by installing the databases and configuring them to work as replica sets. We will require two sets of databases each replicated over 5 servers and serving a specific purpose. The first set is referred to as <b>CORE</b> and is used to manage the provisioned information
+				of tenants, products, environments, dashboard members and their sessions. The second set is referred to as <b>Prod</b> and contains tenant specific information as well as any other additional custom services databases information.<br/>
+				<img ng-src="images/documentation/core-db-replica.png"/><br/>
+				The image above illustrates how we will construct the database system of our cloud. You can always add additional Replica Sets to distribute the load and expand. Your custom services databases do not need to be in the same set with the tenants databases, you can split those as well.
+				Expand your database based on your need, for the sake of this tutorial we chose to group Core databases in one group and other databases in another group resulting in two sets.
+			</p>
+			<p>
+				Start by creating 2 Virtual Machines (VMs) and install mongodb on each of them. Give your Virtual Machines fixed IP addresses, we will connect to these two VMs later on, for this tutorial we will use two local IP address: 192.168.0.101 - 192.168.0.102 and we will refer to them as mongo-core and mongo-prod.
+				<pre><code class="bash">#install MongoDB latest stable version on mongo-core VM
+$ apt-get install mongodb
+
+# edit /etc/hosts of mongo-core VM
+127.0.0.1 mongo-core
+
+#install MongoDB latest stable version on mongo-prod VM
+$ apt-get install mongodb
+
+# edit /etc/hosts of mongo-prod VM
+127.0.0.1 mongo-prod</code>
+				</pre>
+				Once mongo is installed, create a replica set of 5 databases on each of these machines. If you are not familiar with Replica Sets, visit the official <a href="http://docs.mongodb.org/manual/tutorial/deploy-replica-set/" target="_blank">mongodb replica set documentation</a>. Our first
+			replica set will run on the first VM and will contain the CORE databases, the second replica set will run on the second VM and will contain the production database. Complete the steps below on each of the VMs, to get both replica set up and running:
+				<tabset>
+					<tab heading="Core Replica Set Instructions">
+						<div ng-init="loadCode(path + 'deployment/cloud-awareness/coreReplSet.txt', 'coreReplSet');"></div>
+						<div id="coreReplSet"></div>
+					</tab>
+					<tab heading="Prod Replica Set Instructions">
+						<div ng-init="loadCode(path + 'deployment/cloud-awareness/prodReplSet.txt', 'prodReplSet');"></div>
+						<div id="prodReplSet"></div>
+					</tab>
+				</tabset>
+			</p>
+			<p>
+				By now both VMs have mongo installed and running as replica set, navigate to mongo-core VM, install soajs.mongodb.data and import the core sample data to the database.
+				<pre><code class="bash"># install soajs.mongodb.data
+$ npm install soajs.mongodb.data
+
+# import the core sample data
+$ cd soajs.mongodb.data/modules/dashboard-ui/
+$ chmod +x import.sh
+$ ./import.sh</code>
+				</pre>
+				The shell script will create 1 tenant, 1 product, 1 user and 1 group in our core database and will replicate the information on all members of the replica set we created. We will use this sample data later on when everything is running. After executing the script connect to mongo and
+			list the databases to verify the last step.
+				<pre><code class="bash"># connect to mongo on mongo-core VM
+$ mongo
+
+# show the databases
+mongo > show dbs
+core_provision 0.078GB
+local 0.078GB
+dashboard_urac 0.078GB
+admin (empty)
+
+# switch to core_provision db
+mongo > use core_provision
+
+# list collections in the db
+mongo > show collections
+environment
+oauth_token
+oauth_urac
+products
+system.indexes
+tenants</code></pre>
+				The above command will list the databases and the collections of core_provision inside the mongo-core VM. This database information is used by SOAJS services and is considered as the core data.
+			</p>
+		</accordion-group>
+		<accordion-group heading="Step 2: Dashboard Environment">
+			<p>
+				The dashboard environment consists of a set of servers that communicate with one another to provide access to the mongo-core VM which contains the core database. The set of servers is also replicated for load balancing and traffic distribution. Having that said, we will create a VM
+				and install Nginx on it. We will instruct Nginx to upstream 3 servers that contain the controller of SOAJS which is the main gateway so that all requests arriving to the dashboard get handled by 3 servers.<br/>
+				The Environment will contain an additional server that runs the dashboard_urac, <a href="#/documentation/services/oauth">oAuth</a> and <a href="#/documentation/services/dashboard-service">dashboard</a> services. The dashboard_urac service is basically a
+				<a href="#/documentation/services/urac">Urac</a> service but specific for the dashboard environment only.<br/>
+				The image below demonstrate what the Dashboard Environment will look like when we complete this step.<br/>
+				<img ng-src="images/documentation/cloud-dashboard-env.png"/><br/>
+				Every server in this environment contains HAproxy that points to the other servers. HAproxy along with SOAJS heartbeat provide awareness among the cloud between the services.<br/>
+				When a request arrives to the controller, the controller forwards this request to the requested service but since none of the services is installed on the same server, HAproxy tells the controller where to forward this request to the correct server that contains this service as
+				marked by the <span style="color:red;">red</span> arrows. These servers are replicated therefore the same thing happens on all 3 controllers.<br/><br/>
+				In another event, when a service in this cloud wants to communicates to another service, it does that via the controller, again HAproxy that resides on the same server of the calling services, tells the service which server the controller is located on and the request is sent to that
+				server as marked by the <span style="color:blue;">blue</span> arrows, then the controller redirects the request using the same technique mentioned in the previous paragraph back to the requested service as marked by the <span style="color:red;">red</span> arrows. These servers are
+				also replicated therefore the same thing happens on all 3.
+			</p>
+			<b><u>Servers Setup:</u></b>
+
+			<p>
+				Now that we know what will be deploying, let's go ahead and create these servers. Start by creating a VM and install Nginx on it, then use the configuration located in soajs.utilities/deployment/cloud/dashboard/ to tell Nginx how many controllers we will have and where they are. For this demo,
+				we will use the following list of IP addresses:
+			</p>
+			<ul>
+				<li>Nginx: 192.168.0.50</li>
+				<li>Controller 1: 192.168.0.51</li>
+				<li>Controller 2: 192.168.0.52</li>
+				<li>Controller 3: 192.168.0.53</li>
+				<li>Services Server 1: 192.168.0.61</li>
+				<li>Services Server 2: 192.168.0.62</li>
+				<li>Services Server 3: 192.168.0.63</li>
+			</ul>
+			<br/>
+			<b><u>Nginx Setup:</u></b>
+			<p>
+				Once you have created all 7 VMs, install Nginx using below the command on the Nginx VM 192.168.0.50:
+				<pre><code class="bash"># install Nginx latest stable version
+$ apt-get install nginx</code></pre>
+				When Nginx is installed, locate its configuration file; On Ubuntu the configuration file is located in /etc/nginx/nginx.conf. Open that file in edit mode, scroll to the bottom and instruct nginx to also look at the soajs.utilities/deployment/cloud/dashboard/nginx/conf/ folder and load all the
+				configuration files in it, add the line before the closing bracelet of http inside the nginx.conf.
+				<pre><code class="javascript">http {
+	# default nginx configuration goes here
+	include /opt/soajs/soajs.utilities/deployment/cloud/dashboard/nginx/conf/*.conf;
+}</code></pre>
+				This line will now load the Nginx configuration that SOAJS needs when Nginx starts. Inside the conf folder, you will find a file named upstream.conf. If you have chosen different IP addresses for your controllers, make sure you updated the entries in that file.<br/>
+				Edit your hosts file and add 2 entries to point out that these domains are on your local machine.
+				<pre><code class="bash">$ sudo gedit /etc/hosts</code></pre>
+				When the hosts file is loaded in gEdit editor, add the following:
+				<pre><code class="javascript">127.0.0.1 api.soajs.org
+127.0.0.1 dashboard.soajs.org</code></pre>
+				<em>You can also copy these entries from soajs.utilities/deployment/cloud/dashboard/hosts to your /etc/hosts file.</em><br/>
+				Go ahead and Start Nginx Now:
+				<pre><code class="bash">$ sudo Nginx</code></pre>
+				When Nginx starts, test the configuration you just created by opening your browser and invoking 2 domains: <b>api.soajs.org</b> and <b>dashboard.soajs.org</b>. Nginx will reply with a <b>502 Bad Gateway</b> Error instead of Server not Found. Till this point, this is normal because we
+			haven't started any service yet, but the important thing is that Nginx is now redirecting the requests to a local SOAJS server assuming that the later is up and running.
+			</p>
+			<br/>
+			<b><u>Services Setup:</u></b>
+			<p>
+				Now let's install the services on the remaining 6 VMs; 3 of them will contain controllers and 3 will contain oAuth, Urac and Dashboard Services.<br/>
+				<u>Note:</u> you can always create 2 VMs, install the services on them, then clone those VMs and change their IP addresses.<br/><br/>
+				On each controller VM, install nodejs and HAproxy, then install the controller and the utilities of SOAJS.<br/>
+				Execute the below commands in your terminal:
+				<pre><code class="bash"># install haproxy
+$ apt-get install haproxy
+
+# install nodejs
+$ apt-get install nodejs
+
+# create folder path to put all soajs components in it
+$ mkdir -p /opt/soajs/node_modules/
+
+# install SOAJS controller and utilities
+$ npm install soajs.controller
+$ cd soajs.controller
+
+$ npm install soajs.utilities</code>
+				</pre>
+				The next step requires to configure HAproxy to tell the controllers what are the IP address of the services that we have in the cloud.<br />
+				First create a backup of the default HAproxy file in /etc/haproxy/haproxy.cfg, then Navigate to soajs.utilities/deployment/cloud/dashboard/ and copy the file dashboard-controller-haproxy.cfg to /etc/haproxy/ and rename it to haproxy.cfg.<br />
+				Keep in mind that if you have chosen a different IP set for the services, you need to edit this file and change the IP address in it to meet your configuration.
+			</p>
+			<p>
+				Once the controller VMs are completed, we need to set up the remaining services. In the diagram above we have 3 servers and we gave them IP addresses 192.168.0.61/62/63. On each service VM, install nodejs and HAproxy then install the utilities, urac, oauth and dashboard services of SOAJS.<br />
+			</p>
+			<pre><code class="bash"># install haproxy
+$ apt-get install haproxy
+
+# install nodejs
+$ apt-get install nodejs
+
+# create folder path to put all soajs components in it
+$ mkdir -p /opt/soajs/node_modules/
+
+# install soajs.utilities
+$ npm install soajs.utilities
+
+# install soajs.urac
+$ npm install soajs.urac
+
+# install soajs.oauth
+$ npm install soajs.oauth
+
+# install soajs.dashboard
+$ npm install soajs.dashboard</code>
+			</pre>
+			<p>
+				You also need to configure HAproxy on these 3 VMs to point to the controller VMs. Again locate HAproxy configuration file and create a backup copy of /etc/haproxy/haproxy.cfg, then Navigate to soajs.utilities/deployment/cloud/dashboard/ and copy the file dashboard-services-haproxy.cfg to /etc/haproxy/ and rename it to haproxy.cfg.<br /> If you chose to use different IP addresses than the ones in this tutorial, keep in mind you need to update this configuration file as well and set the correct IP addresses values.
+			</p>
+			<p>
+				Now point out the database server so that both the controllers and the services can connect to mongo-core. So in all 6 VMs we created last, edit the /etc/hosts file and add the following entry:
+				<pre><code class="bash"># edit /etc/hosts
+192.168.0.101 mongo-core</code>
+				</pre>
+				<img ng-src="images/documentation/cloud-dashboard-env-full.png" class="image-right"/>
+				<br />By now you have completed 2/3rd of setting up this environment and you should have something that resembles the following diagram:<br /><br />
+				Notice the <span style="color:purple;">purple</span> arrows as they point out that all our servers in the dashboard environment connect to the database server.<br />
+				Here is a summary of list of VMs we used for this environment and their IP addresses:
+			</p>
+			<ul>
+				<li>mongo-core: 192.168.0.101</li>
+				<li>Nginx: 192.168.0.50</li>
+				<li>Controller 1: 192.168.0.51</li>
+				<li>Controller 2: 192.168.0.52</li>
+				<li>Controller 3: 192.168.0.53</li>
+				<li>Services Server 1: 192.168.0.61</li>
+				<li>Services Server 2: 192.168.0.62</li>
+				<li>Services Server 3: 192.168.0.63</li>
+			</ul>
+			<p>
+				The final step to complete this environment setup is to use the correct SOAJS environment project. As mentioned in the <a href="#/documentation/core/registry">Registry</a>, SOAJS supports multiple projects, and in this case we need to use the dashboard project that contains the environment variables that we need for this cloud using the above IP addresses from the tutorial. The dashboard project is located in soajs.utilities/deployment/cloud/dashboard/profiles/dashboard.<br />
+				In all 6 VMS where we installed soajs.utilities, create 3 environment variables and give them the following values:
+			</p>
+			<pre><code class="bash"># set the environment name to dashboard
+$ export SOAJS_ENV=dashboard
+
+# set the project name to dashboard
+$ export SOAJS_PRJ=dashboard
+
+# point out the location of the project
+$ export SOAJS_REGDIR=/opt/soajs/node_modules/soajs.utilities/deployment/cloud/dashboard/</code></pre>
+			<p>
+				Once you completed all above steps, start all the services in all 6 VMs and the Dashboard Environment will run.
+			</p>
+		</accordion-group>
+		<accordion-group heading="Step 3: Production Environment">
+			<p>
+
+			</p>
+		</accordion-group>
+	</accordion>
+	<hr/>
+	<h3>Cloud Testing</h3>
+
 	<p>
 
 	</p>
