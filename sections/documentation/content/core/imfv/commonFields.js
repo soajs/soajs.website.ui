@@ -4,9 +4,9 @@
 		//add firstName to commonFields
 		"firstName": {
 			"source": ['query.firstName'],
-				"required": true,
-				"default": "John",
-				"validation": {
+			"required": true,
+			"default": "John",
+			"validation": {
 				"type": "string"
 			}
 		}
