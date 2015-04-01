@@ -1,7 +1,6 @@
 <a id="cloud-awareness"></a>
 <h1>Cloud Awareness</h1>
 <div class="white-container">
-	<div class="redFlag">Will be completed soon.</div>
 	<p>
 		In <a href="#/documentation/deployment/overview">Overview</a> we showed the below diagram and mentioned the technologies needed to get SOAJS up and running on either one machine or a cloud. In this Section we will demonstrate how to install SOAJS and these needed technologies as well as how
 		to configure them on different nodes creating a cloud.<br/>
@@ -16,6 +15,10 @@
 		The cloud architecture is split up to two Environments: <b>Dashboard</b> - <b>Custom</b>.<br/>
 		The Dashboard Environment is used to manage the content of core databases such as provisioned tenants, products and environments. The Dashboard also manages the users that have access to this environment ( members of the administrator group ). This environment is independent from the custom
 		environments and the database layer. This environment contains a list of nodes that provided access and services to the database to managed the mentioned data types.<br/><br/>
+		<div style="width:100%; text-align:center; display:table; float:none; clear:both;">
+			<img ng-src="images/documentation/cloud-awareness-full.png"/>
+		</div>
+		<br />
 		The Custom Environment on the other hand summarizes three environments that you might use while developing any project:
 	</p>
 	<ul>
@@ -253,7 +256,138 @@ $ export SOAJS_REGDIR=/opt/soajs/node_modules/soajs.utilities/deployment/cloud/d
 		</accordion-group>
 		<accordion-group heading="Step 3: Production Environment">
 			<p>
+				The Production environment consists of a set of servers that communicate with one another to provide access to the mongo-prod VM which contains the data databases that are used by tenant services and your custom made services. The set of servers is also replicated for load balancing and traffic distribution. The setup is close to the above dashboard environment with one difference, we don't need the dashboard service here.<br />
+				We will create a VM and install Nginx on it. We will instruct Nginx to upstream 3 servers that contain the controller of SOAJS which is the main gateway so that all requests arriving to the services get handled by all 3 servers.<br />
+				The Environment will contain an additional server that runs the urac, oAuth and your custom services. The urac service in this case is tenant driven this means that every tenant you create will have its own database, its own users and groups therefore, in this tutorial we will refer to it as tenant_urac when it comes to this environment.<br />
+				The image below demonstrate what the Production Environment will look like when we complete this step.<br />
+				<img ng-src="images/documentation/cloud-dashboard-prod.png" /><br />
+				As you can see, the setup is quite close to what we did in the dashboard environment. We made one difference here, we chose to use 9 servers: 3 for controllers, 3 for soajs services and 3 for your custom services. You can merge the servers that contains soajs services with your custom services if you want to reduce the numbers of servers from 9 to 6.<br /><br />
+				Notice that here as well, the servers are replicated and that HAproxy is present and used to tell point out the servers IP addresses for the controllers and our services as demonstrated by the <span style="color:blue;">blue</span> and <span style="color:red;">red</span> arrows. Here is the list of IP addresses we will use for this environment:
+			</p>
+			<ul>
+				<li>mongo-prod: 192.168.0.102</li>
+				<li>Nginx: 192.168.0.70</li>
+				<li>Controller 1: 192.168.0.71</li>
+				<li>Controller 2: 192.168.0.72</li>
+				<li>Controller 3: 192.168.0.73</li>
+				<li>SOAJS Services Server 1: 192.168.0.81</li>
+				<li>SOAJS Services Server 2: 192.168.0.82</li>
+				<li>SOAJS Services Server 3: 192.168.0.83</li>
+				<li>Custom Service Server 1: 192.168.0.91</li>
+				<li>Custom Service Server 2: 192.168.0.92</li>
+				<li>Custom Service Server 3: 192.168.0.93</li>
+			</ul>
+			<p>
+				Go ahead and create all these VMs with the exception of the mongo-prod, we already did that. Install Nginx on the first VM and for the remaining 9 VMS install haproxy and nodejs on all of them. You will also need to create the soajs directory and install soajs.utilities on them all.
+			</p>
+			<b><u>Nginx Setup:</u></b>
+			<p>
+				Once you have created all 10 VMs, install Nginx using below the command on the Nginx VM 192.168.0.70:
+				<pre><code class="bash"># install Nginx latest stable version
+$ apt-get install nginx</code></pre>
+				When Nginx is installed, locate its configuration file; On Ubuntu the configuration file is located in /etc/nginx/nginx.conf. Open that file in edit mode, scroll to the bottom and instruct nginx to also look at the soajs.utilities/deployment/cloud/prod/nginx/conf/ folder and load all the configuration files in it, add the line before the closing bracelet of http inside the nginx.conf.
+				<pre><code class="javascript">http {
+	# default nginx configuration goes here
+	include /opt/soajs/soajs.utilities/deployment/cloud/prod/nginx/conf/*.conf;
+}</code></pre>
+				This line will now load the Nginx configuration that SOAJS needs when Nginx starts. Inside the conf folder, you will find a file named upstream.conf. If you have chosen different IP addresses for your controllers, make sure you updated the entries in that file.<br/>
+				Edit your hosts file and add the following entry to point out the domain of the the controller.
+				<pre><code class="bash">$ sudo gedit /etc/hosts
+127.0.0.1 api.soajs.org</code></pre>
+				<em>You can also copy these entries from soajs.utilities/deployment/cloud/prod/hosts to your /etc/hosts file.</em><br/>
+			Go ahead and Start Nginx Now:
+			<pre><code class="bash">$ sudo Nginx</code></pre>
+			When Nginx starts, test the configuration you just created by opening your browser and invoking the domain: <b>api.soajs.org</b>. Nginx will reply with a <b>502 Bad Gateway</b> Error instead of Server not Found. Till this point, this is normal because we haven't started any service yet, but the important thing is that Nginx is now redirecting the requests to a local SOAJS server assuming that the later is up and running.
+			</p>
+			<br/>
+			<b><u>Services Setup:</u></b>
+			<!--  -->
+			<p>
+				Now let's install the services on the remaining 9 VMs; 3 of them will contain controllers and 3 will contain oAuth and Urac and 3 will contain your services.<br/>
+				On each controller VM, install nodejs and HAproxy, then install the controller and the utilities of SOAJS.<br/>
+				Execute the below commands in your terminal:
+				<pre><code class="bash"># install haproxy
+$ apt-get install haproxy
 
+# install nodejs
+$ apt-get install nodejs
+
+# create folder path to put all soajs components in it
+$ mkdir -p /opt/soajs/node_modules/
+
+# install SOAJS controller and utilities
+$ npm install soajs.controller
+$ cd soajs.controller
+
+$ npm install soajs.utilities</code>
+				</pre>
+			The next step requires to configure HAproxy to tell the controllers what are the IP address of the services that we have in the cloud.<br />
+			First create a backup of the default HAproxy file in /etc/haproxy/haproxy.cfg, then Navigate to soajs.utilities/deployment/cloud/prod/ and copy the file prod-controller-haproxy.cfg to /etc/haproxy/ and rename it to haproxy.cfg.<br />
+			Keep in mind that if you have chosen a different IP set for the services, you need to edit this file and change the IP address in it to meet your configuration.
+			</p>
+			<p>
+				Once the controller VMs are completed, we need to set up the remaining services. In the diagram above we have 6 servers and we gave them IP addresses 192.168.0.81/82/83/91/92/93. On each service VM, install nodejs and HAproxy then install the utilities, urac, oauth and your service.<br />
+			</p>
+			<pre><code class="bash"># install haproxy
+$ apt-get install haproxy
+
+# install nodejs
+$ apt-get install nodejs
+
+# create folder path to put all soajs components in it
+$ mkdir -p /opt/soajs/node_modules/
+
+# install soajs.utilities
+$ npm install soajs.utilities
+
+# install soajs.urac
+$ npm install soajs.urac
+
+# install soajs.oauth
+$ npm install soajs.oauth
+
+# install your_service
+$ npm install your_service</code>
+			</pre>
+			<p>
+				You also need to configure HAproxy on these 6 VMs to point to the controller VMs. Again locate HAproxy configuration file and create a backup copy of /etc/haproxy/haproxy.cfg, then Navigate to soajs.utilities/deployment/cloud/prod/ and copy the file prod-services-haproxy.cfg to /etc/haproxy/ and rename it to haproxy.cfg.<br /> If you chose to use different IP addresses than the ones in this tutorial, keep in mind you need to update this configuration file as well and set the correct IP addresses values.
+			</p>
+			<p>
+				Now point out the database servers so that both the controllers and the services can connect to mongo-core and to mongo-prod. In this environment, the services need to read from core and from the prod databases. In the dashboard environment we only needed to connect to core. The logic behind this strategy is that when a request is made and a tenant key is provided for example, the tenant records are located in core and to cross reference the key value, data from core need to be accessible.<br />
+				So in all 9 VMs we created last, edit the /etc/hosts file and add the following entry:
+				<pre><code class="bash"># edit /etc/hosts
+192.168.0.101 mongo-core
+192.168.0.102 mongo-prod</code>
+				</pre>
+			<img ng-src="images/documentation/cloud-prod-env-full.png" /><br />
+			<br />By now you have completed 2/3rd of setting up this environment and you should have something that resembles the above diagram.<br /><br />
+			Notice the <span style="color:purple;">purple</span> arrows as they point out that all our servers in the production environment connect to the production database server and the <span style="color:green;">green</span> arrows point out the connection to the core database server.<br />
+			Here is a summary of list of VMs we used for this environment and their IP addresses:
+			</p>
+			<p>
+				The final step to complete this environment setup is to use the correct SOAJS environment project. As mentioned in the <a href="#/documentation/core/registry">Registry</a>, SOAJS supports multiple projects, and in this case we need to use the prod project that contains the environment variables that we need for this cloud using the above IP addresses from the tutorial. The prod project is located in soajs.utilities/deployment/cloud/prod/profiles/prod.<br />
+				In all 9 VMS where we installed soajs.utilities, create 3 environment variables and give them the following values:
+			</p>
+			<pre><code class="bash"># set the environment name to prod
+$ export SOAJS_ENV=prod
+
+# set the project name to prod
+$ export SOAJS_PRJ=prod
+
+# point out the location of the project
+$ export SOAJS_REGDIR=/opt/soajs/node_modules/soajs.utilities/deployment/cloud/prod/</code></pre>
+			<p>
+				Edit the file /opt/soajs/node_modules/soajs.utilities/deployment/cloud/prod/environment/prod.js, at the bottom you will see a registry entry for your service, make sure you set the correct values before you start the services.
+				<pre><code class="javascript">
+"your_service": {
+	"extKeyRequired": true,
+	"port": 4003,
+	"host": "127.0.0.1",
+	"url": "http://127.0.0.1:4000/your_service"
+}</code>
+				</pre>
+				<u>Note:</u> the varialbe <b>your_service</b> is also present at /opt/soajs/node_modules/soajs.utilities/deployment/cloud/prod/prod-controller-haproxy.cfg, make sure you update the value as well.<br />
+				Once you completed all above steps, start all the services in all 9 VMs and the Production Environment will run.
 			</p>
 		</accordion-group>
 	</accordion>
