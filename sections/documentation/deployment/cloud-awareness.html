@@ -390,11 +390,67 @@ $ export SOAJS_REGDIR=/opt/soajs/node_modules/soajs.utilities/deployment/cloud/p
 				Once you completed all above steps, start all the services in all 9 VMs and the Production Environment will run.
 			</p>
 		</accordion-group>
+		<accordion-group heading="Step 4: Testing it All">
+			<p>
+				We mentioned in the <a href="#/documentation/services/controller">Controller</a> section that you can run a maintenance check on any service built with SOAJS. When a service starts, it will listen to two ports: the default port and the maintenance port.<br />
+				Let's run some maintenance heartbeat requests to see the status of our services.<br />
+				Navigate to the Dashboard Nginx VM, then execute the following commands:
+			</p>
+			<pre><code class="bash"># in a new terminal
+$ curl -X GET "http://192.168.0.51:5000/heartbeat"
+{"result":true,"ts":1427373613796,"service":{"service":"CONTROLLER","type":"rest","route":"/heartbeat"}}
+
+$ curl -X GET "http://192.168.0.52:5000/heartbeat"
+{"result":true,"ts":1427373613796,"service":{"service":"CONTROLLER","type":"rest","route":"/heartbeat"}}
+
+$ curl -X GET "http://192.168.0.53:5000/heartbeat"
+{"result":true,"ts":1427373613796,"service":{"service":"CONTROLLER","type":"rest","route":"/heartbeat"}}
+			</code></pre>
+			<p>
+				We just ran a heartbeat check on the controller. The controller runs on port 4000 making his maintenance port 4000 + 1000 = 5000. Make a request to port 5000 followed by /hearbeat as a path parameter. You can perform the same operation for any other service. In the registry of SOAJS under dev environment, the services are configured to run on specific port numbers. The controller uses 4000, Urac 4001, oAuth 4002 and Dashboard 4003. This means their maintenance ports are equal to 5000, 5001, 5002, 5003. Let's run the heartbeat on every service other than the controller:
+			</p>
+			<pre><code class="bash"># in the same terminal
+$ curl -X GET "http://192.168.0.51:5001/heartbeat"
+{"result":true,"ts":1427373613796,"service":{"service":"URAC","type":"rest","route":"/heartbeat"}}
+
+$ curl -X GET "http://192.168.0.51:5002/heartbeat"
+{"result":true,"ts":1427373613796,"service":{"service":"OAUTH","type":"rest","route":"/heartbeat"}}
+
+$ curl -X GET "http://192.168.0.51:5003/heartbeat"
+{"result":true,"ts":1427373613796,"service":{"service":"DASHBOARD","type":"rest","route":"/heartbeat"}}
+			</code></pre>
+			<u>Note:</u> The above command sent requests to 192.168.0.51, you can also run this command for 192.168.0.52 and 192.168.0.53.
+			<p>
+				The dashboard services are running as expected, let's test the production environment.<br /><br /><br />
+				Navigate to the Production Nginx VM, then execute the following commands:
+			</p>
+			<pre><code class="bash"># in a new terminal
+$ curl -X GET "http://192.168.0.71:5000/heartbeat"
+{"result":true,"ts":1427373613796,"service":{"service":"CONTROLLER","type":"rest","route":"/heartbeat"}}
+
+$ curl -X GET "http://192.168.0.72:5000/heartbeat"
+{"result":true,"ts":1427373613796,"service":{"service":"CONTROLLER","type":"rest","route":"/heartbeat"}}
+
+$ curl -X GET "http://192.168.0.73:5000/heartbeat"
+{"result":true,"ts":1427373613796,"service":{"service":"CONTROLLER","type":"rest","route":"/heartbeat"}}
+			</code></pre>
+			<p>
+				Then using the same approach as above, test the remaining services.
+			</p>
+			<pre><code class="bash"># in a new terminal
+$ curl -X GET "http://192.168.0.71:5001/heartbeat"
+{"result":true,"ts":1427373613796,"service":{"service":"URAC","type":"rest","route":"/heartbeat"}}
+
+$ curl -X GET "http://192.168.0.71:5002/heartbeat"
+{"result":true,"ts":1427373613796,"service":{"service":"OAUTH","type":"rest","route":"/heartbeat"}}
+
+$ curl -X GET "http://192.168.0.71:5004/heartbeat"
+{"result":true,"ts":1427373613796,"service":{"service":"your_service","type":"rest","route":"/heartbeat"}}
+			</code></pre>
+		</accordion-group>
 	</accordion>
 	<hr/>
-	<h3>Cloud Testing</h3>
-
 	<p>
-
+		When the above steps are completed successfully, the cloud will be up and running, all services working and you can now login and use the interface. In your browser, open <a href="http://dashboard.soajs.org" target="_blank">http://dashboard.soajs.org</a>, login with username: <b>admin</b> and password: <b>password</b>. Once inside, change these credentials in Edit Profile section, you can also navigate through the sections of the dashboard to manage tenants, products and other information as explained in <a href="#/documentation/services/dashboard-service">Dashboard Services</a> and <a href="#/documentation/ui/dashboard-setup">Dashboard UI</a>.
 	</p>
 </div>
