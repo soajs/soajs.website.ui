@@ -2,88 +2,182 @@
 <h1>Deployment Overview</h1>
 <div class="white-container">
 	<p>
-		In order to deploy SOAJS whether on one machine or a cloud, you need to know which services should be installed and started and how the database should be configured as well as how the whole architecture is designed. In this section we only provide an overview of the architecture and in the next two sections we show you how to set up soajs on one machine or how to deploy it on a cloud. <br /><br />
-
-		SOAJS requires <a href="http://www.mongodb.org" target="_blank"><b>MongoDB</b></a>, <a href="http://www.nodejs.org" target="_blank"><b>NodeJs</b></a>, <a href="http://www.nginx.com" target="_blank"><b>Nginx</b></a> and <a href="http://www.haproxy.org" target="_blank"><b>HAProxy</b></a> so it can work properly on a cloud. NodeJs is the scripting language of SOAJS and the database is provided by MongoDB as <a href="http://en.wikipedia.org/wiki/NoSQL" target="_blank"><b>NOSQL</b></a>. Nginx is used to assign hosts for the IP addresses of the different services that will be included and finally HAProxy is used for upstreaming, performance and scalability in the case of cloud deployment.<br />
-		<img ng-src="images/documentation/deployment-pre-overview.png" class="img-margin-t-b" /><br />
-
-		In this section we will focus on how soajs services and mongodb work together. So our concern till now is to get MongoDB up and running, NodeJs installed and working and we will leave Nginx and HAproxy till later, when we discuss how to deploy SOAJs.<br />
-		Once this section is understood, you can jump to how to install soajs on a single machine or deploy it on the cloud. <br/>
-		Let's begin with the components that use soajs core databases to provide you with the functionality you need to get soajs working and begin using it: <b>Dashboard</b> and <b>URAC</b>.<br />
-		<u>Note:</u><br />
-		Throughout the documentation, both <b>Controller</b> and <b>oAuth</b> will be mentioned since they are both part of the core components of soajs.
+		SOAJS refers to Service Oriented Architecture in JavaScript. The framework is built on top of NodeJs, its data layer is built on top of MongoDB, uses HAproxy to create awareness among its services and finally Nginx is used for the front and entry layer.<br/>
+		<img ng-src="images/documentation/deployment-overview.png"/>
 	</p>
 	<hr/>
-	<h3>Pre-Requisites</h3>
-	<p>
-		As mentioned above, SOAJS requires some technologies to be installed on the machine before it can function so make sure you have these technologies installed and available on your machine:
-	</p>
-		<ul>
-			<li><a href="http://www.mongodb.org" target="_blank">MongoDB</a> ( version 2.6.7 or higher)</li>
-			<li><a href="http://www.nodejs.org" target="_blank">NodeJs</a> (version 0.10.25 or higher)</li>
-			<li><a href="http://www.nginx.com" target="_blank">Nginx</a> ( Optional for Now )</li>
-			<li><a href="http://www.haproxy.org" target="_blank">HAproxy</a> ( Optional for Now )</li>
-		</ul>
-	<hr/>
-	<h3>The Dashboard</h3>
-	<p>
-		SOAJS dashboard is a services that allows you to modify the content of the core databases used by your application. Core content refers to records that are present in the database and that contain the information of the environment, the products and their packages, the tenants, their applications and keys and oAuth accounts.<br />
+	<h3>3rd Party Technologies</h3>
 
-		SOAJS dashboard is divided into two sections: the service and its APIs and the GUI that connects to the service.<br />
-		In this section, when referring to the dashboard, we will only consider the service and its APIs since we are only focusing on the backbone of soajs and how it is interconnected. To learn more about the dashboard GUI, please refer to the <a href="#/documentation/ui/dashboard-setup">How to set up the Dashboard</a>.<br />
-	</p>
-	<br />
-	<h4>Database:</h4>
 	<p>
-		The dashboard offers APIs to add and manage environments that are present in your project profile. When you create a new environment in your project profile as explained in <a href="#/documentation/core/registry">Registry</a>, you place the configuration needed for your application to function under that environment. What you should also do, is create a record for this environment in the database so that when you configure your tenants to use services, you specify that configuration based on the environment you create using these dashboard APIs. Additional information on what API to call and what data to provide this API with can be found in <a a href="#/documentation/services/dashboard-services">Dashboard Service.</a><br />
-	</p>
-	<p>
-		Using the dashboard, you can also create products and packages, configure the ACL of these packages and create tenants with applications and keys to use these products.<br />
-		This information is stored in a database <b>core_provision</b> and in that database, you find 3 collections: environment, products and tenants. Every collection contains record representing a corresponding environment, tenant or product. The schema of both products and tenants records is explained in detail in section <a href="#/documentation/core/provisioning">Provisioning</a>.<br >
-
-		This database also contains 2 collections for oAuth users and their tokens. oAuth users work along with tenants oAuth security to enable access to oAuth secured services. oAuth tokens contain the tokens of these users.<br />
-
-		The database thus contains 5 collections as the image below shows:
-		<img ng-src="images/documentation/deployment-overview.png" class="img-margin-t-b" />
-	</p>
-	<p>
-		A second database named <b>core_session</b> is available and contains the sessions of every operation performed by a tenant. When you call a service API and provide a tenant key, a copy of the record operation is stored in this database. This comes in handy at a later stage when you want to browse through the logs of a particular tenant.
-		<img ng-src="images/documentation/core-db-schema.png" class="img-margin-t-b" />
-	</p>
-	<p>
-		Both database work in conjunction to provide SOAJS the information it needs to:
+		As mentioned above, SOAJS requires some technologies to be installed on the machine along with it. Make sure you have these technologies installed and available on your machine:
 	</p>
 	<ul>
-		<li>validate tenant keys and load corresponding tenant configuration</li>
-		<li>determine and load the correct ACL and permissions from product packages</li>
-		<li>determine the appropriate tenant configuration based on the environment running</li>
-		<li>cross reference oAuth credentials and store access_token</li>
-		<li>store logs and history</li>
+		<li><a href="http://www.mongodb.org" target="_blank">MongoDB</a> ( version 2.6.7 or higher)</li>
+		<li><a href="http://www.nodejs.org" target="_blank">NodeJs</a> (version 0.10.25 or higher)</li>
+		<li><a href="http://www.nginx.com" target="_blank">Nginx</a> ( version 1.6.2 or higher )</li>
+		<li><a href="http://www.haproxy.org" target="_blank">HAproxy</a> ( version 1.5.9 or higher )</li>
 	</ul>
+	<hr/>
+	<h3>SOAJS Packages</h3>
+	<p>
+		SOAJS comes with the following packages:
+	</p>
+	<table class="myTable">
+		<thead>
+			<tr>
+				<th>Package Name</th>
+				<th>Package Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="odd">
+				<td width="20%"><b>soajs</b></td>
+				<td>Framework that you will use to develop your services.</td>
+			</tr>
+			<tr class="even">
+				<td width="20%"><b>soajs.controller</b></td>
+				<td>SOAJS gateway service used as an entry point and forwards requests to designated services.</td>
+			</tr>
+			<tr class="odd">
+				<td width="20%"><b>soajs.oauth</b></td>
+				<td>Security service, can be used to protect your service using oAuth 2.0</td>
+			</tr>
+			<tr class="even">
+				<td width="20%"><b>soajs.urac</b></td>
+				<td>User Registration and Access Control, can be used to handle and manage user accounts per tenant.</td>
+			</tr>
+			<tr class="odd">
+				<td width="20%"><b>soajs.examples</b></td>
+				<td>Examples Package, contains 4 examples going from basic service example to fully advanced featured service.</td>
+			</tr>
+			<tr class="even">
+				<td width="20%"><b>soajs.dashboard</b></td>
+				<td>Dashboard Service, provides access to core database of SOAJS, enables management of tenants, products, environments and oAuth accounts.</td>
+			</tr>
+		</tbody>
+	</table>
+	<br/>
+	<h4>Basic Service</h4>
+	<p>
+		<img ng-src="images/documentation/basic_service.png" class="image-right"/>
+		Building a basic SOAJS service requires only two of the above mentioned packages: <a href="#/documentation">Framework</a> and <a href="#/documentation/services/controller">Controller</a>.<br />
+		You need the framework to build your service and you need the controller so it can forward the requests to your services. This scenario is explained in depth in <a href="#/getStarted">Get Started</a> / <a href="#/getStarted/example01">Example 01</a>.<br />
+		When the request reaches your services, it passes through the framework first, SOAJS does its magic on the arriving data, then gives you that data along with additional tools to use. Run the data through the business logic of your service, then pass it back to the framework so it can formulate a response out of it and return it to the sender.
+	</p>
 	<br />
-	<h4>Services:</h4>
+	<h4>Secured Service</h4>
 	<p>
-		Now that you have an idea on how the database is made up, let's focus on what services should be installed and started to get soajs up and running. The dashboard is a multitenant service and to access it, you need to go through the controller first so that it checks the key you provided in your request and determine if its allowed to use this service or not. So we need both the <a href="https://npmjs.org/packages/soajs.controller">Controller</a> and the <a href="https://npmjs.org/packages/soajs.dashboard">Dashboard</a> installed and running.
-		<img ng-src="images/documentation/deployment-overview2.png" class="img-margin-t-b" /><br />
-		The above image illustrates how soajs services are connected and how they use the database to process requests.<br />
-		The controller communicates with both <b>core_session</b> and <b>core_provision</b>, it cross references the key and if the key is valid, the controller stores an entry in <b>core_sessions</b> and forwards the request to the oAuth service which in its turn uses <b>core_provision</b> database for oauth checking and if a match is found, it creates an entry in the oauth_tokens collection.<br />
-		The controller then forwards the request to the dashboard and the later operates on the collections of <b>core_provision</b> accordingly. It modifies the information based on the request in either environments, tenants or products collections.
+		You can always protect your service by installing the oauth package from the list. This way your service becomes accessible only to logged in oauth users. When the request is made to your service, the controller first forward the request to the oauth service for security checking, if ok, the request is then forwarded to your service.<br />
+		This scenario is explained in depth in <a href="#/getStarted">Get Started</a> / <a href="#/getStarted/example02">Example 02</a> and <a href="#/getStarted/example04">Example 04</a>. Example 02, transforms a basic service to a protected service by oauth whereas Example 04 goes much deeper and protects a multitenant service with oauth.<br />
+		<img ng-src="images/documentation/secured_service.png"/><br />
+		To configure your service to be protected by oauth, set the property oauth to true while creating a new instance of it.<br />
+		<a href="#/documentation/core/service">Click Here</a> to see the list of properties a service can use when you create it with SOAJS.
 	</p>
+	<br/>
 	<hr/>
-	<h3>The URAC</h3>
+	<h3>Data Layer</h3>
 	<p>
-		The URAC is another multitenant service and is accessible via the controller but this service does not operate on the core databases of soajs. The URAC database is tenant driven; it operates on different databases that have the tenant name included.<br />
-		<u>Ex:</u><br />
-		<em>Consider you have two tenants named TEST1 and TEST2, they both use the URAC service.<br />If you open the database you will find 4 databases: core_provision, core_session, TEST1_urac and TEST2_urac.</em><br /><br />
-		Every tenant that uses the URAC has its own database to hold the records of its users and groups. These databases are independent of the core databases and the URAC does not modify any of the core database collections content, it only reads from the core databases to load the configuration it needs based on the key and anything beyond that gets added/modified in its own database.
-		<img ng-src="images/documentation/deployment-overview3.png" class="img-margin-t-b" /><br />
-		The above image adds the URAC service along with the previous services mentioned. As you can see, URAC reads from core_provision tenants collection to load the configuration it needs and the tenant name that the key belongs to, then it performs the remaining operations like login, logout, add user ... in its own database, the database name that the URAC uses follows the name of the tenant that the key provided in the request belongs to.
-		<img ng-src="images/documentation/deployment-overview4.png" style="max-width:95%" class="img-margin-t-b" />
+		The data layer of soajs is built on top of MongoDB and uses the Two databases: CORE_PROVISION & CORE_SESSION
 	</p>
+	<h4>CORE_PROVISION</h4>
+	<img ng-src="images/documentation/core_provision.png" class="image-right" />
+	<table class="myTable">
+		<thead>
+			<tr>
+				<th>Collection Name</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="odd">
+				<td width="20%"><b>environments</b></td>
+				<td>List of environments and their IP addresses matching registry configuration.</td>
+			</tr>
+			<tr class="even">
+				<td width="20%"><b>tenants</b></td>
+				<td>List of available tenants and their applications and keys information.</td>
+			</tr>
+			<tr class="odd">
+				<td width="20%"><b>products</b></td>
+				<td>List of available products and their packages along with the ACL permissions.</td>
+			</tr>
+			<tr class="even">
+				<td width="20%"><b>oauth_users</b></td>
+				<td>List of oAuth user accounts related to tenants.</td>
+			</tr>
+			<tr class="odd">
+				<td width="20%"><b>oauth_tokens</b></td>
+				<td>List of tokens related to oAuth users accounts.</td>
+			</tr>
+		</tbody>
+	</table>
+	<br/><br/>
+	<img ng-src="images/documentation/core_session.png" class="image-right" />
+	<table class="myTable">
+		<thead>
+			<tr>
+				<th>Collection Name</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="odd">
+				<td width="20%"><b>sessions</b></td>
+				<td>List of sessions with full details on requests made by tenants, containing cookies, session information, api requested, key provided, passed parameters ...</td>
+			</tr>
+		</tbody>
+	</table>
+	<br/><br/><br/>
 	<hr/>
+	<h3>Service Scenario</h3>
 	<p>
-		When creating services, you can construct them to work like the URAC is made or to have them use a fixed database to operate on. The main thing to understand is how core database is invoked and by which services, the purpose of the dashboard service and how you can use it to create environments, products and tenants and finally and how your services will read from the core databases to load the information they need and that they will operate on other databases as you specify their configuration in the <a href="#/documentation/core/registry">registry</a>.<br />
-		Checkout how to deploy the above explained architecture on a single machine which is explained in details in <a href="#/documentation/deployment/all-in-one">All in One</a> or on the <a href="#/documentation/deployment/cloud-awareness">Cloud</a>.
+		When a request arrives to your service, it goes through the framework first then your business logic then it goes back to the framework before returning. The first entry to the framework, adds SOAJS alters the data as configured by the constructor parameters and adds the tools that SOAJS offers, SOAJS also talk to the data layer to check the key provided and the permissions and load the <a href="#/documentation/core/provisioning">provisioned</a> data based on the current running environment as configured in the <a href="#/documentation/core/registry">registry</a>. The second time the framework is used which is before returning the response, soajs formulates a unified and valid REST response before returning this response.<br />
+		<img ng-src="images/documentation/service_scenario.png"><br />
 	</p>
-	<script>renderCodeSnippets();</script>
+	<br/>
+	<hr/>
+	<h3>Services and their Data Layer</h3>
+	<p>
+		SOAJS core services use the data layer differently. Not all services access all the collections, some simply read from it and some add and modify data in the collections. Let's go over the data layer of each service that comes with soajs and the relation between your service and them.
+	</p>
+
+	<h4>Controller Service</h4>
+	<p>
+		<img ng-src="images/documentation/controller_service.png" class="image-right"/><br />
+		The controller is the gateway to soajs services. It reads and compares the information in the request with that in CORE_PROVISION. Information like tenant keys device and geo security as well as Access permissions is loaded from the database and compared.
+	</p>
+	<br/><br/>
+	<h4>Dashboard Service</h4>
+	<p>
+		<img ng-src="images/documentation/dashboard_service.png" class="image-right"/><br />
+		The dashboard services, manages the information inside CORE_PROVISION collections. This service is responsilbe for creating environment, products, tenants and oauth users records.
+	</p>
+	<br/><br/>
+	<h4>oAuth Service</h4>
+	<p>
+		<img ng-src="images/documentation/oauth_service.png" class="image-right"/><br />
+		The oauth services, reads the tenant oauth secret and the user information from tenants and oauth_users collections in core_provision database and if the verification is valid, it inserts/update the user token in oauth_tokens collection.
+	</p>
+	<br/><br/>
+	<h4>Urac Service</h4>
+	<p>
+		<img ng-src="images/documentation/urac_service.png" class="image-right"/><br />
+		The urac services, reads the tenant information to determine if the provided key exists and has can access the service. Now that it knows the name of the tenant that the given key belongs to, all consequent requests are inserted/updated in a new database named after the tenant: TENANTNAME_URAC.
+	</p>
+	<br/><br/>
+	<h4>Examples Service</h4>
+	<p>
+		The examples services contains 3 services: Example02, 03, 04 that communicate with the data layer. This package is a guideline to how your services might be constructed. Example 01 does not communicate with the database, it simply manipulates the arriving input and sends it back in the response. Example 02 and 04 are protected by oAuth security and Example 02, 03, 04 provide tenant keys in the request. The following diagram illustrates how these examples work.<br />
+		<img ng-src="images/documentation/examples_service.png" /><br /><br />
+		The diagram above shows 4 different combinations of how a service can be constructed to work with soajs packages and the data layer.
+	</p>
+	<ul>
+		<li><span style="color:red;">Controller</span> communicates with both CORE_PROVISION & CORE_SESSION</li>
+		<li><span style="color:orange;">oAuth</span> communicates with CORE_PROVISION</li>
+		<li><span style="color:mediumpurple;">URAC</span> communicates with CORE_PROVISION & TENANTNAME_URAC</li>
+		<li><span style="color:dodgerblue;">Example 03 & 04</span> have their own custom database (just like your service will be)</li>
+	</ul>
+	<p>
+		This architecture can be set up on either a single machine ( All in One ) or on a cloud and will behave and run the same way regardless of the hardware used, the only difference is that cloud architecture requires more servers and more configuration to set it up than simply installing it all on the one machine.
+	</p>
 </div>
