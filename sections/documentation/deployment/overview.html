@@ -127,8 +127,6 @@
 		</tbody>
 	</table>
 	<br/><br/><br/>
-	<hr/>
-	<h3>Service Scenario</h3>
 	<p>
 		When a request arrives to your service, it goes through the framework first then your business logic then it goes back to the framework before returning. The first entry to the framework, adds SOAJS alters the data as configured by the constructor parameters and adds the tools that SOAJS offers, SOAJS also talk to the data layer to check the key provided and the permissions and load the <a href="#/documentation/core/provisioning">provisioned</a> data based on the current running environment as configured in the <a href="#/documentation/core/registry">registry</a>. The second time the framework is used which is before returning the response, soajs formulates a unified and valid REST response before returning this response.<br />
 		<img ng-src="images/documentation/service_scenario.png"><br />
@@ -144,38 +142,101 @@
 	<p>
 		The controller is the gateway to soajs services. It receives the request, runs some validation steps and forwards the request to your service. The controller does not require any data layer.
 	</p>
-	<br/><br/>
-	<h4>oAuth Service</h4>
-	<p>
-		<img ng-src="images/documentation/oauth_service.png" class="image-right"/><br />
-		The oauth services, reads the tenant oauth secret and the user information from tenants and oauth_users collections in core_provision database and if the verification is valid, it inserts/update the user token in oauth_tokens collection.
-	</p>
-	<br/><br/>
-	<h4>Urac Service</h4>
-	<p>
-		<img ng-src="images/documentation/urac_service.png" class="image-right"/><br />
-		The urac services, reads the tenant information to determine if the provided key exists and has can access the service. Now that it knows the name of the tenant that the given key belongs to, all consequent requests are inserted/updated in a new database named after the tenant: TENANTNAME_URAC.
-	</p>
-	<br/><br/>
-	<h4>Dashboard Service</h4>
-	<p>
-		<img ng-src="images/documentation/dashboard_service.png" class="image-right"/><br />
-		The dashboard services, manages the information inside CORE_PROVISION collections. This service is responsilbe for creating environment, products, tenants and oauth users records.
-	</p>
-	<br/><br/>
+	<br/>
+	<table width="100%">
+		<tr>
+			<td valign="middle">
+				<h4>oAuth Service</h4>
+				<p>
+					The oauth services, reads the tenant oauth secret and the user information from tenants and oauth_users collections in core_provision database and if the verification is valid, it inserts/update the user token in oauth_tokens collection.
+				</p>
+			</td>
+			<td valign="middle"><img ng-src="images/documentation/oauth_service.png"/></td>
+		</tr>
+	</table>
+	<br/>
+	<table width="100%">
+		<tr>
+			<td valign="middle">
+				<h4>Urac Service</h4>
+				<p>
+					The urac service, manages users and groups records. SOAJS framework provides the services with the tenant name based on the key provided in the request. The business logic of the service uses the tenant name to determine which database the records should be inserted/updated.
+				</p>
+			</td>
+			<td valign="middle"><img ng-src="images/documentation/urac_service.png"/></td>
+		</tr>
+	</table>
+	<br/>
+	<table width="100%">
+		<tr>
+			<td valign="middle">
+				<h4>Dashboard Service</h4>
+				<p>
+					The dashboard services, manages the information inside CORE_PROVISION collections. The business logic of this service is responsible for creating environment, products, tenants and oauth users records.
+				</p>
+			</td>
+			<td valign="middle"><img ng-src="images/documentation/dashboard_service.png"/></td>
+		</tr>
+	</table>
+	<br/>
 	<h4>Examples Service</h4>
 	<p>
-		The examples services contains 3 services: Example02, 03, 04 that communicate with the data layer. This package is a guideline to how your services might be constructed. Example 01 does not communicate with the database, it simply manipulates the arriving input and sends it back in the response. Example 02 and 04 are protected by oAuth security and Example 02, 03, 04 provide tenant keys in the request. The following diagram illustrates how these examples work.<br />
-		<img ng-src="images/documentation/examples_service.png" /><br /><br />
-		The diagram above shows 4 different combinations of how a service can be constructed to work with soajs packages and the data layer.
+		The examples services contains 4 examples starting with a basic service example all the way to a multitenant oAuth protected example.
 	</p>
-	<ul>
-		<li><span style="color:red;">Controller</span> communicates with both CORE_PROVISION & CORE_SESSION</li>
-		<li><span style="color:orange;">oAuth</span> communicates with CORE_PROVISION</li>
-		<li><span style="color:mediumpurple;">URAC</span> communicates with CORE_PROVISION & TENANTNAME_URAC</li>
-		<li><span style="color:dodgerblue;">Example 03 & 04</span> have their own custom database (just like your service will be)</li>
-	</ul>
-	<p>
-		This architecture can be set up on either a single machine ( All in One ) or on a cloud and will behave and run the same way regardless of the hardware used, the only difference is that cloud architecture requires more servers and more configuration to set it up than simply installing it all on the one machine.
-	</p>
+	<table width="100%">
+		<tr>
+			<td valign="middle">
+				<b>Example 01</b>
+				<p>
+					This example is very basic, its business logic reads the input parameters, formulates a json object out of them and returns the object in the response. The service is not configured to communicate with any data layer.
+				</p>
+			</td>
+			<td valign="middle"><img ng-src="images/documentation/example01_service.png" /></td>
+		</tr>
+	</table>
+	<table width="100%">
+		<tr>
+			<td valign="middle"><img ng-src="images/documentation/example02_service.png" /></td>
+			<td valign="middle">
+				<b>Example 02</b>
+				<p>
+					This example is exactly like Example 01, its business logic reads the input parameters, formulates a json object out of them and returns the object in the response. The service is configured to use oauth but its business logic does not communicate with the data layer.
+				</p>
+			</td>
+		</tr>
+	</table>
+	<table width="100%">
+		<tr>
+			<td valign="middle">
+				<b>Example 03</b>
+				<p>
+					This example is a multitenant service, and can only be used by tenants. If you attempt to directly hit the api of Example 03 without providing a tenant key, the request will be rejected. You will need to provide a tenant key that has access to this service in your request so it gets evaluated.<br />The service formulates a json response out of the inputs it receives and its business logic does not communicate with any data layer.
+				</p>
+			</td>
+			<td valign="middle"><img ng-src="images/documentation/example03_service.png" /></td>
+		</tr>
+	</table>
+	<table width="100%">
+		<tr>
+			<td valign="middle"><img ng-src="images/documentation/example04_service.png" /></td>
+			<td valign="middle">
+				<b>Example 04</b>
+				<p>
+					This example is a multitenant service that is also protected by oauth. If you attempt to directly hit the api of Example 04 without providing a tenant key or an oauth access_token, the request will be rejected. You will need to request a token from the oauth service first, then provide it along with the tenant key in the consecutive requests to any of Example 04 APIs.<br />
+					The business logic of this service, formulates a response out of the inputs it receives and therefore does not communicate with any data layer.
+				</p>
+			</td>
+		</tr>
+	</table>
+	<br/>
+	<table width="100%">
+		<tr>
+			<td valign="middle">
+				<p>
+					SOAJS gives you the ability to create your services the way you want. Your service business logic can work with the data layer or not. If your service requires to store or fetch data from the data layer here is a diagram of how it might look like:
+				</p>
+			</td>
+			<td valign="middle"><img ng-src="images/documentation/your_service.png" /></td>
+		</tr>
+	</table>
 </div>
