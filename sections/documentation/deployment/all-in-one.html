@@ -2,11 +2,8 @@
 <h1>All In One</h1>
 <div class="white-container">
 	<p>
-		In <a href="#/documentation/deployment/overview">Overview</a> we showed the below diagram and mentioned the technologies needed to get SOAJS up and running on either one machine or a cloud. In this Section we will demonstrate how to install SOAJS and these technologies as well as how to configure them all on one machine thus the term <b>All In One</b>.<br />
-		<img ng-src="images/documentation/deployment-aio.png" class="img-margin-t-b" /><br /><br />
-		SOAJS is designed to work in a cloud environment meaning its services should be spread on different nodes. Installing everything on one machine is considered best practice in the case of a development environment so that the developer can work in one place.<br />
-		When deploying SOAJS on one machine, The controller, oauth, dashboard and urac services are common. The Urac will have at least 2 tenants; one tenant provides access to the dashboard service to manage the core database content and the other tenants will be specific to the services they have access to such as example 03 and example 04.<br />
-		Another important common feature is that both CORE_PROVISION and CORE_SESSION are also common but dashboard_urac and tenantname_urac database are separate where dashboard_urac contains user records that can access the database service to manage it and tenantname_urac contains user records for other services.
+		All in one means deploying everything on a single machine. This is ideal to create a SOAJS development environment. The below illustrates how to create an all in one deployment. When deploying SOAJS on one machine some services and databases will be shared.<br />
+		<img ng-src="images/documentation/deployment-aio.png" class="img-margin-t-b" />
 	</p>
 	<br/>
 	<hr/>
@@ -54,9 +51,6 @@ $ npm install soajs.oauth
 
 #install the sample data
 $ npm install soajs.mongodb.data
-
-# go up one folder, back to /op/soajs/
-$ cd /opt/soajs/
 
 #install the examples
 $ npm install soajs.examples
@@ -181,7 +175,7 @@ $ cd /opt/soajs/node_modules/soajs.dashboard/service
 $ node .
 
 #navigate to soajs.examples and start the examples
-$ cd /opt/soajs/soajs.examples/
+$ cd /opt/soajs/node_modules/soajs.examples/
 $ cd /example01
 $ node .
 $ cd /example02
@@ -234,6 +228,9 @@ $ curl -X GET "http://127.0.0.1:5013/heartbeat"
 		SOAJS is now running with all its services on your machine, you can begin creating your services just like the examples are built. Create a folder for every service next to soajs.examples and add your code there. Check how to <a href="#/documenation/core/service">Create a service</a> in the documentation section and you can read more about the examples under <a href="#/getStarted">Get Started</a>.<br /><br />
 		Whenever you finish a service simply run it and because you have to add an entry for it in the registry, execute the maintenance operation <b>reloadRegistry</b> just like you did for <b>heartbeat</b> above in the controller. The controller will reload the registry that contains your new service information and you service will be automatically detected and accessible via the controller.
 		<pre><code class="bash">$ curl -X GET "http://127.0.0.1:5000/reloadRegistry"</code></pre>
+		If your service also has provisioned information, like Example 02,03 and 04, you need to execute a second maintenance operation to load the new provisioned information.
+		<pre><code class="bash">$ curl -X GET "http://127.0.0.1:5000/loadProvision"</code></pre>
+		Both maintenance operations have to be executed on the maintenance port of the controller, so that it can pick up the new configuration and direct the request that will be made to your service.
 		<img ng-src="images/documentation/deployment-aio2.png" class="img-margin-t-b" />
 	</p>
 </div>
