@@ -9,16 +9,17 @@ body, html {
     font-family: 'Lato', sans-serif;
     background-image: url('../images/bg.png');
     color: rgb(34, 34, 34);
-    line-height:1.9em;
+    line-height: 1.9em;
 }
 
 p {
-    line-height:1.9em;
+    line-height: 1.9em;
 }
 
 a img {
     border: none;
 }
+
 a {
     color: rgb(65, 100, 126);
     font-weight: 400;
@@ -26,21 +27,23 @@ a {
     outline: 0;
 }
 
-a:hover{
+a:hover {
     color: #DA9437;
 }
-.examples img{
+
+.examples img {
     width: 300px;
 }
 
-.redFlag{
-    width:100%;
-    margin:5px 0;
-    padding:10px;
-    border:solid 2px #990000;
-    background-color:#ea9999;
+.redFlag {
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    border: solid 2px #990000;
+    background-color: #ea9999;
     border-radius: 5px;
 }
+
 /*
     HEADER, LOGO AND TOP MENU
 */
@@ -129,7 +132,7 @@ a:hover{
     color: #DF9630; /* yellow*/
     transition: all 0.25s ease 0s;
     text-decoration: none;
-    border-bottom:solid 4px #DF9630;
+    border-bottom: solid 4px #DF9630;
 }
 
 .topbar .topnav li.active a {
@@ -137,13 +140,15 @@ a:hover{
     font-weight: bold;
     font-weight: 600;
     color: rgb(53, 90, 118);
-    border-bottom:solid 4px rgb(53, 90, 118);
+    border-bottom: solid 4px rgb(53, 90, 118);
 }
-#section-footer{
+
+#section-footer {
     background-color: white;
     clear: both;
     width: 100%;
 }
+
 .bottom {
     color: rgb(61, 61, 61);
     box-sizing: border-box;
@@ -180,14 +185,16 @@ a:hover{
     padding-top: 5px;
 }
 
-.bottom .copyright{
+.bottom .copyright {
     float: left;
     padding-left: 1%;
     padding-top: 3px;
 }
+
 .bottom .sharing-footer .inner {
     float: left;
 }
+
 .bottom .sharing-footer .star {
     padding-left: 0;
 }
@@ -211,13 +218,16 @@ a:hover{
     color: #000;
     text-decoration: none;
 }
-.twitter-icon{
+
+.twitter-icon {
     margin-right: 15px;
 }
-.twitter-icon img{
+
+.twitter-icon img {
     margin-top: 2px;
     width: 40px;
 }
+
 .bottom .star {
     float: left;
     width: 70%;
@@ -257,7 +267,7 @@ a:hover{
     width: 997px;
     padding: 50px 0 80px;
     /*position: relative; */
-    clear:both;
+    clear: both;
 }
 
 .banner .banner-container .left-main {
@@ -270,16 +280,19 @@ a:hover{
     */
     position: relative;
 }
-#beaverAlone{
+
+#beaverAlone {
     display: none;
 }
-#beaverImg2{
+
+#beaverImg2 {
     display: none;
     position: absolute;
     right: 0;
     bottom: 0;
 }
-#beaverImg1{
+
+#beaverImg1 {
     position: absolute;
     float: right;
     right: 0;
@@ -287,6 +300,7 @@ a:hover{
     width: 45%;
     height: 95%;
 }
+
 .beaverImg {
     background-image: url(../images/bigImg.png);
     background-position: right bottom;
@@ -294,14 +308,17 @@ a:hover{
     background-size: 95%;
     /*border: 1px solid red;*/
 }
+
 .banner .about-container, .banner .banner-container .tagline {
     width: 50%;
 }
+
 .banner .banner-container .tagline {
     font-size: 20px;
     z-index: 15;
     padding-top: 30px;
 }
+
 .banner .about-container {
     box-sizing: border-box;
     margin: 0;
@@ -311,6 +328,7 @@ a:hover{
     position: relative;
     font-size: 16px;
 }
+
 .banner .banner-container .blueBtn {
     font-size: 18px;
     font-weight: bold;
@@ -331,7 +349,7 @@ a:hover{
 .banner .tagline .yellow-header {
     font-weight: bold;
     /*font-size: 30px;*/
-    color:#DF9630;
+    color: #DF9630;
 }
 
 .banner .about-container ul {
@@ -350,8 +368,8 @@ a:hover{
 
 .white-banner {
     background-color: #fff;
-    width:100%;
-    display:table;
+    width: 100%;
+    display: table;
     padding: 13px 0;
 }
 
@@ -363,89 +381,91 @@ a:hover{
 
 .white-banner .banner-container .repos ul {
     margin: 0 auto;
-    width:997px;
+    width: 997px;
 }
+
 .white-banner .banner-container .repos ul {
     margin: 0 auto;
     padding: 0;
     list-style-type: none;
-    font-size:12px;
-    width:997px;
+    font-size: 12px;
+    width: 997px;
 }
 
-.white-banner .banner-container .repos ul li{
-    float:left;
-    margin:5px 0;
-    border:solid 1px #f1f1f1;
+.white-banner .banner-container .repos ul li {
+    float: left;
+    margin: 5px 0;
+    border: solid 1px #f1f1f1;
     /*padding:5px;*/
-    display:block;
-    border-radius:5px;
+    display: block;
+    border-radius: 5px;
     width: 49%;
     height: 75px;
 }
 
-.white-banner .banner-container .repos ul li.even{
-    margin-left:10px;
+.white-banner .banner-container .repos ul li.even {
+    margin-left: 10px;
 }
 
-.white-banner .banner-container .repos ul li .repoLabel{
-    font-size:14px;
-    font-weight:bold;
-    width:100%;
-    clear:both;
-    padding-left:5px;
+.white-banner .banner-container .repos ul li .repoLabel {
+    font-size: 14px;
+    font-weight: bold;
+    width: 100%;
+    clear: both;
+    padding-left: 5px;
     background-color: #efefef;
 }
 
-.white-banner .banner-container .repos ul li div .repoLinks{
-    float:left;
-    margin:5px;
+.white-banner .banner-container .repos ul li div .repoLinks {
+    float: left;
+    margin: 5px;
     position: relative;
     top: 6px;
 }
 
-.white-banner .banner-container .repos ul li .repoLabel a{
+.white-banner .banner-container .repos ul li .repoLabel a {
     display: inline-block;
     margin-bottom: 3px;
-    font-weight:bold;
+    font-weight: bold;
     text-decoration: none;
-    color:#000;
+    color: #000;
 }
 
-.white-banner .banner-container .repos ul li a img{
-    max-height:18px;
+.white-banner .banner-container .repos ul li a img {
+    max-height: 18px;
     width: auto;
 }
 
-.white-banner .banner-container .repos ul li:hover{
-    border:solid 1px #FFB500;
+.white-banner .banner-container .repos ul li:hover {
+    border: solid 1px #FFB500;
     transition: all ease 0.25s;
 }
 
-.white-banner .banner-container .repos ul li:hover .repoLabel{
+.white-banner .banner-container .repos ul li:hover .repoLabel {
     background-color: #FFB500;
     transition: all ease 0.25s;
 }
 
-.white-banner .banner-container .repos ul li:hover .repoLabel a{
-    color:white;
+.white-banner .banner-container .repos ul li:hover .repoLabel a {
+    color: white;
     text-decoration: none;
     width: 100%;
 }
 
-.white-banner .banner-container .repos ul li .gitLink iframe{
-    width:90px;
+.white-banner .banner-container .repos ul li .gitLink iframe {
+    width: 90px;
     height: 26px;
 }
+
 .white-banner .banner-container .sharing {
-    text-align:center;
+    text-align: center;
     clear: both;
 }
 
-.white-banner .banner-container .sharing .small-button{
-    float:none;
-    width:200px;
-    margin:0 auto;
+.white-banner .banner-container .sharing .small-button {
+    float: none;
+    width: 200px;
+    margin: 0 auto;
 }
 
 .white-banner .banner-container .sharing:after {
@@ -651,6 +671,7 @@ a:hover{
     line-height: 0;
     visibility: hidden;
 }
+
 /*
 .features-page .main-section-container .feature-list ul li h5 {
     font-size: 26px;
@@ -663,15 +684,15 @@ a:hover{
     font-size: 15px;
     font-weight: 400;
     line-height: 1.9em;
-    padding-top:5px;
+    padding-top: 5px;
 }
 
-.features-page table tr.odd .middle{
-    padding:0 40px 0 20px;
+.features-page table tr.odd .middle {
+    padding: 0 40px 0 20px;
 }
 
-.features-page table tr.even .middle{
-    padding:0 20px 0 40px;
+.features-page table tr.even .middle {
+    padding: 0 20px 0 40px;
 }
 
 /* OTHER CSS CLASSES */
@@ -682,9 +703,11 @@ a:hover{
     margin-left: 35px;
 
 }
+
 .features-page .main-section-container .feature-list ul li .std-list li {
     width: auto;
 }
+
 .image-border {
     padding: 5px;
     background-color: white;
@@ -738,7 +761,7 @@ a:hover{
     background-color: rgb(245, 245, 245);
 }
 
-em{
+em {
     color: grey;
     font-size: 12px;
     line-height: 1.6em;
@@ -771,23 +794,26 @@ pre {
 .ng-valid.ng-dirty {
     border-color: #78FA89
 }
-.whyBeaver{
+
+.whyBeaver {
     margin: 0 auto;
     width: 100%;
     padding: 10px 0 40px 0;
     background-color: #ffffff;
 }
-.whyBeaver-container{
+
+.whyBeaver-container {
     margin: 0 auto;
     width: 997px;
     padding: 10px 0 20px 0;
 }
+
 .powered-by-container {
     margin: 0 auto;
     width: 997px;
     padding: 10px 0 20px 0;
     clear: both;
-    text-align:center;
+    text-align: center;
 }
 
 .powered-by-container:after {
@@ -844,7 +870,7 @@ fieldset {
     background-color: white;
     padding: 10px;
     margin: auto;
-    margin-bottom:50px;
+    margin-bottom: 50px;
     border: solid 1px #cccccc;
 }
 
@@ -888,8 +914,8 @@ legend {
 .designTab .nav-tabs > li.active > a:hover,
 .designTab .nav-tabs > li.active > a:focus {
     background-color: #fff;
-    border-color: none;
     border: none;
+    border-color: none;
     border-style: none;
     cursor: default;
 }
@@ -964,7 +990,7 @@ hr.white {
 .page h3 {
     color: rgb(65, 100, 126);
     font-weight: bold;
-    text-decoration:underline;
+    text-decoration: underline;
 }
 
 .page h1 {
@@ -1030,8 +1056,10 @@ hr.white {
     height: 100% !important;
     padding: 16px 20px;
     position: absolute;
-    right: 0; top:0;
+    right: 0;
+    top: 0;
 }
+
 .topbar .menu::after {
     clear: both;
     content: ".";
@@ -1041,6 +1069,7 @@ hr.white {
     line-height: 0;
     visibility: hidden;
 }
+
 .topbar .menu .menu-button-stripe {
     border-bottom: 4px solid #fff;
     box-sizing: border-box;
@@ -1048,26 +1077,71 @@ hr.white {
     margin-bottom: 5px;
     width: 35px;
 }
+
 .topbar .nav.menu-open {
     display: block;
 }
 
-#service-folder-tree{
+#service-folder-tree {
     width: auto;
 }
 
-#dashboard-form, #dashboard-grid{
+#dashboard-form, #dashboard-grid {
     max-width: 750px;
 }
-#example03png{
+
+#example03png {
     display: block;
 }
+
 .btn-primary {
     background-color: #DF9630;
     border-color: #DF9630;
     color: #fff;
 }
 
-.backToTop{
+.backToTop {
     display: none;
+}
+
+div.bulletin {
+    border: solid 1px #efefef;
+    border-radius: 8px;
+    clear: both;
+    display: table;
+}
+
+div.bulletin div.head {
+    background-color: #F5F5F5;
+    border-bottom: solid 1px #efefef;
+    font-size: 18px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+div.bulletin div.body {
+    padding: 5px;
+}
+
+div.bulletin div.body div.txt {
+    float: left;
+    width: 57%;
+    padding: 30px;
+}
+
+div.bulletin div.body div.txt.w-100{
+    width:100%;
+}
+
+div.bulletin div.body div.img {
+    float: left;
+    width: 30%;
+}
+
+.t-right {
+    text-align: right;
+}
+
+.t-left{
+    text-align: left
 }

@@ -1,8 +1,8 @@
 <a id="deployment-overview"></a>
-<h1>Deployment Overview</h1>
+<h1>Architecture Overview</h1>
 <div class="white-container">
 	<p>
-		SOAJS means to Service Oriented Architecture JavaScript. The framework is built on top of NodeJs, its data layer is built on top of MongoDB, HAproxy is there to create awareness among services and finally Nginx is used as the entry layer.<br/>
+		SOAJS means Service Oriented Architecture JavaScript. The framework is built on top of NodeJs, its data layer is built on top of MongoDB, HAproxy is there to create awareness among services and finally Nginx is used as the entry layer. Understanding the architecture is very important to deploy and manage a SOAJS environment.<br/>
 		<img ng-src="images/documentation/deployment-overview.png"/>
 	</p>
 	<p>
@@ -19,7 +19,7 @@
 	<p>
 		SOAJS comes with the following packages:
 	</p>
-	<table class="myTable">
+	<table class="myTable" width="100%">
 		<thead>
 			<tr>
 				<th>Package Name</th>
@@ -28,27 +28,27 @@
 		</thead>
 		<tbody>
 			<tr class="odd">
-				<td width="20%"><b>soajs</b></td>
+				<td width="20%"><a href="#/documentation/"><b>soajs</b></a></td>
 				<td>Framework that you will use to develop your services.</td>
 			</tr>
 			<tr class="even">
-				<td width="20%"><b>soajs.controller</b></td>
+				<td width="20%"><a href="#/documentation/services/controller"><b>soajs.controller</b></a></td>
 				<td>SOAJS gateway service used as an entry point and forwards requests to designated services.</td>
 			</tr>
 			<tr class="odd">
-				<td width="20%"><b>soajs.oauth</b></td>
+				<td width="20%"><a href="#/documentation/services/oauth"><b>soajs.oauth</b></a></td>
 				<td>Security service, can be used to protect your services using oAuth 2.0</td>
 			</tr>
 			<tr class="even">
-				<td width="20%"><b>soajs.urac</b></td>
+				<td width="20%"><a href="#/documentation/services/urac"><b>soajs.urac</b></a></td>
 				<td>User Registration and Access Control, can be used to handle and manage user accounts per tenant.</td>
 			</tr>
 			<tr class="odd">
-				<td width="20%"><b>soajs.examples</b></td>
+				<td width="20%"><a href="#/getStarted"><b>soajs.examples</b></a></td>
 				<td>Examples Package, contains 4 examples going from basic service example to fully advanced service example.</td>
 			</tr>
 			<tr class="even">
-				<td width="20%"><b>soajs.dashboard</b></td>
+				<td width="20%"><a href="#/documentation/services/dashboard-service"><b>soajs.dashboard</b></a></td>
 				<td>This is the admin dashboard for soajs, enables you to configure and manage your services using a UI.</td>
 			</tr>
 		</tbody>
@@ -137,106 +137,117 @@
 	<p>
 		We used SOAJS framework and created services that we call the SOAJS core services. Let us go over each one of them and explain their approriate data layer.
 	</p>
-
-	<h4>Controller Service</h4>
-	<p>
-		The controller is the gateway to soajs services. It receives the request, runs some validation steps and forwards the request to your service. The controller does not require any data layer.
-	</p>
-	<br/>
-	<table width="100%">
-		<tr>
-			<td valign="middle">
-				<h4>oAuth Service</h4>
+	<div class="bulletin">
+		<div class="head">Controller Service</div>
+		<div class="body">
+			<div class="txt" style="width:100%;">
 				<p>
-					The oauth services, reads the tenant oauth secret and the user information from tenants and oauth_users collections in core_provision database and if the verification is valid, it inserts/update the user token in oauth_tokens collection.
+					The controller is the gateway to soajs services. It receives the request, runs some validation steps and forwards the request to your service. The controller does not require any data layer.
 				</p>
-			</td>
-			<td valign="middle"><img ng-src="images/documentation/oauth_service.png"/></td>
-		</tr>
-	</table>
+			</div>
+		</div>
+	</div>
 	<br/>
-	<table width="100%">
-		<tr>
-			<td valign="middle">
-				<h4>Urac Service</h4>
+	<div class="bulletin">
+		<div class="head">oAuth Service</div>
+		<div class="body">
+			<div class="txt">
+				<p>
+				The oauth services, reads the tenant oauth secret and the user information from tenants and oauth_users collections in core_provision database and if the verification is valid, it inserts/update the user token in oauth_tokens collection.
+				</p>
+			</div>
+			<div class="img"><img ng-src="images/documentation/oauth_service.png"/></div>
+		</div>
+	</div>
+	<br/>
+	<div class="bulletin">
+		<div class="head">Urac Service</div>
+		<div class="body">
+			<div class="txt">
 				<p>
 					The urac service, manages users and groups records. SOAJS framework provides the services with the tenant name based on the key provided in the request. The business logic of the service uses the tenant name to determine which database the records should be inserted/updated.
 				</p>
-			</td>
-			<td valign="middle"><img ng-src="images/documentation/urac_service.png"/></td>
-		</tr>
-	</table>
+			</div>
+			<div class="img"><img ng-src="images/documentation/urac_service.png"/></div>
+		</div>
+	</div>
 	<br/>
-	<table width="100%">
-		<tr>
-			<td valign="middle">
-				<h4>Dashboard Service</h4>
+	<div class="bulletin">
+		<div class="head">Dashboard Service</div>
+		<div class="body">
+			<div class="txt">
 				<p>
 					The dashboard services, manages the information inside CORE_PROVISION collections. The business logic of this service is responsible for creating environment, products, tenants and oauth users records.
 				</p>
-			</td>
-			<td valign="middle"><img ng-src="images/documentation/dashboard_service.png"/></td>
-		</tr>
-	</table>
+			</div>
+			<div class="img"><img ng-src="images/documentation/dashboard_service.png"/></div>
+		</div>
+	</div>
 	<br/>
+	<hr/>
 	<h4>Examples Service</h4>
 	<p>
 		The examples services contains 4 examples starting with a basic service example all the way to a multitenant oAuth protected example.
 	</p>
-	<table width="100%">
-		<tr>
-			<td valign="middle">
-				<b>Example 01</b>
+	<div class="bulletin">
+		<div class="head">Example 01</div>
+		<div class="body">
+			<div class="txt w-100">
 				<p>
-					This example is very basic, its business logic reads the input parameters, formulates a json object out of them and returns the object in the response. The service is not configured to communicate with any data layer.
+					This example is very basic, its business logic reads the input parameters, formulates a json object out of them and returns the object in the response. The service is not configured to communicate with any data layer. <br/>
+					<img ng-src="images/documentation/example01_service2.png" />
 				</p>
-			</td>
-			<td valign="middle"><img ng-src="images/documentation/example01_service.png" /></td>
-		</tr>
-	</table>
-	<table width="100%">
-		<tr>
-			<td valign="middle"><img ng-src="images/documentation/example02_service.png" /></td>
-			<td valign="middle">
-				<b>Example 02</b>
+			</div>
+		</div>
+	</div>
+	<br/>
+	<div class="bulletin">
+		<div class="head">Example 02</div>
+		<div class="body">
+			<div class="txt w-100">
 				<p>
-					This example is exactly like Example 01, its business logic reads the input parameters, formulates a json object out of them and returns the object in the response. The service is configured to use oauth but its business logic does not communicate with the data layer.
+					This example is exactly like Example 01, its business logic reads the input parameters, formulates a json object out of them and returns the object in the response. The service is configured to use oauth but its business logic does not communicate with the data layer. <br/>
+					<img ng-src="images/documentation/example02_service2.png"/>
 				</p>
-			</td>
-		</tr>
-	</table>
-	<table width="100%">
-		<tr>
-			<td valign="middle">
-				<b>Example 03</b>
+			</div>
+		</div>
+	</div>
+	<br/>
+	<div class="bulletin">
+		<div class="head">Example 03</div>
+		<div class="body">
+			<div class="txt w-100">
 				<p>
 					This example is a multitenant service, and can only be used by tenants. If you attempt to directly hit the api of Example 03 without providing a tenant key, the request will be rejected. You will need to provide a tenant key that has access to this service in your request so it gets evaluated.<br />The service formulates a json response out of the inputs it receives and its business logic does not communicate with any data layer.
+					<br/>
+					<img ng-src="images/documentation/example03_service2.png"/>
 				</p>
-			</td>
-			<td valign="middle"><img ng-src="images/documentation/example03_service.png" /></td>
-		</tr>
-	</table>
-	<table width="100%">
-		<tr>
-			<td valign="middle"><img ng-src="images/documentation/example04_service.png" /></td>
-			<td valign="middle">
-				<b>Example 04</b>
+			</div>
+		</div>
+	</div>
+	<br/>
+	<div class="bulletin">
+		<div class="head">Example 04</div>
+		<div class="body">
+			<div class="txt w-100">
 				<p>
 					This example is a multitenant service that is also protected by oauth. If you attempt to directly hit the api of Example 04 without providing a tenant key or an oauth access_token, the request will be rejected. You will need to request a token from the oauth service first, then provide it along with the tenant key in the consecutive requests to any of Example 04 APIs.<br />
-					The business logic of this service, formulates a response out of the inputs it receives and therefore does not communicate with any data layer.
+					The business logic of this service, formulates a response out of the inputs it receives and therefore does not communicate with any data layer.<br />
+					<img ng-src="images/documentation/example04_service2.png"/>
 				</p>
-			</td>
-		</tr>
-	</table>
+			</div>
+		</div>
+	</div>
 	<br/>
-	<table width="100%">
-		<tr>
-			<td valign="middle">
+	<div class="bulletin">
+		<div class="head">Your Service</div>
+		<div class="body">
+			<div class="txt">
 				<p>
-					SOAJS gives you the ability to create your services the way you want. Your service business logic can work with the data layer or not. If your service requires to store or fetch data from the data layer here is a diagram of how it might look like:
+					SOAJS gives you the ability to create your services the way you want. Your service business logic can work with the data layer or not. If your service requires to store or fetch data from the data layer here is a diagram of how it might look like:<br />
 				</p>
-			</td>
-			<td valign="middle"><img ng-src="images/documentation/your_service.png" /></td>
-		</tr>
-	</table>
+			</div>
+			<div class="img"><img ng-src="images/documentation/your_service.png"/></div>
+		</div>
+	</div>
 </div>
