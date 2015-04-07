@@ -150,7 +150,7 @@ var navigation = [
 	{
 		'id': 'overview',
 		'label': 'soajs deployment overview',
-		'title': 'SOAJS | Deployment | Overview',
+		'title': 'SOAJS | Deployment | Architecture Overview',
 		'url': '#/documentation/deployment/overview'
 	},
 	{

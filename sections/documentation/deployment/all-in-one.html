@@ -2,33 +2,23 @@
 <h1>All In One</h1>
 <div class="white-container">
 	<p>
-		In <a href="#/documentation/deployment/overview">Overview</a> we showed the below diagram and mentioned the technologies needed to get SOAJS up and running on either one machine or a cloud. In this Section we will demonstrate how to install SOAJS and these needed technologies as well as how to configure them all on one machine thus the term <b>All In One</b>.<br />
-		<img ng-src="images/documentation/deployment-pre-overview.png" class="img-margin-t-b" /><br /><br />
-		SOAJS is designed to work in a cloud environment meaning its services should be spread on different nodes. Installing everything on one machine is considered best practice in the case of a development environment so that the developer can work and monitor all in one place. Once you finish this section, the diagram below that was mentioned previously in overview will be installed and running on one machine.<br />
-		<img ng-src="images/documentation/deployment-overview3.png" class="img-margin-t-b" /><br /><br />
+		All in one means deploying everything on a single machine. This is ideal to create a SOAJS development environment. The below illustrates how to create an all in one deployment. When deploying SOAJS on one machine some services and databases will be shared.<br />
+		<img ng-src="images/documentation/deployment-aio.png" class="img-margin-t-b" />
 	</p>
+	<br/>
 	<hr/>
 	<h3>Installation</h3>
 	<p>
-		You can install SOAJS in full on one machine. Two methods are provided to install SOAJS.
+		You can install SOAJS and all its features on one machine either by using <a href="http://www.docker.com" target="_blank">Docker</a> or manually. We suggest you create the following folder schema to place SOAJS and its components:
+	</p>
+	<pre><code class="bash">$ mkdir -p /opt/soajs/node_modules/</code></pre>
+	<p>
+		The above command will create a folder on the root level named <b>opt</b> with <b>soajs</b> folder inside it and <b>node_modules</b> folder inside <b>soajs</b>. When you install soajs in the next steps, all the core modules will be located in node_modules folder. This way when you create your services, simply require soajs in your code and it will be loaded.<br />
+		Now install soajs via one of the 2 methods below:<br /><br />
 	</p>
 	<h4>Docker:</h4>
 	<div class="redFlag">Will be completed soon.</div>
-	<p>
-		SOAJS can be installed using <a href="http://www.docker.com" target="_blank">Docker</a>. Docker will provide you with an image that contains the required technologies installed and pre-configured as well as SOAJS components ready to be used. Once you install SOAJS via Docker, simply navigate to the services and start them.<br />
-		Start by installing Docker on your machine so you can download the image.
-		<pre><code class="bash">$ wget -qO- https://get.docker.com/ | sh</code>
-		</pre>
-		Once Docker is installed, use it to download and install the pre-configured all in one image of SOAJS.
-		<pre><code class="bash">$ docker run --name soajs-allinone --link soajs-allinone-link</code>
-		</pre>
-		<div class="redFlag">
-			do we want to use docker compose as well?<br />
-			if yes maybe we can put the docker.yml file in soajs.utilities/deployment/allinone/docker.yml
-		</div><br />
 
-		When you install SOAJS all in one via Docker, all the configuration steps are taken care of and SOAJS should run right after installation. To learn more about the configuration steps, please jump to the configuration section below where we explain how to configure the servers, the database, nginx ... etc in detail. The configuration can be updated at any time and regardless of the installation method used. This way you will be able to modify the configuration created via Docker installation or after manual installation.
-	</p>
 	<br />
 	<h4>Manual Installation:</h4>
 	<p>
@@ -41,15 +31,8 @@ $ apt-get install mongodb
 $ apt-get install nodejs
 
 # install Nginx latest stable version
-$ apt-get install nginx</code>
-	</pre>
+$ apt-get install nginx</code></pre>
 	<p>
-		Now that the needed technologies are installed, we suggest you create the following folder schema to place SOAJS and its components:
-	</p>
-	<pre><code class="bash">$ mkdir -p /opt/soajs/node_modules/</code></pre>
-	<p>
-		The above command will create a folder on the root level named <b>opt</b> with <b>soajs</b> folder inside it and <b>node_modules</b> folder inside <b>soajs</b>. When you install soajs in the next steps, all the core modules will be located in node_modules folder. This way when you create your services, simply require soajs in your code and it will be loaded.<br />
-
 		The next step requires we install the core components of soajs by running the following commands:
 	</p>
 	<pre><code class="bash">$ cd /opt/soajs/node_modules/
@@ -69,22 +52,17 @@ $ npm install soajs.oauth
 #install the sample data
 $ npm install soajs.mongodb.data
 
+#install the examples
+$ npm install soajs.examples
+
 #install the utilities
-$ cd /opt/soajs/
 $ npm install soajs.utilities
 </code></pre>
 	<p>
 		When you are done with the NPM command above you should have a folder schema that resembles the following:
 		<div ng-init="loadCode(path + 'deployment/all-in-one/folder-list.txt', 'folder-list');"></div>
 		<div id="folder-list"></div>
-		To verify that the modules are installed correctly with their dependencies, once you are done with the above steps, simply run the following command:
 	</p>
-	<pre><code class="bash">$ npm list</code></pre>
-	<p>
-		This command will list all the modules inside node_modules and their dependencies structured in a tree view format and you can check that ur modules are all there.
-	</p>
-	<div ng-init="loadCode(path + 'deployment/all-in-one/tree-npm-list.txt', 'tree-npm-list');"></div>
-	<div id="tree-npm-list"></div>
 	<br/>
 	<hr/>
 	<h3>Configuration &amp; Startup</h3>
@@ -95,7 +73,7 @@ $ npm install soajs.utilities
 	<p>
 		Let's start by running MongoDB, configure SOAJS registry to find it and thus connect to it and import some sample data to use later on. Open your terminal and start MongoDB:
 		<pre><code class="bash">$ mongod</code></pre>
-		The above step will start MongoDB on your local machine which becomes accessible via port 27017. The terminal you used to run MongoDB in can no longer be closed, closing it will stop MongoDB server. Test that MongoDB is running by opening a second terminal and connecting to the server:
+		The above step will start MongoDB on your local machine which becomes accessible via port 27017, then connect to the MongoDB server:
 		<pre><code class="bash">$ mongo
 $ mongo > show dbs</code></pre>
 		The above 2 commands, connect to mongo and run command show databases which will list the database inside mongo. If any of the above command did not run or return the expected response, please make sure you installed MongoDB correctly or checkout the forums and troubleshooting sections of mongo on the <a href="http://www.mongodb.org" target="_blank">Official MongoDB Website</a>.<br /><br />
@@ -161,7 +139,23 @@ tenants
 		When Nginx starts, test the configuration you just created by opening your browser and invoking 2 domains: <b>api.soajs.org</b> and <b>dashboard.soajs.org</b>. Nginx will reply with a <b>502 Bad Gateway</b> Error instead of Server not Found. Till this point, this is normal because we haven't started any service yet, but the important thing is that Nginx is now redirecting the requests to a local SOAJS server assuming that the later is up and running.
 	</p>
 	<br/>
-	<h4>Step 3: SOAJS Services</h4>
+	<h4>Step 3: Point out the Registry Profile</h4>
+	<p>
+		The next step requires that you specify the path of the project to load the environment and registry information for the services to work. As mentioned in the <a href="#/documentation/core/registry">Registry</a>, SOAJS supports multiple projects, and in this case we need to use the default project that contains the environment variables that we need for the All In One Setup. Navigate to soajs.utilities/deployment/allinone/profiles/.
+	</p>
+	<pre><code class="bash"># set the environment name to dev
+$ export SOAJS_ENV=dev
+
+# set the project name to default
+$ export SOAJS_PRJ=default
+
+# point out the location of the project
+$ export SOAJS_REGDIR=/opt/soajs/soajs.utilities/deployment/allinone/</code></pre>
+	<p>
+		The above variables will tell soajs the location of the profile you want to use and what is the environment and registry information that should be loaded.
+	</p>
+	<br/>
+	<h4>Step 4: SOAJS Services</h4>
 	<p>
 		So far we configured all the prerequisites that SOAJS needs to work and tested them. Let's start the services one at a time:
 		<pre><code class="bash">#navigate to soajs.controller in a new terminal
@@ -178,12 +172,22 @@ $ node .
 
 #navigate to soajs.dashboard in a new terminal
 $ cd /opt/soajs/node_modules/soajs.dashboard/service
-$ node .</code>
-		</pre>
-		When you run node . in every terminal you opened to start the above service, the terminal cannot be close or the service will stop running. All four services are now running, let's make some test calls and when done, use the dashboard to login.
+$ node .
+
+#navigate to soajs.examples and start the examples
+$ cd /opt/soajs/node_modules/soajs.examples/
+$ cd /example01
+$ node .
+$ cd /example02
+$ node .
+$ cd /example03
+$ node .
+$ cd /example04
+$ node .</code></pre>
+	When you run node . in every terminal you opened, you are starting the service. All the services are now running, let's make some test calls and when done, use the dashboard to login.
 	</p>
 	<br/>
-	<h4>Step 4: Testing the services</h4>
+	<h4>Step 5: Testing the services</h4>
 	<p>
 		We mentioned in the <a href="#/documentation/services/controller">Controller</a> section that you can run a maintenance check on any service built with SOAJS. When a service starts, it will listen to two ports: the default port and the maintenance port.<br />
 		Let's run some maintenance heartbeat requests to see the status of our services:
@@ -191,7 +195,8 @@ $ node .</code>
 $ curl -X GET "http://127.0.0.1:5000/heartbeat"
 {"result":true,"ts":1427373613796,"service":{"service":"CONTROLLER","type":"rest","route":"/heartbeat"}}
 </code></pre>
-		We just ran a heartbeat check on the controller. The controller runs on port 4000 making his maintenance port 4000 + 1000 = 5000. Make a request to port 5000 followed by /hearbeat as a path parameter. You can perform the same operation for any other service. In the <a href="#/documentation/core/registry">registry</a> of SOAJS under dev environment, the services are configured to run on specific port numbers. The controller uses 4000, Urac 4001, oAuth 4002 and Dashboard 4003. This means their maintenance ports are equal to 5000, 5001, 5002, 5003. Let's run the heartbeat on every service other than the controller:
+		We just ran a heartbeat check on the controller. The controller runs on port 4000 making his maintenance port 4000 + 1000 = 5000. Make a request to port 5000 followed by /hearbeat as a path parameter. You can perform the same operation for any other service. In the <a href="#/documentation/core/registry">registry</a> of SOAJS under dev environment, the services are configured to run on specific port numbers. The controller uses 4000, Urac 4001, oAuth 4002 and Dashboard 4003. This means their maintenance ports are equal to 5000, 5001, 5002, 5003. The same applies on the examples, their default ports are 4010, 4011, 4012, 4013 making their maintenance ports equal to 5010, 5011, 5012, 5013.<br />
+		Let's run the heartbeat on every service other than the controller:
 		<pre><code class="bash"># in the same terminal
 $ curl -X GET "http://127.0.0.1:5001/heartbeat"
 {"result":true,"ts":1427373613796,"service":{"service":"URAC","type":"rest","route":"/heartbeat"}}
@@ -201,6 +206,18 @@ $ curl -X GET "http://127.0.0.1:5002/heartbeat"
 
 $ curl -X GET "http://127.0.0.1:5003/heartbeat"
 {"result":true,"ts":1427373613796,"service":{"service":"DASHBOARD","type":"rest","route":"/heartbeat"}}
+
+$ curl -X GET "http://127.0.0.1:5010/heartbeat"
+{"result":true,"ts":1427373613796,"service":{"service":"EXAMPLE01","type":"rest","route":"/heartbeat"}}
+
+$ curl -X GET "http://127.0.0.1:5011/heartbeat"
+{"result":true,"ts":1427373613796,"service":{"service":"EXAMPLE02","type":"rest","route":"/heartbeat"}}
+
+$ curl -X GET "http://127.0.0.1:5012/heartbeat"
+{"result":true,"ts":1427373613796,"service":{"service":"EXAMPLE03","type":"rest","route":"/heartbeat"}}
+
+$ curl -X GET "http://127.0.0.1:5013/heartbeat"
+{"result":true,"ts":1427373613796,"service":{"service":"EXAMPLE04","type":"rest","route":"/heartbeat"}}
 </code></pre>
 		HOUSTON WE HAVE LIFTOFF!!!
 	</p>
@@ -208,7 +225,12 @@ $ curl -X GET "http://127.0.0.1:5003/heartbeat"
 	<hr/>
 	<p>
 		Our services are healthy, up and running and we already imported the sample data to the database so let's stop with the curl commands and head on to the dashboard GUI, login and have some fun. In your browser, open <a href="http://dashboard.soajs.org" target="_blank">http://dashboard.soajs.org</a>, login with username: <b>admin</b> and password: <b>password</b>. Once inside, change these credentials in Edit Profile section, you can also navigate through the sections of the dashboard to manage tenants, products and other information as explained in <a href="#/documentation/services/dashboard-service">Dashboard Services</a> and <a href="#/documentation/ui/dashboard-setup">Dashboard UI</a>.<br /><br />
-		SOAJS is now running with all its services on your machine, you can begin creating your services. Whenever you finish a service simply run it and it will be automatically detected and accessible via the controller. If you are not familiar with how to create a service, simply jump to <a href="#/getStarted">Get Started</a> where we explain 4 different types of services. The image below explains how your service will be integrated with the remaining services that you ran with the above command.
-		<img ng-src="images/documentation/deployment-overview4.png" style="max-width:95%" class="img-margin-t-b" />
+		SOAJS is now running with all its services on your machine, you can begin creating your services just like the examples are built. Create a folder for every service next to soajs.examples and add your code there. Check how to <a href="#/documenation/core/service">Create a service</a> in the documentation section and you can read more about the examples under <a href="#/getStarted">Get Started</a>.<br /><br />
+		Whenever you finish a service simply run it and because you have to add an entry for it in the registry, execute the maintenance operation <b>reloadRegistry</b> just like you did for <b>heartbeat</b> above in the controller. The controller will reload the registry that contains your new service information and you service will be automatically detected and accessible via the controller.
+		<pre><code class="bash">$ curl -X GET "http://127.0.0.1:5000/reloadRegistry"</code></pre>
+		If your service also has provisioned information, like Example 02,03 and 04, you need to execute a second maintenance operation to load the new provisioned information.
+		<pre><code class="bash">$ curl -X GET "http://127.0.0.1:5000/loadProvision"</code></pre>
+		Both maintenance operations have to be executed on the maintenance port of the controller, so that it can pick up the new configuration and direct the request that will be made to your service.
+		<img ng-src="images/documentation/deployment-aio2.png" class="img-margin-t-b" />
 	</p>
 </div>
