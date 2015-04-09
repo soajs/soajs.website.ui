@@ -1155,3 +1155,17 @@ div.bulletin div.body div.img {
 .repoFeatures{
     padding-left: 10px;
 }
+#newsPage .bulletin{
+    width: 100%;
+
+}
+#newsPage .bulletin .body{
+    padding: 10px;
+}
+
+#newsPage .bulletin ul li{
+    margin-top: 15px;
+}
+#newsPage .bulletin ul li ul li{
+    margin-top: 0px;
+}
