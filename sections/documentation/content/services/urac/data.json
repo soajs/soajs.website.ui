@@ -45,7 +45,7 @@
         "source": "body",
         "mandatory": true,
         "default": "",
-        "notes": ""
+        "notes": "alphanumeric with _ , - characters only"
       },
       {
         "parameter": "password",
@@ -253,7 +253,7 @@
         "source": "body",
         "mandatory": true,
         "default": "",
-        "notes": ""
+        "notes": "alphanumeric with _ , - characters only"
       },
       {
         "parameter": "firstName",
@@ -277,7 +277,7 @@
         "source": "body",
         "mandatory": false,
         "default": "",
-        "notes": "can be a stringified object."
+        "notes": "a stringified object."
       }
     ]
   },
@@ -291,7 +291,7 @@
         "source": "body",
         "mandatory": true,
         "default": "",
-        "notes": ""
+        "notes": "alphanumeric with _ , - characters only"
       },
       {
         "parameter": "firstName",
@@ -367,7 +367,7 @@
         "source": "body",
         "mandatory": true,
         "default": "",
-        "notes": ""
+        "notes": "alphanumeric with _ , - characters only"
       },
       {
         "parameter": "firstName",

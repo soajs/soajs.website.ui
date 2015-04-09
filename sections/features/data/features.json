@@ -32,7 +32,7 @@
     "description": "SOAJS empowers you to secure your services with oAuth in addition to multitenant application key that can be controlled by device and geo location security as well as expiration date.",
     "leftImage": true,
     "imageLocation": "images/features/security.png",
-    "fullDescription": "<p>SOAJS offers two security mechanism to protect your apis from outside and unwanted access:<ul class=\"std-list\"><li>API access can be protected using <a href=\"http://oauth.net/2/\">oAuth 2.0</a>. Requests that do not dispose of the correct authorization are blocked and do not get forwarded to the service.<br /><br /></li><li>API access can also be protected by tenant keys; if a key is not provided, the API is inaccessible.<br />Keys are secured by expiration dates, device access restrictions and geo location access restrictions. The tenant key allows you to control the security by tenant down to the user.</li></ul>",
+    "fullDescription": "<p>SOAJS offers two security mechanisms to protect your apis from outside and unwanted access:<ul class=\"std-list\"><li>API access can be protected using <a href=\"http://oauth.net/2/\">oAuth 2.0</a>. Requests that do not dispose of the correct authorization are blocked and do not get forwarded to the service.<br /><br /></li><li>API access can also be protected by tenant keys; if a key is not provided, the API is inaccessible.<br />Keys are secured by expiration dates, device access restrictions and geo location access restrictions. The tenant key allows you to control the security by tenant down to the user.</li></ul>",
     "icon": "images/homepage/security.png"
   },
   {

@@ -31,10 +31,6 @@ a:hover {
     color: #DA9437;
 }
 
-.examples img {
-    width: 300px;
-}
-
 .redFlag {
     width: 100%;
     margin: 5px 0;
@@ -206,7 +202,7 @@ a:hover {
     border-radius: 5px;
     font-size: 18px;
     height: 43px;
-    padding: 6px 40px 8px;
+    padding: 6px 37px 8px;
     float: right;
     margin-right: 15px;
     /*margin-top: -5px;*/
@@ -1038,7 +1034,9 @@ hr.white {
 .topbar .documentation {
     width: 143px;
 }
-
+.topbar .news {
+    width: 77px;
+}
 .topbar .contactUs {
     width: 113px;
 }
@@ -1144,4 +1142,30 @@ div.bulletin div.body div.img {
 
 .t-left{
     text-align: left
+}
+
+.releaseDate{
+    float: right;
+}
+.releases{
+    border: 1px solid;
+    padding: 10px;
+}
+
+.repoFeatures{
+    padding-left: 10px;
+}
+#newsPage .bulletin{
+    width: 100%;
+
+}
+#newsPage .bulletin .body{
+    padding: 10px;
+}
+
+#newsPage .bulletin ul li{
+    margin-top: 15px;
+}
+#newsPage .bulletin ul li ul li{
+    margin-top: 0px;
 }
