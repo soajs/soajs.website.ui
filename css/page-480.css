@@ -135,7 +135,10 @@
     .left-sidebar section{
         padding-left: 1%;
         padding-right: 3%;
-        width: auto;
+        width: 23%;
+    }
+    .left-sidebar section#deployment , .left-sidebar section#dashbd{
+        width: 26%;
     }
     .left-sidebar .left-menu section section h4 {
         font-size: 12px;
@@ -207,11 +210,8 @@
         /*display: none;*/
     }
 
-    .bottom .copyright {
-        width: 155px;
-    }
     #section-footer .bottom .copyright {
-        width: 155px;
+        /*width: 155px;*/
     }
     /*repos*/
     .white-banner .banner-container .repos ul li {
@@ -256,6 +256,19 @@
     #section-footer .bottom  .copyright{
         width: 300px;
     }
+    .twitter-icon img{
+        width: 30px;
+        margin-top: 5px;
+    }
+    .small-button {
+        font-size: 12px;
+        height: 30px;
+        padding: 6px 14px 8px;
+        margin-right: 8px;
+        margin-top: 5px;
+        background-color: #FFB500;
+        background-image: none;
+    }
 }
 
 @media (max-width: 400px) {
@@ -287,27 +300,11 @@
     .banner .about-container ul{
         padding-left: 20px;
     }
-    .bottom .copyright{
-        width:150px;
-    }
-    .small-button {
-        font-size: 12px;
-        height: 30px;
-        padding: 6px 14px 8px;
-        margin-right: 8px;
-        margin-top: 5px;
-        background-color: #FFB500;
-        background-image: none;
-    }
-    .twitter-icon img{
-        width: 30px;
-        margin-top: 5px;
-    }
+
     .powered-by-container{
         display: none;
         width: 10px;
     }
-
     .left-sidebar .left-menu h4{
         font-size: 13px;
     }
@@ -331,6 +328,10 @@
     .white-banner .banner-container .repos {
         display: none;
     }
+    .small-button {
+        padding: 6px 12px 8px;
+        margin-right: 8px;
+    }
 }
 
 @media (max-width: 340px) {
@@ -346,10 +347,6 @@
         font-size: 12px;
         padding: 10px 0;
     }
-    .bottom .copyright{
-        width:270px;
-    }
-
     #section-footer, .soajs-features, .whyBeaver{
         width: 320px;
         margin: 0 auto;
@@ -362,7 +359,9 @@
         width: 320px;
         padding: 50px 0 50px;
     }
-
+    .left-sidebar section, .left-sidebar section#deployment, .left-sidebar section#dashbd{
+        width: auto;
+    }
     .soajs-features .features-container .feature-list li {
         /*width: 90%;*/
     }
@@ -389,7 +388,6 @@
     #oauth-config{
         width: 280px;
     }
-
     #twitter-badge{
         float:right;
         margin:20px 0 0 0;

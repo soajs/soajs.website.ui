@@ -11,6 +11,14 @@ var navigation = [
 		'scripts': ['sections/home/controller.js']
 	},
 	{
+		'id': 'news',
+		'label': 'News',
+		'title': 'SOAJS | News',
+		'url': '#/news',
+		'tplPath': 'sections/news/page.html',
+		'scripts': ['sections/news/controller.js']
+	},
+	{
 		'id': 'contactUs',
 		'label': 'contactUs',
 		'title': 'SOAJS | Contact Us',

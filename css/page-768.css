@@ -32,7 +32,8 @@
     }
 
     .small-button{
-        padding: 6px 35px 8px;
+        padding: 6px 33px 8px;
+        font-size: 16px;
     }
 
     .banner .banner-container .left-main {
@@ -162,6 +163,17 @@
     .bottom {
         font-size: 16px;
     }
+
+    .topbar .getStarted {
+        width: 105px;
+    }
+    .topbar .topnav li.getStarted a{
+        margin-left: 0;
+    }
+    .topbar .branding {
+        width:173px;
+    }
+
 }
 @media (max-width: 768px) {
     body, html {
@@ -177,9 +189,6 @@
         width: 98%;
     }
 
-    .topbar .branding {
-        width:173px;
-    }
     #indexjsImg{
         float:none;
     }
@@ -333,4 +342,80 @@
     #beaverImg1{
         margin-right: 10px;
     }
+
+    .topbar .topnav li.active a, .topbar .topnav li:hover a{
+        border-bottom: none;
+    }
+
+    .topbar .contactUs, .topbar .documentation, .topbar .features, .topbar .getStarted, .topbar .news{
+        width: 100%;
+    }
+    .topbar .menu{
+        display: block !important;
+    }
+    .topbar .menu.menu-open{
+        background-color: rgb(53, 90, 118);
+    }
+
+    .topbar .topnav{
+        background-color: rgb(53, 90, 118);
+        display: none;
+        padding: 0;
+        position: absolute;
+        right: 0;
+        top: 60px;
+        width: 200px;
+    }
+    .topbar .topnav li{
+        border-bottom: 1px solid rgb(65, 100, 126);;
+        float: none;
+        font-size: 20px;
+        height: 45px;
+    }
+    .topbar .topnav li.no-mobile{
+        display: none;
+    }
+    .topbar .topnav li a{
+        box-sizing: border-box;
+        color: #fff;
+        display: block;
+        font-weight: 400;
+        margin: 0;
+        padding: 7px 25px 13px 25px;
+        width: 100%;
+    }
+    .topbar .topnav li a.current{
+        border-bottom: medium none;
+        color: #41bac2;
+        font-weight: 600;
+    }
+    .topbar .topnav li.active a {
+        color: white;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+    .topbar .topnav li:last-child {
+        border-bottom: medium none;
+    }
+    .topbar .topnav li:last-child a {
+        padding-bottom: 16px;
+    }
+    .topbar .topnav.menu-open {
+        display: block;
+    }
+
+    .topbar .topnav li.active, .topbar .topnav li:hover {
+        background-color: rgb(223, 150, 48);
+        transition: all 0.25s ease 0s;
+        text-decoration: none;
+        font-weight: normal;
+        color:white;
+    }
+
+    .topbar .topnav li.active a, .topbar .topnav li:hover a {
+        text-decoration: none;
+        font-weight: normal;
+        color:white;
+    }
+
 }
