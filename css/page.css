@@ -1186,7 +1186,8 @@ div.bulletin div.body div.img {
 }
 
 #newsPage .bulletin ul li ul li:before {
-    color:#df9630;
+    /*color:#df9630;*/
+    color:rgb(34, 34, 34);
     content: "\2022";
     position:absolute;
     left:10px;
@@ -1199,4 +1200,18 @@ div.bulletin div.body div.img {
 
 #newsPage b{
     color:rgb(53, 90, 118);
+    /*color:#df9630;*/
+}
+
+#newsPage b.etest{
+    color: rgb(119,34,100);
+}
+#newsPage b.feature{
+    color: #139948;
+}
+#newsPage b.bug{
+    color: #e41f28;
+}
+#newsPage b.update{
+    color:#df9630;
 }
