@@ -2,87 +2,137 @@
 <h1>Cloud with Awareness</h1>
 <div class="white-container">
 	<p>
-		SOAJS is cloud ready by design, from day one we designed SOAJS to be multi environment, multi project and multi configuration. An ideal deployment for SOAJS would be to have an all in one deployment for a development environment and a cloud deployment for QA, staging and Production
-		environments.<br/>
-		SOAJS comes with a dashboard that allows you to graphically configure, manage and view the analytics in one location for all your environments. Since your development environment is all in one and has its own dashboard, please visit the <a href="#/documentation/deployment/all-in-one">All In
-		One</a> documentation. For the remaining environments, this is how the deployment should look like.<br/>
+		SOAJS is cloud ready by design, from day one we designed SOAJS to be multi environment, multi project and multi configuration. Ideally if you want to build a product, you want to have the following enviornments:
+	</p>
+	<ul>
+		<li>Development</li>
+		<li>Staging</li>
+		<li>QA</li>
+		<li>Production</li>
+	</ul>
+	<p>You do not need a cloud deployment for your development environment, please checkout <a href="#/documentation/deployment/all-in-one">All In
+		One</a> deployment for this purpose.<br />
+		For the remaining environments, this is how the deployment should look like.<br/>
 		<img ng-src="images/documentation/deployment-cloud1.png"/><br/>
-		Understanding the above architecture and the separation between data layer and the environments as well as the distribution of these environments and independency from one another is crucial to learning how to deploy SOAJS on the cloud and configure it.<br/>
+		In the above image, you will see a dashboard environment where  the remaining three other environments pull their provisioning information from its data layer. This is done in a way to centralize and make it easy to manage the environments.<br/>
 	</p>
 	<hr/>
 	<img ng-src="images/documentation/deployment-cloud2.png" class="image-right"/>
 
 	<p>
-		Every environment in the cloud above has the following layers:
+		Before we start explaining how to do the cloud deployment, let us go over the different layers you have in every environment:
 	</p>
 	<ol>
-		<li><b>DNS</b>:<br/>
-			This layer handles the load balancing and distribution of requests, you can use something like <a href="http://www.dyn.com" target="_blank">DynDns</a> or other.
-		</li>
-		<li><b>Nginx</b>:<br/>
-			This is the front end layer used for upstreaming and redirects traffic to the controllers.
-		</li>
-		<li><b>Controller</b>:<br/>
-			This layers forwards request to services and uses HAproxy for awareness, requests are also distributed on the cloud of available services.
-		</li>
-		<li><b>Services</b>:<br/>
-			This layer represents the cloud of services. You can have a cloud for one or many services combined together.<br/>
-			These services handle requests forwarded by controllers and communicate with the data layer and uses HAproxy for awareness.
-		</li>
-		<li><b>Data Layer</b>:<br/>
-			This is the Database Layer where information is stored on replica sets. The database can also be sharded for performance improvement.
-		</li>
+		<li><b>DNS</b>: You will use the DNS load balance to balance among the multiple Nginx deployment whether their in the same data center or in separate data centers distributed geographically. You can use something like <a href="http://www.dyn.com" target="_blank">DynDns</a> for this purpose.</li>
+		<li><b>Nginx</b>: This layer is the front end layer of your deployment and redirects traffic using upstream into SOAJS controllers.</li>
+		<li><b>Controller</b>: This layer works closely with HAproxy to create awareness and forwards requests towards the SOAJS services layer.</li>
+		<li><b>Services</b>: This layer consist of one or many cloud each serving one or many service. Also if needed, this layer works closely with HAproxy to create awareness.</li>
+		<li><b>Data Layer</b>: This is the data layer where information is being stored. This layer can be configured as a replica set and can be sharded as well.</li>
 	</ol>
+	<br/>
 	<p>
-		The above environments (QA, Staging, Production) are similar but their usage is different; production environment has more instances than the other two and servers more traffic. That is why we will pick the Dashboard and Production environments and show how to get them up and running.
+		We will explain how to build the Dashboard and the Production Environments since Staging and QA environments are an exact replica with less instances from the Production.
 	</p>
 	<p>
-		The Dashboard and Production environments have the above architecture, the difference between them resides in the services and the content of the data layer. Both environments use Nginx, controllers and HAproxy the same way.<br/>
-		The Dashboard environment contains the urac and the dashboard in its services layer and communicates with the core database to manage the provisioned information for all other environments.<br/>
-		The Production environment contains the urac and oauth services in its services layer and only reads the provisioned information from core and communicates with another Data layer to manage the custom data of that environment.<br/>
+		The Dashboard and Production environments have the same layers as explained above, the only difference is at the services layer where for dashboard we will install soajs.urac an soajs.dasboard, and for production we will install soajs.urac and soaj.oauth and soajs.examples to be able to run some tests.<br />
 	</p>
+	<br/>
+	<hr/>
+	<h3>Requirement:</h3>
+	<table class="myTable" width="100%">
+		<thead>
+			<tr>
+				<th>Layer Name</th>
+				<th>Number of instances</th>
+				<th>Hostname</th>
+			</tr>
+		</thead>
+		<tr class="odd">
+			<td>Nginx</td>
+			<td>3</td>
+			<td>nginx_01, nginx_02, nginx_03</td>
+		</tr>
+		<tr class="even">
+			<td>Controller</td>
+			<td>3</td>
+			<td>controller_01, controller_02, controller_03</td>
+		</tr>
+		<tr class="odd">
+			<td>Services</td>
+			<td>3</td>
+			<td>services_01, services_02, services_03</td>
+		</tr>
+		<tr class="even">
+			<td>Data</td>
+			<td>2</td>
+			<td>data_01, data_02</td>
+		</tr>
+	</table>
 	<p>
-		In our Deployment, we have chosen to group the urac and oauth services of production environment together on the same server. We also chose to group the urac and dashboard services of dashboard environment together on the same server. Therefore, for our deployment we will have the following
-		number of servers for each environment:
+		The above table illustrates the different layers with the number of instances and their corresponding hostnames.<br />
+		In summary to build the dashboard environment, you will need 11 instances and for the production environment you will also need 11 instances.<br />
+		<em><u>Note:</u> Please note you can always combine layers and reduce the number of instances.</em>
 	</p>
-	<ul>
-		<li>
-			<b>Production:</b> 3 instances for Nginx, 3 instances for controllers, 3 instances for services and 3 instances for the data layer.
-		</li>
-		<li>
-			<b>Dashboard:</b> 3 instances for Nginx, 3 instances for controllers, 3 instances for services and 3 instances for the data layer.
-		</li>
-	</ul>
+	<br/>
+	<table width="100%" class="myTable">
+		<thead>
+			<tr>
+				<th>Environment Name</th>
+				<th>Domain</th>
+			</tr>
+		</thead>
+		<tr>
+			<td>Dashboard</td>
+			<td>dashboard.soajs.org<br />dashboard-api.soajs.org</td>
+		</tr>
+		<tr class="even">
+			<td>Staging</td>
+			<td>staging-api.soajs.org</td>
+		</tr>
+		<tr>
+			<td>QA</td>
+			<td>qa-api.soajs.org</td>
+		</tr>
+		<tr class="even">
+			<td>Production</td>
+			<td>api.soajs.org</td>
+		</tr>
+	</table>
 	<p>
-		Each of the 3 instances of services in production environment will contain both urac and oauth services. The same applies on the instances of dashboard environment, each will contain both urac and dashboard services.
+		The above table illustrates the corresponding subdomains used per environment. However you can have different domains and subdomains per environment and this can be configured at the <a href="#/documentation/core/registry">Registry</a>.
 	</p>
+	<br />
 	<hr/>
 
 	<h2>Installation</h2>
 
-	<p>
-		We mentioned above that both Dashboard and Production environments have the same architecture and that they differ in their services and their usage of the data layer. This means that the Nginx, the Controller and the Data Layers are the configured the same way, they just have different IP addresses. Let's start installing those common layers, then jump to the Services Layer.<br />
-		Before we begin, configure our DNS to point:
-	</p>
-	<ol>
-		<li><b>api.soajs.org</b> to the dashboard API on the dashboard environment</li>
-		<li><b>dashboard.soajs.org</b> to the dashboard UI on the dashboard environment</li>
-		<li><b>prod.soajs.org</b> to the production environment</li>
-	</ol>
 	<h3>Nginx Layer</h3>
 
 	<div>
 		<p>
+			<b>Docker:</b>
+			<div class="redFlag">Coming Soon.</div>
+		</p>
+		<br/>
+		<p>
+			<b>Manual:</b><br/>
 			Start by setting up 3 Machines for Dashboard Nginx Layer and 3 Machines for Production Nginx Layer.<br/>
-			For Production environment, we will call our machines: nginx-prod1, nginx-prod2, nginx-prod3.<br/>
-			For Dashboard environment, we will call our machines: nginx-dashboard1, nginx-dashboard2, nginx-dashboard3.<br/>
-			Install Nginx on each of these machines:
+			Install Node, Nginx and soajs.utilities on each of these machines:
 		</p>
 		<pre><code class="bash"># install Nginx latest stable version
-$ apt-get install nginx</code></pre>
+$ apt-get install nginx
+
+# install nodejs
+$ apt-get install nodejs
+
+# create directory path for soajs modules
+$ mkdir -p /opt/soajs/node_modules
+$ cd /opt/soajs/node_modules/
+
+# install soajs.utitlites
+$ npm install soajs.utitlies</code></pre>
 		<p>
-			When Nginx is installed, edit the configuration file; On Ubuntu the configuration file is located in /etc/nginx/nginx.conf, scroll to the bottom and instruct nginx to also look at the soajs.utilities/deployment/cloud/<b>%environment_name%</b>/nginx/conf/ folder and load all the
-			configuration files in it, add the line before the closing bracelet of http inside the nginx.conf.
+			When Nginx is installed, edit the configuration file; On Ubuntu the configuration file is located in /etc/nginx/nginx.conf, scroll to the bottom and instruct nginx to load all configuration files from soajs.utilities/deployment/cloud/<b>%environment_name%</b>/nginx/conf/ folder.
 		</p>
 		<pre><code class="javascript"># Dashboard Nginx Conf
 http {
@@ -96,33 +146,21 @@ http {
 	include /opt/soajs/soajs.utilities/deployment/cloud/production/nginx/conf/*.conf;
 }</code></pre>
 		<p>
-			This line will now load the Nginx configuration that SOAJS needs when Nginx starts. Inside the conf folder, you will find a file named upstream.conf. Edit that file and make sure you specify the correct IP addresses for the Controllers Layer that we will create in the next step. The same
-			IP addresses you put in this file will be given to the servers we will create for those controllers.<br/>
-			Then edit the hosts file of each Nginx machine and add the following:
+			Next, edit the hosts file of each Nginx machine and add the following:
 		</p>
-		<pre><code class="bash"># edit /etc/hosts of each nginx-dashboard* machine
+		<pre><code class="bash"># edit /etc/hosts of each nginx machine
 $ sudo gedit /etc/hosts
 
 # add these lines in /etc/hosts
-127.0.0.1 api.soajs.org 
-127.0.0.1 dashboard.soajs.org 
-
-# start Nginx
-$ sudo nginx</code></pre>
-		<br/>
-		<pre><code class="bash"># edit /etc/hosts of each nginx-prod* machine
-$ sudo gedit /etc/hosts
-
-# add these lines in /etc/hosts
-127.0.0.1 prod.soajs.org  
-
-# start Nginx
-$ sudo nginx</code></pre>
+192.168.0.51 controller_01
+192.168.0.52 controller_02
+192.168.0.53 controller_03</code></pre>
 		<p>
-			<em>You can also copy these entries from soajs.utilities/deployment/cloud/<b>%environment_name%</b>/hosts to your /etc/hosts file.</em><br/>
-			When Nginx starts, test the configuration you just created by opening your browser and invoke: <b>api.soajs.org</b>. Nginx will reply with a <b>502 Bad Gateway</b> Error instead of Server not Found. Till this point, this is normal because we
-			haven't started any service yet, but the important thing is that Nginx is now redirecting the requests to a local SOAJS server assuming that the later is up and running.
+			You will need to put the right IP addresses above.<br />
+			Start Nginx:
 		</p>
+		<pre><code class="bash"># start Nginx
+$ sudo nginx</code></pre>
 	</div>
 	<br/>
 	<hr/>
@@ -130,6 +168,12 @@ $ sudo nginx</code></pre>
 
 	<div>
 		<p>
+			<b>Docker:</b>
+		<div class="redFlag">Coming Soon.</div>
+		</p>
+		<br/>
+		<p>
+			<b>Manual:</b><br />
 			Similar to the above layer, we will set up 3 machines for dashboard controllers layer and 3 machines for production controllers layer.<br/>
 			On each controller machine, install nodejs and HAproxy, then install the controller and the utilities of SOAJS.<br/>
 			Execute the below commands in the terminal of each machine:
@@ -142,12 +186,12 @@ $ apt-get install nodejs
 
 # create folder path to put all soajs components in it
 $ mkdir -p /opt/soajs/node_modules/
+$ cd /opt/soajs/node_modules/
 
 # install SOAJS controller and utilities
 $ npm install soajs.controller
 $ npm install soajs.utilities</code></pre>
 		<p>
-			Configure HAproxy to tell the controllers what are the IP address of the services machines that we will create later on.<br/>
 			Copy the file soajs.utilities/deployment/cloud/<b>%environment_name%</b>/controller-haproxy.cfg to /etc/haproxy/ and rename it to haproxy.cfg then edit that file and put the correct IP addresses.<br/>
 			Each environment will have 3 services machines in its 3rd Layer, make sure you give the same IP addresses that you will enter in the haproxy.cfg to those machines.
 		</p>
@@ -189,180 +233,79 @@ $ cd /opt/soajs/node_modules/soajs.controller
 $ node .
 
 # start haproxy
-$ sudo service haproxy start</code></pre>
+$ service haproxy start</code></pre>
 		<p>
-			By now, Nginx and Controllers Layers are running, if you repeat the above step and open <b>api.soajs.org</b>, you will not get a <b>502 Bad Gateway</b> Error anymore, instead the controller will respond with an error message telling you that you have not requested any service, which is
-			also normal.
+			<u>Note:</u> you can use upstart for your controller service, we have included the upstart file under soajs.utilities/deployment/cloud/<b>%environment_name%</b>/upstart/soajs.controller.conf.
 		</p>
-		<pre><code class="javascript">{
-	"result": false,
-	"errors": {
-		"codes": [ 130 ],
-		"details": [
-			{
-				"code": 130,
-			"message": "Unknown service."
-			}
-		]
-	}
-}</code></pre>
 		<p>
-			Execute a heartbeat check on each controller by requesting the maintenance port:
+			By now, Nginx and Controllers Layers are running, execute a heartbeat check on each controller by requesting the maintenance port:
 		</p>
-		<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5000/heartbeat"</code></pre>
+		<pre><code class="bash">$ curl -X GET "http://dashboard-api.soajs.org:5000/heartbeat"</code></pre>
 		<h6>Response:</h6>
 		<pre><code class="javascript"> {"result":true,"ts":1427373613796,"service":{"service":"CONTROLLER","type":"rest","route":"/heartbeat"}}</code></pre>
 		<p>
-			You can perform the heartbeat check on the production controllers as well by calling <a href="http://prod.soajs.org:5000/heartbeat" target="_blank">http://prod.soajs.org:5000/heartbeat</a>.
+			You can perform the heartbeat check on the production controllers as well by calling <a href="http://api.soajs.org:5000/heartbeat" target="_blank">http://api.soajs.org:5000/heartbeat</a>.
 		</p>
 	</div>
 	<br/>
 	<hr/>
-	<h3>Data Layer</h3>
 
-	<div>
-		<p>
-			This is the 3rd common layer in our architecture, here we begin by installing the databases and configuring them to work as replica sets. We will require two sets of databases each replicated over 3 machines:
-		</p>
-		<ol>
-			<li><b>CORE</b>: contains provisioned information for tenants, products, environments, dashboard members and their sessions.</li>
-			<li><b>PROD</b>: contains tenant specific information as well as any other additional custom services databases information.</li>
-		</ol>
-		<img ng-src="images/documentation/core-db-replica.png"/><br/>
-
-		<p>
-			You can always add additional servers to distribute the load and expand. Your custom services databases do not need to be in the same set with the tenants databases, you can split those as well. Expand your database based on your need. For this tutorial we chose to group CORE databases
-			in one group and the other databases in another group resulting in two sets.
-		</p>
-		<p>
-			Start by creating 2 Machines (VMs) and install mongodb on each of them. Give your Virtual Machines fixed IP addresses, we will connect to these them later on, for this tutorial we will refer to these two machines by mongo-core and mongo-prod.
-			<pre><code class="bash">#install MongoDB latest stable version on mongo-core
-$ apt-get install mongodb
-
-# edit /etc/hosts of mongo-core
-127.0.0.1 mongo-core
-
-#install MongoDB latest stable version on mongo-prod
-$ apt-get install mongodb
-
-# edit /etc/hosts of mongo-prod
-127.0.0.1 mongo-prod</code>
-			</pre>
-		Once mongo is installed, create a replica set of 3 databases on each of these machines. If you are not familiar with Replica Sets, visit the official <a href="http://docs.mongodb.org/manual/tutorial/deploy-replica-set/" target="_blank">mongodb replica set documentation</a>. Our first replica
-		set will run on mongo-core and will contain the CORE databases, the second replica set will run on mongo-prod and will contain the production database. Complete the steps below on each of the machnies, to get both replica set up and running:
-		<tabset>
-			<tab heading="Core Replica Set Instructions">
-				<div ng-init="loadCode(path + 'deployment/cloud-awareness/coreReplSet.txt', 'coreReplSet');"></div>
-				<div id="coreReplSet"></div>
-			</tab>
-			<tab heading="Prod Replica Set Instructions">
-				<div ng-init="loadCode(path + 'deployment/cloud-awareness/prodReplSet.txt', 'prodReplSet');"></div>
-				<div id="prodReplSet"></div>
-			</tab>
-		</tabset>
-		</p>
-		<p>
-			By now both machines have mongo installed and running as replica set, navigate to mongo-core, install soajs.mongodb.data and import the core sample data to the database.
-		</p>
-		<pre><code class="bash"># install soajs.mongodb.data
-$ npm install soajs.mongodb.data
-
-# import the core sample data
-$ cd soajs.mongodb.data/modules/dashboard-ui/
-$ chmod +x import.sh
-$ ./import.sh</code></pre>
-		<p>
-			The shell script will create 1 tenant, 1 product, 1 user and 1 group in our core database and will replicate the information on all members of the replica set we created. We will use this sample data later on when everything is running. After executing the script connect to mongo and
-			list the databases to verify the last step.
-		</p>
-		<pre><code class="bash"># connect to mongo on mongo-core VM
-$ mongo
-
-# show the databases
-mongo > show dbs
-core_provision 0.078GB
-local 0.078GB
-dashboard_urac 0.078GB
-admin (empty)
-
-# switch to core_provision db
-mongo > use core_provision
-
-# list collections in the db
-mongo > show collections
-environment
-oauth_token
-oauth_urac
-products
-system.indexes
-tenants</code></pre>
-		<p>
-			The above command will list the databases and the collections of core_provision inside the mongo-core. This database information is used by SOAJS services and is considered as the core data.
-		</p>
-	</div>
-	<br/>
-	<hr/>
 	<h3>Services Layer</h3>
 
 	<div>
 		<p>
-			Similar to the above 3 layers, we will create 3 machines for each environment and install the services needed on them. for the Dashboard environment we will install both Urac and Dashboard services on the same machines and for Production environment we will install both Urac and oAuth
-			services on the same machines.<br/>
+			<b>Docker:</b>
+		<div class="redFlag">Coming Soon.</div>
 		</p>
-		<h4>Installation:</h4>
-
+		<br/>
 		<p>
-			Create 3 machines for Dashboard services and 3 other machines for Production services. On all 6 machines, install haproxy, nodejs, soajs.utilities and soajs.urac by running the below commands:
-		</p>
-		<pre><code class="bash"># install haproxy
-$ apt-get install haproxy
+			<b>Manual:</b><br/>
 
-# install nodejs
+			Similar to above, create 3 machines for each environment and install the services needed on them. For Dashboard environment install both Urac and Dashboard services as for Production environment install both Urac and oAuth.<br/>
+			On all 6 machines, install nodejs, soajs.utilities and soajs.urac by running the below commands:
+		</p>
+		<pre><code class="bash"># install nodejs
 $ apt-get install nodejs
 
 # create folder path to put all soajs components in it
 $ mkdir -p /opt/soajs/node_modules/
+$ cd /opt/soajs/node_modules/
 
 # install soajs.utilities
 $ npm install soajs.utilities
 
 # install soajs.urac
-$ npm install soajs.urac</code>
-		</pre>
+$ npm install soajs.urac</code></pre>
 		<p>
 			Install the dashboard service on the machines that are used by the Dashboard environment by running the below command:
 		</p>
 		<pre><code class="bash">$ npm install soajs.dashboard</code></pre>
 		<p>
-			Install the oAuth service on the machines that are used by the Production environment by running the below command:
+			Install the oAuth and examples services on the machines that are used by the Production environment by running the below command:
 		</p>
-		<pre><code class="bash">$ npm install soajs.oauth</code></pre>
+		<pre><code class="bash">$ npm install soajs.oauth
+
+#install SOAJS examples
+$ npm install soajs.examples</code></pre>
 		<br/>
 		<h4>Configuration:</h4>
 
 		<p>
-			Configure HAproxy on each machine to point to the controller of its environment. Again copy soajs.utilities/deployment/cloud/<b>%environment_name%</b>/services-haproxy.cfg to /etc/haproxy/ and rename it to haproxy.cfg then edit that file and put the correct IP addresses of the
-			corresponding
-			environment controllers.
-		</p>
-		<p>
-			Now point out the data layer on the services machines so that these services can connect to mongo-core, and mongo-prod by editing the /etc/hosts file on each machine and adding the following entries:
+			Point out the data layer on the services machines so that these services can communicate with the database when needed by editing the /etc/hosts file on each machine and adding the following entries:
 		</p>
 		<pre><code class="bash"># edit /etc/hosts of each Dashboard Services Machine
-192.168.0.101 mongo-core</code></pre>
-		<br/>
+192.168.0.101 data_01</code></pre>
+		<p>You will need to put the right IP addresses above.</p>
 		<pre><code class="bash"># edit /etc/hosts of each Production Services Machines
-192.168.0.101 mongo-core
-192.168.0.102 mongo-prod</code></pre>
-		<p>
-			Assuming you have chosen 192.168.0.101 for mongo-core and 192.168.0.101 for mongo-prod, the above snippets state how the hosts of the services machines should look like. If you chose different IP address, make sure you use the correct values.
-		</p>
+192.168.0.101 data_01
+192.168.0.102 data_02</code></pre>
+		<p>You will need to put the right IP addresses above.</p>
 		<br/>
 		<h4>Point out the Registry Profile</h4>
 
 		<p>
-			Similar to what we did in the controller layer, we need to point correct project to use on the services machines. The projects are located in soajs.utilities/deployment/cloud/<b>%environment_name%</b>/profiles/.<br/>
-			on each service machine, create 3 environment variables and give them the following values:
+			Similar to what we did in the controller layer, we need to point out the correct project to use on the services machines. The projects are located in soajs.utilities/deployment/cloud/<b>%environment_name%</b>/profiles/.<br/>
+			On each service machine, create 3 environment variables and give them the following values:
 		</p>
 		<pre><code class="bash"># set the environment name to dashboard
 $ export SOAJS_ENV=dashboard
@@ -387,50 +330,206 @@ $ export SOAJS_REGDIR=/opt/soajs/node_modules/soajs.utilities/deployment/cloud/p
 		<p>
 			Once you completed all above steps, start haproxy and all the services in all machines:
 		</p>
-		<pre><code class="bash"># repeat the below command for all urac services
+		<pre><code class="bash"># repeat the below command for all machines that have urac service
 $ cd /opt/soajs/node_modules/soajs.urac
-$ node .
-
-# repeat the below command for all dashboard services
+$ node .</code></pre>
+		<p>
+			<u>Note:</u> you can use upstart for your urac service, we have included the upstart file under soajs.utilities/deployment/cloud/<b>%environment_name%</b>/upstart/soajs.urac.conf.
+		</p>
+		<pre><code class="bash"># repeat the below command for all machines that has dashboard service
 $ cd /opt/soajs/node_modules/soajs.dashboard
-$ node .
-
-# repeat the below command for all oauth services
+$ node .</code></pre>
+		<p>
+			<u>Note:</u> you can use upstart for your dashboard service, we have included the upstart file under soajs.utilities/deployment/cloud/<b>%environment_name%</b>/upstart/soajs.dashboard.conf.
+		</p>
+		<pre><code class="bash"># repeat the below command for all machines that has oauth service
 $ cd /opt/soajs/node_modules/soajs.oauth
+$ node .</code></pre>
+		<p>
+			<u>Note:</u> you can use upstart for your oauth service, we have included the upstart file under soajs.utilities/deployment/cloud/<b>%environment_name%</b>/upstart/soajs.oauth.conf.
+		</p>
+		<pre><code class="bash"># repeat the below command for all machines that has examples service
+$ cd /opt/soajs/node_modules/soajs.examples/example01
 $ node .
-
-# repeat the below command on all servers to run haproxy
-$ service haproxy start</code></pre>
+$ cd /opt/soajs/node_modules/soajs.examples/example02
+$ node .
+$ cd /opt/soajs/node_modules/soajs.examples/example03
+$ node .
+$ cd /opt/soajs/node_modules/soajs.examples/example04
+$ node .</code></pre>
+		<p>
+			<u>Note:</u> you can use upstart for your examples service, we have included the upstart file under soajs.utilities/deployment/cloud/<b>%environment_name%</b>/upstart/soajs.examples.conf.
+		</p>
 		<br/>
 		<h4>Testing the Services:</h4>
 		<p>
 			We mentioned in the <a href="#/documentation/services/controller">Controller</a> section that you can run a maintenance check on any service built with SOAJS. When a service starts, it will listen to two ports: the default port and the maintenance port.<br />
-			Let's run some maintenance heartbeat requests to see the status of our services.<br />
-			Navigate to the Dashboard Nginx VM, then execute the following commands:
+			In the <a href="#/documentation/core/registry">registry</a> of SOAJS, the services are configured to run on specific port numbers.
 		</p>
-		<pre><code class="bash"># in a new terminal
-$ curl -X GET "http://api.soajs.org:5000/heartbeat"
-{"result":true,"ts":1427373613796,"service":{"service":"CONTROLLER","type":"rest","route":"/heartbeat"}}
-
-$ curl -X GET "http://prod.soajs.org:5000/heartbeat"
-{"result":true,"ts":1427373613796,"service":{"service":"CONTROLLER","type":"rest","route":"/heartbeat"}}
-		</code></pre>
+		<table width="100%" class="myTable">
+		<thead>
+			<tr>
+				<td>Service&nbsp;Name</td>
+				<td>Default&nbsp;Port</td>
+				<td>Maintenance&nbsp;Port</td>
+				<td>Operation</td>
+			</tr>
+		</thead>
+		<tr class="odd">
+			<td>Controller</td>
+			<td>4000</td>
+			<td>5000</td>
+			<td>heartbeat</td>
+		</tr>
+		<tr class="even">
+			<td>Urac</td>
+			<td>4001</td>
+			<td>5001</td>
+			<td>heartbeat</td>
+		</tr>
+		<tr class="odd">
+			<td>oAuth</td>
+			<td>4002</td>
+			<td>5002</td>
+			<td>heartbeat</td>
+		</tr>
+		<tr class="even">
+			<td>Dashboard</td>
+			<td>4003</td>
+			<td>5003</td>
+			<td>heartbeat</td>
+		</tr>
+		<tr class="odd">
+			<td>Example01</td>
+			<td>4010</td>
+			<td>5010</td>
+			<td>heartbeat</td>
+		</tr>
+		<tr class="even">
+			<td>Example02</td>
+			<td>4011</td>
+			<td>5011</td>
+			<td>heartbeat</td>
+		</tr>
+		<tr class="odd">
+			<td>Example03</td>
+			<td>4012</td>
+			<td>5012</td>
+			<td>heartbeat</td>
+		</tr>
+		<tr class="even">
+			<td>Example04</td>
+			<td>4013</td>
+			<td>5013</td>
+			<td>heartbeat</td>
+		</tr>
+		</table>
 		<p>
-			We just ran a heartbeat check on the controllers. The controller runs on port 4000 making his maintenance port 4000 + 1000 = 5000. Make a request to port 5000 followed by /hearbeat as a path parameter. You can perform the same operation for any other service. In the registry of SOAJS under dev environment, the services are configured to run on specific port numbers. The controller uses 4000, Urac 4001, oAuth 4002 and Dashboard 4003. This means their maintenance ports are equal to 5000, 5001, 5002, 5003. Let's run the heartbeat on every service other than the controller:
+			Let's run some maintenance heartbeat requests to see the status of our services:
 		</p>
-		<pre><code class="bash"># in the same terminal
+		<pre><code class="bash">#
+# Testing Dashboard services
+#
+$ curl -X GET "http://dashboard-api.soajs.org:5001/heartbeat"
+{"result":true,"ts":1427373613796,"service":{"service":"URAC","type":"rest","route":"/heartbeat"}}
+
+$ curl -X GET "http://dashboard-api.soajs.org:5003/heartbeat"
+{"result":true,"ts":1427373613796,"service":{"service":"DASHBOARD","type":"rest","route":"/heartbeat"}}
+
+#
+# Testing Production services
+#
 $ curl -X GET "http://api.soajs.org:5001/heartbeat"
 {"result":true,"ts":1427373613796,"service":{"service":"URAC","type":"rest","route":"/heartbeat"}}
 
-$ curl -X GET "http://api.soajs.org:5003/heartbeat"
-{"result":true,"ts":1427373613796,"service":{"service":"DASHBOARD","type":"rest","route":"/heartbeat"}}
-
-$ curl -X GET "http://prod.soajs.org:5001/heartbeat"
-{"result":true,"ts":1427373613796,"service":{"service":"URAC","type":"rest","route":"/heartbeat"}}
-
-$ curl -X GET "http://prod.soajs.org:5002/heartbeat"
+$ curl -X GET "http://api.soajs.org:5002/heartbeat"
 {"result":true,"ts":1427373613796,"service":{"service":"OAUTH","type":"rest","route":"/heartbeat"}}
+
+$ curl -X GET "http://api.soajs.org:5010/heartbeat"
+{"result":true,"ts":1427373613796,"service":{"service":"EXAMPLE01","type":"rest","route":"/heartbeat"}}
+
+$ curl -X GET "http://api.soajs.org:5011/heartbeat"
+{"result":true,"ts":1427373613796,"service":{"service":"EXAMPLE02","type":"rest","route":"/heartbeat"}}
+
+$ curl -X GET "http://api.soajs.org:5012/heartbeat"
+{"result":true,"ts":1427373613796,"service":{"service":"EXAMPLE03","type":"rest","route":"/heartbeat"}}
+
+$ curl -X GET "http://api.soajs.org:5013/heartbeat"
+{"result":true,"ts":1427373613796,"service":{"service":"EXAMPLE04","type":"rest","route":"/heartbeat"}}
 		</code></pre>
+	</div>
+	<br/>
+	<hr/>
+	<h3>Data Layer</h3>
+
+	<div>
+		<p>
+			Create 2 Machines and install mongodb on them; these machines will be used for each environment to install the databases and configuring them to work as replica sets.
+		</p>
+		<ol>
+			<li><b>data_01</b>: contains provisioned information for tenants, products, environments, dashboard members and their sessions.</li>
+			<li><b>data_02</b>: contains tenant specific information as well as any other additional custom services databases information.</li>
+		</ol>
+		<img ng-src="images/documentation/core-db-replica.png"/><br/>
+
+		<p>
+			You can always add additional nodes to distribute the load and expand. For this tutorial we chose to group CORE databases in one group <b>data_01</b> and the other databases in another group <b>data_02</b> resulting in two sets.
+		</p>
+		<pre><code class="bash">#install MongoDB latest stable version on each machine
+$ apt-get install mongodb</code></pre>
+		<p>
+			Edit the hosts of each machine and point out the data layer hostnames:
+		</p>
+		<pre><code class="bash"># edit /etc/hosts of data_01
+127.0.0.1 data_01</code></pre>
+		<pre><code class="bash"># edit /etc/hosts of data_02
+127.0.0.1 data_02</code></pre>
+
+		<p>
+			Once mongo is installed, create a replica set of 3 databases on each of these machines. If you are not familiar with Replica Sets, visit the official <a href="http://docs.mongodb.org/manual/tutorial/deploy-replica-set/" target="_blank">mongodb replica set documentation</a>.<br />
+			Install soajs.mongodb.data on data_01 and import the core sample data to the database.
+		</p>
+		<pre><code class="bash"># install nodejs
+$ apt-get install nodejs
+
+# create directory path
+$ mkdir -p /opt/soajs/node_modules/
+$ cd /opt/soajs/node_modules/
+
+# install soajs.mongodb.data
+$ npm install soajs.mongodb.data
+
+# import the core sample data
+$ cd soajs.mongodb.data/modules/dashboard-ui/
+$ chmod +x import.sh
+$ ./import.sh</code></pre>
+		<p>
+			The shell script will create 1 tenant, 1 product, 1 user and 1 group in our core database and will replicate the information on all members of the replica set. After executing the script connect to mongo and list the databases to verify that the last step imported the data:
+		</p>
+		<pre><code class="bash"># connect to mongo on data_01
+$ mongo
+
+# show the databases
+mongo > show dbs
+core_provision 0.078GB
+local 0.078GB
+dashboard_urac 0.078GB
+admin (empty)
+
+# switch to core_provision db
+mongo > use core_provision
+
+# list collections in the db
+mongo > show collections
+environment
+oauth_token
+oauth_urac
+products
+system.indexes
+tenants</code></pre>
+		<p>
+			The above command will list the databases and the collections of core_provision inside data_01. This database information is used by SOAJS services and is considered as the core data. Dashboard services manage the data in these collections and Production services only read the information they need from them.
+		</p>
 	</div>
 	<br/>
 	<hr/>
@@ -438,24 +537,24 @@ $ curl -X GET "http://prod.soajs.org:5002/heartbeat"
 	<p>
 		When completing the above deployment, your cloud will resemble the following diagram:<br />
 		<img ng-src="images/documentation/deployment-cloud3.png"><br />
-		Both environments have their servers and connect to their data layers, production environment should be able to connect to mongo-core to load provisioned information.<br />
+		Both environments have their servers and connect to their data layers, production environment should be able to connect to data_01 and read provisioned information.<br />
 	</p>
 	<br/>
 	<hr/>
 	<h3>Your Service</h3>
 	<p>
-		Now that you have both environments set up, you can deploy your custom services in the production environment and add their databases in the Mongo-Prod. Your custom services should be placed in the services layer next to Urac and oAuth.<br />
+		Now that you have both environments set up, you can deploy your custom services in the production environment and add their databases in the data_02. Your custom services should be placed in the services layer next to Urac and oAuth.<br />
 		<img ng-src="images/documentation/deployment-cloud4.png"><br />
-		Just like the other services of SOAJS your service will manage its Data(if any) in mongo-prod and SOAJS framework inside your service as explained in the last section of <a href="#/documentation/deployment/overview">Architecture Overview</a> will read the provisioned information of your service(if any) from mongo-core.<br />
+		Just like the other services of SOAJS your service will manage its Data(if any) in data_02 and SOAJS framework inside your service as explained in the last section of <a href="#/documentation/deployment/overview">Architecture Overview</a> will read the provisioned information of your service(if any) from data_01.<br />
 		Don't forget to reload the registry and provisioning after you deploy your services so that the controllers learn of its presence. After you install your service on the production environment, run it, then run the following commands to reload both registry and provisioning:
 	</p>
 	<pre><code class="bash"># reload Registry
-$ curl -X GET "http://prod.soajs.org:5000/reloadRegistry"
+$ curl -X GET "http://api.soajs.org:5000/reloadRegistry"
 
 # reload Provisioning
-$ curl -X GET "http://prod.soajs.org:5000/loadProvisioning"</code></pre>
+$ curl -X GET "http://api.soajs.org:5000/loadProvisioning"</code></pre>
 	<p>
-		Both maintenance operations have to be executed on the maintenance port of the controller, so that it can pick up the new configuration and direct the request that will be made to your service. Your service will be come accessible via the following URI: <a href="http://prod.soajs.com/your_service/your_api" target="_blank">http://prod.soajs.com/your_service/your_api</a>.
+		Both maintenance operations have to be executed on the maintenance port of the controller, so that it can pick up the new configuration and direct the request that will be made to your service.<br />Your service will be come accessible via the following URI: <a href="http://api.soajs.com/your_service/your_api" target="_blank">http://api.soajs.com/your_service/your_api</a>.
 	</p>
 	<br/>
 	<hr/>
