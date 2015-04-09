@@ -16,150 +16,118 @@
 					Release Notes:
 					<ul>
 						<li><b>soajs</b> <span class="repoVersion">version 0.0.2</span>
-
+							SOAJS framework.
 							<div class="repoFeatures">
 								<div>
 									<b>Bug Fixes:</b>
 									<ul>
-										<li>
-											Updated how headers content-type are read in imfv
-										</li>
+										<li>Updated how headers content-type are read in imfv and parsed.</li>
 									</ul>
-
 								</div>
 								<div>
 									<b>Enhanced Tests:</b>
 									<ul>
-										<li>Added soajs.mongodb.data as dev dependency</li>
-										<li>Removed provisioned data from repo</li>
+										<li>Added soajs.mongodb.data as dev dependency and integrated it in test cases.</li>
+										<li>Removed old provisioned data from module.</li>
 									</ul>
-
-
 								</div>
 							</div>
 						</li>
-
 						<li><b>soajs.utilities</b> <span class="repoVersion">version 0.0.2</span>
-
+							SOAJS utilities repository.
 							<div class="repoFeatures">
-								contains config files for all in one deployment and cloud deployment
+								<div>
+									<b>Features:</b>
+									<ul>
+										<li>Created deployment AIO configuration data files.</li>
+										<li>Created deployment cloud & awareness configuration data files.</li>
+									</ul>
+								</div>
 							</div>
 						</li>
-
 						<li><b>soajs.urac</b> <span class="repoVersion">version 0.0.2</span>
-
+							SOAJS User Registration and Access Control.
 							<div class="repoFeatures">
 								<div>
 									<b>Updates:</b>
 									<ul>
-										<li>
-											Added group management apis
-										</li>
-										<li>
-											Updated login api and how dashboard ui permissions are being fetched
-										</li>
-										<li>
-											Added locked feature for user and group records to prevent deletion of administrator account from dashboard ui
-
-										</li>
-										<li>Updated imfv configuration to include new format for username parameters
-										</li>
+										<li>Added support to manage members groups.</li>
+										<li>Updated login API and how dashboard ui permissions are being fetched.</li>
+										<li>Added locked feature for user and group records to prevent deletion of administrator account from dashboard ui.</li>
+										<li>Updated IMFV configuration to include new format for username parameters.</li>
 									</ul>
-
-
 								</div>
 								<div><b>Enhanced Tests:</b>
 									<ul>
-										<li>Added new tests for group apis</li>
-										<li>Updated the email values in test cases</li>
-										<li>Added soajs.mongodb.data as dev dependency</li>
-										<li>Removed the tools folder from repo</li>
+										<li>Added new tests for group APIs</li>
+										<li>Updated email values in test cases.</li>
+										<li>Added soajs.mongodb.data as dev dependency and integrated in test cases.</li>
+										<li>Removed old provisioned data from module.</li>
 									</ul>
 								</div>
 							</div>
 						</li>
-
 						<li><b>soajs.dashboard</b> <span class="repoVersion">version 0.0.2</span>
-
+							SOAJS dashboard service and User Interface.
 							<div class="repoFeatures">
-								<div>
-									<b>Bug Fixes:</b>
-									<ul>
-										<li>
-											Updated how the acl object is posted from the ui
-										</li>
-										<li>Updated search function in ui grid library</li>
-									</ul>
-								</div>
 								<div>
 									<b>Updates:</b>
 									<ul>
-										<li>Added locked feature for environment, product and tenant. Locked records cannot be deleted</li>
-										<li>Updated how permissions are read after login in the ui</li>
-
-										<li>Updated ui form library</li>
-										<li>Under productization section: combined the management of products and packages under one page</li>
+										<li>Added locked feature for environment, product and tenant. Locked records cannot be deleted.</li>
+										<li>Updated how permissions are read after login in the UI.</li>
+										<li>Updated UI form library.</li>
+										<li>Under Productization section, combined the management of products and packages under one section.</li>
 									</ul>
 								</div>
 								<div>
 									<b>Enhanced Tests:</b>
 									<ul>
-										<li>Updated test data used in test cases</li>
-										<li>Added soajs.mongodb.data as dev dependency</li>
-										<li>Removed tools folder from the repo</li>
+										<li>Updated test data used in test cases.</li>
+										<li>Added soajs.mongodb.data as dev dependency and included it in test cases.</li>
+										<li>Removed old provisioned data from module.</li>
 									</ul>
 								</div>
 								<b>Features:</b>
 								<ul>
-									<li>Added new APIs to add/manage oauth users</li>
-									<li>
-										Added ui support for urac group management APIs
-									</li>
+									<li>Added new APIs to add/manage oauth users in service.</li>
+									<li>Added UI support for Urac group management APIs.</li>
 								</ul>
-
 							</div>
 						</li>
 						<li><b>soajs.oauth</b> <span class="repoVersion">version 0.0.3</span>
-
+							SOAJS oAuth Service.
 							<div class="repoFeatures">
 								<div>
 									<b>Enhanced Tests:</b>
 									<ul>
-										<li>Added soajs.mongodb.data to dev dependency</li>
-										<li>Removed tools folder from the repo</li>
+										<li>Added soajs.mongodb.data to dev dependency and included it in test cases.</li>
+										<li>Removed old provisioned data from module.</li>
 									</ul>
-
-
 								</div>
-
 							</div>
 						</li>
 						<li><b>soajs.examples</b> <span class="repoVersion">version 0.0.2</span>
-
+							SOAJS Services Examples Repository.
 							<div class="repoFeatures">
 								<div>
-
 									<b>Enhanced Tests:</b>
 									<ul>
-										<li>Added test cases to increase coverage</li>
-										<li>Added soajs.mongodb.data as dev dependency</li>
-										<li>Removed tools folder from repo</li>
+										<li>Added test cases to increase coverage.</li>
+										<li>Added soajs.mongodb.data as dev dependency and included it in test cases.</li>
+										<li>Removed old provisioned data from module.</li>
 									</ul>
 								</div>
 							</div>
 						</li>
 						<li><b>soajs.mongodb.data</b> <span class="repoVersion">version 0.0.1</span>
-
+							SOAJS Combined Test Data Repository.
 							<div class="repoFeatures">
 								<b>Features</b>
 								<ul>
 									<li>Created test data content for each module.</li>
 									<li>Updated mail service configuration to use sendmail.</li>
 								</ul>
-
 							</div>
-
-
 						</li>
 					</ul>
 				</div>
@@ -174,101 +142,98 @@
 				<div class="body">
 					Release Notes:
 					<ul>
-						<li><b>soajs</b> <span class="repoVersion">version 0.0.1</span>
-							<br>
-							This is the first major release of soajs framework.<br>
+						<li><b>soajs</b> <span class="repoVersion">version 0.0.1</span><br />
+							SOAJS framework.<br>
 
 							<div class="repoFeatures"><b>Features:</b>
 								<ul>
-									<li>Support for multiple services with cloud self awareness</li>
-									<li>Support for multiple projects, environments and configuration</li>
+									<li>Multi services with cloud self awareness</li>
+									<li>Multi projects, environments and configuration</li>
 									<li>Input mapping formatting & validation (IMFV)</li>
-									<li>Ability to secure services</li>
-									<li>Support for multitenancy & productization</li>
+									<li>Services APIs Security via tenant keys and oAuth 2.0</li>
+									<li>Multitenancy &amp; Productization</li>
 								</ul>
 							</div>
 						</li>
 						<li><b>soajs.controller</b> <span class="repoVersion">version 0.0.1</span>
-							<br>This is the first release of the soajs gateway controller.
+							<br>SOAJS main gateway service.
 							<div class="repoFeatures">
 
 								<b>Features:</b>
 								<ul>
-									<li>
-										Forwards requests to SOAJS services
-									</li>
+									<li>Forwards requests to SOAJS services</li>
 								</ul>
 							</div>
 						</li>
-
 						<li><b>soajs.utilities</b> <span class="repoVersion">version 0.0.1</span><br>
-							This is the first release of the soajs.utilities repo.
-							It contains nginx configuration instructions.
-						</li>
-
-						<li><b>soajs.urac</b> <span class="repoVersion">version 0.0.1</span>
-							<br>This is the first release of the soajs urac service.
+							SOAJS utilities repository.
 							<div class="repoFeatures">
 								<b>Features:</b>
 								<ul>
-									<li>
-										Guest users can join and login
-									</li>
-									<li>
-										Members can manage their accounts
-									</li>
-									<li>
-										Administrators can manage users
-									</li>
+									<li>Contains Nginx configuration instructions.</li>
+								</ul>
+							</div>
+						</li>
+						<li><b>soajs.urac</b> <span class="repoVersion">version 0.0.1</span>
+							<br>SOAJS User Registration and Access Control.
+							<div class="repoFeatures">
+								<b>Features:</b>
+								<ul>
+									<li>Registration & Login for Guest users</li>
+									<li>Profile Management of logged in members.</li>
+									<li>Members Accounts Management for Administrators.</li>
 								</ul>
 							</div>
 
 						</li>
-
 						<li><b>soajs.dashboard</b> <span class="repoVersion">version 0.0.1</span><br>
-							This is the first release of the soajs.dashboard service.
-							The dashboard service allows you to manage SOAJS components.
+							SOAJS dashboard service and User Interface.
 							<div class="repoFeatures">
 
 								<b>Features:</b>
 								<ul>
-									<li>Manage products in Productization section
-									</li>
-									<li>Manage tenants and keys in Multitenancy section</li>
-
-									<li>Create multiple environments</li>
-
-									<li>Create tenant applications, keys and external service API keys</li>
+									<li>Management of products, packages and access levels in Productization.</li>
+									<li>Management of tenants, applications, keys and service configuration in Multitenancy.</li>
+									<li>Creation of multiple Environments.</li>
 								</ul>
 							</div>
 						</li>
 						<li><b>soajs.oauth</b> <span class="repoVersion">version 0.0.2</span><br>
-							This is the first release of the soajs.oauth service.
-							It is a service used to protect other services using oAuth 2.0.
-						</li>
-						<li><b>soajs.examples</b> <span class="repoVersion">version 0.0.1</span><br>
-							This is the first release of soajs.examples. It contains a list of services that were created to demonstrate the use of SOAJS framework.
-						</li>
-						<li><b>connect-mongo-soajs</b> <span class="repoVersion">version 0.0.1</span>
-							<br>
-							This is the first release of connect-mongo-soajs. It is a
-							stand alone SOAJS mongo driver.
+							SOAJS oAuth Service
 							<div class="repoFeatures">
 
 								<b>Features:</b>
 								<ul>
-									<li>Gives you full control over mongo configuration including replica set support
-									</li>
+									<li>Services and their APIs protection using oAuth 2.0</li>
 								</ul>
 							</div>
+						</li>
+						<li><b>soajs.examples</b> <span class="repoVersion">version 0.0.1</span><br>
+							SOAJS Services Examples Repository.
+							<div class="repoFeatures">
 
+								<b>Features:</b>
+								<ul>
+									<li>Provides examples on how to create basic services.</li>
+									<li>Provides examples on how to create multitenant services.</li>
+									<li>Provides examples on how to create protect services with oAuth 2.0.</li>
+								</ul>
+							</div>
+						</li>
+						<li><b>connect-mongo-soajs</b> <span class="repoVersion">version 0.0.1</span>
+							<br>
+							SOAJS stand alone Connect Mongo Driver.
+							<div class="repoFeatures">
+
+								<b>Features:</b>
+								<ul>
+									<li>Provides full control over Mongo configuration including replica set support.</li>
+								</ul>
+							</div>
 						</li>
 					</ul>
 				</div>
-
 			</div>
-
-
 		</div>
 	</div>
 </div>

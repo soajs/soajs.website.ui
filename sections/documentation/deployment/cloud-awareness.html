@@ -132,19 +132,27 @@ $ cd /opt/soajs/node_modules/
 # install soajs.utitlites
 $ npm install soajs.utitlies</code></pre>
 		<p>
-			When Nginx is installed, edit the configuration file; On Ubuntu the configuration file is located in /etc/nginx/nginx.conf, scroll to the bottom and instruct nginx to load all configuration files from soajs.utilities/deployment/cloud/<b>%environment_name%</b>/nginx/conf/ folder.
+			When Nginx is installed, locate its configuration file; On Ubuntu the configuration file is located in /etc/nginx/nginx.conf,
+and copy the nginx configuration files from soajs.utilities to that location:
 		</p>
-		<pre><code class="javascript"># Dashboard Nginx Conf
-http {
-	# default nginx configuration goes here
-	include /opt/soajs/soajs.utilities/deployment/cloud/dashboard/nginx/conf/*.conf;
-}</code></pre>
-		<br/>
-		<pre><code class="javascript"># Production Nginx conf
-http {
-	# default nginx configuration goes here
-	include /opt/soajs/soajs.utilities/deployment/cloud/production/nginx/conf/*.conf;
-}</code></pre>
+		<p><b>Dashboard Nginx configuration:</b></p>
+		<pre><code class="javascript"># copy the upstream.conf
+$ cp /opt/soajs/node_modules/soajs.utilities/deployment/cloud/nginx/dashboard/upstream.conf /etc/nginx/conf.d/
+
+# replace nginx.conf
+$ mv /opt/soajs/node_modules/soajs.utilities/deployment/cloud/nginx/dashboard/nginx.conf /etc/nginx.conf
+
+# copy the hosts
+$ cp /opt/soajs/node_modules/soajs.utilities/deployment/cloud/nginx/dashboard/conf/*.conf /etc/nginx/sites-enabled/</code></pre>
+		<p><b>Production Nginx configuration:</b></p>
+		<pre><code class="javascript"># copy the upstream.conf
+$ cp /opt/soajs/node_modules/soajs.utilities/deployment/cloud/nginx/production/upstream.conf /etc/nginx/conf.d/
+
+# replace nginx.conf
+$ mv /opt/soajs/node_modules/soajs.utilities/deployment/cloud/nginx/production/nginx.conf /etc/nginx.conf
+
+# copy the hosts
+$ cp /opt/soajs/node_modules/soajs.utilities/deployment/cloud/nginx/production/conf/*.conf /etc/nginx/sites-enabled/</code></pre>
 		<p>
 			Next, edit the hosts file of each Nginx machine and add the following:
 		</p>
@@ -152,11 +160,11 @@ http {
 $ sudo gedit /etc/hosts
 
 # add these lines in /etc/hosts
-192.168.0.51 controller_01
-192.168.0.52 controller_02
-192.168.0.53 controller_03</code></pre>
+192.168.0.1 controller_01
+192.168.0.2 controller_02
+192.168.0.3 controller_03</code></pre>
 		<p>
-			You will need to put the right IP addresses above.<br />
+			You will need to put the right IP addresses above for both Nginx machines.<br />
 			Start Nginx:
 		</p>
 		<pre><code class="bash"># start Nginx
@@ -192,7 +200,7 @@ $ cd /opt/soajs/node_modules/
 $ npm install soajs.controller
 $ npm install soajs.utilities</code></pre>
 		<p>
-			Copy the file soajs.utilities/deployment/cloud/<b>%environment_name%</b>/controller-haproxy.cfg to /etc/haproxy/ and rename it to haproxy.cfg then edit that file and put the correct IP addresses.<br/>
+			Copy the file soajs.utilities/deployment/cloud/haproxy/<b>%environment_name%</b>-controller-haproxy.cfg to /etc/haproxy/ and rename it to haproxy.cfg then edit that file and put the correct IP addresses.<br/>
 			Each environment will have 3 services machines in its 3rd Layer, make sure you give the same IP addresses that you will enter in the haproxy.cfg to those machines.
 		</p>
 		<br/>
@@ -200,7 +208,7 @@ $ npm install soajs.utilities</code></pre>
 
 		<p>
 			As mentioned in the <a href="#/documentation/core/registry">Registry</a>, SOAJS supports multiple projects, and in this case we need to use the dashboard project that contains the environment variables the dashboard environment and production project for production environment.<br/>
-			The projects are located in soajs.utilities/deployment/cloud/<b>%environment_name%</b>/profiles/.<br/>
+			The projects are located in soajs.utilities/deployment/cloud/profiles/<b>%environment_name%</b>/.<br/>
 			On each controllers machines, create 3 environment variables and give them the following values:
 		</p>
 		<pre><code class="bash"># set the environment name to dashboard
@@ -210,7 +218,7 @@ $ export SOAJS_ENV=dashboard
 $ export SOAJS_PRJ=dashboard
 
 # point out the location of the project
-$ export SOAJS_REGDIR=/opt/soajs/node_modules/soajs.utilities/deployment/cloud/dashboard/</code></pre>
+$ export SOAJS_REGDIR=/opt/soajs/node_modules/soajs.utilities/deployment/cloud/profiles/dashboard/</code></pre>
 		<p>
 			Repeat the above step on the 3 production controllers machines using the following values:
 		</p>
@@ -221,7 +229,7 @@ $ export SOAJS_ENV=production
 $ export SOAJS_PRJ=production
 
 # point out the location of the project
-$ export SOAJS_REGDIR=/opt/soajs/node_modules/soajs.utilities/deployment/cloud/production/</code></pre>
+$ export SOAJS_REGDIR=/opt/soajs/node_modules/soajs.utilities/deployment/cloud/profiles/production/</code></pre>
 		<br/>
 		<h4>Start the Controllers</h4>
 
@@ -235,8 +243,14 @@ $ node .
 # start haproxy
 $ service haproxy start</code></pre>
 		<p>
-			<u>Note:</u> you can use upstart for your controller service, we have included the upstart file under soajs.utilities/deployment/cloud/<b>%environment_name%</b>/upstart/soajs.controller.conf.
+			<b>Note:</b> you can <a href="http://upstart.ubuntu.com/" target="_blank">upstart</a> your services, we have included the upstart files under soajs.utilities/deployment/cloud/upstart/ folder.<br />
+			Copy soajs.controller.conf file inside this directory to your /etc/init/ directory and install upstart using the below command and run it on the services above.
 		</p>
+		<pre><code class="bash"># install upstart
+$ apt-get install upstart
+
+# start the services
+$ service soajs.controller start</code></pre>
 		<p>
 			By now, Nginx and Controllers Layers are running, execute a heartbeat check on each controller by requesting the maintenance port:
 		</p>
@@ -304,7 +318,7 @@ $ npm install soajs.examples</code></pre>
 		<h4>Point out the Registry Profile</h4>
 
 		<p>
-			Similar to what we did in the controller layer, we need to point out the correct project to use on the services machines. The projects are located in soajs.utilities/deployment/cloud/<b>%environment_name%</b>/profiles/.<br/>
+			Similar to what we did in the controller layer, we need to point out the correct project to use on the services machines. The projects are located in soajs.utilities/deployment/cloud/profiles/<b>%environment_name%</b>/.<br/>
 			On each service machine, create 3 environment variables and give them the following values:
 		</p>
 		<pre><code class="bash"># set the environment name to dashboard
@@ -314,7 +328,7 @@ $ export SOAJS_ENV=dashboard
 $ export SOAJS_PRJ=dashboard
 
 # point out the location of the project
-$ export SOAJS_REGDIR=/opt/soajs/node_modules/soajs.utilities/deployment/cloud/dashboard/</code></pre>
+$ export SOAJS_REGDIR=/opt/soajs/node_modules/soajs.utilities/deployment/cloud/profiles/dashboard/</code></pre>
 		<p>Repeat the above step on the 3 production services machines using the following values:</p>
 		<pre><code class="bash"># set the environment name to production
 $ export SOAJS_ENV=production
@@ -323,31 +337,50 @@ $ export SOAJS_ENV=production
 $ export SOAJS_PRJ=dashboard
 
 # point out the location of the project
-$ export SOAJS_REGDIR=/opt/soajs/node_modules/soajs.utilities/deployment/cloud/production/</code></pre>
+$ export SOAJS_REGDIR=/opt/soajs/node_modules/soajs.utilities/deployment/cloud/profiles/production/</code></pre>
 		<br/>
 		<h4>Start the Services</h4>
 
 		<p>
 			Once you completed all above steps, start haproxy and all the services in all machines:
 		</p>
+		<b>Urac:</b>
 		<pre><code class="bash"># repeat the below command for all machines that have urac service
 $ cd /opt/soajs/node_modules/soajs.urac
 $ node .</code></pre>
 		<p>
-			<u>Note:</u> you can use upstart for your urac service, we have included the upstart file under soajs.utilities/deployment/cloud/<b>%environment_name%</b>/upstart/soajs.urac.conf.
+			<u>Note:</u> you can use upstart for your urac service, we have included the upstart file under soajs.utilities:
+			<pre><code class="bash"># copy the upstart to /etc/init/
+$ cp /opt/soajs/node_modules/soajs.utilities/deployment/cloud/upstart/soajs.urac.conf /etc/init/
+
+# start the urac
+$ service soajs.urac start</code></pre>
 		</p>
+		<b>Dashboard:</b>
 		<pre><code class="bash"># repeat the below command for all machines that has dashboard service
 $ cd /opt/soajs/node_modules/soajs.dashboard
 $ node .</code></pre>
 		<p>
-			<u>Note:</u> you can use upstart for your dashboard service, we have included the upstart file under soajs.utilities/deployment/cloud/<b>%environment_name%</b>/upstart/soajs.dashboard.conf.
+			<u>Note:</u> you can use upstart for your urac service, we have included the upstart file under soajs.utilities:
+			<pre><code class="bash"># copy the upstart to /etc/init/
+$ cp /opt/soajs/node_modules/soajs.utilities/deployment/cloud/upstart/soajs.dashboard.conf /etc/init/
+
+# start the dashboard
+$ service soajs.dashboard start</code></pre>
 		</p>
+		<b>oAuth:</b>
 		<pre><code class="bash"># repeat the below command for all machines that has oauth service
 $ cd /opt/soajs/node_modules/soajs.oauth
 $ node .</code></pre>
 		<p>
-			<u>Note:</u> you can use upstart for your oauth service, we have included the upstart file under soajs.utilities/deployment/cloud/<b>%environment_name%</b>/upstart/soajs.oauth.conf.
+			<u>Note:</u> you can use upstart for your urac service, we have included the upstart file under soajs.utilities:
+			<pre><code class="bash"># copy the upstart to /etc/init/
+$ cp /opt/soajs/node_modules/soajs.utilities/deployment/cloud/upstart/soajs.oauth.conf /etc/init/
+
+# start the oauth
+$ service soajs.oauth start</code></pre>
 		</p>
+		<b>Examples:</b>
 		<pre><code class="bash"># repeat the below command for all machines that has examples service
 $ cd /opt/soajs/node_modules/soajs.examples/example01
 $ node .
@@ -358,7 +391,18 @@ $ node .
 $ cd /opt/soajs/node_modules/soajs.examples/example04
 $ node .</code></pre>
 		<p>
-			<u>Note:</u> you can use upstart for your examples service, we have included the upstart file under soajs.utilities/deployment/cloud/<b>%environment_name%</b>/upstart/soajs.examples.conf.
+			<u>Note:</u> you can use upstart for your urac service, we have included the upstart file under soajs.utilities:
+			<pre><code class="bash"># copy the upstart to /etc/init/
+$ cp /opt/soajs/node_modules/soajs.utilities/deployment/cloud/upstart/soajs.example01.conf /etc/init/
+$ cp /opt/soajs/node_modules/soajs.utilities/deployment/cloud/upstart/soajs.example02.conf /etc/init/
+$ cp /opt/soajs/node_modules/soajs.utilities/deployment/cloud/upstart/soajs.example03.conf /etc/init/
+$ cp /opt/soajs/node_modules/soajs.utilities/deployment/cloud/upstart/soajs.example04.conf /etc/init/
+
+# start the examples
+$ service soajs.example01 start
+$ service soajs.example02 start
+$ service soajs.example03 start
+$ service soajs.example04 start</code></pre>
 		</p>
 		<br/>
 		<h4>Testing the Services:</h4>

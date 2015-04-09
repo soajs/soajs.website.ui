@@ -1153,8 +1153,9 @@ div.bulletin div.body div.img {
 }
 
 .repoFeatures{
-    padding-left: 10px;
+    /*padding-left: 10px;*/
 }
+
 #newsPage .bulletin{
     width: 100%;
 
@@ -1165,7 +1166,37 @@ div.bulletin div.body div.img {
 
 #newsPage .bulletin ul li{
     margin-top: 20px;
+    list-style-type:none;
 }
+
+#newsPage .bulletin ul,
+#newsPage .bulletin ul li ul{
+    position:relative;
+}
+
+#newsPage .bulletin ul li:before {
+    color: rgb(53, 90, 118);
+    content: "\2022";
+    position:absolute;
+    left:10px;
+}
+
 #newsPage .bulletin ul li ul li{
     margin-top: 0px;
+}
+
+#newsPage .bulletin ul li ul li:before {
+    color:#df9630;
+    content: "\2022";
+    position:absolute;
+    left:10px;
+}
+
+#newsPage .bulletin ul li ul li span,
+#newsPage .bulletin ul li span{
+    color:rgb(34, 34, 34);
+}
+
+#newsPage b{
+    color:rgb(53, 90, 118);
 }
