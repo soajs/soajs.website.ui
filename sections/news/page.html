@@ -4,20 +4,22 @@
 
 		<div class="white-container">
 			<div class="bulletin">
-				<div class="head">SOAJS in the news</div>
-				<div class="body"></div>
-
-			</div>
-			<br>
-
-			<div class="bulletin">
-				<div class="head">Release 2 <div class="releaseDate"> April 20 2015</div></div>
+				<div class="head">Release 2
+					<div class="releaseDate"> April 20, 2015</div>
+				</div>
 				<div class="body">
-					Release Notes:
-					<ul>
-						<li><b>soajs</b> <span class="repoVersion">version 0.0.2</span><br>
-							SOAJS framework.
-							<div class="repoFeatures">
+					<table class="myTable" width="98%" align="center">
+						<thead>
+							<tr>
+								<th width="15%">Package Name</th>
+								<th width="15%">Package Version</th>
+								<th>Release Notes</th>
+							</tr>
+						</thead>
+						<tr>
+							<td><b>soajs</b></td>
+							<td align="center">0.0.2</td>
+							<td>
 								<div>
 									<b class="bug">Bug Fixes:</b>
 									<ul>
@@ -31,25 +33,14 @@
 										<li>Removed old provisioned data from module.</li>
 									</ul>
 								</div>
-							</div>
-						</li>
-						<li><b>soajs.utilities</b> <span class="repoVersion">version 0.0.2</span><br>
-							SOAJS utilities repository.
-							<div class="repoFeatures">
+							</td>
+						</tr>
+						<tr class="even">
+							<td><b>soajs.urac</b></td>
+							<td align="center">0.0.2</td>
+							<td>
 								<div>
 									<b class="feature">Features:</b>
-									<ul>
-										<li>Created deployment AIO configuration data files.</li>
-										<li>Created deployment cloud & awareness configuration data files.</li>
-									</ul>
-								</div>
-							</div>
-						</li>
-						<li><b>soajs.urac</b> <span class="repoVersion">version 0.0.2</span><br>
-							SOAJS User Registration and Access Control.
-							<div class="repoFeatures">
-								<div>
-									<b class="update">Updates:</b>
 									<ul>
 										<li>Added support to manage members groups.</li>
 										<li>Updated login API and how dashboard ui permissions are being fetched.</li>
@@ -65,19 +56,35 @@
 										<li>Removed old provisioned data from module.</li>
 									</ul>
 								</div>
-							</div>
-						</li>
-						<li><b>soajs.dashboard</b> <span class="repoVersion">version 0.0.2</span><br>
-							SOAJS dashboard service and User Interface.
-							<div class="repoFeatures">
+							</td>
+						</tr>
+						<tr>
+							<td><b>soajs.oauth</b></td>
+							<td align="center">0.0.3</td>
+							<td>
 								<div>
-									<b class="update">Updates:</b>
+									<b class="etest">Enhanced Tests:</b>
+									<ul>
+										<li>Added soajs.mongodb.data to dev dependency and included it in test cases.</li>
+										<li>Removed old provisioned data from module.</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr class="even">
+							<td><b>soajs.dashboard</b></td>
+							<td align="center">0.0.2</td>
+							<td>
+								<div>
+									<b class="feature">Features:</b>
 									<ul>
 										<li>Added locked feature for environment, product and tenant. Locked records cannot be deleted.</li>
 										<li>Updated how permissions are read after login in the UI.</li>
 										<li>Updated UI form library.</li>
 										<li>Updated UI grid library.</li>
 										<li>Under Productization section, combined the management of products and packages under one section.</li>
+										<li>Added new APIs to add/manage oauth users in service.</li>
+										<li>Added UI support for Urac group management APIs.</li>
 									</ul>
 								</div>
 								<div>
@@ -88,28 +95,12 @@
 										<li>Removed old provisioned data from module.</li>
 									</ul>
 								</div>
-								<b class="feature">Features:</b>
-								<ul>
-									<li>Added new APIs to add/manage oauth users in service.</li>
-									<li>Added UI support for Urac group management APIs.</li>
-								</ul>
-							</div>
-						</li>
-						<li><b>soajs.oauth</b> <span class="repoVersion">version 0.0.3</span><br>
-							SOAJS oAuth Service.
-							<div class="repoFeatures">
-								<div>
-									<b class="etest">Enhanced Tests:</b>
-									<ul>
-										<li>Added soajs.mongodb.data to dev dependency and included it in test cases.</li>
-										<li>Removed old provisioned data from module.</li>
-									</ul>
-								</div>
-							</div>
-						</li>
-						<li><b>soajs.examples</b> <span class="repoVersion">version 0.0.2</span><br>
-							SOAJS Services Examples Repository.
-							<div class="repoFeatures">
+							</td>
+						</tr>
+						<tr>
+							<td><b>soajs.examples</b></td>
+							<td align="center">0.0.2</td>
+							<td>
 								<div>
 									<b class="etest">Enhanced Tests:</b>
 									<ul>
@@ -118,122 +109,101 @@
 										<li>Removed old provisioned data from module.</li>
 									</ul>
 								</div>
-							</div>
-						</li>
-						<li><b>soajs.mongodb.data</b> <span class="repoVersion">version 0.0.1</span><br>
-							SOAJS Combined Test Data Repository.
-							<div class="repoFeatures">
-								<b class="feature">Features:</b>
-								<ul>
-									<li>Created test data content for each module.</li>
-									<li>Updated mail service configuration to use sendmail.</li>
-								</ul>
-							</div>
-						</li>
-					</ul>
+							</td>
+						</tr>
+						<tr class="even">
+							<td><b>soajs.utilities</b></td>
+							<td align="center">0.0.2</td>
+							<td>
+								<div>
+									<b class="feature">Features:</b>
+									<ul>
+										<li>Created deployment AIO configuration data files.</li>
+										<li>Created deployment cloud & awareness configuration data files.</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td><b>soajs.mongodb.data</b></td>
+							<td align="center">0.0.1</td>
+							<td>First Release</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<br>
+
+			<div class="bulletin">
+				<div class="head">SOAJS in the news
+					<div class="releaseDate"> March 27, 2015</div>
+				</div>
+				<div class="body">
+					<p>
+						<a href="http://www.joyent.com" target="_blank" style="background: none repeat scroll 0 0 #ff6600; border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; box-sizing: border-box; display: block; height: 155px; padding: 85px 15px 0 15px; text-align: center; width: 15%; margin-bottom:10px; float:right;"><img src="https://www.joyent.com/assets/img/logo.svg"></a>
+						SOAJS was hand picked by <a href="http://www.joyent.com" target="_blank">Joyent</a> to be part of the <a href="https://www.joyent.com/blog/announcing-the-inaugural-nodejs-incubator-members?mkt_tok=3RkMMJWWfF9wsRolvq7NZKXonjHpfsX87uwkUKa%2BlMI%2F0ER3fOvrPUfGjI4DSMVqI%2BSLDwEYGJlv6SgFQ7nGMbJqy7gPXhI%3D" target="_blank">2015 Node.js Incubator Program Members</a> along with 8 other technologies from a list containing hundreds of applications.<br />
+						Follow along during a 1-year program as Joyent will be highlighting SOAJS, learn why we selected Node.js, and share our production practices and stories from our implementations of Node.js.<br />
+						On March 27, 2015 <b>Ryan Wilson</b> officaly announced the program's launch by posting on the <a href="https://www.joyent.com/blog/announcing-the-inaugural-nodejs-incubator-members?mkt_tok=3RkMMJWWfF9wsRolvq7NZKXonjHpfsX87uwkUKa%2BlMI%2F0ER3fOvrPUfGjI4DSMVqI%2BSLDwEYGJlv6SgFQ7nGMbJqy7gPXhI%3D" target="_blank">Joyent Blog</a>.
+					</p>
 				</div>
 			</div>
 			<br>
 
 			<div class="bulletin">
 				<div class="head">Release 1
-					<div class="releaseDate"> February 20 2015</div>
+					<div class="releaseDate"> February 20, 2015</div>
 				</div>
-
-				<div class="body">
-					Release Notes:
-					<ul>
-						<li><b>soajs</b> <span class="repoVersion">version 0.0.1</span><br />
-							SOAJS framework.<br>
-
-							<div class="repoFeatures"><b class="feature">Features:</b>
-								<ul>
-									<li>Multi services with cloud self awareness</li>
-									<li>Multi projects, environments and configuration</li>
-									<li>Input mapping formatting & validation (IMFV)</li>
-									<li>Services APIs Security via tenant keys and oAuth 2.0</li>
-									<li>Multitenancy &amp; Productization</li>
-								</ul>
-							</div>
-						</li>
-						<li><b>soajs.controller</b> <span class="repoVersion">version 0.0.1</span>
-							<br>SOAJS main gateway service.
-							<div class="repoFeatures">
-
-								<b class="feature">Features:</b>
-								<ul>
-									<li>Forwards requests to SOAJS services</li>
-								</ul>
-							</div>
-						</li>
-						<li><b>soajs.utilities</b> <span class="repoVersion">version 0.0.1</span><br>
-							SOAJS utilities repository.
-							<div class="repoFeatures">
-								<b class="feature">Features:</b>
-								<ul>
-									<li>Contains Nginx configuration instructions.</li>
-								</ul>
-							</div>
-						</li>
-						<li><b>soajs.urac</b> <span class="repoVersion">version 0.0.1</span>
-							<br>SOAJS User Registration and Access Control.
-							<div class="repoFeatures">
-								<b class="feature">Features:</b>
-								<ul>
-									<li>Registration & Login for Guest users</li>
-									<li>Profile Management of logged in members.</li>
-									<li>Members Accounts Management for Administrators.</li>
-								</ul>
-							</div>
-
-						</li>
-						<li><b>soajs.dashboard</b> <span class="repoVersion">version 0.0.1</span><br>
-							SOAJS dashboard service and User Interface.
-							<div class="repoFeatures">
-
-								<b class="feature">Features:</b>
-								<ul>
-									<li>Management of products, packages and access levels in Productization.</li>
-									<li>Management of tenants, applications, keys and service configuration in Multitenancy.</li>
-									<li>Creation of multiple Environments.</li>
-								</ul>
-							</div>
-						</li>
-						<li><b>soajs.oauth</b> <span class="repoVersion">version 0.0.2</span><br>
-							SOAJS oAuth Service
-							<div class="repoFeatures">
-
-								<b class="feature">Features:</b>
-								<ul>
-									<li>Services and their APIs protection using oAuth 2.0</li>
-								</ul>
-							</div>
-						</li>
-						<li><b>soajs.examples</b> <span class="repoVersion">version 0.0.1</span><br>
-							SOAJS Services Examples Repository.
-							<div class="repoFeatures">
-
-								<b class="feature">Features:</b>
-								<ul>
-									<li>Provides examples on how to create basic services.</li>
-									<li>Provides examples on how to create multitenant services.</li>
-									<li>Provides examples on how to create protect services with oAuth 2.0.</li>
-								</ul>
-							</div>
-						</li>
-						<li><b>connect-mongo-soajs</b> <span class="repoVersion">version 0.0.1</span>
-							<br>
-							SOAJS stand alone Connect Mongo Driver.
-							<div class="repoFeatures">
-
-								<b class="feature">Features:</b>
-								<ul>
-									<li>Provides full control over Mongo configuration including replica set support.</li>
-								</ul>
-							</div>
-						</li>
-					</ul>
-				</div>
+				<br/>
+				<table class="myTable" width="98%" align="center">
+					<thead>
+						<tr>
+							<th width="15%">Package Name</th>
+							<th width="15%">Package Version</th>
+							<th>Release Notes</th>
+						</tr>
+					</thead>
+					<tr>
+						<td><b>soajs</b></td>
+						<td align="center">0.0.1</td>
+						<td>First Release</td>
+					</tr>
+					<tr class="even">
+						<td><b>soajs.controller</b></td>
+						<td align="center">0.0.1</td>
+						<td>First Release</td>
+					</tr>
+					<tr>
+						<td><b>soajs.urac</b></td>
+						<td align="center">0.0.1</td>
+						<td>First Release</td>
+					</tr>
+					<tr class="even">
+						<td><b>soajs.oauth</b></td>
+						<td align="center">0.0.2</td>
+						<td>First Release</td>
+					</tr>
+					<tr>
+						<td><b>soajs.dashboard</b></td>
+						<td align="center">0.0.1</td>
+						<td>First Release</td>
+					</tr>
+					<tr class="even">
+						<td><b>soajs.examples</b></td>
+						<td align="center">0.0.1</td>
+						<td>First Release</td>
+					</tr>
+					<tr>
+						<td><b>soajs.utilities</b></td>
+						<td align="center">0.0.1</td>
+						<td>First Release</td>
+					</tr>
+					<tr class="even">
+						<td><b>connect-mongo-soajs</b></td>
+						<td align="center">0.0.1</td>
+						<td>First Release</td>
+					</tr>
+				</table>
+				<br/>
 			</div>
 		</div>
 	</div>

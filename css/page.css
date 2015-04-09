@@ -1165,32 +1165,11 @@ div.bulletin div.body div.img {
 }
 
 #newsPage .bulletin ul li{
-    margin-top: 20px;
-    list-style-type:none;
-}
-
-#newsPage .bulletin ul,
-#newsPage .bulletin ul li ul{
-    position:relative;
-}
-
-#newsPage .bulletin ul li:before {
-    color: rgb(53, 90, 118);
-    content: "\2022";
-    position:absolute;
-    left:10px;
+    margin-top: 5px;
 }
 
 #newsPage .bulletin ul li ul li{
     margin-top: 0px;
-}
-
-#newsPage .bulletin ul li ul li:before {
-    /*color:#df9630;*/
-    color:rgb(34, 34, 34);
-    content: "\2022";
-    position:absolute;
-    left:10px;
 }
 
 #newsPage .bulletin ul li ul li span,
@@ -1198,10 +1177,6 @@ div.bulletin div.body div.img {
     color:rgb(34, 34, 34);
 }
 
-#newsPage b{
-    color:rgb(53, 90, 118);
-    /*color:#df9630;*/
-}
 
 #newsPage b.etest{
     color: rgb(119,34,100);
@@ -1211,7 +1186,4 @@ div.bulletin div.body div.img {
 }
 #newsPage b.bug{
     color: #e41f28;
-}
-#newsPage b.update{
-    color:#df9630;
 }
