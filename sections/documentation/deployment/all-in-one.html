@@ -17,8 +17,14 @@
 		Now install soajs via one of the 2 methods below:<br /><br />
 	</p>
 	<h4>Docker:</h4>
-	<div class="redFlag">Will be completed soon.</div>
-
+	<p>
+		Our team has prepared a docker image that contains all services installed and configured and read to run to speed things up for you. Simply install docker on your machine, then run the image and the All In One SOAJS will be downloaded and started on your machine.<br />
+		Navigate to <a href="https://docs.docker.com/installation/" target="_blank">Docker Installation Page</a> and install docker based on the machine you are using. Then run the following command:
+		<pre><code class="bash">$ docker run -d -p 80:80 soajs/aio</code></pre>
+		Docker will install SOAJS All In One (aio) on your machine, run the services and expose port 80 to your machine from its container.<br />
+		This means that when you attempt to hit <a href="http://api.soajs.org" target="_blank">http://api.soajs.org</a> or <a href="http://dashboard.soajs.org" target="_blank">http://dashboard.soajs.org</a> in your browser or via CURL, because port 80 is exposed, Nginx will reply and redirect your request to the services accordingly.<br />
+		You can now start using SOAJS.
+	</p>
 	<br />
 	<h4>Manual Installation:</h4>
 	<p>
@@ -122,18 +128,20 @@ tenants
 	<p>
 		We installed Nginx in the previous step, now we are going to configure it by pointing out the configuration files that SOAJS needs. To do that, first locate the Nginx configuration file on your machine:
 		<pre><code class="bash">$ whereis nginx.conf</code></pre>
-		By default on Ubuntu, nginx.conf is located in /etc/nignx/nginx.conf. Open that file in edit mode, scroll to the bottom and instruct nginx to also look at the soajs.utilities/deployment/allinone/nginx/conf/ folder and load all configuration files in it, add the line before the closing bracelet of http inside nginx.conf.
-		<pre><code class="javascript">http {
-	# default nginx configuration goes here
-	include /opt/soajs/soajs.utilities/deployment/allinone/nginx/conf/*.conf;
-}</code></pre>
-		This line will now load the Nginx configuration that SOAJS needs when Nginx starts.<br />
-		Edit your hosts file and add 2 entries to point out that these domains are on your local machine.
-		<pre><code class="bash">$ sudo gedit /etc/hosts</code></pre>
-		When the hosts file is loaded in gEdit editor, add the following:
+		By default on Ubuntu, nginx.conf is located in /etc/nignx/nginx.conf, copy the nginx configuration files from soajs.utilities to that location:
+		<pre><code class="bash"># copy the upstream.conf
+$ cp /opt/soajs/node_modules/soajs.utilities/deployment/allinone/nginx/upstream.conf /etc/nginx/conf.d/
+
+# replace nginx.conf
+$ mv /opt/soajs/node_modules/soajs.utilities/deployment/allinone/nginx/nginx.conf /etc/nginx.conf
+
+# copy the hosts
+$ cp /opt/soajs/node_modules/soajs.utilities/deployment/allinone/nginx/conf/*.conf /etc/nginx/sites-enabled/
+</code></pre>
+		Nginx will now load the configuration that SOAJS needs when started.<br />
+		Edit your /etc/hosts file and add 2 entries from /opt/soajs/node_modules/soajs.utilities/deployment/allinone/hosts
 		<pre><code class="javascript">127.0.0.1	api.soajs.org
 127.0.0.1	dashboard.soajs.org</code></pre>
-		<em>You can also copy these entries from soajs.utilities/deployment/allinone/hosts to your /etc/hosts file.</em><br />
 		Go ahead and Start Nginx Now:
 		<pre><code class="bash">$ sudo Nginx</code></pre>
 		When Nginx starts, test the configuration you just created by opening your browser and invoking 2 domains: <b>api.soajs.org</b> and <b>dashboard.soajs.org</b>. Nginx will reply with a <b>502 Bad Gateway</b> Error instead of Server not Found. Till this point, this is normal because we haven't started any service yet, but the important thing is that Nginx is now redirecting the requests to a local SOAJS server assuming that the later is up and running.
@@ -150,7 +158,7 @@ $ export SOAJS_ENV=dev
 $ export SOAJS_PRJ=default
 
 # point out the location of the project
-$ export SOAJS_REGDIR=/opt/soajs/soajs.utilities/deployment/allinone/</code></pre>
+$ export SOAJS_REGDIR=/opt/soajs/node_modules/soajs.utilities/deployment/allinone/</code></pre>
 	<p>
 		The above variables will tell soajs the location of the profile you want to use and what is the environment and registry information that should be loaded.
 	</p>
@@ -185,6 +193,24 @@ $ node .
 $ cd /example04
 $ node .</code></pre>
 	When you run node . in every terminal you opened, you are starting the service. All the services are now running, let's make some test calls and when done, use the dashboard to login.
+	</p>
+	<p>
+		<b>Note:</b> you can <a href="http://upstart.ubuntu.com/" target="_blank">upstart</a> your services, we have included the upstart files under soajs.utilities/deployment/allinone/upstart/ folder.<br />
+		Copy the files inside this directory to your /etc/init/ directory and install upstart using the below command and run it on the services above.
+		<pre><code class="bash"># install upstart
+$ apt-get install upstart
+
+# start the services
+$ service soajs.controller start
+$ service soajs.urac start
+$ service soajs.oauth start
+$ service soajs.dashboard start
+
+# start the  examples
+$ service example01 start
+$ service example02 start
+$ service example03 start
+$ service example04 start</code></pre>
 	</p>
 	<br/>
 	<h4>Step 5: Testing the services</h4>
