@@ -5,6 +5,7 @@ $ ll -la
 drwxr-xr-x   8 admin  root   272 Mar 20 17:56 .
 drwxr-xr-x   9 admin  root   306 Mar 25 14:06 ..
 drwxr-xr-x  12 admin  root   408 Mar 24 11:08 node_modules
+drwxr-xr-x  12 admin  root   408 Mar 24 11:08 logs
 drwxr-xr-x  12 admin  root   408 Mar 24 11:08 your_service
 
 #list node_modules folder
