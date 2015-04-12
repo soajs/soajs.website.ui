@@ -172,6 +172,12 @@ var navigation = [
 		'label': 'soajs cloud-awareness',
 		'title': 'SOAJS | Deployment | Cloud Awareness',
 		'url': '#/documentation/deployment/cloud-awareness'
+	},
+	{
+		'id': 'docker-files',
+		'label': 'soajs docker-files',
+		'title': 'SOAJS | Deployment | Docker Files',
+		'url': '#/documentation/deployment/docker-files'
 	}
 ];
 

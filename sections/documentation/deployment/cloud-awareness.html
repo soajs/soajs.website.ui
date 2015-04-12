@@ -10,9 +10,7 @@
 		<li>QA</li>
 		<li>Production</li>
 	</ul>
-	<p>You do not need a cloud deployment for your development environment, please checkout <a href="#/documentation/deployment/all-in-one">All In
-		One</a> deployment for this purpose.<br />
-		For the remaining environments, this is how the deployment should look like.<br/>
+	<p>You do not need a cloud deployment for your development environment, please checkout <a href="#/documentation/deployment/development">The Development Environment</a> deployment for this purpose. For the remaining environments, this is how the deployment should look like.<br/>
 		<img ng-src="images/documentation/deployment-cloud1.png"/><br/>
 		In the above image, you will see a dashboard environment where  the remaining three other environments pull their provisioning information from its data layer. This is done in a way to centralize and make it easy to manage the environments.<br/>
 	</p>
@@ -109,13 +107,50 @@
 	<h3>Nginx Layer</h3>
 
 	<div>
+		<h4>Docker:</h4>
 		<p>
-			<b>Docker:</b>
-			<div class="redFlag">Coming Soon.</div>
+			Our team has prepared a docker image that contains all services installed and configured and ready to run to speed things up for you. Simply install docker on the machine, then using docker, install and run the layer you need.<br />
+			Start by installing NodeJs then navigate to <a href="https://docs.docker.com/installation/" target="_blank">Docker Installation Page</a> and install docker and <a href="https://docs.docker.com/compose/" target="_blank">docker-compose</a> on the machine you are using. <br />
+			Once NodeJs, Docker and Docker-Compose are installed, install soajs.utilities to pull the configuration files:
 		</p>
-		<br/>
+		<pre><code class="bash">$ cd /opt/soajs/node_modules/
+$ npm install soajs.utilities</code></pre>
 		<p>
-			<b>Manual:</b><br/>
+			soajs.utilities contains 2 docker configuration files for the nginx layer:<br />
+		</p>
+		<table width="100%" class="myTable">
+			<thead>
+				<tr>
+					<th>Environment</th>
+					<th>Docker File Path</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Dashboard</td>
+					<td>soajs.utilities/deployment/cloud/dashboard/nginx/Dockerfile</td>
+				</tr>
+				<tr class="even">
+					<td>Production</td>
+					<td>soajs.utilities/deployment/cloud/prod/nginx/Dockerfile</td>
+				</tr>
+			</tbody>
+		</table>
+		<br/>
+		<pre><code class="bash"># on dashboard nginx layer
+$ cd /opt/soajs/node_modules/soajs.utilities/deployment/cloud/dashboard/nginx/
+
+# on prod nginx layer
+$ cd /opt/soajs/node_modules/soajs.utilities/deployment/cloud/prod/nginx/
+
+$ docker-compose up</code></pre>
+		<p>
+			Docker will load the configuration file <b>docker-compose.yml</b> and install and run the nginx machines for you.<br />
+		</p>
+		<hr/>
+		<br/>
+		<h4>Manual Installation:</h4>
+		<p>
 			Start by setting up 3 Machines for Dashboard Nginx Layer and 3 Machines for Production Nginx Layer.<br/>
 			Install Node, Nginx and soajs.utilities on each of these machines:
 		</p>
@@ -127,32 +162,27 @@ $ apt-get install nodejs
 
 # create directory path for soajs modules
 $ mkdir -p /opt/soajs/node_modules
+
 $ cd /opt/soajs/node_modules/
 
 # install soajs.utitlites
 $ npm install soajs.utitlies</code></pre>
 		<p>
-			When Nginx is installed, locate its configuration file; On Ubuntu the configuration file is located in /etc/nginx/nginx.conf,
+			When Nginx is installed, locate its configuration file; On Ubuntu the configuration file is located in /etc/nginx/ folder,
 and copy the nginx configuration files from soajs.utilities to that location:
 		</p>
 		<p><b>Dashboard Nginx configuration:</b></p>
 		<pre><code class="javascript"># copy the upstream.conf
-$ cp /opt/soajs/node_modules/soajs.utilities/deployment/cloud/nginx/dashboard/upstream.conf /etc/nginx/conf.d/
-
-# replace nginx.conf
-$ mv /opt/soajs/node_modules/soajs.utilities/deployment/cloud/nginx/dashboard/nginx.conf /etc/nginx.conf
+$ cp /opt/soajs/node_modules/soajs.utilities/deployment/cloud/dashboard/nginx/FILES/nginx/upstream.conf /etc/nginx/conf.d/
 
 # copy the hosts
-$ cp /opt/soajs/node_modules/soajs.utilities/deployment/cloud/nginx/dashboard/conf/*.conf /etc/nginx/sites-enabled/</code></pre>
+$ cp /opt/soajs/node_modules/soajs.utilities/deployment/cloud/dashboard/nginx/FILES/nginx/conf/*.conf /etc/nginx/sites-enabled/</code></pre>
 		<p><b>Production Nginx configuration:</b></p>
 		<pre><code class="javascript"># copy the upstream.conf
-$ cp /opt/soajs/node_modules/soajs.utilities/deployment/cloud/nginx/production/upstream.conf /etc/nginx/conf.d/
-
-# replace nginx.conf
-$ mv /opt/soajs/node_modules/soajs.utilities/deployment/cloud/nginx/production/nginx.conf /etc/nginx.conf
+$ cp /opt/soajs/node_modules/soajs.utilities/deployment/cloud/prod/nginx/FILES/nginx/upstream.conf /etc/nginx/conf.d/
 
 # copy the hosts
-$ cp /opt/soajs/node_modules/soajs.utilities/deployment/cloud/nginx/production/conf/*.conf /etc/nginx/sites-enabled/</code></pre>
+$ cp /opt/soajs/node_modules/soajs.utilities/deployment/cloud/prod/nginx/FILES/nginx/conf/*.conf /etc/nginx/sites-enabled/</code></pre>
 		<p>
 			Next, edit the hosts file of each Nginx machine and add the following:
 		</p>
@@ -175,13 +205,48 @@ $ sudo nginx</code></pre>
 	<h3>Controllers Layer</h3>
 
 	<div>
+		<h4>Docker:</h4>
 		<p>
-			<b>Docker:</b>
-		<div class="redFlag">Coming Soon.</div>
+			As mentioned in the above Nginx layer docker installation, our team has prepared a docker image that contains all services installed and configured and ready to run to speed things up for you. Simply install NodeJs, Docker and Docker Compose on the machine, then using docker, install and run this layer. Once NodeJs, Docker and Docker-Compose are installed, install soajs.utilities to pull the configuration files:
 		</p>
-		<br/>
+		<pre><code class="bash">$ cd /opt/soajs/node_modules/
+$ npm install soajs.utilities</code></pre>
 		<p>
-			<b>Manual:</b><br />
+			soajs.utilities contains 2 docker configuration files for the controllers:<br />
+		</p>
+		<table width="100%" class="myTable">
+			<thead>
+				<tr>
+					<th>Environment</th>
+					<th>Docker File Path</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Dashboard</td>
+					<td>soajs.utilities/deployment/cloud/dashboard/controller/Dockerfile</td>
+				</tr>
+				<tr class="even">
+					<td>Production</td>
+					<td>soajs.utilities/deployment/cloud/prod/controller/Dockerfile</td>
+				</tr>
+			</tbody>
+		</table>
+		<br/>
+		<pre><code class="bash"># on dashboard controllers machines
+$ cd /opt/soajs/node_modules/soajs.utilities/deployment/cloud/dashboard/controller/
+
+# on prod controllers machines
+$ cd /opt/soajs/node_modules/soajs.utilities/deployment/cloud/prod/controller/
+
+$ docker-compose up</code></pre>
+		<p>
+			Docker will load the configuration file <b>docker-compose.yml</b> and install and run the controllers for you.<br />
+		</p>
+		<hr/>
+		<br/>
+		<h4>Manual Installation:</h4>
+		<p>
 			Similar to the above layer, we will set up 3 machines for dashboard controllers layer and 3 machines for production controllers layer.<br/>
 			On each controller machine, install nodejs and HAproxy, then install the controller and the utilities of SOAJS.<br/>
 			Execute the below commands in the terminal of each machine:
@@ -194,42 +259,35 @@ $ apt-get install nodejs
 
 # create folder path to put all soajs components in it
 $ mkdir -p /opt/soajs/node_modules/
+$ mkdir -p /opt/soajs/logs
 $ cd /opt/soajs/node_modules/
 
 # install SOAJS controller and utilities
 $ npm install soajs.controller
 $ npm install soajs.utilities</code></pre>
 		<p>
-			Copy the file soajs.utilities/deployment/cloud/haproxy/<b>%environment_name%</b>-controller-haproxy.cfg to /etc/haproxy/ and rename it to haproxy.cfg then edit that file and put the correct IP addresses.<br/>
-			Each environment will have 3 services machines in its 3rd Layer, make sure you give the same IP addresses that you will enter in the haproxy.cfg to those machines.
+			Once the above are installed, first update the Haproxy configuration: <br/>
+			<b>Dashboard Environment:</b><br/>
+			Replace the file /etc/haproxy/haproxy.cfg with soajs.utilities/deployment/cloud/dashboard/controller/FILES/haproxy.cfg.<br/><br/>
+			<b>Production Environment:</b><br/>
+			Replace the file /etc/haproxy/haproxy.cfg with soajs.utilities/deployment/cloud/prod/controller/FILES/haproxy.cfg.<br/>
 		</p>
 		<br/>
 		<h4>Point out the Registry Profile</h4>
 
 		<p>
 			As mentioned in the <a href="#/documentation/core/registry">Registry</a>, SOAJS supports multiple projects, and in this case we need to use the dashboard project that contains the environment variables the dashboard environment and production project for production environment.<br/>
-			The projects are located in soajs.utilities/deployment/cloud/profiles/<b>%environment_name%</b>/.<br/>
+			The projects are located in soajs.utilities/deployment/cloud/profiles.<br/>
 			On each controllers machines, create 3 environment variables and give them the following values:
 		</p>
-		<pre><code class="bash"># set the environment name to dashboard
-$ export SOAJS_ENV=dashboard
+		<pre><code class="bash"># set the environment name
+$ export SOAJS_ENV=prod
 
-# set the project name to dashboard
-$ export SOAJS_PRJ=dashboard
-
-# point out the location of the project
-$ export SOAJS_REGDIR=/opt/soajs/node_modules/soajs.utilities/deployment/cloud/profiles/dashboard/</code></pre>
-		<p>
-			Repeat the above step on the 3 production controllers machines using the following values:
-		</p>
-		<pre><code class="bash"># set the environment name to production
-$ export SOAJS_ENV=production
-
-# set the project name to production
-$ export SOAJS_PRJ=production
+# set the project name
+$ export SOAJS_PRJ=default
 
 # point out the location of the project
-$ export SOAJS_REGDIR=/opt/soajs/node_modules/soajs.utilities/deployment/cloud/profiles/production/</code></pre>
+$ export SOAJS_REGDIR=/opt/soajs/node_modules/soajs.utilities/deployment/cloud/profiles/</code></pre>
 		<br/>
 		<h4>Start the Controllers</h4>
 
@@ -243,14 +301,19 @@ $ node .
 # start haproxy
 $ service haproxy start</code></pre>
 		<p>
-			<b>Note:</b> you can <a href="http://upstart.ubuntu.com/" target="_blank">upstart</a> your services, we have included the upstart files under soajs.utilities/deployment/cloud/upstart/ folder.<br />
-			Copy soajs.controller.conf file inside this directory to your /etc/init/ directory and install upstart using the below command and run it on the services above.
+			<b>Note:</b> you can use <a href="https://www.npmjs.com/package/supervisor" target="_blank">supervisor</a> to run all the services in the background using one configuration file.<br />
+			Copy the configuration file supervisord.conf from soajs.utilities to /etc/supervisor/conf.d/ on each machine then run supervisor.
 		</p>
-		<pre><code class="bash"># install upstart
-$ apt-get install upstart
+		<pre><code class="bash"># copy configuration file for dashboard controllers
+$ cd /opt/soajs/node_modules/soajs.utilities/deployment/cloud/dashboard/controller/FILES/
+$ cp supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# start the services
-$ service soajs.controller start</code></pre>
+# copy configuration file for production controllers
+$ cd /opt/soajs/node_modules/soajs.utilities/deployment/cloud/prod/controller/FILES/
+$ cp supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# start the services via supervisor on all controllers machines
+$ /usr/bin/supervisord</code></pre>
 		<p>
 			By now, Nginx and Controllers Layers are running, execute a heartbeat check on each controller by requesting the maintenance port:
 		</p>
@@ -258,8 +321,11 @@ $ service soajs.controller start</code></pre>
 		<h6>Response:</h6>
 		<pre><code class="javascript"> {"result":true,"ts":1427373613796,"service":{"service":"CONTROLLER","type":"rest","route":"/heartbeat"}}</code></pre>
 		<p>
-			You can perform the heartbeat check on the production controllers as well by calling <a href="http://api.soajs.org:5000/heartbeat" target="_blank">http://api.soajs.org:5000/heartbeat</a>.
+			You can perform the heartbeat check on the production controllers as well:
 		</p>
+		<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5000/heartbeat"</code></pre>
+		<h6>Response:</h6>
+		<pre><code class="javascript"> {"result":true,"ts":1427373613796,"service":{"service":"CONTROLLER","type":"rest","route":"/heartbeat"}}</code></pre>
 	</div>
 	<br/>
 	<hr/>
@@ -267,22 +333,68 @@ $ service soajs.controller start</code></pre>
 	<h3>Services Layer</h3>
 
 	<div>
+		<h4>Docker:</h4>
 		<p>
-			<b>Docker:</b>
-		<div class="redFlag">Coming Soon.</div>
+			As mentioned in the above Nginx layer docker installation, our team has prepared a docker image that contains all services installed and configured and ready to run to speed things up for you. Simply install NodeJs, Docker and Docker Compose on the machine, then using docker, install and run this layer. Once NodeJs, Docker and Docker-Compose are installed, install soajs.utilities to pull the configuration files:
 		</p>
-		<br/>
+		<pre><code class="bash">$ cd /opt/soajs/node_modules/
+$ npm install soajs.utilities</code></pre>
 		<p>
-			<b>Manual:</b><br/>
+			soajs.utilities contains 3 docker configuration files for the services:<br />
+		</p>
+		<table width="100%" class="myTable">
+			<thead>
+				<tr>
+					<th>Environment</th>
+					<th>Services</th>
+					<th>Docker File Path</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Dashboard</td>
+					<td>Urac - Dashboard</td>
+					<td>soajs.utilities/deployment/cloud/dashboard/urac_dashboard/Dockerfile</td>
+				</tr>
+				<tr class="even">
+					<td>Production</td>
+					<td>Urac - oAuth</td>
+					<td>soajs.utilities/deployment/cloud/prod/urac_oauth/Dockerfile</td>
+				</tr>
+				<tr>
+					<td>Production</td>
+					<td>Example01 - 02 - 03 - 04</td>
+					<td>soajs.utilities/deployment/cloud/prod/examples/Dockerfile</td>
+				</tr>
+			</tbody>
+		</table>
+		<br/>
+		<pre><code class="bash"># on dashboard services machines
+$ cd /opt/soajs/node_modules/soajs.utilities/deployment/cloud/dashboard/urac_dashboard/
 
-			Similar to above, create 3 machines for each environment and install the services needed on them. For Dashboard environment install both Urac and Dashboard services as for Production environment install both Urac and oAuth.<br/>
-			On all 6 machines, install nodejs, soajs.utilities and soajs.urac by running the below commands:
+# on prod services machines
+$ cd /opt/soajs/node_modules/soajs.utilities/deployment/cloud/prod/urac_oauth/
+
+# on prod examples machines
+$ cd /opt/soajs/node_modules/soajs.utilities/deployment/cloud/prod/examples/
+
+$ docker-compose up</code></pre>
+		<p>
+			Docker will load the configuration file <b>docker-compose.yml</b> and install and run the services for you.<br />
+		</p>
+		<hr/>
+		<br/>
+		<h4>Manual Installation:</h4>
+		<p>
+			Similar to above, create 3 machines for dashboard environment, 3 for production services environment and 3 others to run the examples and install the services needed on them. For Dashboard environment install both Urac and Dashboard services, for Production environment install both Urac and oAuth and for Examples installs the examples.<br/>
+			On all 9 machines, install nodejs, soajs.utilities and soajs.urac by running the below commands:
 		</p>
 		<pre><code class="bash"># install nodejs
 $ apt-get install nodejs
 
 # create folder path to put all soajs components in it
 $ mkdir -p /opt/soajs/node_modules/
+$ mkdir -p /opt/soajs/logs/
 $ cd /opt/soajs/node_modules/
 
 # install soajs.utilities
@@ -305,7 +417,7 @@ $ npm install soajs.examples</code></pre>
 		<h4>Configuration:</h4>
 
 		<p>
-			Point out the data layer on the services machines so that these services can communicate with the database when needed by editing the /etc/hosts file on each machine and adding the following entries:
+			Point out the data layer on all the services machines so that these services can communicate with the database when needed by editing the /etc/hosts file on each machine and adding the following entries:
 		</p>
 		<pre><code class="bash"># edit /etc/hosts of each Dashboard Services Machine
 192.168.0.101 data_01</code></pre>
@@ -318,69 +430,40 @@ $ npm install soajs.examples</code></pre>
 		<h4>Point out the Registry Profile</h4>
 
 		<p>
-			Similar to what we did in the controller layer, we need to point out the correct project to use on the services machines. The projects are located in soajs.utilities/deployment/cloud/profiles/<b>%environment_name%</b>/.<br/>
-			On each service machine, create 3 environment variables and give them the following values:
+			Similar to what we did in the controller layer, we need to point out the correct project to use on the services machines. The projects are located in soajs.utilities/deployment/cloud/profiles/.<br/>
+			On each machine, create 3 environment variables and give them the following values:
 		</p>
-		<pre><code class="bash"># set the environment name to dashboard
-$ export SOAJS_ENV=dashboard
+		<pre><code class="bash"># set the environment name
+$ export SOAJS_ENV=prod
 
-# set the project name to dashboard
-$ export SOAJS_PRJ=dashboard
-
-# point out the location of the project
-$ export SOAJS_REGDIR=/opt/soajs/node_modules/soajs.utilities/deployment/cloud/profiles/dashboard/</code></pre>
-		<p>Repeat the above step on the 3 production services machines using the following values:</p>
-		<pre><code class="bash"># set the environment name to production
-$ export SOAJS_ENV=production
-
-# set the project name to production
-$ export SOAJS_PRJ=dashboard
+# set the project name
+$ export SOAJS_PRJ=default
 
 # point out the location of the project
-$ export SOAJS_REGDIR=/opt/soajs/node_modules/soajs.utilities/deployment/cloud/profiles/production/</code></pre>
+$ export SOAJS_REGDIR=/opt/soajs/node_modules/soajs.utilities/deployment/cloud/profiles/</code></pre>
 		<br/>
 		<h4>Start the Services</h4>
 
 		<p>
 			Once you completed all above steps, start haproxy and all the services in all machines:
 		</p>
-		<b>Urac:</b>
+		<b>Urac Service:</b>
 		<pre><code class="bash"># repeat the below command for all machines that have urac service
 $ cd /opt/soajs/node_modules/soajs.urac
 $ node .</code></pre>
-		<p>
-			<u>Note:</u> you can use upstart for your urac service, we have included the upstart file under soajs.utilities:
-			<pre><code class="bash"># copy the upstart to /etc/init/
-$ cp /opt/soajs/node_modules/soajs.utilities/deployment/cloud/upstart/soajs.urac.conf /etc/init/
-
-# start the urac
-$ service soajs.urac start</code></pre>
-		</p>
-		<b>Dashboard:</b>
+		<br/>
+		<b>Dashboard Service:</b>
 		<pre><code class="bash"># repeat the below command for all machines that has dashboard service
 $ cd /opt/soajs/node_modules/soajs.dashboard
 $ node .</code></pre>
-		<p>
-			<u>Note:</u> you can use upstart for your urac service, we have included the upstart file under soajs.utilities:
-			<pre><code class="bash"># copy the upstart to /etc/init/
-$ cp /opt/soajs/node_modules/soajs.utilities/deployment/cloud/upstart/soajs.dashboard.conf /etc/init/
-
-# start the dashboard
-$ service soajs.dashboard start</code></pre>
-		</p>
-		<b>oAuth:</b>
+		<br/>
+		<b>oAuth Service:</b>
 		<pre><code class="bash"># repeat the below command for all machines that has oauth service
 $ cd /opt/soajs/node_modules/soajs.oauth
 $ node .</code></pre>
-		<p>
-			<u>Note:</u> you can use upstart for your urac service, we have included the upstart file under soajs.utilities:
-			<pre><code class="bash"># copy the upstart to /etc/init/
-$ cp /opt/soajs/node_modules/soajs.utilities/deployment/cloud/upstart/soajs.oauth.conf /etc/init/
 
-# start the oauth
-$ service soajs.oauth start</code></pre>
-		</p>
-		<b>Examples:</b>
+		<br/>
+		<b>Examples Services:</b>
 		<pre><code class="bash"># repeat the below command for all machines that has examples service
 $ cd /opt/soajs/node_modules/soajs.examples/example01
 $ node .
@@ -391,19 +474,23 @@ $ node .
 $ cd /opt/soajs/node_modules/soajs.examples/example04
 $ node .</code></pre>
 		<p>
-			<u>Note:</u> you can use upstart for your urac service, we have included the upstart file under soajs.utilities:
-			<pre><code class="bash"># copy the upstart to /etc/init/
-$ cp /opt/soajs/node_modules/soajs.utilities/deployment/cloud/upstart/soajs.example01.conf /etc/init/
-$ cp /opt/soajs/node_modules/soajs.utilities/deployment/cloud/upstart/soajs.example02.conf /etc/init/
-$ cp /opt/soajs/node_modules/soajs.utilities/deployment/cloud/upstart/soajs.example03.conf /etc/init/
-$ cp /opt/soajs/node_modules/soajs.utilities/deployment/cloud/upstart/soajs.example04.conf /etc/init/
-
-# start the examples
-$ service soajs.example01 start
-$ service soajs.example02 start
-$ service soajs.example03 start
-$ service soajs.example04 start</code></pre>
+			<b>Note:</b> you can use <a href="https://www.npmjs.com/package/supervisor" target="_blank">supervisor</a> to run all the services in the background using one configuration file.<br />
+			Copy the configuration file supervisord.conf to /etc/supervisor/conf.d/ then run supervisor.
 		</p>
+		<pre><code class="bash"># on dashboard machines copy configuration file from
+$ cd /opt/soajs/node_modules/soajs.utilities/deployment/cloud/dashboard/urac_dashboard/FILES/
+$ cp supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# on production machines copy configuration file from
+$ cd /opt/soajs/node_modules/soajs.utilities/deployment/cloud/prod/urac_oauth/FILES/
+$ cp supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# on production machines for examples copy configuration file from
+$ cd /opt/soajs/node_modules/soajs.utilities/deployment/cloud/prod/examples/FILES/
+$ cp supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# start the services via supervisor on all machines
+$ /usr/bin/supervisord</code></pre>
 		<br/>
 		<h4>Testing the Services:</h4>
 		<p>
