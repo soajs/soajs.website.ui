@@ -162,10 +162,10 @@ var navigation = [
 		'url': '#/documentation/deployment/overview'
 	},
 	{
-		'id': 'all-in-one',
-		'label': 'soajs all-in-one',
-		'title': 'SOAJS | Deployment | All In One',
-		'url': '#/documentation/deployment/all-in-one'
+		'id': 'development',
+		'label': 'soajs Development Environment',
+		'title': 'SOAJS | Deployment | Development Environment',
+		'url': '#/documentation/deployment/development'
 	},
 	{
 		'id': 'cloud-awareness',

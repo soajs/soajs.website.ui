@@ -1,8 +1,8 @@
-<a id="all-in-one"></a>
-<h1>All In One</h1>
+<a id="development"></a>
+<h1>Development Environment</h1>
 <div class="white-container">
 	<p>
-		All in one means deploying everything on a single machine. This is ideal to create a SOAJS development environment. The below illustrates how to create an all in one deployment. When deploying SOAJS on one machine some services and databases will be shared.<br />
+		In Development Environment, we deploying everything on a single machine. The below illustrates how to create an all in one development deployment. When deploying SOAJS on one machine some services and databases will be shared.<br />
 		<img ng-src="images/documentation/deployment-aio.png" class="img-margin-t-b" />
 	</p>
 	<br/>
@@ -23,16 +23,19 @@ $ mkdir -p /opt/soajs/log</code></pre>
 	</p>
 	<h4>Docker:</h4>
 	<p>
-		Our team has prepared a docker image that contains all services installed and configured and read to run to speed things up for you. Simply install docker on your machine, then run the image and the All In One SOAJS will be downloaded and started on your machine.<br />
-		Navigate to <a href="https://docs.docker.com/installation/" target="_blank">Docker Installation Page</a> and install docker on the machine you are using.<br />
-		<pre><code class="bash"># get docker latest version
-$ wget -qO- https://get.docker.com/ | sh
-
-# verify docker installation
-$ docker run hello-world</code></pre>
-		Once Docker is installed, install run the following command:
-		<pre><code class="bash">$ docker run -d -p 80:80 soajs/aio</code></pre>
-		Docker will install SOAJS All In One (aio) on your machine, run the services and expose port 80 to your machine from its container.<br />
+		Our team has prepared a docker image that contains all services installed and configured and ready to run to speed things up for you. Simply install docker on your machine, then run the image and the Development Environment of SOAJS will be downloaded and started on your machine.<br />
+		Start by installing NodeJs then navigate to <a href="https://docs.docker.com/installation/" target="_blank">Docker Installation Page</a> and install docker and <a href="https://docs.docker.com/compose/" target="_blank">docker-compose</a> on the machine you are using. <br />
+		Once NodeJs, Docker and Docker-Compose are installed, install soajs.utilities to pull the configuration files:
+	</p>
+		<pre><code class="bash">$ cd /opt/soajs/node_modules/
+$ npm install soajs.utilities</code></pre>
+	<p>
+		Navigate to soajs.utilities/deployment/development/ and using docker-compose run the configuration file provided:
+	</p>
+	<pre><code class="bash">$ cd /opt/soajs/node_modules/soajs.utilities/deployment/development/
+$ docker-compose up</code></pre>
+	<p>
+		Docker will load the configuration file <b>docker-compose.yml</b> and install the development environment of SOAJS on your machine, run the services and expose port 80 to your machine from the created container.<br />
 		This means that when you attempt to hit <a href="http://api.soajs.org" target="_blank">http://api.soajs.org</a> or <a href="http://dashboard.soajs.org" target="_blank">http://dashboard.soajs.org</a> in your browser or via CURL, because port 80 is exposed, Nginx will reply and redirect your request to the services accordingly.<br />
 		You can now start using SOAJS.
 	</p>
@@ -141,13 +144,13 @@ tenants
 		<pre><code class="bash">$ whereis nginx.conf</code></pre>
 		By default on Ubuntu, nginx.conf is located in /etc/nignx/, copy the nginx configuration files from soajs.utilities to that location:
 		<pre><code class="bash"># copy the upstream.conf
-$ cp /opt/soajs/node_modules/soajs.utilities/deployment/aio/nginx/FILES/nginx/upstream.conf /etc/nginx/conf.d/
+$ cp /opt/soajs/node_modules/soajs.utilities/deployment/development/nginx/FILES/nginx/upstream.conf /etc/nginx/conf.d/
 
 # copy the hosts
-$ cp /opt/soajs/node_modules/soajs.utilities/deployment/aio/nginx/FILES/nginx/conf/*.conf /etc/nginx/sites-enabled/
+$ cp /opt/soajs/node_modules/soajs.utilities/deployment/development/nginx/FILES/nginx/conf/*.conf /etc/nginx/sites-enabled/
 </code></pre>
 		Nginx will now load the configuration that SOAJS needs when started.<br />
-		Edit your /etc/hosts file and add 2 entries from /opt/soajs/node_modules/soajs.utilities/deployment/allinone/hosts
+		Edit your /etc/hosts file and add 2 entries to point out the required hosts:
 		<pre><code class="javascript"># add the below in /etc/hosts
 127.0.0.1   api.soajs.org
 127.0.0.1   dashboard.soajs.org
@@ -161,7 +164,7 @@ $ cp /opt/soajs/node_modules/soajs.utilities/deployment/aio/nginx/FILES/nginx/co
 	<br/>
 	<h4>Step 3: Point out the Registry Profile</h4>
 	<p>
-		The next step requires that you specify the path of the project to load the environment and registry information for the services to work. As mentioned in the <a href="#/documentation/core/registry">Registry</a>, SOAJS supports multiple projects, and in this case we need to use the default project that contains the environment variables that we need for the All In One Setup. Navigate to soajs.utilities/deployment/aio/profiles/.
+		The next step requires that you specify the path of the project to load the environment and registry information for the services to work. As mentioned in the <a href="#/documentation/core/registry">Registry</a>, SOAJS supports multiple projects, and in this case we need to use the default project that contains the environment variables that we need for the Development environment Setup. Navigate to soajs.utilities/deployment/development/profiles/.
 	</p>
 	<pre><code class="bash"># set the environment name to dev
 $ export SOAJS_ENV=dev
@@ -170,7 +173,7 @@ $ export SOAJS_ENV=dev
 $ export SOAJS_PRJ=default
 
 # point out the location of the project
-$ export SOAJS_REGDIR=/opt/soajs/node_modules/soajs.utilities/deployment/aio/</code></pre>
+$ export SOAJS_REGDIR=/opt/soajs/node_modules/soajs.utilities/deployment/development/</code></pre>
 	<p>
 		The above variables will tell soajs the location of the profile you want to use and what is the environment and registry information that should be loaded.
 	</p>
@@ -210,7 +213,7 @@ $ node .</code></pre>
 		<b>Note:</b> you can use <a href="https://www.npmjs.com/package/supervisor" target="_blank">supervisor</a> to run all the services in the background using one configuration file.<br />
 		Copy the configuration file supervisord.conf to /etc/supervisor/conf.d/ then run supervisor.
 		<pre><code class="bash"># copy configuration file
-$ cd /opt/soajs/node_modules/soajs.utilities/deployment/aio/service/FILES/
+$ cd /opt/soajs/node_modules/soajs.utilities/deployment/development/service/FILES/
 $ cp supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # start the services via supervisor
