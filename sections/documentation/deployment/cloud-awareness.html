@@ -107,55 +107,73 @@
 
 	<h2>Installation</h2>
 
-	<h3>Nginx Layer</h3>
+	<h3>Docker:</h3>
 
-	<div>
-		<h4>Docker:</h4>
-
-		<p>
-			Our team has prepared a docker image that contains all services installed and configured and ready to run to speed things up for you. Simply install docker on the machine, then using docker, install and run the layer you need.<br/>
-			Start by installing NodeJs then navigate to <a href="https://docs.docker.com/installation/" target="_blank">Docker Installation Page</a> and install docker and <a href="https://docs.docker.com/compose/" target="_blank">docker-compose</a> on the machine you are using. <br/>
-			Once NodeJs, Docker and Docker-Compose are installed, install soajs.utilities to pull the configuration files:
-		</p>
-		<pre><code class="bash">$ cd /opt/soajs/node_modules/
+	<p>
+		Our team has prepared docker images that contains all services installed and configured and ready to run to speed things up for you. Simply install docker on the machine, then using docker, install and run the layer you need.<br/>
+		Start by installing NodeJs then navigate to <a href="https://docs.docker.com/installation/" target="_blank">Docker Installation Page</a> and install docker and <a href="https://docs.docker.com/compose/" target="_blank">docker-compose</a> on the machine you are using. <br/>
+		Once NodeJs, Docker and Docker-Compose are installed, install soajs.utilities to pull the configuration files:
+	</p>
+		<pre><code class="bash"># create SOAJS directory path
+$ mkdir -p /opt/soajs/node_modules/
+$ cd /opt/soajs/node_modules/
 $ npm install soajs.utilities</code></pre>
-		<p>
-			soajs.utilities contains 2 docker configuration files for the nginx layer:<br/>
-		</p>
-		<table width="100%" class="myTable">
-			<thead>
-				<tr>
-					<th>Environment</th>
-					<th>Docker File Path</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Dashboard</td>
-					<td>soajs.utilities/deployment/cloud/dashboard/nginx/Dockerfile</td>
-				</tr>
-				<tr class="even">
-					<td>Production</td>
-					<td>soajs.utilities/deployment/cloud/prod/nginx/Dockerfile</td>
-				</tr>
-			</tbody>
-		</table>
-		<br/>
-		<pre><code class="bash"># on dashboard nginx layer
-$ cd /opt/soajs/node_modules/soajs.utilities/deployment/cloud/dashboard/nginx/
+	<br/>
+	<p>
+		There are 2 ways to deploy SOAJS on a cloud using Docker.<br />
+		<b>Method 1:</b><br />
+		The first method only requires you run one file that installs both Dashboard and Production environments in one shot using one configuration file. This file is located under <b>soajs.utilities/deployment/cloud</b>.<br />
+		Run this file with Docker and Docker will create multiple containers and install both environments on them. All 3rd party libraries and SOAJS packages will be installed, configured and started.
+	</p>
+	<pre><code class="bash"># go to soajs.utilities/deployment/cloud
+$ cd /opt/soajs/node_modules/soajs.utilities/deployment/cloud
+$ docker-compose up</code></pre>
+	<br/>
+	<p>
+		<b>Method 2:</b><br />
+		The second method requires you run 2 files with Docker. These 2 files are similar to the first one with the exception that one installs only SOAJS Dashboard environment and the other only SOAJS Production environment. <br />
+		The table below shows the location of the other 2 configuration files.
+	</p>
+	<table width="100%" class="myTable">
+		<thead>
+			<tr>
+				<th>Environment</th>
+				<th>Docker File Path</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Dashboard</td>
+				<td>soajs.utilities/deployment/cloud/dashboard/docker-compose.yml</td>
+			</tr>
+			<tr class="even">
+				<td>Production</td>
+				<td>soajs.utilities/deployment/cloud/prod/docker-compose.yml</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		You need run docker-compose twice; first for Dashboard and second for Production environments as demonstrated below:
+	</p>
+	<pre><code class="bash"># on dashboard machine
+$ cd /opt/soajs/node_modules/soajs.utilities/deployment/cloud/dashboard/
 $ docker-compose up
 
-# on prod nginx layer
-$ cd /opt/soajs/node_modules/soajs.utilities/deployment/cloud/prod/nginx/
+# on prod machine
+$ cd /opt/soajs/node_modules/soajs.utilities/deployment/cloud/prod/
 $ docker-compose up</code></pre>
-		<p>
-			Docker will load the configuration file <b>docker-compose.yml</b> and install and run the nginx machines for you.<br/>
-			<u>Note:</u> If you have chosen to install Nginx via Docker, <a href="" ng-click="scrollToDiv('cloud-awareness-controller', 70)">Click Here</a> to skip the manual installation of Nginx and head to the next step.
-		</p>
-		<hr/>
-		<br/>
-		<h4>Manual Installation:</h4>
+	<p>
+		Docker will create containers for all the layers explained in the above section, install all 3rd party libraries and SOAJS packages, configure them and start them.<br />
+	</p>
+	<p>
+		<u>Note:</u> If you have chosen to install SOAJS via Docker, <a href="" ng-click="scrollToDiv('cloud-awareness-testing', 70)">Click Here</a> to skip the manual installation and head to testing the services.
+	</p>
+	<hr/>
+	<h3>Manual Installation:</h3>
+	<br/>
+	<h4 class="underline">Nginx Layer</h4>
 
+	<div>
 		<p>
 			Start by setting up 3 Machines for Dashboard Nginx Layer and 3 Machines for Production Nginx Layer.<br/>
 			Install Node, Nginx and soajs.utilities on each of these machines:
@@ -212,54 +230,9 @@ $ sudo nginx</code></pre>
 	</div>
 	<br/>
 	<hr/>
-	<h3 id="cloud-awareness-controller">Controllers Layer</h3>
+	<h4 class="underline">Controllers Layer</h4>
 
 	<div>
-		<h4>Docker:</h4>
-
-		<p>
-			As mentioned in the above Nginx layer docker installation, our team has prepared a docker image that contains all services installed and configured and ready to run to speed things up for you. Simply install NodeJs, Docker and Docker Compose on the machine, then using docker, install and
-			run this layer. Once NodeJs, Docker and Docker-Compose are installed, install soajs.utilities to pull the configuration files:
-		</p>
-		<pre><code class="bash">$ cd /opt/soajs/node_modules/
-$ npm install soajs.utilities</code></pre>
-		<p>
-			soajs.utilities contains 2 docker configuration files for the controllers:<br/>
-		</p>
-		<table width="100%" class="myTable">
-			<thead>
-				<tr>
-					<th>Environment</th>
-					<th>Docker File Path</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Dashboard</td>
-					<td>soajs.utilities/deployment/cloud/dashboard/controller/Dockerfile</td>
-				</tr>
-				<tr class="even">
-					<td>Production</td>
-					<td>soajs.utilities/deployment/cloud/prod/controller/Dockerfile</td>
-				</tr>
-			</tbody>
-		</table>
-		<br/>
-		<pre><code class="bash"># on dashboard controllers machines
-$ cd /opt/soajs/node_modules/soajs.utilities/deployment/cloud/dashboard/controller/
-$ docker-compose up
-
-# on prod controllers machines
-$ cd /opt/soajs/node_modules/soajs.utilities/deployment/cloud/prod/controller/
-$ docker-compose up</code></pre>
-		<p>
-			Docker will load the configuration file <b>docker-compose.yml</b> and install and run the controllers for you.<br/>
-			<u>Note:</u> If you have chosen to install the controller via Docker, <a href="" ng-click="scrollToDiv('cloud-awareness-services', 70)">Click Here</a> to skip the manual installation of the controller and head to the next step.
-		</p>
-		<hr/>
-		<br/>
-		<h4>Manual Installation:</h4>
-
 		<p>
 			Similar to the above layer, we will set up 3 machines for dashboard controllers layer and 3 machines for production controllers layer.<br/>
 			On each controller machine, install nodejs and HAproxy, then install the controller and the utilities of SOAJS.<br/>
@@ -352,66 +325,9 @@ $ /usr/bin/supervisord</code></pre>
 	<br/>
 	<hr/>
 
-	<h3 id="cloud-awareness-services">Services Layer</h3>
+	<h4 class="underline">Services Layer</h4>
 
 	<div>
-		<h4>Docker:</h4>
-
-		<p>
-			As mentioned in the above Nginx layer docker installation, our team has prepared a docker image that contains all services installed and configured and ready to run to speed things up for you. Simply install NodeJs, Docker and Docker Compose on the machine, then using docker, install and
-			run this layer. Once NodeJs, Docker and Docker-Compose are installed, install soajs.utilities to pull the configuration files:
-		</p>
-		<pre><code class="bash">$ cd /opt/soajs/node_modules/
-$ npm install soajs.utilities</code></pre>
-		<p>
-			soajs.utilities contains 3 docker configuration files for the services:<br/>
-		</p>
-		<table width="100%" class="myTable">
-			<thead>
-				<tr>
-					<th>Environment</th>
-					<th>Services</th>
-					<th>Docker File Path</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Dashboard</td>
-					<td>Urac - Dashboard</td>
-					<td>soajs.utilities/deployment/cloud/dashboard/urac_dashboard/Dockerfile</td>
-				</tr>
-				<tr class="even">
-					<td>Production</td>
-					<td>Urac - oAuth</td>
-					<td>soajs.utilities/deployment/cloud/prod/urac_oauth/Dockerfile</td>
-				</tr>
-				<tr>
-					<td>Production</td>
-					<td>Example01 - 02 - 03 - 04</td>
-					<td>soajs.utilities/deployment/cloud/prod/examples/Dockerfile</td>
-				</tr>
-			</tbody>
-		</table>
-		<br/>
-		<pre><code class="bash"># on dashboard services machines
-$ cd /opt/soajs/node_modules/soajs.utilities/deployment/cloud/dashboard/urac_dashboard/
-$ docker-compose up
-
-# on prod services machines
-$ cd /opt/soajs/node_modules/soajs.utilities/deployment/cloud/prod/urac_oauth/
-$ docker-compose up
-
-# on prod examples machines
-$ cd /opt/soajs/node_modules/soajs.utilities/deployment/cloud/prod/examples/
-$ docker-compose up</code></pre>
-		<p>
-			Docker will load the configuration file <b>docker-compose.yml</b> and install and run the services for you.<br/>
-			<u>Note:</u> If you have chosen to install the services via Docker, <a href="" ng-click="scrollToDiv('cloud-awareness-testing', 70)">Click Here</a> to skip the manual installation of the services and head to testing the services.
-		</p>
-		<hr/>
-		<br/>
-		<h4>Manual Installation:</h4>
-
 		<p>
 			Similar to above, create 3 machines for dashboard environment, 3 for production services environment and 3 others to run the examples and install the services needed on them. For Dashboard environment install both Urac and Dashboard services, for Production environment install both Urac
 			and oAuth and for Examples installs the examples.<br/>
@@ -620,7 +536,7 @@ $ curl -X GET "http://api.soajs.org:5013/heartbeat"
 	</div>
 	<br/>
 	<hr/>
-	<h3>Data Layer</h3>
+	<h4>Data Layer</h4>
 
 	<div>
 		<p>

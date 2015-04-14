@@ -997,7 +997,7 @@ hr.white {
 }
 
 .underline {
-
+    text-decoration: underline !important;
 }
 
 .img-margin-t-b {
@@ -1034,9 +1034,11 @@ hr.white {
 .topbar .documentation {
     width: 143px;
 }
+
 .topbar .news {
     width: 77px;
 }
+
 .topbar .contactUs {
     width: 113px;
 }
@@ -1127,8 +1129,8 @@ div.bulletin div.body div.txt {
     padding: 30px;
 }
 
-div.bulletin div.body div.txt.w-100{
-    width:100%;
+div.bulletin div.body div.txt.w-100 {
+    width: 100%;
 }
 
 div.bulletin div.body div.img {
@@ -1140,50 +1142,53 @@ div.bulletin div.body div.img {
     text-align: right;
 }
 
-.t-left{
+.t-left {
     text-align: left
 }
 
-.releaseDate{
+.releaseDate {
     float: right;
 }
-.releases{
+
+.releases {
     border: 1px solid;
     padding: 10px;
 }
 
-.repoFeatures{
+.repoFeatures {
     /*padding-left: 10px;*/
 }
 
-#newsPage .bulletin{
+#newsPage .bulletin {
     width: 100%;
 
 }
-#newsPage .bulletin .body{
+
+#newsPage .bulletin .body {
     padding: 10px;
 }
 
-#newsPage .bulletin ul li{
+#newsPage .bulletin ul li {
     margin-top: 5px;
 }
 
-#newsPage .bulletin ul li ul li{
+#newsPage .bulletin ul li ul li {
     margin-top: 0px;
 }
 
 #newsPage .bulletin ul li ul li span,
-#newsPage .bulletin ul li span{
-    color:rgb(34, 34, 34);
+#newsPage .bulletin ul li span {
+    color: rgb(34, 34, 34);
 }
 
-
-#newsPage b.etest{
-    color: rgb(119,34,100);
+#newsPage b.etest {
+    color: rgb(119, 34, 100);
 }
-#newsPage b.feature{
+
+#newsPage b.feature {
     color: #139948;
 }
-#newsPage b.bug{
+
+#newsPage b.bug {
     color: #e41f28;
 }
