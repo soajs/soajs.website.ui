@@ -1,6 +1,6 @@
 <a id="development"></a>
 <h1>Development Environment</h1>
-<fieldset class="white-container">
+<div class="white-container">
 	<p>
 		In Development Environment, we deploying everything on a single machine. The below illustrates how to create an all in one development deployment. When deploying SOAJS on one machine some services and databases will be shared.<br />
 		<img ng-src="images/documentation/deployment-aio.png" class="img-margin-t-b" />
@@ -67,9 +67,9 @@ $ sudo chmod 775 -R /data
 $ docker run -p 27017:27017 -v /data:/data -v /data/db:/data/db mongo mongod --smallfiles
 
 # step2, provision the sample data
-$ cd /opt/soajs/node_modules/soajs.mongodb.data/environment/development/
-$ chmod +x import.sh
-$ ./import.sh $(boot2docker ip)</code></pre>
+$ cd /opt/soajs/node_modules/soajs.utilities/lib/
+$ node index data import provision $(boot2docker ip)
+$ node index data import urac $(boot2docker ip)</code></pre>
 		</div>
 	</fieldset>
 	<p>
@@ -106,9 +106,6 @@ $ npm install soajs.dashboard
 #install the oAuth service
 $ npm install soajs.oauth
 
-#install the sample data
-$ npm install soajs.mongodb.data
-
 #install the examples
 $ npm install soajs.examples
 
@@ -141,16 +138,16 @@ $ mongo > show dbs</code></pre>
 	"credentials": null,
 	"servers": [
 		{
-			"host": "data_proxy",
+			"host": "data-proxy",
 			"port": 27017
 		}
 	]
 };</code></pre>
 		This file instructs SOAJS how to connect to mongo. You can always change the host/port values depending on where you installed mongodb and add credentials if needed or prefixes in the configuration.<br />
 		Now let's import some data to the database so we can use them later on. Navigate to soajs.mongodb.data/modules/dashboard-ui/ and in your terminal execute the shell script <b>import.sh</b>, this script will create 1 tenant, 1 product, 1 user and 1 group. We will use this sample data later on when everything is running.
-		<pre><code class="bash">$ cd soajs.mongodb.data/environment/development/
-$ chmod +x import.sh
-$ ./import.sh</code></pre>
+		<pre><code class="bash">$ cd /opt/soajs/node_modules/soajs.utilities/lib/
+$ node index data import provision localhost
+$ node index data import urac localhost</code></pre>
 		Go back to the terminal where you connected to mongo, and run <b>show dbs</b> again, you will see that core_provision and dashboard_urac database in the list of databases.
 		<pre><code class="bash">$ mongo > show dbs
 core_provision  0.078GB

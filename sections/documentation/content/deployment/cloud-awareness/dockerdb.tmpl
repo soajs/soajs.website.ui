@@ -2,12 +2,13 @@
 $ docker run -p 27017:27017 -v /dashboard/data:/data -v /dashboard/data/db:/data/db mongo mongod --smallfiles
 
 # step2, provision the sample data to data_proxy
-$ cd /opt/soajs/node_modules/soajs.mongodb.data/environment/cloud/
-$ chmod +x import.sh
-$ ./import.sh $(docker inspect --format="{{.NetworkSettings.IPAddress }}" cloud_nginxPROD_1)
+$ cd /opt/soajs/node_modules/soajs.utilities/lib/
+$ node index data import provision $(docker inspect --format="{{.NetworkSettings.IPAddress }}" cloud_nginxPROD_1)
 
 
 # step 1, complete data layer installation for production
 $ docker run -p 27017:27017 -v /prod/data:/data -v /prod/data/db:/data/db mongo mongod --smallfiles
 
-# step 2, not needed since production only reads from provisioning therefore no import is required
+# step2, provision the below data for examples on production machines
+$ cd /opt/soajs/node_modules/soajs.utilities/lib/
+$ node index data import urac $(docker inspect --format="{{.NetworkSettings.IPAddress }}" cloud_nginxPROD_1)

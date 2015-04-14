@@ -204,13 +204,18 @@ $ sudo chgrp staff -R /prod/data
 $ sudo chmod 775 -R /prod/data
 
 
-# step 1, complete data layer installation
+# step 1, complete data layer installation for dashboard
 $ docker run -p 27017:27017 -v /dashboard/data:/data -v /dashboard/data/db:/data/db mongo mongod --smallfiles
 
 # step2, provision the sample data
-$ cd /opt/soajs/node_modules/soajs.mongodb.data/environment/cloud/
-$ chmod +x import.sh
-$ ./import.sh $(boot2docker ip)</code></pre>
+$ cd /opt/soajs/node_modules/soajs.utilities/lib/
+$ node index data import provision $(boot2docker ip)
+
+# step 1, complete data layer installation for production
+$ docker run -p 27017:27017 -v /prod/data:/data -v /prod/data/db:/data/db mongo mongod --smallfiles
+
+# step2, provision the below data for examples on production machines
+$ node index data import urac $(boot2docker ip)</code></pre>
 		</div>
 	</fieldset>
 	<p>
@@ -267,9 +272,9 @@ $ cp nginx/conf/*.conf /etc/nginx/sites-enabled/</code></pre>
 $ sudo gedit /etc/hosts
 
 # add these lines in /etc/hosts
-192.168.0.1 controller_01
-192.168.0.2 controller_02
-192.168.0.3 controller_03</code></pre>
+192.168.0.1 controller01
+192.168.0.2 controller02
+192.168.0.3 controller03</code></pre>
 		<p>
 			You will need to put the right IP addresses above for both Nginx machines.<br/>
 			Start Nginx:
@@ -418,11 +423,11 @@ $ npm install soajs.examples</code></pre>
 			Point out the data layer on all the services machines so that these services can communicate with the database when needed by editing the /etc/hosts file on each machine and adding the following entries:
 		</p>
 		<pre><code class="bash"># edit /etc/hosts of each Dashboard Services Machine
-192.168.0.101 data_01</code></pre>
+192.168.0.101 dataProvision_proxy</code></pre>
 		<p>You will need to put the right IP addresses above.</p>
 		<pre><code class="bash"># edit /etc/hosts of each Production Services Machines
-192.168.0.101 data_01
-192.168.0.102 data_02</code></pre>
+192.168.0.101 dataProvision_proxy
+192.168.0.102 data_proxy</code></pre>
 		<p>You will need to put the right IP addresses above.</p>
 		<br/>
 		<h4>Point out the Registry Profile</h4>
@@ -598,23 +603,23 @@ $ curl -X GET "http://api.soajs.org:5013/heartbeat"
 			Create 2 Machines and install mongodb on them; these machines will be used for each environment to install the databases and configuring them to work as replica sets.
 		</p>
 		<ol>
-			<li><b>data_01</b>: contains provisioned information for tenants, products, environments, dashboard members and their sessions.</li>
-			<li><b>data_02</b>: contains tenant specific information as well as any other additional custom services databases information.</li>
+			<li><b>dataProvision_proxy</b>: contains provisioned information for tenants, products, environments, dashboard members and their sessions.</li>
+			<li><b>data_proxy</b>: contains tenant specific information as well as any other additional custom services databases information.</li>
 		</ol>
 		<img ng-src="images/documentation/core-db-replica.png"/><br/>
 
 		<p>
-			You can always add additional nodes to distribute the load and expand. For this tutorial we chose to group CORE databases in one group <b>data_01</b> and the other databases in another group <b>data_02</b> resulting in two sets.
+			You can always add additional nodes to distribute the load and expand. For this tutorial we chose to group CORE databases in one group <b>dataProvision_proxy</b> and the other databases in another group <b>data_proxy</b> resulting in two sets.
 		</p>
 		<pre><code class="bash">#install MongoDB latest stable version on each machine
 $ apt-get install mongodb</code></pre>
 		<p>
 			Edit the hosts of each machine and point out the data layer hostnames:
 		</p>
-		<pre><code class="bash"># edit /etc/hosts of data_01
-127.0.0.1 data_01</code></pre>
-		<pre><code class="bash"># edit /etc/hosts of data_02
-127.0.0.1 data_02</code></pre>
+		<pre><code class="bash"># edit /etc/hosts of dataProvision_proxy
+127.0.0.1 dataProvision_proxy</code></pre>
+		<pre><code class="bash"># edit /etc/hosts of data_proxy
+127.0.0.1 data_proxy</code></pre>
 
 		<p>
 			Once mongo is installed, create a replica set of 3 databases on each of these machines. If you are not familiar with Replica Sets, visit the official <a href="http://docs.mongodb.org/manual/tutorial/deploy-replica-set/" target="_blank">mongodb replica set documentation</a>.<br/>
@@ -627,13 +632,13 @@ $ apt-get install nodejs
 $ mkdir -p /opt/soajs/node_modules/
 $ cd /opt/soajs/node_modules/
 
-# install soajs.mongodb.data
-$ npm install soajs.mongodb.data
+# install soajs.utilities
+$ npm install soajs.utilities
 
 # import the core sample data
-$ cd soajs.mongodb.data/environment/cloud/
-$ chmod +x import.sh
-$ ./import.sh</code></pre>
+$ cd soajs.utilities/lib/
+$ node index data import provision dataProvision_proxy
+$ node index data import urac data_proxy</code></pre>
 		<p>
 			The shell script will create 1 tenant, 1 product, 1 user and 1 group in our core database and will replicate the information on all members of the replica set. After executing the script connect to mongo and list the databases to verify that the last step imported the data:
 		</p>

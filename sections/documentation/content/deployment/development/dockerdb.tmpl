@@ -2,6 +2,6 @@
 $ docker run -p 27017:27017 -v /data:/data -v /data/db:/data/db mongo mongod --smallfiles
 
 # step2, provision the sample data
-$ cd /opt/soajs/node_modules/soajs.mongodb.data/environment/development/
-$ chmod +x import.sh
-$ ./import.sh $(docker inspect --format="{{.NetworkSettings.IPAddress }}" development_nginx_1)
+$ cd /opt/soajs/node_modules/soajs.utilities/lib/
+$ node index data import provision $(docker inspect --format="{{.NetworkSettings.IPAddress }}" development_nginx_1)
+$ node index data import urac $(docker inspect --format="{{.NetworkSettings.IPAddress }}" development_nginx_1)
