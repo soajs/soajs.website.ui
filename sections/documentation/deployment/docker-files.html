@@ -10,7 +10,7 @@
 	<table width="100%" class="myTable" ng-if="docker_files.Development.length > 0">
 		<thead>
 			<tr>
-				<th>Environment</th>
+				<!--<th>Environment</th>-->
 				<th>File Location</th>
 				<th>Docker Link</th>
 				<th>3rd Party</th>
@@ -19,10 +19,10 @@
 		</thead>
 		<tbody>
 			<tr ng-repeat="entry in docker_files.Development" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
-				<td width="20%"><b>{{entry.env}}</b></td>
-				<td>{{entry.file}}</td>
-				<td><a href="{{entry.link.link}}" target="_blank">{{entry.link.label}}</a></td>
-				<td valign="top">
+				<!--<td width="20%"><b>{{entry.env}}</b></td>-->
+				<td width="42%">{{entry.file}}</td>
+				<td width="26%"><a href="{{entry.link.link}}" target="_blank">{{entry.link.label}}</a></td>
+				<td width="10%" valign="top">
 					<ul>
 						<li ng-repeat="oneParty in entry['3rd']">{{oneParty}}</li>
 					</ul>
@@ -40,7 +40,7 @@
 	<table width="100%" class="myTable" ng-if="docker_files.Dashboard.length > 0">
 		<thead>
 			<tr>
-				<th>Environment</th>
+				<!--<th>Environment</th>-->
 				<th>File Location</th>
 				<th>Docker Link</th>
 				<th>3rd Party</th>
@@ -49,10 +49,10 @@
 		</thead>
 		<tbody>
 			<tr ng-repeat="entry in docker_files.Dashboard" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
-				<td width="20%"><b>{{entry.env}}</b></td>
-				<td>{{entry.file}}</td>
-				<td><a href="{{entry.link.link}}" target="_blank">{{entry.link.label}}</a></td>
-				<td valign="top">
+				<!--<td width="20%"><b>{{entry.env}}</b></td>-->
+				<td width="42%">{{entry.file}}</td>
+				<td width="26%"><a href="{{entry.link.link}}" target="_blank">{{entry.link.label}}</a></td>
+				<td width="10%" valign="top">
 					<ul>
 						<li ng-repeat="oneParty in entry['3rd']">{{oneParty}}</li>
 					</ul>
@@ -70,7 +70,7 @@
 	<table width="100%" class="myTable" ng-if="docker_files.Production.length > 0">
 		<thead>
 			<tr>
-				<th>Environment</th>
+				<!--<th>Environment</th>-->
 				<th>File Location</th>
 				<th>Docker Link</th>
 				<th>3rd Party</th>
@@ -79,10 +79,10 @@
 		</thead>
 		<tbody>
 			<tr ng-repeat="entry in docker_files.Production" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
-				<td width="20%"><b>{{entry.env}}</b></td>
-				<td>{{entry.file}}</td>
-				<td><a href="{{entry.link.link}}" target="_blank">{{entry.link.label}}</a></td>
-				<td valign="top">
+				<!--<td width="20%"><b>{{entry.env}}</b></td>-->
+				<td width="42%">{{entry.file}}</td>
+				<td width="26%"><a href="{{entry.link.link}}" target="_blank">{{entry.link.label}}</a></td>
+				<td width="10%" valign="top">
 					<ul>
 						<li ng-repeat="oneParty in entry['3rd']">{{oneParty}}</li>
 					</ul>
