@@ -179,7 +179,7 @@
         "soajs.urac",
         "soajs.oauth"
       ],
-      "file": "/deployment/cloud/dashboard/urac_oauth/Dockerfile",
+      "file": "/deployment/cloud/prod/urac_oauth/Dockerfile",
       "link": {
         "label": "soajs_cloud_prod_urac_oauth",
         "link": ""
@@ -195,7 +195,7 @@
       "package": [
         "soajs.examples"
       ],
-      "file": "/deployment/cloud/dashboard/examples/Dockerfile",
+      "file": "/deployment/cloud/prod/examples/Dockerfile",
       "link": {
         "label": "soajs_cloud_prod_examples",
         "link": ""
