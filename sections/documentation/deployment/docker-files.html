@@ -7,6 +7,7 @@
 	</p>
 	<hr/>
 	<h3>Development Environment</h3>
+	<b>Package:</b> <a href="https://www.npmjs.com/package/soajs.utilities" target="_blank">soajs.utilities</a>
 	<table width="100%" class="myTable" ng-if="docker_files.Development.length > 0">
 		<thead>
 			<tr>
@@ -21,7 +22,14 @@
 			<tr ng-repeat="entry in docker_files.Development" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
 				<!--<td width="20%"><b>{{entry.env}}</b></td>-->
 				<td width="42%">{{entry.file}}</td>
-				<td width="26%"><a href="{{entry.link.link}}" target="_blank">{{entry.link.label}}</a></td>
+				<td width="26%" valign="top">
+					<span ng-if="isArray(entry.link) && entry.link.length > 0">
+						<div ng-repeat="img in entry.link"><a href="{{img.link}}" target="_blank">{{img.label}}</a></div>
+					</span>
+					<span ng-else>
+						<a href="{{entry.link.link}}" target="_blank">{{entry.link.label}}</a>
+					</span>
+				</td>
 				<td width="10%" valign="top">
 					<ul>
 						<li ng-repeat="oneParty in entry['3rd']">{{oneParty}}</li>
@@ -37,6 +45,7 @@
 	</table>
 	<br/><br/>
 	<h3>Dashboard Environment</h3>
+	<b>Package:</b> <a href="https://www.npmjs.com/package/soajs.utilities" target="_blank">soajs.utilities</a>
 	<table width="100%" class="myTable" ng-if="docker_files.Dashboard.length > 0">
 		<thead>
 			<tr>
@@ -51,7 +60,15 @@
 			<tr ng-repeat="entry in docker_files.Dashboard" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
 				<!--<td width="20%"><b>{{entry.env}}</b></td>-->
 				<td width="42%">{{entry.file}}</td>
-				<td width="26%"><a href="{{entry.link.link}}" target="_blank">{{entry.link.label}}</a></td>
+				<td width="26%" valign="top">
+					<span ng-if="isArray(entry.link) && entry.link.length > 0">
+						<div ng-repeat="img in entry.link"><a href="{{img.link}}" target="_blank">{{img.label}}</a></div>
+					</span>
+					</span>
+					<span ng-else>
+						<a href="{{entry.link.link}}" target="_blank">{{entry.link.label}}</a>
+					</span>
+				</td>
 				<td width="10%" valign="top">
 					<ul>
 						<li ng-repeat="oneParty in entry['3rd']">{{oneParty}}</li>
@@ -67,6 +84,7 @@
 	</table>
 	<br/><br/>
 	<h3>Production Environment</h3>
+	<b>Package:</b> <a href="https://www.npmjs.com/package/soajs.utilities" target="_blank">soajs.utilities</a>
 	<table width="100%" class="myTable" ng-if="docker_files.Production.length > 0">
 		<thead>
 			<tr>
@@ -81,7 +99,14 @@
 			<tr ng-repeat="entry in docker_files.Production" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
 				<!--<td width="20%"><b>{{entry.env}}</b></td>-->
 				<td width="42%">{{entry.file}}</td>
-				<td width="26%"><a href="{{entry.link.link}}" target="_blank">{{entry.link.label}}</a></td>
+				<td width="26%" valign="top">
+					<span ng-if="isArray(entry.link) && entry.link.length > 0">
+						<div ng-repeat="img in entry.link"><a href="{{img.link}}" target="_blank">{{img.label}}</a></div>
+					</span>
+					<span ng-else>
+						<a href="{{entry.link.link}}" target="_blank">{{entry.link.label}}</a>
+					</span>
+				</td>
 				<td width="10%" valign="top">
 					<ul>
 						<li ng-repeat="oneParty in entry['3rd']">{{oneParty}}</li>
