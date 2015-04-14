@@ -1,6 +1,6 @@
 <a id="development"></a>
 <h1>Development Environment</h1>
-<div class="white-container">
+<fieldset class="white-container">
 	<p>
 		In Development Environment, we deploying everything on a single machine. The below illustrates how to create an all in one development deployment. When deploying SOAJS on one machine some services and databases will be shared.<br />
 		<img ng-src="images/documentation/deployment-aio.png" class="img-margin-t-b" />
@@ -15,7 +15,7 @@
 $ mkdir -p /opt/soajs/node_modules/
 
 # soajs logs go here
-$ mkdir -p /opt/soajs/log</code></pre>
+$ mkdir -p $HOME/soajs/log</code></pre>
 	<p>
 		The above command will create a folder on the root level named <b>opt</b> with <b>soajs</b> folder inside it and <b>node_modules</b> folder inside <b>soajs</b>. When you install soajs in the next steps, all the core modules will be located in node_modules folder. This way when you create your services, simply require soajs in your code and it will be loaded.<br />
 		The second folder schema will be used to write the services logs in it.<br />
@@ -37,7 +37,43 @@ $ docker-compose up</code></pre>
 	<p>
 		Docker will load the configuration file <b>docker-compose.yml</b> and install the development environment of SOAJS on your machine, run the services and expose port 80 to your machine from the created container.<br />
 		This means that when you attempt to hit <a href="http://api.soajs.org" target="_blank">http://api.soajs.org</a> or <a href="http://dashboard.soajs.org" target="_blank">http://dashboard.soajs.org</a> in your browser or via CURL, because port 80 is exposed, Nginx will reply and redirect your request to the services accordingly.<br />
-		You can now start using SOAJS.<br />
+	</p>
+	<br/>
+	<b>Data Layer:</b>
+	<p>
+		Docker will create a container for the database, SOAJS services will manage and read the data from this database.<br />
+		To start, you need to import the provisioned data sample so you can login via the Dashboard UI and work.<br />
+		This requires 2 steps, run the following to complete the setup of the database after Docker finishes the installation, then import the provisioned sample data to use the dashboard UI:
+	</p>
+	<div ng-init="loadBASH(path + 'deployment/development/dockerdb.tmpl','dockerdb');">
+		<div id="dockerdb"></div>
+	</div>
+	<p>
+		The above commands map both /data and /data/db directories from the container to your machine, this allows your services to communicate with the database. Then in step 2, we imported the sample data into the database by providing the ip address of the container where the database resides.
+	</p>
+	<fieldset>
+		<legend>Mac OS X Machines:</legend>
+		<div>
+			<p>
+				If your machine uses Mac OS X, then you need <a href="https://github.com/boot2docker/osx-installer/releases/latest" target="_blank">boot2docker</a> installed. Once boot2docker is installed, additional steps are required before executing the above mentioned commands to get the data layer working. Execute the below commands instead:
+			</p>
+	<pre><code class="bash"># ssh to boot2docker, create /data with the right permissions
+$ boot2docker ssh
+$ sudo mkdir -p /data
+$ sudo chgrp staff -R /data
+$ sudo chmod 775 -R /data
+
+# step 1, complete data layer installation
+$ docker run -p 27017:27017 -v /data:/data -v /data/db:/data/db mongo mongod --smallfiles
+
+# step2, provision the sample data
+$ cd /opt/soajs/node_modules/soajs.mongodb.data/environment/development/
+$ chmod +x import.sh
+$ ./import.sh $(boot2docker ip)</code></pre>
+		</div>
+	</fieldset>
+	<p>
+		All is installed and running, database provisioned with sample data, you can now start using SOAJS.<br />
 		<u>Note:</u> If you have chosen to install SOAJS using Docker, <a href="" ng-click="scrollToDiv('aio-testing', 70)">Click Here</a> to skip the manual installation and head directly to testing the services.
 	</p>
 	<hr />
@@ -112,7 +148,7 @@ $ mongo > show dbs</code></pre>
 };</code></pre>
 		This file instructs SOAJS how to connect to mongo. You can always change the host/port values depending on where you installed mongodb and add credentials if needed or prefixes in the configuration.<br />
 		Now let's import some data to the database so we can use them later on. Navigate to soajs.mongodb.data/modules/dashboard-ui/ and in your terminal execute the shell script <b>import.sh</b>, this script will create 1 tenant, 1 product, 1 user and 1 group. We will use this sample data later on when everything is running.
-		<pre><code class="bash">$ cd soajs.mongodb.data/modules/dashboard-ui/
+		<pre><code class="bash">$ cd soajs.mongodb.data/environment/development/
 $ chmod +x import.sh
 $ ./import.sh</code></pre>
 		Go back to the terminal where you connected to mongo, and run <b>show dbs</b> again, you will see that core_provision and dashboard_urac database in the list of databases.

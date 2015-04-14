@@ -1,0 +1,7 @@
+# step 1, complete data layer installation
+$ docker run -p 27017:27017 -v /data:/data -v /data/db:/data/db mongo mongod --smallfiles
+
+# step2, provision the sample data
+$ cd /opt/soajs/node_modules/soajs.mongodb.data/environment/development/
+$ chmod +x import.sh
+$ ./import.sh $(docker inspect --format="{{.NetworkSettings.IPAddress }}" development_nginx_1)
