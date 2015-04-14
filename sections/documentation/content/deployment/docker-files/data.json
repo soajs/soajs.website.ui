@@ -1,0 +1,127 @@
+{
+  "Development": [
+    {
+      "env": "development",
+      "3rd": [
+        "nginx",
+        "npm"
+      ],
+      "package": ["soajs.dashboard"],
+      "file": "saojs.utilities/deployment/development/nginx/Dockerfile",
+      "link": {
+        "label":"soajs_aio_nginx",
+        "link": ""
+      }
+    },
+    {
+      "env": "development",
+      "3rd": [
+        "npm",
+        "supervisor"
+      ],
+      "package": [
+        "soajs.controller",
+        "soajs.urac",
+        "soajs.oauth",
+        "soajs.dashboard",
+        "soajs.examples"
+      ],
+      "file": "saojs.utilities/deployment/development/service/Dockerfile",
+      "link": {
+        "label": "soajs_aio_service",
+        "link": ""
+      }
+    }
+  ],
+  "Dashboard": [
+    {
+      "env": "dashboard",
+      "3rd": [
+        "nginx",
+        "npm"
+      ],
+      "package": ["soajs.dashboard"],
+      "file": "soajs.utilities/deployment/cloud/dashboard/nginx/Dockerfile",
+      "link": {
+        "label": "soajs_cloud_dashboard_nginx",
+        "link": ""
+      }
+    },
+    {
+      "env": "dashboard",
+      "3rd": ["nodejs", "npm", "supervisor", "haproxy"],
+      "package": [
+        "soajs.controller"
+      ],
+      "file": "soajs.utilities/deployment/cloud/dashboard/controller/Dockerfile",
+      "link": {
+        "label": "soajs_cloud_dashboard_controller",
+        "link": ""
+      }
+    },
+    {
+      "env": "dashboard",
+      "3rd": ["nodejs", "npm", "supervisor"],
+      "package": [
+        "soajs.urac",
+        "soajs.dashboard"
+      ],
+      "file": "soajs.utilities/deployment/cloud/dashboard/urac_dashboard/Dockerfile",
+      "link": {
+        "label": "soajs_cloud_dashboard_urac_dashboard",
+        "link": ""
+      }
+    }
+  ],
+  "Production": [
+    {
+      "env": "production",
+      "3rd": [
+        "nginx"
+      ],
+      "package": [],
+      "file": "soajs.utilities/deployment/cloud/prod/nginx/Dockerfile",
+      "link": {
+        "label": "soajs_cloud_prod_nginx",
+        "link": ""
+      }
+    },
+    {
+      "env": "production",
+      "3rd": ["nodejs", "npm", "supervisor", "haproxy"],
+      "package": [
+        "soajs.controller"
+      ],
+      "file": "soajs.utilities/deployment/cloud/prod/controller/Dockerfile",
+      "link": {
+        "label": "soajs_cloud_prod_controller",
+        "link": ""
+      }
+    },
+    {
+      "env": "production",
+      "3rd": ["nodejs", "npm", "supervisor"],
+      "package": [
+        "soajs.urac",
+        "soajs.oauth"
+      ],
+      "file": "soajs.utilities/deployment/cloud/dashboard/urac_oauth/Dockerfile",
+      "link": {
+        "label": "soajs_cloud_prod_urac_oauth",
+        "link": ""
+      }
+    },
+    {
+      "env": "production",
+      "3rd": ["nodejs", "npm", "supervisor"],
+      "package": [
+        "soajs.examples"
+      ],
+      "file": "soajs.utilities/deployment/cloud/dashboard/examples/Dockerfile",
+      "link": {
+        "label": "soajs_cloud_prod_examples",
+        "link": ""
+      }
+    }
+  ]
+}

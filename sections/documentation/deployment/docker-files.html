@@ -1,5 +1,98 @@
 <a id="docker-files"></a>
 <h1>Docker Files</h1>
 <div class="white-container">
-
+	<p>
+		The following is a list of <b>Dockerfiles</b> mentioned in both <a href="#/documentation/deployment/development">Development Environment</a> and <a href="#/documentation/deployment/cloud-awareness">Cloud &amp; Awareness</a> under <b>Deployment</b> section.<br />
+		The list shows the location of  each Dockerfile, the package(s) and 3rd party technologies that will be installed as well as the environment they should be executed in.
+	</p>
+	<hr/>
+	<h3>Development Environment</h3>
+	<table width="100%" class="myTable" ng-if="docker_files.Development.length > 0">
+		<thead>
+			<tr>
+				<th>Environment</th>
+				<th>File Location</th>
+				<th>Docker Link</th>
+				<th>3rd Party</th>
+				<th>SOAJS Package(s)</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="entry in docker_files.Development" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
+				<td width="20%"><b>{{entry.env}}</b></td>
+				<td>{{entry.file}}</td>
+				<td><a href="{{entry.link.link}}" target="_blank">{{entry.link.label}}</a></td>
+				<td valign="top">
+					<ul>
+						<li ng-repeat="oneParty in entry['3rd']">{{oneParty}}</li>
+					</ul>
+				</td>
+				<td valign="top">
+					<ul>
+						<li ng-repeat="onePackage in entry.package">{{onePackage}}</li>
+					</ul>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<br/><br/>
+	<h3>Dashboard Environment</h3>
+	<table width="100%" class="myTable" ng-if="docker_files.Dashboard.length > 0">
+		<thead>
+			<tr>
+				<th>Environment</th>
+				<th>File Location</th>
+				<th>Docker Link</th>
+				<th>3rd Party</th>
+				<th>SOAJS Package(s)</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="entry in docker_files.Dashboard" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
+				<td width="20%"><b>{{entry.env}}</b></td>
+				<td>{{entry.file}}</td>
+				<td><a href="{{entry.link.link}}" target="_blank">{{entry.link.label}}</a></td>
+				<td valign="top">
+					<ul>
+						<li ng-repeat="oneParty in entry['3rd']">{{oneParty}}</li>
+					</ul>
+				</td>
+				<td valign="top">
+					<ul>
+						<li ng-repeat="onePackage in entry.package">{{onePackage}}</li>
+					</ul>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<br/><br/>
+	<h3>Production Environment</h3>
+	<table width="100%" class="myTable" ng-if="docker_files.Production.length > 0">
+		<thead>
+			<tr>
+				<th>Environment</th>
+				<th>File Location</th>
+				<th>Docker Link</th>
+				<th>3rd Party</th>
+				<th>SOAJS Package(s)</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="entry in docker_files.Production" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
+				<td width="20%"><b>{{entry.env}}</b></td>
+				<td>{{entry.file}}</td>
+				<td><a href="{{entry.link.link}}" target="_blank">{{entry.link.label}}</a></td>
+				<td valign="top">
+					<ul>
+						<li ng-repeat="oneParty in entry['3rd']">{{oneParty}}</li>
+					</ul>
+				</td>
+				<td valign="top">
+					<ul>
+						<li ng-repeat="onePackage in entry.package">{{onePackage}}</li>
+					</ul>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </div>

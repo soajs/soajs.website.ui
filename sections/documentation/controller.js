@@ -15,7 +15,7 @@ documentationApp.controller('documentationtCtrl', ['$scope', '$http', '$routePar
 		var angularElement = angular.element(document.getElementById('documentationPreview'));
 		$http.get('sections/documentation/content/' + sectionName + '/' + subSectionName + '/data.json').success(function(data) {
 			$scope[subSectionName.replace("-", "_")] = data;
-		}).error(function(error){
+		}).error(function(error) {
 			console.log(error);
 		});
 
@@ -39,5 +39,9 @@ documentationApp.controller('documentationtCtrl', ['$scope', '$http', '$routePar
 
 	$scope.loadHTML = function(path, elId) {
 		loadHTMLContent($scope, path, elId);
+	};
+
+	$scope.scrollToDiv = function(divId, prefix) {
+		jQuery("html, body").delay(500).animate({scrollTop: jQuery('#' + divId).offset().top - prefix}, 1000);
 	};
 }]);

@@ -37,9 +37,10 @@ $ docker-compose up</code></pre>
 	<p>
 		Docker will load the configuration file <b>docker-compose.yml</b> and install the development environment of SOAJS on your machine, run the services and expose port 80 to your machine from the created container.<br />
 		This means that when you attempt to hit <a href="http://api.soajs.org" target="_blank">http://api.soajs.org</a> or <a href="http://dashboard.soajs.org" target="_blank">http://dashboard.soajs.org</a> in your browser or via CURL, because port 80 is exposed, Nginx will reply and redirect your request to the services accordingly.<br />
-		You can now start using SOAJS.
+		You can now start using SOAJS.<br />
+		<u>Note:</u> If you have chosen to install SOAJS using Docker, <a href="" ng-click="scrollToDiv('aio-testing', 70)">Click Here</a> to skip the manual installation and head directly to testing the services.
 	</p>
-	<br />
+	<hr />
 	<h4>Manual Installation:</h4>
 	<p>
 		You can always install SOAJS manually but this requires additional steps than Docker. Start by installing the technologies needed by SOAJS on your machine. Here are the steps you need to begin with:
@@ -80,7 +81,7 @@ $ npm install soajs.utilities
 </code></pre>
 	<p>
 		When you are done with the NPM command above you should have a folder schema that resembles the following:
-		<div ng-init="loadCode(path + 'deployment/all-in-one/folder-list.txt', 'folder-list');"></div>
+		<div ng-init="loadCode(path + 'deployment/development/folder-list.txt', 'folder-list');"></div>
 		<div id="folder-list"></div>
 	</p>
 	<br/>
@@ -220,7 +221,7 @@ $ cp supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 $ /usr/bin/supervisord</code></pre>
 	</p>
 	<br/>
-	<h4>Step 5: Testing the services</h4>
+	<h4 id="aio-testing">Step 5: Testing the services</h4>
 	<p>
 		We mentioned in the <a href="#/documentation/services/controller">Controller</a> section that you can run a maintenance check on any service built with SOAJS. When a service starts, it will listen to two ports: the default port and the maintenance port.<br />
 		Let's run some maintenance heartbeat requests to see the status of our services:
