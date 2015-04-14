@@ -524,6 +524,110 @@
     ]
   },
   {
+    "routeName": "/tenant/oauth/users/list",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/tenant/oauth/users/list?id=11",
+    "fields": [
+      {
+        "parameter": "id",
+        "type": "string",
+        "source": "query",
+        "mandatory": true,
+        "default": "",
+        "notes": "Tenant Id"
+      }
+    ]
+  },
+  {
+    "routeName": "/tenant/oauth/users/delete",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/tenant/oauth/users/delete?id=11&uId=123",
+    "fields": [
+      {
+        "parameter": "id",
+        "type": "string",
+        "source": "query",
+        "mandatory": true,
+        "default": "",
+        "notes": "Tenant Id"
+      },
+      {
+        "parameter": "uId",
+        "type": "string",
+        "source": "query",
+        "mandatory": true,
+        "default": "",
+        "notes": "oAuth User Record Id in the database"
+      }
+    ]
+  },
+  {
+    "routeName": "/tenant/oauth/users/add",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/tenant/oauth/users/add?id=11 -d 'userId=oauth_user&password=oauth_password'",
+    "fields": [
+      {
+        "parameter": "id",
+        "type": "string",
+        "source": "query",
+        "mandatory": true,
+        "default": "",
+        "notes": "Tenant Id"
+      },
+      {
+        "parameter": "userId",
+        "type": "string",
+        "source": "body",
+        "mandatory": true,
+        "default": "",
+        "notes": "User oAuth Id"
+      },
+      {
+        "parameter": "password",
+        "type": "string",
+        "source": "body",
+        "mandatory": true,
+        "default": "",
+        "notes": "Plain text oAuth password"
+      }
+    ]
+  },
+  {
+    "routeName": "/tenant/oauth/users/update",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/tenant/oauth/users/update?id=11&uId=123 -d 'userId=oauth_user&password=oauth_password'",
+    "fields": [
+      {
+        "parameter": "id",
+        "type": "string",
+        "source": "query",
+        "mandatory": true,
+        "default": "",
+        "notes": "Tenant Id"
+      },
+      {
+        "parameter": "uId",
+        "type": "string",
+        "source": "query",
+        "mandatory": true,
+        "default": "",
+        "notes": "oAuth User Record Id in the database"
+      },
+      {
+        "parameter": "userId",
+        "type": "string",
+        "source": "body",
+        "mandatory": true,
+        "default": "",
+        "notes": "User oAuth Id"
+      },
+      {
+        "parameter": "password",
+        "type": "string",
+        "source": "body",
+        "mandatory": true,
+        "default": "",
+        "notes": "Plain text oAuth password"
+      }
+    ]
+  },
+  {
     "routeName": "/tenant/application/list",
     "cmd": "CURL -X GET http://127.0.0.1:4000/dashboard/tenant/application/list?id=11",
     "fields": [
