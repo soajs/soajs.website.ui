@@ -50,23 +50,23 @@
 		</thead>
 		<tr class="odd">
 			<td>Nginx</td>
-			<td>3</td>
-			<td>nginx_01, nginx_02, nginx_03</td>
+			<td>3 per hostname</td>
+			<td>service_proxy01, service_proxy02, service_proxy03</td>
 		</tr>
 		<tr class="even">
 			<td>Controller</td>
-			<td>3</td>
-			<td>controller_01, controller_02, controller_03</td>
+			<td>3 per hostname</td>
+			<td>controller01, controller02, controller03</td>
 		</tr>
 		<tr class="odd">
 			<td>Services</td>
-			<td>3</td>
-			<td>services_01, services_02, services_03</td>
+			<td>3 per hostname</td>
+			<td>uracdashboard01, uracdashboard02, uracdashboard03, uracoauth01, uracoauth02, uracoauth03</td>
 		</tr>
 		<tr class="even">
 			<td>Data</td>
-			<td>2</td>
-			<td>data_01, data_02</td>
+			<td>3 per hostname</td>
+			<td>data_proxy, dataProvision_proxy</td>
 		</tr>
 	</table>
 	<p>
@@ -156,16 +156,70 @@ $ docker-compose up</code></pre>
 		You need run docker-compose twice; first for Dashboard and second for Production environments as demonstrated below:
 	</p>
 	<pre><code class="bash"># on dashboard machine
+#create services logging directories
+$ mkdir -p $HOME/soajs/log/controller01/
+$ mkdir -p $HOME/soajs/log/uracdashboard01
+
 $ cd /opt/soajs/node_modules/soajs.utilities/deployment/cloud/dashboard/
 $ docker-compose up
 
 # on prod machine
+#create services logging directories
+$ mkdir -p $HOME/soajs/log/controller01
+$ mkdir -p $HOME/soajs/log/uracoauth01
+$ mkdir -p $HOME/soajs/log/examples01
+
 $ cd /opt/soajs/node_modules/soajs.utilities/deployment/cloud/prod/
 $ docker-compose up</code></pre>
 	<p>
 		Docker will create containers for all the layers explained in the above section, install all 3rd party libraries and SOAJS packages, configure them and start them.<br />
 	</p>
+	<br/>
+	<b>Data Layer:</b>
 	<p>
+		Docker will create a container for the database, SOAJS services will manage and read the data from this database.<br />
+		To start, you need to import the provisioned data sample so you can login via the Dashboard UI and work.<br />
+		This requires 2 steps, run the following to complete the setup of the database after Docker finishes the installation, then import the provisioned sample data to use the dashboard UI:
+	</p>
+	<div ng-init="loadBASH(path + 'deployment/cloud-awareness/dockerdb.tmpl','dockerdb2');">
+		<div id="dockerdb2"></div>
+	</div>
+	<p>
+		The above commands map both /dashboard/data and /dashboard/data/db directories from the container to your machine, this allows your services to communicate with the database. Then in step 2, we imported the sample data into the database by providing the ip address of the container where the database resides.
+	</p>
+	<fieldset>
+		<legend>Mac OS X Machines:</legend>
+		<div>
+			<p>
+				If your machine uses Mac OS X, then you need <a href="https://github.com/boot2docker/osx-installer/releases/latest" target="_blank">boot2docker</a> installed. Once boot2docker is installed, additional steps are required before executing the above mentioned commands to get the data layer working. Execute the below commands instead:
+			</p>
+	<pre><code class="bash"># ssh to boot2docker, create both /dashboard/data and /prod/data with the right permissions
+$ boot2docker ssh
+$ sudo mkdir -p /dashboard/data
+$ sudo chgrp staff -R /dashboard/data
+$ sudo chmod 775 -R /dashboard/data
+
+$ sudo mkdir -p /prod/data
+$ sudo chgrp staff -R /prod/data
+$ sudo chmod 775 -R /prod/data
+
+
+# step 1, complete data layer installation for dashboard
+$ docker run -p 27017:27017 -v /dashboard/data:/data -v /dashboard/data/db:/data/db mongo mongod --smallfiles
+
+# step2, provision the sample data
+$ cd /opt/soajs/node_modules/soajs.utilities/lib/
+$ node index data import provision $(boot2docker ip)
+
+# step 1, complete data layer installation for production
+$ docker run -p 27017:27017 -v /prod/data:/data -v /prod/data/db:/data/db mongo mongod --smallfiles
+
+# step2, provision the below data for examples on production machines
+$ node index data import urac $(boot2docker ip)</code></pre>
+		</div>
+	</fieldset>
+	<p>
+		All is installed and running, database provisioned with sample data, you can now start using SOAJS.<br />
 		<u>Note:</u> If you have chosen to install SOAJS via Docker, <a href="" ng-click="scrollToDiv('cloud-awareness-testing', 70)">Click Here</a> to skip the manual installation and head to testing the services.
 	</p>
 	<hr/>
@@ -218,9 +272,9 @@ $ cp nginx/conf/*.conf /etc/nginx/sites-enabled/</code></pre>
 $ sudo gedit /etc/hosts
 
 # add these lines in /etc/hosts
-192.168.0.1 controller_01
-192.168.0.2 controller_02
-192.168.0.3 controller_03</code></pre>
+192.168.0.1 controller01
+192.168.0.2 controller02
+192.168.0.3 controller03</code></pre>
 		<p>
 			You will need to put the right IP addresses above for both Nginx machines.<br/>
 			Start Nginx:
@@ -244,9 +298,11 @@ $ apt-get install haproxy
 # install nodejs
 $ apt-get install nodejs
 
+# create folder path for loggin purposes
+$ mkdir -p $HOME/soajs/log/controller01
+
 # create folder path to put all soajs components in it
 $ mkdir -p /opt/soajs/node_modules/
-$ mkdir -p /opt/soajs/logs
 $ cd /opt/soajs/node_modules/
 
 # install SOAJS controller and utilities
@@ -283,7 +339,8 @@ $ export SOAJS_PRJ=default
 
 # point out the location of the project
 $ export SOAJS_REGDIR=/opt/soajs/node_modules/soajs.utilities/deployment/cloud/profiles/</code></pre>
-		<br/>
+		<u>Note:</u> In the above snipeet use <b>SOAJS_ENV=prod</b> on Production Machines and <b>SOAJS_ENV=dashboard</b>.
+		<br/><br/>
 		<h4>Start the Controllers</h4>
 
 		<p>
@@ -336,9 +393,11 @@ $ /usr/bin/supervisord</code></pre>
 		<pre><code class="bash"># install nodejs
 $ apt-get install nodejs
 
+# create folder path for loggin purposes
+$ mkdir -p $HOME/soajs/log/uracoauth01
+
 # create folder path to put all soajs components in it
 $ mkdir -p /opt/soajs/node_modules/
-$ mkdir -p /opt/soajs/logs/
 $ cd /opt/soajs/node_modules/
 
 # install soajs.utilities
@@ -364,11 +423,11 @@ $ npm install soajs.examples</code></pre>
 			Point out the data layer on all the services machines so that these services can communicate with the database when needed by editing the /etc/hosts file on each machine and adding the following entries:
 		</p>
 		<pre><code class="bash"># edit /etc/hosts of each Dashboard Services Machine
-192.168.0.101 data_01</code></pre>
+192.168.0.101 dataProvision_proxy</code></pre>
 		<p>You will need to put the right IP addresses above.</p>
 		<pre><code class="bash"># edit /etc/hosts of each Production Services Machines
-192.168.0.101 data_01
-192.168.0.102 data_02</code></pre>
+192.168.0.101 dataProvision_proxy
+192.168.0.102 data_proxy</code></pre>
 		<p>You will need to put the right IP addresses above.</p>
 		<br/>
 		<h4>Point out the Registry Profile</h4>
@@ -385,7 +444,8 @@ $ export SOAJS_PRJ=default
 
 # point out the location of the project
 $ export SOAJS_REGDIR=/opt/soajs/node_modules/soajs.utilities/deployment/cloud/profiles/</code></pre>
-		<br/>
+		<u>Note:</u> In the above snipeet use <b>SOAJS_ENV=prod</b> on Production Machines and <b>SOAJS_ENV=dashboard</b>.
+		<br/><br/>
 		<h4>Start the Services</h4>
 
 		<p>
@@ -543,23 +603,23 @@ $ curl -X GET "http://api.soajs.org:5013/heartbeat"
 			Create 2 Machines and install mongodb on them; these machines will be used for each environment to install the databases and configuring them to work as replica sets.
 		</p>
 		<ol>
-			<li><b>data_01</b>: contains provisioned information for tenants, products, environments, dashboard members and their sessions.</li>
-			<li><b>data_02</b>: contains tenant specific information as well as any other additional custom services databases information.</li>
+			<li><b>dataProvision_proxy</b>: contains provisioned information for tenants, products, environments, dashboard members and their sessions.</li>
+			<li><b>data_proxy</b>: contains tenant specific information as well as any other additional custom services databases information.</li>
 		</ol>
 		<img ng-src="images/documentation/core-db-replica.png"/><br/>
 
 		<p>
-			You can always add additional nodes to distribute the load and expand. For this tutorial we chose to group CORE databases in one group <b>data_01</b> and the other databases in another group <b>data_02</b> resulting in two sets.
+			You can always add additional nodes to distribute the load and expand. For this tutorial we chose to group CORE databases in one group <b>dataProvision_proxy</b> and the other databases in another group <b>data_proxy</b> resulting in two sets.
 		</p>
 		<pre><code class="bash">#install MongoDB latest stable version on each machine
 $ apt-get install mongodb</code></pre>
 		<p>
 			Edit the hosts of each machine and point out the data layer hostnames:
 		</p>
-		<pre><code class="bash"># edit /etc/hosts of data_01
-127.0.0.1 data_01</code></pre>
-		<pre><code class="bash"># edit /etc/hosts of data_02
-127.0.0.1 data_02</code></pre>
+		<pre><code class="bash"># edit /etc/hosts of dataProvision_proxy
+127.0.0.1 dataProvision_proxy</code></pre>
+		<pre><code class="bash"># edit /etc/hosts of data_proxy
+127.0.0.1 data_proxy</code></pre>
 
 		<p>
 			Once mongo is installed, create a replica set of 3 databases on each of these machines. If you are not familiar with Replica Sets, visit the official <a href="http://docs.mongodb.org/manual/tutorial/deploy-replica-set/" target="_blank">mongodb replica set documentation</a>.<br/>
@@ -572,13 +632,13 @@ $ apt-get install nodejs
 $ mkdir -p /opt/soajs/node_modules/
 $ cd /opt/soajs/node_modules/
 
-# install soajs.mongodb.data
-$ npm install soajs.mongodb.data
+# install soajs.utilities
+$ npm install soajs.utilities
 
 # import the core sample data
-$ cd soajs.mongodb.data/modules/dashboard-ui/
-$ chmod +x import.sh
-$ ./import.sh</code></pre>
+$ cd soajs.utilities/lib/
+$ node index data import provision dataProvision_proxy
+$ node index data import urac data_proxy</code></pre>
 		<p>
 			The shell script will create 1 tenant, 1 product, 1 user and 1 group in our core database and will replicate the information on all members of the replica set. After executing the script connect to mongo and list the databases to verify that the last step imported the data:
 		</p>

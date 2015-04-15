@@ -1,7 +1,7 @@
 "use strict";
 var documentationApp = app.components;
 
-documentationApp.controller('documentationtCtrl', ['$scope', '$http', '$routeParams', '$compile', 'loadFileContent', 'loadHTMLContent', 'loadJsonFileContent', function($scope, $http, $routeParams, $compile, loadFileContent, loadHTMLContent, loadJsonFileContent) {
+documentationApp.controller('documentationtCtrl', ['$scope', '$http', '$routeParams', '$compile', 'loadFileContent', 'loadHTMLContent', 'loadBASHContent', 'loadJsonFileContent', function($scope, $http, $routeParams, $compile, loadFileContent, loadHTMLContent, loadBASHContent, loadJsonFileContent) {
 	$scope.isArray = angular.isArray;
 	$scope.path = "sections/documentation/content/";
 
@@ -41,6 +41,10 @@ documentationApp.controller('documentationtCtrl', ['$scope', '$http', '$routePar
 
 	$scope.loadHTML = function(path, elId) {
 		loadHTMLContent($scope, path, elId);
+	};
+
+	$scope.loadBASH = function(path, elId) {
+		loadBASHContent($scope, path, elId);
 	};
 
 	$scope.scrollToDiv = function(divId, prefix) {

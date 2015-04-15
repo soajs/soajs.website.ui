@@ -194,6 +194,31 @@ app.service('loadHTMLContent', ['$http', '$timeout', '$compile', '$sce', functio
 	}
 }]);
 
+app.service('loadBASHContent', ['$http', '$timeout', '$compile', '$sce', function($http, $timeout, $compile, $sce) {
+
+	function htmlEntities(str) {
+		return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+	}
+
+	return function(context, path, elId) {
+		var att = "htmlCode_" + elId;
+		$http.get(path).success(function(data) {
+			context[att] = $sce.trustAsHtml(htmlEntities(data));
+			var htmlData = '<pre id="' + att + '"><code class="bash" ng-bind-html="' + att + '"></code></pre>';
+			var el = angular.element(document.getElementById(elId));
+			el.html(htmlData);
+			$compile(el.contents())(context);
+
+			$timeout(function() {
+				renderCodeSnippets(att);
+			}, 100);
+
+		}).error(function() {
+			console.log('Error Loading HTML Snippet.');
+		});
+	}
+}]);
+
 function setCodeSnipet(context, snippet) {
 	context.htmlCode = snippet;
 }
