@@ -1135,9 +1135,11 @@ div.bulletin div.body div.txt.w-100 {
 
 div.bulletin div.body div.img {
     float: left;
-    width: 30%;
+    width: 42%;
 }
-
+div.bulletin div.body div.img img{
+    max-width: 97%;
+}
 .t-right {
     text-align: right;
 }

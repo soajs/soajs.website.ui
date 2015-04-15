@@ -90,6 +90,10 @@
     #dashboard-form, #dashboard-grid{
         width: 90%;
     }
+
+    .full-image{
+        width: 90%;
+    }
     .soajs-features .features-container .feature-list li.odd {
         margin-right: 6%
     }

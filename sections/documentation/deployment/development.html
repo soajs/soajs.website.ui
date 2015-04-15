@@ -3,7 +3,7 @@
 <div class="white-container">
 	<p>
 		In Development Environment, we deploying everything on a single machine. The below illustrates how to create an all in one development deployment. When deploying SOAJS on one machine some services and databases will be shared.<br />
-		<img ng-src="images/documentation/deployment-aio.png" class="img-margin-t-b" />
+		<img ng-src="images/documentation/deployment-aio.png" class="img-margin-t-b full-image" />
 	</p>
 	<br/>
 	<hr/>
@@ -265,6 +265,6 @@ $ curl -X GET "http://127.0.0.1:5013/heartbeat"
 		If your service also has provisioned information, like Example 02,03 and 04, you need to execute a second maintenance operation to load the new provisioned information.
 		<pre><code class="bash">$ curl -X GET "http://127.0.0.1:5000/loadProvision"</code></pre>
 		Both maintenance operations have to be executed on the maintenance port of the controller, so that it can pick up the new configuration and direct the request that will be made to your service.
-		<img ng-src="images/documentation/deployment-aio2.png" class="img-margin-t-b" />
+		<img ng-src="images/documentation/deployment-aio2.png" class="img-margin-t-b  full-image" />
 	</p>
 </div>
