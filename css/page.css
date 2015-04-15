@@ -1200,6 +1200,7 @@ div.bulletin div.body div.img img{
     color: #e41f28;
 }
 
+/*********************************/
 .fileLocation{
     width: 40%;
     word-break: break-all;
@@ -1245,4 +1246,30 @@ div.bulletin div.body div.img img{
 #GoldfishReleaseTable, #ClownfishReleaseTable{
     width: 98%;
 }
+/*********************************/
 
+table.myTable td.description div{
+    clear:both;
+    width:100%;
+}
+table.myTable td.description div b{
+    float:left;
+}
+
+ul.straight-line{
+    margin: 0 0 0 10px;
+    padding: 0;
+    list-style-type: none;
+    clear:right;
+    float:left;
+}
+
+ul.straight-line li {
+    float:left;
+    margin-right:10px;
+}
+
+ul.straight-line li + li:before{
+    content: "- ";
+    margin-right:5px;
+}

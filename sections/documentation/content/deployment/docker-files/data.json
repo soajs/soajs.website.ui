@@ -1,21 +1,26 @@
 {
   "Development": [
     {
-      "env": "development",
-      "3rd": [
+      "image":{
+        "name": "soajsorg/development_nginx",
+        "link": ""
+      },
+      "description" : "<p>This image is for the soajs development nginx layer.<br />The image was built from ubuntu 14.0.4.<br /><b>build folder:</b>&nbsp;&nbsp;soajs.utilities/deployment/development/nginx/<br />The image consists of the following:</p>",
+      "third": [
         "nginx",
+        "nodejs",
         "npm"
       ],
-      "package": ["soajs.dashboard"],
-      "file": "/deployment/development/nginx/Dockerfile",
-      "link": {
-        "label": "soajs_aio_nginx",
-        "link": ""
-      }
+      "package": ["soajs.dashboard"]
     },
     {
-      "env": "development",
-      "3rd": [
+      "image":{
+        "name": "soajsorg/development_service",
+        "link": ""
+      },
+      "description" : "<p>This image is for the soajs development services.<br />The image was built from ubuntu 14.0.4<br /><b>build folder:</b>&nbsp;&nbsp;soajs.utilities/deployment/development/service/<br />The image consists of the following:</p>",
+      "third": [
+        "nodejs",
         "npm",
         "supervisor"
       ],
@@ -25,216 +30,102 @@
         "soajs.oauth",
         "soajs.dashboard",
         "soajs.examples"
-      ],
-      "file": "/deployment/development/service/Dockerfile",
-      "link": {
-        "label": "soajs_aio_service",
-        "link": ""
-      }
-    },
-    {
-      "env": "development",
-      "3rd": [
-        "nginx",
-        "npm",
-        "supervisor"
-      ],
-      "package": [
-        "soajs.controller",
-        "soajs.urac",
-        "soajs.oauth",
-        "soajs.dashboard",
-        "soajs.examples"
-      ],
-      "file": "/deployment/development/docker-compose.yml",
-      "link": [
-        {
-          "label": "soajs_aio_nginx",
-          "link": ""
-        },
-        {
-          "label": "soajs_aio_service",
-          "link": ""
-        }
       ]
     }
   ],
-  "Dashboard": [
+  "Dashboard" :[
     {
-      "env": "dashboard",
-      "3rd": [
+      "image":{
+        "name": "soajsorg/cloud_dashboard_nginx",
+        "link": ""
+      },
+      "description" : "<p>This image is for the soajs dashboard nginx layer.<br />The image was built from ubuntu 14.0.4<br /><b>build folder:</b>&nbsp;&nbsp;soajs.utilities/deployment/cloud/dashboard/nginx/<br />The image consists of the following:</p>",
+      "third": [
         "nginx",
+        "nodejs",
         "npm"
       ],
-      "package": ["soajs.dashboard"],
-      "file": "/deployment/cloud/dashboard/nginx/Dockerfile",
-      "link": {
-        "label": "soajs_cloud_dashboard_nginx",
-        "link": ""
-      }
+      "package": ["soajs.dashboard"]
     },
     {
-      "env": "dashboard",
-      "3rd": [
+      "image":{
+        "name": "soajsorg/cloud_dashboard_controller",
+        "link": ""
+      },
+      "description" : "<p>This image is for the soajs dashboard controller services.<br />The image was built from ubuntu 14.0.4<br /><b>build folder:</b>&nbsp;&nbsp;soajs.utilities/deployment/cloud/dashboard/controller/<br />The image consists of the following:</p>",
+      "third": [
         "nodejs",
         "npm",
         "supervisor",
         "haproxy"
       ],
-      "package": [
-        "soajs.controller"
-      ],
-      "file": "/deployment/cloud/dashboard/controller/Dockerfile",
-      "link": {
-        "label": "soajs_cloud_dashboard_controller",
-        "link": ""
-      }
+      "package": ["soajs.controller"]
     },
     {
-      "env": "dashboard",
-      "3rd": [
+      "image":{
+        "name": "soajsorg/cloud_dashboard_urac_dashboard",
+        "link": ""
+      },
+      "description" : "<p>This image is for the soajs dashboard urac and dashboard services.<br />The image was built from ubuntu 14.0.4<br /><b>build folder:</b>&nbsp;&nbsp;soajs.utilities/deployment/cloud/dashboard/urac_dashboard/<br />The image consists of the following:</p>",
+      "third": [
         "nodejs",
         "npm",
         "supervisor"
       ],
-      "package": [
-        "soajs.urac",
-        "soajs.dashboard"
-      ],
-      "file": "/deployment/cloud/dashboard/urac_dashboard/Dockerfile",
-      "link": {
-        "label": "soajs_cloud_dashboard_urac_dashboard",
-        "link": ""
-      }
-    },
-    {
-      "env": "dashboard",
-      "3rd": [
-        "nodejs",
-        "nginx",
-        "npm",
-        "haproxy",
-        "supervisor"
-      ],
-      "package": [
-        "soajs.controller",
-        "soajs.urac",
-        "soajs.dashboard"
-      ],
-      "file": "/deployment/cloud/dashboard/docker-compose.yml",
-      "link": [
-        {
-          "label": "soajs_cloud_dashboard_nginx",
-          "link": ""
-        },
-        {
-          "label": "soajs_cloud_dashboard_controller",
-          "link": ""
-        },
-        {
-          "label": "soajs_cloud_dashboard_urac_dashboard",
-          "link": ""
-        }
-      ]
+      "package": ["soajs.urac", "soajs.dashboard"]
     }
   ],
   "Production": [
     {
-      "env": "production",
-      "3rd": [
+      "image":{
+        "name": "soajsorg/cloud_prod_nginx",
+        "link": ""
+      },
+      "description" : "<p>This image is for the soajs production nginx layer.<br />The image was built from ubuntu 14.0.4<br /><b>build folder:</b>&nbsp;&nbsp;soajs.utilities/deployment/cloud/prod/nginx/<br />The image consists of the following:</p>",
+      "third": [
         "nginx"
       ],
-      "package": [],
-      "file": "/deployment/cloud/prod/nginx/Dockerfile",
-      "link": {
-        "label": "soajs_cloud_prod_nginx",
-        "link": ""
-      }
+      "package": []
     },
     {
-      "env": "production",
-      "3rd": [
+      "image":{
+        "name": "soajsorg/cloud_prod_controller",
+        "link": ""
+      },
+      "description" : "<p>This image is for the soajs production controllers layer.<br />The image was built from ubuntu 14.0.4<br /><b>build folder:</b>&nbsp;&nbsp;soajs.utilities/deployment/cloud/prod/controller/<br />The image consists of the following:</p>",
+      "third": [
         "nodejs",
         "npm",
         "supervisor",
         "haproxy"
       ],
-      "package": [
-        "soajs.controller"
-      ],
-      "file": "/deployment/cloud/prod/controller/Dockerfile",
-      "link": {
-        "label": "soajs_cloud_prod_controller",
-        "link": ""
-      }
+      "package": ["soajs.controller"]
     },
     {
-      "env": "production",
-      "3rd": [
+      "image":{
+        "name": "soajsorg/cloud_prod_urac_oauth",
+        "link": ""
+      },
+      "description" : "<p>This image is for the soajs production services layer.<br />The image was built from ubuntu 14.0.4<br /><b>build folder:</b>&nbsp;&nbsp;soajs.utilities/deployment/cloud/prod/urac_oauth/<br />The image consists of the following:</p>",
+      "third": [
         "nodejs",
         "npm",
         "supervisor"
       ],
-      "package": [
-        "soajs.urac",
-        "soajs.oauth"
-      ],
-      "file": "/deployment/cloud/prod/urac_oauth/Dockerfile",
-      "link": {
-        "label": "soajs_cloud_prod_urac_oauth",
-        "link": ""
-      }
+      "package": ["soajs.urac", "soajs.oauth"]
     },
     {
-      "env": "production",
-      "3rd": [
+      "image":{
+        "name": "soajsorg/cloud_prod_examples",
+        "link": ""
+      },
+      "description" : "<p>This image is for the soajs production examples services.<br />The image was built from ubuntu 14.0.4<br /><b>build folder:</b>&nbsp;&nbsp;soajs.utilities/deployment/cloud/prod/examples/<br />The image consists of the following:</p>",
+      "third": [
         "nodejs",
         "npm",
         "supervisor"
       ],
-      "package": [
-        "soajs.examples"
-      ],
-      "file": "/deployment/cloud/prod/examples/Dockerfile",
-      "link": {
-        "label": "soajs_cloud_prod_examples",
-        "link": ""
-      }
-    },
-    {
-      "env": "production",
-      "3rd": [
-        "nodejs",
-        "nginx",
-        "npm",
-        "haproxy",
-        "supervisor"
-      ],
-      "package": [
-        "soajs.controller",
-        "soajs.urac",
-        "soajs.oauth",
-        "soajs.examples"
-      ],
-      "file": "/deployment/cloud/prod/docker-compose.yml",
-      "link": [
-        {
-          "label": "soajs_cloud_prod_nginx",
-          "link": ""
-        },
-        {
-          "label": "soajs_cloud_prod_controller",
-          "link": ""
-        },
-        {
-          "label": "soajs_cloud_prod_urac_oauth",
-          "link": ""
-        },
-        {
-          "label": "soajs_cloud_prod_examples",
-          "link": ""
-        }
-      ]
+      "package": ["soajs.examples"]
     }
   ]
 }
