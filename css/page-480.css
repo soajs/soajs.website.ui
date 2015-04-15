@@ -53,11 +53,20 @@
     .myTable thead th {
         font-size: 12px;
         padding: 8px 5px;
+        vertical-align: top;
     }
-
+    .myTable td ul {
+        padding-left: 20px;
+    }
     .myTable td ul, .myTable td ul li{
         font-size: 11px;
     }
+    .myTable td ul li:before {
+        content: "•";
+        font-size: 11px; /* or whatever */
+        padding-right: 5px;
+    }
+
     .banner .banner-container {
         padding: 50px 0 50px;
     }
@@ -246,8 +255,27 @@
         margin:20px 0 0 0;
     }
 
+    div.bulletin div.body div.txt, div.bulletin div.body div.w-100{
+        padding: 15px;
+    }
     div.bulletin div.body div.img{
         width: 90%;
+    }
+    div.bulletin div.body div.img img{
+        width: 90%;
+    }
+
+    .pckName{
+        width: 55px;
+    }
+    .pckVersion{
+        width: 55px;
+    }
+    div.bulletin div.head{
+        font-size: 14px;
+    }
+    #ClownfishReleaseTable .pckName {
+        width: 85px;
     }
 }
 

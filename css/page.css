@@ -1232,3 +1232,17 @@ div.bulletin div.body div.img img{
 #prodEnvList{
     display: none;
 }
+.docker-files-list{
+    display: none;
+}
+
+.pckName{
+    width: 15%;
+}
+.pckVersion{
+    width: 15%;
+}
+#GoldfishReleaseTable, #ClownfishReleaseTable{
+    width: 98%;
+}
+

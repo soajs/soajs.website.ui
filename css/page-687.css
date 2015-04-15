@@ -7,8 +7,6 @@
         padding: 70px 0 70px;
     }
 
-
-
     .topbar .branding {
         width: 175px;
     }
@@ -73,8 +71,32 @@
     #prodEnvTable{
         display: none;
     }
+    .docker-files-table{
+        display: none;
+    }
+    .docker-files-list{
+        display: block;
+    }
     #prodEnvList{
         display: block;
+    }
+    div.bulletin div.body div.txt, div.bulletin div.body div.w-100{
+        padding: 20px;
+    }
+    #GoldfishReleaseTable{
+        width: 100%;
+    }
+    .pckName{
+        width: 63px;
+    }
+    .myTable thead th.pckName{
+        word-break: keep-all;
+    }
+    .myTable thead th.pckVersion{
+        word-break: keep-all;
+    }
+    #ClownfishReleaseTable .pckName, #ClownfishReleaseTable .pckVersion{
+        width: 20%;
     }
 }
 
@@ -228,10 +250,22 @@
     .myTable th, .myTable td {
         padding: 10px 8px;
         font-size: 12px;
+        word-break: break-all;
     }
-
+    .myTable td, ul li{
+        font-size: 12px;
+    }
     .myTable thead th {
         font-size: 14px;
+    }
+    .myTable td ul {
+        list-style: none;
+        padding-left: 30px;
+    }
+    .myTable td ul li:before {
+        content: "•";
+        font-size: 13px; /* or whatever */
+        padding-right: 5px;
     }
     #urac-override-acl{
         width: 85%;
@@ -279,9 +313,7 @@
         margin-right: 10px;
     }
 
-    div.bulletin div.body div.txt, div.bulletin div.body div.w-100{
-        padding: 20px;
-    }
+
     div.bulletin div.body div.txt{
         float: none;
         width: 99%;
@@ -290,6 +322,8 @@
     div.bulletin div.body div.img{
         width: 80%;
     }
-
+    div.bulletin div.body div.img img{
+        width: auto;
+    }
 
 }
