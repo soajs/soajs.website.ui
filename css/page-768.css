@@ -1,6 +1,7 @@
 .topbar .topnav {
     padding-left: 5px;
 }
+
 @media (min-width: 768px) and (max-width: 1024px) {
     .topbar .topnav li.active a {
         border-bottom: solid 4px rgb(53, 90, 118);
@@ -92,8 +93,9 @@
     }
 
     .full-image{
-        width: 90%;
+       width: 95%;
     }
+
     .soajs-features .features-container .feature-list li.odd {
         margin-right: 6%
     }
@@ -192,7 +194,9 @@
     .powered-by-container, .soajs-features .features-container, .bottom .sharing-footer, .whyBeaver-container{
         width: 98%;
     }
-
+    #service-scenario, #secured-service, #example01-service2-png{
+        width: 94%;
+    }
     #indexjsImg{
         float:none;
     }
@@ -227,7 +231,12 @@
         float: none;
         display: block;
     }
+    .full-image{
+        width: 98%;
+    }
+    .core-image{
 
+    }
     .bottom {
         font-size: 14px;
     }

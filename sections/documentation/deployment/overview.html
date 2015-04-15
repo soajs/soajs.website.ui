@@ -56,7 +56,7 @@
 	<br/>
 	<h4>Basic Service</h4>
 	<p>
-		<img ng-src="images/documentation/basic_service.png" class="image-right"/>
+		<img ng-src="images/documentation/basic_service.png" class="image-right" id="basic-service-png"/>
 		Building a basic SOAJS service requires only two of the above mentioned packages: <a href="#/documentation">Framework</a> and <a href="#/documentation/services/controller">Controller</a>.<br />
 		You need the framework to build your service and you need the controller so it can forward the requests to your service. This scenario is explained in depth in <a href="#/getStarted">Get Started</a> / <a href="#/getStarted/example01">Example 01</a>.<br />
 		When the request reaches your service, SOAJS framework captures the request first, executes the needed features based on how you configured soajs framework for this service and throws an error or hands over the request to your service business logic.
@@ -67,7 +67,7 @@
 		This is exactly like the previous basic service example but with oauth turned on.<br />
 		This scenario is explained in depth in <a href="#/getStarted">Get Started</a> / <a href="#/getStarted/example02">Example 02</a> and <a href="#/getStarted/example04">Example 04</a>. If you attempt to directly hit the api of either Example 02 or Example04 without providing an access_token, the request will be rejected. You will need to request a token from the oauth service first, and provide it in the consecutive requests to Example 02 and 04 services.
 		<br />
-		<img ng-src="images/documentation/secured_service.png"/><br />
+		<img ng-src="images/documentation/secured_service.png" id="secured-service"/><br />
 		To configure your service to be protected by oauth, set the property oauth to true.<br />
 		<a href="#/documentation/core/service">Click Here</a> to see the list of properties a service can use when you create it with SOAJS.
 	</p>
@@ -78,7 +78,7 @@
 		The data layer of soajs framework is built on top of MongoDB and uses two databases: CORE_PROVISION & CORE_SESSION
 	</p>
 	<h4>CORE_PROVISION</h4>
-	<img ng-src="images/documentation/core_provision.png" class="image-right" />
+	<img ng-src="images/documentation/core_provision.png" class="image-right core-image" />
 	<table class="myTable">
 		<thead>
 			<tr>
@@ -111,7 +111,7 @@
 	</table>
 	<br/><br/>
 	<h4>CORE_SESSION</h4>
-	<img ng-src="images/documentation/core_session.png" class="image-right" />
+	<img ng-src="images/documentation/core_session.png" class="image-right core-image" />
 	<table class="myTable">
 		<thead>
 			<tr>
@@ -129,7 +129,7 @@
 	<br/><br/><br/>
 	<p>
 		When a request arrives to your service, it goes through the framework first then your business logic then it goes back to the framework before returning. The first entry to the framework, adds SOAJS alters the data as configured by the constructor parameters and adds the tools that SOAJS offers, SOAJS also talk to the data layer to check the key provided and the permissions and load the <a href="#/documentation/core/provisioning">provisioned</a> data based on the current running environment as configured in the <a href="#/documentation/core/registry">registry</a>. The second time the framework is used which is before returning the response, soajs formulates a unified and valid REST response before returning this response.<br />
-		<img ng-src="images/documentation/service_scenario.png"><br />
+		<img ng-src="images/documentation/service_scenario.png" id="service-scenario"><br />
 	</p>
 	<br/>
 	<hr/>
@@ -195,7 +195,7 @@
 			<div class="txt w-100">
 				<p>
 					This example is very basic, its business logic reads the input parameters, formulates a json object out of them and returns the object in the response. The service is not configured to communicate with any data layer. <br/>
-					<img ng-src="images/documentation/example01_service2.png" />
+					<img ng-src="images/documentation/example01_service2.png" class="" id="example01-service2-png" />
 				</p>
 			</div>
 		</div>
@@ -204,10 +204,10 @@
 	<div class="bulletin">
 		<div class="head">Example 02</div>
 		<div class="body">
-			<div class="txt w-100">
+			<div class="w-100">
 				<p>
 					This example is exactly like Example 01, its business logic reads the input parameters, formulates a json object out of them and returns the object in the response. The service is configured to use oauth but its business logic does not communicate with the data layer. <br/>
-					<img ng-src="images/documentation/example02_service2.png"/>
+					<img ng-src="images/documentation/example02_service2.png" class="full-image"/>
 				</p>
 			</div>
 		</div>
@@ -216,11 +216,11 @@
 	<div class="bulletin">
 		<div class="head">Example 03</div>
 		<div class="body">
-			<div class="txt w-100">
+			<div class="w-100">
 				<p>
 					This example is a multitenant service, and can only be used by tenants. If you attempt to directly hit the api of Example 03 without providing a tenant key, the request will be rejected. You will need to provide a tenant key that has access to this service in your request so it gets evaluated.<br />The service formulates a json response out of the inputs it receives and its business logic does not communicate with any data layer.
 					<br/>
-					<img ng-src="images/documentation/example03_service2.png"/>
+					<img ng-src="images/documentation/example03_service2.png" class="full-image"/>
 				</p>
 			</div>
 		</div>
@@ -229,11 +229,11 @@
 	<div class="bulletin">
 		<div class="head">Example 04</div>
 		<div class="body">
-			<div class="txt w-100">
+			<div class="w-100">
 				<p>
 					This example is a multitenant service that is also protected by oauth. If you attempt to directly hit the api of Example 04 without providing a tenant key or an oauth access_token, the request will be rejected. You will need to request a token from the oauth service first, then provide it along with the tenant key in the consecutive requests to any of Example 04 APIs.<br />
 					The business logic of this service, formulates a response out of the inputs it receives and therefore does not communicate with any data layer.<br />
-					<img ng-src="images/documentation/example04_service2.png"/>
+					<img ng-src="images/documentation/example04_service2.png" class="full-image"/>
 				</p>
 			</div>
 		</div>

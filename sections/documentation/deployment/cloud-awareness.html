@@ -11,7 +11,7 @@
 		<li>Production</li>
 	</ul>
 	<p>You do not need a cloud deployment for your development environment, please checkout <a href="#/documentation/deployment/development">The Development Environment</a> deployment for this purpose. For the remaining environments, this is how the deployment should look like.<br/>
-		<img ng-src="images/documentation/deployment-cloud1.png"/><br/>
+		<img ng-src="images/documentation/deployment-cloud1.png" class="full-image"/><br/>
 		In the above image, you will see a dashboard environment where the remaining three other environments pull their provisioning information from its data layer. This is done in a way to centralize and make it easy to manage the environments.<br/>
 	</p>
 	<hr/>
@@ -606,7 +606,7 @@ $ curl -X GET "http://api.soajs.org:5013/heartbeat"
 			<li><b>dataProvision_proxy</b>: contains provisioned information for tenants, products, environments, dashboard members and their sessions.</li>
 			<li><b>data_proxy</b>: contains tenant specific information as well as any other additional custom services databases information.</li>
 		</ol>
-		<img ng-src="images/documentation/core-db-replica.png"/><br/>
+		<img ng-src="images/documentation/core-db-replica.png" id="core-db-replica"/><br/>
 
 		<p>
 			You can always add additional nodes to distribute the load and expand. For this tutorial we chose to group CORE databases in one group <b>dataProvision_proxy</b> and the other databases in another group <b>data_proxy</b> resulting in two sets.
@@ -674,7 +674,7 @@ tenants</code></pre>
 
 	<p>
 		When completing the above deployment, your cloud will resemble the following diagram:<br/>
-		<img ng-src="images/documentation/deployment-cloud3.png"><br/>
+		<img ng-src="images/documentation/deployment-cloud3.png" class="full-image"><br/>
 		Both environments have their servers and connect to their data layers, production environment should be able to connect to data_01 and read provisioned information.<br/>
 	</p>
 	<br/>
@@ -683,7 +683,7 @@ tenants</code></pre>
 
 	<p>
 		Now that you have both environments set up, you can deploy your custom services in the production environment and add their databases in the data_02. Your custom services should be placed in the services layer next to Urac and oAuth.<br/>
-		<img ng-src="images/documentation/deployment-cloud4.png"><br/>
+		<img ng-src="images/documentation/deployment-cloud4.png" class="full-image"><br/>
 		Just like the other services of SOAJS your service will manage its Data(if any) in data_02 and SOAJS framework inside your service as explained in the last section of <a href="#/documentation/deployment/overview">Architecture Overview</a> will read the provisioned information of your
 		service(if any) from data_01.<br/>
 		Don't forget to reload the registry and provisioning after you deploy your services so that the controllers learn of its presence. After you install your service on the production environment, run it, then run the following commands to reload both registry and provisioning:

@@ -55,6 +55,9 @@
         padding: 8px 5px;
     }
 
+    .myTable td ul, .myTable td ul li{
+        font-size: 11px;
+    }
     .banner .banner-container {
         padding: 50px 0 50px;
     }
@@ -241,6 +244,10 @@
     #twitter-badge{
         float:right;
         margin:20px 0 0 0;
+    }
+
+    div.bulletin div.body div.img{
+        width: 90%;
     }
 }
 

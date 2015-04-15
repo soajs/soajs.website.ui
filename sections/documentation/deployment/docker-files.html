@@ -21,8 +21,8 @@
 		<tbody>
 			<tr ng-repeat="entry in docker_files.Development" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
 				<!--<td width="20%"><b>{{entry.env}}</b></td>-->
-				<td width="42%">{{entry.file}}</td>
-				<td width="26%" valign="top">
+				<td class="fileLocation">{{entry.file}}</td>
+				<td class="dLink" valign="top">
 					<span ng-if="isArray(entry.link) && entry.link.length > 0">
 						<div ng-repeat="img in entry.link"><a href="{{img.link}}" target="_blank">{{img.label}}</a></div>
 					</span>
@@ -30,12 +30,12 @@
 						<a href="{{entry.link.link}}" target="_blank">{{entry.link.label}}</a>
 					</span>
 				</td>
-				<td width="10%" valign="top">
+				<td class="rdParty" valign="top">
 					<ul>
 						<li ng-repeat="oneParty in entry['3rd']">{{oneParty}}</li>
 					</ul>
 				</td>
-				<td valign="top">
+				<td valign="top" class="pckages">
 					<ul>
 						<li ng-repeat="onePackage in entry.package">{{onePackage}}</li>
 					</ul>
@@ -59,8 +59,8 @@
 		<tbody>
 			<tr ng-repeat="entry in docker_files.Dashboard" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
 				<!--<td width="20%"><b>{{entry.env}}</b></td>-->
-				<td width="42%">{{entry.file}}</td>
-				<td width="26%" valign="top">
+				<td class="fileLocation">{{entry.file}}</td>
+				<td class="dLink" valign="top">
 					<span ng-if="isArray(entry.link) && entry.link.length > 0">
 						<div ng-repeat="img in entry.link"><a href="{{img.link}}" target="_blank">{{img.label}}</a></div>
 					</span>
@@ -69,12 +69,12 @@
 						<a href="{{entry.link.link}}" target="_blank">{{entry.link.label}}</a>
 					</span>
 				</td>
-				<td width="10%" valign="top">
+				<td class="rdParty" valign="top">
 					<ul>
 						<li ng-repeat="oneParty in entry['3rd']">{{oneParty}}</li>
 					</ul>
 				</td>
-				<td valign="top">
+				<td valign="top" class="pckages">
 					<ul>
 						<li ng-repeat="onePackage in entry.package">{{onePackage}}</li>
 					</ul>
@@ -85,7 +85,8 @@
 	<br/><br/>
 	<h3>Production Environment</h3>
 	<b>Package:</b> <a href="https://www.npmjs.com/package/soajs.utilities" target="_blank">soajs.utilities</a>
-	<table width="100%" class="myTable" ng-if="docker_files.Production.length > 0">
+
+	<table width="100%" class="myTable" ng-if="docker_files.Production.length > 0" id="prodEnvTable">
 		<thead>
 			<tr>
 				<!--<th>Environment</th>-->
@@ -98,8 +99,8 @@
 		<tbody>
 			<tr ng-repeat="entry in docker_files.Production" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
 				<!--<td width="20%"><b>{{entry.env}}</b></td>-->
-				<td width="42%">{{entry.file}}</td>
-				<td width="26%" valign="top">
+				<td class="fileLocation">{{entry.file}}</td>
+				<td class="dLink" valign="top">
 					<span ng-if="isArray(entry.link) && entry.link.length > 0">
 						<div ng-repeat="img in entry.link"><a href="{{img.link}}" target="_blank">{{img.label}}</a></div>
 					</span>
@@ -107,12 +108,12 @@
 						<a href="{{entry.link.link}}" target="_blank">{{entry.link.label}}</a>
 					</span>
 				</td>
-				<td width="10%" valign="top">
+				<td class="rdParty" valign="top">
 					<ul>
 						<li ng-repeat="oneParty in entry['3rd']">{{oneParty}}</li>
 					</ul>
 				</td>
-				<td valign="top">
+				<td valign="top" class="pckages">
 					<ul>
 						<li ng-repeat="onePackage in entry.package">{{onePackage}}</li>
 					</ul>
@@ -120,4 +121,34 @@
 			</tr>
 		</tbody>
 	</table>
+	<div ng-if="docker_files.Production.length > 0" id="prodEnvList" class="">
+		<table class="myTable listTable" width="100%">
+			<tr ng-repeat="entry in docker_files.Production"  ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
+				<td> <div>
+					<div>File Location: {{entry.file}}</div>
+					<div>Docker Link:
+					<div ng-if="isArray(entry.link) && entry.link.length > 0" class="docker-links">
+						<div ng-repeat="img in entry.link"><a href="{{img.link}}" target="_blank">{{img.label}}</a></div>
+					</div>
+					<span ng-else>
+						<a href="{{entry.link.link}}" target="_blank">{{entry.link.label}}</a>
+					</span>
+
+					</div>
+					<div>3rd Party:
+						<ul>
+							<li ng-repeat="oneParty in entry['3rd']">{{oneParty}}</li>
+						</ul></div>
+					<div>SOAJS Package(s):
+						<ul>
+							<li ng-repeat="onePackage in entry.package">{{onePackage}}</li>
+						</ul>
+					</div>
+
+				</div>
+
+			</td></tr>
+		</table>
+
+	</div>
 </div>

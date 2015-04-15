@@ -69,6 +69,13 @@
     #section-footer .bottom .copyright {
         padding-top: 0;
     }
+
+    #prodEnvTable{
+        display: none;
+    }
+    #prodEnvList{
+        display: block;
+    }
 }
 
 @media (max-width: 640px) {
@@ -93,6 +100,9 @@
     }
     img{
         width: 90%;
+    }
+    .core-image{
+        width: auto;
     }
     .topbar .branding img.logo {
         width:173px;
@@ -231,12 +241,14 @@
         width: 90%;
         max-width: 90%;
     }
+    #example03png, #example01png, #example02-oauth, #getstarted_ex02, #oAuth-workflow{
+        width: 90%;
+    }
+    #core-db-replica{
+    }
     .small-button {
         padding: 8px 20px 8px;
         font-size: 15px;
-    }
-    #example03png, #example01png, #example02-oauth, #getstarted_ex02, #oAuth-workflow{
-        width: 90%;
     }
     pre code{
         font-size: 11px;
@@ -266,4 +278,18 @@
     .twitter-icon {
         margin-right: 10px;
     }
+
+    div.bulletin div.body div.txt, div.bulletin div.body div.w-100{
+        padding: 20px;
+    }
+    div.bulletin div.body div.txt{
+        float: none;
+        width: 99%;
+        padding-bottom: 15px;
+    }
+    div.bulletin div.body div.img{
+        width: 80%;
+    }
+
+
 }

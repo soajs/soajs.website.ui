@@ -1131,6 +1131,11 @@ div.bulletin div.body div.txt {
 
 div.bulletin div.body div.txt.w-100 {
     width: 100%;
+    padding: 30px;
+}
+div.bulletin div.body div.w-100 {
+    width: 100%;
+    padding: 30px;
 }
 
 div.bulletin div.body div.img {
@@ -1193,4 +1198,37 @@ div.bulletin div.body div.img img{
 
 #newsPage b.bug {
     color: #e41f28;
+}
+
+.fileLocation{
+    width: 40%;
+    word-break: break-all;
+    vertical-align: top;
+}
+.dLink{
+    width:28%;
+    word-break: break-all;
+}
+.rdParty{
+  width: 14%;
+}
+.pckages{
+   /*width: 20%;*/
+}
+.pckages ul{
+    padding-left: 15px;
+}
+.rdParty ul {
+    padding-left: 20px;
+}
+
+.listTable tr.even {
+    background-color: rgb(245, 245, 245);
+}
+.docker-links{
+    padding-left: 15px;
+}
+
+#prodEnvList{
+    display: none;
 }
