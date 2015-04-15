@@ -64,8 +64,6 @@
     "id": "Utilities",
     "label": "Utilities",
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.utilities&type=watch&count=true",
-    "npm":"soajs.utilities",
-    "travis":"soajs/soajs.utilities",
-    "coveralls":"soajs/soajs.utilities"
+    "npm":"soajs.utilities"
   }
 ]
