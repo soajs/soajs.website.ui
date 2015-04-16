@@ -36,7 +36,8 @@ $ npm install soajs.utilities</code></pre>
 $ docker-compose up</code></pre>
 	<p>
 		Docker will load the configuration file <b>docker-compose.yml</b> and install the development environment of SOAJS on your machine, run the services and expose port 80 to your machine from the created container.<br />
-		This means that when you attempt to hit <a href="http://api.soajs.org" target="_blank">http://api.soajs.org</a> or <a href="http://dashboard.soajs.org" target="_blank">http://dashboard.soajs.org</a> in your browser or via CURL, because port 80 is exposed, Nginx will reply and redirect your request to the services accordingly.<br />
+		This means that when you attempt to hit any of <a href="http://api.soajs.org" target="_blank">http://api.soajs.org</a> or <a href="http://dashboard-api.soajs.org" target="_blank">http://dashboard-api.soajs.org</a> or <a href="http://api.soajs.org" target="_blank">http://api.soajs.org</a> in your browser or via CURL, because port 80 is exposed, Nginx will reply and redirect your request to the services accordingly.<br />
+		<u>Note:</u> dashboard-api.soajs.org redirects requests to the dashboard services which allows you to manage the provisioned information in core database whereas api.soajs.org redirects to the services that only read the provisioned information from the core database.
 	</p>
 	<br/>
 	<b>Data Layer:</b>
@@ -184,16 +185,18 @@ $ cp /opt/soajs/node_modules/soajs.utilities/deployment/development/nginx/FILES/
 $ cp /opt/soajs/node_modules/soajs.utilities/deployment/development/nginx/FILES/nginx/conf/*.conf /etc/nginx/sites-enabled/
 </code></pre>
 		Nginx will now load the configuration that SOAJS needs when started.<br />
-		Edit your /etc/hosts file and add 2 entries to point out the required hosts:
+		Edit your /etc/hosts file and add these entries to point out the required hosts:
 		<pre><code class="javascript"># add the below in /etc/hosts
 127.0.0.1   api.soajs.org
+127.0.0.1   dashboard-api.soajs.org
 127.0.0.1   dashboard.soajs.org
 
 127.0.0.1   service_proxy
 127.0.0.1   data-proxy</code></pre>
+		<u>Note:</u> dashboard-api.soajs.org redirects requests to the dashboard services which allows you to manage the provisioned information in core database whereas api.soajs.org redirects to the services that only read the provisioned information from the core database.<br />
 		Go ahead and Start Nginx Now:
 		<pre><code class="bash">$ sudo Nginx</code></pre>
-		When Nginx starts, test the configuration you just created by opening your browser and invoking 2 domains: <b>api.soajs.org</b> and <b>dashboard.soajs.org</b>. Nginx will reply with a <b>502 Bad Gateway</b> Error instead of Server not Found. Till this point, this is normal because we haven't started any service yet, but the important thing is that Nginx is now redirecting the requests to a local SOAJS server assuming that the later is up and running.
+		When Nginx starts, test the configuration you just created by opening your browser and invoking 3 domains: <b>api.soajs.org</b>, <b>dashboard-api.soajs.org</b> and <b>dashboard.soajs.org</b>. Nginx will reply with a <b>502 Bad Gateway</b> Error instead of Server not Found. Till this point, this is normal because we haven't started any service yet, but the important thing is that Nginx is now redirecting the requests to a local SOAJS server assuming that the later is up and running.
 	</p>
 	<br/>
 	<h4>Step 3: Point out the Registry Profile</h4>
