@@ -14,7 +14,7 @@
 		<p>
 			Before we start, let's take a look at the infrastructure of SOAJS and understand what we will be dealing with.<br />
 			<img ng-src="images/getstarted/getstarted.png" id="getStartedImg" class="img-margin-t-b" /><br />
-			SOAJS uses a gateway architecture meaning all requests go through one entry point before being processed. This entry point is referred to as the <a href="#/documenation/controller">Controller</a> and all requests pass through that Controller and then get forwarded to their corresponding service after undergoing some security checks. Some of the requested services are protected by <a href="#/documenation/oauth">oAuth</a>, in that case, when the request reaches the Controller, it is first forwarded to the oAuth service for validation and if valid, it is then forwarded to the corresponding service.<br />
+			SOAJS uses a gateway architecture meaning all requests go through one entry point before being processed. This entry point is referred to as the <a href="#/documentation/services/controller">Controller</a> and all requests pass through that Controller and then get forwarded to their corresponding service after undergoing some security checks. Some of the requested services are protected by <a href="#/documentation/services/oauth">oAuth</a>, in that case, when the request reaches the Controller, it is first forwarded to the oAuth service for validation and if valid, it is then forwarded to the corresponding service.<br />
 			Now that you know how SOAJS functions, go ahead install it and checkout the examples to learn how to build APIs super fast.<br />
 		</p>
 		<hr/>
@@ -25,7 +25,7 @@
 		<h4>Docker Installation</h4>
 		If you are familiar with <a href="https://www.docker.com/" target="_blank">Docker</a>, you can use it to install SOAJS on your machine.<br/>
 		<b>Docker</b> installs SOAJS on your machine, sets up the needed environment & dependencies and also loads a pre-configured sample data in the database so you can start working immediately.<br />
-		Refer to <a href="#/documentation/deployment/all-in-one">Deployment/All In One</a> to learn more on how to install SOAJS via Docker on your machine.
+		Refer to <a href="#/documentation/deployment/overview">Deployment/All In One</a> to learn more on how to install SOAJS via Docker on your machine.
 		<br /><br /><br />
 		<h4>Manual Installation</h4>
 		<ol class="manual-install">
@@ -48,7 +48,7 @@ $ npm install soajs.controller</code></pre>
 $ cd soajs.controller;
 # start the service
 $ node index</code></pre>
-				<em>Checkout the <a href="#/documentation/controller">Controller</a> section under documention for more information.</em>
+				<em>Checkout the <a href="#/documentation/services/controller">Controller</a> section under documention for more information.</em>
 				<br />
 				Repeat this step in all other services: oAuth, URAC and examples 01 - 02 - 03 -04 to get them running.<br />
 			</li>
@@ -104,8 +104,8 @@ $ node index</code></pre>
 		We have four ready examples for you to get started. Now that you have the controller running, you can test those examples and learn how to create a service, add some security and protect it, use the same service with different tenants and apply different access controls on your service.<br /><br />
 		<ul>
 			<li>
-				<a href="#/getStarted/example01">Example 01 </a>: Learn how to create a Service and use <a href='#/documentation/imfv'>IMFV</a>.<br />
-				In this example we show you how fast it is to create a service and how to use the <a href='#/documentation/imfv'>IMFV</a> of SOAJS to retrieve and validate all the parameters that are sent to this service.<br /><br />
+				<a href="#/getStarted/example01">Example 01 </a>: Learn how to create a Service and use <a href='#/documentation/core/imfv'>IMFV</a>.<br />
+				In this example we show you how fast it is to create a service and how to use the <a href='#/documentation/core/imfv'>IMFV</a> of SOAJS to retrieve and validate all the parameters that are sent to this service.<br /><br />
 			</li>
 			<li>
 				<a href="#/getStarted/example02">Example 02</a>: Learn how to secure your service using oAuth 2.0.<br />

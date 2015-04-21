@@ -111,19 +111,19 @@ var navigation = [
 		'id': 'provisioning',
 		'label': 'soajs provisioning',
 		'title': 'SOAJS | Documentation | Provisioning',
-		'url': '#/documentation/provisioning'
+		'url': '#/documentation/core/provisioning'
 	},
 	{
 		'id': 'controller',
 		'label': 'soajs controller',
 		'title': 'SOAJS | Documentation | Controller',
-		'url': '#/documentation/core/controller'
+		'url': '#/documentation/services/controller'
 	},
 	{
 		'id': 'service',
 		'label': 'soajs service',
 		'title': 'SOAJS | Documentation | Service',
-		'url': '#/documentation/service'
+		'url': '#/documentation/core/service'
 	},
 	{
 		'id': 'urac',

@@ -8,8 +8,8 @@
 			In the previous example, we showed you how to create a service, register it and run it. We also showed you how to do a heartbeat check on both your service and the controller. Finally we provided you with some sample tests you can run and see how the service responds to different scenarios and how <a href="#/documentation/imfv">IMFV</a> works.<br />
 		</p>
 		<p>
-			Now we are going to take one of the APIs from <a href="#/getStarted/example01">Example01</a> and use it in this example but we will secure this service via <a href="http://oauth.net/" target="_blank">oAuth</a>.<br /><br />When securing a service with oAuth, the service becomes accessible only to logged in oAuth users. Every request made to the service is first validated by SOAJS <a href="#/documentation/oauth">oAuth Service</a> before it gets forwarded to that service.<br /><br />
-			The diagram on the right shows that <a href="#/documentation/oauth">soajs.oauth</a> Service communicates with the <a href="#/documentation/controller">controller</a>. When a request is made, the Controller invokes <b>soajs.oauth</b> service to validate this request and if the request is authorized, then the Controller forwards the request to the secured service which in this case is referred to as "<b>Example02</b>".<br />
+			Now we are going to take one of the APIs from <a href="#/getStarted/example01">Example01</a> and use it in this example but we will secure this service via <a href="http://oauth.net/" target="_blank">oAuth</a>.<br /><br />When securing a service with oAuth, the service becomes accessible only to logged in oAuth users. Every request made to the service is first validated by SOAJS <a href="#/documentation/services/oauth">oAuth Service</a> before it gets forwarded to that service.<br /><br />
+			The diagram on the right shows that <a href="#/documentation/services/oauth">soajs.oauth</a> Service communicates with the <a href="#/documentation/services/controller">controller</a>. When a request is made, the Controller invokes <b>soajs.oauth</b> service to validate this request and if the request is authorized, then the Controller forwards the request to the secured service which in this case is referred to as "<b>Example02</b>".<br />
 		</p>
 		<hr/>
 		<h3>Installing oAuth</h3>
@@ -26,7 +26,7 @@ $ node index</code></pre>
 		<p>
 			To use oAuth, we need to create a <u>user record</u> then login with this user credentials, get the <u>token</u> and put that <u>token</u> in the consequent requests that follow. We also need a tenant that is configured to use oAuth so that when the user attempts to login, we can check the credentials of that user with the <b>oAuth secret</b> of that tenant and determine if they are valid or not.<br />
 			<img ng-src="images/getstarted/example02-oauth.png" id="example02-oauth" class="img-margin-t-b" /><br />
-			Tenants are <a href="#/documentation/provisioning">provisioned</a> in the database, their configuration differs from one tenant to another and is not dependent on a service or an <a href="#/documentation/registry">environment</a>. Storing this configuration in the database allows the administrator to customize it at any stage without changing the code of neither the service (<u>index.js</u> OR <u>config.js</u>) nor the <a href="#/documentation/registry">registry</a>. SOAJS offers the ability to have multiple tenants, with different configuration and access controls, use the same service in the same environment.<br /><br />
+			Tenants are <a href="#/documentation/core/provisioning">provisioned</a> in the database, their configuration differs from one tenant to another and is not dependent on a service or an <a href="#/documentation/core/registry">environment</a>. Storing this configuration in the database allows the administrator to customize it at any stage without changing the code of neither the service (<u>index.js</u> OR <u>config.js</u>) nor the <a href="#/documentation/core/registry">registry</a>. SOAJS offers the ability to have multiple tenants, with different configuration and access controls, use the same service in the same environment.<br /><br />
 			You're probably thinking this is a lot to digest by now but as you keep reading, you will find that with SOAJS applying this security takes minimal effort and that these steps are pretty basic and straight forward.
 		</p>
 		<hr/>
@@ -60,7 +60,7 @@ $ ./import.sh</code>
 		<h3>Registering the Service</h3>
 		<p>
 			<img class="image-border" src="images/getstarted/ex02Registry.png" id="ex02Registry">
-			Let's register <b>Example02</b> service like we did for <b>Example01</b> in the <a href="#/getStarted/registry">registry</a> of SOAJS. As you can see in the image on the right, both services are registered the same way with one difference: <b>extKeyRequired</b>. <br /><br />
+			Let's register <b>Example02</b> service like we did for <b>Example01</b> in the <a href="#/documentation/core/registry">registry</a> of SOAJS. As you can see in the image on the right, both services are registered the same way with one difference: <b>extKeyRequired</b>. <br /><br />
 			<b>extKeyRequired</b> is set to "true" for <b>Example02</b> service because as mentioned in the above section <b>Installing oAuth</b>, we need a tenant to get things running.<br /><br />
 			When a service requires a tenant to function, <b>extKeyRequired</b> is set to "true" because when the requests are made to the APIs of this service, each request should provide the <u>tenant key</u> so that SOAJS knows which tenant to load from the database and, in this case, be able to fetch the correct oAuth configuration and use it to Authorize the request.
 		</p>
@@ -207,7 +207,7 @@ $ node index</code></pre>
 						<em>
 							In this example we will use a generated value from the provisioned configuration we imported earlier.
 							Do not worry about how we got the value at the moment, you can just use it.
-							You can read more about it under <u>Tenants</u> section in the <a href="#/documentation/provisioning">Provisioning</a> documentation page.
+							You can read more about it under <u>Tenants</u> section in the <a href="#/documentation/core/provisioning">Provisioning</a> documentation page.
 						</em><br /><br />
 					</li>
 					<li>
