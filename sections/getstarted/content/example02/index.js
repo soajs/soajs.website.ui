@@ -5,14 +5,15 @@ var serviceName = "example02";
 
 var service = new soajs.server.service({
 	"oauth": true,
-	"session": true,
 	"config": config
 });
 
-service.get("/buildName", function(req, res) {
-	var fullName = req.soajs.inputmaskData.firstName + ' ' + req.soajs.inputmaskData.lastName;
-	res.json(req.soajs.buildResponse(null, {
-		fullName: fullName
-	}));
+service.init(function () {
+	service.get("/buildName", function (req, res) {
+		var fullName = req.soajs.inputmaskData.firstName + ' ' + req.soajs.inputmaskData.lastName;
+		res.json(req.soajs.buildResponse(null, {
+			fullName: fullName
+		}));
+	});
+	service.start();
 });
-service.start();
