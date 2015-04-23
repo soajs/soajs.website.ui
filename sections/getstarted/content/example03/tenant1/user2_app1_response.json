@@ -1,7 +1,7 @@
 {
   "result": true,
   "data": {
-    "tenantName": "Client One",
+    "tenantName": "Tenant name specific to user two",
     "fullName": "John Smith"
   },
   "soajsauth": "Basic c29hanM6czAxc1lfTGYzY0NqY1BBb3l4RnNDY1VUd1JLU2p3dlBSUzE="

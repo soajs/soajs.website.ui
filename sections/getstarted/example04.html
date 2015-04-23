@@ -1,212 +1,100 @@
-<div class="page" ng-controller="example03Ctrl">
+<div class="page" ng-controller="getStartedCtrl">
 	<div class="main-section-container examples">
-		<a href="#/getStarted" class="goBackLink">Go Back</a>
+		<a href="#/getStarted/example04" class="goBackLink">Go Back</a>
 
 		<a id="top"></a><h1>Example 04</h1>
 		<div class="white-container">
-		In <a href="#/getStarted/example02">Example02</a> we used <a href="#/documentation/services/oauth">oAuth</a> to secure our service, and in <a href="#/getStarted/example03">Example03</a> we examined how to secure a service per tenant.
+			In <a href="#/getStarted/example02">Example02</a> we used <a href="#/documentation/services/oauth">oAuth</a> to secure our service, and in <a href="#/getStarted/example03">Example03</a> we examined how to secure a service using tenant keys permissions.
 
-		In this example we will show you that you can use oAuth together with multitenancy.
-		Everything is similar to Example03 with few exceptions.
-		<hr/>
-		<h3>Import Provisioning</h3>
-		<p>
-			In <a _href="#/getStarted/example03" ng-click="goToAnchor(&quot;getStarted/example03&quot;,'provisioning')">Example03</a>, we provisioned some data in order to test the service.
-			If you modified the data in the database, we suggest you repeat the provisioning step.
-			If the data in the database is still intact, skip this step.<br/><br/>
-		</p>
-		<pre><code class="bash">$ cd soajs.mongodb.data/modules/examples
-$ chmod +x import.sh
-$ ./import.sh</code>
-			</pre>
-		<hr/>
-
-		<h3>Start the Service</h3>
-		We already have both the controller and Urac services running, and the provision data is imported.
-		All we need now is to start <b>Example04</b>:
-		<pre><code class="bash">#start example04
+			In this example we will show you that you can use oAuth together with multitenancy.
+			Everything is similar to Example03 with few exceptions.
+			<hr/>
+			<h3>Start the Service</h3>
+			We already have Urac services running, and the data is imported.
+			All we need now is to start <b>Example04</b>:
+			<pre><code class="bash">#start example04
 $ cd soajs.examples/examples04
-$ node index</code></pre>
-		<p>
-			<b>Example04</b> is now running on http://127.0.0.1:4000/example04.<br/>
-            Let's do a heartbeat check just to make sure all is working as expected before we begin the tests.<br/><br/>
-		</p>
+$ node .</code></pre>
+			<p>
+				<b>Example04</b> is now running on http://127.0.0.1:4013.<br/>
+	            Let's do a heartbeat check just to make sure all is working as expected before we begin the tests.<br/><br/>
+			</p>
 
-		<fieldset><legend>Heartbeat Example04</legend>
-			<div class="insideFieldsetMain">
-			<div>
-				<pre><code class="bash">$ curl -X GET "http://127.0.0.1:5013/heartbeat"</code></pre>
-				<h6><u>Response:</u></h6>
+			<fieldset><legend>Heartbeat Example04</legend>
+				<div class="insideFieldsetMain">
+					<div>
+						<pre><code class="bash">$ curl -X GET "http://127.0.0.1:5013/heartbeat"</code></pre>
+						<h6><u>Response:</u></h6>
 
-				<div ng-init="loadJSON(path + 'example04/heartbeat_example04.json', 'heartbeat_example04');">
-					<div id="heartbeat_example04"></div>
+						<div ng-init="loadJSON(path + 'example04/heartbeat_example04.json', 'heartbeat_example04');">
+							<div id="heartbeat_example04"></div>
+						</div>
+						<p>Example04 is registered in SOAJS with port <u>4013</u> making the maintenance port of this service as <u>5013</u>.
+						   As you can see, the service is running.
+						</p>
+					</div>
 				</div>
-				<p>Example04 is registered in SOAJS with port <u>4013</u> making the maintenance port of this service as <u>5013</u>.
-				   As you can see, the service is running.
-				</p>
-			</div></div>
-		</fieldset>
-		<hr/>
-		<h3>What has changed</h3>
-		<br>
-		<h4>The Product</h4>
+			</fieldset>
+			<hr/>
+			<h3>Running Some Tests</h3>
+			<fieldset><legend>Tenant 1: 1st Application</legend>
+				<div class="insideFieldsetMain">
+					<div>
+						<p>
+							We will hit "example04/buildName" using the key of the first application from the first tenant like we did in example03.
+						</p>
+						<pre><code class="bash">$ curl -X GET -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://127.0.0.1:4013/buildName?lastName=Smith"</code></pre>
+						<h6>Response:</h6>
 
-		We applied a modification to the product record <b>PROD1</b>.
-		<div ng-init="loadCode(path + 'example04/product1.js', 'product1');">
-			<div id="product1"></div>
+						<div ng-init="loadJSON(path + 'example04/tenant1_test1.json', 'tenant1_test1');">
+							<div id="tenant1_test1"></div>
+						</div>
+						<p>
+							Access denied! We need to login with oauth first.
+						</p>
+					</div>
+				</div>
+			</fieldset>
+			<fieldset><legend>Login to oAuth</legend>
+				<div class="insideFieldsetMain">
+					<div>
+						<p>
+							Like in <a href="#/getStarted/example02">Example02</a>, we need to login to oAuth and an access_token.
+						</p>
+						<pre><code class="bash">$ curl -X POST -H "Authorization: Basic NTRlZTIxNTBiN2E2NjlmYzIyYjdmNmI5Ok15IHNlY3JldCBwaHJhc2U=" -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://127.0.0.1:4013/token" -d 'username=oauthuser_tenant1&password=oauthpassword_tenant1&grant_type=password'</code></pre>
+						<h6>Response:</h6>
+						<div ng-init="loadJSON(path + 'example04/oauth_login.json', 'oauth_login');">
+							<div id="oauth_login"></div>
+						</div>
+						<p>
+							Like in Example02, the login to oAuth returned a token value. We need to add this <b>access_token</b> value to the consequent api calls.
+						</p>
+					</div>
+				</div>
+			</fieldset>
+
+			<fieldset><legend>Call API again with oAuth token</legend>
+				<div class="insideFieldsetMain">
+					<div>
+						<p>
+							We will hit "example04/buildName" again with "access_token" as an additional query parameter:
+						</p>
+						<pre><code class="bash">$ curl -X GET -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://127.0.0.1:4013/buildName?lastName=Smith&access_token=e59104df7256d2d0a77771303ea81fd68ed39e45"</code></pre>
+						<h6>Response:</h6>
+						<div ng-init="loadJSON(path + 'example04/response1.json', 'response1');">
+							<div id="response1"></div>
+						</div>
+						<em>Awesome!</em>
+					</div>
+				</div>
+			</fieldset>
+			<p>
+				Once you are done here, let's move on to more advanced functionality in the next step.
+			</p>
+			<div style="clear:both; width:100%; display: table;">
+				<a class="small-button" href="#/getStarted/advanced">Next &raquo;</a>
+			</div>
 		</div>
-		<br>
-		We added "example04" service to the acl of the first package.
-		Now this package has access to it, and we can use its APIs in our example.
-		We also added a fourth package with more complex acl options.
-		<br/><br/>
-
-		<h4>The Tenant</h4>
-		We will add an entry for "oauth" for Tenant 1.
-		The "oauth" object has three entries: the secret phrase, the redirect Uri and grants.
-		For the first application, we need to add an entry under "config" for "example04".
-		For the second application, and because it overrides the default acl of the package,
-		we need to grant access to the "example04" service. So the second application can now use it too.
-		All other settings remain the same.
-		<div ng-init="loadCode(path + 'example04/tenant1.js', 'tenant1');">
-			<div id="tenant1"></div>
-		</div>
-		We also added a third application for Tenant 1; it takes package 4.
-		<br>
-		<h4>oAuth User</h4>
-		We need to create a new oAuth user record that is linked to Tenant 1.
-		<div ng-init="loadCode(path + 'example04/oauth_user.js', 'oauth_user');">
-			<div id="oauth_user"></div>
-		</div>
-		<br/>
-		<em>Note that the sample data has not actually changed.
-		    If you had inspected the database while testing Example03 you would have seen these changes,
-		    but we chose to ignore it in Example03.</em>
-		<hr/>
-
-		<h3>Service Code</h3>
-		The code is similar to that in <b>Example03</b>.
-		We only need to edit the service config in <u>index.js</u> file; add the "oauth" entry and set it to true as shown below.
-		Now the service is secured by oAuth.
-		<tabset>
-			<tab heading="index.js"><br/>
-				<div ng-init="loadCode(path + 'example04/index.js', 'indexjs');"></div>
-				<div id="indexjs"></div>
-			</tab>
-			<tab heading="config.js" select=""><br/>
-				<div ng-init="loadCode(path + 'example04/config.js', 'configjs');"></div>
-				<div id="configjs"></div>
-			</tab>
-		</tabset>
-		<br>
-
-		<hr/>
-
-		We are ready to run the tests.
-		We will repeat some tests for Tenant 1. Just replace "example03" by "example04". <br/><br/>
-		<fieldset><legend>Tenant 1: 1st Application</legend>
-			<div class="insideFieldsetMain">
-
-			<div>
-				<em>The tenant's first application uses <b>PROD1_PCK1</b> package, which has "example04" in its ACL.</em>
-				<br>
-				We will try to hit "example04/buildName" using the external key of the first app from the first tenant:<br/>
-				<pre><code class="bash">$ curl -X GET -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://127.0.0.1:4000/example04/buildName?lastName=Smith"</code></pre>
-				<h6>Response:</h6>
-
-				<div ng-init="loadJSON(path + 'example04/tenant1_test1.json', 'tenant1_test1');">
-					<div id="tenant1_test1"></div>
-				</div>
-				Access denied! We need to login with oauth first.
-			</div></div>
-		</fieldset>
-		<fieldset><legend>Login to oAuth</legend>
-			<div class="insideFieldsetMain">
-			<div> Like in <a href="#/getStarted/example02">Example02</a>, we need to login to oAuth.
-			      We need to call "oauth/token" and provide two values in the headers:<br>
-				- The external key value from Tenant 1.<br>
-				- Authorization, which is generated from (tenantId:secret_phrase).  So for Tenant 1,
-			in this case it is (<b>54ee2150b7a669fc22b7f6b9</b>:<b>My secret phrase</b>) which evaluates to <span class="breakWord">"NTRlZTIxNTBiN2E2NjlmYzIyYjdmNmI5Ok15IHNlY3JldCBwaHJhc2U="</span>.
-				<br /><br />
-
-				<pre><code class="bash">$ curl -X POST -H "Authorization: Basic NTRlZTIxNTBiN2E2NjlmYzIyYjdmNmI5Ok15IHNlY3JldCBwaHJhc2U=" -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://127.0.0.1:4000/oauth/token" -d 'username=oauthuser_tenant1&password=oauthpassword_tenant1&grant_type=password'</code></pre>
-				<h6>Response:</h6>
-
-				<div ng-init="loadJSON(path + 'example04/oauth_login.json', 'oauth_login');">
-					<div id="oauth_login"></div>
-				</div>
-			      Like in Example02, the login to oAuth returned a token value. We need to add this <b>access_token</b> value to the consequent api calls.
-
-			</div></div>
-		</fieldset>
-
-
-		<fieldset><legend>Call Api again with oAuth token</legend>
-			<div class="insideFieldsetMain">
-			<div>
-				We will hit "example04/buildName" again with "access_token" as an additional query parameter:
-				<pre><code class="bash">$ curl -X GET -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://127.0.0.1:4000/example04/buildName?lastName=Smith&access_token=e59104df7256d2d0a77771303ea81fd68ed39e45"</code></pre>
-				<h6>Response:</h6>
-				<div ng-init="loadJSON(path + 'example04/response1.json', 'response1');">
-					<div id="response1"></div>
-				</div>
-				Success! <em> </em>
-				<br>
-			</div></div>
-		</fieldset>
-		Next, we will use the key from the third application to run more tests.
-		<fieldset><legend>Tenant 1: Application 3</legend>
-			<div class="insideFieldsetMain">
-			<div style="word-break:break-all;">
-				The third application using PROD1_PCK4 allows access to "/buildName" only for logged in users.
-				We will hit "example04/buildName".
-				<pre><code class="bash">$ curl -X GET -H "key:4232477ed993d167ec13ccf8836c29c4c3eabd8dc5d6b29af1725af616353c2ef59ab49a11f64affc60fa73a48eda79187085b064d533fb2f2adccf3e48b41088765a3665c91a193cf13808d68194ecc2061ae81639b49c9f1a73150a3123254" "http://127.0.0.1:4000/example04/buildName?lastName=Smith&access_token=e59104df7256d2d0a77771303ea81fd68ed39e45"</code></pre>
-				<h6>Response:</h6>
-				<div ng-init="loadJSON(path + 'example04/app3_response1.json', 'app3_response1');">
-					<div id="app3_response1"></div>
-				</div>
-				Failed! You need to login first. <em> </em>
-				<br>
-			</div></div>
-		</fieldset>
-
-		<fieldset><legend>Login as user2 and try buildName</legend>
-			<div class="insideFieldsetMain">
-			<div>
-				Login as user2 using the "urac/login" api, grab the soajsauth value and add it to the headers.
-				Now hit "example04/buildName".
-				<pre><code class="bash">$ curl -X GET -H "soajsauth:Basic c29hanM6czAxc1lfTGYzY0NqY1BBb3l4RnNDY1VUd1JLU2p3dlBSUzE=" -H "key:4232477ed993d167ec13ccf8836c29c4c3eabd8dc5d6b29af1725af616353c2ef59ab49a11f64affc60fa73a48eda79187085b064d533fb2f2adccf3e48b41088765a3665c91a193cf13808d68194ecc2061ae81639b49c9f1a73150a3123254" "http://127.0.0.1:4000/example04/buildName?lastName=Smith&access_token=e59104df7256d2d0a77771303ea81fd68ed39e45"</code></pre>
-				<h6>Response:</h6>
-				<div ng-init="loadJSON(path + 'example04/app3_response2.json', 'app3_response2');">
-					<div id="app3_response2"></div>
-				</div>
-				Success! <em> </em>
-				<br>
-			</div></div>
-		</fieldset>
-
-		<fieldset><legend>Try buildNameGold</legend>
-			<div class="insideFieldsetMain">
-			<div>
-				Now, using the same soajsauth value in your headers,
-				hit "example04/buildNameGold".
-				<pre><code class="bash">$ curl -X GET -H "soajsauth:Basic c29hanM6czAxc1lfTGYzY0NqY1BBb3l4RnNDY1VUd1JLU2p3dlBSUzE=" -H "key:4232477ed993d167ec13ccf8836c29c4c3eabd8dc5d6b29af1725af616353c2ef59ab49a11f64affc60fa73a48eda79187085b064d533fb2f2adccf3e48b41088765a3665c91a193cf13808d68194ecc2061ae81639b49c9f1a73150a3123254" "http://127.0.0.1:4000/example04/buildNameGold?lastName=Smith&access_token=e59104df7256d2d0a77771303ea81fd68ed39e45"</code></pre>
-				<h6>Response:</h6>
-				<div ng-init="loadJSON(path + 'example04/app3_response3.json', 'app3_response3');">
-					<div id="app3_response3"></div>
-				</div>
-				Acces denied! The api is only allowed for users who belong to the group called "gold".
-				<em>As was shown in Example03, user2 belongs only to group "silver".</em>
-				<br>
-			</div></div>
-		</fieldset>
-
-		<p>
-			Try to run more tests like we did in <a href="#getStarted/example03">Example03</a>.
-			You need to attach the <b>access_token</b> parameter to all your calls to reach the <b>Example04</b> service.
-		</p>
-	</div>
-		<a href="#/getStarted/example04/top" class="backToTop">Back to Top</a>
 	</div>
 	<script>renderCodeSnippets();</script>
 </div>
