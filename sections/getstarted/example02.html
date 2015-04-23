@@ -1,13 +1,13 @@
 <div class="page" ng-controller="getStartedCtrl">
 	<div class="main-section-container examples">
-		<a href="#/getStarted" class="goBackLink">Go Back</a>
+		<a href="#/getStarted/example01" class="goBackLink">Go Back</a>
 		<a id="top"></a><h1>Example 02</h1>
 		<div class="white-container">
 			<p>
 				In the previous example, we showed you how to do a heartbeat check on a service we provided you with some sample tests you can run and see how the service responds to different scenarios and how <a href="#/documentation/imfv">IMFV</a> works.<br />
 				Now we are going to take one of the APIs from <a href="#/getStarted/example01">Example01</a> and use it in this example but we will secure this service via <a href="http://oauth.net/" target="_blank">oAuth</a>.<br />
 				When securing a service with oAuth, the service becomes accessible only to logged in oAuth users. Every request made to the service is first validated by SOAJS <a href="#/documentation/services/oauth">oAuth Service</a> before it gets forwarded to that service.<br /><br />
-				We previously installed soajs.oauth in <b>Get Started</b> and turned it on so let's turn on example02 and run some tests on its APIs.
+				We previously installed <a href="https://www.npmjs.org/packages/soajs.oauth" target="_blank">soajs.oauth</a> in <a href="#/getStarted">Get Started</a> and turned it on so let's turn on example02 and run some tests on its APIs.
 			</p>
 			<hr/>
 			<h3>Start the Service</h3>
@@ -101,10 +101,8 @@ $ node index</code></pre>
 			</fieldset>
 			<fieldset><legend>Call Example02 API Again</legend><div class="insideFieldsetMain">
 				<div>
-					The <b>access_token</b> we obtained from the previous login request should be appended it to all consequent API calls made to this service in order to be authorized and accessible.<br />
-					Call the api with the <b>access_token</b> as an additional query parameter:<br>
+					The <b>access_token</b> we obtained from the previous login request should be appended it to all consequent API calls made to this service in order to be authorized and accessible. Call the api with the <b>access_token</b> as an additional query parameter:<br>
 				<pre><code class="bash">$ curl -X GET "http://127.0.0.1:4011/buildName?firstName=John&lastName=Smith&access_token=e58751473112bca2ed939e0445e55b0f7921f544"</code></pre>
-				<br>
 				<h6>Response</h6>
 				<div ng-init="loadJSON(path + 'example02/oauth_token.json', 'oauth_token');">
 					<div id="oauth_token"></div>
