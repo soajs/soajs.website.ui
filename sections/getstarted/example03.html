@@ -6,11 +6,7 @@
 		<h1>Example 03</h1>
 		<div class="white-container">
 			<p>
-				So far, we have created a service and secured it with oAuth in previous examples.<br />
-				SOAJS offers the ability to allow different tenants to use the same service, each with their own settings; this is called multitenancy.<br />
-				You can configure multitenancy and have your services behave differently from one tenant (client) to another, and even from one user (consumer) to another.<br/><br/>
-
-				In this example, we will introduce the <a href='#/documentation/services/urac'>URAC</a> service, where each tenant has registered users and how to take advantage of multitenancy and how easy it is to configure ACL and secure your APIs via tenant keys.
+				So far, we have created a service and secured it with oAuth in previous examples. SOAJS offers the ability to allow different tenants to use the same service, each with their own settings; this is called multitenancy. You can configure multitenancy and have your services behave differently from one tenant (client) to another, and even from one user (consumer) to another. In this example, we will introduce the <a href='#/documentation/services/urac'>URAC</a> service, where each tenant has registered users and how to take advantage of multitenancy and how easy it is to configure ACL and secure your APIs via tenant keys.
 
 				<div class="redFlag">Image below nees to be updated when done with this page.</div>
 				<img ng-src="images/getstarted/example03.png" id="example03png" class="img-margin-t-b" />
@@ -19,13 +15,10 @@
 			<hr/>
 			<h3>Installing URAC</h3>
 			<p>
-				SOAJS (User Registration &amp; Access Control) is a service that manages the Users records and their Access Controls.<br>
-				The service is multitenant and provides the ability to have members accounts for different tenants.<br />
-	            Please visit the <a href="#/documentation/services/urac">URAC</a> section under documentation for more details.<br />
-	            Like any other SOAJS service, <a href='#/documentation/services/urac'>URAC</a> can be installed via NPM:
+				SOAJS (User Registration &amp; Access Control) is a service that manages the Users records and their Access Controls. The service is multitenant and provides the ability to have members accounts for different tenants. Please visit the <a href="#/documentation/services/urac">URAC</a> section under documentation for more details. Like any other SOAJS service, <a href='#/documentation/services/urac'>URAC</a> can be installed via NPM:
 				<pre><code class="bash">$ npm install soajs.urac</code></pre>
 				Once the service is installed, go ahead and run it:
-				<pre><code class="bash">$ cd soajs.urac
+				<pre><code class="bash">$ cd /opt/soajs/node_modules/soajs.urac
 $ node .</code></pre>
 				<a href='#/documentation/services/urac'>URAC</a> is now running on http://127.0.0.1:4001 and will we will use it to login with our users later on when we start the tests.<br />
 			<p>
@@ -47,7 +40,7 @@ $ node .</code></pre>
 				Example03 was previously downloaded when we installed <a href="https://www.npmjs.org/packages/soajs.examples" target="_blank">soajs.examples</a> in <a href="#/getStarted">Get Started</a>. All we need now is to start it:
 			</p>
 			<pre><code class="bash">#start example03
-$ cd soajs.examples/examples03
+$ cd /opt/soajs/node_modules/soajs.examples/examples03
 $ node index</code></pre>
 			<p>
 				<b>Example03</b> is now running on http://127.0.0.1:4012.<br />
@@ -70,9 +63,7 @@ $ node index</code></pre>
 			<h3>Running Some Tests</h3>
 			<br/>
 			<p>
-				As mentioned, example03 is multitenant and will serve several tenants. This Service has only two APIs but we will invoke it from different tenants with different permissions.<br />
-				When we imported the test data in <a href="#/getStarted">Get Started</a>, we added to our database 1 product with 3 packages, 3 tenants.<br />
-				The tables below explain how these imported records are programed to work with example03 service:
+				As mentioned, example03 is multitenant and will serve several tenants. This Service has only two APIs but we will invoke it from different tenants with different permissions. When we imported the test data in <a href="#/getStarted">Get Started</a>, we added to our database 1 product with 3 packages, 3 tenants. The tables below explain how these imported records are programed to work with example03 service:
 			</p>
 			<table class="myTable" width="100%">
 				<thead>
@@ -229,17 +220,15 @@ $ node index</code></pre>
 					</div>
 				</div>
 			</fieldset>
-			<p>
-				Tenants and packages can be configured to have different access levels to your services.<br />
-				Tenants are explained in depth in <a href="#/documentation/xxx/multitenancy">Multitenancy</a> section under Documentation.<br />
-				Products are explained in depth in <a href="#/documentation/xxx/productization">Productization</a> section under Documentation.<br />
-			</p>
+			<ul>
+				<li>Tenants and packages can be configured to have different access levels to your services.</li>
+				<li>Tenants are explained in depth in <a href="#/documentation/xxx/multitenancy">Multitenancy</a> section under Documentation.</li>
+				<li>Products are explained in depth in <a href="#/documentation/xxx/productization">Productization</a> section under Documentation.</li>
+			</ul>
 			<hr/>
 			<h4>User Level</h4>
 			<p>
-				As we have seen so far, tenants and products can have different ACL permissions on a service but they are not the only ones to have permissions.<br />
-				When we imported the data, we created 3 users records in the database, each user record has different permissions that the other.<br />
-				The table below demonstrates what permissions these users have.
+				As we have seen so far, tenants and products can have different ACL permissions on a service but they are not the only ones to have permissions. When we imported the data, we created 3 users records in the database, each user record has different permissions that the other. The table below demonstrates what permissions these users have.
 			</p>
 			<table width="100%" class="myTable">
 				<thead>
@@ -284,8 +273,7 @@ $ node index</code></pre>
 				</tbody>
 			</table>
 			<p>
-				The above table shows 3 users each overriding the permissions of either his tenant, or the package of that tenant or both.<br />
-				In addition 2 users have the ability to change the name of the tenant.<br /><br />
+				The above table shows 3 users each overriding the permissions of either his tenant, or the package of that tenant or both. In addition 2 users have the ability to change the name of the tenant.<br /><br />
 				The idea here is to show that a user can override the ACL permissions of the tenant it belongs to AND/OR the package that his tenant is using. Adding to that, and since tenants can provide different configuration to a service, the user also has the ability ot change that configuration which is "tenant name" in this case that we are only using for display purposes.<br /><br />
 				Now let's make some calls to the APIs of this service using the different cases from the above table.
 			</p>
@@ -301,8 +289,7 @@ $ node index</code></pre>
 							<div id="user1_login"></div>
 						</div>
 						<p>
-							A successful login returns a response containing the <b>soajsauth</b> property. This property should be used in all consequent api calls that are only accessible by logged in users.<br />
-							Grab the <b>soajsauth</b> property and add it in the headers of the consequent request.<br/>
+							A successful login returns a response containing the <b>soajsauth</b> property. This property should be used in all consequent api calls that are only accessible by logged in users. Grab the <b>soajsauth</b> property and add it in the headers of the consequent request.<br/>
 							Now hit "example03/buildName" API:
 						</p>
 						<pre><code class="bash">$ curl -X GET "http://127.0.0.1:40012/buildName?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxclV4WlRGbXdvS2VtOG1rTERGZW9ocDUwSzFYdDZaaUg=" -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"</code></pre>
@@ -327,8 +314,7 @@ $ node index</code></pre>
 							<div id="user2_app1_login"></div>
 						</div>
 						<p>
-							The login was successful and the response returned contains the <b>soajsauth</b> property.<br/>
-							Grab the <b>soajsauth</b> property and add it in the headers of the consequent request.<br/>
+							The login was successful and the response returned contains the <b>soajsauth</b> property. Grab the <b>soajsauth</b> property and add it in the headers of the consequent request.<br/>
 							Hit "example03/buildName" API:
 						</p>
 						<pre><code class="bash">$ curl -X GET "http://127.0.0.1:4012/buildName?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxc1lfTGYzY0NqY1BBb3l4RnNDY1VUd1JLU2p3dlBSUzE=" -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"</code></pre>
@@ -404,10 +390,14 @@ $ node index</code></pre>
 			<hr/>
 			<p>
 				The service configuration allowed it to respond with different values for each tenant. Some tenants were not able to invoke any of this service APIs, and the same applies to users using these tenants. However, we were able to override default package and tenant ACL permissions and give access to some users on some or all APIs.<br /><br />
-				The ACL is explained in depth in <a href="#/documentation/xxx/acl">Access Levels</a> section under documentation.<br />
-				Both products and packages are also explained in depth in <a href="#/documentation/xxx/productization">Productization</a> section under documentation.<br />
-				Tenants, applications and how they override default package permissions are all explained in <a href="#/documentation/xxx/multitenancy">Multitenancy</a> section under documentation.<br />
-				Finally users, groups and ACL overriding are explain in <a href="#/documentation/services/urac">URAC</a> section under documentation.<br />
+			</p>
+			<ul>
+				<li>The ACL is explained in depth in <a href="#/documentation/xxx/acl">Access Levels</a> section under documentation.</li>
+				<li>Both products and packages are also explained in depth in <a href="#/documentation/xxx/productization">Productization</a> section under documentation.</li>
+				<li>Tenants, applications and how they override default package permissions are all explained in <a href="#/documentation/xxx/multitenancy">Multitenancy</a> section under documentation.</li>
+				<li>Finally users, groups and ACL overriding are explain in <a href="#/documentation/services/urac">URAC</a> section under documentation.</li>
+			</ul>
+			<p>
 				Once your are done here, head on to the next step.<br />
 			</p>
 			<div style="clear:both; width:100%; display: table;">

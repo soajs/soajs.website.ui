@@ -4,10 +4,7 @@
 		<a id="top"></a><h1>Example 01</h1>
 		<div class="white-container">
 		<p>
-			In this example we will create a simple service that provides some APIs that use different protocols: GET - POST - PUT - DEL.<br/>
-			The example focuses on how to make use of <a href="#/documentation/core/imfv">IMFV</a> that facilitates fetching and validation of the parameters passed to an API.<br/>
-			The service "<b>Example01</b>" will be public and will not be secured and accessible by everyone.<br/>
-			The service is split up into 2 files:
+			In this example we created a simple service that provides some APIs that use different protocols: GET - POST - PUT - DEL. We will focus on how to make use of <a href="#/documentation/core/imfv">IMFV</a> to facilitate fetching and validating the API parameters. The service "<b>Example01</b>" is not secured and accessible by everyone. The service is split up into 2 files:
 		</p>
 		<ol>
 			<li><b>index.js</b>: contains the code of the service that implements the APIs.</li>
@@ -22,7 +19,7 @@
 			Start the service by navigating to soajs.examples/example01 and run the below command, just like you did in "hello world".
 		</p>
 		<pre><code class="bash"># navigate to soajs.examples/example01 service and start it
-$ cd soajs.examples/example01/
+$ cd /opt/soajs/node_modules/soajs.examples/example01/
 $ node .</code></pre>
 		<p>
 			<b>Example01</b> is now running on http://127.0.0.1:4010.<br />
@@ -44,9 +41,7 @@ $ node .</code></pre>
 	}
 }</code></pre>
 					<p>
-						A heartbeat test tells us if a service is healthy or not. Every service running listens to 2 ports: default and maintenance.<br />
-						Example01 runs on port 4010, its maintenance port is equal to defaul port number + 1000 which means 5010.<br />
-						Perform a heartbeat test on any service by providing it's maintenance port followed by <b>/heartbeat</b> route.
+						A heartbeat test tells us if a service is healthy or not. Every service running listens to 2 ports: default and maintenance. Example01 runs on port 4010, its maintenance port is equal to defaul port number + 1000 which means 5010. Perform a heartbeat test on any service by providing it's maintenance port followed by <b>/heartbeat</b> route.
 					</p>
 				</div>
 			</div>
@@ -54,8 +49,7 @@ $ node .</code></pre>
 		<hr/>
 		<h3>Running Some Tests</h3>
 		<p>
-			<b>Example01</b> services is running, so let's start some tests on its APIs and see what happens.<br/>
-			Before we begin the tests, note that we have configured Example01 APIs to look for the following fields:
+			<b>Example01</b> services is running, so let's start some tests on its APIs and see what happens. Before we begin the tests, note that we have configured Example01 APIs to look for the following inputs:
 		</p>
 		<table class="myTable" width="100%">
 			<thead>
@@ -214,19 +208,14 @@ $ node .</code></pre>
 					</div>
 					<br/>
 					<p>
-						This API returned a success response even though <b>firstName</b> was not provided as a parameter.<br />
-						We previously configured this api to use a default value for firstName if it is not provided in the parameters.<br />
-						In the previous test, we made a call and specified <b>firstName</b> to be "<b>James</b>" and the returned response was "<b>James Smith</b>" but here we only provided the <b>lastName</b> as a parameter and since the default value configured for the <b>firstName</b> input is "John", <a href="#/documentation/core/imfv">IMFV</a> used that value instead of throwing an error saying missing parameters.
+						This API returned a success response even though <b>firstName</b> was not provided as a parameter. We previously configured this api to use a default value for firstName if it is not provided in the parameters. In the previous test, we made a call and specified <b>firstName</b> to be "<b>James</b>" and the returned response was "<b>James Smith</b>" but here we only provided the <b>lastName</b> as a parameter and since the default value configured for the <b>firstName</b> input is "John", <a href="#/documentation/core/imfv">IMFV</a> used that value instead of throwing an error saying missing parameters.
 					</p>
 				</div></div>
 		</fieldset>
 		<hr/>
 		<h3>Code Explanation</h3>
 		<p>
-			<b>Example01</b> has 5 APIs, these APIs are defined in <u>index.js</u> and each API has a representation in <u>config.js</u> to enable its <a href='#/documentation/core/imfv'>IMFV</a> configuration.<br />
-			IMFV maps, validates and format all inputs arriving to an API, then consodlidates them all in <b>req.soajs.inputmaskData</b> object.<br />
-			IMFV checks for mandatory inputs and supports default values for non-provided inputs if instructed to.<br />
-			You can learn more on what IMFV supports and how it works in section <a href='#/documentation/core/imfv'>IMFV</a> under documenation.<br /><br />
+			<b>Example01</b> has 5 APIs, these APIs are defined in <u>index.js</u> and each API has a representation in <u>config.js</u> to enable its <a href='#/documentation/core/imfv'>IMFV</a> configuration. IMFV maps, validates and format all inputs arriving to an API, then consodlidates them all under <b>req.soajs.inputmaskData</b> object. IMFV checks for mandatory inputs and supports default values for non-provided inputs if instructed to. You can learn more on what IMFV supports and how it works in section <a href='#/documentation/core/imfv'>IMFV</a> under documenation.<br /><br />
 			The below snippets represent the content of both <b>index.js</b> and <b>config.js</b> that make up <b>Example01</b> services. Each API implemented in index.js reads the inputs received, formulates a JSON response and returns it. The schema in config.js elaborates what each API should receive as inputs, if they are mandatory, use default values and what type they should be.
 		</p>
 		<br />
@@ -244,8 +233,7 @@ $ node .</code></pre>
 		</tabset>
 		<hr/>
 		<p>
-			By now you have seen how easy it is to configure <a href='#/documentation/core/imfv'>IMFV</a> for a service, how quick and simple it is to write an API service and how to perform maintenance operations on a service. Imagine how much time and effort you have saved just by creating two files and a few lines of code in each of them.<br />
-			Try to conduct additional tests and scenarios on <b>Example01</b> APIs. When you are ready to jump to the next level.
+			By now you have seen how easy it is to configure <a href='#/documentation/core/imfv'>IMFV</a> for a service, how quick and simple it is to write an API service and how to perform maintenance operations on a service. Imagine how much time and effort you have saved just by creating two files and a few lines of code in each of them. Try to conduct additional tests and scenarios on <b>Example01</b> APIs. When you are ready to jump to the next level.
 		</p>
 		<div style="clear:both; width:100%; display: table;">
 			<a class="small-button" href="#/getStarted/example02">Next &raquo;</a>
