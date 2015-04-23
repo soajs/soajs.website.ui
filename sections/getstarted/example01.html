@@ -96,7 +96,7 @@ $ node .</code></pre>
 			<legend><b>/testGet api: Fail</b></legend>
 			<div class="insideFieldsetMain">
 				<div>
-					<pre><code class="bash">$ curl -X GET "http://127.0.0.1:4000/example01/testGet?firstName=John" </code> </pre>
+					<pre><code class="bash">$ curl -X GET "http://127.0.0.1:4010/testGet?firstName=John" </code> </pre>
 					<h6>Response</h6>
 					<div ng-init="loadJSON(path + 'example01/result01.json', 'result01');">
 						<div id="result01"></div>
@@ -111,7 +111,7 @@ $ node .</code></pre>
 		<fieldset>
 			<legend><b>/testGet api: Success</b></legend><div class="insideFieldsetMain">
 			<div>
-				<pre><code class="bash">$ curl -X GET "http://127.0.0.1:4000/example01/testGet?firstName=John&lastName=Smith&email=john@smith.com" </code> </pre>
+				<pre><code class="bash">$ curl -X GET "http://127.0.0.1:4010/testGet?firstName=John&lastName=Smith&email=john@smith.com" </code> </pre>
 				<h6>Response</h6>
 
 				<div ng-init="loadJSON(path + 'example01/result02.json', 'result02');">
@@ -126,7 +126,7 @@ $ node .</code></pre>
 				<p>
 					This API is exactly like testGet but uses post as a protocol.
 				</p>
-				<pre><code class="bash">$ curl -X POST -H "Content-type:application/json" -H "Accept:application/json" "http://127.0.0.1:4000/example01/testPost" -d '{"firstName":"John","lastName":"Smith"}'</code> </pre>
+				<pre><code class="bash">$ curl -X POST -H "Content-type:application/json" -H "Accept:application/json" "http://127.0.0.1:4010/testPost" -d '{"firstName":"John","lastName":"Smith"}'</code> </pre>
 				<h6>Response</h6>
 
 				<div ng-init="loadJSON(path + 'example01/testPost1.json', 'testPost1');">
@@ -140,7 +140,7 @@ $ node .</code></pre>
 				<p>
 
 				</p>
-				<pre><code class="bash">$ curl -X POST -H "Content-type:application/json" -H "Accept:application/json" "http://127.0.0.1:4000/example01/testPost" -d '{"firstName":"John","lastName":"Smith","email":"john@smith.com"}'</code></pre>
+				<pre><code class="bash">$ curl -X POST -H "Content-type:application/json" -H "Accept:application/json" "http://127.0.0.1:4010/testPost" -d '{"firstName":"John","lastName":"Smith","email":"john@smith.com"}'</code></pre>
 				<h6>Response</h6>
 
 				<div ng-init="loadJSON(path + 'example01/testPost2.json', 'testPost2');">
@@ -154,7 +154,7 @@ $ node .</code></pre>
 				<p>
 					This API resemble the first two above with one difference, the value of <b>firstName</b> should be only <b>John</b>.
 				</p>
-				<pre><code class="bash">$ curl -X POST -H "Content-type:application/json" -H "Accept:application/json" "http://127.0.0.1:4000/example01/testPost" -d '{"firstName":"Johnx","lastName":"Smith"}'</code></pre>
+				<pre><code class="bash">$ curl -X POST -H "Content-type:application/json" -H "Accept:application/json" "http://127.0.0.1:4010/testPost" -d '{"firstName":"Johnx","lastName":"Smith"}'</code></pre>
 
 				<h6>Response</h6>
 
@@ -173,7 +173,7 @@ $ node .</code></pre>
 				<p>
 					SOAJS also provides support for PUT and DEL protocols not just GET and POST.
 				</p>
-				<pre><code class="bash">$ curl -X PUT -H "Content-type:application/json" -H "Accept:application/json" "http://127.0.0.1:4000/example01/testPut" -d '{"firstName":"John","lastName":"Smith"}'</code></pre>
+				<pre><code class="bash">$ curl -X PUT -H "Content-type:application/json" -H "Accept:application/json" "http://127.0.0.1:4010/testPut" -d '{"firstName":"John","lastName":"Smith"}'</code></pre>
 				<h6>Response</h6>
 
 				<div ng-init="loadJSON(path + 'example01/testPut1.json', 'testPut1');">
@@ -184,7 +184,7 @@ $ node .</code></pre>
 		<fieldset>
 			<legend><b>/testDel api: Success</b></legend><div class="insideFieldsetMain">
 			<div>
-				<pre><code class="bash">$ curl -X DELETE "http://127.0.0.1:4000/example01/testDel?firstName=John&lastName=Smith"</code></pre>
+				<pre><code class="bash">$ curl -X DELETE "http://127.0.0.1:4010/testDel?firstName=John&lastName=Smith"</code></pre>
 				<h6>Response</h6>
 
 				<div ng-init="loadJSON(path + 'example01/testDel1.json', 'testDel1');">
@@ -195,7 +195,7 @@ $ node .</code></pre>
 		<fieldset>
 			<legend><b>/buildName api: Success</b></legend><div class="insideFieldsetMain">
 			<div>
-				<pre><code class="bash">$ curl -X GET "http://127.0.0.1:4000/example01/buildName?firstName=James&lastName=Smith"</code></pre>
+				<pre><code class="bash">$ curl -X GET "http://127.0.0.1:4010/buildName?firstName=James&lastName=Smith"</code></pre>
 				<h6>Response</h6>
 				<div ng-init="loadJSON(path + 'example01/buildName1.json', 'buildName1');">
 					<div id="buildName1"></div>
@@ -205,7 +205,7 @@ $ node .</code></pre>
 		<fieldset><legend><b>/buildName api: Test 2</b></legend>
 			<div class="insideFieldsetMain">
 				<div>
-					<pre><code class="bash">$ curl -X GET "http://127.0.0.1:4000/example01/buildName?lastName=Smith"</code></pre>
+					<pre><code class="bash">$ curl -X GET "http://127.0.0.1:4010/buildName?lastName=Smith"</code></pre>
 
 					<h6>Response</h6>
 
