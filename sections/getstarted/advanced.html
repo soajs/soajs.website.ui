@@ -13,7 +13,15 @@
 		<hr/>
 		<h3>Controller</h3>
 		<p>
-			SOAJS controller is designed to handle the awareness among your services. The controller checks if all the registered services are running and healthy on a regular basis. Simply install and run the controller and it will do the rest.
+			SOAJS controller is designed to handle the awareness among your services. The controller checks if all the registered services are running and healthy on a regular basis. Upon start, it makes a list of all the services IP addresses and ports and checks their status. It refreshes that list on a regular basis. If a service with several instances running thus providing redundancy for example and one of them becomes unreachable for a certain reason, the controller detects that change and notifies you that this service for this IP address is not healthy anymore and unreachable.
+		</p>
+		<p>
+			You can have multiple controllers running at the same time. Should one go down, the others remain functional and your cloud remains accessible and working. Controllers also distribute the load on the services; if you have 3 controllers where each controller forwards requests to 3 instances of a service, then your cloud performance will highly increase and traffic handling becomes faster.<br />
+			The following image demonstrates the architecture of how controllers work with SOAJS services as well as presence of multiple controller instances communicating with multiple services instances in SOAJS's cloud.
+			<img ng-src="images/documentation/deployment-overview.png" class="full-image" />
+		</p>
+		<p>
+			To install and run the controller, execute the below steps:
 		</p>
 		<pre><code class="bash"># go to /opt/soajs/node_modules
 $ cd /opt/soajs/node_modules/
@@ -56,7 +64,10 @@ $ node .</code></pre>
 			<pre><code class="bash">$ CURL -X GET "http://127.0.0.1:4010/testGet?firstName=John&lastName=Doe"</code></pre>
 			<b>Using Controller:</b>
 			<pre><code class="bash">$ CURL -X GET "http://127.0.0.1:4000/example01/testGet?firstName=John&lastName=Doe"</code></pre>
-			Both command invoke the same API in the same service, the only difference this time is that you need to memorize only the controller's port. You can learn more about the controller and its features in <a href="#/documenation/services/controller">Controller</a> section under documenation.
+			Both command invoke the same API in the same service, the only difference this time is that you need to memorize only the controller's port.
+		</p>
+		<p>
+			You can learn more about the controller and its features in <a href="#/documenation/services/controller">Controller</a> section under documentation.
 		</p>
 		<hr/>
 		<h3>Dashboard</h3>
