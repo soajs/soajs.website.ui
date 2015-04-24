@@ -1,0 +1,91 @@
+<div id="advancedStep">
+	<a id="top"></a><h1>DevOps &amp; TechOps</h1>
+	<div class="white-container">
+		<p>
+			As Explained in the previous steps, it is very simple and easy to build a service with SOAJS and to add APIs under that service. You also noticed that each service runs on 2 unique ports where the first is the default port and used to handle APIs requests and the second is the Maintenance port and used for maintenance operations.
+		</p>
+		<p>
+			Now when it comes to deployment, most probably you will not deploy one instance of a service on a production environment, you will probably deploy many instances so that in case one is down, you have redundancy and the traffic gets redirected to the remaining instances. This means that you need to keep an eye on which service instance is down when it happens.
+		</p>
+		<p>
+			SOAJS is equipped to handle this task and monitor your services as well as check if they are healthy and running, then ping you when something happens that require your intervention. SOAJS comes with features that TechOps and DevOps need during deployment and even after the services are up and running, and handles the awareness between these services on the cloud.
+		</p>
+		<hr/>
+		<h3>Controller</h3>
+		<p>
+			SOAJS controller is designed to handle the awareness among your services. The controller checks if all the registered services are running and healthy on a regular basis. Simply install and run the controller and it will do the rest.
+		</p>
+		<pre><code class="bash"># go to /opt/soajs/node_modules
+$ cd /opt/soajs/node_modules/
+
+# install and run the controller
+$ npm install soajs.controller
+$ cd soajs.controller
+$ node .</code></pre>
+		<p>
+			Once the controller is installed and started, it will run on two ports like all other services: 4000 - 5000. You can access the controller on your machine via http://127.0.0.1:4000 and http://127.0.0.1:5000.<br />
+			Perform a heartbeat check on the controller to see its status:
+		</p>
+		<fieldset>
+			<legend>Heartbeat Controller</legend>
+			<div class="insideFieldsetMain">
+				<div>
+					<pre><code class="bash">$ curl -X GET "http://127.0.0.1:5000/heartbeat"</code></pre>
+					<h6><u>Response:</u></h6>
+					<pre><code class="bash">{
+	"result":true,
+	"ts":1425054123486,
+	"service": {
+		"service":"CONTROLLER",
+		"type":"rest",
+		"route":"/heartbeat"
+	}
+}</code></pre>
+					<em>Great, controller is working fine.</em>
+					<p>
+						When a service goes down, the controller will notice that event and alert you that service x on a specific [host:port] is not healthy.
+					</p>
+				</div>
+			</div>
+		</fieldset>
+		<p>
+			In addition to the awareness, SOAJS controller is used as the main gateway to SOAJS cloud of services. Once the controller is turned on, when you attempt to call a service, there is no need to specify the port anymore and you don't have to worry what port this service is using. Instead, make a call to the controller and specify the name of the service followed by the API of that service.<br />
+			<u>Ex:</u><br />
+			Calling Example01 which runs on port 4010 as mentioned in Step2.<br />
+			<b>Previous Way:</b>
+			<pre><code class="bash">$ CURL -X GET "http://127.0.0.1:4010/testGet?firstName=John&lastName=Doe"</code></pre>
+			<b>Using Controller:</b>
+			<pre><code class="bash">$ CURL -X GET "http://127.0.0.1:4000/example01/testGet?firstName=John&lastName=Doe"</code></pre>
+			Both command invoke the same API in the same service, the only difference this time is that you need to memorize only the controller's port. You can learn more about the controller and its features in <a href="#/documenation/services/controller">Controller</a> section under documenation.
+		</p>
+		<hr/>
+		<h3>Dashboard</h3>
+		<p>
+			SOAJS dashboard is designed to help you monitor the health and awareness that the controller is sending. As mentioned above when the controller output his analytics, you can view them via a graphical interface from the dashboard. The dashboard is equipped with many features to help you go throw the logs reported by the controller and conduct maintenance operations.
+		</p>
+		<p>
+			The dashboard also helps you in managing and configuring the different environments you have: development - staging - production, and provides you with the ability to manage the core database information such as products, tenants, access levels, users accounts and other. This comes in handy when performing TechOps and DevOps operational tasks.
+		</p>
+		<p>
+			The dashboard can be installed via npm like all SOAJS packages:
+		</p>
+		<pre><code class="bash"># go to /opt/soajs/node_modules/
+$ cd /opt/soajs/node_modules/
+
+# install and run the dashboard
+$ npm install soajs.dashboard
+$ cd soajs.dashboard/service
+$ node .</code></pre>
+		<p>
+			The dashboard is split up to 2 sections: Service and GUI. The above commands, instruct you how to get the service up and running. To run the GUI, you need Nginx installed, and you need to point out in the Nginx configuration the location of soajs.dashboard/ui folder. To get the dashboard UI running, checkout <a href="#/documentation/ui/dashboard-setup">Dashboard/How to set it up</a> section under documentation.
+		</p>
+		<hr/>
+		<h3>Deployment</h3>
+		<p>
+			When it comes to deployment, SOAJS is multi environment and can be deployed on one machine for development purposes, or on a cloud for staging and production purposes. Whether you want to install all SOAJS services on a single machine, deploy and test a cloud of services on a single machine or even deploy many instances on a cloud and test all the functionality, there is no better way than to use <a target="_blank" href="http://www/docker.com">Docker</a> and at SOAJS, we are big at docker.
+		</p>
+		<p>
+			Our team have created several docker images to get all the above installed, set up and running with very little effort needed. All you need to do is install Docker on your machine and pull those images. Checkout SOAJS <a href="#/documentation/deployment/overview">Architecture</a> in documentation to learn how these environments work together. Learn how to use docker to deploy both <a href="#/documentation/deployment/development">Development Environment</a> on your machine and how to deploy SOAJS on a cloud under <a href="#/documentation/deployment/cloud-awareness">Cloud & Awareness</a> section in documentation.
+		</p>
+	</div>
+</div>

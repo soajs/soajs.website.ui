@@ -30,7 +30,7 @@ var navigation = [
 		'id': 'getStarted',
 		'label': 'getStarted',
 		'title': 'SOAJS | Get Sarted',
-		'url': '#/getStarted',
+		'url': '#/getStarted/:section?/:anchor?',
 		'tplPath': 'sections/getstarted/page.html',
 		'scripts': ['sections/getstarted/controller.js']
 	},
@@ -38,33 +38,31 @@ var navigation = [
 		'id': 'example01',
 		'label': 'example01',
 		'title': 'SOAJS | Get Sarted | Example 01',
-		'url': '#/getStarted/example01/:anchor?',
-		'tplPath': 'sections/getstarted/example01.html',
-		'scripts': ['sections/getstarted/controller.js']
+		'url': '#/getStarted/example01/:anchor?'
 	},
 	{
 		'id': 'example02',
 		'label': 'example02',
 		'title': 'SOAJS | Get Sarted | Example 02',
-		'url': '#/getStarted/example02/:anchor?',
-		'tplPath': 'sections/getstarted/example02.html',
-		'scripts': ['sections/getstarted/controller.js']
+		'url': '#/getStarted/example02/:anchor?'
 	},
 	{
 		'id': 'example03',
 		'label': 'example03',
 		'title': 'SOAJS | Get Sarted | Example 03',
-		'url': '#/getStarted/example03/:anchor?',
-		'tplPath': 'sections/getstarted/example03.html',
-		'scripts': ['sections/getstarted/controller.js']
+		'url': '#/getStarted/example03/:anchor?'
 	},
 	{
 		'id': 'example04',
 		'label': 'example04',
 		'title': 'SOAJS | Get Sarted | Example 04',
-		'url': '#/getStarted/example04/:anchor?',
-		'tplPath': 'sections/getstarted/example04.html',
-		'scripts': ['sections/getstarted/controller.js']
+		'url': '#/getStarted/example04/:anchor?'
+	},
+	{
+		'id': 'advanced',
+		'label': 'TechOps/DevOps',
+		'title': 'SOAJS | Get Sarted | DevOps & TechOps',
+		'url': '#/getStarted/advanced/:anchor?'
 	},
 	{
 		'id': 'features',
@@ -108,22 +106,48 @@ var navigation = [
 		'url': '#/documentation/core/registry'
 	},
 	{
-		'id': 'provisioning',
-		'label': 'soajs provisioning',
-		'title': 'SOAJS | Documentation | Provisioning',
-		'url': '#/documentation/core/provisioning'
+		'id': 'key-security',
+		'label': 'soajs key-security',
+		'title': 'SOAJS | Documentation | Key Security',
+
+		'url': '#/documentation/core/key-security'
+	},
+	{
+		'id': 'acl',
+		'label': 'soajs acl',
+		'title': 'SOAJS | Documentation | Access Levels',
+
+		'url': '#/documentation/core/acl'
+	},
+	{
+		'id': 'overview',
+		'label': 'soajs features overview',
+		'title': 'SOAJS | Documentation | Features Overview',
+		'url': '#/documentation/advanced/overview'
+	},
+	{
+		'id': 'environment',
+		'label': 'soajs environment',
+		'title': 'SOAJS | Documentation | Multi Environment',
+		'url': '#/documentation/advanced/environment'
+	},
+	{
+		'id': 'multitenancy',
+		'label': 'soajs multitenancy',
+		'title': 'SOAJS | Documentation | Multitenancy',
+		'url': '#/documentation/advanced/multitenancy'
+	},
+	{
+		'id': 'productization',
+		'label': 'soajs productization',
+		'title': 'SOAJS | Documentation | Productization',
+		'url': '#/documentation/advanced/productization'
 	},
 	{
 		'id': 'controller',
 		'label': 'soajs controller',
 		'title': 'SOAJS | Documentation | Controller',
 		'url': '#/documentation/services/controller'
-	},
-	{
-		'id': 'service',
-		'label': 'soajs service',
-		'title': 'SOAJS | Documentation | Service',
-		'url': '#/documentation/core/service'
 	},
 	{
 		'id': 'urac',
@@ -138,16 +162,10 @@ var navigation = [
 		'url': '#/documentation/services/oauth'
 	},
 	{
-		'id': 'agent',
-		'label': 'soajs agent',
-		'title': 'SOAJS | Documentation | Agent',
-		'url': '#/documentation/services/agent'
-	},
-	{
 		'id': 'dashboard-services',
 		'label': 'soajs dashboard-services',
 		'title': 'SOAJS | Documentation | Dashboard Services',
-		'url': '#/documentation/services/dashboard-services'
+		'url': '#/documentation/ui/dashboard-services'
 	},
 	{
 		'id': 'dashboard-setup',

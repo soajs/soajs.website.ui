@@ -728,6 +728,10 @@ a:hover {
     list-style: none;
 }
 
+.left-sidebar .left-menu li.active a{
+    color: #DF9630 !important;
+}
+
 .right-sidebar {
     float: left;
     width: 82%;
