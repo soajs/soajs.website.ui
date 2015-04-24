@@ -353,7 +353,9 @@
     .left-sidebar section h4{
         padding-left: 7px;
     }
-
+    .left-getStartedSidebar section:hover > ul{
+        width: 190px;
+    }
     #ex02Registry{
         width: 90%;
         display: block;

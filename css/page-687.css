@@ -237,6 +237,9 @@
     .left-sidebar section ul li a{
         color: #ffffff;
     }
+    .left-getStartedSidebar section:hover > ul{
+        width: 190px;
+    }
     .right-sidebar {
         float: none;
         width: 100%;
