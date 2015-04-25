@@ -59,72 +59,7 @@
 	</p>
 	<hr/>
 	<a id="acl-anchor"></a>
-	<h3>Access Levels</h3>
-	<p>
-		When a service is made to serve different tenants, these tenants should be instructed on how to use the service. Access Levels (ACL) are applied through product packages. ACL can be overridden by tenants applications and URAC. First, let's explain how the ACL works then jump to how to use it and override it. <br /><br />
-		SOAJS ACL offers a lot of flexibility and can be used to grant access to a service or a particular API in that service or to specific groups.<br /><br />
-	</p>
-	<h4>Service Access</h4>
-	ACL can provide access to a service by simply adding the service name to its list. The access is granted in three different methods: PUBLIC - PRIVATE for logged in users - PRIVATE for specific groups.
-	<pre><code class="javascript">"acl":{
-	"serviceName0":{}, //public
-	"serviceName1":{
-		"access": false //public
-	},
-	"serviceName2":{
-		"access": true //private for logged in users
-	},
-	"serviceName3":{
-		"access": ['admin', 'vip'] //private for groups: admin & vip
-	}
-}</code></pre>
-	<u>Note:</u> both "<b>serviceName0</b>" and "<b>serviceName1</b>" are public. Either add the service name in the acl object with value equal to an empty object "{}" or add give it a value of "access" equal to false; both are evaluated the same way.<br /><br />
 
-	<h4>Access to Specific Routes</h4>
-	<p>
-		Access Levels (ACL) can provide access to specific APIs in a service not just access to the whole service.<br />
-		Two methods are provided to get this job done:
-		<ol>
-			<li>Add the APIs one by one in a list, and the ACL will provide access to only these APIs.</li>
-			<li>Use Regular Expressions to group APIs that have common path parameters and apply the same access right on them.</li>
-		</ol>
-	</p>
-	<pre><code class="javascript">"acl": {
-	"serviceName1":{
-		"access": false,
-		"apis": {
-			"/account/myAccount": { "access": true },
-			"/admin/listUsers": { "access": ["admin"] }
-		}
-	}
-}</code></pre>
-	The above snippet states the following:<br>
-	- the access to "<b>serviceName1</b>" is granted publicly<br>
-	- but to access <b>/account/myAccount</b> API specifically, you need be a logged in user, <br>
-	- and also, to access <b>/admin/listUsers</b> you need to be logged in and you need to belong to the <b>admin</b> group,
-	otherwise you are not allowed to access this api.<br />
-	<em>So all other APIs of this service, except <b>/account/myAccount</b> and <b>/admin/listUsers</b> are available without login.</em>
-	<br /><br />
-	The above method demonstrated how to specify each API in a service and apply the ACL to it. What if you have 10 APIs under <b>/account/</b> or 20 APIs under <b>/admin/</b>, it doesn't make sense to add 30 entries in an ACL object. Let's group all similar APIs under one entry and apply the same ACL on all of them once.
-	
-	<div ng-init="loadCode(path + 'core/provisioning/aclWithRegex.js', 'aclWithRegex');">
-		<div id="aclWithRegex"></div>
-	</div>
-	Now things make more sense; all APIs accessible by <b>Admin</b> group only start with <b>/admin/...</b> and those that the user can access after he logs in like "edit profile", "change password" ...etc, start with <b>/account/...</b> and require a logged in user to be accessed.<br /><br />
-	<h4>Restricted Access</h4>
-	<p>
-		There are cases where access to only certain APIs in a service should be granted. All other APIs are not permitted to be used.
-		
-		<div ng-init="loadCode(path + 'core/provisioning/aclWithRegexRestricted.js', 'aclWithRegexRestricted');">
-			<div id="aclWithRegexRestricted"></div>
-		</div>
-		The above snippet demonstrates the usage of <b>apisPermission</b>; it forces the ACL to restrict access to all APIs of a service except the ones mentioned in either <b>apis</b> or <b>apisRegExp</b>.
-		For <b>serviceName1</b>, only <b>/account/myAccount</b> is available in this acl,
-		and for <b>serviceName2</b>, only the API routes that start with <b>/account/</b> are available.<br /><br />
-		SOAJS provides all possible solutions regarding how to grant access to services for tenants. Keep in mind that the above only shows the ACL of one package in a product. You can have different packages in a product with different ACL and you can also have different products with different packages.<br />
-		The cases and scenarios covered by <b>SOAJS Productization</b> are huge, the system is very flexible and expandable.<br /><br />
-	</p>
-	<hr/>
 	<a id="multitenancy-anchor"></a>
 	<h3>Multitenancy</h3>
 	<p>

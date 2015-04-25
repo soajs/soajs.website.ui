@@ -22,7 +22,36 @@ req.soajs = {
 	"servicesConfig": {},
 
 	//tenant info
-	"tenant": { id: '', code: '' },
+	"tenant": {
+		//tenant id
+		"id": '',
+
+		//tenant code
+		"code": '',
+
+		//tenant internal and external keys
+		"key": {},
+
+		//application info
+		"application": {
+
+			//application id
+			"appId": '',
+
+			//product code
+			"product": '',
+
+			//package code
+			"package": '',
+
+			//application acl
+			"acl": '',
+
+			//package acl
+			"package_acl": ''
+
+		}
+	},
 
 	// Access to the session data
 	"session": {

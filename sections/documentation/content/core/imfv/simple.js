@@ -1,14 +1,19 @@
 var config = {
-	"serviceName": "example01",
+	"serviceName": "helloworld",
+	"servicePort": 4020,
+	"extKeyRequired": false,
 	"schema": {
 		//api route
-		"/testGet": {
+		"/hello": {
+			"_apiInfo":{
+				"l": "Hello Api"
+			},
 			'firstName': {
 				'source': ['query.firstName'],
 				'required': true,
 				'validation': {
 					'type': 'string',
-					format: 'alphanumeric'
+					'format': 'alphanumeric'
 					//...
 				}
 			}

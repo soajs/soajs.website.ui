@@ -23,20 +23,18 @@
     <p>
     <h4>1- General Registry Information</h4>
 
-    <p>Create an environment and give it a name and a version<br/>
-		<pre><code class="javascript">var registry ={
+    <p>Create an environment and give it a name and a version</p>
+	<pre><code class="javascript">var registry ={
 	"name": "dev",
 	"version": "0.1",
 	"environment":"develop",
+	"projectPath": "/opt/soajs/node_modules/soajs/profiles/default/",
 	//...
 }</code></pre>
-    </p><br/><br/>
-
     <h4>2- Database Configuration</h4>
 
-    <p>
-	    Define the connection to the database for this environment; db name, prefix, server location, credentials … etc. (different environments can have different database connections)<br/>
-        <pre><code class="javascript">"coreDB": {
+    <p>Defines the core databases used by the <a href="#/documentation/ui/dashboard-service">dashboard</a></p>
+    <pre><code class="javascript">"coreDB": {
 	"dashboard": {
 		"name": "core_dashboard",
 		"prefix": dServers.prefix,
@@ -47,16 +45,47 @@
 	}
 	//...
 }</code></pre>
-    </p><br/><br/>
 
-    <a id="rest-apis"></a>
-    <h4>3- REST APIs Configuration</h4>
+	<h4>3- Meta Database Configuration</h4>
+	<p>Defines the tenant meta data databases used by services such as <a href="#/documentation/services/urac">Urac</a></p>
+    <pre><code class="javascript">"tenantMetaDB": {
+    "service_name": {
+        "name": "core_dashboard",
+        "prefix": dServers.prefix,
+        "servers": dServers.servers,
+        "credentials": dServers.credentials,
+        "URLParam": dOptions.URLParam,
+        "extraParam": dOptions.extraParam
+    }
+    //...
+}</code></pre>
+	<h4>4- Service Configuration</h4>
+	<p>Contains the services configuration such as awareness timeout, enabling CORS, logger & cookies information ....</p>
+	<pre><code class="javascript">"serviceConfig": {
+	"awareness": {
+		"healthCheckInterval": 5000,
+		"autoRelaodRegistry": 300000
+	},
+	"agent": { ... },
+	"key": { ... },
+	"logger": { ... },
+	"cors": { ... },
+	"oauth": { ... },
+	"ports": { ... },
+	"cookie": {
+		"secret": "this is a secret sentence"
+	},
+	"session": { ... }
+}</code></pre>
 
-    <p>Define the services by providing host, port, url and extKeyRequired.<br>
+	<a id="rest-apis"></a>
+    <h4>5- REST APIs Configuration</h4>
+
+    <p>Define the services by providing host, port, url and extKeyRequired.</p>
 	<ul>
-		<li>host: The host of the service</li>
 		<li>port: The port that the service is listening on</li>
-		<li>url: The url to access the service on this environment</li>
+		<li>requestTimeout: Timeout value</li>
+		<li>requestTimeoutRenewal: Timeout value renewal</li>
 		<li>extKeyRequired:
 		<ul>
 			<li>when <b>extKeyRequired</b> is false: set it to false for services that are public and accessible without providing tenant keys.</li>
@@ -64,7 +93,7 @@
 		</ul>
 		</li>
 	</ul>
-        <pre><code class="javascript">"services": {
+    <pre><code class="javascript">"services": {
     "controller": {
         "extKeyRequired": false,
 	    "port": 4000,
@@ -74,42 +103,23 @@
 	    "requestTimeoutRenewal": 0,
 	    "authorization": true
     },
-    "urac": {
-	    "extKeyRequired": true,
-	    "port": 4001,
-	    "host": "127.0.0.1",
-	    "url": "http://127.0.0.1:4000/urac",
-	    "mail": {
-		    "join": "mail/urac/join.tmpl",
-		    "forgotPassword": "mail/urac/forgotPassword.tmpl",
-		    "addUser": "mail/urac/addUser.tmpl",
-		    "changeUserStatus": "mail/urac/changeUserStatus.tmpl",
-		    "changeEmail": "mail/urac/changeEmail.tmpl"
-        }
-    },
-    "oauth": {
+    "helloworld": {
         "extKeyRequired": true,
-	    "port": 4002,
-	    "host": "127.0.0.1",
-	    "url": "http://127.0.0.1:4000/oauth"
-    },
-    //...
-    "example01": {
+        "port": 4001,
+        "requestTimeoutRenewal": null,
+        "requestTimeout": null
+    }
+    "helloworld": {
 	    "extKeyRequired": false,
-	    "port": 4010,
-	    "host": "127.0.0.1",
-	    "url": "http://127.0.0.1:4000/example01"
+	    "port": 4020,
+	    "requestTimeoutRenewal": null,
+        "requestTimeout": null
     }
     //...
 }</code></pre>
-		The above snippet shows 4 services; each having different information configured. Services like Controller, and <b>example01</b> do not need tenant keys to work and that is why <b>extKeyRequired</b> is set to <b>false</b>. Services like <a href='#/documenation/urac'>URAC</a>, and <a href="#/documentation/oauth">oAuth</a> need a <b>tenant key</b> to be accessible so their <b>extKeyRequired</b> is set to <b>true</b>.<br /><br />
-		Notice that <b>extKeyRequired</b>, <b>port</b>, <b>url</b> and <b>host</b> are common among all services; these attributes are the default attributes when declaring a service. Other attributes are additional and considered service specific, such as <b>Urac.mail</b>; it tells the service where the templates for email notification are located.<br /><br />
-		Every service requires the default attributes to exist so that it can function.
-		Based on their business logic, some services  might need additional properties to be provided so they can function, like the <a href='#/documenation/urac'>URAC</a> and Controller shown above.
-		These properties are dependent on the running environment.
+	<p>
+		The above snippet shows 2 services; each having different information configured. Services like Controller, do not need tenant keys to work and that is why <b>extKeyRequired</b> is set to <b>false</b>. Services like <a href='#/documenation/urac'>URAC</a>require a <b>tenant key</b> to be accessible so their <b>extKeyRequired</b> is set to <b>true</b>.
 	</p>
-
-    </p>
     <br />
     <hr/>
     <h4>Details & Code Sample</h4>

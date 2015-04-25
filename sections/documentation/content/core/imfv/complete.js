@@ -68,6 +68,9 @@ module.exports = {
 		},
 		//api route testGet
 		"/testGet": {
+			"_apiInfo":{
+				"l": "Test Get API"
+			},
 			"input": {
 				'commonFields': ['id'],
 				'firstName': {
@@ -79,6 +82,9 @@ module.exports = {
 		},
 		//api route testPost
 		"/testPost": {
+			"_apiInfo":{
+				"l": "Test Post API"
+			},
 			"input": {
 				"commonFields": ['id', 'acl'],
 				"email": {

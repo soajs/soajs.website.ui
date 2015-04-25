@@ -19,25 +19,43 @@
   },
   {
     "property": "CoreDB",
-    "type": "String",
+    "type": "Object",
     "mandatory": "YES",
     "notes": "List of Databases and their connection details."
   },
   {
     "property": "CoreDB > Entry",
-    "type": "String",
+    "type": "Object",
     "mandatory": "YES",
     "notes": "One Database where key is the dbName and properties are connection details."
   },
   {
+    "property": "tenantMetaDB",
+    "type": "Object",
+    "mandatory": "YES",
+    "notes": "List of Tenant Meta Databases and their connection details."
+  },
+  {
+    "property": "tenantMetaDB > Entry",
+    "type": "Object",
+    "mandatory": "YES",
+    "notes": "One Tenant Database based on the mutlitenant service name."
+  },
+  {
+    "property": "Service Config",
+    "type": "Object",
+    "mandatory": "YES",
+    "notes": "Contains the General Services configuration for this environment."
+  },
+  {
     "property": "services",
-    "type": "String",
+    "type": "Array",
     "mandatory": "YES",
     "notes": "List of Services and their connection details."
   },
   {
     "property": "services > entry",
-    "type": "String",
+    "type": "Object",
     "mandatory": "YES",
     "notes": "One Service where key is the name and properties are connection details."
   }

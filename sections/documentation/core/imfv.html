@@ -2,13 +2,14 @@
 <h1>IMFV</h1>
 <div class="white-container">
     <p>
-	    SOAJS is equipped with an input mapping, filtering and validating mechanism that removes up to 50% of an API code in terms of fetching and cleaning the inputs from POST, GET, SESSION, COOKIES, HEADERS and TENANT CONFIG.<br /><br />
-
-	    <img id="service-folder-tree" ng-src="images/documentation/insideservice-folder-tree.png" class="image-border image-right img-margin-l-b"/>
+	    SOAJS is equipped with an input mapping, filtering and validating mechanism that removes up to 50% of an API code in terms of fetching and cleaning the inputs from POST, GET, SESSION, COOKIES, HEADERS and TENANT CONFIG.<br />
 	    Every service uses the IMFV (input mapping, filtering and validating) to validate the inputs (parameters) of its APIs. IMFV is usually located in a <u>config.js</u> file within the service directory. The content of this file is based on two main sections:
 	    <b>Error Codes</b> ("errors" object) and <b>Validation Schema</b> ("schema" object).
 	    <pre><code class="javascript">//inside config.js
 module.exports={
+	"serviceName": "helloworld",
+	"servicePort": 4020,
+	"extKeyRequired": false,
 	"errors": {},
 	"schema": {}
 }</code>
@@ -26,7 +27,7 @@ module.exports={
 }</code>
 		</pre>
 		When an error in the service occurs, the service will return back to the user a code and a message for clarification.
-		To use the error codes inside the service code <u>index.js</u>, use <b>req.soajs.buildResponse</b> and provide the error object as the first parameter. The error object is constructed from the code and the message.
+		To use the error codes inside the service code <u>index.js</u>, use <a href="#/documentation/core/response">req.soajs.buildResponse</a> and provide the error object as the first parameter. The error object is constructed from the code and the message.
 		<pre><code class="javascript">//inside index.js
 var config = require("./config");
 var service = new soajs.server.service(...);
@@ -38,7 +39,7 @@ service.post("/login", function(req, res) {
 	//...
 };
 		</code></pre>
-		SOAJS built-in <b>buildResponse</b> takes 2 parameters, the first being an error object and the second being the response. In most cases, when there is no error, there is a response and vise-versa.<br /><br />
+		SOAJS built-in <a href="#/documentation/core/response">req.soajs.buildResponse</a> takes 2 parameters, the first being an error object and the second being the response.<br /><br />
 	</p>
 	<hr/>
 
@@ -270,19 +271,78 @@ service.post("/login", function(req, res) {
 		<div id="commonFieldsFull"></div>
 	</p>
 	<hr/>
+	<h3>API Label Information</h3>
+	<p>
+		Every API contains a property called <b>_apiInfo</b> which is used in by the <a href="#/documentation/ui/dashboard">dashboard UI</a> when accessing the service information page.
+	</p>
+	<table class="myTable" width="100%">
+		<thead>
+			<tr>
+				<th>Property Name</th>
+				<th>Property Type</th>
+				<th>Description</th>
+				<th>Mandatory</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>l</td>
+				<td>String</td>
+				<td>Contains the API Label</td>
+				<td>YES</td>
+			</tr>
+			<tr class="even">
+				<td>group</td>
+				<td>String</td>
+				<td>Contains the API Group Name</td>
+				<td>NO</td>
+			</tr>
+			<tr>
+				<td>groupMain</td>
+				<td>boolean</td>
+				<td>States if this API is the Group default API or not.</td>
+				<td>NO</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		Based on the above table, the API information can be provided in three different schemas as follow:
+	</p>
+	<pre><code class="bash"># containing only label
+'/users/list':{
+	'_apiInfo': { 'l': 'List Users' }
+	....
+}
+
+# containing a label and a group
+'/users/list':{
+	'_apiInfo': { 'l': 'List Users', 'group': 'Users Management' }
+	....
+}
+
+# containing a label, a group and set to Default
+'/users/list':{
+	'_apiInfo': { 'l': 'List Users', 'group': 'Users Management', 'groupMain': true }
+	....
+}
+'/users/add':{
+	'_apiInfo': { 'l': 'Add New User', 'group': 'Users Management' }
+	....
+}</code></pre>
+	<hr/>
 	<h3>Usage</h3>
 	<p>
 		IMFV consolidates all inputs after validation inside <b>req.soajs.inputmaskData</b> making it easier for developers to use them. Instead of wondering if the input was mapped correctly from the request, simply use <b>req.soajs.inputmaskData</b>[input_name] to retrieve the input value and use it in the code.
 		<pre><code class="javascript">//inside index.js
 var config = require("./config");
 var service = new soajs.server.service(...);
+//...
 service.post("/login", function(req, res) {
 	//...
 	if(req.soajs.inputmaskData.username === ''){
 		return res.jsonp(req.soajs.buildResponse({"code": 402, "msg": config.errors[402]}));
 	}
 	//...
-};
 </code></pre>
 		As illustrated in the above code, regardless of the source that provided it, <u>username</u> input can now be accessed from <b>req.soajs.inputmaskData</b> object. The same applies to all other inputs passed to the requested API.<br /><br />
 	</p>

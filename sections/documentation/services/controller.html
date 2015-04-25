@@ -1,80 +1,61 @@
 <a id="soajs.controller"></a>
-	<h1>SOAJS Controller</h1>
+<h1>SOAJS Controller</h1>
 <div class="white-container">
 	<p>
 		SOAJS Controller is the main gateway to its cloud of service APIs.<br/>
-        All requests are made to this gateway first and then forwarded based on the route requested after clearance checking.
+		All requests are made to this gateway first and then forwarded based on the route requested after clearance checking.
 	</p>
 	<hr/>
 	<h3>Features</h3>
 	<ol>
 		<li>
-			<u><b>Self Awareness:</b></u><br/>
-
+			<u><b>Self Awareness:</b></u>
 			<p>
-				The controller's main functionality is to validate the request and redirect it to the requested service. Before redirecting to the requested service, the controller checks if the service is alive and running. This approach allows the self awareness feature that SOAJS offers.<br/><br/>
-				If a service is down or does not exist, the controller will return a message back to the sender without crashing. When a new service is created or added to the cloud, the controller will detect its presence. All requests to this new service will then be forwarded.<br/><br/>
-				The Controller runs on port <b>4000</b>. To request a service in the cloud, simply add the service name after the port number as a path parameter. To request a specific API in that service, type the route path after the service name.<br/><br/>
+				The controller's main functionality is to provide awareness among the services in SOAJS's cloud. The controller also sends heartbeat checks on a regular basis to all registered services in SOAJS. If any of these services is down, the controller will know and will notify you immediately.
+			</p>
+			<p>
+				You can have multiple controllers running in a cloud, Should one go down, the others remain functional and your cloud remains accessible and working. Controllers also distribute the load on the services; if you have 3 controllers where each controller forwards requests to 3 instances of a service, then your cloud performance will highly increase and traffic handling becomes faster.
+			</p>
+		</li>
+		<li>
+			<u><b>Request Handling:</b></u>
+			<p>
+				Before redirecting to the requested service, the controller checks if the service is alive and running. If a service is down or does not exist, the controller will return a message back to the sender without crashing. When a new service is created or added to the cloud, the controller will detect its presence. All requests to this new service will then be forwarded.
+			</p>
+			<p>
+				The Controller runs on port <b>4000</b>. To request a service in the cloud, simply add the service name after the port number as a path parameter. To request a specific API in that service, type the route path after the service name.
 				<u>Ex:</u>
 			</p>
 			<pre><code class="bash">#CURL -X %method% http:// %controller host% : 4000 / %service name% / %route path% /
 CURL -X POST "http://127.0.0.1:4000/urac/login"</code></pre>
 			<em>The above example calls SOAJS's Controller, then requests the urac service and route login.</em>
-			<br/><br/><br />
-		</li>
-		<li>
-			<u><b>Key Security:</b></u><br/>
-
-			<p>
-				When a request is made to SOAJS and a key is specified, the controller checks the key.<br />
-				Before forwarding the request or checking if the service is up and running, the controller makes a database call and:
-			</p>
-			<ol>
-				<li>Checks that the key exists.</li>
-				<li>Retrieves the ACL of the tenant that this key belongs to and checks if the tenant has permission to use the requested service.</li>
-				<li>Performs a heartbeat check to make sure the service is healthy and running.</li>
-				<li>Checks the Authorization of the header if the service is oAuth protected and requires authorization to be accessed.</li>
-				<li>Forwards the request if all is ok.</li>
-			</ol>
-			<img ng-src="images/documentation/controller.png" id="controllerpng" class="img-margin-t-b" />
-			<br /><br />
 		</li>
 		<li>
 			<u><b>CORS:</b></u><br/>
 
 			<p>
-				SOAJS controller also provides support for <a href="http://en.wikipedia.org/wiki/Cross-origin_resource_sharing" target="_blank">CORS</a> (Cross Origin Resource Sharing).<br/><br/>
-                Enabling <b>CORS</b> allows different domains to communicate with SOAJS via its gateway to post and pull resources without having to deal with <b>"cross-domain"</b> issues and by simply using the standard protocols: GET - POST - DELETE - PUT.
+				SOAJS controller also provides support for <a href="http://en.wikipedia.org/wiki/Cross-origin_resource_sharing" target="_blank">CORS</a> (Cross Origin Resource Sharing).<br />
+				Enabling <b>CORS</b> allows different domains to communicate with SOAJS via its gateway to post and pull resources without having to deal with <b>"cross-domain"</b> issues and by simply using the standard protocols: GET - POST - DELETE - PUT.
 			</p>
 		</li>
 	</ol>
+	<br/>
 	<hr/>
 	<h3>Usage</h3>
+
 	<p>
-		SOAJS controller is located in <a href="https://npmjs.com/packages/soajs.controller" target="_blank">soajs.controller</a>.<br />
-		Install:<br />
-		<pre><code class="bash">$ npm install soajs.controller</code></pre><br />
-		Then navigate to the directory where it is installed and run the service.<br />
-		<pre><code class="bash">$ cd soajs.controller
-$ node index</code></pre><br />
-		The service is now running and listening to port 4000.
+		SOAJS controller is located in <a href="https://npmjs.com/packages/soajs.controller" target="_blank">soajs.controller</a>.
 	</p>
-	<hr />
+	<pre><code class="bash">$ cd /opt/soajs/node_modules/
+$ npm install soajs.controller
+$ cd soajs.controller
+$ node .</code></pre>
+	<br/>
+	<hr/>
 	<h3>Testing the Service</h3>
+
 	<p>
-		By default, the controller runs on 127.0.0.1 via port 4000. Every service in SOAJS has its own default port and another maintenance port configured in the registry. So when you start a service, the service will be listening to two ports at the same time; one to process the requests and another used for maintenance operations.<br />
-		You can always change the default values of any service inside the <a href="#/documentation/registry">registry</a> as well as other properties like timeout, poolSize ... etc. Simply go to the <a href="#/documentation/registry">registry</a>, under the profile of your project and open the configuration file of the environment that is running. Lookup services section, in this case, an specific entry for the controller is located there along with the properties that this service disposes of.
-		<pre><code class="json">"controller": {
-	"port": 4000,
-	"host": "127.0.0.1",
-	"maxPoolSize": 100,
-	"requestTimeout": 30,
-	"requestTimeoutRenewal": 0,
-	"authorization": true
-}</code>
-		</pre>
-		You can access the maintenance port while the service is running and perform some maintenance operations like heartbeat checking and reload configuration. To access the maintenance port of a service, add 1000 to its default port number, in this case 4000 + 1000 = 5000.<br/>
-		Let's see what happens when we run both 4000 and 5000 ports on your machine.<br /><br/>
+		The controller runs on port 4000. Every service in SOAJS has its own default port and another maintenance port configured in the registry. So when you start a service, the service will be listening to two ports at the same time; one to process the requests and another used for maintenance operations. You can access the maintenance port while the service is running and perform some maintenance operations like heartbeat checking and reload configuration. To access the maintenance port of a service, add 1000 to its default port number, in this case 4000 + 1000 = 5000. Let's see what happens when we run both 4000 and 5000 ports on your machine.
 	</p>
 	<fieldset>
 		<legend>Default Port</legend>
@@ -94,9 +75,11 @@ $ node index</code></pre><br />
 	}
 }</code></pre>
 			<em>When you invoke the controller on the default port and without specifying a service, the controller simply returns an error message.</em>
-			<p><br/>On its own, the controller is useless but in this case, we just wanted to check that there is a response and verify that it is running and listening on port 4000. Later on when you create a service, run both the controller and the service then using this approach, call the controller on the default port followed by the service name and the service API as path parameters so that the service responds.<br />
-				Link Schema: http://<b>%controller%</b> / <b>%service name%</b> / <b>%api%</b><br />
-				<u>Ex:</u> <a href="http://127.0.0.1:4000/example01/testGet?name=johnDoe" target="_blank">http://127.0.0.1:4000/example01/testGet?name=johnDoe</a><br />
+
+			<p>
+				On its own, the controller is useless. When you create a service, run both the controller and the service then call the controller on the default port followed by the service name and the service API as path parameters so that the service responds.<br/>
+				Link Schema: http://<b>%controller%</b> / <b>%service name%</b> / <b>%api%</b><br/>
+				<u>Ex:</u> <a href="http://127.0.0.1:4000/example01/testGet?name=johnDoe" target="_blank">http://127.0...1:4000/example01/testGet?name=johnDoe</a><br/>
 				<em>127.0.0.1:4000 here represents the address of the controller.<br/>
 					example01 is the name of the service.<br/>
 					testGet is the api we are calling.
@@ -105,20 +88,9 @@ $ node index</code></pre><br />
 		</div>
 	</fieldset>
 	<fieldset>
-		<legend>Maintenance Port</legend>
-		<div>
-			<p>Let's hit the maintenance port: 5000<br /></p>
-			<pre><code class="bash">$ curl -X GET "http://127.0.0.1:5000</code></pre>
-			<h6><u>Response:</u></h6>
-			<pre><code class="bash">nothing to do!</code></pre>
-			<em>When you invoke the controller on the maintenance port and without specifying an operation, the controller simply returns a "nothing to do!" message.</em>
-			<p><br/>Similar to default port, calling the maintenance port with no operation leads nowhere.</p>
-		</div>
-	</fieldset>
-	<fieldset>
 		<legend>Maintenance Port with Operation</legend>
 		<div>
-			<p>Let's hit the maintenance port and perform a heartbeat check.<br /></p>
+			<p>Let's hit the maintenance port and perform a heartbeat check.<br/></p>
 			<pre><code class="bash">$ curl -X GET "http://127.0.0.1:5000/heartbeat</code></pre>
 			<h6><u>Response:</u></h6>
 			<pre><code class="bash">{
@@ -131,12 +103,45 @@ $ node index</code></pre><br />
 	}
 }</code></pre>
 			<em>You can perform a heartbeat check on any service using this approach. Simply call the maintenance port of a service and invoke the "/heartbeat" api to check if it is running.</em>
-			<p><br/>Great! the service is healthy and running as expected.</p>
+
+			<p>Great! the service is healthy and running as expected.</p>
 		</div>
 	</fieldset>
+	<hr/>
+	<h3>Maintenance Operations</h3>
 	<p>
-		You can perform different maintenance operations on a service by calling the maintenance port and specifying the maintenance operation using the this approach or you can use the <a href="#/documentation/agent">Agent</a> to run maintenance operations on multiple services from one shot.<br />Checkout the <a href="#/documentation/agent">Agent</a> to learn how this can be achieved.<br /><br />
-		You can also look at <a href="#/getStarted/example01">Example01</a> under <a href="#/getStarted">Get Started</a> which demonstrates step by step how to create a service and register its host/port and other information in the registry and how to call its APIs and pass parameters to them.
+		You can perform different maintenance operations on a service by calling the maintenance port and specifying the maintenance operation using the this approach. The below table shows what maintenance operations can be applied to the services of SOAJS including the controller:
 	</p>
+	<table class="myTable" width="100%">
+		<thead>
+			<tr>
+				<th>Operation Name</th>
+				<th>Controller</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>heartbeat</td>
+				<td>YES</td>
+				<td>Perform a heartbeat test on the running service to determine if it is healthy and running.</td>
+			</tr>
+			<tr class="even">
+				<td>reloadRegistry</td>
+				<td>YES</td>
+				<td>Reload and pull a new version of the Registry information from the database.</td>
+			</tr>
+			<tr>
+				<td>awarenessStat</td>
+				<td>YES</td>
+				<td>Perform awareness check on a SOAJS services, this operation is only executed by the controller and is repeated on a regular basis based on the awareness timeout value configured in the registry of the running environment.</td>
+			</tr>
+			<tr class="even">
+				<td>loadProvision</td>
+				<td>NO</td>
+				<td>Reload and pull a new version of the provisioned information from the database, this operation is executed by all SOAJS services except the controller since the later does not require provisioned information to be running.</td>
+			</tr>
+		</tbody>
+	</table>
 	<script>renderCodeSnippets();</script>
 </div>

@@ -2,6 +2,50 @@
 <h1>SOAJS URAC</h1>
 <div>
 	<tabset class="designTab">
+		<tab class="mainTab" heading="Service APIs">
+			<h3>Installation</h3>
+			<p>
+				SOAJS Urac is located in <a href="https://www.npmjs.com/packages/soajs.urac" target="_blank">soajs.urac</a>.
+			</p>
+			<pre><code class="bash">$ cd /opt/soajs/node_modules/
+$ npm install soajs.urac
+$ cd soajs.urac
+$ node .</code></pre>
+			<p>
+				The service will listen on port 4001 to handle requests and 5001 for maintenance operations and is accessible via the controller on http://127.0.0.1:4000/urac.
+			</p>
+			<hr/>
+			<h3>APIs</h3>
+			<fieldset ng-repeat="route in urac">
+				<legend>{{route.routeName}}</legend>
+				<div class="insideFieldsetMain">
+					<div class="examples">
+						<table class="myTable">
+							<thead>
+								<tr>
+									<th>Parameter</th>
+									<th>Type</th>
+									<th>Source</th>
+									<th>Mandatory</th>
+									<th>Notes</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="field in route.fields" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
+									<td width="20%">{{field.parameter}}</td>
+									<td>{{field.type}}</td>
+									<td>{{field.source}}</td>
+									<td>{{field.mandatory}}</td>
+									<td>{{field.notes}}</td>
+								</tr>
+							</tbody>
+						</table>
+						<br/>
+						<h6>Command:</h6>
+						<pre><code class="bash">{{route.cmd}}</code></pre>
+					</div></div>
+			</fieldset>
+		</tab>
 		<tab class="mainTab" heading="Service Information"><br />
 			<p>
 				SOAJS User Registration & Access Control is a service that Manages the Users records and their Access Controls.<br/>
@@ -12,127 +56,26 @@
 				<li>ability to update profile and preferences for logged in members.</li>
 				<li>ability to register and login for anonymous users.</li>
 			</ul>
-			<p>
-				The URAC is also equipped with templates used by SOAJS notification system.<br/>
-				The templates are configurable and can be themed.<br/>
-				URAC Templates are rendered using <a href="http://www.swig.org" target="_blank">SWIG</a> and contain data from URAC service.<br/>
-				<img ng-src="images/documentation/urac2.png" id="urac2png" class="img-margin-t-b"/>
-			</p>
 			<hr/>
-			<h3>Installation</h3>
+			<h3>User Record</h3>
 			<p>
-				SOAJS URAC is located in <a href="https://npmjs.com/packages/soajs.urac" target="_blank">soajs.urac</a>.<br />
-				Install:<br />
-			<pre><code class="bash">$ npm install soajs.urac</code></pre><br />
-			Then navigate to the directory where it is installed and run the service.<br />
-			<pre><code class="bash">$ cd soajs.urac
-$ node index</code></pre><br />
-			The service is now running and accessible via the controller followed by its name: http://127.0.0.1:4000/urac
+				The URAC offers the ability to override the default access levels as well as tenant configuration for specific users. Access Levels are provided by product packages and tenant applications. Detail explanation about Access levels and how they can be overriden is explained in <a href="#/documentation/core/acl">Access Levels</a> section under ocumentation.
+				The URAC offers the ability to override the default access levels as well as tenant configuration for specific users. Access Levels are provided by product packages and tenant applications. Detail explanation about Access levels and how they can be overriden is explained in <a href="#/documentation/core/acl">Access Levels</a> section under documentation.
 			</p>
-			<hr/>
-			<h3>Custom Access Levels & Configuration</h3>
-			<br/>
-
 			<p>
-				The URAC offers the ability to override the service access level as well as configuration for specific users regarding product packages and tenants applications.<br/><br/>
-				<img ng-src="images/documentation/urac-override-acl.png" id="urac-override-acl" class="image-border image-right img-margin-l-b"/>
-				Every User Record has a config entry used to override the default access levels.<br/><br/>
-				The config can override the default package access levels and/or the default tenant access levels or service configuration.<br/><br/>
-				To override the package access levels for a specific user, add under <b>config</b> &raquo; <b>packages</b> the name of the package and place the configuration there.	The same applies when overriding the tenant configuration or access levels for a specific user.<br/>Under <b>config</b> &raquo; <b>keys</b>, add the key value that matches the
-				tenant application key and place the configuration there.<br/><br/>
-				Now this user record has custom access levels and configuration that overrides the defaults. When he logs in, these permissions and configuration will be used instead of the tenant's and the product package's.<br/>
-				<img ng-src="images/features/urac.png" style="" id="uracpng"/>
-				<br><em>The following graph demonstrates the order of how the ACL and the configuration is loaded for users.</em><br/><br/>
+				Every User Record contains his account credentials, the group list he is member of, a profile information object, the status of his account and a configuration object that is used to override the default ACL permissions. The following is a sample of how a user record looks like:
 			</p>
 			<div ng-init="loadCode(path + 'services/urac/userRecord.js', 'user-record-sample');"></div>
 			<div id="user-record-sample"></div>
 			<em>The following snippet represents a user record in the database.</em>
+			<br/>
 			<hr/>
-			<h3>Notification Templates</h3>
-
+			<h3>Group Record</h3>
 			<p>
-				The following is a list of every notification template used by the URAC depending on the service invoked.<br/>
-				These templates are located in the <a href="#/documentation/registry">Registry</a>. The URAC looks up the corresponding template, loads and uses it when needed. The URAC currently supports the following templates:
+				A group represents a list of users and is mainly used by the Access Level. Users can be part of multiple groups and a group can contain multiple users accounts. Groups are used by the ACL as shown in the <a href="#/documentation/core/acl">Access Levels</a> section under documentation when granting access to a service or a specific API in a service. A service can be public and accessible by everyone, private and require logged users or accessible by members of particular groups and in that case, the groups names are linked to the Urac Group section. The following is a sample of how a group record looks like:
 			</p>
-			<br/>
-			<h4>Join</h4>
-
-			<div ng-init="loadHTML(path+'services/urac/join.tmpl','jointmpl');">
-				<div id="jointmpl"></div>
-			</div>
-			<br/><br/>
-
-			<h4>Forgot Password</h4>
-
-			<div ng-init="loadHTML(path+'services/urac/forgotPassword.tmpl','forgottmpl');">
-				<div id="forgottmpl"></div>
-			</div>
-			<br/><br/>
-
-			<h4>Change Email</h4>
-
-			<div ng-init="loadHTML(path+'services/urac/changeEmail.tmpl','changeEmailtmpl');">
-				<div id="changeEmailtmpl"></div>
-			</div>
-			<br/><br/>
-
-			<h4>Change User Status</h4>
-
-			<div ng-init="loadHTML(path+'services/urac/changeUserStatus.tmpl','userStatustmpl');">
-				<div id="userStatustmpl"></div>
-			</div>
-			<br/><br/>
-
-			<h4>Add New User</h4>
-
-			<div ng-init="loadHTML(path+'services/urac/addUser.tmpl','addUsertmpl');">
-				<div id="addUsertmpl"></div>
-			</div>
-		</tab>
-		<tab class="mainTab" heading="Service API">
-			<h3>Usage</h3>
-			<p>
-				SOAJS URAC is located in <a href="https://npmjs.com/packages/soajs.urac" target="_blank">soajs.urac</a>.<br/>
-				Install:<br/>
-			<pre><code class="bash">$ npm install soajs.urac</code></pre>
-			<br/>
-			Then navigate to the directory where it is installed and run the service.<br/>
-			<pre><code class="bash">$ cd soajs.urac
-$ node index</code></pre>
-			<br/>
-			The service is now running and accessible via the controller on http://127.0.0.1:4000/urac.
-			</p>
-			<hr />
-			<h3>APIs</h3>
-			<fieldset ng-repeat="route in urac">
-				<legend>{{route.routeName}}</legend>
-				<div class="insideFieldsetMain">
-				<div class="examples">
-					<table class="myTable">
-						<thead>
-							<tr>
-								<th>Parameter</th>
-								<th>Type</th>
-								<th>Source</th>
-								<th>Mandatory</th>
-								<th>Notes</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr ng-repeat="field in route.fields" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
-								<td width="20%">{{field.parameter}}</td>
-								<td>{{field.type}}</td>
-								<td>{{field.source}}</td>
-								<td>{{field.mandatory}}</td>
-								<td>{{field.notes}}</td>
-							</tr>
-						</tbody>
-					</table>
-					<br/>
-					<h6>Command:</h6>
-					<pre><code class="bash">{{route.cmd}}</code></pre>
-				</div></div>
-			</fieldset>
+			<div ng-init="loadCode(path + 'services/urac/groupRecord.js', 'group-record-sample');"></div>
+			<div id="group-record-sample"></div>
 		</tab>
 	</tabset>
 	<script>renderCodeSnippets();</script>

@@ -1,0 +1,161 @@
+<a id="acl"></a>
+<h1>Access Levels</h1>
+<div class="white-container">
+	<p>
+		Access Levels state which services or services APIs are accessible and which are prohibited. Access Levels (ACL) are applied through product packages. ACL can be overridden by tenants applications and URAC. SOAJS ACL offers a lot of flexibility and can be used to grant access to a service or a particular API in that service for anonymous or logged in users or even users of specific groups.
+	</p>
+	<p>
+		The default ACL configuration is located in product packages. When this package is used by tenant applications, the ACL it contains is loaded and used to validate the access to the services it contains in its configuration. The following code snippet states that this package grants access to the dashboard service for logged in members who are also in the administrator group.
+	</p>
+	<pre><code class="javascript">"packages": [
+	{
+		"code": "DSBRD_DEFLT",
+		"name": "Main package",
+		"locked": true,
+		"description": "This is the main dashboard product package.",
+		"acl": {
+			"dashboard": { "access": ['administrator']
+		}
+	}
+]</code></pre>
+	<br/>
+	<hr/>
+	<h3>Service Access</h3>
+	<p>
+		ACL provides access to a service by simply adding the service name to its list. The access is granted in three different methods: PUBLIC - PRIVATE for logged in users - PRIVATE for specific groups. The code snippet below shows the three possible ACL combinations:
+	</p>
+	<pre><code class="javascript">"acl":{
+	"serviceName0":{}, //public
+	"serviceName1":{
+		"access": false //public
+	},
+	"serviceName2":{
+		"access": true //private for logged in users
+	},
+	"serviceName3":{
+		"access": ['admin', 'vip'] //private for groups: admin & vip
+	}
+}</code></pre>
+	<p>
+		<u>Note:</u> both "<b>serviceName0</b>" and "<b>serviceName1</b>" are public. Either add the service name in the acl object with value equal to an empty object "{}" or add give it a value of "access" equal to false; both are evaluated the same way. "<b>ServiceName2</b>" on the other hand is only accessible by logged in users and finally "<b>serviceName3</b>" is only accessible by members of Groups <b>admin</b> and/or <b>vip</b>.
+	</p>
+	<br/>
+	<hr/>
+	<h3>Access to Specific APIs</h3>
+
+	<p>
+		Access Levels (ACL) can provide access to specific APIs in a service not just access to the whole service.<br/>
+		Two methods are provided to get this job done:
+	</p>
+	<ol>
+		<li>Add the APIs one at a time in a list, and the ACL will provide access these APIs only.</li>
+		<li>Use Regular Expressions to group APIs that have common path parameters and apply the same access right on them.</li>
+	</ol>
+	<pre><code class="javascript">"acl": {
+	"serviceName1":{
+		"access": false,
+		"apis": {
+			"/account/myAccount": { "access": true },
+			"/admin/listUsers": { "access": ["admin"] }
+		}
+	}
+}</code></pre>
+	<p>
+		The above snippet states the following:<br>
+		- The access to "<b>serviceName1</b>" is public and anyone can use its APIs.<br>
+		- But to access <b>/account/myAccount</b> API specifically, you need be a logged in user.<br>
+		- And to access <b>/admin/listUsers</b> you need to be logged in and you need to belong to the <b>admin</b> group.<br/>
+		- All other APIs of this service, except <b>/account/myAccount</b> and <b>/admin/listUsers</b> are available for public users.<br />
+	</p>
+	<p>
+		The above method demonstrated how to specify each API in a service explicitly. In the event of having 10 APIs that start with <b>/account/</b> or 20 APIs starting with <b>/admin/</b>, specifying these APIs one by one is not a good practice. You can group similar APIs under one entry and apply the same
+		ACL on all of them once using Regular Expressions.
+	</p>
+	<div ng-init="loadCode(path + 'core/acl/aclWithRegex.js', 'aclWithRegex');">
+		<div id="aclWithRegex"></div>
+	</div>
+	<p>
+		The above code uses Regular expressions to apply the same ACL permissions on groups of APIs in a service; all APIs starting with <b>/admin/...</b> are accessible by <b>Admin</b> group only, those that begin with <b>/account</b> required a logged in user like "/account/editProfile", "/account/ChangePassword" ...etc, and the remaining service APIs are public.
+	</p>
+	<br/>
+	<hr/>
+	<h3>Restricted Access</h3>
+	<p>
+		There are cases where access to only certain APIs in a service should be granted. All other APIs are not permitted to be used by this package.
+	</p>
+	<div ng-init="loadCode(path + 'core/acl/aclWithRegexRestricted.js', 'aclWithRegexRestricted');">
+		<div id="aclWithRegexRestricted"></div>
+	</div>
+	<p>
+		The above snippet demonstrates the usage of <b>apisPermission</b>; it forces the ACL to restrict access to all APIs of a service except the ones mentioned in either <b>apis</b> or <b>apisRegExp</b>.For <b>serviceName1</b>, only <b>/account/myAccount</b> is available in this acl, and for <b>serviceName2</b>, only the API routes that start with <b>/account/</b> are available. All other APIs are not accessible by this package.
+	</p>
+	<p>
+		SOAJS provides all possible ACL combinations regarding how to grant access to services. Keep in mind that the above only shows the ACL of one package in a product. You can have different packages in a product with different ACL and you can also have different products with different packages.
+	</p>
+	<br/>
+	<hr/>
+	<h3>Overriding Access Levels</h3>
+	<p>
+		Access levels start with product packages. These packages are then used by tenant applications so the ACL of the packages is inherited and passed on to these applications. There are cases where a certain tenant application requires to override the default ACL inherited from a package. That can be achieved in multitenancy by specifying an <b>acl</b> entry in the application record. If provided, SOAJS will load the application ACL instead of the package ACL that the application uses.
+	</p>
+	<pre><code class="javascript">"applications": [
+	{
+		"product": "DSBRD",
+		"package": "DSBRD_DEFLT",
+		"appId": ObjectId('5512926a7a1f0e2123f638de'),
+		"description": "this is the main application for the dashboard tenant",
+		"_TTL": 604800000,
+		"acl": {
+			"dashboard": { "access": true
+		},
+		"keys": [
+			{
+				"key" : "19c03e42c750467c3f8481fbe26f2fef"
+				//...
+			}
+		]
+	}
+]</code></pre>
+	<p>
+		The above snippet shows a tenant application that uses the package we showed at the top but it overrides the package acl and grants access to the dashboard for logged in users. This means that if the key of this application is used, if a user is logged in, he doesn't have to be member of the <b>administrator</b> group to access the APIs of the dashboard service.
+	</p>
+	<br/>
+	<p>
+		Overriding the access level does not stop at the tenant level, but goes all the way to the Urac. Users can override the ACL of the tenants they use when they make requests and even the packages that the tenants applications use.
+	</p>
+	<p>
+		If we consider the above two examples where the dashboard is only accessible by administrators at the package level and neither the package nor the tenant provide access to a service called <b>serviceName2</b> and we want user <b>johndoe</b> to access both these services, here is what the ACL at the Urac level for this user looks like:
+	</p>
+	<pre><code class="javascript">{
+	"_id": ObjectId('54ee1bf91856706c2363930a'),
+	"username": "johndoe",
+	"password": "$2a$04$IYQThNn52hRm/DfZdanbkO/iTL5ytuoGBy6hQJX03ZcqDSA0KFFNq",
+	//...
+	"config": {
+		"packages": {
+			"PROD1_PCK1": {
+				"acl": {
+					"dashboard": { "access": true } //access to dashboard overriding package
+				}
+			}
+		},
+		"keys": {
+			"19c03e42c750467c3f8481fbe26f2fef": {
+				//...
+				"acl": {
+					"serviceName2": {} //access to the serviceName2 overriding tenant
+				}
+			}
+		}
+	}
+}</code></pre>
+	<p>
+		The above snippet shows how the user overrides the ACL of the package and grants access to the dashboard and how he overrides the ACL of the tenant and grants access to serviceName2.
+	</p>
+	<p>
+		This in user using this tenant key <b>ONLY</b>, and because the tenant application that this key belongs to uses package <b>PROD1_PCK1</b>, will override the ACL of that package as show on (Line 9). Adding to that this user overrides the tenant ACL at (line 18) and gets access to serviceName2.
+	</p>
+	<p>
+		If this user uses another tenant key, he cannot override the ACL of the tenant anymore and if the other key belongs to an application that does not use <b>PROD1_PCK1</b>, he cannot override the ACL of that package either.
+	</p>
+</div>
