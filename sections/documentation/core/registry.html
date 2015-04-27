@@ -2,20 +2,23 @@
 <h1>Registry</h1>
 <div class="white-container">
     <p>
-        <img ng-src="images/documentation/registry1.png" id="registry1png" class="image-border image-right img-margin-l-b"/>
         SOAJS offers the ability to have multiple projects running on different environments with different configuration. Projects are located in SOAJS under the <b>profiles</b> folder.<br />The name of the project is set using an <a href="http://en.wikipedia.org/wiki/Environment_variable" target="_blank">environment variable</a> on your machine or the project named <b>default</b> is used, the same applies on which environment will be loaded, and where to loacate the projects registry information.<br />SOAJS uses 3 environment variables to locate the project profile to use:
-	    <ul>
-			<li><b>SOAJS_REGDIR</b>: The path from the root level to where the profiles folder is located.</li>
-			<li><b>SOAJS_PRJ</b>: The project folder inside the profiles folder that should be used.</li>
-			<li><b>SOAJS_ENV</b>: The environment to load from the profiles folder.</li>
-		</ul>
+    </p>
+    <ul>
+        <li><b>SOAJS_REGDIR</b>: The path from the root level to where the profiles folder is located.</li>
+        <li><b>SOAJS_PRJ</b>: The project folder inside the profiles folder that should be used.</li>
+        <li><b>SOAJS_ENV</b>: The environment to load from the profiles folder.</li>
+    </ul>
+    <p>
 		By default, SOAJS looks for the profiles folder if the environment variable is not set in its root folder. This folder contains the project name, environments and all registry coniguration needed by SOAJS so that the application can run.<br />You can change the path of the profiles folder to another destination but keep in mind if you do that, you need to update the value of the environment value <b>SAOJS_REGDIR</b>.
-		The same concept applies for project and environment names, by default, SOAJS uses the <b>default</b> project name in profiles folder and the <b>dev</b> environment. When you create a new project make sure you update <b>SOAJS_PRJ</b> and when you deploy on a new environment other than <b>dev</b>, also change <b>SOAJS_ENV</b>.<br /><br />
+		The same concept applies for project and environment names, by default, SOAJS uses the <b>default</b> project name in profiles folder and the <b>dev</b> environment. When you create a new project make sure you update <b>SOAJS_PRJ</b> and when you deploy on a new environment other than <b>dev</b>, also change <b>SOAJS_ENV</b>.
+    </p>
+    <p>
         Every Project can run in different environments. You define for each environment: the DB configuration, the templates, the services and their options. The default one is <b>dev</b>.
-        <br/><br/>
+    </p>
+    <p>
         Projects also have templates and configuration files that are used inside the running environment. Configure your database connection and place your service templates in these
         designated areas.
-        <br/><br/>
     </p>
     <hr/>
     <h3>Environment Registry Configuration</h3><br/>
@@ -33,7 +36,7 @@
 }</code></pre>
     <h4>2- Database Configuration</h4>
 
-    <p>Defines the core databases used by the <a href="#/documentation/ui/dashboard-service">dashboard</a></p>
+    <p>Defines the core databases used by the <a href="#/documentation/ui/dashboard">dashboard</a></p>
     <pre><code class="javascript">"coreDB": {
 	"dashboard": {
 		"name": "core_dashboard",

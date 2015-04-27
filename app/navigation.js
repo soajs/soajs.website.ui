@@ -162,16 +162,10 @@ var navigation = [
 		'url': '#/documentation/services/oauth'
 	},
 	{
-		'id': 'dashboard-services',
-		'label': 'soajs dashboard-services',
-		'title': 'SOAJS | Documentation | Dashboard Services',
-		'url': '#/documentation/ui/dashboard-services'
-	},
-	{
-		'id': 'dashboard-setup',
-		'label': 'soajs dashboard-setup',
-		'title': 'SOAJS | Documentation | Dashboard Setup',
-		'url': '#/documentation/ui/dashboard-setup'
+		'id': 'dashboard',
+		'label': 'soajs dashboard',
+		'title': 'SOAJS | Documentation | Dashboard',
+		'url': '#/documentation/ui/dashboard'
 	},
 	{
 		'id': 'overview',

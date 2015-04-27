@@ -1,0 +1,16 @@
+<a id="multienvironment"></a>
+<h1>Multi Environment</h1>
+<div class="white-container">
+	<p>
+		SOAJS is Multi Environment meaning that you can deploy your code in multiple environments each having different configuration. This feature is highly used with enterprise development where developers implement, fix and deploy their changes in one development environment, once completed, they submit their changes to the QA environment.<br />
+		Quality Engineers test the new features or bug fixes in the QA environment on different devices and via different test case scenarios. IF the fixt or new features passes their tests, they sign it off and it gets deployed on the staging environment. The clients then see the new feature or fix on the staging environment and approve it. Once approved, the feature is tagged and deployed on the production environment for the public to access.
+	</p>
+	<p>
+		SOAJS environments are isolated and do not overlap nor do they affect one another. This gives you great flexibility when deploying changes and updates and testing them before release. Another great feature with SOAJS is that all the environments of SOAJS can be monitored and are manageable via the <a href="#/documentation/ui/dashboard">Dashboard UI</a> which is very useful and eases the work of DevOps and TechOps.
+		<img src="images/documentation/multienv.png" class="full-image" />
+	</p>
+	<p>
+		Environments are distributed and isolated as shown above, but they all read the same core information from the same source: Dashboard Environment. This environment is unique as it supplies the core data to the rest of the environments. This Environment is also used to manage the core data whereas all the other environments simply read the provisioned information they need to function. Core data is grouped in one location and organized by environment so when an environment requests this provisioned data, only the information associated with that environment is given. The image below elaborates the architecture of the multi environment of SOAJS:
+		<img src="images/documentation/allenv.png" class="full-image" />
+	</p>
+</div>

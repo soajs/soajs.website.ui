@@ -1,0 +1,101 @@
+<a id="dashboard"></a>
+<h1>Dashboard</h1>
+<div class="white-container">
+	<p>
+		The Dashboard is a service that allows you to manage and configure SOAJS services, hosts, core database information in all running environments. The dashboard is provided in two parts: service - UI.
+	</p>
+	<p>
+		The service provides the APIs needed to update the core database information in all environments. The UI is an interface built with <a href="http://www.angularjs.org" target="_blank">AngularJS</a> that gives you a rich interface to call the service APIs.
+	</p>
+	<hr/>
+	<h3>Installation</h3>
+	<p>
+		SOAJS Dashboard is located in <a href="https://www.npmjs.com/packages/soajs.dashboard" target="_blank">soajs.dashboard</a>.
+	</p>
+	<pre><code class="bash">$ cd /opt/soasj/node_modules/
+$ npm install soajs.dashboard
+$ cd soajs.dashboard
+$ node .</code></pre>
+	<hr/>
+	<h3>Set It Up</h3>
+	<p>
+		To set up the dashboard, you need to deploy either the <a href="#/documentation/deployment/development">development environment</a> as explained under Deployment section under documentation or deploy the dashboard environment from <a href="#/documentation/deployment/cloud-awareness">Cloud Awareness</a>.
+	</p>
+	<p>
+		If you want to set up the dashboard manually, you can find the needed steps in <a href="#/documentation/deployment/development">development environment</a> under documentation section. The development environment aims to install all the needed services and start the dashboard with its UI on one machine which is ideal for development. To set up the dashboard, few steps are needed:
+	</p>
+	<ol>
+		<li>Import the data from <a target="_blank" href="http://www.npmjs.org/packages/soajs.utilities">soajs.utilities</a> to obtain a default administrator account, a tenant and a group that grant you access to the dashboard service so you can modify the data in core.</li>
+		<li>Install and run the following services: <a href="#/documentation/services/controller">Controller</a> - <a href="#/documentation/services/urac">Urac</a> - <a>Dashboard</a></li>
+		<li>Install <a target="_blank" href="http://www.nginx.com">Nginx</a> and create a virtual host pointing out the location of the dashboard ui folder as explained in details under <b>Manual Installation</b> in <a href="#/documentation/deployment/development">development environment</a>.</li>
+		<li>
+			Login to the dashboard with account admin:<br />
+			<b>Username:</b> admin<br />
+			<b>Password:</b> password
+		</li>
+	</ol>
+	<br/>
+	<hr/>
+	<h3>Dashboard Services</h3>
+	<p>
+		The Dashboard service provides the following features:
+	</p>
+	<ol>
+		<li>Manage your Products &amp; Packages in Productization section.</li>
+		<li>Manage your Tenants, Applications and keys in Multitenancy section.</li>
+		<li>Manage the Environments, the databases &amp; the clusters.</li>
+		<li>Monitor the hosts on the cloud and execute maintenance operations.</li>
+		<li>Monitor registered and running services.</li>
+		<li>Manage Dashboard Users accounts and their groups.</li>
+	</ol>
+	<br/>
+	<hr/>
+	<h3>Dasboard UI</h3>
+	<p>
+		The following snapshots are taken from Dashboard UI to provide you with an idea on the features you can benefit from if you install it and use it.
+	</p>
+	<h4>Profile Management</h4>
+	<p>
+		Logged in Users can update their account settings and profile information.
+	</p>
+	<img ng-src="images/documentation/dashboard-ui/edit_profile.png" class="full-image" /><br /><br />
+	<h4>Users &amp; Groups Management</h4>
+	<p>
+		Administrators have the ability to manage users and groups accounts that have access to login to the dashboard.
+	</p>
+	<img ng-src="images/documentation/dashboard-ui/user_management.png" class="full-image" /><br /><br />
+	<hr/>
+	<h4>Multi Environments Management</h4>
+	<p>
+		TechOps &amp; DevOps benefit from multi environment to monitor and manage databases, hosts and all environment properties.
+	</p>
+	<img ng-src="images/documentation/dashboard-ui/env_management.png" class="full-image" /><br /><br />
+	<h4>Environments Clusters Management</h4>
+	<p>
+		TechOps &amp; DevOps also benefit from multi environment to monitor and control services hosts.
+	</p>
+	<img ng-src="images/documentation/dashboard-ui/env_cluster_management.png" class="full-image" /><br /><br />
+	<hr/>
+	<h4>Productization</h4>
+	<p>
+		Create and manage products, packages that apply access to services and are used by tenants.
+	</p>
+	<img ng-src="images/documentation/dashboard-ui/productization.png" class="full-image" /><br /><br />
+	<h4>Product Package Access Levels Management</h4>
+	<p>
+		Configure and customize the package access levels and permissions on your services.
+	</p>
+	<img ng-src="images/documentation/dashboard-ui/manage_acl.png" class="full-image" /><br /><br />
+	<hr/>
+	<h4>Multitenancy</h4>
+	<p>
+		Create and manage tenants, applications, keys, and custom service environment configuration as well as override default package access levels where needed all from one place.
+	</p>
+	<img ng-src="images/documentation/dashboard-ui/multitenancy.png" class="full-image" /><br /><br />
+	<h4>Tenant oAuth Users Management</h4>
+	<p>
+		Create and manage oauth users accounts based on your tenants.
+	</p>
+	<img ng-src="images/documentation/dashboard-ui/tenant_oauth_users.png" class="full-image" /><br /><br />
+	<script>renderCodeSnippets();</script>
+</div>
