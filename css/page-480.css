@@ -147,7 +147,7 @@
     .left-sidebar section{
         padding-left: 1%;
         padding-right: 3%;
-        width: 23%;
+        width: 20%;
     }
     .left-sidebar section#deployment , .left-sidebar section#dashbd{
         width: 26%;
@@ -157,7 +157,8 @@
     }
 
     .left-sidebar section:hover > ul {
-        width: 100px;
+        min-width: 120px;
+        width: auto;
     }
 
     .left-sidebar section#dashbd:hover > ul {
