@@ -10,30 +10,9 @@
 	<hr/>
 	<h3>Installation</h3>
 	<p>
-		SOAJS Dashboard is located in <a href="https://www.npmjs.com/packages/soajs.dashboard" target="_blank">soajs.dashboard</a>.
+		SOAJS Dashboard is located in <a href="https://www.npmjs.com/packages/soajs.dashboard" target="_blank">soajs.dashboard</a>.<br />
+		You can install the Dashboard by following the instruction in the deployment section either <a href="#/documentation/deployment/manual">Manually</a> or via <a href="#/documentation/deployment/docker">Docker</a>.
 	</p>
-	<pre><code class="bash">$ cd /opt/soasj/node_modules/
-$ npm install soajs.dashboard
-$ cd soajs.dashboard
-$ node .</code></pre>
-	<hr/>
-	<h3>Set It Up</h3>
-	<p>
-		To set up the dashboard, you need to deploy either the <a href="#/documentation/deployment/development">development environment</a> as explained under Deployment section under documentation or deploy the dashboard environment from <a href="#/documentation/deployment/cloud-awareness">Cloud Awareness</a>.
-	</p>
-	<p>
-		If you want to set up the dashboard manually, you can find the needed steps in <a href="#/documentation/deployment/development">development environment</a> under documentation section. The development environment aims to install all the needed services and start the dashboard with its UI on one machine which is ideal for development. To set up the dashboard, few steps are needed:
-	</p>
-	<ol>
-		<li>Import the data from <a target="_blank" href="http://www.npmjs.org/packages/soajs.utilities">soajs.utilities</a> to obtain a default administrator account, a tenant and a group that grant you access to the dashboard service so you can modify the data in core.</li>
-		<li>Install and run the following services: <a href="#/documentation/services/controller">Controller</a> - <a href="#/documentation/services/urac">Urac</a> - <a>Dashboard</a></li>
-		<li>Install <a target="_blank" href="http://www.nginx.com">Nginx</a> and create a virtual host pointing out the location of the dashboard ui folder as explained in details under <b>Manual Installation</b> in <a href="#/documentation/deployment/development">development environment</a>.</li>
-		<li>
-			Login to the dashboard with account admin:<br />
-			<b>Username:</b> admin<br />
-			<b>Password:</b> password
-		</li>
-	</ol>
 	<br/>
 	<hr/>
 	<h3>Dashboard Services</h3>

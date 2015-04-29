@@ -1,131 +1,79 @@
-{
-  "Development": [
-    {
-      "image":{
-        "name": "soajsorg/development_nginx",
-        "link": ""
-      },
-      "description" : "<p>This image is for the soajs development nginx layer.<br />The image was built from ubuntu 14.0.4.<br /><b>build folder:</b>&nbsp;&nbsp;soajs.utilities/deployment/development/nginx/<br />The image consists of the following:</p>",
-      "third": [
-        "nginx",
-        "nodejs",
-        "npm"
-      ],
-      "package": ["soajs.dashboard"]
+[
+  {
+    "image": {
+      "name": "soajsorg/soajs",
+      "link": "https://registry.hub.docker.com/u/soajsorg/soajs/"
     },
-    {
-      "image":{
-        "name": "soajsorg/development_service",
-        "link": ""
-      },
-      "description" : "<p>This image is for the soajs development services.<br />The image was built from ubuntu 14.0.4<br /><b>build folder:</b>&nbsp;&nbsp;soajs.utilities/deployment/development/service/<br />The image consists of the following:</p>",
-      "third": [
-        "nodejs",
-        "npm",
-        "supervisor"
-      ],
-      "package": [
-        "soajs.controller",
-        "soajs.urac",
-        "soajs.oauth",
-        "soajs.dashboard",
-        "soajs.examples"
-      ]
-    }
-  ],
-  "Dashboard" :[
-    {
-      "image":{
-        "name": "soajsorg/cloud_dashboard_nginx",
-        "link": ""
-      },
-      "description" : "<p>This image is for the soajs dashboard nginx layer.<br />The image was built from ubuntu 14.0.4<br /><b>build folder:</b>&nbsp;&nbsp;soajs.utilities/deployment/cloud/dashboard/nginx/<br />The image consists of the following:</p>",
-      "third": [
-        "nginx",
-        "nodejs",
-        "npm"
-      ],
-      "package": ["soajs.dashboard"]
+    "description": "<p>This image contains the soajs framework and is built from ubuntu 14.0.4.<br />The image consists of the following:</p>"
+  },
+  {
+    "image": {
+      "name": "soajsorg/controller",
+      "link": "https://registry.hub.docker.com/u/soajsorg/controller/"
     },
-    {
-      "image":{
-        "name": "soajsorg/cloud_dashboard_controller",
-        "link": ""
-      },
-      "description" : "<p>This image is for the soajs dashboard controller services.<br />The image was built from ubuntu 14.0.4<br /><b>build folder:</b>&nbsp;&nbsp;soajs.utilities/deployment/cloud/dashboard/controller/<br />The image consists of the following:</p>",
-      "third": [
-        "nodejs",
-        "npm",
-        "supervisor",
-        "haproxy"
-      ],
-      "package": ["soajs.controller"]
+    "description": "<p>This image contains the soajs controller which provides awareness and is the main gateway of SOAJS services. The image consists of the following:</p>"
+  },
+  {
+    "image": {
+      "name": "soajsorg/urac",
+      "link": "https://registry.hub.docker.com/u/soajsorg/urac/"
     },
-    {
-      "image":{
-        "name": "soajsorg/cloud_dashboard_urac_dashboard",
-        "link": ""
-      },
-      "description" : "<p>This image is for the soajs dashboard urac and dashboard services.<br />The image was built from ubuntu 14.0.4<br /><b>build folder:</b>&nbsp;&nbsp;soajs.utilities/deployment/cloud/dashboard/urac_dashboard/<br />The image consists of the following:</p>",
-      "third": [
-        "nodejs",
-        "npm",
-        "supervisor"
-      ],
-      "package": ["soajs.urac", "soajs.dashboard"]
-    }
-  ],
-  "Production": [
-    {
-      "image":{
-        "name": "soajsorg/cloud_prod_nginx",
-        "link": ""
-      },
-      "description" : "<p>This image is for the soajs production nginx layer.<br />The image was built from ubuntu 14.0.4<br /><b>build folder:</b>&nbsp;&nbsp;soajs.utilities/deployment/cloud/prod/nginx/<br />The image consists of the following:</p>",
-      "third": [
-        "nginx"
-      ],
-      "package": []
+    "description": "<p>This image contains the URAC service which is a multitenant that provides the ability to manage users and groups for all your tenants. The image consists of the following:</p>"
+  },
+  {
+    "image": {
+      "name": "soajsorg/oauth",
+      "link": "https://registry.hub.docker.com/u/soajsorg/oauth/"
     },
-    {
-      "image":{
-        "name": "soajsorg/cloud_prod_controller",
-        "link": ""
-      },
-      "description" : "<p>This image is for the soajs production controllers layer.<br />The image was built from ubuntu 14.0.4<br /><b>build folder:</b>&nbsp;&nbsp;soajs.utilities/deployment/cloud/prod/controller/<br />The image consists of the following:</p>",
-      "third": [
-        "nodejs",
-        "npm",
-        "supervisor",
-        "haproxy"
-      ],
-      "package": ["soajs.controller"]
+    "description": "<p>This image contains the oAuth service of SOAJS which allows you to protect your services via oAuth2.0. The image consists of the following:</p>"
+  },
+  {
+    "image": {
+      "name": "soajsorg/dashboard",
+      "link": "https://registry.hub.docker.com/u/soajsorg/dashboard/"
     },
-    {
-      "image":{
-        "name": "soajsorg/cloud_prod_urac_oauth",
-        "link": ""
-      },
-      "description" : "<p>This image is for the soajs production services layer.<br />The image was built from ubuntu 14.0.4<br /><b>build folder:</b>&nbsp;&nbsp;soajs.utilities/deployment/cloud/prod/urac_oauth/<br />The image consists of the following:</p>",
-      "third": [
-        "nodejs",
-        "npm",
-        "supervisor"
-      ],
-      "package": ["soajs.urac", "soajs.oauth"]
+    "description": "<p>This image contains the Dashboard service that provides the ability to manage and update the data in the core database of SOAJS. The image consists of the following:</p>"
+  },
+  {
+    "image": {
+      "name": "soajsorg/nginx",
+      "link": "https://registry.hub.docker.com/u/soajsorg/nginx/"
     },
-    {
-      "image":{
-        "name": "soajsorg/cloud_prod_examples",
-        "link": ""
-      },
-      "description" : "<p>This image is for the soajs production examples services.<br />The image was built from ubuntu 14.0.4<br /><b>build folder:</b>&nbsp;&nbsp;soajs.utilities/deployment/cloud/prod/examples/<br />The image consists of the following:</p>",
-      "third": [
-        "nodejs",
-        "npm",
-        "supervisor"
-      ],
-      "package": ["soajs.examples"]
-    }
-  ]
-}
+    "description": "<p>This image contains Both Nginx and the Dashboard UI that you can use the manage the services and core components of SOAJS and its services. The image consists of the following:</p>"
+  },
+  {
+    "image": {
+      "name": "soajsorg/example01",
+      "link": "https://registry.hub.docker.com/u/soajsorg/example01/"
+    },
+    "description": "<p>This image contains service example01. The image consists of the following:</p>"
+  },
+  {
+    "image": {
+      "name": "soajsorg/example02",
+      "link": "https://registry.hub.docker.com/u/soajsorg/example02/"
+    },
+    "description": "<p>This image contains service example02. The image consists of the following:</p>"
+  },
+  {
+    "image": {
+      "name": "soajsorg/example03",
+      "link": "https://registry.hub.docker.com/u/soajsorg/example03/"
+    },
+    "description": "<p>This image contains service example03. The image consists of the following:</p>"
+  },
+  {
+    "image": {
+      "name": "soajsorg/example04",
+      "link": "https://registry.hub.docker.com/u/soajsorg/example04/"
+    },
+    "description": "<p>This image contains service example04. The image consists of the following:</p>"
+  },
+  {
+    "image": {
+      "name": "soajsorg/helloworld",
+      "link": "https://registry.hub.docker.com/u/soajsorg/helloworld/"
+    },
+    "description": "<p>This image contains service hello world example. The image consists of the following:</p>"
+  }
+]

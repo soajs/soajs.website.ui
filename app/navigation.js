@@ -122,7 +122,7 @@ var navigation = [
 	{
 		'id': 'packages',
 		'label': 'soajs packages',
-		'title': 'SOAJS | Documentation | Packages',
+		'title': 'SOAJS | Documentation | Architecture at a Glance',
 
 		'url': '#/documentation/core/packages'
 	},

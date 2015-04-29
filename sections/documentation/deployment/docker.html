@@ -43,10 +43,8 @@ $ npm install soajs.utilities</code></pre>
 	<p>
 		In this tutorial we will use the 3rd file that contains all the services, controller and examples. The first stop is to install, start MongoDB and patch the sample provisioned data from Utilities.
 	</p>
-	<div class="redFlag">install and start mongo using docker: antoine will provide commands</div>
-	<pre><code class="bash">$ docker run --name some-mongo -d mongo</code></pre>
 	<p>
-		Once MongoDB is installed via docker, you need to create a folder on your machine to map the data to it:
+		Create a folder on your machine to map the data to it:
 	</p>
 	<pre><code class="bash">$ mkdir -p /data/db/ </code></pre>
 	<fieldset>
@@ -59,21 +57,19 @@ $ npm install soajs.utilities</code></pre>
 $ boot2docker ssh
 $ sudo mkdir -p /data
 $ sudo chgrp staff -R /data
-$ sudo chmod 775 -R /data</code></pre>
+$ sudo chmod 775 -R /data
+$ exit</code></pre>
 		</div>
 	</fieldset>
 	<p>
 		Now Start Mongo using the following command:
 	</p>
-	<pre><code class="bash">$ docker run -p 27017:27017 -v /data:/data -v /data/db:/data/db mongo mongod --smallfiles</code></pre>
+	<pre><code class="bash">$ docker run -p 27017:27017 -v /data:/data -v /data/db:/data/db --name soajsData mongo mongod --smallfiles</code></pre>
 	<p>
 		Now that MongoDB is running, import the sample data from utilities:
 	</p>
-	<pre><code class="bash">$ cd /opt/soajs/node_modules/soajs.utilities/lib
-
-# import sample data to Mongo Docker
-$ node index data import provision %ip address of mongo docker machine%
-$ node index data import urac %ip address of mongo docker machine%</code></pre>
+	<div ng-init="loadBASH(path + '/deployment/docker/ubuntu-run-mongo.tmpl','dockerdb');"></div>
+	<div id="dockerdb"></div>
 	<br/>
 	<fieldset>
 		<legend>OSX Machines:</legend>
@@ -232,7 +228,18 @@ $ docker-compose up</code></pre>
 127.0.0.1   dashboard-api.soajs.org
 127.0.0.1   dashboard.soajs.org</code></pre>
 	<p>
-		<u><b>Note:</b></u> Make sure you put the correct IP address instead of 127.0.0.1
+		<u><b>Note:</b></u> Make sure you put the correct IP address instead of 127.0.0.1.<br />
+		<b>Ubuntu:</b><br />
+		On ubuntu you can grab the IP address by running this command:
+	</p>
+	<div ng-init="loadBASH(path + '/deployment/docker/ubuntu-get-ip.tmpl','ubuntuip');"></div>
+	<div id="ubuntuip"></div>
+	<p>
+		Grab the IP address and use it in your hosts to point the three domains above.<br />
+		<b>OSX Machines:</b><br />
+		On OSX you can grab the IP address by running this command:
+	</p>
+	<pre><code class="bash">$ boot2docker ip</code></pre>
 	</p>
 	<p>
 		The domain dashboard-api.soajs.org redirects requests to the dashboard services which allows you to manage the provisioned information in core database whereas api.soajs.org redirects to the services that only read the provisioned information from the core database.
