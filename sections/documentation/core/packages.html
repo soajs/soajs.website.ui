@@ -1,21 +1,6 @@
-<a id="deployment-overview"></a>
-<h1>Architecture Overview</h1>
+<a id="packages"></a>
+<h1>Packages</h1>
 <div class="white-container">
-	<p>
-		SOAJS means Service Oriented Architecture JavaScript. The framework is built on top of NodeJs, its data layer is built on top of MongoDB, HAproxy is there to create awareness among services and finally Nginx is used as the entry layer. Understanding the architecture is very important to deploy and manage a SOAJS environment.<br/>
-		<img ng-src="images/documentation/deployment-overview.png" class="full-image"/>
-	</p>
-	<p>
-		SOAJS requires the following 3rd party technologies to be installed on the machine:
-	</p>
-	<ul>
-		<li><a href="http://www.mongodb.org" target="_blank">MongoDB</a> ( version 2.6.7 or higher)</li>
-		<li><a href="http://www.nodejs.org" target="_blank">NodeJs</a> (version 0.10.25 or higher)</li>
-		<li><a href="http://www.nginx.com" target="_blank">Nginx</a> ( version 1.6.2 or higher )</li>
-		<li><a href="http://www.haproxy.org" target="_blank">HAproxy</a> ( version 1.5.9 or higher )</li>
-	</ul>
-	<hr/>
-	<h3>SOAJS Packages</h3>
 	<p>
 		SOAJS comes with the following packages:
 	</p>
@@ -153,7 +138,7 @@
 		<div class="body">
 			<div class="txt">
 				<p>
-				The oauth services, reads the tenant oauth secret and the user information from tenants and oauth_users collections in core_provision database and if the verification is valid, it inserts/update the user token in oauth_tokens collection.
+					The oauth services, reads the tenant oauth secret and the user information from tenants and oauth_users collections in core_provision database and if the verification is valid, it inserts/update the user token in oauth_tokens collection.
 				</p>
 			</div>
 			<div class="img"><img ng-src="images/documentation/oauth_service.png"/></div>
@@ -236,18 +221,6 @@
 					<img ng-src="images/documentation/example04_service2.png" class="full-image"/>
 				</p>
 			</div>
-		</div>
-	</div>
-	<br/>
-	<div class="bulletin">
-		<div class="head">Your Service</div>
-		<div class="body">
-			<div class="txt">
-				<p>
-					SOAJS gives you the ability to create your services the way you want. Your service business logic can work with the data layer or not. If your service requires to store or fetch data from the data layer here is a diagram of how it might look like:<br />
-				</p>
-			</div>
-			<div class="img"><img ng-src="images/documentation/your_service.png"/></div>
 		</div>
 	</div>
 </div>

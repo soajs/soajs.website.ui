@@ -18,8 +18,18 @@
 		<p>
 			You can have multiple controllers running at the same time. Should one go down, the others remain functional and your cloud remains accessible and working. Controllers also distribute the load on the services; if you have 3 controllers where each controller forwards requests to 3 instances of a service, then your cloud performance will highly increase and traffic handling becomes faster.<br />
 			The following image demonstrates the architecture of how controllers work with SOAJS services as well as presence of multiple controller instances communicating with multiple services instances in SOAJS's cloud.
-			<img ng-src="images/documentation/deployment-overview.png" class="full-image" />
+			<img ng-src="images/documentation/deployment-2-options.png" class="full-image" />
 		</p>
+		<p>
+			The above 2 images represent a cloud of SOAJS services each having up to 4 controllers instances and N number of services for Urac, oAuth and Your Service. The idea here is to elaborate that you can have many instances of one service for redundancy, so we created 4 instances of the controllers and N instances of the other services.
+		</p>
+		<p>
+			You also notice that the image on the left has Nginx as its first layer whereas the one on the right doesn't. Nginx is used as the first layer if you have static content, want to use certificates, optimize HTTP connections, caching and high-performance HTTP compression...etc</p>
+		<p>
+			Nginx is added as the first layer but SOAJS cloud does not need Nginx to work thus the image on the right. SOAJS doesn't force you to have the above architecture as well, you can create as many instances as you want and distribute them on your machines depending on the traffic you have; the above images are a simple suggestion of how you can have a cloud with multiple services and redundancy running.
+		</p>
+		<hr/>
+		<h3>Installation and Tests</h3>
 		<p>
 			To install and run the controller, execute the below steps:
 		</p>

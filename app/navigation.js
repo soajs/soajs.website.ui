@@ -120,6 +120,13 @@ var navigation = [
 		'url': '#/documentation/core/acl'
 	},
 	{
+		'id': 'packages',
+		'label': 'soajs packages',
+		'title': 'SOAJS | Documentation | Packages',
+
+		'url': '#/documentation/core/packages'
+	},
+	{
 		'id': 'overview',
 		'label': 'soajs features overview',
 		'title': 'SOAJS | Documentation | Features Overview',
@@ -168,22 +175,16 @@ var navigation = [
 		'url': '#/documentation/ui/dashboard'
 	},
 	{
-		'id': 'overview',
-		'label': 'soajs deployment overview',
-		'title': 'SOAJS | Deployment | Architecture Overview',
-		'url': '#/documentation/deployment/overview'
+		'id': 'manual',
+		'label': 'soajs Manual Deployment',
+		'title': 'SOAJS | Deployment | Manual Deployment',
+		'url': '#/documentation/deployment/manual'
 	},
 	{
-		'id': 'development',
-		'label': 'soajs Development Environment',
-		'title': 'SOAJS | Deployment | Development Environment',
-		'url': '#/documentation/deployment/development'
-	},
-	{
-		'id': 'cloud-awareness',
-		'label': 'soajs cloud-awareness',
-		'title': 'SOAJS | Deployment | Cloud Awareness',
-		'url': '#/documentation/deployment/cloud-awareness'
+		'id': 'docker',
+		'label': 'soajs Docker Deployment',
+		'title': 'SOAJS | Deployment | Docker Deployment',
+		'url': '#/documentation/deployment/docker'
 	},
 	{
 		'id': 'docker-files',

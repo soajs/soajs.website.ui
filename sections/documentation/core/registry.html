@@ -1,159 +1,139 @@
 <a id="registry"></a>
 <h1>Registry</h1>
 <div class="white-container">
-    <p>
-        SOAJS offers the ability to have multiple projects running on different environments with different configuration. Projects are located in SOAJS under the <b>profiles</b> folder.<br />The name of the project is set using an <a href="http://en.wikipedia.org/wiki/Environment_variable" target="_blank">environment variable</a> on your machine or the project named <b>default</b> is used, the same applies on which environment will be loaded, and where to loacate the projects registry information.<br />SOAJS uses 3 environment variables to locate the project profile to use:
-    </p>
-    <ul>
-        <li><b>SOAJS_REGDIR</b>: The path from the root level to where the profiles folder is located.</li>
-        <li><b>SOAJS_PRJ</b>: The project folder inside the profiles folder that should be used.</li>
-        <li><b>SOAJS_ENV</b>: The environment to load from the profiles folder.</li>
-    </ul>
-    <p>
-		By default, SOAJS looks for the profiles folder if the environment variable is not set in its root folder. This folder contains the project name, environments and all registry coniguration needed by SOAJS so that the application can run.<br />You can change the path of the profiles folder to another destination but keep in mind if you do that, you need to update the value of the environment value <b>SAOJS_REGDIR</b>.
-		The same concept applies for project and environment names, by default, SOAJS uses the <b>default</b> project name in profiles folder and the <b>dev</b> environment. When you create a new project make sure you update <b>SOAJS_PRJ</b> and when you deploy on a new environment other than <b>dev</b>, also change <b>SOAJS_ENV</b>.
-    </p>
-    <p>
-        Every Project can run in different environments. You define for each environment: the DB configuration, the templates, the services and their options. The default one is <b>dev</b>.
-    </p>
-    <p>
-        Projects also have templates and configuration files that are used inside the running environment. Configure your database connection and place your service templates in these
-        designated areas.
-    </p>
-    <hr/>
-    <h3>Environment Registry Configuration</h3><br/>
-
-    <p>
-    <h4>1- General Registry Information</h4>
-
-    <p>Create an environment and give it a name and a version</p>
-	<pre><code class="javascript">var registry ={
-	"name": "dev",
-	"version": "0.1",
-	"environment":"develop",
-	"projectPath": "/opt/soajs/node_modules/soajs/profiles/default/",
-	//...
-}</code></pre>
-    <h4>2- Database Configuration</h4>
-
-    <p>Defines the core databases used by the <a href="#/documentation/ui/dashboard">dashboard</a></p>
-    <pre><code class="javascript">"coreDB": {
-	"dashboard": {
-		"name": "core_dashboard",
-		"prefix": dServers.prefix,
-		"servers": dServers.servers,
-		"credentials": dServers.credentials,
-		"URLParam": dOptions.URLParam,
-		"extraParam": dOptions.extraParam
-	}
-	//...
-}</code></pre>
-
-	<h4>3- Meta Database Configuration</h4>
-	<p>Defines the tenant meta data databases used by services such as <a href="#/documentation/services/urac">Urac</a></p>
-    <pre><code class="javascript">"tenantMetaDB": {
-    "service_name": {
-        "name": "core_dashboard",
-        "prefix": dServers.prefix,
-        "servers": dServers.servers,
-        "credentials": dServers.credentials,
-        "URLParam": dOptions.URLParam,
-        "extraParam": dOptions.extraParam
-    }
-    //...
-}</code></pre>
-	<h4>4- Service Configuration</h4>
-	<p>Contains the services configuration such as awareness timeout, enabling CORS, logger & cookies information ....</p>
-	<pre><code class="javascript">"serviceConfig": {
-	"awareness": {
-		"healthCheckInterval": 5000,
-		"autoRelaodRegistry": 300000
-	},
-	"agent": { ... },
-	"key": { ... },
-	"logger": { ... },
-	"cors": { ... },
-	"oauth": { ... },
-	"ports": { ... },
-	"cookie": {
-		"secret": "this is a secret sentence"
-	},
-	"session": { ... }
-}</code></pre>
-
-	<a id="rest-apis"></a>
-    <h4>5- REST APIs Configuration</h4>
-
-    <p>Define the services by providing host, port, url and extKeyRequired.</p>
-	<ul>
-		<li>port: The port that the service is listening on</li>
-		<li>requestTimeout: Timeout value</li>
-		<li>requestTimeoutRenewal: Timeout value renewal</li>
-		<li>extKeyRequired:
-		<ul>
-			<li>when <b>extKeyRequired</b> is false: set it to false for services that are public and accessible without providing tenant keys.</li>
-			<li>when <b>extKeyRequired</b> is  true: set it to true for services that are only accessible if a tenant key is provided in the request.</li>
-		</ul>
-		</li>
-	</ul>
-    <pre><code class="javascript">"services": {
-    "controller": {
-        "extKeyRequired": false,
-	    "port": 4000,
-	    "host": "127.0.0.1",
-	    "maxPoolSize": 100,
-	    "requestTimeout": 30,
-	    "requestTimeoutRenewal": 0,
-	    "authorization": true
-    },
-    "helloworld": {
-        "extKeyRequired": true,
-        "port": 4001,
-        "requestTimeoutRenewal": null,
-        "requestTimeout": null
-    }
-    "helloworld": {
-	    "extKeyRequired": false,
-	    "port": 4020,
-	    "requestTimeoutRenewal": null,
-        "requestTimeout": null
-    }
-    //...
-}</code></pre>
 	<p>
-		The above snippet shows 2 services; each having different information configured. Services like Controller, do not need tenant keys to work and that is why <b>extKeyRequired</b> is set to <b>false</b>. Services like <a href='#/documenation/urac'>URAC</a>require a <b>tenant key</b> to be accessible so their <b>extKeyRequired</b> is set to <b>true</b>.
+		SOAJS offers the ability to have multiple environments with different configuration. These environments are located in SOAJS under the <b>profiles</b> folder. The name of the environment is set using an <a href="http://en.wikipedia.org/wiki/Environment_variable" target="_blank">environment
+		variable</a> on your machine.<br/>SOAJS uses 3 environment variables to locate the environment profile to use:
 	</p>
-    <br />
-    <hr/>
-    <h4>Details & Code Sample</h4>
-    <tabset>
-        <tab heading="Details">
-            <table class="myTable">
-                <thead>
-                <tr>
-                    <th>Property</th>
-                    <th>Type</th>
-                    <th>Mandatory</th>
-                    <th>Notes</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr ng-repeat="detail in registry" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
-                    <td width="20%">{{detail.property}}</td>
-                    <td>{{detail.type}}</td>
-                    <td>{{detail.mandatory}}</td>
-                    <td>{{detail.notes}}</td>
-                </tr>
-                </tbody>
-            </table>
-        </tab>
-        <tab heading="Code Sample">
-            <br />
-	        <div ng-init="loadCode(path + 'core/registry/index.js', 'registryjsCode');">
-		        <div id="registryjsCode"></div>
-	        </div>
-            <em>The above snippet is taken from dev.js file which represents the development environment of SOAJS in the registry.</em>
-        </tab>
-    </tabset>
-    <script>renderCodeSnippets();</script>
+	<ul>
+		<li><b>SOAJS_REGDIR</b>: The path from the root level to where the profiles folder is located.</li>
+		<li><b>SOAJS_ENV</b>: The environment to load from the profiles folder or profile <b>dev</b> will be used by default.</li>
+		<li><b>SOAJS_SRVIP</b>: Optional environment variable used to specify which IP address to use if the machine has more than one active interface. If not set, the machine default IP address will be used.</li>
+	</ul>
+	<p>
+		By default, SOAJS looks for the profiles folder inside /opt/soajs/node_modules/soajs/ if the environment variable is not set. This folder contains the environments and all registry configuration needed by SOAJS to start. You can change the path of the profiles folder to another destination but keep in mind if you do that, you need to update the value of the environment value <b>SAOJS_REGDIR</b> and the same applies for the environment name.
+	</p>
+	<p>
+		The environment file contains the registry information that tells SOAJS the location of the database server and which database to use as the core database. This file gives SOAJS the information it needs to connect to the database server and use the core database to load the core information and provide it to the services.
+	</p>
+	<p>
+		The below snapshot represents what a registry file looks like:
+	</p>
+	<pre><code class="javascript">'use strict';
+var registry = {
+	"name": "dev",
+	"version": "0.0",
+	"environment": "develop", // develop || production
+
+	"provisionDB": {
+		"name": "core_provision",
+		"prefix": "",
+		"servers": [ { "host": "127.0.0.1", "port": 27017 } ],
+		"credentials": null,
+		"URLParam": {
+			"connectTimeoutMS": 0,
+			"socketTimeoutMS": 0,
+			"maxPoolSize": 5,
+			"wtimeoutMS": 0,
+			"slaveOk": true
+		},
+		"extraParam": {
+			"db": { "native_parser": true },
+			"server": { "auto_reconnect": true }
+		}
+	}
+};
+module.exports = registry;</code></pre>
+	<p>
+		The above file, tells SOAJS the environment name, and the location of the provisionDB where the core information resides.<br /><b>provisionDb</b> is represented by a database called <b>core_provision</b>. The file also tells SOAJS that the database location is on "127.0.0.1" port "27017" and that no credentials are needed to connect to it.
+	</p>
+	<p>
+		The remaining properties and details inside provisionDB such as <b>URLParam</b> &amp; <a>extraParam</a> are needed by MongoDB Driver to establish a connection to the database. This information is explained and documented on <a target="_blank" href="http://mongodb.github.io/node-mongodb-native/driver-articles/mongoclient.html#mongoclient-connect">Mongodb Website</a>.
+	</p>
+	<p>
+		If you are familiar with MongoDB driver configuration, you can update the content of this file to support multiple servers, add credentials and restrict the database connection to specific accounts, provide support for replicaSet...etc
+	</p>
+	<hr/>
+	<p>
+		The below tabs contain code examples snippets of what the <b>servers</b>, <b>URLParam</b> &amp; <b>extraParam</b> might look like, for more information, checkout <a target="_blank" href="http://mongodb.github.io/node-mongodb-native/driver-articles/mongoclient.html#mongoclient-connect">Mongodb Website</a>:
+	</p>
+	<tabset>
+		<tab heading="serversExample">
+			<pre><code class="javascript">module.exports = {
+	"prefix": "",
+	"credentials": {"username":"","password":""},
+	"servers": [
+		{
+			"host": "127.0.0.1",
+			"port": 27017
+		}
+	]
+};</code></pre>
+		</tab>
+		<tab heading="optionsExample">
+			<pre><code class="javascript">module.exports = {
+	"URLParam": {
+		"replicaSet": "rs",
+		"ssl": false,
+		"connectTimeoutMS": 0,
+		"socketTimeoutMS": 0,
+		"maxPoolSize": 5,
+		"w": "majority",
+		"wtimeoutMS": 0,
+		"journal": false,
+		"fsync": false,
+		"authSource": null,
+		"slaveOk": false,
+		"readPreference": "primary",
+		"readPreferenceTags": "TAG"
+	},
+	"extraParam": {
+		"db": {
+			"w": "majority",
+			"wtimeout": 0,
+			"fsync": false,
+			"journal": false,
+			"readPreference": "primary",
+			"native_parser": true,
+			"forceServerObjectId": false,
+			"pkFactory": {},
+			"serializeFunctions": false,
+			"raw": false,
+			"recordQueryStats": false,
+			"retryMiliSeconds": 5000,
+			"numberOfRetries": 5,
+			"bufferMaxEntries": -1
+		},
+		"server": {
+			"readPreference": "primary",
+			"ssl": false,
+			"slaveOk": false,
+			"poolSize": 1,
+			"socketOptions": {"noDelay": false, "keepAlive": 1, "connectTimeoutMS": 0, "socketTimeoutMS": 0},
+			"logger": null,
+			"auto_reconnect": true,
+			"disableDriverBSONSizeCheck": false
+		},
+		"replSet": {
+			"ha": true,
+			"haInterval": 2000,
+			"reconnectWait": 1000,
+			"retries": 30,
+			"rs_name": "rs",
+			"socketOptions": null,
+			"readPreference": "primary",
+			"strategy": null,
+			"secondaryAcceptableLatencyMS": 15,
+			"connectArbiter": false
+		},
+		"mongos": {
+			"socketOptions": null,
+			"ha": true,
+			"haInterval": 2000
+		}
+	}
+};</code></pre>
+		</tab>
+	</tabset>
+	<script>renderCodeSnippets();</script>
 </div>

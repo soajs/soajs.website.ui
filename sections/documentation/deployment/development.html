@@ -46,7 +46,7 @@ $ docker-compose up</code></pre>
 		To start, you need to import the provisioned data sample so you can login via the Dashboard UI and work.<br />
 		This requires 2 steps, run the following to complete the setup of the database after Docker finishes the installation, then import the provisioned sample data to use the dashboard UI:
 	</p>
-	<div ng-init="loadBASH(path + 'deployment/development/dockerdb.tmpl','dockerdb');">
+	<div ng-init="loadBASH('sections/documentation/deployment/tmp.tmpl','dockerdb');">
 		<div id="dockerdb"></div>
 	</div>
 	<p>
