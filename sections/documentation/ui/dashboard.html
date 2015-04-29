@@ -52,34 +52,59 @@ $ node .</code></pre>
 	<hr/>
 	<h3>Dasboard UI</h3>
 	<p>
-		The following snapshots are taken from Dashboard UI to provide you with an idea on the features you can benefit from if you install it and use it.
+		The Dashboard UI is built using AngularJS and provides a rich Graphical Interface that you can use to call the APIs of the Dashboard Service. Here are some of the features provided in the UI:
 	</p>
+	<h4>Guest Section</h4>
+	<p>
+		The UI Guest section offers the following:
+	</p>
+	<ul>
+		<li><b>Login:</b>&nbsp; Members can login to the dashboard.</li>
+		<li><b>Forgot Password:</b>&nbsp; Members can ask to change their password if forgotten.</li>
+		<li><b>Register:</b>&nbsp; Users can register to become members and receive email notification to validate the registration.</li>
+	</ul>
+	<br/>
 	<h4>Profile Management</h4>
 	<p>
-		Logged in Users can update their account settings and profile information.
+		Once logged in, under <b>My Account</b>, members can update their account and profile information:
 	</p>
+	<ul>
+		<li><b>Edit Profile:</b>&nbsp;Members can update their account and/or Profile information.</li>
+		<li><b>Change Password:</b>&nbsp; Members can change their password.</li>
+		<li><b>Change Email:</b>&nbsp; Members can change their email address.</li>
+	</ul>
 	<img ng-src="images/documentation/dashboard-ui/edit_profile.png" class="full-image" /><br /><br />
 	<h4>Users &amp; Groups Management</h4>
 	<p>
-		Administrators have the ability to manage users and groups accounts that have access to login to the dashboard.
+		Administrators have the ability to manage users and groups accounts:
 	</p>
+	<ul>
+		<li><b>Accounts:</b>&nbsp; Administrators can create and manage users accounts.</li>
+		<li><b>Groups:</b>&nbsp; Administrators can create and manage users groups.</li>
+		<li><b>Link to Groups:</b>&nbsp; Administrators can add users to group(s).</li>
+	</ul>
 	<img ng-src="images/documentation/dashboard-ui/user_management.png" class="full-image" /><br /><br />
 	<hr/>
 	<h4>Multi Environments Management</h4>
 	<p>
-		TechOps &amp; DevOps benefit from multi environment to monitor and manage databases, hosts and all environment properties.
+		TechOps &amp; DevOps benefit from multi environment to monitor and manage databases, hosts and all environment properties:
 	</p>
+	<ul>
+		<li><b>Environment:</b>&nbsp; Create and Manage multiple environments.</li>
+		<li><b>Databases:</b>&nbsp; Create and Manage the databases of your application.</li>
+		<li><b>Clusters:</b>&nbsp; Create and Manage the clusters used by the databases of your application.</li>
+		<li><b>Hosts:</b>&nbsp; Monitor and perfrom heartbeat, reloadRegistry and other maintenance operations on your services.</li>
+	</ul>
 	<img ng-src="images/documentation/dashboard-ui/env_management.png" class="full-image" /><br /><br />
-	<h4>Environments Clusters Management</h4>
-	<p>
-		TechOps &amp; DevOps also benefit from multi environment to monitor and control services hosts.
-	</p>
-	<img ng-src="images/documentation/dashboard-ui/env_cluster_management.png" class="full-image" /><br /><br />
 	<hr/>
 	<h4>Productization</h4>
 	<p>
-		Create and manage products, packages that apply access to services and are used by tenants.
+		Create and manage products, packages that apply access to services and are used by tenants:
 	</p>
+	<ul>
+		<li><b>Products:</b>&nbsp; Create and manage products and add packages to them.</li>
+		<li><b>Packages:</b>&nbsp; Create and manage packages and add specify the ACL over your services.</li>
+	</ul>
 	<img ng-src="images/documentation/dashboard-ui/productization.png" class="full-image" /><br /><br />
 	<h4>Product Package Access Levels Management</h4>
 	<p>
@@ -89,8 +114,14 @@ $ node .</code></pre>
 	<hr/>
 	<h4>Multitenancy</h4>
 	<p>
-		Create and manage tenants, applications, keys, and custom service environment configuration as well as override default package access levels where needed all from one place.
+		Create and manage tenants, applications, keys, and custom service environment configuration as well as override default package access levels where needed all from one place:
 	</p>
+	<ul>
+		<li><b>Tenants:</b>&nbsp; Create and manage tenants and specify their oAuth properties if needed.</li>
+		<li><b>oAuth Users:</b>&nbsp; Create and manage the tenants oAuth users accounts.</li>
+		<li><b>Applications:</b>&nbsp; Create and manage applications inside tenants. Assign the application product packages or choose to customize their ACL information.</li>
+		<li><b>Keys:</b>&nbsp; Create and manage application keys, external keys and their security and tenant services configuration.</li>
+	</ul>
 	<img ng-src="images/documentation/dashboard-ui/multitenancy.png" class="full-image" /><br /><br />
 	<h4>Tenant oAuth Users Management</h4>
 	<p>
