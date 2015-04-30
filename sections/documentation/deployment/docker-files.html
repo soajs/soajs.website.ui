@@ -1,12 +1,10 @@
 <a id="docker-files"></a>
-<h1>Docker Files</h1>
+<h1>Docker Images</h1>
 <div class="white-container">
 	<p>
-		The following are the docker images for soajs grouped by environments.
+		The following are the docker images of SOAJS packages.
 	</p>
-	<hr/>
-	<h3>Development Environment</h3>
-	<table width="100%" class="myTable docker-files-table" ng-if="docker_files.Development.length > 0">
+	<table width="100%" class="myTable docker-files-table" ng-if="docker_files.length > 0">
 		<thead>
 			<tr>
 				<th width="30%">Docker Image</th>
@@ -14,150 +12,28 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="entry in docker_files.Development" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
+			<tr ng-repeat="entry in docker_files" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
 				<td  width="30%" class="image" valign="top"><a href="{{entry.image.link}}" target="_blank">{{entry.image.name}}</a></td>
 				<td valign="top" class="description">
 					<div ng-bind-html="entry.description|toTrustedHtml"></div>
-					<div ng-show="entry.third">
-						<b>3rd Party:</b>
-						<ul class="straight-line"><li ng-repeat="party in entry.third">{{party}}</li></ul>
-					</div>
-					<div ng-show="entry.package">
-						<b>SOAJS package(s):</b>
-						<ul class="straight-line"><li ng-repeat="pckg in entry.package">{{pckg}}</li></ul>
-					</div>
 				</td>
 			</tr>
 		</tbody>
 	</table>
-	<div ng-if="docker_files.Development.length > 0" class="docker-files-list">
+	<div ng-if="docker_files.length > 0" class="docker-files-list">
 		<table class="myTable listTable" width="100%">
-			<tr ng-repeat="entry in docker_files.Development" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
+			<tr ng-repeat="entry in docker_files" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
 				<td>
 					<div>
 						<div><b>Docker Image:</b> <a href="{{entry.image.link}}" target="_blank">{{entry.image.name}}</a></div>
 						<b>Description:</b>
 						<div ng-bind-html="entry.description|toTrustedHtml"></div>
-						<div ng-show="entry.third">
-							<b>3rd Party:</b>
-							<ul><li ng-repeat="party in entry.third">{{party}}</li></ul>
-						</div>
-						<div ng-show="entry.package">
-							<b>SOAJS package(s):</b>
-							<ul><li ng-repeat="pckg in entry.package">{{pckg}}</li></ul>
-						</div>
 					</div>
 				</td>
 			</tr>
 		</table>
 	</div>
 	<div>
-		For development environment, we created a compose file that takes care of all the linkage and volume mapping and is available at the following location: /soajs.utilities/deployment/development/docker-compose.yml
-	</div>
-	<br/><br/>
-	<h3>Dashboard Environment</h3>
-	<table width="100%" class="myTable docker-files-table" ng-if="docker_files.Dashboard.length > 0">
-		<thead>
-			<tr>
-				<th  width="30%">Docker Image</th>
-				<th>Description</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="entry in docker_files.Dashboard" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
-				<td  width="30%" class="image" valign="top"><a href="{{entry.image.link}}" target="_blank">{{entry.image.name}}</a></td>
-				<td valign="top" class="description">
-					<div ng-bind-html="entry.description|toTrustedHtml"></div>
-					<div ng-show="entry.third">
-						<b>3rd Party:</b>
-						<ul class="straight-line"><li ng-repeat="party in entry.third">{{party}}</li></ul>
-					</div>
-					<div ng-show="entry.package">
-						<b>SOAJS package(s):</b>
-						<ul class="straight-line"><li ng-repeat="pckg in entry.package">{{pckg}}</li></ul>
-					</div>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-	<div ng-if="docker_files.Dashboard.length > 0" class="docker-files-list">
-		<table class="myTable listTable" width="100%">
-			<tr ng-repeat="entry in docker_files.Dashboard" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
-				<td>
-					<div>
-						<div><b>Docker Image:</b> <a href="{{entry.image.link}}" target="_blank">{{entry.image.name}}</a></div>
-						<b>Description:</b>
-						<div ng-bind-html="entry.description|toTrustedHtml"></div>
-						<div ng-show="entry.third">
-							<b>3rd Party:</b>
-							<ul><li ng-repeat="party in entry.third">{{party}}</li></ul>
-						</div>
-						<div ng-show="entry.package">
-							<b>SOAJS package(s):</b>
-							<ul><li ng-repeat="pckg in entry.package">{{pckg}}</li></ul>
-						</div>
-					</div>
-				</td>
-			</tr>
-		</table>
-	</div>
-	<div>
-		For dashboard environment, we created a compose file that takes care of all the linkage and volume mapping and is available at the following location: /soajs.utilities/deployment/cloud/dashboard/docker-compose.yml
-	</div>
-
-	<br/><br/>
-	<h3>Production Environment</h3>
-	<table width="100%" class="myTable docker-files-table" ng-if="docker_files.Production.length > 0">
-		<thead>
-			<tr>
-				<th width="30%">Docker Image</th>
-				<th>Description</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="entry in docker_files.Production" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
-				<td width="30%" class="image" valign="top"><a href="{{entry.image.link}}" target="_blank">{{entry.image.name}}</a></td>
-				<td valign="top" class="description">
-					<div ng-bind-html="entry.description|toTrustedHtml"></div>
-					<div ng-show="entry.third">
-						<b>3rd Party:</b>
-						<ul class="straight-line"><li ng-repeat="party in entry.third">{{party}}</li></ul>
-					</div>
-					<div ng-show="entry.package">
-						<b>SOAJS package(s):</b>
-						<ul class="straight-line"><li ng-repeat="pckg in entry.package">{{pckg}}</li></ul>
-					</div>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-	<div ng-if="docker_files.Production.length > 0" class="docker-files-list">
-		<table class="myTable listTable" width="100%">
-			<tr ng-repeat="entry in docker_files.Production" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
-				<td>
-					<div>
-						<div><b>Docker Image:</b> <a href="{{entry.image.link}}" target="_blank">{{entry.image.name}}</a></div>
-						<b>Description:</b>
-						<div ng-bind-html="entry.description|toTrustedHtml"></div>
-						<div ng-show="entry.third">
-							<b>3rd Party:</b>
-							<ul><li ng-repeat="party in entry.third">{{party}}</li></ul>
-						</div>
-						<div ng-show="entry.package">
-							<b>SOAJS package(s):</b>
-							<ul><li ng-repeat="pckg in entry.package">{{pckg}}</li></ul>
-						</div>
-					</div>
-				</td>
-			</tr>
-		</table>
-	</div>
-	<div>
-		For Production environment, we created a compose file that takes care of all the linkage and volume mapping and is available at the following location: /soajs.utilities/deployment/cloud/prod/docker-compose.yml
-	</div>
-	<br/>
-	<div>
-		<u>Note:</u><br />
-		For Cloud Deployment, we created a compose file that takes care of deploying both the dashboard and production environments and all the linkage and volume mapping needed and is available at the following location: /soajs.utilities/deployment/cloud/docker-compose.yml
+		We created compose files that takes care of all the linkage and volume mapping and are available at the following location: soajs.utilities/deployment/composer/ folder.
 	</div>
 </div>

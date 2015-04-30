@@ -1,0 +1,5 @@
+$ cd /opt/soajs/node_modules/soajs.utilities/lib
+
+# import sample data to Mongo Docker
+$ node index data import provision $(docker inspect --format="{{.NetworkSettings.IPAddress }}" soajsData)
+$ node index data import urac $(docker inspect --format="{{.NetworkSettings.IPAddress }}" soajsData)
