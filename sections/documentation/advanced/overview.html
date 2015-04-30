@@ -83,7 +83,7 @@ service.get("/ping", function (req, res) {
 	</p>
 	<table width="100%" class="myTable">
 		<thead>
-			<tr>
+			<tr class="noBreak">
 				<th>Tenant Name</th>
 				<th>Application Name</th>
 				<th>Package Name</th>
@@ -126,7 +126,7 @@ service.get("/ping", function (req, res) {
 	</p>
 	<table width="100%" class="myTable">
 		<thead>
-			<tr>
+			<tr class="noBreak">
 				<th>Tenant Name</th>
 				<th>Application Name</th>
 				<th>Key</th>
@@ -168,7 +168,7 @@ service.get("/ping", function (req, res) {
 	<p>
 		Let's call the service APIs using the keys from the tables above and see which has access to which API and which service configuration is loaded based on the given key to added in the response of these APIs:
 	</p>
-	<tabset>
+	<tabset class="fourTabs">
 		<tab heading="Request using Key1">
 			<h4>Success Call:</h4>
 			<h5>Request:</h5>
@@ -266,7 +266,7 @@ service.get("/ping", function (req, res) {
 		</tab>
 	</tabset>
 	<hr/>
-	<h3>Special Users</h3>
+	<h3>Multitenancy &amp; Productization at User Level</h3>
 	<p>
 		So far you have create 1 service with 2 APIs and 2 tenants. There are cases when a tenant has members and one of this tenant's members require special treatment in terms of permissions or service configuration. The remaining members use the tenants permissions and configuration as associated with the key they provide in the headers. In this case, the user that needs the special treatment can override the permissions and/or service configuration of the tenant just like the tenant application overrode the default package permissions in Tenant T2 above.
 	</p>
@@ -275,7 +275,7 @@ service.get("/ping", function (req, res) {
 	</p>
 	<table width="100%" class="myTable">
 		<thead>
-			<tr>
+			<tr class="noBreak">
 				<th>User</th>
 				<th>Tenant Key</th>
 				<th>Overrides ACL</th>
@@ -304,7 +304,7 @@ service.get("/ping", function (req, res) {
 		</tbody>
 	</table>
 	<br/>
-	<tabset>
+	<tabset class="threeTabs">
 		<tab heading="Normal User using Key1">
 			<h4>Success Call:</h4>
 			<h5>Request:</h5>

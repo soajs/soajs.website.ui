@@ -145,20 +145,18 @@
         padding-left: 0px;
     }
     .left-sidebar section{
-        padding-left: 1%;
-        padding-right: 3%;
-        width: 20%;
+        padding-left: 4px;
+        padding-right: 12px;
+        width: auto;
     }
-    .left-sidebar section#deployment , .left-sidebar section#dashbd{
-        width: 26%;
-    }
-    .left-sidebar .left-menu section section h4 {
+    .left-sidebar .left-menu section h4 {
         font-size: 12px;
+        padding-left: 2px;
     }
 
     .left-sidebar section:hover > ul {
-        min-width: 120px;
         width: auto;
+        padding-right: 15px;
     }
 
     .left-sidebar section#dashbd:hover > ul {
@@ -275,8 +273,17 @@
     div.bulletin div.head{
         font-size: 14px;
     }
-    #ClownfishReleaseTable .pckName {
-        width: 85px;
+    #ThornfishReleaseTable .pckName, #ClownfishReleaseTable .pckName {
+        /*width: 85px;*/
+    }
+    .main-section-container ul.nav-tabs{
+        padding-left: 0;
+    }
+    .threeTabs .nav-tabs li{
+        width: 33%;
+    }
+    .fourTabs .nav-tabs li{
+        width: 24%;
     }
 }
 
@@ -370,6 +377,13 @@
         padding: 6px 12px 8px;
         margin-right: 8px;
     }
+    .left-sidebar section{
+        width: 30%;
+        margin-bottom: 10px;
+    }
+    .left-sidebar .left-menu section h4 {
+        font-size: 13px;
+    }
 }
 
 @media (max-width: 340px) {
@@ -397,13 +411,6 @@
         width: 320px;
         padding: 50px 0 50px;
     }
-    .left-sidebar section, .left-sidebar section#deployment, .left-sidebar section#dashbd{
-        width: auto;
-    }
-    .soajs-features .features-container .feature-list li {
-        /*width: 90%;*/
-    }
-
     .small-button {
         font-size: 12px;
         height: 30px;

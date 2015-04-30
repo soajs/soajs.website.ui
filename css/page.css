@@ -1247,7 +1247,7 @@ div.bulletin div.body div.img img{
 .pckVersion{
     width: 15%;
 }
-#GoldfishReleaseTable, #ClownfishReleaseTable{
+#GoldfishReleaseTable, #ClownfishReleaseTable, #ThornfishReleaseTable{
     width: 98%;
 }
 /*********************************/
@@ -1276,4 +1276,11 @@ ul.straight-line li {
 ul.straight-line li + li:before{
     content: "- ";
     margin-right:5px;
+}
+
+.myTable th.noBreak{
+    word-break: keep-all;
+}
+.myTable tr.noBreak th{
+    word-break: keep-all;
 }

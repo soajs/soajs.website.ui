@@ -231,7 +231,7 @@
         padding: 0 15px 15px 20px;
         border-color: rgb(61, 61, 61);
         transition:all ease 0.5s;
-        opacity: .9;
+        opacity: 0.95;
         background-color: rgb(65, 100, 126);
     }
     .left-sidebar section ul li a{
