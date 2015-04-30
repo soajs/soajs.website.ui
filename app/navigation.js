@@ -189,7 +189,7 @@ var navigation = [
 	{
 		'id': 'docker-files',
 		'label': 'soajs docker-files',
-		'title': 'SOAJS | Deployment | Docker Files',
+		'title': 'SOAJS | Deployment | Docker Images',
 		'url': '#/documentation/deployment/docker-files'
 	}
 ];
