@@ -112,30 +112,10 @@
         float: none;
         display: block;
     }
-
-    #indexjsImg {
-        float: none;
-    }
-
-    #registry1png {
-        width: 270px;
-        float: none;
-    }
-
-    #controllerpng, #urac2png, #uracpng {
-        width: 92%;
-        max-width: 92%;
-    }
-
-    #example03png, #example01png, #example02-oauth, #getstarted_ex02, #getStartedImg, #oAuth-workflow {
+    #oAuth-workflow {
         width: 85%;
         display: block;
         float: none;
-    }
-
-    #urac-override-acl {
-        width: 92%;
-        max-width: 92%;
     }
     .left-sidebar .left-menu {
         width: 98%;
@@ -363,12 +343,6 @@
     }
     .left-getStartedSidebar section:hover > ul{
         width: 190px;
-    }
-    #ex02Registry{
-        width: 90%;
-        display: block;
-        float: none;
-        margin-bottom: 10px;
     }
     .white-banner .banner-container .repos {
         display: none;

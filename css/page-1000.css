@@ -48,18 +48,9 @@
     .examples img{
         width: auto;
     }
-    #getstarted_ex02, #ex02Registry{
-        float:right;
-    }
     .image-right{
         float: right;
         margin-left: 5px;
-    }
-    #registry1png{
-        width:270px;
-    }
-    #urac-override-acl{
-        width: 450px;
     }
     .soajs-features .features-container .feature-list li.odd {
         margin-right: 6%

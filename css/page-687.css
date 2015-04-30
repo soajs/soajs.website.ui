@@ -35,10 +35,6 @@
     .features-page .main-section-container .feature-list ul li .std-list li{
         font-size: 13px;
     }
-    #indexjsImg{
-        clear: both;
-        width: 85%;
-    }
     #dashboardpng{
         width: 85%;
     }
@@ -83,7 +79,7 @@
     div.bulletin div.body div.txt, div.bulletin div.body div.w-100{
         padding: 20px;
     }
-    #GoldfishReleaseTable{
+    #GoldfishReleaseTable, #ThornfishReleaseTable{
         width: 100%;
     }
     .pckName{
@@ -270,15 +266,11 @@
         font-size: 13px; /* or whatever */
         padding-right: 5px;
     }
-    #urac-override-acl{
-        width: 85%;
-        max-width: 90%;
-    }
     #dashboardpng{
         width: 90%;
         max-width: 90%;
     }
-    #example03png, #example01png, #example02-oauth, #getstarted_ex02, #oAuth-workflow{
+    #oAuth-workflow{
         width: 90%;
     }
     #core-db-replica{

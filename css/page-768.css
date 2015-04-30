@@ -13,16 +13,6 @@
         width: 48%;
         margin-right: 10px;
     }
-    img{/*
-        max-width: 88%;*/
-    }
-    #example03png{
-        width: 85%;
-    }
-    #urac-override-acl{
-        width: 450px;
-    }
-
     .topbar .nav-container, .bottom .sharing-footer, .main-section-container, .whyBeaver-container,
     .banner .banner-container, .powered-by-container, .soajs-features .features-container{
         width: 97%;
@@ -72,30 +62,16 @@
         max-width: 140px;
         max-height: 70px;
     }
-    #ex02Registry{
-        float:right;
-    }
     .image-right{
         float: right;
         margin-left: 5px;
     }
-    #getstarted_ex02{
-        float:none;
-    }
-    #indexjsImg{
-        float:none;
-    }
-    #registry1png{
-        width:270px;
-    }
     #dashboard-form, #dashboard-grid{
         width: 90%;
     }
-
     .full-image{
        width: 95%;
     }
-
     .soajs-features .features-container .feature-list li.odd {
         margin-right: 6%
     }
@@ -179,7 +155,6 @@
     .topbar .branding {
         width:173px;
     }
-
 }
 @media (max-width: 768px) {
     body, html {
@@ -197,32 +172,10 @@
     #service-scenario, #secured-service, #example01-service2-png{
         width: 94%;
     }
-    #indexjsImg{
-        float:none;
-    }
-    #controllerpng, #urac2png, #uracpng{
-        width: 92%;
-        max-width: 92%;
-    }
-    #urac-override-acl{
-        width: 450px;
-    }
-    #example03png, #example01png, #example02-oauth, #getstarted_ex02, #getStartedImg, #oAuth-workflow{
+    #oAuth-workflow{
         width: 85%;
         display: block;
         float: none;
-    }
-    #ex02Registry{
-        display: block;
-        margin-bottom: 10px;
-    }
-    #registry-example01{
-        display: block;
-        margin-bottom: 10px;
-    }
-    #registry1png{
-        width:240px;
-        float: right;
     }
     #oauth-config{
         width:auto;
