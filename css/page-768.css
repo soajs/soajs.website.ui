@@ -150,6 +150,9 @@
     .topbar .branding {
         width:173px;
     }
+    #getStarted ul li{
+        padding-top: 15px;
+    }
 }
 @media (max-width: 768px) {
     body, html {

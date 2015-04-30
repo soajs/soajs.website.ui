@@ -294,7 +294,6 @@ a:hover {
     background-size: 95%;
 }
 .beaverImg:hover{
-    background-image: url(../images/bigImg-hover.png);
 }
 .banner .about-container, .banner .banner-container .tagline {
     width: 50%;
