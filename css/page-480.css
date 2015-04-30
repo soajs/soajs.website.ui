@@ -225,10 +225,6 @@
     .banner .about-container {
         width: 90%;
     }
-    #beaverAlone{
-        display: none;
-    }
-
     #twitter-badge{
         float:right;
         margin:20px 0 0 0;

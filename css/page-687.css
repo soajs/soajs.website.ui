@@ -135,18 +135,13 @@
         background-size: 50%;
     }
     .beaverImg{
-        /*display: none;*/
-        background-image: url(../images/beaver.png);
+        background-image: url(../images/beaverAlone.png);
+    }
+    .beaverImg:hover{
+        background-image: url(../images/beaverAlone-hover.png);
     }
     .two{
         width: 100%;
-    }
-    #beaverAlone{/*
-        display: inline;
-        width: 40%;
-        float: right;
-        padding-top: 20px;
-        */
     }
     .five, .four, .three{
         width:  60%

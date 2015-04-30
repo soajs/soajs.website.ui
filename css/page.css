@@ -277,17 +277,6 @@ a:hover {
     position: relative;
 }
 
-#beaverAlone {
-    display: none;
-}
-
-#beaverImg2 {
-    display: none;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-}
-
 #beaverImg1 {
     position: absolute;
     float: right;
@@ -302,9 +291,10 @@ a:hover {
     background-position: right bottom;
     background-repeat: no-repeat;
     background-size: 95%;
-    /*border: 1px solid red;*/
 }
-
+.beaverImg:hover{
+    background-image: url(../images/bigImg-hover.png);
+}
 .banner .about-container, .banner .banner-container .tagline {
     width: 50%;
 }

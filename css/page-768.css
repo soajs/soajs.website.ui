@@ -116,11 +116,6 @@
 }
 
 @media (max-width: 820px) {
-    #beaverImg2{
-        display: none;
-        width: 50%;
-        height: 85%;
-    }
     #beaverImg1{
         width: 50%;
         height: 85%;
