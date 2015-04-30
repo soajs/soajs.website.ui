@@ -87,9 +87,17 @@ $ export SOAJS_SRVIP=127.0.0.1</code></pre>
 	</p>
 	<pre><code class="bash">$ gedit /etc/hosts
 
-# add the following line in your hosts file
-127.0.0.1   dataProxy</code></pre>
-	<br/>
+# add the below lines in your hosts file
+127.0.0.1   dataProxy
+
+# add the following entries, they are explained below
+127.0.0.1   api.soajs.org
+127.0.0.1   dashboard-api.soajs.org
+127.0.0.1   dashboard.soajs.org
+127.0.0.1   controllerProxy</code></pre>
+	<p>
+		<u>Note:</u> dashboard-api.soajs.org redirects requests to the dashboard services which allows you to manage the provisioned information in core database whereas api.soajs.org redirects to the services that only read the provisioned information from the core database. Since you are installing all the services on one machine, both domains will point to the same location.
+	</p>
 	<h4><u>Step3</u></h4>
 	<p>
 		Now that our database is set up, install the services, start them and check that they are healthy. Similar to how we installed soajs.utilities, all packages will be installed in /opt/soajs/node_modules/ folder:
@@ -313,16 +321,7 @@ $ cp upstream.conf /etc/nginx/conf.d/
 $ cd /opt/soajs/node_modules/soajs.utilities/nginx/FILES/nginx/conf/
 $ cp *.conf /etc/nginx/sites-enabled/</code></pre>
 	<p>
-		Nginx will now load the configuration that SOAJS needs when started. Edit your /etc/hosts file and add these entries to point out the required hosts:
-	</p>
-	<pre><code class="javascript"># add the below in /etc/hosts
-127.0.0.1   api.soajs.org
-127.0.0.1   dashboard-api.soajs.org
-127.0.0.1   dashboard.soajs.org
-
-127.0.0.1   controllerProxy</code></pre>
-	<p>
-		<u>Note:</u> dashboard-api.soajs.org redirects requests to the dashboard services which allows you to manage the provisioned information in core database whereas api.soajs.org redirects to the services that only read the provisioned information from the core database. Since you are installing all the services on one machine, both domains will point to the same location. Now start Nginx:
+		Nginx will now load the configuration that SOAJS needs when started. Now start Nginx:
 	</p>
 	<pre><code class="bash">$ sudo Nginx</code></pre>
 	<p>

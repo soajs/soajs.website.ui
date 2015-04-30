@@ -80,6 +80,28 @@ $ exit</code></pre>
 $ node index data import provision $(boot2docker ip)
 $ node index data import urac $(boot2docker ip)</code></pre>
 	</fieldset>
+	<p>
+		Update the hosts file on your machine and point out the following domains:
+	</p>
+	<pre><code class="bash">$ gedit /etc/hosts
+
+127.0.0.1   api.soajs.org
+127.0.0.1   dashboard-api.soajs.org
+127.0.0.1   dashboard.soajs.org</code></pre>
+	<p>
+		<u><b>Note:</b></u> Make sure you put the correct IP address instead of 127.0.0.1.<br />
+		<b>Ubuntu:</b><br />
+		On ubuntu you can grab the IP address by running this command:
+	</p>
+	<div ng-init="loadBASH(path + '/deployment/docker/ubuntu-get-ip.tmpl','ubuntuip');"></div>
+	<div id="ubuntuip"></div>
+	<p>
+		Grab the IP address and use it in your hosts to point the three domains above.<br />
+		<b>OSX Machines:</b><br />
+		On OSX you can grab the IP address by running this command:
+	</p>
+	<pre><code class="bash">$ boot2docker ip</code></pre>
+	<br/>
 	<h4><u>Step2</u></h4>
 	<p>
 		Now that you have set up mongo and imported the data, let's run the docker composer and install/start all the services. Navigate to the Utilities composer folder:
@@ -220,26 +242,7 @@ $ docker-compose up</code></pre>
 	</fieldset>
 	<h4><u>Step3</u></h4>
 	<p>
-		Now that all services are checked, let's launch the Dashboard UI, login and start working. We begin by updating the hosts file on the machine and point out the IP address of the Docker Nginx Machine for theses domains:
-	</p>
-	<pre><code class="bash">$ gedit /etc/hosts
-
-127.0.0.1   api.soajs.org
-127.0.0.1   dashboard-api.soajs.org
-127.0.0.1   dashboard.soajs.org</code></pre>
-	<p>
-		<u><b>Note:</b></u> Make sure you put the correct IP address instead of 127.0.0.1.<br />
-		<b>Ubuntu:</b><br />
-		On ubuntu you can grab the IP address by running this command:
-	</p>
-	<div ng-init="loadBASH(path + '/deployment/docker/ubuntu-get-ip.tmpl','ubuntuip');"></div>
-	<div id="ubuntuip"></div>
-	<p>
-		Grab the IP address and use it in your hosts to point the three domains above.<br />
-		<b>OSX Machines:</b><br />
-		On OSX you can grab the IP address by running this command:
-	</p>
-	<pre><code class="bash">$ boot2docker ip</code></pre>
+		Now that all services are checked, let's launch the Dashboard UI, login and start working.
 	</p>
 	<p>
 		The domain dashboard-api.soajs.org redirects requests to the dashboard services which allows you to manage the provisioned information in core database whereas api.soajs.org redirects to the services that only read the provisioned information from the core database.
