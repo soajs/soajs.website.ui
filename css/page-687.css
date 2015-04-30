@@ -96,7 +96,7 @@
         word-break: keep-all;
     }
     #ClownfishReleaseTable .pckName, #ClownfishReleaseTable .pckVersion{
-        width: 20%;
+        min-width: 20%;
     }
 }
 

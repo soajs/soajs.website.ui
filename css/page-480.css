@@ -273,8 +273,8 @@
     div.bulletin div.head{
         font-size: 14px;
     }
-    #ThornfishReleaseTable .pckName, #ClownfishReleaseTable .pckName {
-        /*width: 85px;*/
+    #ClownfishReleaseTable .pckName {
+        width: 85px;
     }
     .main-section-container ul.nav-tabs{
         padding-left: 0;
