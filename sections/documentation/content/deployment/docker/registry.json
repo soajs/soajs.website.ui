@@ -1,0 +1,139 @@
+{
+  "timeLoaded": 1430559753041,
+  "projectPath": "/opt/soajs/node_modules/soajs/modules/soajs.core/registry/../../../profiles/",
+  "name": "dev",
+  "version": "0.0",
+  "environment": "develop",
+  "coreDB": {
+    "provision": { },
+    "session": { }
+  },
+  "tenantMetaDB": {
+    "urac": {
+      "prefix": "",
+      "servers": [
+        {
+          "host": "127.0.0.1",
+          "port": 27017
+        }
+      ],
+      "credentials": null,
+      "URLParam": {
+        "connectTimeoutMS": 0,
+        "socketTimeoutMS": 0,
+        "maxPoolSize": 5,
+        "wtimeoutMS": 0,
+        "slaveOk": true
+      },
+      "extraParam": {
+        "db": {"native_parser": true},
+        "server": {"auto_reconnect": true}
+      },
+      "name": "#TENANT_NAME#_urac"
+    }
+  },
+  "serviceConfig": {
+    "awareness": {
+      "healthCheckInterval": 500,
+      "autoRelaodRegistry": 300000
+    },
+    "agent": {"topologyDir": "/opt/soajs/"},
+    "key": {
+      "algorithm": "aes256",
+      "password": "soajs key lal massa"
+    },
+    "logger": {
+      "src": true,
+      "level": "debug"
+    },
+    "cors": {
+      "enabled": true,
+      "origin": "*",
+      "credentials": "true",
+      "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+      "headers": "key,soajsauth,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type",
+      "maxage": 1728000
+    },
+    "oauth": {
+      "grants": [
+        "password",
+        "refresh_token"
+      ],
+      "debug": false
+    },
+    "ports": {
+      "controller": 4000,
+      "maintenanceInc": 1000,
+      "randomInc": 100
+    },
+    "cookie": {"secret": "this is a secret sentence"},
+    "session": {
+      "name": "soajsID",
+      "secret": "this is antoine hage app server",
+      "cookie": {
+        "path": "/",
+        "httpOnly": true,
+        "secure": false,
+        "domain": "soajs.com",
+        "maxAge": null
+      },
+      "resave": false,
+      "saveUninitialized": false
+    }
+  },
+  "services": {
+    "controller": {
+      "maxPoolSize": 100,
+      "authorization": true,
+      "port": 4000,
+      "requestTimeout": 30,
+      "requestTimeoutRenewal": 0,
+      "hosts": [
+        "127.0.0.1",
+        "192.168.3.102"
+      ]
+    },
+    "urac": {
+      "extKeyRequired": true,
+      "port": 4001,
+      "requestTimeoutRenewal": null,
+      "requestTimeout": null,
+      "hosts": ["127.0.0.1"]
+    },
+    "oauth": {
+      "extKeyRequired": true,
+      "port": 4002,
+      "requestTimeoutRenewal": null,
+      "requestTimeout": null,
+      "hosts": ["127.0.0.1"]
+    },
+    "example01": {
+      "extKeyRequired": false,
+      "port": 4010,
+      "requestTimeoutRenewal": null,
+      "requestTimeout": null,
+      "hosts": ["127.0.0.1"]
+    },
+    "example02": {
+      "extKeyRequired": true,
+      "port": 4011,
+      "requestTimeoutRenewal": null,
+      "requestTimeout": null,
+      "hosts": ["127.0.0.1"]
+    },
+    "example03": {
+      "extKeyRequired": true,
+      "port": 4012,
+      "requestTimeoutRenewal": null,
+      "requestTimeout": null,
+      "hosts": ["127.0.0.1"]
+    },
+    "helloworld": {
+      "extKeyRequired": false,
+      "port": 4020,
+      "requestTimeoutRenewal": null,
+      "requestTimeout": null,
+      "hosts": ["127.0.0.1"]
+    }
+  }
+}
