@@ -21,7 +21,14 @@ $ mkdir -p /opt/soajs/node_modules/</code></pre>
 $ apt-get install nodejs
 
 # install NPM latest stable version
-$ apt-get install npm</code></pre>
+$ apt-get install npm
+
+# install MongoDB latest stable version
+$ apt-get install mongodb</code></pre>
+	<p>
+		Once MongoDB is installed, turn off the service since we only need its tools to perform the import in the below section.
+	</p>
+	<pre><code class="bash">$ /etc/init.d/mongodb stop</code></pre>
 	<p>
 		Once NodeJs is installed, install <a target="_blank" href="http://www.npmjs.org/packages/soajs.utilities">soajs.utilities</a> in /opt/soajs/node_modules to acquire the configuration files needed to deploy SOAJS.
 	</p>
@@ -31,7 +38,7 @@ $ cd /opt/soajs/node_modules/
 # install soajs.utilities
 $ npm install soajs.utilities</code></pre>
 	<p>
-		Install <a href="https://docs.docker.com/installation/ubuntulinux/" target="_blank">Docker</a> and <a href="https://docs.docker.com/compose/" target="_blank">docker-compose</a> on the machine you are using.<br />
+		Install <a href="https://docs.docker.com/installation/ubuntulinux/" target="_blank">Docker</a> and <a href="https://docs.docker.com/compose/install/" target="_blank">docker-compose</a> on the machine you are using.<br />
 	</p>
 	<p>
 		Our Team has prepared 3 Docker composer files for you to help you get started quickly:
@@ -54,6 +61,18 @@ $ npm install soajs.utilities</code></pre>
 	</p>
 	<div ng-init="loadBASH(path + '/deployment/docker/ubuntu-run-mongo.tmpl','dockerdb');"></div>
 	<div id="dockerdb"></div>
+	<br/>
+	<h4><u>Step2</u></h4>
+	<p>
+		Now that you have set up mongo and imported the data, let's run the docker composer and install/start all the services. Navigate to the Utilities composer folder:
+	</p>
+	<pre><code class="bash">$ cd /opt/soajs/node_modules/soajs.utilities/deployment/composer/runAll_w_examples/
+
+# run composer file
+$ docker-compose up</code></pre>
+	<p>
+		The above command will execute the content of the <b>docker-compose.yml</b> file that contains instructions on which docker images should be pulled, which services need to be installed and started.
+	</p>
 	<p>
 		Update the hosts file on your machine and point out the following domains:
 	</p>
@@ -68,138 +87,21 @@ $ npm install soajs.utilities</code></pre>
 	</p>
 	<div ng-init="loadBASH(path + '/deployment/docker/ubuntu-get-ip.tmpl','ubuntuip');"></div>
 	<div id="ubuntuip"></div>
-	<br/>
-	<h4><u>Step2</u></h4>
 	<p>
-		Now that you have set up mongo and imported the data, let's run the docker composer and install/start all the services. Navigate to the Utilities composer folder:
+		Run some heartbeat tests on the services that were installed.
 	</p>
-	<pre><code class="bash">$ cd /opt/soajs/node_modules/soajs.utilities/deployment/composer/runAll_w_examples/
-
-# run composer file
-$ docker-compose up</code></pre>
-	<p>
-		The above command will execute the content of the <b>docker-compose.yml</b> file that contains instructions on which docker images should be pulled, which services need to be installed and started. Once the above command has finished execution, you can start some heartbeat tests on the services that were installed.
-	</p>
-	<fieldset>
-		<legend>URAC</legend>
-		<div>
-			<p>
-				Perform a Heartbeat check on the service:
-			</p>
-			<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5001/heartbeat"</code></pre>
-			<p>
-				URAC services runs on port 4001 making its maintenance port equal to 5001 as explained in <a href="#/documentation/core/service">service</a> section under documentation.
-			</p>
-			<h5>Response:</h5>
-			<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"URAC","type":"rest","route":"/heartbeat"}}</code></pre>
-			<em>URAC is healthy ... Great!</em>
-		</div>
-	</fieldset>
-	<fieldset>
-		<legend>oAuth</legend>
-		<div>
-			<p>
-				Perform a Heartbeat check on the service:
-			</p>
-			<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5002/heartbeat"</code></pre>
-			<p>
-				oAuth services runs on port 4002 making its maintenance port equal to 5002.
-			</p>
-			<h5>Response:</h5>
-			<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"OAUTH","type":"rest","route":"/heartbeat"}}</code></pre>
-		</div>
-	</fieldset>
-	<fieldset>
-		<legend>Dashboard</legend>
-		<div>
-			<p>
-				Dashboard contains 2 sections, service and UI. At this stage, we are working with the service and the UI is explained below. Perform a Heartbeat check on the service:
-			</p>
-			<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5003/heartbeat"</code></pre>
-			<p>
-				Dashboard services runs on port 4003 making its maintenance port equal to 5003.
-			</p>
-			<h5>Response:</h5>
-			<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"DASHBOARD","type":"rest","route":"/heartbeat"}}</code></pre>
-		</div>
-	</fieldset>
-	<fieldset>
-		<legend>Example01</legend>
-		<div>
-			<p>
-				The Examples package contains 5 services as examples: Example01 - Example02 - Example03 - Example04 - Hello World. Perform a Heartbeat check on the each service:
-			</p>
-			<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5010/heartbeat"</code></pre>
-			<p>
-				Example01 services runs on port 4010 making its maintenance port equal to 5010.
-			</p>
-			<h5>Response:</h5>
-			<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"EXAMPLE01","type":"rest","route":"/heartbeat"}}</code></pre>
-		</div>
-	</fieldset>
-	<fieldset>
-		<legend>Example02</legend>
-		<div>
-			<p>
-				Perform a Heartbeat check on the service:
-			</p>
-			<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5011/heartbeat"</code></pre>
-			<p>
-				Example02 services runs on port 4011 making its maintenance port equal to 5011.
-			</p>
-			<h5>Response:</h5>
-			<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"EXAMPLE02","type":"rest","route":"/heartbeat"}}</code></pre>
-		</div>
-	</fieldset>
-	<fieldset>
-		<legend>Example03</legend>
-		<div>
-			<p>
-				Perform a Heartbeat check on the service:
-			</p>
-			<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5012/heartbeat"</code></pre>
-			<p>
-				Example03 services runs on port 4012 making its maintenance port equal to 5012.
-			</p>
-			<h5>Response:</h5>
-			<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"EXAMPLE03","type":"rest","route":"/heartbeat"}}</code></pre>
-		</div>
-	</fieldset>
-	<fieldset>
-		<legend>Example04</legend>
-		<div>
-			<p>
-				Perform a Heartbeat check on the service:
-			</p>
-			<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5013/heartbeat"</code></pre>
-			<p>
-				Example02 services runs on port 4013 making its maintenance port equal to 5013.
-			</p>
-			<h5>Response:</h5>
-			<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"EXAMPLE04","type":"rest","route":"/heartbeat"}}</code></pre>
-		</div>
-	</fieldset>
-	<fieldset>
-		<legend>Hello World</legend>
-		<div>
-			<p>
-				Perform a Heartbeat check on the service:
-			</p>
-			<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5020/heartbeat"</code></pre>
-			<p>
-				Hello World services runs on port 4020 making its maintenance port equal to 5020.
-			</p>
-			<h5>Response:</h5>
-			<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"HELLO_WORLD","type":"rest","route":"/heartbeat"}}</code></pre>
-		</div>
-	</fieldset>
 	<fieldset>
 		<legend>Controller</legend>
 		<div>
 			<p>
-				The final service we will run and test is the controller of SOAJS. The controller is the main gateway to SOAJS services and performs awareness tests and healthy checks on all the services on a periodic basis. Perform a Heartbeat check on the service:
+				The controller is the main gateway to SOAJS services and performs awareness and health checks on all the services on a periodic basis.
 			</p>
-			<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5000/heartbeat"</code></pre>
+			<div ng-init="loadBASH(path + '/deployment/docker/ubuntu-get-ipcontroller.tmpl','ubuntuipcontroller');"></div>
+			<div id="ubuntuipcontroller"></div>
+			<p>
+				Use the IP retrieved from the command above and Perform a Heartbeat check on the service:
+			</p>
+			<pre><code class="bash">$ curl -X GET "http://%controller_ip%:5000/heartbeat"</code></pre>
 			<p>
 				The controller services runs on port 4000 making its maintenance port equal to 5000.
 			</p>
@@ -211,9 +113,147 @@ $ docker-compose up</code></pre>
 			<p>
 				Now reload the registry of the controller:
 			</p>
-			<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5000/reloadRegistry"</code></pre>
+			<pre><code class="bash">$ curl -X GET "http://%controller_ip%:5000/reloadRegistry"</code></pre>
 			<p>
 				Once the registry is reloaded, the controller will pick up all the running services and which host:port they are using.<br />
+
+			</p>
+		</div>
+	</fieldset>
+	<fieldset>
+		<legend>URAC</legend>
+		<div>
+			<div ng-init="loadBASH(path + '/deployment/docker/ubuntu-get-ipurac.tmpl','ubuntuipurac');"></div>
+			<div id="ubuntuipurac"></div>
+			<p>
+				Use the IP retrieved from the command above and Perform a Heartbeat check on the service:
+			</p>
+			<pre><code class="bash">$ curl -X GET "http://%urac_ip%:5001/heartbeat"</code></pre>
+			<p>
+				URAC services runs on port 4001 making its maintenance port equal to 5001 as explained in <a href="#/documentation/core/service">service</a> section under documentation.
+			</p>
+			<h5>Response:</h5>
+			<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"URAC","type":"rest","route":"/heartbeat"}}</code></pre>
+			<em>URAC is healthy ... Great!</em>
+		</div>
+	</fieldset>
+	<fieldset>
+		<legend>oAuth</legend>
+		<div>
+			<div ng-init="loadBASH(path + '/deployment/docker/ubuntu-get-ipoauth.tmpl','ubuntuipoauth');"></div>
+			<div id="ubuntuipoauth"></div>
+			<p>
+				Use the IP retrieved from the command above and Perform a Heartbeat check on the service:
+			</p>
+			<pre><code class="bash">$ curl -X GET "http://%oauth_ip%:5002/heartbeat"</code></pre>
+			<p>
+				oAuth services runs on port 4002 making its maintenance port equal to 5002.
+			</p>
+			<h5>Response:</h5>
+			<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"OAUTH","type":"rest","route":"/heartbeat"}}</code></pre>
+		</div>
+	</fieldset>
+	<fieldset>
+		<legend>Dashboard</legend>
+		<div>
+			<p>
+				Dashboard contains 2 sections, service and UI. At this stage, we are working with the service and the UI is explained below.
+			</p>
+			<div ng-init="loadBASH(path + '/deployment/docker/ubuntu-get-ipdashboard.tmpl','ubuntuipdashboard');"></div>
+			<div id="ubuntuipdashboard"></div>
+			<p>
+				Use the IP retrieved from the command above and Perform a Heartbeat check on the service:
+			</p>
+			<pre><code class="bash">$ curl -X GET "http://%dashboard_ip%:5003/heartbeat"</code></pre>
+			<p>
+				Dashboard services runs on port 4003 making its maintenance port equal to 5003.
+			</p>
+			<h5>Response:</h5>
+			<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"DASHBOARD","type":"rest","route":"/heartbeat"}}</code></pre>
+		</div>
+	</fieldset>
+	<fieldset>
+		<legend>Example01</legend>
+		<div>
+			<p>
+				The Examples package contains 5 services as examples: Example01 - Example02 - Example03 - Example04 - Hello World.
+			</p>
+			<div ng-init="loadBASH(path + '/deployment/docker/ubuntu-get-ipex1.tmpl','ubuntuipex1');"></div>
+			<div id="ubuntuipex1"></div>
+			<p>
+				Use the IP retrieved from the command above and Perform a Heartbeat check on the service:
+			</p>
+			<pre><code class="bash">$ curl -X GET "http://%example01_ip%:5010/heartbeat"</code></pre>
+			<p>
+				Example01 services runs on port 4010 making its maintenance port equal to 5010.
+			</p>
+			<h5>Response:</h5>
+			<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"EXAMPLE01","type":"rest","route":"/heartbeat"}}</code></pre>
+		</div>
+	</fieldset>
+	<fieldset>
+		<legend>Example02</legend>
+		<div>
+			<div ng-init="loadBASH(path + '/deployment/docker/ubuntu-get-ipex2.tmpl','ubuntuipex2');"></div>
+			<div id="ubuntuipex2"></div>
+			<p>
+				Use the IP retrieved from the command above and Perform a Heartbeat check on the service:
+			</p>
+			<pre><code class="bash">$ curl -X GET "http://%example02_ip%:5011/heartbeat"</code></pre>
+			<p>
+				Example02 services runs on port 4011 making its maintenance port equal to 5011.
+			</p>
+			<h5>Response:</h5>
+			<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"EXAMPLE02","type":"rest","route":"/heartbeat"}}</code></pre>
+		</div>
+	</fieldset>
+	<fieldset>
+		<legend>Example03</legend>
+		<div>
+			<div ng-init="loadBASH(path + '/deployment/docker/ubuntu-get-ipex3.tmpl','ubuntuipex3');"></div>
+			<div id="ubuntuipex3"></div>
+			<p>
+				Use the IP retrieved from the command above and Perform a Heartbeat check on the service:
+			</p>
+			<pre><code class="bash">$ curl -X GET "http://%example03_ip%:5012/heartbeat"</code></pre>
+			<p>
+				Example03 services runs on port 4012 making its maintenance port equal to 5012.
+			</p>
+			<h5>Response:</h5>
+			<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"EXAMPLE03","type":"rest","route":"/heartbeat"}}</code></pre>
+		</div>
+	</fieldset>
+	<fieldset>
+		<legend>Example04</legend>
+		<div>
+			<div ng-init="loadBASH(path + '/deployment/docker/ubuntu-get-ipex4.tmpl','ubuntuipex4');"></div>
+			<div id="ubuntuipex4"></div>
+			<p>
+				Use the IP retrieved from the command above and Perform a Heartbeat check on the service:
+			</p>
+			<pre><code class="bash">$ curl -X GET "http://%example04_ip%:5013/heartbeat"</code></pre>
+			<p>
+				Example02 services runs on port 4013 making its maintenance port equal to 5013.
+			</p>
+			<h5>Response:</h5>
+			<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"EXAMPLE04","type":"rest","route":"/heartbeat"}}</code></pre>
+		</div>
+	</fieldset>
+	<fieldset>
+		<legend>Hello World</legend>
+		<div>
+			<div ng-init="loadBASH(path + '/deployment/docker/ubuntu-get-iphelloworld.tmpl','ubuntuiphelloworld');"></div>
+			<div id="ubuntuiphelloworld"></div>
+			<p>
+				Use the IP retrieved from the command above and Perform a Heartbeat check on the service:
+			</p>
+			<pre><code class="bash">$ curl -X GET "http://helloworld_ip:5020/heartbeat"</code></pre>
+			<p>
+				Hello World services runs on port 4020 making its maintenance port equal to 5020.
+			</p>
+			<h5>Response:</h5>
+			<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"HELLO_WORLD","type":"rest","route":"/heartbeat"}}</code></pre>
+			<p>
 				All is ready, see below how you can open the Dashboard UI and login as administrator.
 			</p>
 		</div>
