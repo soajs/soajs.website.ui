@@ -181,15 +181,39 @@ var navigation = [
 		'url': '#/documentation/deployment/manual'
 	},
 	{
+		'id': 'manual-mac',
+		'label': 'soajs Manual Deployment on Mac',
+		'title': 'SOAJS | Deployment | Manual Deployment on MAC',
+		'url': '#/documentation/deployment/manual-mac'
+	},
+	{
+		'id': 'manual-linux',
+		'label': 'soajs Manual Deployment on Linux',
+		'title': 'SOAJS | Deployment | Manual Deployment on Linux',
+		'url': '#/documentation/deployment/manual-linux'
+	},
+	{
 		'id': 'docker',
 		'label': 'soajs Docker Deployment',
 		'title': 'SOAJS | Deployment | Docker Deployment',
 		'url': '#/documentation/deployment/docker'
 	},
 	{
+		'id': 'docker-mac',
+		'label': 'soajs Docker Deployment on Mac',
+		'title': 'SOAJS | Deployment | Docker Deployment on MAC',
+		'url': '#/documentation/deployment/docker-mac'
+	},
+	{
+		'id': 'docker-linux',
+		'label': 'soajs Docker Deployment on Linux',
+		'title': 'SOAJS | Deployment | Docker Deployment on Linux',
+		'url': '#/documentation/deployment/docker-linux'
+	},
+	{
 		'id': 'docker-files',
 		'label': 'soajs docker-files',
-		'title': 'SOAJS | Deployment | Docker Files',
+		'title': 'SOAJS | Deployment | Docker Images',
 		'url': '#/documentation/deployment/docker-files'
 	}
 ];
