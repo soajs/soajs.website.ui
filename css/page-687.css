@@ -138,6 +138,7 @@
         background-image: url(../images/beaverAlone.png);
     }
     .beaverImg:hover{
+        background-image: url(../images/beaverAlone-hover.png);
     }
     .two{
         width: 100%;
