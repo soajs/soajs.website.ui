@@ -79,11 +79,8 @@
     div.bulletin div.body div.txt, div.bulletin div.body div.w-100{
         padding: 20px;
     }
-    #GoldfishReleaseTable, #ThornfishReleaseTable{
+    .releaseTables{
         width: 100%;
-    }
-    .pckName{
-        width: 63px;
     }
     .myTable thead th.pckName{
         word-break: keep-all;

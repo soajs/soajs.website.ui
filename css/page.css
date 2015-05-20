@@ -1233,7 +1233,7 @@ div.bulletin div.body div.img img{
 .pckVersion{
     width: 15%;
 }
-#GoldfishReleaseTable, #ClownfishReleaseTable, #ThornfishReleaseTable{
+.releaseTables{
     width: 98%;
 }
 /*********************************/
