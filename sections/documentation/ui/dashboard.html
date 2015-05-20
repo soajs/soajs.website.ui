@@ -30,21 +30,23 @@
 	<br/>
 	<hr/>
 	<h3>Customization</h3>
-	In case you wish to create  a new dashboard tenant, you need to update the key used in the UI.
-	You can do so by going to the file ui/config.js and changing the value of apiConfiguration.key.
+	You can change the default tenant key by navigating to soajs.dashboard/ui and editing the file config.js.
 	<pre><code class="javascript">/*
 Other configuration values
 */
 var apiConfiguration = {
 	domain: 'http://dashboard-api.soajs.org',
 	key: '9b96ba56ce934ded56c3f21ac9bdaddc8ba4782b7753cf07576bfabcace8632eba1749ff1187239ef1f56dd74377aa1e5d0a1113de2ed18368af4b808ad245bc7da986e101caddb7b75992b14d6a866db884ea8aee5ab02786886ecf9f25e974'
-};
+};</code></pre>
+	Change the value of key attribute as shown above.
 
-	</code></pre>
-	<br>
-	You can also update the logo displayed by going into the file
-	ui/themes/second/directives/header.tmpl and inserting your organization name instead of "soajs".
-
+	<br><br>
+	You can also update the logo displayed by navigating to
+	soajs.dashboard/ui/themes/second/directives/header.tmpl and inserting your organization name or logo instead of "soajs".
+	<pre><code class="html"><div id="header">
+		<div id="logo">soajs<br /></div>
+		<user-menu></user-menu>
+	</div> </code></pre>
 	<hr/>
 	<h3>Dashboard UI</h3>
 	<p>
