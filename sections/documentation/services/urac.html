@@ -69,13 +69,15 @@ $ node .</code></pre>
 			<div id="user-record-sample"></div>
 			<em>The following snippet represents a user record in the database.</em>
 			<br/>
+			Note that a user record is linked to a tenant through the tenant object.
 			<hr/>
 			<h3>Group Record</h3>
 			<p>
-				A group represents a list of users and is mainly used by the Access Level. Users can be part of multiple groups and a group can contain multiple users accounts. Groups are used by the ACL as shown in the <a href="#/documentation/core/acl">Access Levels</a> section under documentation when granting access to a service or a specific API in a service. A service can be public and accessible by everyone, private and require logged users or accessible by members of particular groups and in that case, the groups names are linked to the Urac Group section. The following is a sample of how a group record looks like:
+				A group represents a list of users and is mainly used by the Access Level. Users can be part of multiple groups and a group can contain multiple user accounts. Groups are used by the ACL as shown in the <a href="#/documentation/core/acl">Access Levels</a> section under documentation when granting access to a service or a specific API in a service. A service can be public and accessible by everyone, private and require logged users or accessible by members of particular groups and in that case, the groups names are linked to the Urac Group section. The following is a sample of how a group record looks like:
 			</p>
 			<div ng-init="loadCode(path + 'services/urac/groupRecord.js', 'group-record-sample');"></div>
 			<div id="group-record-sample"></div>
+			Like the user, a group record is linked to a tenant through the tenant object.
 		</tab>
 	</tabset>
 	<script>renderCodeSnippets();</script>

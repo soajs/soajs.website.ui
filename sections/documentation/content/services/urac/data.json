@@ -286,6 +286,22 @@
     "cmd": "CURL -X POST http://127.0.0.1:4000/urac/admin/addUser -d 'username=john&firstName=John&lastName=Doe&email=johndoe@domain.com'",
     "fields": [
       {
+        "parameter": "tId",
+        "type": "string",
+        "source": "body or query",
+        "mandatory": true,
+        "default": "",
+        "notes": "the Id of the tenant where this user is added"
+      },
+      {
+        "parameter": "tCode",
+        "type": "string",
+        "source": "body or query",
+        "mandatory": true,
+        "default": "",
+        "notes": "the code of the tenant"
+      },
+      {
         "parameter": "username",
         "type": "string",
         "source": "body",
@@ -324,6 +340,19 @@
         "mandatory": false,
         "default": "",
         "notes": "array of group code values"
+      }
+    ]
+  },
+  { "routeName": "admin/getUser",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/urac/admin/getUser?uId=123 ",
+    "fields": [
+      {
+        "parameter": "uId",
+        "type": "string",
+        "source": "query",
+        "mandatory": true,
+        "default": "",
+        "notes": "the user id"
       }
     ]
   },
@@ -412,15 +441,16 @@
     ]
   },
   {
-    "routeName": "admin/listusers",
-    "cmd": "CURL -X GET http://127.0.0.1:4000/urac/admin/listUsers",
+    "routeName": "admin/listUsers",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/urac/admin/listUsers?tId=789",
     "fields": [
       {
-        "parameter": "N/A",
-        "type": "",
-        "source": "",
-        "mandatory": "",
-        "notes": "This service can be invoked by adminGroup access and does not need any parameters."
+        "parameter": "tId",
+        "type": "string",
+        "source": "body or query",
+        "mandatory": false,
+        "default": "",
+        "notes": "If set, the api will return the users of a specific tenant; else the api returns all the users in the database"
       }
     ]
   },
@@ -429,11 +459,12 @@
     "cmd": "CURL -X GET http://127.0.0.1:4000/urac/admin/group/list",
     "fields": [
       {
-        "parameter": "N/A",
-        "type": "",
-        "source": "",
-        "mandatory": "",
-        "notes": "This service can be invoked by adminGroup access and does not need any parameters."
+        "parameter": "tId",
+        "type": "string",
+        "source": "body or query",
+        "mandatory": false,
+        "default": "",
+        "notes": "If set, the api will return the groups of a specific tenant; else the api returns all the groups in the database"
       }
     ]
   },
@@ -441,6 +472,22 @@
     "routeName": "admin/group/add",
     "cmd": "CURL -X POST http://127.0.0.1:4000/urac/admin/group/add -d 'code=gold&name=Gold&description=Group Description' ",
     "fields": [
+      {
+        "parameter": "tId",
+        "type": "string",
+        "source": "body or query",
+        "mandatory": true,
+        "default": "",
+        "notes": "the Id of the tenant where this group is added"
+      },
+      {
+        "parameter": "tCode",
+        "type": "string",
+        "source": "body or query",
+        "mandatory": true,
+        "default": "",
+        "notes": "the code of the tenant"
+      },
       {
         "parameter": "code",
         "type": "string",
@@ -530,6 +577,20 @@
         "mandatory": false,
         "default": "",
         "notes": "array of usernames"
+      }
+    ]
+  },
+  {
+    "routeName": "admin/all",
+    "cmd": "CURL -X GET http://127.0.0.1:4000/urac/admin/all ",
+    "fields": [
+      {
+        "parameter": "N/A",
+        "type": "",
+        "source": "",
+        "mandatory":"",
+        "default": "",
+        "notes": "This api does not need any parameters; it fetches both the users and groups of a tenant."
       }
     ]
   }

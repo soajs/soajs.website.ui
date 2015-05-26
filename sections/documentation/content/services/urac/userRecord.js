@@ -32,5 +32,9 @@ var userRecord = {
 				}
 			}
 		}
+	},
+	"tenant":{
+		"id": '54ee28cc203674ba271d57a4',
+		"code": 'TNT2'
 	}
 };
