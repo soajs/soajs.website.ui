@@ -74,6 +74,9 @@ service.init(function() {
 module.exports = {
 	"serviceName": "helloworld",
 	"servicePort": 4020,
+	"requestTimeout": 30,
+	"requestTimeoutRenewal": 5,
+	"awareness": true,
 	"extKeyRequired": false,
 	"errors": { "400": "please provide a firstName and a lastName" },
 	"schema": {
@@ -90,12 +93,15 @@ module.exports = {
 				<li><b>Line2-</b> export the JSON object when this file is required.</li>
 				<li><b>Line3-</b> specify the service name.</li>
 				<li><b>Line4-</b> specify the service port.<br/></li>
-				<li><b>Line5-</b> specify if the service is <a href="#/documentation/advanced/multitenant">multitenant</a>.</li>
-				<li><b>Line6-</b> Object containing the error codes of this service.</li>
-				<li><b>Line7-</b> Object containing service APIs schema.</li>
-				<li><b>Line8-</b> First API whose route value is /hello.</li>
-				<li><b>Line9-</b> API Information containing the label representation; displayed in <a href="#/documentation/ui/dashboard">Dashboard UI</a>.</li>
-				<li><b>Line10 & 11-</b> API parameters firstName and lastName used by <a href="#/documentation/core/imfv">IMFV</a></li>
+				<li><b>Line5-</b> specify how long (in seconds) to wait for a response before a request to the service returns a timeout.</li>
+				<li><b>Line6-</b> specify the number of attempts to reach the service, in case of a timeout.</li>
+				<li><b>Line7-</b> the awareness is enable; the service becomes aware of the controller's location.</li>
+				<li><b>Line8-</b> specify if the service is <a href="#/documentation/advanced/multitenant">multitenant</a>.</li>
+				<li><b>Line9-</b> Object containing the error codes of this service.</li>
+				<li><b>Line10-</b> Object containing service APIs schema.</li>
+				<li><b>Line11-</b> First API whose route value is /hello.</li>
+				<li><b>Line12-</b> API Information containing the label representation; displayed in <a href="#/documentation/ui/dashboard">Dashboard UI</a>.</li>
+				<li><b>Line13 & 14-</b> API parameters firstName and lastName used by <a href="#/documentation/core/imfv">IMFV</a></li>
 			</ul>
 		</tab>
 	</tabset>
