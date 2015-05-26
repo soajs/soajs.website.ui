@@ -590,7 +590,7 @@
         "source": "",
         "mandatory":"",
         "default": "",
-        "notes": "This api does not need any parameters; it fetches both the users and groups of a tenant."
+        "notes": "This api does not need any parameters; it fetches both the users and groups of all the tenants."
       }
     ]
   }
