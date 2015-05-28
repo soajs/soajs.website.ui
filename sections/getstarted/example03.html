@@ -285,7 +285,7 @@ $ node index</code></pre>
 						A successful login returns a response containing the <b>soajsauth</b> property. This property should be used in all consequent api calls that are only accessible by logged in users. Grab the <b>soajsauth</b> property and add it in the headers of the consequent request.<br/>
 						Now hit "example03/buildName" API:
 					</p>
-					<pre><code class="bash">$ curl -X GET "http://127.0.0.1:40012/buildName?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxclV4WlRGbXdvS2VtOG1rTERGZW9ocDUwSzFYdDZaaUg=" -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"</code></pre>
+					<pre><code class="bash">$ curl -X GET "http://127.0.0.1:4012/buildName?lastName=Smith" -H "soajsauth:Basic c29hanM6czAxclV4WlRGbXdvS2VtOG1rTERGZW9ocDUwSzFYdDZaaUg=" -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2"</code></pre>
 					<h6>Response:</h6>
 					<div ng-init="loadJSON(path + 'example03/error154.json', 'userTest1_154');">
 						<div id="userTest1_154"></div>
