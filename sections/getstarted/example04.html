@@ -58,7 +58,7 @@ $ node .</code></pre>
 					<p>
 						Like in <a href="#/getStarted/example02">Example02</a>, we need to login to oAuth and an access_token.
 					</p>
-					<pre><code class="bash">$ curl -X POST -H "Authorization: Basic NTRlZTIxNTBiN2E2NjlmYzIyYjdmNmI5Ok15IHNlY3JldCBwaHJhc2U=" -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://127.0.0.1:4013/token" -d 'username=oauthuser_tenant1&password=oauthpassword_tenant1&grant_type=password'</code></pre>
+					<pre><code class="bash">$ curl -X POST -H "Authorization: Basic NTRlZTIxNTBiN2E2NjlmYzIyYjdmNmI5Ok15IHNlY3JldCBwaHJhc2U=" -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://127.0.0.1:4002/token" -d 'username=oauthuser_tenant1&password=oauthpassword_tenant1&grant_type=password'</code></pre>
 					<h6>Response:</h6>
 					<div ng-init="loadJSON(path + 'example04/oauth_login.json', 'oauth_login');">
 						<div id="oauth_login"></div>
