@@ -1,0 +1,65 @@
+<div class="examples">
+	<a id="top"></a><h1>Controller</h1>
+	<div class="white-container">
+		<p>
+			SOAJS controller is the main gateway to SOAJS cloud of services and is designed to handle the awareness among your services.<br />
+			The controller checks if all the registered services are running and healthy and forwards the requests to the services.<br />
+			Once the controller is turned on, when you attempt to call a service, there is no need to specify the port anymore and you don't have to worry what port this service is using. Instead, make a call to the controller and specify the name of the service followed by the API.<br />
+		<u>Ex:</u><br />
+		Calling Example01 which runs on port 4010 as mentioned in Step2.<br />
+		<b>Previous Way:</b>
+		<pre><code class="bash">$ CURL -X GET "http://127.0.0.1:4010/testGet?firstName=John&lastName=Doe"</code></pre>
+		<b>Using Controller:</b>
+		<pre><code class="bash">$ CURL -X GET "http://127.0.0.1:4000/example01/testGet?firstName=John&lastName=Doe"</code></pre>
+		Both commands invoke the same API in the same service, the only difference this time is that you need to memorize only the controller's port.
+		</p>
+		<hr/>
+		<h3>Installation and Tests</h3>
+		<p>
+			To install and run the controller, execute the below steps:
+		</p>
+		<pre><code class="bash"># go to /opt/soajs/node_modules
+$ cd /opt/soajs/node_modules/
+
+# install and run the controller
+$ npm install soajs.controller
+$ cd soajs.controller
+$ node .</code></pre>
+		<p>
+			Once the controller is installed and started, it will run on two ports like all other services: 4000 - 5000. You can access the controller on your machine via http://127.0.0.1:4000 and http://127.0.0.1:5000.<br />
+			Perform a heartbeat check on the controller to see its status:
+		</p>
+		<fieldset>
+			<legend>Heartbeat Controller</legend>
+			<div class="insideFieldsetMain">
+				<div>
+					<pre><code class="bash">$ curl -X GET "http://127.0.0.1:5000/heartbeat"</code></pre>
+					<h6><u>Response:</u></h6>
+					<pre><code class="bash">{
+	"result":true,
+	"ts":1425054123486,
+	"service": {
+		"service":"CONTROLLER",
+		"type":"rest",
+		"route":"/heartbeat"
+	}
+}</code></pre>
+					<em>Great, controller is working fine.</em>
+					<p>
+						When a service goes down, the controller will notice that event and alert you that service x on a specific [host:port] is not healthy.
+					</p>
+				</div>
+			</div>
+		</fieldset>
+		<hr/>
+		<p>
+			You can learn more about the controller and its features in <a href="#/documentation/services/controller">Controller</a> section under documentation.
+		</p>
+		<p>
+			From this point on we will use the controller to call the APIs of our services. Now Let's jump to the next tutorial and learn about multitenancy and how it is applied.
+		</p>
+		<div style="clear:both; width:100%; display: table;">
+			<a class="small-button" href="#/getStarted/example03">Next &raquo;</a>
+		</div>
+	</div>
+</div>

@@ -47,6 +47,12 @@ var navigation = [
 		'url': '#/getStarted/example02/:anchor?'
 	},
 	{
+		'id': 'ctrl',
+		'label': 'controller',
+		'title': 'SOAJS | Get Sarted | Controller',
+		'url': '#/getStarted/controller/:anchor?'
+	},
+	{
 		'id': 'example03',
 		'label': 'example03',
 		'title': 'SOAJS | Get Sarted | Example 03',
