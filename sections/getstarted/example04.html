@@ -40,7 +40,7 @@ $ node .</code></pre>
 					<p>
 						We will hit "example04/buildName" using the key of the first application from the first tenant like we did in example03.
 					</p>
-					<pre><code class="bash">$ curl -X GET -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://127.0.0.1:4013/buildName?lastName=Smith"</code></pre>
+					<pre><code class="bash">$ curl -X GET -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://127.0.0.1:4000/example04/buildName?lastName=Smith"</code></pre>
 					<h6>Response:</h6>
 
 					<div ng-init="loadJSON(path + 'example04/tenant1_test1.json', 'tenant1_test1');">
@@ -58,7 +58,7 @@ $ node .</code></pre>
 					<p>
 						Like in <a href="#/getStarted/example02">Example02</a>, we need to login to oAuth and an access_token.
 					</p>
-					<pre><code class="bash">$ curl -X POST -H "Authorization: Basic NTRlZTIxNTBiN2E2NjlmYzIyYjdmNmI5Ok15IHNlY3JldCBwaHJhc2U=" -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://127.0.0.1:4002/token" -d 'username=oauthuser_tenant1&password=oauthpassword_tenant1&grant_type=password'</code></pre>
+					<pre><code class="bash">$ curl -X POST -H "Authorization: Basic NTRlZTIxNTBiN2E2NjlmYzIyYjdmNmI5Ok15IHNlY3JldCBwaHJhc2U=" -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://127.0.0.1:4000/oauth/token" -d 'username=oauthuser_tenant1&password=oauthpassword_tenant1&grant_type=password'</code></pre>
 					<h6>Response:</h6>
 					<div ng-init="loadJSON(path + 'example04/oauth_login.json', 'oauth_login');">
 						<div id="oauth_login"></div>
@@ -68,6 +68,7 @@ $ node .</code></pre>
 					</p>
 				</div>
 			</div>
+
 		</fieldset>
 
 		<fieldset><legend>Call API again with oAuth token</legend>
@@ -76,7 +77,7 @@ $ node .</code></pre>
 					<p>
 						We will hit "example04/buildName" again with "access_token" as an additional query parameter:
 					</p>
-					<pre><code class="bash">$ curl -X GET -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://127.0.0.1:4013/buildName?lastName=Smith&access_token=e59104df7256d2d0a77771303ea81fd68ed39e45"</code></pre>
+					<pre><code class="bash">$ curl -X GET -H "key:4232477ed993d167ec13ccf8836c29c400fef7eb3d175b1f2192b82ebef6fb2d129cdd25fe23c04f856157184e11f7f57b65759191908cb5c664df136c7ad16a56a5917fdeabfc97c92a1f199e457e31f2450a810769ff1b29269bcb3f01e3d2" "http://127.0.0.1:4000/example04/buildName?lastName=Smith&access_token=e59104df7256d2d0a77771303ea81fd68ed39e45"</code></pre>
 					<h6>Response:</h6>
 					<div ng-init="loadJSON(path + 'example04/response1.json', 'response1');">
 						<div id="response1"></div>

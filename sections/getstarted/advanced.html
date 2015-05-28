@@ -16,7 +16,12 @@
 			SOAJS controller is designed to handle the awareness among your services. The controller checks if all the registered services are running and healthy on a regular basis. Upon start, it makes a list of all the services IP addresses and ports and checks their status. It refreshes that list on a regular basis. If a service with several instances running thus providing redundancy for example and one of them becomes unreachable for a certain reason, the controller detects that change and notifies you that this service for this IP address is not healthy anymore and unreachable.
 		</p>
 		<p>
-			You can have multiple controllers running at the same time. Should one go down, the others remain functional and your cloud remains accessible and working. Controllers also distribute the load on the services; if you have 4 controllers where each controller forwards requests to 4 instances of a service, then your cloud performance will highly increase and traffic handling becomes faster.<br />
+			You can have multiple controllers running at the same time. Should one go down, the others remain functional and your cloud remains accessible and working. Controllers also distribute the load on the services; if you have 4 controllers where each controller forwards requests to 4 instances of a service, then your cloud performance will highly increase and traffic handling becomes faster.
+		</p>
+		<p>
+			You can learn more about the controller and its features in <a href="#/documentation/services/controller">Controller</a> section under documentation.
+		</p>
+		<p>
 			The following image demonstrates the architecture of how controllers work with SOAJS services as well as presence of multiple controller instances communicating with multiple services instances in SOAJS's cloud.
 			<img ng-src="images/documentation/deployment-2-options.png" class="full-image" />
 		</p>
@@ -27,57 +32,6 @@
 			You also notice that the image on the left has Nginx as its first layer whereas the one on the right doesn't. Nginx is used as the first layer if you have static content, want to use certificates, optimize HTTP connections, caching and high-performance HTTP compression...etc</p>
 		<p>
 			Nginx is added as the first layer but SOAJS cloud does not need Nginx to work thus the image on the right. SOAJS doesn't force you to have the above architecture as well, you can create as many instances as you want and distribute them on your machines depending on the traffic you have; the above images are a simple suggestion of how you can have a cloud with multiple services and redundancy running.
-		</p>
-		<hr/>
-		<h3>Installation and Tests</h3>
-		<p>
-			To install and run the controller, execute the below steps:
-		</p>
-		<pre><code class="bash"># go to /opt/soajs/node_modules
-$ cd /opt/soajs/node_modules/
-
-# install and run the controller
-$ npm install soajs.controller
-$ cd soajs.controller
-$ node .</code></pre>
-		<p>
-			Once the controller is installed and started, it will run on two ports like all other services: 4000 - 5000. You can access the controller on your machine via http://127.0.0.1:4000 and http://127.0.0.1:5000.<br />
-			Perform a heartbeat check on the controller to see its status:
-		</p>
-		<fieldset>
-			<legend>Heartbeat Controller</legend>
-			<div class="insideFieldsetMain">
-				<div>
-					<pre><code class="bash">$ curl -X GET "http://127.0.0.1:5000/heartbeat"</code></pre>
-					<h6><u>Response:</u></h6>
-					<pre><code class="bash">{
-	"result":true,
-	"ts":1425054123486,
-	"service": {
-		"service":"CONTROLLER",
-		"type":"rest",
-		"route":"/heartbeat"
-	}
-}</code></pre>
-					<em>Great, controller is working fine.</em>
-					<p>
-						When a service goes down, the controller will notice that event and alert you that service x on a specific [host:port] is not healthy.
-					</p>
-				</div>
-			</div>
-		</fieldset>
-		<p>
-			In addition to the awareness, SOAJS controller is used as the main gateway to SOAJS cloud of services. Once the controller is turned on, when you attempt to call a service, there is no need to specify the port anymore and you don't have to worry what port this service is using. Instead, make a call to the controller and specify the name of the service followed by the API of that service.<br />
-			<u>Ex:</u><br />
-			Calling Example01 which runs on port 4010 as mentioned in Step2.<br />
-			<b>Previous Way:</b>
-			<pre><code class="bash">$ CURL -X GET "http://127.0.0.1:4010/testGet?firstName=John&lastName=Doe"</code></pre>
-			<b>Using Controller:</b>
-			<pre><code class="bash">$ CURL -X GET "http://127.0.0.1:4000/example01/testGet?firstName=John&lastName=Doe"</code></pre>
-			Both command invoke the same API in the same service, the only difference this time is that you need to memorize only the controller's port.
-		</p>
-		<p>
-			You can learn more about the controller and its features in <a href="#/documentation/services/controller">Controller</a> section under documentation.
 		</p>
 		<hr/>
 		<h3>Dashboard</h3>
