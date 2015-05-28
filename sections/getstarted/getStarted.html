@@ -5,6 +5,13 @@
 		<p>
 			Service-Oriented Architecture built using JavaScript (SOAJS). Its services can be combined to provide the functionality of a large software application. Each Service is a collection of APIs easily managed by SOAJS framework and productized with multitenant capability. Its embedded self-awareness makes it easier to scale both horizontally and vertically letting all services running on the cloud to communicate effortless and form a massive reliable and scalable infrastructure to empower the communication between the product frontend and backend. SOAJS comes with tons of features, implementing SOAJS framework means getting a boost start of at least 50%.
 		</p>
+		<p>
+			You can install SOAJS as follow:
+		</p>
+		<ul>
+			<li><a href="#/documentation/deployment/manual" target="_blank">Manual</a> installation</li>
+			<li><a href="#/documentation/deployment/docker" target="_blank">Docker</a> installation</li>
+		</ul>
 		<hr/>
 		<h3>Hello World</h3>
 		<p>
@@ -141,7 +148,7 @@ $ CURL -X GET "http://127.0.0.1:4020/hello?firstName=John&lastName=Doe"</code></
 }</code></pre>
 		<em>I told you it's protected!</em>
 		<p>
-			In order to access your service API, you need a vaild to be added to your request. SOAJS provides you with a full blown oAuth 2.0 service that you can take advantage of instantly. Install <a href="https://npmjs.org/packages/soajs.oauth" target="_blank">soajs.oauth</a> package and run it:
+			In order to access your service API, you need a valid "access_token" to be added to your request. SOAJS provides you with a full blown oAuth 2.0 service that you can take advantage of instantly. Install <a href="https://npmjs.org/packages/soajs.oauth" target="_blank">soajs.oauth</a> package and run it:
 		</p>
 		<pre><code class="bash">$ cd /opt/soajs/node_modules/
 $ npm install soajs.oauth
