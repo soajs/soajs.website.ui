@@ -1,0 +1,74 @@
+[
+  {
+    "name": "type",
+    "description": "The type of the field, should be one of the values of the forth column",
+    "type": "String",
+    "available": "text | password | email | number | phone | url | readonly | textarea | radio | checkbox | select | multi-select | date-picker | html"
+  },
+  {
+    "name": "name",
+    "description": "Name of the Field",
+    "type": "String",
+    "available": "text | password | email | number | phone | url | readonly | textarea | radio | checkbox | select | multi-select | date-picker | html"
+  },
+  {
+    "name": "label",
+    "description": "Label of the field",
+    "type": "String",
+    "available": "text | password | email | number | phone | url | readonly | textarea | radio | checkbox | select | multi-select | date-picker | html"
+  },
+  {
+    "name": "required",
+    "description": "Specify if input is required or not",
+    "type": "Boolean",
+    "available": "text | password | email | number | phone | url | readonly | textarea | radio | checkbox | select | multi-select | date-picker | html"
+  },
+  {
+    "name": "fieldMsg",
+    "description": "Optional text to display below input",
+    "type": "String",
+    "available": "text | password | email | number | phone | url | readonly | textarea | radio | checkbox | select | multi-select | date-picker | html"
+  },
+  {
+    "name": "placeholder",
+    "description": "Optional text to by default as input placeholder",
+    "type": "String",
+    "available": "text | email | number | phone | url | readonly | textarea"
+  },
+  {
+    "name": "tooltip",
+    "description": "Optional text to display in a tooltip above input when mouse is over input",
+    "type": "String",
+    "available": "text | password | email | number | phone | url | textarea | radio | checkbox | select | multi-select | date-picker"
+  },
+  {
+    "name": "rows",
+    "description": "Optional number of rows in a textarea",
+    "type": "integer",
+    "available": "textarea"
+  },
+  {
+    "name": "min",
+    "description": "Minimum starting date value",
+    "type": "date",
+    "available": "date-picker"
+  },
+  {
+    "name": "value",
+    "description": "The value of the input",
+    "type": "String",
+    "available": "text | password | email | number | phone | url | readonly | textarea | html"
+  },
+  {
+    "name": "value",
+    "description": "Array of available value and which are selected by default.<br /><u>Ex:</u> [ {\"v\": \"value1\", \"l\": \"Value 1\", \"selected\": true}, {\"v\": \"value2\", \"l\": \"Value 2\"} ]",
+    "type": "Array",
+    "available": "select | radio | checkbox | multi-select"
+  },
+  {
+    "name": "value",
+    "description": "The value of the date picker",
+    "type": "date",
+    "available": "date-picker"
+  }
+]

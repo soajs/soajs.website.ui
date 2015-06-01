@@ -1,0 +1,80 @@
+[
+  {
+    "name": "id",
+    "type": "String",
+    "mandatory": "YES",
+    "description": "HTML Id of a module's page"
+  },
+  {
+    "name": "label",
+    "type": "String",
+    "mandatory": "YES",
+    "description": "Module page label used by the Menu(s) & the Tracker"
+  },
+  {
+    "name": "url",
+    "type": "String",
+    "mandatory": "YES",
+    "description": "Module's page link ( should always start with \"#/\" )"
+  },
+  {
+    "name": "scripts",
+    "type": "Array",
+    "mandatory": "YES",
+    "description": "The location of the javascript files this page requires, each entry refers to one file"
+  },
+  {
+    "name": "tplPath",
+    "type": "String",
+    "mandatory": "YES",
+    "description": "The location of the module's page default html directive"
+  },
+  {
+    "name": "checkPermission",
+    "type": "Object",
+    "mandatory": "NO",
+    "description": "This object contains the module's page permission, the user's ACL is matched against this entry to determine if the page is accessiblew"
+  },
+  {
+    "name": "icon",
+    "type": "String",
+    "mandatory": "NO",
+    "description": "An optional icon that shows up in the menu(s), given to the default page of the module."
+  },
+  {
+    "name": "tracker",
+    "type": "Boolean",
+    "mandatory": "NO",
+    "description": "If set to true, then breadcrumbs are enabled and displayed above the module"
+  },
+  {
+    "name": "ancestor",
+    "type": "Array",
+    "mandatory": "NO",
+    "description": "If tracker is set to true, displays the list of parent breadcrumbs based on this array, up to the module's page"
+  },
+  {
+    "name": "mainMenu",
+    "type": "Boolean",
+    "mandatory": "NO",
+    "description": "If set to true, the module has an entry in the main menu"
+  },
+  {
+    "name": "footerMenu",
+    "type": "Boolean",
+    "mandatory": "NO",
+    "description": "If set tot true, the module has an entry in the footer menu"
+  },
+  {
+    "name": "userMenu",
+    "type": "Boolean",
+    "mandatory": "NO",
+    "description": "If set tot true, the module has an entry in the user menu (this menu shows up for logged in members only)"
+  },
+  {
+    "name": "guestMenu",
+    "type": "Boolean",
+    "mandatory": "NO",
+    "description": "If set tot true, the module has an entry in the guest menu (this menu shows up for non logged in members only)"
+  }
+]

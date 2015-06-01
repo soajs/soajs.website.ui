@@ -1,0 +1,139 @@
+<a id="module"></a>
+<h1>Dashboard UI Listing Grid</h1>
+<div class="white-container">
+	<p>
+		The Grid is a UI library that provides an organized display of data records. The library is available in Dashboard UI and can be invoked by any module. The Grid offers the following Features:
+	</p>
+	<table width="100%" class="myTable">
+		<thead>
+			<tr>
+				<th>Feature</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Sorting</td>
+				<td>Change the sorting of your data based on column names</td>
+			</tr>
+			<tr class="even">
+				<td>Pagination</td>
+				<td>Breaks the data list into pages, provides First - Next - Previous - Last and page numbering navigation</td>
+			</tr>
+			<tr>
+				<td>Filtering</td>
+				<td>Narrow down the data records based on keyword(s) entered in the filter box</td>
+			</tr>
+			<tr class="even">
+				<td>RRP</td>
+				<td>Change the Records Per Page Limit</td>
+			</tr>
+			<tr>
+				<td>SRO</td>
+				<td>Attach functionality to perform Single Record Operation(s)</td>
+			</tr>
+			<tr class="even">
+				<td>MRO</td>
+				<td>Attach functionality to perform Multi Record Operation(s)</td>
+			</tr>
+		</tbody>
+	</table>
+	<br/>
+	<hr/>
+	<h3>Usage</h3>
+	<p>
+		The Grid requires a configuration object that includes the above features and the scope of the module to function. The below table explains the parameters passed on to the grid constructor.
+	</p>
+	<table width="100%" class="myTable">
+		<thead>
+			<tr>
+				<th>Parameter</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Scope</td>
+				<td>The scope of the module's controller, refer to <a href="#/documentation/ui/module">Create UI Module</a> for more information.</td>
+			</tr>
+			<tr class="even">
+				<td>Configuration</td>
+				<td>A configuration object that contains the data, the features and functionality the grid is requested to provide.</td>
+			</tr>
+		</tbody>
+	</table>
+	<br/>
+	<b>Code Sample:</b>
+	<pre><code class="javascript">//create a grid configuration object
+var config = {
+	"grid": {
+		//specify the list of columns the grid should render
+		'columns': [
+			{'label': 'Username', 'field': 'username'},
+			{'label': 'First Name', 'field': 'firstName'},
+			{'label': 'Last Name', 'field': 'lastName'},
+			{'label': 'Email', 'field': 'email'},
+			{'label': 'Status', 'field': 'status'},
+			{'label': 'Last Login', 'field': 'lastLogin', 'filter': 'date'}
+		],
+
+		//specify the RRP values
+		'recordsPerPageArray': [5, 10, 50, 100],
+
+		//specify the default RRP limit otherwise Grid will use first entry from above array (optional)
+		'defaultLimit': 10,
+	},
+
+	//specify the default sorting column otherwise the grid will use the first column (optional)
+	'defaultSortField': 'username',
+
+	//provide the array or records objects that the grid should render
+	"data": myDataRecords,
+
+	//specify the list of SRO operations
+	'left': [
+		{
+			'label': 'Edit',            //operation label shows up on hover
+			'icon': 'pencil2',          //operation icon, shows up in grid (optional)
+			'handler': 'editMember'     //name of the function that will be invoked when this operation is requested
+		},
+		{
+			'label': 'Update ACL',
+			'icon': 'unlocked',
+			'handler': 'updateAcl'
+		}
+	],
+
+	//specify the list of MRO operations
+	'top': [
+		{
+			'label': 'Suspend Members', //operation label shows up in the Top Actions Menu
+			'msg': "Are you sure you want to suspend the selected member(s)?", //text to include in confirm popup
+			'handler': 'suspend'        //name of the function that will be invoked when this Operation is requested
+		},
+		{
+			'label': 'Active Members',
+			'msg': "Are you sure you want to activate the selected member(s)?",
+			'handler': 'activate'
+		}
+	]
+};
+
+//call the grid and pass on the configuration object
+buildGrid($scope, config);</code></pre>
+	<p>
+		The above code snippets demonstrates how the grid configuration should be. When <b>buildGrid</b> was invoked, the <b>$scope</b> of the module was passed. The grid uses the $scope parameter when attempting to invoke an SRO or MRO operation since the later are not part of his scope.
+	</p>
+	<hr/>
+	<h3>Custom Operations</h3>
+	<p>
+		The Grid does not contain the code of the SRO or MRO operations because it does not know what your module business logic is about, it only provides you with the mean to invoke them.
+	</p>
+	<ul>
+		<li>When the grid invokes an SRO operation, it passes the record data to it. It is up to you to decide what to with that data.</li>
+		<li>When the grid invokes an MRO operation, and since the later is applied on multiple records, the grid passes a list that contains the selected records only. It is also up to you to decide what to do with these records.</li>
+	</ul>
+	<p>
+		Navigate to <a href="#/documentation/ui/module">Create UI Module</a> and see how you can include the grid in your UI Module.
+	</p>
+</div>

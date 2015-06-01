@@ -1,0 +1,8 @@
+<section ng-controller="myModuleCtrl">
+	<div>
+		<!-- if scope.access.add is allowed, show button-->
+		<input type="button" value="Add New Entry" ng-click="addEntry();" ng-if="access.add" />
+		<!-- UI Grid directive -->
+		<nglist></nglist>
+	</div>
+</section>

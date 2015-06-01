@@ -181,6 +181,30 @@ var navigation = [
 		'url': '#/documentation/ui/dashboard'
 	},
 	{
+		'id': 'module',
+		'label': 'soajs dashboard module',
+		'title': 'SOAJS | Documentation | Dashboard Module',
+		'url': '#/documentation/ui/module'
+	},
+	{
+		'id': 'services',
+		'label': 'soajs dashboard services',
+		'title': 'SOAJS | Documentation | Dashboard UI Common Functions',
+		'url': '#/documentation/ui/services'
+	},
+	{
+		'id': 'grid',
+		'label': 'soajs dashboard grid',
+		'title': 'SOAJS | Documentation | Dashboard Grid',
+		'url': '#/documentation/ui/grid'
+	},
+	{
+		'id': 'form',
+		'label': 'soajs dashboard form',
+		'title': 'SOAJS | Documentation | Dashboard Form',
+		'url': '#/documentation/ui/form'
+	},
+	{
 		'id': 'manual',
 		'label': 'soajs Manual Deployment',
 		'title': 'SOAJS | Deployment | Manual Deployment',

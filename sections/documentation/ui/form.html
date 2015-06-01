@@ -1,0 +1,176 @@
+<a id="form"></a>
+<h1>Dashboard UI Form</h1>
+<div class="white-container">
+	<p>
+		The Form is a UI library that generates a form look and feel to add/update the data and submit the changes. The library is available in Dashboard UI and can be invoked by any module. The Form offers the following Features:
+	</p>
+	<table width="100%" class="myTable">
+		<thead>
+			<tr>
+				<th>Feature</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td width="15%">Rendering</td>
+				<td>The form is provided with a fields array, each field is represented by a configuration object that states how it should be rendered. Based on these configuration objects, the form is populated.</td>
+			</tr>
+			<tr class="even">
+				<td>Operation Attaching</td>
+				<td>The form is passed on a list provided with the list buttons that will be displayed below the fields populate and the operations that should be triggered when these buttons are pressed.</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		The form can be populated in two methods:
+	</p>
+	<ul>
+		<li><b>Page Form:</b> The form will be populated and the hooks are attached, a display <a target="_blank" href="https://docs.angularjs.org/guide/directive">directive</a> is generated <b>ngform</b>. You can then use this directive anywhere on your page to print the form.</li>
+		<li><b>Modal Form:</b> The form will be populated and the hooks are attached, however the form uses the <b>Modal</b> feature of AngularJS's <a target="_blank" href="http://angular-ui.github.io/bootstrap/">Bootstrap</a> and injects its <b>ngform</b> directive in it.</li>
+	</ul>
+	<hr/>
+	<h3>Usage</h3>
+	<p>
+		The Form requires a configuration object that includes the fields and actions it needs to populate. Since the form can be displayed in two methods as explained above, there are two constructors provided to build it. The below table explains the parameters passed on to the form constructors.
+	</p>
+	<b>Build Form:</b>
+	<table width="100%" class="myTable">
+		<thead>
+			<tr>
+				<th>Parameter</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Scope</td>
+				<td>The scope of the module's controller, refer to <a href="#/documentation/ui/module">Create UI Module</a> for more information.</td>
+			</tr>
+			<tr class="even">
+				<td>Configuration</td>
+				<td>A configuration object that contains the fields and operations.</td>
+			</tr>
+		</tbody>
+	</table>
+	<br/>
+	<b>Build Form in Modal:</b>
+	<table width="100%" class="myTable">
+		<thead>
+			<tr>
+				<th>Parameter</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Scope</td>
+				<td>The scope of the module's controller, refer to <a href="#/documentation/ui/module">Create UI Module</a> for more information.</td>
+			</tr>
+			<tr class="even">
+				<td >Modal</td>
+				<td>An instance of the Modal feature from AngularJS's <a target="_blank" href="http://angular-ui.github.io/bootstrap/">Bootstrap</a>.</td>
+			</tr>
+			<tr >
+				<td>Configuration</td>
+				<td>A configuration object that contains the fields and operations.</td>
+			</tr>
+		</tbody>
+	</table>
+	<br/>
+	<b>Code Samples:</b>
+	<pre><code class="javascript">//create a form configuration object
+var config = {
+	"form": {
+		//specify the list of inputs and how they should be rendered
+		"entries": [
+			{
+				'name': 'username',
+				'label': 'Username',
+				'type': 'text',
+				'placeholder': 'Enter Username...',
+				'value': '',
+				'tooltip': 'Usernames are alphanumeric and support _ & - characters only',
+				'required': true
+			},
+			{
+				'name': 'email',
+				'label': 'Email',
+				'type': 'email',
+				'placeholder': 'Enter Email...',
+				'value': '',
+				'tooltip': 'myemail@example.domain',
+				'required': true
+			}
+		]
+	},
+
+	//give your form a machine name
+	"name": 'addMember',
+
+	//add a label for your form, it will show in the form's header
+	"label": 'Add New Member',
+
+	//attach some action buttons to the form
+	"actions":[
+		{
+			'type': 'submit',               //button type
+			'label': 'Add Member',          //button label
+			'btn': 'primary',               //button class name (AngularJs's Bootstrap)
+			'action': function(formData) {  //operation function, returns the data entered in the form
+				//add your business logic here
+			}
+		},
+		{
+			'type': 'reset',
+			'label': 'Cancel',
+			'btn': 'danger',
+			'action': function(formData) {
+				//add your business logic here
+			}
+		}
+	]
+};
+
+//call buildForm
+buildForm($scope, config);
+
+//call buildForm
+buildFormWithModal($scope, $modal, config);</code></pre>
+	<em>The above code snippets demonstrates how the form configuration should be.</em>
+	<br/>
+	<hr/>
+	<h3>Supported Inputs</h3>
+	<p>
+		The Form supports several types of field rendering displays; field rendering configuration differ to support the different types of how fields could be rendered.
+	</p>
+	<table width="100%" class="myTable">
+		<thead>
+			<tr>
+				<th width="10%">Property Name</th>
+				<th width="10%">Property Type</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="field in form" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
+				<td colspan="3">
+					<table width="100%">
+						<tr>
+							<td width="10%">{{field.name}}</td>
+							<td width="10%">{{field.type}}</td>
+							<td ng-bind-html="field.description"></td>
+						</tr>
+						<tr>
+							<td><b>Available:</b></td>
+							<td colspan="2">{{field.available}}</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		Navigate to <a href="#/documentation/ui/module">Create UI Module</a> and see how you can include the form in your UI Module.
+	</p>
+</div>
