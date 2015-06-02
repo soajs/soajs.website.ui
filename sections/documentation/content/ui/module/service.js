@@ -61,12 +61,12 @@ myModuleService.service('myModuleSrv', ['$timeout', '$http', function($timeout, 
 				"form": {
 					"entries": [
 						{
-							'name': 'name',
-							'label': 'Name',
+							'name': 'title',
+							'label': 'Title',
 							'type': 'text',
 							'placeholder': 'My Entry...',
 							'value': '',
-							'tooltip': 'Give your entry a name',
+							'tooltip': 'Give your entry a title',
 							'required': true
 						},
 						{
@@ -85,7 +85,7 @@ myModuleService.service('myModuleSrv', ['$timeout', '$http', function($timeout, 
 				"actions": [
 					{
 						'type': 'submit',               //button type
-						'label': 'Add Member',          //button label
+						'label': 'Add Entry',          //button label
 						'btn': 'primary',               //button class name (AngularJs's Bootstrap)
 						'action': submitAction
 					},
