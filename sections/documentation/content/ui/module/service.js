@@ -18,7 +18,10 @@ myModuleService.service('myModuleSrv', ['$timeout', '$http', function($timeout, 
 		'getEntriesFromAPI': function(opts, callback) {
 			var config = {
 				url: opts.url,
-				method: opts.method
+				method: opts.method,
+				headers:{
+					'Content-Type': 'application/json'
+				}
 			};
 			callAPI(config, callback);
 		},
@@ -28,7 +31,10 @@ myModuleService.service('myModuleSrv', ['$timeout', '$http', function($timeout, 
 				url: opts.url,
 				method: opts.method,
 				data: opts.data,
-				json: true
+				json: true,
+				headers:{
+					'Content-Type': 'application/json'
+				}
 			};
 			callAPI(config, callback);
 		},
@@ -49,7 +55,7 @@ myModuleService.service('myModuleSrv', ['$timeout', '$http', function($timeout, 
 					{
 						'icon': 'search',
 						'label': 'View Item',
-						'handler': 'viewItem'
+						'handler': 'viewEntry'
 					}
 				]
 			};
@@ -58,6 +64,7 @@ myModuleService.service('myModuleSrv', ['$timeout', '$http', function($timeout, 
 
 		'buildForm': function($scope, $modal, submitAction) {
 			var config = {
+				"timeout": $timeout,
 				"form": {
 					"entries": [
 						{

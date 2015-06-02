@@ -1,6 +1,8 @@
 "use strict";
 var myModule = soajsApp.components;
 myModule.controller('myModuleCtrl', ['$scope', '$modal', 'myModuleSrv', function($scope, $modal, myModuleSrv) {
+	$scope.$parent.isUserLoggedIn();
+
 	//define the permissions
 	var permissions = {
 		'list': ['myService', '/list'],
@@ -15,7 +17,7 @@ myModule.controller('myModuleCtrl', ['$scope', '$modal', 'myModuleSrv', function
 	//function that lists the entries in a grid
 	$scope.listEntries = function() {
 		var opts = {
-			"url": "/myService/list",
+			"url": "http://dashboard-api.soajs.org:4000/myService/list",
 			"method": "get"
 		};
 		myModuleSrv.getEntriesFromAPI(opts, function(error, response) {
@@ -23,7 +25,7 @@ myModule.controller('myModuleCtrl', ['$scope', '$modal', 'myModuleSrv', function
 				$scope.$parent.displayAlert('danger', error.message);
 			}
 			else {
-				myModuleSrv.printGrid($scope, response);
+				myModuleSrv.printGrid($scope, response.data);
 			}
 		});
 	};
@@ -39,7 +41,7 @@ myModule.controller('myModuleCtrl', ['$scope', '$modal', 'myModuleSrv', function
 
 			var submit = function(formData) {  //operation function, returns the data entered in the form
 				var opts = {
-					url: "/myService/add",
+					url: "http://dashboard-api.soajs.org/myService/add",
 					method: "post",
 					data: formData
 				};
@@ -51,6 +53,7 @@ myModule.controller('myModuleCtrl', ['$scope', '$modal', 'myModuleSrv', function
 						$scope.$parent.displayAlert('success', "Your entry has beend added.");
 						$scope.form.formData = {};
 						$scope.modalInstance.close();
+						$scope.listEntries();
 					}
 				});
 			};
