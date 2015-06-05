@@ -221,7 +221,7 @@ $ node index</code></pre>
 		<hr/>
 		<h4>User Level</h4>
 		<p>
-			As we have seen so far, tenants and products can have different ACL permissions on a service but they are not the only ones to have permissions. When we imported the data, we created 3 users records in the database, each user record has different permissions that the other. The table below demonstrates what permissions these users have.
+			As we have seen so far, tenants and products can have different ACL permissions on a service but they are not the only ones to have permissions. When we imported the data, we created 3 users records in the database, each user record has different permissions than the other. The table below demonstrates what permissions these users have.
 		</p>
 		<table width="100%" class="myTable">
 			<thead>
@@ -267,7 +267,7 @@ $ node index</code></pre>
 		</table>
 		<p>
 			The above table shows 3 users each overriding the permissions of either his tenant, or the package of that tenant or both. In addition 2 users have the ability to change the name of the tenant.<br /><br />
-			The idea here is to show that a user can override the ACL permissions of the tenant it belongs to AND/OR the package that his tenant is using. Adding to that, and since tenants can provide different configuration to a service, the user also has the ability ot change that configuration which is "tenant name" in this case that we are only using for display purposes.<br /><br />
+			The idea here is to show that a user can override the ACL permissions of the tenant it belongs to AND/OR the package that his tenant is using. Adding to that, and since tenants can provide different configuration to a service, the user also has the ability to change that configuration which is "tenant name" in this case that we are only using for display purposes.<br /><br />
 			Now let's make some calls to the APIs of this service using the different cases from the above table.
 		</p>
 		<br/>
@@ -325,7 +325,7 @@ $ node index</code></pre>
 						<div id="user2_app2_response"></div>
 					</div>
 					<p>
-						User 2 overrides the package ACL and provides full access to Exampl03 APIs. He can invoke both <b>buildName</b> and <b>testGet</b>.
+						User 2 overrides the package ACL and provides full access to Example03 APIs. He can invoke both <b>buildName</b> and <b>testGet</b>.
 					</p>
 				</div>
 			</div>
@@ -367,7 +367,7 @@ $ node index</code></pre>
 		</fieldset>
 		<hr/>
 		<h3>Service Code</h3>
-		<b>Example03</b> has a different configuration that the previous two. Here we notice that acl, multitenant, security and session have been set to true in the constructor. In this configuration we turned on the security and acl to check who has access to the service APIs, we turned on multitenant so that the service can work with different tenants and we turned on the session to create a persistent session for users.
+		<b>Example03</b> has a different configuration than the previous two. Here we notice that acl, multitenant, security and session have been set to true in the constructor. In this configuration we turned on the security and acl to check who has access to the service APIs, we turned on multitenant so that the service can work with different tenants and we turned on the session to create a persistent session for users.
 
 		<tabset>
 			<tab heading="index.js"><br/>
