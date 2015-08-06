@@ -181,6 +181,12 @@ var navigation = [
 		'title': 'SOAJS | Documentation | oAuth',
 		'url': '#/documentation/services/oauth'
 	},
+    {
+        'id': 'gcs',
+        'label': 'soajs gcs',
+        'title': 'SOAJS | Documentation | GCS',
+        'url': '#/documentation/services/gcs'
+    },
 	{
 		'id': 'dashboard',
 		'label': 'soajs dashboard',
