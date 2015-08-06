@@ -132,6 +132,13 @@ var navigation = [
 
 		'url': '#/documentation/core/packages'
 	},
+    {
+        'id': 'mongo',
+        'label': 'soajs mongo',
+        'title': 'SOAJS | Documentation | Mongo Adapter',
+
+        'url': '#/documentation/db/mongo'
+    },
 	{
 		'id': 'overview',
 		'label': 'soajs features overview',
