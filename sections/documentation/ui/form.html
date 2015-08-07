@@ -170,7 +170,103 @@ buildFormWithModal($scope, $modal, config);</code></pre>
 			</tr>
 		</tbody>
 	</table>
-	<p>
-		Navigate to <a href="#/documentation/ui/module">Create UI Module</a> and see how you can include the form in your UI Module.
-	</p>
+    <br/>
+    <hr/>
+    <h3>File Handling:</h3>
+    <p>
+        The Form Library provides support for 4 media types: Documents - Images - Audio Tracks - Videos.<br />
+        Media inputs have special treatment in the form library. When provided, every input can have multiple medias, grouped under it.<br />
+    </p>
+    <h4>Declaring a media input:</h4>
+    <pre><code class="javascript">{
+    'name': 'my_files',
+    'label': 'My Files',
+    'type': 'document',
+    'limit': 1,
+    'value': []
+}</code></pre>
+    <p>
+        The above snippet shows how a media input named my_files of type document with a maximum limit of 1 media is provided to the form library.
+        The above code will result in an input of type file, for the user to browse and select a file to be uploaded.<br />
+    </p>
+    <br/>
+    <h4>Modifying an existing media input:</h4>
+    <p>
+        Files should be stored in GridFS and not on the file system, this guarantees that if a service goes down, the data will not be lost.<br />
+        The form adds 2 event listeners to every value in an existing media input: download - removeFile.<br />
+        These listeners are used to either call a service API and download the original version of the media or to trigger a remove operation. Therefore when attempting to replace/remove an existing media input, additional information should be supplied.
+    </p>
+    <pre><code class="javascript">{
+    'name': 'my_files',
+    'label': 'My Files',
+    'type': 'document',
+    'limit': 1,
+    'value': [
+        {
+            '_id': '5551aca9e179c39b760f7a1a',
+            'routeName': '/my_service/files/download',
+            'headers': {
+                'soajsauth': 'soajs_authentication_token'
+            },
+            'params': {
+                'env': 'dev'
+            },
+            'metadata': {
+                'mime': 'text/plain'
+            },
+            'contentType': 'text/plain',
+            'filename': 'my_file.txt'
+        }
+    ]
+}</code></pre>
+    <p>
+        The above snippet demonstrates how a media input should be provided to the form for editing. The following table explains the entries of every object inside the array:
+    </p>
+    <table class="myTable" width="100%">
+        <thead>
+            <tr>
+                <th>Property</th>
+                <th>Description</th>
+                <th>Computed</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>_id</td>
+                <td>The id of the file in GridFS.</td>
+                <td>YES</td>
+            </tr>
+            <tr class="even">
+                <td>routeName</td>
+                <td>The Service API that should be called to download the original copy of this file.</td>
+                <td>NO</td>
+            </tr>
+            <tr>
+                <td>headers</td>
+                <td>Any optional headers that need to be provided when calling the service APIs to either download or remove the file.</td>
+                <td>NO</td>
+            </tr>
+            <tr class="even">
+                <td>params</td>
+                <td>Any optional params that need to be provided when calling the service APIs to either download or remove the file.</td>
+                <td>NO</td>
+            </tr>
+            <tr>
+                <td>metadata</td>
+                <td>Computed Object by GridFS that contains the mime type information of the file.</td>
+                <td>YES</td>
+            </tr>
+            <tr class="even">
+                <td>contentType</td>
+                <td>A computed value by GridFS representing the mimetype of the file</td>
+                <td>YES</td>
+            </tr>
+            <tr>
+                <td>filename</td>
+                <td>Computed value by GridFS representing the name of the file without special characters and spaces.</td>
+                <td>YES</td>
+            </tr>
+        </tbody>
+    </table>
+    <br/>
 </div>
