@@ -1,11 +1,167 @@
 <a id="manual-deployment"></a>
 <h1>Manual Deployment</h1>
 <div class="white-container">
-	<p>
-		In this section we will show you how to download, install and deploy SOAJS on your machine. SOAJS can be installed on your machine with a few steps. Click on the link below based on the machine type you are using:
-	</p>
-	<ul>
-		<li><b>Linux:</b> Install SOAJS  on <a href="#/documentation/deployment/manual-linux">Linux</a></li>
-		<li><b>MAC:</b> Install SOAJS  on a <a href="#/documentation/deployment/manual-mac">MAC</a></li>
-	</ul>
+    <p>
+        SOAJS can be deployed manually on both Linux and MAC platforms.<br />Begin by creating the following folder schema so you can place SOAJS and its components inside it:
+    </p>
+	<pre><code class="bash"># soajs modules go here
+$ mkdir -p /opt/soajs/node_modules/</code></pre>
+    <p>
+        In the next steps, you will install all SOAJS modules inside node_module folder. This way when you create your services, place your code next to the node_modules folder and simply require soajs in your code and it will be loaded.
+    </p>
+    <hr/>
+    <h3>Installation</h3>
+    <p>
+        SOAJS can be installed manually on your machine with 4 simple steps:
+    </p>
+    <h4><u>Step1</u></h4>
+    <p>
+        SOAJS is built using NodeJs and uses MongoDB therefore you need to have NodeJs and MongoDB installed and running on your machine.
+    </p>
+    <b>Ubuntu:</b>
+	<pre><code class="bash"># install NodeJs latest stable version
+$ apt-get install nodejs
+
+# install NPM latest stable version
+$ apt-get install npm
+
+#install MongoDB latest stable version
+$ apt-get install mongodb</code></pre>
+    <br/>
+    <b>MAC:</b>
+	<pre><code class="bash"># install NodeJs latest stable version
+$ brew install nodejs
+
+#install MongoDB latest stable version
+$ brew install mongodb</code></pre>
+    <p>
+        Once NodeJs is installed, install <a target="_blank" href="http://www.npmjs.org/packages/soajs.utilities">soajs.utilities</a> in /opt/soajs/node_modules to acquire the configuration files needed to deploy SOAJS.
+    </p>
+	<pre><code class="bash"># navigate to node_modules
+$ cd /opt/soajs/node_modules/
+
+# install soajs.utilities
+$ npm install soajs.utilities</code></pre>
+    <br/>
+    <h4><u>Step2</u></h4>
+    <p>
+        The next step requires you added few entries in your /etc/hosts file:
+    </p>
+	<pre><code class="bash"># add the below lines in your hosts file
+127.0.0.1   dataProxy01
+
+# add the following entries, they are explained below
+127.0.0.1   api.soajs.org
+127.0.0.1   dashboard-api.soajs.org
+127.0.0.1   dashboard.soajs.org
+127.0.0.1   controllerProxy01</code></pre>
+    <p>
+        <u>Note:</u> dashboard-api.soajs.org redirects requests to the dashboard services which allows you to manage the provisioned information in core database whereas api.soajs.org redirects to the services that only read the provisioned information from the core database. Since you are installing all the services on one machine, both domains will point to the same location.
+    </p>
+    <h4><u>Step3</u></h4>
+    <p>
+        Install SOAJS and its core services:
+    </p>
+	<pre><code class="bash">$ cd /opt/soajs/node_modules/soajs.utilities/lib/
+
+#execute the installer script
+$ ./manualDeploy.sh NPM</code></pre>
+    <p>
+        The above command will install SOAJS framework and all the core services from NPM under /opt/soajs/node_modules/ then start all the services. You can test each service after the script finishes to check if it is healthy:
+    </p>
+    <fieldset>
+        <legend>URAC</legend>
+        <div>
+            <p>
+                Perform a Heartbeat check on the service:
+            </p>
+            <pre><code class="bash">$ curl -X GET "http://api.soajs.org:5001/heartbeat"</code></pre>
+            <p>
+                URAC services runs on port 4001 making its maintenance port equal to 5001 as explained in <a href="#/documentation/core/service">service</a> section under documentation.
+            </p>
+            <h5>Response:</h5>
+            <pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"URAC","type":"rest","route":"/heartbeat"}}</code></pre>
+            <em>URAC is healthy ... Great!</em>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Dashboard</legend>
+        <div>
+            <p>
+                Dashboard contains 2 sections, service and UI. At this stage, we are working with the service and the UI is explained below. Perform a Heartbeat check on the service:
+            </p>
+            <pre><code class="bash">$ curl -X GET "http://api.soajs.org:5003/heartbeat"</code></pre>
+            <p>
+                Dashboard services runs on port 4003 making its maintenance port equal to 5003.
+            </p>
+            <h5>Response:</h5>
+            <pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"DASHBOARD","type":"rest","route":"/heartbeat"}}</code></pre>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Controller</legend>
+        <div>
+            <p>
+                Perform a Heartbeat check on the service:
+            </p>
+            <pre><code class="bash">$ curl -X GET "http://api.soajs.org:5000/heartbeat"</code></pre>
+            <p>
+                The controller services runs on port 4000 making its maintenance port equal to 5000.
+            </p>
+            <h5>Response:</h5>
+            <pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"CONTROLLER","type":"rest","route":"/heartbeat"}}</code></pre>
+        </div>
+    </fieldset>
+    <h4><u>Step4</u></h4>
+    <p>
+        SOAJS is now running, the final step requires we launch the Dashboard UI, login and start working. First, you need to install Nginx and start it:
+    </p>
+    <b>Ubuntu:</b>
+    <pre><code class="bash">$ apt-get install nginx</code></pre>
+    <br/>
+    <b>MAC:</b>
+    <pre><code class="bash">$ brew install nginx</code></pre>
+    <br/>
+    <p>
+        Once Nginx is installed, copy the configuration files:
+    </p>
+    <b>Ubuntu:</b>
+	<pre><code class="bash"># copy the upstream.conf
+$ cd /opt/soajs/node_modules//nginx/
+$ cp upstream.conf /etc/nginx/conf.d/
+
+# copy the hosts
+$ cp dash.conf /etc/nginx/sites-enabled/
+$ cp api.conf /etc/nginx/sites-enabled/</code></pre>
+
+    <b>MAC:</b>
+	<pre><code class="bash"># copy the upstream.conf
+$ cd /opt/soajs/node_modules//nginx/
+$ cp upstream.conf /usr/local/etc/nginx/conf.d/
+
+# copy the hosts
+$ cp dash.conf /usr/local/etc/nginx/sites-enabled/
+$ cp api.conf /usr/local/etc/nginx/sites-enabled/</code></pre>
+    <p>
+        Nginx will now load the configuration that SOAJS needs to run the Dashboard UI. Start Nginx:
+    </p>
+    <pre><code class="bash">$ sudo Nginx</code></pre>
+    <p>
+        Open your browser and go to <a target="_blank" href="http://dashboard.soajs.org">http://dashboard.soajs.org</a> and login using the administrator account. The administrator account was created with all needed permissions when you executed the installation script. The administrator account has the following credentials:
+    </p>
+    <b>Owner:</b> ( Full access to all Dashboard services )
+    <ul>
+        <li><b>Username:</b>&nbsp; owner</li>
+        <li><b>Password:</b>&nbsp; password</li>
+    </ul>
+    <br/>
+    <b>Client:</b> ( Limited access to Dashboard services )
+    <ul>
+        <li><b>Username:</b>&nbsp; client</li>
+        <li><b>Password:</b>&nbsp; password</li>
+    </ul>
+    <p>
+        Once you login, you can modify these credentials, monitor the services and perform all core operations related to <a href="#/documentation/advanced/multitenancy">Multitenancy</a>, <a href="#/documentation/advanced/productization">Productization</a>, <a href="#/documentation/advanced/environment">Multi Environment</a> and other. Checkout the <a href="#/documentation/ui/dashboard">Dashboard</a> to see what features are offered.
+    </p>
 </div>
