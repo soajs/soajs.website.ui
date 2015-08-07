@@ -59,7 +59,7 @@ req.soajs = {
 		"setSERVICE": function (obj, cb) {},
 
 		// to get the service data from the session
-		"getSERVICE": function (obj, cb) {},
+		"getSERVICE": function () {},
 
 		// to get the URAC info from the session
 		"getURAC": function () {},
