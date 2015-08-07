@@ -1,0 +1,199 @@
+{
+  "connections": [
+    {
+      "type": "Static",
+      "description": "Creates a connection to a database in mongo."
+    },
+    {
+      "type": "Mutlitenant",
+      "description": "Creates a connection to a database in mongo based on the tenant code retrieved from the <b>req.soajs.tenant.code</b>. More information on request at <a href='#/documentation/core/request'>this page</a>."
+    }
+  ],
+  "operations": [
+    {
+      "method": "insert",
+      "description": "insert object/array of data in the database collection",
+      "code": {
+        "without versioning": "mongo.insert(collection_name, record, function(error, response){ ... });",
+        "with versioning": "mongo.insert(collection_name, record, true, function(error, response){ ... });"
+      },
+      "params": [
+        {"name": "collection_name", "type": "string", "mandatory": true},
+        {"name": "record_to_insert", "type": "array of objects OR object", "mandatory": true},
+        {"name": "versioning", "type": "boolean", "mandatory": false},
+        {"name": "callback", "type": "function", "mandatory": true}
+      ]
+    },
+    {
+      "method": "save",
+      "description": "save a db record back in the database collection or creates a new one.",
+      "code": {
+        "without versioning": "mongo.save(collection_name, record, function(error, response){ ... });",
+        "with versioning": "mongo.save(collection_name, record, true, function(error, response){ ... });"
+      },
+      "params": [
+        {"name": "collection_name", "type": "string", "mandatory": true},
+        {"name": "db_record", "type": "an existing db record", "mandatory": true},
+        {"name": "versioning", "type": "boolean", "mandatory": false},
+        {"name": "callback", "type": "function", "mandatory": true}
+      ]
+    },
+    {
+      "method": "update",
+      "description": "updates a db record in the database collection.",
+      "code": {
+        "without versioning": "mongo.update(collection_name, criteria, updates, options, function(error, response){ ... });",
+        "with versioning": "mongo.update(collection_name, criteria, updates, options, true, function(error, response){ ... });"
+      },
+      "params": [
+        {"name": "collection_name", "type": "string", "mandatory": true},
+        {"name": "criteria", "type": "object to match records against", "mandatory": true},
+        {"name": "updates", "type": "object containing the update operation", "mandatory": true},
+        {"name": "options", "type": "additional options used by native MongoDB driver", "mandatory": false},
+        {"name": "versioning", "type": "boolean", "mandatory": false},
+        {"name": "callback", "type": "function", "mandatory": true}
+      ]
+    },
+    {
+      "method": "find",
+      "description": "finds records in the database collection.",
+      "code": {
+        "command": "mongo.find(collection_name, criteria, fields, options, function(error, response){ ... });"
+      },
+      "params": [
+        {"name": "collection_name", "type": "string", "mandatory": true},
+        {"name": "criteria", "type": "object to match records against", "mandatory": false},
+        {"name": "fields", "type": "specify optional fields to return only", "mandatory": false},
+        {"name": "options", "type": "specify optional operations: sort, limit...", "mandatory": false},
+        {"name": "callback", "type": "function", "mandatory": true}
+      ]
+    },
+    {
+      "method": "findOne",
+      "description": "finds one record in the database collection.",
+      "code": {
+        "command": "mongo.findOne(collection_name, criteria, fields. function(error, response){ ... });"
+      },
+      "params": [
+        {"name": "collection_name", "type": "string", "mandatory": true},
+        {"name": "criteria", "type": "object to match records against", "mandatory": false},
+        {"name": "fields", "type": "specify optional fields to return only", "mandatory": false},
+        {"name": "callback", "type": "function", "mandatory": true}
+      ]
+    },
+    {
+      "method": "remove",
+      "description": "removes records from the database collection.",
+      "code": {
+        "command": "mongo.remove(collection_name, criteria, function(error){ ... });"
+      },
+      "params": [
+        {"name": "collection_name", "type": "string", "mandatory": true},
+        {"name": "criteria", "type": "object to match records against", "mandatory": false},
+        {"name": "callback", "type": "function", "mandatory": true}
+      ]
+    },
+    {
+      "method": "count",
+      "description": "returns the count of records from the database collection.",
+      "code": {
+        "command": "mongo.count(collection_name, criteria, function(error, count){ ... });"
+      },
+      "params": [
+        {"name": "collection_name", "type": "string", "mandatory": true},
+        {"name": "criteria", "type": "object to match records against", "mandatory": false},
+        {"name": "callback", "type": "function", "mandatory": true}
+      ]
+    },
+    {
+      "method": "getVersions",
+      "description": "returns all the versions of a record from the database.",
+      "code": {
+        "command": "mongo.getVersions(collection_name, recordId, function(error, records){ ... });"
+      },
+      "params": [
+        {"name": "collection_name", "type": "string", "mandatory": true},
+        {"name": "recordId", "type": "id of a database record", "mandatory": true},
+        {"name": "callback", "type": "function", "mandatory": true}
+      ]
+    },
+    {
+      "method": "clearVersions",
+      "description": "removes all the versions of a record from the database.",
+      "code": {
+        "command": "mongo.clearVersions(collection_name, recordId, function(error){ ... });"
+      },
+      "params": [
+        {"name": "collection_name", "type": "string", "mandatory": true},
+        {"name": "recordId", "type": "id of a database record", "mandatory": true},
+        {"name": "callback", "type": "function", "mandatory": true}
+      ]
+    },
+    {
+      "method": "getCollection",
+      "description": "returns a pointer to the collection.",
+      "code": {
+        "command": "mongo.getCollection(collection_name, function(error, collection){ ... });"
+      },
+      "params": [
+        {"name": "collection_name", "type": "string", "mandatory": true},
+        {"name": "callback", "type": "function", "mandatory": true}
+      ]
+    },
+    {
+      "method": "ensureIndex",
+      "description": "Indexes the given collection.",
+      "code": {
+        "command": "mongo.ensureIndex(collection_name, keys, options, function(error){ ... });"
+      },
+      "params": [
+        {"name": "collection_name", "type": "string", "mandatory": true},
+        {"name": "keys", "type": "object containing the indexes", "mandatory": true},
+        {"name": "options", "type": "additional optional options: unique, sparse...", "mandatory": true},
+        {"name": "callback", "type": "function", "mandatory": true}
+      ]
+    },
+    {
+      "method": "dropCollection",
+      "description": "drops a collection.",
+      "code": {
+        "command": "mongo.dropCollection(collection_name, function(error){ ... });"
+      },
+      "params": [
+        {"name": "collection_name", "type": "string", "mandatory": true},
+        {"name": "callback", "type": "function", "mandatory": true}
+      ]
+    },
+    {
+      "method": "dropDatabase",
+      "description": "drops the database.",
+      "code": {
+        "command": "mongo.dropDatabase(function(error){ ... });"
+      },
+      "params": [
+        {"name": "callback", "type": "function", "mandatory": true}
+      ]
+    },
+    {
+      "method": "closeDb",
+      "description": "closes the connection to the database.",
+      "code": {
+        "command with callback": "mongo.closeDb(function(error){ ... });",
+        "command without callback": "mongo.closeDb();"
+      },
+      "params": [
+        {"name": "callback", "type": "function", "mandatory": false}
+      ]
+    },
+    {
+      "method": "getMongoSkinDB",
+      "description": "returns a reference to the database connector",
+      "code": {
+        "command": "mongo.getMongoSkinDB(function(error, dbRef){ ... });"
+      },
+      "params": [
+        {"name": "callback", "type": "function", "mandatory": true}
+      ]
+    }
+  ]
+}
