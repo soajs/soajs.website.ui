@@ -148,11 +148,6 @@ module.exports = {
 					<td>If set to true, soajs checks the access to the requested service API by comparing it with the ACL permissions. <a href="#/documentation/core/acl">Read&nbsp;More</a></td>
 					<td>FALSE</td>
 				</tr>
-                <tr>
-                    <td><b>awareness</b></td>
-                    <td>If set to true, the service will be aware about the location of the controllers in case it needs to make internal calls to other SOAJS services.</td>
-                    <td>FALSE</td>
-                </tr>
                 <tr class="even">
 					<td><b>bodyParser</b></td>
 					<td>soajs parses the body to json allowing it to extend it and add its functionality and data to it.</td>
@@ -188,7 +183,6 @@ var service = new soajs.server.service({
 	"oauth": true,
 	"multitnant": true,
 	"session": true,
-	"awareness": true,
 	"security": true
 });
 		</code></pre>
