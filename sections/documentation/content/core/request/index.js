@@ -61,10 +61,13 @@ req.soajs = {
 		// to get the service data from the session
 		"getSERVICE": function () {},
 
-		// to get the URAC info from the session
-		"getURAC": function () {},
+		// to get the logged in user record
+		"getUrac": function () {},
 
-		// to get the URAC groups info from the session
+        // to get the ACL of the logged in user
+        "getAcl": function () {},
+
+		// to get the logged in user groups
 		"getGroups": function () {}
 	}
 };
