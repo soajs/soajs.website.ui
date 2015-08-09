@@ -33,6 +33,11 @@
     "env": "SOAJS_GC_VERSION",
     "default": "N/A",
     "desc": "Mandatory variable if deploying a GCS service and contains the version of that GCS service."
+  },
+  {
+    "env": "SOAJS_GC_MAX_UPLOAD_LIMIT",
+    "default": "2MB",
+    "desc": "Optional variable if deploying a GCS service that specifies the maximum upload limit of file sizes to accept."
   }
 
 ]
