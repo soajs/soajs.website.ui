@@ -38,7 +38,7 @@ $ brew install mongodb</code></pre>
         Once NodeJs is installed, install <a target="_blank" href="http://www.npmjs.org/packages/soajs.utilities">soajs.utilities</a> in /opt/soajs/node_modules to acquire the configuration files needed to deploy SOAJS.
     </p>
 	<pre><code class="bash"># navigate to node_modules
-$ cd /opt/soajs/node_modules/
+$ cd /opt/soajs/
 
 # install soajs.utilities
 $ npm install soajs.utilities</code></pre>
@@ -59,7 +59,7 @@ $ npm install soajs.utilities</code></pre>
     <p>
         Install SOAJS and its core services:
     </p>
-	<pre><code class="bash">$ cd /opt/soajs/node_modules/soajs.utilities/lib/
+	<pre><code class="bash">$ cd /opt/soajs/soajs.utilities/lib/
 
 #execute the installer script
 $ ./manualDeploy.sh</code></pre>
@@ -95,6 +95,96 @@ $ ./manualDeploy.sh</code></pre>
             <pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"DASHBOARD","type":"rest","route":"/heartbeat"}}</code></pre>
         </div>
     </fieldset>
+
+    <!--<fieldset>-->
+        <!--<legend>oAuth</legend>-->
+        <!--<div>-->
+            <!--<p>-->
+                <!--Perform a Heartbeat check on the service:-->
+            <!--</p>-->
+            <!--<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5002/heartbeat"</code></pre>-->
+            <!--<p>-->
+                <!--oAuth services runs on port 4002 making its maintenance port equal to 5002.-->
+            <!--</p>-->
+            <!--<h5>Response:</h5>-->
+            <!--<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"OAUTH","type":"rest","route":"/heartbeat"}}</code></pre>-->
+        <!--</div>-->
+    <!--</fieldset>-->
+
+    <!--<fieldset>-->
+        <!--<legend>Example01</legend>-->
+        <!--<div>-->
+            <!--<p>-->
+                <!--The Examples package contains 5 services as examples: Example01 - Example02 - Example03 - Example04 - Hello World. Perform a Heartbeat check on the each service:-->
+            <!--</p>-->
+            <!--<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5010/heartbeat"</code></pre>-->
+            <!--<p>-->
+                <!--Example01 services runs on port 4010 making its maintenance port equal to 5010.-->
+            <!--</p>-->
+            <!--<h5>Response:</h5>-->
+            <!--<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"EXAMPLE01","type":"rest","route":"/heartbeat"}}</code></pre>-->
+        <!--</div>-->
+    <!--</fieldset>-->
+
+    <!--<fieldset>-->
+        <!--<legend>Example02</legend>-->
+        <!--<div>-->
+            <!--<p>-->
+                <!--Perform a Heartbeat check on the service:-->
+            <!--</p>-->
+            <!--<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5011/heartbeat"</code></pre>-->
+            <!--<p>-->
+                <!--Example02 services runs on port 4011 making its maintenance port equal to 5011.-->
+            <!--</p>-->
+            <!--<h5>Response:</h5>-->
+            <!--<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"EXAMPLE02","type":"rest","route":"/heartbeat"}}</code></pre>-->
+        <!--</div>-->
+    <!--</fieldset>-->
+
+    <!--<fieldset>-->
+        <!--<legend>Example03</legend>-->
+        <!--<div>-->
+            <!--<p>-->
+                <!--Perform a Heartbeat check on the service:-->
+            <!--</p>-->
+            <!--<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5012/heartbeat"</code></pre>-->
+            <!--<p>-->
+                <!--Example03 services runs on port 4012 making its maintenance port equal to 5012.-->
+            <!--</p>-->
+            <!--<h5>Response:</h5>-->
+            <!--<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"EXAMPLE03","type":"rest","route":"/heartbeat"}}</code></pre>-->
+        <!--</div>-->
+    <!--</fieldset>-->
+
+    <!--<fieldset>-->
+        <!--<legend>Example04</legend>-->
+        <!--<div>-->
+            <!--<p>-->
+                <!--Perform a Heartbeat check on the service:-->
+            <!--</p>-->
+            <!--<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5013/heartbeat"</code></pre>-->
+            <!--<p>-->
+                <!--Example02 services runs on port 4013 making its maintenance port equal to 5013.-->
+            <!--</p>-->
+            <!--<h5>Response:</h5>-->
+            <!--<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"EXAMPLE04","type":"rest","route":"/heartbeat"}}</code></pre>-->
+        <!--</div>-->
+    <!--</fieldset>-->
+
+    <!--<fieldset>-->
+        <!--<legend>Hello World</legend>-->
+        <!--<div>-->
+            <!--<p>-->
+                <!--Perform a Heartbeat check on the service:-->
+            <!--</p>-->
+            <!--<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5020/heartbeat"</code></pre>-->
+            <!--<p>-->
+                <!--Hello World services runs on port 4020 making its maintenance port equal to 5020.-->
+            <!--</p>-->
+            <!--<h5>Response:</h5>-->
+            <!--<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"HELLO_WORLD","type":"rest","route":"/heartbeat"}}</code></pre>-->
+        <!--</div>-->
+    <!--</fieldset>-->
 
     <fieldset>
         <legend>Controller</legend>
