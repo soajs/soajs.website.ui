@@ -4,76 +4,13 @@
       "name": "soajsorg/soajs",
       "link": "https://registry.hub.docker.com/u/soajsorg/soajs/"
     },
-    "description": "<p>This image contains the soajs framework and is built from ubuntu 14.0.4.<br />The image consists of the following:</p>"
-  },
-  {
-    "image": {
-      "name": "soajsorg/controller",
-      "link": "https://registry.hub.docker.com/u/soajsorg/controller/"
-    },
-    "description": "<p>This image contains the soajs controller which provides awareness and is the main gateway of SOAJS services. The image consists of the following:</p>"
-  },
-  {
-    "image": {
-      "name": "soajsorg/urac",
-      "link": "https://registry.hub.docker.com/u/soajsorg/urac/"
-    },
-    "description": "<p>This image contains the URAC service which is a multitenant that provides the ability to manage users and groups for all your tenants. The image consists of the following:</p>"
-  },
-  {
-    "image": {
-      "name": "soajsorg/oauth",
-      "link": "https://registry.hub.docker.com/u/soajsorg/oauth/"
-    },
-    "description": "<p>This image contains the oAuth service of SOAJS which allows you to protect your services via oAuth2.0. The image consists of the following:</p>"
-  },
-  {
-    "image": {
-      "name": "soajsorg/dashboard",
-      "link": "https://registry.hub.docker.com/u/soajsorg/dashboard/"
-    },
-    "description": "<p>This image contains the Dashboard service that provides the ability to manage and update the data in the core database of SOAJS. The image consists of the following:</p>"
+    "description": "<p>This image contains the soajs framework and is built from ubuntu 14.0.4.</p>"
   },
   {
     "image": {
       "name": "soajsorg/nginx",
       "link": "https://registry.hub.docker.com/u/soajsorg/nginx/"
     },
-    "description": "<p>This image contains Both Nginx and the Dashboard UI that you can use the manage the services and core components of SOAJS and its services. The image consists of the following:</p>"
-  },
-  {
-    "image": {
-      "name": "soajsorg/example01",
-      "link": "https://registry.hub.docker.com/u/soajsorg/example01/"
-    },
-    "description": "<p>This image contains service example01. The image consists of the following:</p>"
-  },
-  {
-    "image": {
-      "name": "soajsorg/example02",
-      "link": "https://registry.hub.docker.com/u/soajsorg/example02/"
-    },
-    "description": "<p>This image contains service example02. The image consists of the following:</p>"
-  },
-  {
-    "image": {
-      "name": "soajsorg/example03",
-      "link": "https://registry.hub.docker.com/u/soajsorg/example03/"
-    },
-    "description": "<p>This image contains service example03. The image consists of the following:</p>"
-  },
-  {
-    "image": {
-      "name": "soajsorg/example04",
-      "link": "https://registry.hub.docker.com/u/soajsorg/example04/"
-    },
-    "description": "<p>This image contains service example04. The image consists of the following:</p>"
-  },
-  {
-    "image": {
-      "name": "soajsorg/helloworld",
-      "link": "https://registry.hub.docker.com/u/soajsorg/helloworld/"
-    },
-    "description": "<p>This image contains service hello world example. The image consists of the following:</p>"
+    "description": "<p>This image contains the nginx layer that SOAJS uses to access the cloud of services.</p>"
   }
 ]
