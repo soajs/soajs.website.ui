@@ -1,6 +1,73 @@
-<div id="gcs">
-    <a id="top"></a><h1>Generic Content Service</h1>
-    <div class="white-container">
+<a id="gcs"></a>
+<h1>Generic Content Service</h1>
+<div class="white-container">
+    <p>
+        SOAJS Generic Content Service is a unique service whose configuration &amp; schema is stored and loaded from the core database. Using the Dashboard UI, navigate to <b>Content Builder</b> and create/manage the GCS entries.
+    </p>
+    <p>
+        GCS is used to deploy multiple services using the same code, simply create an entry in <b>Content Builder</b>, grab the name and version, provide them as environment variables and start the service. Repeat the same procedure for every GCS service you want to deploy.
+    </p>
+    <pre><code class="bash"># deploying 2 different GCS services
+        $ npm install soajs.GCS
 
-    </div>
+        # set the GCS name and version
+        $ export SOAJS_GC_NAME=myservice1
+        $ export SOAJS_GC_VERSION=2
+        $ cd soajs.GCS
+        $ node .
+
+        # set another GCS name and version
+        $ export SOAJS_GC_NAME=myservice2
+        $ export SOAJS_GC_VERSION=5
+        $ cd soajs.GCS
+        $ node .</code></pre>
+    <hr/>
+    <h3>Features</h3>
+    <p>
+        GCS is completely manageable from the Dashboard UI, via a simple to use and rich UI under <b>Bontent Buidler</b> module. The module provides the ability to:
+    </p>
+    <ul>
+        <li>Create multiple GCS schemas with version support</li>
+        <li>Configure a GCS to work on different environments</li>
+        <li>Add &amp; Manage Inputs of different types</li>
+        <li>Add &amp; Manage APIs of different types and workflow</li>
+    </ul>
+    <img ng-src="images/documentation/content-builder.png" alt="Content Builder Image" class="full-image"/>
+    <br/>
+    <hr/>
+    <h3>Versioning</h3>
+    <p>
+        Once a Schema is generated, the dashboard service takes care of the versioning and stores the schema in the database. Every Schema has a version, and this is crucial since an update at a later stage might affect the data of that service. Versions are bumped based on major updates:
+    </p>
+    <ol>
+        <li>Global Service And Database configuration modification.</li>
+        <li>Existing Inputs Configuration modification.</li>
+        <li>Removing Existing Inputs.</li>
+        <li>Existing APIs Configuration or workflow modification.</li>
+        <li>Removing Existing APIs.</li>
+    </ol>
+    <br/>
+    <hr/>
+    <h3>Deployment</h3>
+    <p>
+        If you deploy SOAJS using <a href="#/documentation/deployment/docker">Docker</a>, once a GCS has been created and stored in the database, simply head to host deployment under the Dashboard Environment and deploy a new Host for this service.
+    </p>
+    <p>
+        If you have deployed SOAJS <a href="#/documentation/deployment/manual">manually</a>, then you need to execute the following commands for every GCS service you want to deploy:
+    </p>
+    <pre><code class="bash"># set another GCS name and version
+        $ export SOAJS_GC_NAME=myservice
+        $ export SOAJS_GC_VERSION=1
+        $ cd soajs.GCS
+        $ node .</code></pre>
+    <br/>
+    <hr/>
+    <h3>Data Management</h3>
+    <p>
+        GCS Data is managed using the Dashboard UI under <b>Content Management</b> module. Once a GCS service is deployed, the module picks up its presence and displays an entry on its page. Head to <b>Content Management</b> page and click on the name of the GCS service. The module will load the schema of the GCS as you configured it in <b>Content Builder</b>, it will render it and display the UI interface with the allowed functionality accordingly.
+    </p>
+    <img ng-src="images/documentation/content-management.png" alt="Content Management Image" class="full-image"/>
+    <p>
+        You will also notice that if you configure a GCS to have its data stored in multiple Environments, then <b>Content Management</b> will display the data of that service based on these configured environments so you know the location of the data you are modifying.
+    </p>
 </div>
