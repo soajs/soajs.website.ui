@@ -54,6 +54,15 @@
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.examples&type=watch&count=true"
   },
   {
+    "id": "GCS",
+    "label": "GCS",
+    "npm":"soajs.GCS",
+    "travis":"soajs/soajs.GCS",
+    "coveralls":"soajs/soajs.GCS",
+    "documentation": "#/documentation/advanced/gcs",
+    "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.GCS&type=watch&count=true"
+  },
+  {
     "id": "Controller",
     "label": "Controller",
     "npm":"soajs.controller",

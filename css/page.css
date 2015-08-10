@@ -1265,3 +1265,7 @@ ul.straight-line li + li:before{
 .myTable tr.noBreak th{
     word-break: keep-all;
 }
+
+.full-image{
+    max-width: 100%;
+}
