@@ -3,6 +3,172 @@
 		<h1>News</h1>
 
 		<div class="white-container">
+            <div class="bulletin">
+                <div class="head">Release TigerFish
+                    <div class="releaseDate"> August 10, 2015</div>
+                </div>
+                <div class="body">
+                    <table width="100%" class="myTable releaseTables" align="center" id="TigerfishReleaseTable">
+                        <thead>
+                        <tr>
+                            <th class="pckName">Package Name</th>
+                            <th class="pckVersion">Package Version</th>
+                            <th>Release Notes</th>
+                        </tr>
+                        </thead>
+                        <tr>
+                            <td><b>soajs.mongodb.data</b></td>
+                            <td align="center">0.1.4</td>
+                            <td>
+                                <div>
+                                    <b class="etest">Enhanced Tests:</b>
+                                    <ul>
+                                        <li>updated test data for all service to use the new logger themeable configuration example02</li>
+                                        <li>added new test data for GCS module.</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="">
+                            <td><b>soajs</b></td>
+                            <td align="center">0.2.0</td>
+                            <td>
+                                <div>
+                                    <b class="bug">Bug Fixes:</b>
+                                    <ul>
+                                        <li>Bug fix in service port registration under registry in the case of no port provided.</li>
+                                    </ul>
+                                    <b class="feature">Features:</b>
+                                    <ul>
+                                        <li>Service Hosts auto registration is now dependent on new env variable SOAJS_SRV_AUTOREGISTERHOST</li>
+                                        <li>Changed object.hasOwnProperty(x) to Object.hasOwnProperty.call(object, x) in all occurences</li>
+                                        <li>Added support to check if awareness is set upon service auto registration</li>
+                                        <li>Updated controller to forward the request to the service instead of redirecting it.</li>
+                                        <li>Added new Logging, and updated all existing logging in both controller and service initialization.</li>
+                                    </ul>
+                                    <b class="etest">Enhanced Tests:</b>
+                                    <ul>
+                                        <li>Updated test caes to meet the newly introduced features</li>
+                                    </ul>
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>soajs.examples</b></td>
+                            <td align="center">0.1.3</td>
+                            <td>
+                                <div>
+                                    <b class="feature">Features:</b>
+                                    <ul>
+                                        <li>Changed soajs to peerDependencies.</li>
+                                        <li>Added package.json in all examples folders.</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>soajs.oauth</b></td>
+                            <td align="center">0.1.2</td>
+                            <td>
+                                <div>
+                                    <b class="feature">Features:</b>
+                                    <ul>
+                                        <li>Changed soajs to peerDependencies</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="">
+                            <td><b>soajs.controller</b></td>
+                            <td align="center">0.1.1</td>
+                            <td>
+                                <div>
+                                    <b class="feature">Features:</b>
+                                    <ul>
+                                        <li>Changed soajs to peerDependencies.</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="even">
+                            <td><b>soajs.urac</b></td>
+                            <td align="center">0.1.2</td>
+                            <td>
+                                <div>
+                                    <b class="feature">Features:</b>
+                                    <ul>
+                                        <li>Changed soajs to peerDependencies.</li>
+                                    </ul>
+                                    <b class="etest">Enhanced Tests:</b>
+                                    <ul>
+                                        <li>updated test cases to assure error messages based on the new imfv error messages. </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>soajs.dashboard</b></td>
+                            <td align="center">0.2.2</td>
+                            <td>
+                                <div>
+                                    <b class="feature">Features:</b>
+                                    <ul>
+                                        <li>Revamped Dashboard UI Menu and Navigation.</li>
+                                        <li>Updated Form UI, added support for media files: Documents - Images - Videos & Audio Tracks.</li>
+                                        <li>Added the ability to upload custom services as a zip files.</li>
+                                        <li>Create/Remove Hosts & services now trigger reloadRegistry at environment controllers for awareness updates.</li>
+                                        <li>Dashboard can now deploy hosts using Docker with support for both Boot2docker and Socket.</li>
+                                        <li>Deploy services with NODE_ENV=production for express optimization.</li>
+                                        <li>Deploy services can pass on optional custom environment variables.</li>
+                                        <li>Updated Environment section, Registry now shows which info is reload upon executing reloadRegistry and which require a service restart.</li>
+                                        <li>Added new Content Builder UI Module & Service to create & manage Generic Services Schema with different configuration, APIs and custom workflows, multiple Inputs of different types and version support.</li>
+                                        <li>Added new Content Management UI Module to load and manage data of deployed generic services in all available environments as well as upload & download media files to GridFS</li>
+                                    </ul>
+                                    <b class="etest">Enhanced Tests:</b>
+                                    <ul>
+                                        <li>Updated test cases to support new configuration.</li>
+                                        <li>Created new test cases to meet the newly added features.</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>soajs.GCS</b></td>
+                            <td align="center">0.0.1</td>
+                            <td>
+                                First Release
+                                <div>
+                                    <b class="feature">Features:</b>
+                                    <ul>
+                                        <li>Ability to deploy multiple services using the same module code but with different names and versions.</li>
+                                        <li>Supports ADD - EDIT - GET - DELETE - LIST APIs to add & manage data in static and multitenant databases.</li>
+                                        <li>Supports Uploading and Streaming Media Files into and out of GridFS</li>
+                                        <li>Ability to manage data across different environments</li>
+                                        <li>Can have multiple nodes for the same service for load distribution</li>
+                                        <li>Supports Multiple versions for both Service & Data schemas</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="">
+                            <td><b>soajs.utilities</b></td>
+                            <td align="center">0.1.8</td>
+                            <td>
+                                <div>
+                                    <b class="feature">Features:</b>
+                                    <ul>
+                                        <li>Create manual deploy script that automates manual deployment on both MAC & Linux</li>
+                                        <li>Create docker deploy script that automates docker deployment on both MAC & Linux</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <br>
+
 			<div class="bulletin">
 				<div class="head">Release Dragonfish
 					<div class="releaseDate"> May 20, 2015</div>
