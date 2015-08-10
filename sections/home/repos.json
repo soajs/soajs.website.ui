@@ -56,11 +56,11 @@
   {
     "id": "GCS",
     "label": "GCS",
-    "npm":"soajs.GCS",
-    "travis":"soajs/soajs.GCS",
-    "coveralls":"soajs/soajs.GCS",
+    "npm":"soajs.gcs",
+    "travis":"soajs/soajs.gcs",
+    "coveralls":"soajs/soajs.gcs",
     "documentation": "#/documentation/advanced/gcs",
-    "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.GCS&type=watch&count=true"
+    "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.gcs&type=watch&count=true"
   },
   {
     "id": "Controller",

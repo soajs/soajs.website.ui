@@ -53,7 +53,6 @@ $ ./dockerDeploy.sh</code></pre>
 		Update the hosts file on your machine and point out the following domains:
 	</p>
 	<pre><code class="bash">$ gedit /etc/hosts
-
 127.0.0.1   api.soajs.org
 127.0.0.1   dashboard-api.soajs.org
 127.0.0.1   dashboard.soajs.org</code></pre>
@@ -63,91 +62,7 @@ $ ./dockerDeploy.sh</code></pre>
 	</p>
 	<div ng-init="loadBASH(path + '/deployment/docker/ubuntu-get-ip.tmpl','ubuntuip');"></div>
 	<div id="ubuntuip"></div>
-	<p>
-		Run some heartbeat tests on the services that were installed.
-	</p>
-	<fieldset>
-		<legend>Controller</legend>
-		<div>
-			<p>
-				The controller is the main gateway to SOAJS services and performs awareness and health checks on all the services on a periodic basis.
-			</p>
-			<div ng-init="loadBASH(path + '/deployment/docker/ubuntu-get-ipcontroller.tmpl','ubuntuipcontroller');"></div>
-			<div id="ubuntuipcontroller"></div>
-			<p>
-				Use the IP retrieved from the command above and Perform a Heartbeat check on the service:
-			</p>
-			<pre><code class="bash">$ curl -X GET "http://%controller_ip%:5000/heartbeat"</code></pre>
-			<p>
-				The controller services runs on port 4000 making its maintenance port equal to 5000.
-			</p>
-			<h5>Response:</h5>
-			<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"CONTROLLER","type":"rest","route":"/heartbeat"}}</code></pre>
-		</div>
-		<br/>
-		<div>
-			<p>
-				Now reload the registry of the controller:
-			</p>
-			<pre><code class="bash">$ curl -X GET "http://%controller_ip%:5000/reloadRegistry"</code></pre>
-			<p>
-				Once the registry is reloaded, the controller will pick up all the running services and which host:port they are using.<br />
-
-			</p>
-		</div>
-	</fieldset>
-	<fieldset>
-		<legend>URAC</legend>
-		<div>
-			<div ng-init="loadBASH(path + '/deployment/docker/ubuntu-get-ipurac.tmpl','ubuntuipurac');"></div>
-			<div id="ubuntuipurac"></div>
-			<p>
-				Use the IP retrieved from the command above and Perform a Heartbeat check on the service:
-			</p>
-			<pre><code class="bash">$ curl -X GET "http://%urac_ip%:5001/heartbeat"</code></pre>
-			<p>
-				URAC services runs on port 4001 making its maintenance port equal to 5001 as explained in <a href="#/documentation/core/service">service</a> section under documentation.
-			</p>
-			<h5>Response:</h5>
-			<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"URAC","type":"rest","route":"/heartbeat"}}</code></pre>
-			<em>URAC is healthy ... Great!</em>
-		</div>
-	</fieldset>
-	<!--<fieldset>-->
-		<!--<legend>oAuth</legend>-->
-		<!--<div>-->
-			<!--<div ng-init="loadBASH(path + '/deployment/docker/ubuntu-get-ipoauth.tmpl','ubuntuipoauth');"></div>-->
-			<!--<div id="ubuntuipoauth"></div>-->
-			<!--<p>-->
-				<!--Use the IP retrieved from the command above and Perform a Heartbeat check on the service:-->
-			<!--</p>-->
-			<!--<pre><code class="bash">$ curl -X GET "http://%oauth_ip%:5002/heartbeat"</code></pre>-->
-			<!--<p>-->
-				<!--oAuth services runs on port 4002 making its maintenance port equal to 5002.-->
-			<!--</p>-->
-			<!--<h5>Response:</h5>-->
-			<!--<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"OAUTH","type":"rest","route":"/heartbeat"}}</code></pre>-->
-		<!--</div>-->
-	<!--</fieldset>-->
-	<fieldset>
-		<legend>Dashboard</legend>
-		<div>
-			<p>
-				Dashboard contains 2 sections, service and UI. At this stage, we are working with the service and the UI is explained below.
-			</p>
-			<div ng-init="loadBASH(path + '/deployment/docker/ubuntu-get-ipdashboard.tmpl','ubuntuipdashboard');"></div>
-			<div id="ubuntuipdashboard"></div>
-			<p>
-				Use the IP retrieved from the command above and Perform a Heartbeat check on the service:
-			</p>
-			<pre><code class="bash">$ curl -X GET "http://%dashboard_ip%:5003/heartbeat"</code></pre>
-			<p>
-				Dashboard services runs on port 4003 making its maintenance port equal to 5003.
-			</p>
-			<h5>Response:</h5>
-			<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"DASHBOARD","type":"rest","route":"/heartbeat"}}</code></pre>
-		</div>
-	</fieldset>
+    <br/>
 	<h4><u>Step3</u></h4>
 	<p>
 		Now that all services are checked, let's launch the Dashboard UI, login and start working.
