@@ -390,6 +390,9 @@
         background-color: #FFB500;
         background-image: none;
     }
+    .releaseTables td ul {
+        padding-left: 10px;
+    }
     .myTable thead th {
         font-size: 11px;
         padding: 8px 5px;
@@ -407,5 +410,10 @@
         float:right;
         margin:20px 0 0 0;
     }
+    .pckName{
+        width: 48px;
+    }
+    .pckVersion{
+        width: 48px;
+    }
 }
-
