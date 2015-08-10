@@ -3,19 +3,19 @@
     "name": "type",
     "description": "The type of the field, should be one of the values of the forth column",
     "type": "String",
-    "available": "text | password | email | number | phone | url | readonly | textarea | radio | checkbox | select | multi-select | date-picker | html"
+    "available": "text | password | email | number | phone | url | readonly | textarea | radio | checkbox | select | multi-select | date-picker | html | document | image | audio | video"
   },
   {
     "name": "name",
     "description": "Name of the Field",
     "type": "String",
-    "available": "text | password | email | number | phone | url | readonly | textarea | radio | checkbox | select | multi-select | date-picker | html"
+    "available": "text | password | email | number | phone | url | readonly | textarea | radio | checkbox | select | multi-select | date-picker | html | document | image | audio | video"
   },
   {
     "name": "label",
     "description": "Label of the field",
     "type": "String",
-    "available": "text | password | email | number | phone | url | readonly | textarea | radio | checkbox | select | multi-select | date-picker | html"
+    "available": "text | password | email | number | phone | url | readonly | textarea | radio | checkbox | select | multi-select | date-picker | html | document | image | audio | video"
   },
   {
     "name": "required",
@@ -27,7 +27,7 @@
     "name": "fieldMsg",
     "description": "Optional text to display below input",
     "type": "String",
-    "available": "text | password | email | number | phone | url | readonly | textarea | radio | checkbox | select | multi-select | date-picker | html"
+    "available": "text | password | email | number | phone | url | readonly | textarea | radio | checkbox | select | multi-select | date-picker | html | document | image | audio | video"
   },
   {
     "name": "placeholder",
@@ -52,6 +52,12 @@
     "description": "Minimum starting date value",
     "type": "date",
     "available": "date-picker"
+  },
+  {
+    "name": "limit",
+    "description": "Maximum number of uploaded files for the given type or 0 for unlimited",
+    "type": "integer",
+    "available": "document | image | audio | video"
   },
   {
     "name": "value",

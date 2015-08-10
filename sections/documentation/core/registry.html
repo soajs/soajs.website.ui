@@ -2,53 +2,62 @@
 <h1>Registry</h1>
 <div class="white-container">
 	<p>
-		SOAJS offers the ability to have multiple environments with different configuration. These environments are located in SOAJS under the <b>profiles</b> folder. The name of the environment is set using an <a href="http://en.wikipedia.org/wiki/Environment_variable" target="_blank">environment
-		variable</a> on your machine.<br/>SOAJS uses 3 environment variables to locate the environment profile to use:
+		SOAJS Registry offers the ability to have multiple profiles with different configuration. These profiles are located under the <b>profiles</b> folder. The path of the profile is set using an <a href="http://en.wikipedia.org/wiki/Environment_variable" target="_blank">environment variable</a> on your machine.<br/>
 	</p>
-	<ul>
-		<li><b>SOAJS_REGDIR</b>: The path from the root level to where the profiles folder is located.</li>
-		<li><b>SOAJS_ENV</b>: The environment to load from the profiles folder or profile <b>dev</b> will be used by default.</li>
-		<li><b>SOAJS_SRVIP</b>: Optional environment variable used to specify which IP address to use if the machine has more than one active interface. If not set, the machine default IP address will be used.</li>
-	</ul>
+    <table class="myTable" width="100%">
+        <thead>
+            <tr>
+                <th>Env Variable</th>
+                <th>Default Value</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="oneEnv in registry">
+                <td><b>{{oneEnv.env}}</b></td>
+                <td>{{oneEnv.default}}</td>
+                <td ng-bind-html="oneEnv.desc"></td>
+            </tr>
+        </tbody>
+    </table>
+    <br/>
 	<p>
-		By default, SOAJS looks for the profiles folder inside /opt/soajs/node_modules/soajs/ if the environment variable is not set. This folder contains the environments and all registry configuration needed by SOAJS to start. You can change the path of the profiles folder to another destination but keep in mind if you do that, you need to update the value of the environment value <b>SAOJS_REGDIR</b> and the same applies for the environment name.
-	</p>
-	<p>
-		The environment file contains the registry information that tells SOAJS the location of the database server and which database to use as the core database. This file gives SOAJS the information it needs to connect to the database server and use the core database to load the core information and provide it to the services.
-	</p>
-	<p>
-		The below snapshot represents what a registry file looks like:
-	</p>
-	<pre><code class="javascript">'use strict';
-var registry = {
-	"name": "dev",
-	"version": "0.0",
-	"environment": "develop", // develop || production
-
-	"provisionDB": {
-		"name": "core_provision",
-		"prefix": "",
-		"servers": [ { "host": "127.0.0.1", "port": 27017 } ],
-		"credentials": null,
-		"URLParam": {
-			"connectTimeoutMS": 0,
-			"socketTimeoutMS": 0,
-			"maxPoolSize": 5,
-			"wtimeoutMS": 0,
-			"slaveOk": true
-		},
-		"extraParam": {
-			"db": { "native_parser": true },
-			"server": { "auto_reconnect": true }
-		}
-	}
-};
-module.exports = registry;</code></pre>
-	<p>
-		The above file, tells SOAJS the environment name, and the location of the provisionDB where the core information resides.<br /><b>provisionDb</b> is represented by a database called <b>core_provision</b>. The file also tells SOAJS that the database location is on "127.0.0.1" port "27017" and that no credentials are needed to connect to it.
+		The profile file contains the registry information that tells SOAJS the location of the core database server to use. This file gives SOAJS the information to load the core configuration and provide it to the service.
 	</p>
 	<p>
-		The remaining properties and details inside provisionDB such as <b>URLParam</b> &amp; <a>extraParam</a> are needed by MongoDB Driver to establish a connection to the database. This information is explained and documented on <a target="_blank" href="http://mongodb.github.io/node-mongodb-native/driver-articles/mongoclient.html#mongoclient-connect">Mongodb Website</a>.
+		The below snapshot represents what a profile file looks like:
+	</p>
+	<pre><code class="javascript">module.exports = {
+    "name": "core_provision",
+    "prefix": "",
+    "servers": [
+        {
+            "host": "127.0.0.1",
+            "port": 27017
+        }
+    ],
+    "credentials": null,
+    "URLParam": {
+        "connectTimeoutMS": 0,
+        "socketTimeoutMS": 0,
+        "maxPoolSize": 5,
+        "wtimeoutMS": 0,
+        "slaveOk": true
+    },
+    "extraParam": {
+        "db": {
+            "native_parser": true
+        },
+        "server": {
+            "auto_reconnect": true
+        }
+    }
+};</code></pre>
+	<p>
+		The above file, tells SOAJS that the location of <b>core_provision</b> where the core information resides is at "127.0.0.1" via port "27017" and that no credentials are needed to connect to it.
+	</p>
+	<p>
+		The remaining properties and details such as <b>URLParam</b> &amp; <b>extraParam</b> are needed by MongoDB Driver to establish a connection to the database. This information is explained and documented on <a target="_blank" href="http://mongodb.github.io/node-mongodb-native/driver-articles/mongoclient.html#mongoclient-connect">Mongodb Website</a>.
 	</p>
 	<p>
 		If you are familiar with MongoDB driver configuration, you can update the content of this file to support multiple servers, add credentials and restrict the database connection to specific accounts, provide support for replicaSet...etc

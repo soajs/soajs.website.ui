@@ -1,19 +1,19 @@
 <a id="docker-deployment-mac"></a>
 <h1>Docker Deployement on MAC</h1>
 <div class="white-container">
-	<p>
-		Begin by creating the following folder schema so you can place SOAJS Utilities inside it:
-	</p>
+    <p>
+        Begin by creating the following folder schema so you can place SOAJS Utilities inside it and make sure that <a href="https://docs.docker.com/installation/mac/" target="_blank">Docker</a> is installed on the machine you are using.
+    </p>
 	<pre><code class="bash"># soajs modules go here
 $ mkdir -p /opt/soajs/node_modules/</code></pre>
 	<hr/>
 	<h3>Installation</h3>
 	<p>
-		SOAJS can be installed on your machine using Docker with little effort needed. Before you start, make sure you have <a href="http://brew.sh/" target="_blank">Brew</a> installed on your MAC.
+		SOAJS can be installed on your machine using Docker with little effort needed:
 	</p>
 	<h4><u>Step1</u></h4>
 	<p>
-		SOAJS is built using NodeJs therefore, you need to have NodeJs installed and running on your machine.
+		SOAJS is built using NodeJs and MongoDB therefore, you need to have them installed and running on your machine.
 	</p>
 	<pre><code class="bash"># install NodeJs latest stable version
 $ brew install nodejs
@@ -21,62 +21,29 @@ $ brew install nodejs
 # install MongoDB latest stable version
 $ brew install mongodb</code></pre>
 	<p>
-		Once NodeJs is installed, install <a target="_blank" href="http://www.npmjs.org/packages/soajs.utilities">soajs.utilities</a> in /opt/soajs/node_modules to acquire the configuration files needed to deploy SOAJS.
+		Once NodeJs is installed, install <a target="_blank" href="http://www.npmjs.org/packages/soajs.utilities">soajs.utilities</a> in /opt/soajs to acquire the configuration files needed to deploy SOAJS.
 	</p>
 	<pre><code class="bash"># navigate to node_modules
-$ cd /opt/soajs/node_modules/
+$ cd /opt/soajs/
 
 # install soajs.utilities
 $ npm install soajs.utilities</code></pre>
-	<p>
-		Install <a href="https://docs.docker.com/installation/mac/" target="_blank">Docker</a>, <a href="https://docs.docker.com/compose/install/" target="_blank">docker-compose</a> and <a href="https://github.com/boot2docker/osx-installer/releases/latest" target="_blank">boot2docker</a> on the machine you are using.
-	</p>
-	<p>
-		Our Team has prepared 3 Docker composer files for you to help you get started quickly:
-	</p>
-	<ol>
-		<li><b>All:</b> Contains all Services with controller.</li>
-		<li><b>All with Dashboard:</b> Contains all services with controller and dashboard</li>
-		<li><b>All with Examples:</b> Contains all services with controller, dashboard and all examples.</li>
-	</ol>
-	<p>
-		In this tutorial we will use the 3rd file that contains all the services, controller and examples. The first step is to install, start MongoDB and patch the sample provisioned data from Utilities. SSH to boot2docker and execute the following commands:
-	</p>
-	<pre><code class="bash"># ssh to boot2docker, create /data with the right permissions
-$ boot2docker ssh
-$ sudo mkdir -p /data
-$ sudo chgrp staff -R /data
-$ sudo chmod 775 -R /data
-$ exit</code></pre>
-	<p>
-		Now Start Mongo using the following command:
-	</p>
-	<pre><code class="bash">$ docker run -p 27017:27017 -v /data:/data -v /data/db:/data/db --name soajsData mongo mongod --smallfiles</code></pre>
-	<p>
-		Now that MongoDB is running, import the sample data from utilities:
-	</p>
-	<pre><code class="bash"># import sample data to Mongo Docker
-$ cd /opt/soajs/node_modules/soajs.utilities/lib
+    <p>
+        Now install SOAJS and its core services:
+    </p>
+    <pre><code class="bash">$ cd /opt/soajs/soajs.utilities/lib/
 
-$ node index data import provision $(boot2docker ip)
-$ node index data import urac $(boot2docker ip)</code></pre>
-	<br/>
+#execute the installer script
+$ ./dockerDeploy.sh</code></pre>
+    <p>
+        The above command will install SOAJS framework and all the core services from NPM then start all the services. You can test each service after the script finishes to check if it is healthy:
+    </p>
+    <br/>
 	<h4><u>Step2</u></h4>
-	<p>
-		Now that you have set up mongo and imported the data, let's run the docker composer and install/start all the services. Navigate to the Utilities composer folder:
-	</p>
-	<pre><code class="bash">$ cd /opt/soajs/node_modules/soajs.utilities/deployment/composer/runAll_w_examples/
-
-# run composer file
-$ docker-compose up</code></pre>
-	<p>
-		The above command will execute the content of the <b>docker-compose.yml</b> file that contains instructions on which docker images should be pulled, which services need to be installed and started.
-	</p>
 	<p>
 		Update the hosts file on your machine and point out the following domains:
 	</p>
 	<pre><code class="bash">$ vim /etc/hosts
-
 127.0.0.1   api.soajs.org
 127.0.0.1   dashboard-api.soajs.org
 127.0.0.1   dashboard.soajs.org</code></pre>
@@ -85,149 +52,7 @@ $ docker-compose up</code></pre>
 		On Mac you can grab the IP address by running the below command:<br />
 	</p>
 	<pre><code class="bash">$ boot2docker ip</code></pre>
-	<p>
-		Run some heartbeat tests on the services that were installed.
-	</p>
-	<fieldset>
-		<legend>Controller</legend>
-		<div>
-			<p>
-				The controller is the main gateway to SOAJS services and performs awareness and health checks on all the services on a periodic basis. Perform a Heartbeat check on the service:
-			</p>
-			<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5000/heartbeat"</code></pre>
-			<p>
-				The controller services runs on port 4000 making its maintenance port equal to 5000.
-			</p>
-			<h5>Response:</h5>
-			<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"CONTROLLER","type":"rest","route":"/heartbeat"}}</code></pre>
-		</div>
-		<br/>
-		<div>
-			<p>
-				Now reload the registry of the controller:
-			</p>
-			<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5000/reloadRegistry"</code></pre>
-			<p>
-				Once the registry is reloaded, the controller will pick up all the running services and which host:port they are using.<br />
-			</p>
-		</div>
-	</fieldset>
-	<fieldset>
-		<legend>URAC</legend>
-		<div>
-			<p>
-				Perform a Heartbeat check on the service:
-			</p>
-			<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5001/heartbeat"</code></pre>
-			<p>
-				URAC services runs on port 4001 making its maintenance port equal to 5001 as explained in <a href="#/documentation/core/service">service</a> section under documentation.
-			</p>
-			<h5>Response:</h5>
-			<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"URAC","type":"rest","route":"/heartbeat"}}</code></pre>
-			<em>URAC is healthy ... Great!</em>
-		</div>
-	</fieldset>
-	<fieldset>
-		<legend>oAuth</legend>
-		<div>
-			<p>
-				Perform a Heartbeat check on the service:
-			</p>
-			<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5002/heartbeat"</code></pre>
-			<p>
-				oAuth services runs on port 4002 making its maintenance port equal to 5002.
-			</p>
-			<h5>Response:</h5>
-			<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"OAUTH","type":"rest","route":"/heartbeat"}}</code></pre>
-		</div>
-	</fieldset>
-	<fieldset>
-		<legend>Dashboard</legend>
-		<div>
-			<p>
-				Dashboard contains 2 sections, service and UI. At this stage, we are working with the service and the UI is explained below. Perform a Heartbeat check on the service:
-			</p>
-			<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5003/heartbeat"</code></pre>
-			<p>
-				Dashboard services runs on port 4003 making its maintenance port equal to 5003.
-			</p>
-			<h5>Response:</h5>
-			<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"DASHBOARD","type":"rest","route":"/heartbeat"}}</code></pre>
-		</div>
-	</fieldset>
-	<fieldset>
-		<legend>Example01</legend>
-		<div>
-			<p>
-				The Examples package contains 5 services as examples: Example01 - Example02 - Example03 - Example04 - Hello World. Perform a Heartbeat check on the each service:
-			</p>
-			<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5010/heartbeat"</code></pre>
-			<p>
-				Example01 services runs on port 4010 making its maintenance port equal to 5010.
-			</p>
-			<h5>Response:</h5>
-			<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"EXAMPLE01","type":"rest","route":"/heartbeat"}}</code></pre>
-		</div>
-	</fieldset>
-	<fieldset>
-		<legend>Example02</legend>
-		<div>
-			<p>
-				Perform a Heartbeat check on the service:
-			</p>
-			<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5011/heartbeat"</code></pre>
-			<p>
-				Example02 services runs on port 4011 making its maintenance port equal to 5011.
-			</p>
-			<h5>Response:</h5>
-			<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"EXAMPLE02","type":"rest","route":"/heartbeat"}}</code></pre>
-		</div>
-	</fieldset>
-	<fieldset>
-		<legend>Example03</legend>
-		<div>
-			<p>
-				Perform a Heartbeat check on the service:
-			</p>
-			<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5012/heartbeat"</code></pre>
-			<p>
-				Example03 services runs on port 4012 making its maintenance port equal to 5012.
-			</p>
-			<h5>Response:</h5>
-			<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"EXAMPLE03","type":"rest","route":"/heartbeat"}}</code></pre>
-		</div>
-	</fieldset>
-	<fieldset>
-		<legend>Example04</legend>
-		<div>
-			<p>
-				Perform a Heartbeat check on the service:
-			</p>
-			<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5013/heartbeat"</code></pre>
-			<p>
-				Example02 services runs on port 4013 making its maintenance port equal to 5013.
-			</p>
-			<h5>Response:</h5>
-			<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"EXAMPLE04","type":"rest","route":"/heartbeat"}}</code></pre>
-		</div>
-	</fieldset>
-	<fieldset>
-		<legend>Hello World</legend>
-		<div>
-			<p>
-				Perform a Heartbeat check on the service:
-			</p>
-			<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5020/heartbeat"</code></pre>
-			<p>
-				Hello World services runs on port 4020 making its maintenance port equal to 5020.
-			</p>
-			<h5>Response:</h5>
-			<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"HELLO_WORLD","type":"rest","route":"/heartbeat"}}</code></pre>
-			<p>
-				All is ready, see below how you can open the Dashboard UI and login as administrator.
-			</p>
-		</div>
-	</fieldset>
+    <br/>
 	<h4><u>Step3</u></h4>
 	<p>
 		Now that all services are checked, let's launch the Dashboard UI, login and start working.

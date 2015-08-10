@@ -1,62 +1,43 @@
 [
   {
-    "property": "Name",
-    "type": "String",
-    "mandatory": "YES",
-    "notes": "Name of the environment: DEV - PROD - ..."
+    "env": "SOAJS_PROFILE",
+    "default": "/opt/soajs/node_modules/soajs/profiles/single.js",
+    "desc": "Location of the profile to use so that SOAJS can connect to the core database."
   },
   {
-    "property": "Version",
-    "type": "String",
-    "mandatory": "YES",
-    "notes": "Environment Version"
+    "env": "SOAJS_ENV",
+    "default": "dev",
+    "desc": "The environment the service uses and registers itself under it upon start."
   },
   {
-    "property": "Environment",
-    "type": "String",
-    "mandatory": "YES",
-    "notes": "Environment Behavior restricted to either: \"develop\" or \"production\" as values."
+    "env": "SOAJS_SRVIP",
+    "default": "Machine's IP address",
+    "desc": "Optional environment variable used to specify which IP address to use if the machine has more than one active interface."
   },
   {
-    "property": "CoreDB",
-    "type": "Object",
-    "mandatory": "YES",
-    "notes": "List of Databases and their connection details."
+    "env": "SOAJS_SRV_AUTOREGISTERHOST",
+    "default": "true",
+    "desc": "Optional environment variable used in case a service should register itself or not."
   },
   {
-    "property": "CoreDB > Entry",
-    "type": "Object",
-    "mandatory": "YES",
-    "notes": "One Database where key is the dbName and properties are connection details."
+    "env": "SOAJS_ENV_WORKDIR",
+    "default": "/",
+    "desc": "Optional environment variable used by the DASHBOARD service ONLY. For more information checkout <a href='#/documentation/deployment/manual'>Deployment Section</a>."
   },
   {
-    "property": "tenantMetaDB",
-    "type": "Object",
-    "mandatory": "YES",
-    "notes": "List of Tenant Meta Databases and their connection details."
+    "env": "SOAJS_GC_NAME",
+    "default": "N/A",
+    "desc": "Mandatory variable if deploying a GCS service and contains the name of that GCS service."
   },
   {
-    "property": "tenantMetaDB > Entry",
-    "type": "Object",
-    "mandatory": "YES",
-    "notes": "One Tenant Database based on the mutlitenant service name."
+    "env": "SOAJS_GC_VERSION",
+    "default": "N/A",
+    "desc": "Mandatory variable if deploying a GCS service and contains the version of that GCS service."
   },
   {
-    "property": "Service Config",
-    "type": "Object",
-    "mandatory": "YES",
-    "notes": "Contains the General Services configuration for this environment."
-  },
-  {
-    "property": "services",
-    "type": "Array",
-    "mandatory": "YES",
-    "notes": "List of Services and their connection details."
-  },
-  {
-    "property": "services > entry",
-    "type": "Object",
-    "mandatory": "YES",
-    "notes": "One Service where key is the name and properties are connection details."
+    "env": "SOAJS_GC_MAX_UPLOAD_LIMIT",
+    "default": "2MB",
+    "desc": "Optional variable if deploying a GCS service that specifies the maximum upload limit of file sizes to accept."
   }
+
 ]

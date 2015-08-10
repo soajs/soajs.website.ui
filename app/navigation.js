@@ -132,6 +132,13 @@ var navigation = [
 
 		'url': '#/documentation/core/packages'
 	},
+    {
+        'id': 'mongo',
+        'label': 'soajs mongo',
+        'title': 'SOAJS | Documentation | Mongo Adapter',
+
+        'url': '#/documentation/db/mongo'
+    },
 	{
 		'id': 'overview',
 		'label': 'soajs features overview',
@@ -174,6 +181,12 @@ var navigation = [
 		'title': 'SOAJS | Documentation | oAuth',
 		'url': '#/documentation/services/oauth'
 	},
+    {
+        'id': 'gcs',
+        'label': 'soajs gcs',
+        'title': 'SOAJS | Documentation | GCS',
+        'url': '#/documentation/services/gcs'
+    },
 	{
 		'id': 'dashboard',
 		'label': 'soajs dashboard',
