@@ -7,7 +7,7 @@
 	<table width="100%" class="myTable">
 		<thead>
 			<tr>
-				<th>Feature</th>
+				<th class="noBreak">Feature</th>
 				<th>Description</th>
 			</tr>
 		</thead>
@@ -147,8 +147,8 @@ buildFormWithModal($scope, $modal, config);</code></pre>
 	<table width="100%" class="myTable">
 		<thead>
 			<tr>
-				<th width="10%">Property Name</th>
-				<th width="10%">Property Type</th>
+				<th class="col1">Property Name</th>
+				<th class="col2">Property Type</th>
 				<th>Description</th>
 			</tr>
 		</thead>
@@ -157,12 +157,12 @@ buildFormWithModal($scope, $modal, config);</code></pre>
 				<td colspan="3">
 					<table width="100%">
 						<tr>
-							<td width="10%">{{field.name}}</td>
-							<td width="10%">{{field.type}}</td>
+							<td class="col1">{{field.name}}</td>
+							<td class="col2">{{field.type}}</td>
 							<td ng-bind-html="field.description"></td>
 						</tr>
 						<tr>
-							<td><b>Available:</b></td>
+							<td class="col1"><b>Available:</b></td>
 							<td colspan="2">{{field.available}}</td>
 						</tr>
 					</table>
@@ -227,7 +227,7 @@ buildFormWithModal($scope, $modal, config);</code></pre>
             <tr>
                 <th>Property</th>
                 <th>Description</th>
-                <th>Computed</th>
+                <th class="">Computed</th>
             </tr>
         </thead>
         <tbody>

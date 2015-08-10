@@ -1269,3 +1269,7 @@ ul.straight-line li + li:before{
 .full-image{
     max-width: 100%;
 }
+
+table .col1, table .col2{
+  width: 17%;
+}

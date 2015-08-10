@@ -391,11 +391,15 @@
         background-image: none;
     }
     .releaseTables td ul {
-        padding-left: 10px;
+        padding-left: 8px;
     }
     .myTable thead th {
         font-size: 11px;
         padding: 8px 5px;
+    }
+    .myTable td {
+        font-size: 9px;
+        padding: 8px 4px;
     }
     .insideFieldsetMain{
         width: 276px;
@@ -411,9 +415,15 @@
         margin:20px 0 0 0;
     }
     .pckName{
-        width: 48px;
+        width: 46px;
     }
     .pckVersion{
-        width: 48px;
+        width: 46px;
+    }
+    #newsPage .white-container{
+        padding-left: 8px; padding-right: 8px;
+    }
+    #newsPage .bulletin .body {
+        padding: 5px;
     }
 }
