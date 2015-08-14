@@ -2,7 +2,7 @@
 <h1>Docker Deployement on Linux</h1>
 <div class="white-container">
 	<p>
-		Begin by creating the following folder schema so you can place SOAJS Utilities inside it and make sure that <a href="https://docs.docker.com/installation/ubuntulinux/" target="_blank">Docker</a> is installed on the machine you are using.
+		Begin by creating the following folder schema so you can place SOAJS Utilities inside it and make sure that <a href="http://docs.docker.com/linux/step_one/" target="_blank">Docker</a> is installed on the machine you are using.
 	</p>
 	<pre><code class="bash"># soajs modules go here
 $ mkdir -p /opt/soajs/node_modules/</code></pre>
@@ -19,6 +19,7 @@ $ mkdir -p /opt/soajs/node_modules/</code></pre>
 
 # install NodeJs latest stable version
 $ apt-get install nodejs
+$ ln -s /usr/bin/nodejs /usr/bin/node
 
 # install NPM latest stable version
 $ apt-get install npm
@@ -32,11 +33,14 @@ $ apt-get install mongodb</code></pre>
 	<p>
 		Once NodeJs is installed, install <a target="_blank" href="http://www.npmjs.org/packages/soajs.utilities">soajs.utilities</a> via NPM in /opt/soajs to acquire the configuration files needed to deploy SOAJS.
 	</p>
-	<pre><code class="bash"># navigate to node_modules
+	<pre><code class="bash"># navigate to /opt/soajs/
 $ cd /opt/soajs/
 
 # install soajs.utilities
-$ npm install soajs.utilities</code></pre>
+$ npm install soajs.utilities
+
+# move the utilities to /opt/soajs/
+$ mv /opt/soajs/node_modules/soajs.utilities /opt/soajs/</code></pre>
 	<p>
 		Now install SOAJS and its core services:
 	</p>
@@ -44,6 +48,7 @@ $ npm install soajs.utilities</code></pre>
 
 #execute the installer script
 $ ./dockerDeploy.sh</code></pre>
+    <div class="redFlag">Reminder: Make sure you have <a href="http://docs.docker.com/linux/step_one/" target="_blank">Docker</a> installed on your machine and running as mentioned above.</div>
     <p>
         The above command will install SOAJS framework and all the core services from NPM then start all the services. You can test each service after the script finishes to check if it is healthy:
     </p>

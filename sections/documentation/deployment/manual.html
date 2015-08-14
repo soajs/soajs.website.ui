@@ -21,6 +21,7 @@ $ mkdir -p /opt/soajs/node_modules/</code></pre>
     <b>Ubuntu:</b>
 	<pre><code class="bash"># install NodeJs latest stable version
 $ apt-get install nodejs
+$ ln -s /usr/bin/nodejs /usr/bin/node
 
 # install NPM latest stable version
 $ apt-get install npm
@@ -37,11 +38,14 @@ $ brew install mongodb</code></pre>
     <p>
         Once NodeJs is installed, install <a target="_blank" href="http://www.npmjs.org/packages/soajs.utilities">soajs.utilities</a> in /opt/soajs/node_modules to acquire the configuration files needed to deploy SOAJS.
     </p>
-	<pre><code class="bash"># navigate to node_modules
+	<pre><code class="bash"># navigate to /opt/soajs/
 $ cd /opt/soajs/
 
 # install soajs.utilities
-$ npm install soajs.utilities</code></pre>
+$ npm install soajs.utilities
+
+# move the utilities to /opt/soajs/
+$ mv /opt/soajs/node_modules/soajs.utilities /opt/soajs/</code></pre>
     <br/>
     <h4><u>Step2</u></h4>
     <p>
