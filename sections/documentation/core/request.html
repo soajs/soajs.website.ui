@@ -121,7 +121,8 @@
             <pre><code class="javascript">service.get("/hello", function(req, res) {
     var data = 4;
     var schema = {"type": "number"};
-    var x = req.soajs.validator.validate(data, schema);
+    var x = new req.soajs.validator.Validator();
+    x.validate(data, schema);
     req.soajs.log.debug(x);
 });</code></pre>
             <em>
