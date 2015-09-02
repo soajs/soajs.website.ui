@@ -27,14 +27,20 @@ $ ln -s /usr/bin/nodejs /usr/bin/node
 $ apt-get install npm
 
 #install MongoDB latest stable version
-$ apt-get install mongodb</code></pre>
+$ apt-get install mongodb
+
+#install Nginx latest stable version
+$ apt-get install nginx</code></pre>
     <br/>
     <b>MAC:</b>
 	<pre><code class="bash"># install NodeJs latest stable version
 $ brew install nodejs
 
 #install MongoDB latest stable version
-$ brew install mongodb</code></pre>
+$ brew install mongodb
+
+#install Nginx latest stable version
+$ brew install nginx</code></pre>
     <p>
         Once NodeJs is installed, install <a target="_blank" href="http://www.npmjs.org/packages/soajs.utilities">soajs.utilities</a> in /opt/soajs/node_modules to acquire the configuration files needed to deploy SOAJS.
     </p>
@@ -205,16 +211,10 @@ $ ./manualDeploy.sh</code></pre>
     </fieldset>
     <h4><u>Step4</u></h4>
     <p>
-        SOAJS is now running, the final step requires we launch the Dashboard UI, login and start working. First, you need to install Nginx and start it:
+        SOAJS is now running, the final step requires we launch the Dashboard UI, login and start working. First, you need to configure Nginx and start it:
     </p>
-    <b>Ubuntu:</b>
-    <pre><code class="bash">$ apt-get install nginx</code></pre>
-    <br/>
-    <b>MAC:</b>
-    <pre><code class="bash">$ brew install nginx</code></pre>
-    <br/>
     <p>
-        Once Nginx is installed, copy the configuration files:
+        Copy the configuration files:
     </p>
     <b>Ubuntu:</b>
 	<pre><code class="bash"># copy the upstream.conf

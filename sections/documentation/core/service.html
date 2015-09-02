@@ -82,8 +82,8 @@ module.exports = {
 	"schema": {
 		"/hello": {
 			"_apiInfo":{ "l": "hello world" },
-			"firstName": { "required": true, "validation" : { "type": "string" },
-			"lastName": { "required": true, "validation" : { "type": "string" }
+			"firstName": { "source": ["query.firstName"], "required": true, "validation": {"type": "string"}},
+			"lastName": { "source": ["query.lastName"], "required": true, "validation": {"type": "string"}}
 		}
 	}
 };</code></pre>
@@ -192,7 +192,7 @@ var service = new soajs.server.service({
 	<h3>Starting the Service</h3>
 	<p>
 		Every service created with SOAJS is implemented using <a href="http://www.nodejs.org" target="_blank">NodeJs</a> therefore start the service using node in a terminal:
-		<pre><code class="bash">$ cd /opt/soajs/node_modules/myService/
+		<pre><code class="bash">$ cd /opt/soajs/myService/
 $ node index</code></pre>
 		Your service will run and will be listening on the port specified in config.js which in this case is 4020. Your service will also be listening on a second port used for maintenance purposes. That port is equal to the default port specified in config.js + 1000 and in this case has the value of 5020. Once your service is running, make a call via CURL like the following:
 		<pre><code class="bash">$ curl -X GET "http://127.0.0.1:4020/hello?firstName=John&lastName=Doe"</code></pre>
