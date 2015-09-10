@@ -25,6 +25,11 @@
     "desc": "Optional environment variable used by the DASHBOARD service ONLY. For more information checkout <a href='#/documentation/deployment/manual'>Deployment Section</a>."
   },
   {
+    "env": "SOAJS_PROFILE_LOC",
+    "default": "/opt/soajs/node_modules/profiles/",
+    "desc": "Optional environment variable used by the DASHBOARD service ONLY to locate the profile to use when deploying environments via docker."
+  },
+  {
     "env": "SOAJS_GC_NAME",
     "default": "N/A",
     "desc": "Mandatory variable if deploying a GCS service and contains the name of that GCS service."
