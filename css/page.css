@@ -187,6 +187,10 @@ a:hover {
     padding-top: 3px;
 }
 
+.bottom .copyright .nowrap{
+    white-space: nowrap;
+}
+
 .bottom .sharing-footer .inner {
     float: left;
 }
