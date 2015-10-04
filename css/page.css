@@ -438,6 +438,10 @@ a:hover {
     height: 26px;
 }
 
+.white-banner .banner-container .repos .npm img{
+    max-width:100%;
+}
+
 .white-banner .banner-container .sharing {
     text-align: center;
     clear: both;
@@ -492,7 +496,7 @@ a:hover {
     padding-bottom: 50px;
 }
 
-.soajs-features .features-container .features h1 {
+.soajs-features .features-container .features h2 {
     color: white;
     font-size: 30px;
     font-weight: bold;
@@ -1272,4 +1276,8 @@ ul.straight-line li + li:before{
 
 table .col1, table .col2{
   width: 17%;
+}
+
+.hidden{
+    display:none;
 }

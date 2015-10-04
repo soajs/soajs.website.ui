@@ -36,7 +36,7 @@
 								<div class="repoLabel" ng-if="!badge.documentation"><a>{{badge.label}}</a></div>
 
 								<div class="repoLinks npm" ng-if="badge.npm">
-									<a href="https://badge.fury.io/js/{{badge.npm}}" target="_blank"><img style="max-width:100%;" ng-src="https://badge.fury.io/js/{{badge.npm}}.svg" alt="NPM version"></a>
+									<a href="https://badge.fury.io/js/{{badge.npm}}" target="_blank"><img ng-src="https://badge.fury.io/js/{{badge.npm}}.svg" alt="NPM version"></a>
 								</div>
 								<div class="repoLinks travis" ng-if="badge.travis">
 									<a href="https://travis-ci.org/{{badge.travis}}" target="_blank"><img data-bindattr-732="732" ng-src="https://travis-ci.org/{{badge.travis}}.svg" alt="Build status"></a>
@@ -61,7 +61,7 @@
 		<div class="soajs-features">
 			<div class="features-container">
 				<div class="features">
-					<h1>Features</h1>
+					<h2>Features</h2>
 
 					<p>Build your product APIs with soajs and take advantage of tons of features that usually take months of work from your engineering team. Now you can be done within minutes.</p>
 					<hr class="white"/>
@@ -69,7 +69,7 @@
 				<ul class="feature-list">
 					<li ng-repeat="feature in fList" ng-class-odd="'odd'" ng-class-even="'even'">
 						<div ng-click='goToAnchor("features",feature.id)'>
-							<img class="icon" ng-src="{{feature.icon}}"/>
+							<img class="icon" ng-src="{{feature.icon}}" alt="{{feature.title}}"/>
 							<h5> {{feature.title}} </h5>
 
 							<p>{{feature.description}}</p>
@@ -84,10 +84,10 @@
 		<hr/>
 		<br/>
 
-		<div class="powered-icon"><a target="_blank" href="http://nodejs.org/"><img src="images/footer/nodeIcon.png"></a></div>
-		<div class="powered-icon"><a target="_blank" href="http://www.elasticsearch.org/"><img src="images/footer/elasticSearchIcon.png"></a></div>
-		<div class="powered-icon"><a target="_blank" href="http://www.mongodb.org/"><img src="images/footer/mongoDb.png"></a></div>
-		<div class="powered-icon"><a target="_blank" href="https://angularjs.org/"><img src="images/footer/angularIcon.png"></a></div>
+		<div class="powered-icon"><a target="_blank" href="http://nodejs.org/"><img src="images/footer/nodeIcon.png" alt="nodejs" /></a></div>
+		<div class="powered-icon"><a target="_blank" href="http://www.elasticsearch.org/"><img src="images/footer/elasticSearchIcon.png" alt="elasticsearch" /></a></div>
+		<div class="powered-icon"><a target="_blank" href="http://www.mongodb.org/"><img src="images/footer/mongoDb.png" alt="mongodb" /></a></div>
+		<div class="powered-icon"><a target="_blank" href="https://angularjs.org/"><img src="images/footer/angularIcon.png" alt="angularjs" /></a></div>
 	</div>
 	<div class="whyBeaver">
 		<div class="whyBeaver-container">
