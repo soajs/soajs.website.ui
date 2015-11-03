@@ -11,7 +11,7 @@ myApp.controller('getStartedCtrl', ['$scope', '$http', '$routeParams', '$compile
 	};
 
 	$scope.loadSection = function(sectionName) {
-		$scope.getStartedLink = "/getstarted/" + sectionName;
+		$scope.getStartedLink = "/getStarted/" + sectionName;
 		var angularElement = angular.element(document.getElementById('getStartedPreview'));
 		$http.get('sections/getstarted/' + sectionName + ".html").success(function(data) {
 			angularElement.html(data);
