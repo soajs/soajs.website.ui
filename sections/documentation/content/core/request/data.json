@@ -24,7 +24,7 @@
     "purpose": "multitenancy meta configuration."
   },
   {
-    "property": "req.soajs.serviceConfig",
+    "property": "req.soajs.servicesConfig",
     "purpose": "soajs gives the power to configure each service differently from one tenant to the other as well as empowers you to even have it configured differently down to the user. This configuration is provided by this entry."
   },
   {
