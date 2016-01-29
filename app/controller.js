@@ -8,18 +8,18 @@ app.config([
 	'$filterProvider',
 	'$provide',
 	'$sceDelegateProvider',
-	function($routeProvider, $controllerProvider, $compileProvider, $filterProvider, $provide, $sceDelegateProvider) {
+	function ($routeProvider, $controllerProvider, $compileProvider, $filterProvider, $provide, $sceDelegateProvider) {
 
 		app.compileProvider = $compileProvider;
-		navigation.forEach(function(navigationEntry) {
-			if(navigationEntry.scripts && navigationEntry.scripts.length > 0) {
+		navigation.forEach(function (navigationEntry) {
+			if (navigationEntry.scripts && navigationEntry.scripts.length > 0) {
 				$routeProvider.when(navigationEntry.url.replace('#', ''), {
 					templateUrl: navigationEntry.tplPath,
 					resolve: {
-						load: ['$q', '$rootScope', function($q, $rootScope) {
+						load: ['$q', '$rootScope', function ($q, $rootScope) {
 							var deferred = $q.defer();
-							require(navigationEntry.scripts, function() {
-								$rootScope.$apply(function() {
+							require(navigationEntry.scripts, function () {
+								$rootScope.$apply(function () {
 									deferred.resolve();
 								});
 							});
@@ -29,7 +29,7 @@ app.config([
 				});
 			}
 			else {
-				if(navigationEntry.tplPath && navigationEntry.tplPath !== '') {
+				if (navigationEntry.tplPath && navigationEntry.tplPath !== '') {
 					$routeProvider.when(navigationEntry.url.replace('#', ''), {
 						templateUrl: navigationEntry.tplPath
 					});
@@ -48,41 +48,41 @@ app.config([
 	}
 ]);
 
-app.controller('mainCtrl', ['$scope', '$location', '$routeParams', function($scope, $location, $routeParams) {
+app.controller('mainCtrl', ['$scope', '$location', '$routeParams', function ($scope, $location, $routeParams) {
 
 	$scope.today = new Date().getTime();
 
-	$scope.goToAnchor = function(section, anchor) {
+	$scope.goToAnchor = function (section, anchor) {
 		//console.log("goToAnchor: /" + section + "/" + anchor);
 		$location.path("/" + section + "/" + anchor);
 	};
 
-	$scope.$on('$routeChangeSuccess', function(event, current, previous) {
+	$scope.$on('$routeChangeSuccess', function (event, current, previous) {
 		$scope.currentLocation = $location.path();
-		for(var entry = 0; entry < navigation.length; entry++) {
+		for (var entry = 0; entry < navigation.length; entry++) {
 			var urlOnly = navigation[entry].url.replace('/:anchor?', '').replace("/:section?", '');
-			if(urlOnly === '#' + $scope.currentLocation) {
-				if(navigation[entry].title && navigation[entry].title !== '') {
+			if (urlOnly === '#' + $scope.currentLocation) {
+				if (navigation[entry].title && navigation[entry].title !== '') {
 					jQuery('head title').html(navigation[entry].title);
 				}
 
-				if(navigation[entry].keywords && navigation[entry].keywords !== '') {
+				if (navigation[entry].keywords && navigation[entry].keywords !== '') {
 					jQuery('head meta[name=keywords]').attr('content', navigation[entry].keywords);
 				}
 
-				if(navigation[entry].description && navigation[entry].description !== '') {
+				if (navigation[entry].description && navigation[entry].description !== '') {
 					jQuery('head meta[name=description]').attr('content', navigation[entry].description);
 				}
 			}
 		}
 
 		var subPagesDetection = $scope.currentLocation.match(/\//g);
-		if(subPagesDetection.length > 1) {
+		if (subPagesDetection.length > 1) {
 			var p = $location.path().split(/\//);
 			$scope.currentLocation = "/" + p[1];
 		}
 
-		if($routeParams.anchor) {
+		if ($routeParams.anchor) {
 			var sp = '/' + $routeParams.anchor;
 			var p = $location.path().split(sp);
 			$scope.currentLocation = p[0];
@@ -102,56 +102,53 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', function($sco
 
 	$scope.copyrightYear = "2015";
 	var thisYear = new Date().getFullYear();
-	if(thisYear > 2015) {
-		$scope.copyrightYear += " - " + 2015;
-	}
-
+	$scope.copyrightYear = 2015 + " - " + thisYear;
 
 }]);
 
-app.directive('topMenu', function() {
+app.directive('topMenu', function () {
 	return {
 		restrict: 'E',
 		templateUrl: 'app/templates/topMenu.html'
 	}
 });
 
-app.filter('toTrustedHtml', ['$sce', function($sce) {
-	return function(text) {
+app.filter('toTrustedHtml', ['$sce', function ($sce) {
+	return function (text) {
 		return $sce.trustAsHtml(text);
 	};
 }]);
 
-app.filter('trustAsResourceUrl', ['$sce', function($sce) {
-	return function(val) {
+app.filter('trustAsResourceUrl', ['$sce', function ($sce) {
+	return function (val) {
 		return $sce.trustAsResourceUrl(val);
 	};
 }]);
 
-app.service('loadFileContent', ['$http', '$timeout', '$compile', function($http, $timeout, $compile) {
-	return function(context, path, elId) {
+app.service('loadFileContent', ['$http', '$timeout', '$compile', function ($http, $timeout, $compile) {
+	return function (context, path, elId) {
 		var att = "jsCode_" + elId;
-		$http.get(path).success(function(data) {
+		$http.get(path).success(function (data) {
 			context[att] = data.trim();
 			var htmlData = '<pre id="' + att + '"><div style="text-align:right;"><a href="" onclick="collapseExpand(this);">[ - ]</a></div><code class="javascript">' + context[att] + '</code></pre>';
 			var el = angular.element(document.getElementById(elId));
 			el.html(htmlData);
 			$compile(el.contents())(context);
 
-			$timeout(function() {
+			$timeout(function () {
 				renderCodeSnippets(att);
 			}, 1000);
 
-		}).error(function() {
+		}).error(function () {
 			console.log('Error Loading JS Snippet.');
 		});
 	}
 }]);
 
-app.service('loadJsonFileContent', ['$http', '$timeout', '$compile', function($http, $timeout, $compile) {
-	return function(context, path, elId) {
+app.service('loadJsonFileContent', ['$http', '$timeout', '$compile', function ($http, $timeout, $compile) {
+	return function (context, path, elId) {
 		var att = "jsonCode_" + elId;
-		$http.get(path).success(function(data) {
+		$http.get(path).success(function (data) {
 			context[att] = data;
 			context[att] = JSON.stringify(context[att], null, "\t");
 			var htmlData = '<pre id="' + att + '"><div style="text-align:right;"><a href="" onclick="collapseExpand(this);">[ - ]</a></div><code class="json">' + context[att] + '</code></pre>';
@@ -159,61 +156,61 @@ app.service('loadJsonFileContent', ['$http', '$timeout', '$compile', function($h
 			el.html(htmlData);
 			$compile(el.contents())(context);
 
-			$timeout(function() {
+			$timeout(function () {
 				renderCodeSnippets(att);
 			}, 1000);
 
-		}).error(function() {
+		}).error(function () {
 			console.log('Error Loading JSON Snippet: ' + path);
 		});
 	}
 }]);
 
-app.service('loadHTMLContent', ['$http', '$timeout', '$compile', '$sce', function($http, $timeout, $compile, $sce) {
+app.service('loadHTMLContent', ['$http', '$timeout', '$compile', '$sce', function ($http, $timeout, $compile, $sce) {
 
 	function htmlEntities(str) {
 		return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 	}
 
-	return function(context, path, elId) {
+	return function (context, path, elId) {
 		var att = "htmlCode_" + elId;
-		$http.get(path).success(function(data) {
+		$http.get(path).success(function (data) {
 			context[att] = $sce.trustAsHtml(htmlEntities(data));
 			var htmlData = '<pre id="' + att + '"><div style="text-align:right;"><a href="" onclick="collapseExpand(this);">[ - ]</a></div><code class="html" ng-bind-html="' + att + '"></code></pre>';
 			var el = angular.element(document.getElementById(elId));
 			el.html(htmlData);
 			$compile(el.contents())(context);
 
-			$timeout(function() {
+			$timeout(function () {
 				renderCodeSnippets(att);
 			}, 100);
 
-		}).error(function() {
+		}).error(function () {
 			console.log('Error Loading HTML Snippet.');
 		});
 	}
 }]);
 
-app.service('loadBASHContent', ['$http', '$timeout', '$compile', '$sce', function($http, $timeout, $compile, $sce) {
+app.service('loadBASHContent', ['$http', '$timeout', '$compile', '$sce', function ($http, $timeout, $compile, $sce) {
 
 	function htmlEntities(str) {
 		return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 	}
 
-	return function(context, path, elId) {
+	return function (context, path, elId) {
 		var att = "htmlCode_" + elId;
-		$http.get(path).success(function(data) {
+		$http.get(path).success(function (data) {
 			context[att] = $sce.trustAsHtml(htmlEntities(data));
 			var htmlData = '<pre id="' + att + '"><code class="bash" ng-bind-html="' + att + '"></code></pre>';
 			var el = angular.element(document.getElementById(elId));
 			el.html(htmlData);
 			$compile(el.contents())(context);
 
-			$timeout(function() {
+			$timeout(function () {
 				renderCodeSnippets(att);
 			}, 100);
 
-		}).error(function() {
+		}).error(function () {
 			console.log('Error Loading HTML Snippet.');
 		});
 	}
@@ -226,11 +223,11 @@ function setCodeSnipet(context, snippet) {
 var preBasket = [];
 function renderCodeSnippets(preId) {
 	hljs.configure({"tabReplace": "    "});
-	if(!preId) {
-		setTimeout(function() {
-			jQuery('pre code').each(function(i, block) {
+	if (!preId) {
+		setTimeout(function () {
+			jQuery('pre code').each(function (i, block) {
 				var parentId = jQuery(block).parent().attr('id');
-				if(preBasket.indexOf(parentId) === -1) {
+				if (preBasket.indexOf(parentId) === -1) {
 					hljs.highlightBlock(block);
 				}
 			});
@@ -238,7 +235,7 @@ function renderCodeSnippets(preId) {
 	}
 	else {
 		preBasket.push(preId);
-		jQuery('pre#' + preId + ' code').each(function(i, block) {
+		jQuery('pre#' + preId + ' code').each(function (i, block) {
 			hljs.highlightBlock(block);
 		});
 	}
@@ -247,7 +244,7 @@ function renderCodeSnippets(preId) {
 function collapseExpand(el) {
 	var codeEl = jQuery(el).parent().parent().children('code');
 
-	if(jQuery(el).html() == "[ - ]") {
+	if (jQuery(el).html() == "[ - ]") {
 		codeEl.slideUp();
 		jQuery(el).parent().css("background-color", "#f0f0f0");
 		jQuery(el).html("[ + ]");
