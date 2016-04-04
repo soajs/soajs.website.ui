@@ -2,8 +2,11 @@
 
 module.exports = {
 	"serviceName": "example02",
-	servicePort: 4011,
-	extKeyRequired: false,
+	"serviceGroup": "SOAJS Example Services",
+	"serviceVersion": 1,
+	"servicePort": 4011,
+	"extKeyRequired": false,
+	"oauth": true,
 	"errors": {},
 	"schema": {
 		"/buildName": {

@@ -27,10 +27,11 @@
 			<pre><code class="javascript">'use strict';
 	var soajs = require('soajs');
 	var config = require('./config.js');
-	var service = new soajs.server.service({ "config": config });
+	var service = new soajs.server.service(config);
 	service.init(function () {
 		service.get("/hello", function (req, res) {
-			res.json(req.soajs.buildResponse(null, "Hello "+req.soajs.inputmaskData.firstName+" "+req.soajs.inputmaskData.lastName));
+			var txt = "Hello " + req.soajs.inputmaskData.firstName + " " + req.soajs.inputmaskData.lastName;
+			res.json(req.soajs.buildResponse(null, txt));
 		});
 	service.start();
 });</code></pre>
@@ -38,6 +39,8 @@
 			<tab heading="config.js">
 			<pre><code class="javascript">module.exports = {
 	serviceName: "helloworld",
+	serviceGroup: "SOAJS Example Services",
+	serviceVersion: 1,
 	servicePort: 4020,
 	extKeyRequired: false,
 	"errors": {},
@@ -84,8 +87,8 @@
 		<h3>Start the service</h3>
 		<p>
 			Before you run your service, make sure you have the following installed:<br />
-			- <a href="http://www.mongodb.org" target="_blank">MongoDB</a> ( version 2.6.7 or higher)<br />
-			- <a href="http://www.nodejs.org" target="_blank">NodeJS</a> (version 0.10.25 or higher)
+			- <a href="http://www.mongodb.org" target="_blank">MongoDB</a> ( version 3.2.4+)<br />
+			- <a href="http://www.nodejs.org" target="_blank">NodeJS</a> (version Linux: 0.10.25+ or Mac: 4.4.0+)
 		</p>
 		<p>
 			Next, download the "hello world" service by installing <a href="https://npmjs.org/packages/soajs.examples" target="_blank">soajs.examples</a> and <a href="https://npmjs.org/packages/soajs.utilities" target="_blank">soajs.utilities</a> packages:
@@ -126,9 +129,38 @@ $ node .</code></pre>
 		<h3>Protect the service</h3>
 		<p>
 			Now that you have seen how to run and call your service, let's protect it.<br />
-			First, stop the service from your terminal, then edit the index.js file. On the third line next to <b>"config":config</b> add <b>"oauth": true</b>.<br />
+			First, stop the service from your terminal, then edit the config.js file and add <b>"oauth": true</b>.<br />
 		</p>
-		<pre><code class="javascript">var service = new soajs.server.service({ "config": config, "oauth": true });</code></pre>
+		<pre><code class="javascript">module.exports = {
+	serviceName: "helloworld",
+	serviceGroup: "SOAJS Example Services",
+	serviceVersion: 1,
+	servicePort: 4020,
+	extKeyRequired: false,
+	oauth: true,
+	"errors": {},
+	"schema": {
+		"/hello": {
+			"_apiInfo":{
+				"l": "hello world"
+			},
+			"firstName": {
+				"source": ['query.firstName'],
+				"required": true,
+				"validation": {
+					"type": "string"
+				}
+			},
+			"lastName": {
+				"source": ['query.lastName'],
+				"required": true,
+				"validation": {
+					"type": "string"
+				}
+			}
+		}
+	}
+};</code></pre>
 		<p>
 			Enabling oAuth secures your service, any unauthorized request made to its APIs will be rejected.<br />
 			Turn your service back on and hit the API a second time:

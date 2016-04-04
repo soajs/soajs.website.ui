@@ -2,8 +2,11 @@
 
 module.exports = {
 	"serviceName": "example03",
+	"serviceGroup": "SOAJS Example Services",
+	"serviceVersion": 1,
 	"servicePort": 4012,
 	"extKeyRequired": true,
+	"session": true,
 	"errors": {},
 	"schema": {
 		"commonFields": {

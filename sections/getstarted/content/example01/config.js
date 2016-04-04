@@ -2,6 +2,8 @@
 
 module.exports = {
 	serviceName: "example01",
+	serviceGroup: "SOAJS Example Services",
+	serviceVersion: 1,
 	servicePort: 4010,
 	extKeyRequired: false,
 	"errors": {
