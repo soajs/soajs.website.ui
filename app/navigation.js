@@ -206,6 +206,18 @@ var navigation = [
 		'url': '#/documentation/ui/module'
 	},
 	{
+		'id': 'ui_fInstall',
+		'label': 'soajs Frontend Installation',
+		'title': 'SOAJS | Documentation | Frontend Installation',
+		'url': '#/documentation/ui/fInstallation'
+	},
+	{
+		'id': 'ui_fDeploy',
+		'label': 'soajs Frontend Deployment',
+		'title': 'SOAJS | Documentation | Frontend Deployment',
+		'url': '#/documentation/ui/fDeploy'
+	},
+	{
 		'id': 'services',
 		'label': 'soajs dashboard services',
 		'title': 'SOAJS | Documentation | Dashboard UI Common Functions',
