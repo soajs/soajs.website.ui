@@ -38,6 +38,13 @@ CURL -X POST "http://127.0.0.1:4000/urac/login"</code></pre>
 				Enabling <b>CORS</b> allows different domains to communicate with SOAJS via its gateway to post and pull resources without having to deal with <b>"cross-domain"</b> issues and by simply using the standard protocols: GET - POST - DELETE - PUT.
 			</p>
 		</li>
+		<li>
+			<u><b>Cookies & Sessions:</b></u>
+			<p>
+				SOAJS controller also parses cookies and session to determin if the request arriving contains information about a logged user or anonymous.
+				Refer to <b>User Level</b> in <a href="#/getStarted/example03">Step 5 Multitenancy</a> under <b>Get Started</b> for more information on the usage.
+			</p>
+		</li>
 	</ol>
 	<br/>
 	<hr/>
@@ -116,7 +123,7 @@ $ node .</code></pre>
 		<thead>
 			<tr>
 				<th class="noBreak">Operation Name</th>
-				<th style="min-width: 30px;">Controller</th>
+				<th style="min-width: 30px;">Controller Only</th>
 				<th>Description</th>
 			</tr>
 		</thead>
@@ -132,14 +139,76 @@ $ node .</code></pre>
 				<td>Reload and pull a new version of the Registry information from the database.</td>
 			</tr>
 			<tr>
+				<td>loadProvision</td>
+				<td>NO</td>
+				<td>Reload and pull a new version of the provisioned information from the database, this operation is executed by all SOAJS services except the controller since the later does not require provisioned information to be running.</td>
+			</tr>
+			<tr class="even">
 				<td>awarenessStat</td>
 				<td>YES</td>
 				<td>Perform awareness check on a SOAJS services, this operation is only executed by the controller and is repeated on a regular basis based on the awareness timeout value configured in the registry of the running environment.</td>
 			</tr>
-			<tr class="even">
-				<td>loadProvision</td>
-				<td>NO</td>
-				<td>Reload and pull a new version of the provisioned information from the database, this operation is executed by all SOAJS services except the controller since the later does not require provisioned information to be running.</td>
+			<tr>
+				<td valign="top">register</td>
+				<td valign="top">YES</td>
+				<td>Registers a new service/daemon.<br>
+					<table class="myTable" width="100%">
+						<thead>
+							<tr>
+								<th class="noBreak">Parameter</th>
+								<th style="min-width: 30px;">Provider</th>
+								<th>Service Only</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><b>name</b></td>
+								<td><b>query</b></td>
+								<td><b>NO</b></td>
+							</tr>
+							<tr class="even">
+								<td><b>group</b></td>
+								<td><b>query</b></td>
+								<td><b>NO</b></td>
+							</tr>
+							<tr>
+								<td><b>port</b></td>
+								<td><b>query</b></td>
+								<td><b>NO</b></td>
+							</tr>
+							<tr class="even">
+								<td><b>ip</b></td>
+								<td><b>query</b></td>
+								<td><b>NO</b></td>
+							</tr>
+							<tr>
+								<td><b>type</b></td>
+								<td><b>query</b></td>
+								<td><b>NO</b></td>
+							</tr>
+							<tr class="even">
+								<td><b>version</b></td>
+								<td><b>query</b></td>
+								<td><b>NO</b></td>
+							</tr>
+							<tr>
+								<td><b>extKeyRequired</b></td>
+								<td><b>query</b></td>
+								<td><b>YES</b></td>
+							</tr>
+							<tr class="even">
+								<td><b>requestTimeout</b></td>
+								<td><b>query</b></td>
+								<td><b>YES</b></td>
+							</tr>
+							<tr>
+								<td><b>requestTimeoutRenewal</b></td>
+								<td><b>query</b></td>
+								<td><b>YES</b></td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
 			</tr>
 		</tbody>
 	</table>

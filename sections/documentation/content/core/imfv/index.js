@@ -2,9 +2,7 @@
 var soajs = require('soajs');
 var config = require('./config.js');
 
-var service = new soajs.server.service({
-	"config": config
-});
+var service = new soajs.server.service(config);
 
 service.init(function(){
 	service.get("/testGet", function(req, res) {

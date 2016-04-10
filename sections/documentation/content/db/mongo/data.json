@@ -69,6 +69,20 @@
       ]
     },
     {
+      "method": "findStream",
+      "description": "finds records in the database collection and returns them as a Stream",
+      "code": {
+        "command": "mongo.findStream(collection_name, criteria, fields, options, function(error, Stream){ ... });"
+      },
+      "params": [
+        {"name": "collection_name", "type": "string", "mandatory": true},
+        {"name": "criteria", "type": "object to match records against", "mandatory": false},
+        {"name": "fields", "type": "specify optional fields to return only", "mandatory": false},
+        {"name": "options", "type": "specify optional operations: sort, limit...", "mandatory": false},
+        {"name": "callback", "type": "function", "mandatory": true}
+      ]
+    },
+    {
       "method": "findOne",
       "description": "finds one record in the database collection.",
       "code": {
@@ -102,6 +116,30 @@
       "params": [
         {"name": "collection_name", "type": "string", "mandatory": true},
         {"name": "criteria", "type": "object to match records against", "mandatory": false},
+        {"name": "callback", "type": "function", "mandatory": true}
+      ]
+    },
+    {
+      "method": "distinct",
+      "description": "returns distinct values for a specific field the database collection.",
+      "code": {
+        "command": "mongo.distinct(collection_name, field, function(error, values){ ... });"
+      },
+      "params": [
+        {"name": "collection_name", "type": "string", "mandatory": true},
+        {"name": "field", "type": "the name of the field", "mandatory": true},
+        {"name": "callback", "type": "function", "mandatory": true}
+      ]
+    },
+    {
+      "method": "aggregate",
+      "description": "aggregates data in a collection based on the given criteria.",
+      "code": {
+        "command": "mongo.aggregate(collection_name, options, function(error, values){ ... });"
+      },
+      "params": [
+        {"name": "collection_name", "type": "string", "mandatory": true},
+        {"name": "options", "type": "Object containing aggregation criteria", "mandatory": true},
         {"name": "callback", "type": "function", "mandatory": true}
       ]
     },

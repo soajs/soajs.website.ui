@@ -242,10 +242,16 @@ var navigation = [
 		'url': '#/documentation/deployment/docker'
 	},
 	{
-		'id': 'docker-mac',
-		'label': 'soajs Docker Deployment on Mac',
-		'title': 'SOAJS | Deployment | Docker Deployment on MAC',
-		'url': '#/documentation/deployment/docker-mac'
+		'id': 'docker-m-mac',
+		'label': 'soajs Docker Machine Deployment on Mac',
+		'title': 'SOAJS | Deployment | Docker Machine Deployment on MAC',
+		'url': '#/documentation/deployment/docker-m-mac'
+	},
+	{
+		'id': 'docker-m-linux',
+		'label': 'soajs Docker Machine Deployment on Linux',
+		'title': 'SOAJS | Deployment | Docker Machine Deployment on Linux',
+		'url': '#/documentation/deployment/docker-m-linux'
 	},
 	{
 		'id': 'docker-linux',

@@ -335,8 +335,7 @@ service.post("/login", function(req, res) {
 		IMFV consolidates all inputs after validation inside <b>req.soajs.inputmaskData</b> making it easier for developers to use them. Instead of wondering if the input was mapped correctly from the request, simply use <b>req.soajs.inputmaskData</b>[input_name] to retrieve the input value and use it in the code.
 		<pre><code class="javascript">//inside index.js
 var config = require("./config");
-var service = new soajs.server.service(...);
-//...
+var service = new soajs.server.service(config);
 service.post("/login", function(req, res) {
 	//...
 	if(req.soajs.inputmaskData.username === ''){

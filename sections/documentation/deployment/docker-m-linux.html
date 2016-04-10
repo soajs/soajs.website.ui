@@ -1,8 +1,9 @@
 <a id="docker-deployment-linux"></a>
-<h1>Docker Deployment on Linux</h1>
+<h1>Docker Machine Deployment on Linux</h1>
 <div class="white-container">
 	<p>
-		This page helps you install SOAJS using docker and offer you the benefit of deploying your cloud of services using containers.
+		This page helps you install SOAJS using docker machine and offer you the benefit of deploying your cloud of services using containers.<br />
+		The Mode also creates 2 environments (Dashboard &amp; Dev) that isolates containers depending on the environment they are deployed in.
 	</p>
 	<hr/>
 	<h3>Prerequisites</h3>
@@ -40,19 +41,24 @@ $ mv /opt/soajs/node_modules/soajs.utilities ../
 $ cd soajs.utilities/lib/
 
 #execute the installer script
-$ ./dockerDeploy.sh</code></pre>
-    <em>The above command will install SOAJS framework and all the SOAJS core services from NPM then start all these services.</em>
-	<br/>
+$ ./dockermachineDeploy.sh</code></pre>
+	<em>The above command will install SOAJS framework and all the SOAJS core services from NPM then start all these services.</em>
+	<p>
+		Once you run the above script, choose <b>option 1</b> which refers to new installation.<br />
+		During the installation, the script will ask you to enter a domain for your application.
+	</p>
 	<h3>Configuration</h3>
 	<p>
 		Update the hosts file on your machine and point out the following domains:
 	</p>
 	<pre><code class="bash">$ gedit /etc/hosts
 127.0.0.1   dashboard-api.soajs.org
-127.0.0.1   dashboard.soajs.org</code></pre>
+127.0.0.1   dashboard.soajs.org
+127.0.0.1   api.mydomain.com</code></pre>
 	<p>
 		Once the Installation script finishes, it will output the above two lines with the correct IP address.<br/>
 		Make sure you put the correct IP address instead of 127.0.0.1 in your /etc/hosts file.<br />
+		The <b>api.mydomain.com</b> will actually contain the value of the domain you entered during installation.
 	</p>
 	<h3>Usage</h3>
 	<p>

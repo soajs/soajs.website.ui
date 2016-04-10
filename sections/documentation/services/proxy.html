@@ -1,0 +1,63 @@
+<a id="soajs.oauth"></a>
+<h1>SOAJS PROXY</h1>
+<div>
+	<tabset class="designTab">
+		<tab heading="Service APIs">
+			<h3>Installation</h3>
+			<p>
+				SOAJS proxy is located in <a href="https://www.npmjs.com/packages/soajs.prx" target="_blank">soajs.prx</a>.
+			</p>
+			<pre><code class="bash">$ cd /opt/soajs/node_modules/
+$ npm install soajs.prx
+$ cd soajs.prx
+$ node .</code></pre>
+			<p>
+				The service will listen on port 4009 to handle requests and 5009 for maintenance operations and is accessible via the controller on http://127.0.0.1:4000/proxy.
+			</p>
+			<hr/>
+			<h3>APIs</h3>
+			<fieldset ng-repeat="route in proxy">
+				<legend>{{route.routeName}}</legend>
+				<div class="examples">
+					<table class="myTable">
+						<thead>
+							<tr>
+								<th>Parameter</th>
+								<th>Type</th>
+								<th>Source</th>
+								<th>Mandatory</th>
+								<th>Notes</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="field in route.fields" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
+								<td width="20%">{{field.parameter}}</td>
+								<td>{{field.type}}</td>
+								<td>{{field.source}}</td>
+								<td>{{field.mandatory}}</td>
+								<td>{{field.notes}}</td>
+							</tr>
+						</tbody>
+					</table>
+					<br/>
+					<h6><u>Command:</u></h6>
+					<pre><code class="bash">{{route.cmd}}</code></pre>
+				</div>
+			</fieldset>
+		</tab>
+		<tab heading="Service Information"><br />
+			<p>
+				SOAJS proxy is a service that redirects requests to the requested environments. These requests are made from modules developed under the Operate pillar to your services that are deployed in the requested environments. This enables the dashboard to provide you with the ability to use the Operate pillar via the frontend UI SDK and make calls to your custom built services in other environment.
+			</p>
+			<hr/>
+			<h3>Workflow</h3>
+			<p>
+				The following diagram illustrates how the <b>Proxy</b> works with SOAJS services.
+			</p>
+			<img ng-src="images/documentation/proxy-workflow.png" id="proxy-workflow" class="img-margin-t-b"/>
+			<br/>
+			<hr/>
+		</tab>
+	</tabset>
+	<script>renderCodeSnippets();</script>
+</div>

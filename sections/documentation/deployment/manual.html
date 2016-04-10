@@ -2,79 +2,52 @@
 <h1>Manual Deployment</h1>
 <div class="white-container">
     <p>
-        SOAJS can be deployed manually on both Linux and MAC platforms.<br />Begin by creating the following folder schema so you can place SOAJS and its components inside it:
-    </p>
-	<pre><code class="bash"># soajs modules go here
-$ mkdir -p /opt/soajs/node_modules/</code></pre>
-    <p>
-        In the next steps, you will install all SOAJS modules inside node_module folder. This way when you create your services, place your code next to the node_modules folder and simply require soajs in your code and it will be loaded.
+        SOAJS can be deployed manually on both Linux and MAC platforms.<br />
+	    You have chose manual installation therefore, you need to install the prerequisites manually, configure your hosts file then run the installation script and finally set up the UI.
     </p>
     <hr/>
-    <h3>Installation</h3>
+    <h3>Prerequisites</h3>
     <p>
-        SOAJS can be installed manually on your machine with 4 simple steps:
-    </p>
-    <h4><u>Step1</u></h4>
-    <p>
-        SOAJS is built using NodeJs and uses MongoDB therefore you need to have NodeJs and MongoDB installed and running on your machine.
+        SOAJS requires the following technologies to be installed on your machine:
     </p>
     <b>Ubuntu:</b>
-	<pre><code class="bash"># install NodeJs latest stable version
-$ apt-get install nodejs
-$ ln -s /usr/bin/nodejs /usr/bin/node
-
-# install NPM latest stable version
-$ apt-get install npm
-
-#install MongoDB latest stable version
-$ apt-get install mongodb
-
-#install Nginx latest stable version
-$ apt-get install nginx</code></pre>
+	<pre><code class="bash"># install NodeJs, NPM, MongoDB & Nginx
+$ apt-get install nodejs npm mongodb nginx
+$ ln -s /usr/bin/nodejs /usr/bin/node</code></pre>
     <br/>
     <b>MAC:</b>
-	<pre><code class="bash"># install NodeJs latest stable version
-$ brew install nodejs
-
-#install MongoDB latest stable version
-$ brew install mongodb
-
-#install Nginx latest stable version
-$ brew install nginx</code></pre>
+	<pre><code class="bash"># install NodeJs, MongoDB & Nginx
+$ brew install nodejs mongodb nginx</code></pre>
+	<h3>Configuration</h3>
+	<p>
+		The next step requires you added the below entries in your /etc/hosts file:
+	</p>
+	<pre><code class="bash"># add the following entries, they are explained below
+127.0.0.1   dashboard-api.soajs.org
+127.0.0.1   dashboard.soajs.org</code></pre>
+	<p>
+		The domain dashboard-api.soajs.org redirects requests to the dashboard services which allows you to manage the provisioned information in core database.
+	</p>
+	<h3>Installation</h3>
     <p>
-        Once NodeJs is installed, install <a target="_blank" href="http://www.npmjs.org/packages/soajs.utilities">soajs.utilities</a> in /opt/soajs/node_modules to acquire the configuration files needed to deploy SOAJS.
+        Install <a target="_blank" href="http://www.npmjs.org/packages/soajs.utilities">soajs.utilities</a> in /opt/soajs/node_modules to acquire the configuration files needed to deploy SOAJS.
     </p>
-	<pre><code class="bash"># navigate to /opt/soajs/
-$ cd /opt/soajs/
+	<pre><code class="bash"># create a directory for soajs
+$ mkdir -p /opt/soajs/node_modules/ && cd /opt/soajs/
 
 # install soajs.utilities
 $ npm install soajs.utilities
 
 # move the utilities to /opt/soajs/
-$ mv /opt/soajs/node_modules/soajs.utilities /opt/soajs/</code></pre>
-    <br/>
-    <h4><u>Step2</u></h4>
-    <p>
-        The next step requires you added few entries in your /etc/hosts file:
-    </p>
-	<pre><code class="bash"># add the following entries, they are explained below
-127.0.0.1   api.soajs.org
-127.0.0.1   dashboard-api.soajs.org
-127.0.0.1   dashboard.soajs.org</code></pre>
-    <p>
-        <u>Note:</u> dashboard-api.soajs.org redirects requests to the dashboard services which allows you to manage the provisioned information in core database whereas api.soajs.org redirects to the services that only read the provisioned information from the core database. Since you are installing all the services on one machine, both domains will point to the same location.
-    </p>
-    <h4><u>Step3</u></h4>
-    <p>
-        Install SOAJS and its core services:
-    </p>
-	<pre><code class="bash">$ cd /opt/soajs/soajs.utilities/lib/
+$ mv /opt/soajs/node_modules/soajs.utilities ../
 
 #execute the installer script
+$ cd soajs.utilities/lib/
 $ ./manualDeploy.sh</code></pre>
-    <p>
-        The above command will install SOAJS framework and all the core services from NPM under /opt/soajs/node_modules/ then start all the services. You can test each service after the script finishes to check if it is healthy:
-    </p>
+    <em>
+        The above command will install SOAJS framework and all the core services from NPM under /opt/soajs/node_modules/ then start all the services.
+    </em>
+	<h3>Test The Services</h3>
     <fieldset>
         <legend>URAC</legend>
         <div>
@@ -104,97 +77,6 @@ $ ./manualDeploy.sh</code></pre>
             <pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"DASHBOARD","type":"rest","route":"/heartbeat"}}</code></pre>
         </div>
     </fieldset>
-
-    <!--<fieldset>-->
-        <!--<legend>oAuth</legend>-->
-        <!--<div>-->
-            <!--<p>-->
-                <!--Perform a Heartbeat check on the service:-->
-            <!--</p>-->
-            <!--<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5002/heartbeat"</code></pre>-->
-            <!--<p>-->
-                <!--oAuth services runs on port 4002 making its maintenance port equal to 5002.-->
-            <!--</p>-->
-            <!--<h5>Response:</h5>-->
-            <!--<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"OAUTH","type":"rest","route":"/heartbeat"}}</code></pre>-->
-        <!--</div>-->
-    <!--</fieldset>-->
-
-    <!--<fieldset>-->
-        <!--<legend>Example01</legend>-->
-        <!--<div>-->
-            <!--<p>-->
-                <!--The Examples package contains 5 services as examples: Example01 - Example02 - Example03 - Example04 - Hello World. Perform a Heartbeat check on the each service:-->
-            <!--</p>-->
-            <!--<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5010/heartbeat"</code></pre>-->
-            <!--<p>-->
-                <!--Example01 services runs on port 4010 making its maintenance port equal to 5010.-->
-            <!--</p>-->
-            <!--<h5>Response:</h5>-->
-            <!--<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"EXAMPLE01","type":"rest","route":"/heartbeat"}}</code></pre>-->
-        <!--</div>-->
-    <!--</fieldset>-->
-
-    <!--<fieldset>-->
-        <!--<legend>Example02</legend>-->
-        <!--<div>-->
-            <!--<p>-->
-                <!--Perform a Heartbeat check on the service:-->
-            <!--</p>-->
-            <!--<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5011/heartbeat"</code></pre>-->
-            <!--<p>-->
-                <!--Example02 services runs on port 4011 making its maintenance port equal to 5011.-->
-            <!--</p>-->
-            <!--<h5>Response:</h5>-->
-            <!--<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"EXAMPLE02","type":"rest","route":"/heartbeat"}}</code></pre>-->
-        <!--</div>-->
-    <!--</fieldset>-->
-
-    <!--<fieldset>-->
-        <!--<legend>Example03</legend>-->
-        <!--<div>-->
-            <!--<p>-->
-                <!--Perform a Heartbeat check on the service:-->
-            <!--</p>-->
-            <!--<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5012/heartbeat"</code></pre>-->
-            <!--<p>-->
-                <!--Example03 services runs on port 4012 making its maintenance port equal to 5012.-->
-            <!--</p>-->
-            <!--<h5>Response:</h5>-->
-            <!--<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"EXAMPLE03","type":"rest","route":"/heartbeat"}}</code></pre>-->
-        <!--</div>-->
-    <!--</fieldset>-->
-
-    <!--<fieldset>-->
-        <!--<legend>Example04</legend>-->
-        <!--<div>-->
-            <!--<p>-->
-                <!--Perform a Heartbeat check on the service:-->
-            <!--</p>-->
-            <!--<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5013/heartbeat"</code></pre>-->
-            <!--<p>-->
-                <!--Example02 services runs on port 4013 making its maintenance port equal to 5013.-->
-            <!--</p>-->
-            <!--<h5>Response:</h5>-->
-            <!--<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"EXAMPLE04","type":"rest","route":"/heartbeat"}}</code></pre>-->
-        <!--</div>-->
-    <!--</fieldset>-->
-
-    <!--<fieldset>-->
-        <!--<legend>Hello World</legend>-->
-        <!--<div>-->
-            <!--<p>-->
-                <!--Perform a Heartbeat check on the service:-->
-            <!--</p>-->
-            <!--<pre><code class="bash">$ curl -X GET "http://api.soajs.org:5020/heartbeat"</code></pre>-->
-            <!--<p>-->
-                <!--Hello World services runs on port 4020 making its maintenance port equal to 5020.-->
-            <!--</p>-->
-            <!--<h5>Response:</h5>-->
-            <!--<pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"HELLO_WORLD","type":"rest","route":"/heartbeat"}}</code></pre>-->
-        <!--</div>-->
-    <!--</fieldset>-->
-
     <fieldset>
         <legend>Controller</legend>
         <div>
@@ -209,7 +91,7 @@ $ ./manualDeploy.sh</code></pre>
             <pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"CONTROLLER","type":"rest","route":"/heartbeat"}}</code></pre>
         </div>
     </fieldset>
-    <h4><u>Step4</u></h4>
+    <h3>Set Up the UI</h3>
     <p>
         SOAJS is now running, the final step requires we launch the Dashboard UI, login and start working. First, you need to configure Nginx and start it:
     </p>
@@ -218,7 +100,7 @@ $ ./manualDeploy.sh</code></pre>
     </p>
     <b>Ubuntu:</b>
 	<pre><code class="bash"># copy the upstream.conf
-$ cd /opt/soajs/node_modules/nginx/
+$ cd /opt/soajs/site/
 $ cp upstream.conf /etc/nginx/conf.d/
 
 # copy the hosts
@@ -227,7 +109,7 @@ $ cp api.conf /etc/nginx/sites-enabled/</code></pre>
 
     <b>MAC:</b>
 	<pre><code class="bash"># copy the upstream.conf
-$ cd /opt/soajs/node_modules/nginx/
+$ cd /opt/soajs/site/
 $ cp upstream.conf /usr/local/etc/nginx/servers/
 
 # copy the hosts
@@ -236,10 +118,10 @@ $ cp api.conf /usr/local/etc/nginx/servers/</code></pre>
     <p>
         Nginx will now load the configuration that SOAJS needs to run the Dashboard UI. Start Nginx:
     </p>
-    <pre><code class="bash">$ sudo Nginx</code></pre>
-    <p>
-        Open your browser and go to <a target="_blank" href="http://dashboard.soajs.org">http://dashboard.soajs.org</a> and login using the administrator account. The administrator account was created with all needed permissions when you executed the installation script. The administrator account has the following credentials:
-    </p>
+    <pre><code class="bash">$ sudo nginx</code></pre>
+	<p>
+		In your browser, go to <a target="_blank" href="http://dashboard.soajs.org">http://dashboard.soajs.org</a> and login using the administrator account. This account was created when you ran the installation script. A sample data was also imported by the script and provides the following accounts:
+	</p>
     <b>Owner:</b> ( Full access to all Dashboard services )
     <ul>
         <li><b>Username:</b>&nbsp; owner</li>
