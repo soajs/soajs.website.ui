@@ -181,6 +181,12 @@ var navigation = [
 		'title': 'SOAJS | Documentation | oAuth',
 		'url': '#/documentation/services/oauth'
 	},
+	{
+		'id': 'proxy',
+		'label': 'soajs proxy',
+		'title': 'SOAJS | Documentation | proxy',
+		'url': '#/documentation/services/proxy'
+	},
     {
         'id': 'gcs',
         'label': 'soajs gcs',
