@@ -4,6 +4,61 @@
 
 		<div class="white-container">
 			<div class="bulletin">
+				<div class="head">Release Manta Ray
+					<div class="releaseDate"> April 12, 2015</div>
+				</div>
+				<div class="body">
+					<table width="100%" class="myTable releaseTables" align="center" id="MantaRayReleaseTable">
+						<thead>
+						<tr>
+							<th class="pckName">Package Name</th>
+							<th class="pckVersion">Package Version</th>
+							<th>Release Notes</th>
+						</tr>
+						</thead>
+						<tr class="even">
+							<td><b>soajs.dashboard</b></td>
+							<td align="center">0.2.8</td>
+							<td>
+								<div>
+									<b class="feature">Features:</b>
+									<ul>
+										<li>Added groups in Hosts section under Deploy pillar.</li>
+										<li>Added the ability to deploy daemons from the Dashboard UI.</li>
+										<li>Locked the list of services that can be deployed in the Dashboard environment.</li>
+										<li>Added support for service versioning, UI currently displays latest version only.</li>
+										<li>Added support for docker machine deployment.</li>
+										<li>Created new Platforms section under Deploy pillar providing users the ability to configure different platform deployment.</li>
+										<li>Added Static Content section under Develop pillar to manage frontend UIs.</li>
+										<li>Added the ability to bundle static content when deploying a new environment.</li>
+										<li>Removed the ability to manually upload or edit a service.</li>
+										<li>Removed the ability to manually add/edit/delete a daemon.</li>
+										<li>Added Git Accounts section under Develop pillar.</li>
+										<li>Added support for GitHub accounts. Users can now add personal accounts and public organizations accounts.</li>
+										<li>Added the ability to activate repositories in order to make their content available for deployment.</li>
+										<li>Introduced new multi service.</li>
+										<li>Newly deployed instances are now cloned from git repositories using SOAJS deployer.</li>
+										<li>Updated Hosts section to allow user to select repository branch to deploy from and added homogeneity awareness.</li>
+										<li>Removed the ability to edit the database name in the Databases section under Deploy pillar.</li>
+									</ul>
+									<b class="bug">Bug Fixes:</b>
+									<ul>
+										<li>Removed unnecessary indexing in daemon group configurations Mongo collection.</li>
+										<li>Several UI fixes and improvements in forms</li>
+									</ul>
+									<b class="etest">Enhanced Tests:</b>
+									<ul>
+										<li>Updated test cases to meet the newly introduced features.</li>
+									</ul>
+								</div>
+
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<br/>
+			<div class="bulletin">
 				<div class="head">Release Electric Eel
 					<div class="releaseDate"> December 22, 2015</div>
 				</div>
