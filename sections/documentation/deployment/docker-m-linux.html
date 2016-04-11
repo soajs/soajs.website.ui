@@ -2,14 +2,51 @@
 <h1>Docker Machine Deployment on Linux</h1>
 <div class="white-container">
 	<p>
-		This page helps you install SOAJS using docker machine and offer you the benefit of deploying your cloud of services using containers.<br />
-		This Mode creates 2 environments (Dashboard &amp; Dev) that isolates containers depending on the environment they are deployed in.
+		This page helps you install SOAJS using docker machine and offers you the benefit of deploying your cloud of
+		services using containers.<br/>
+		This Mode creates 2 environments (Dashboard &amp; Dev) that isolates containers depending on the environment
+		they are deployed in.
 	</p>
 	<hr/>
 	<h3>Prerequisites</h3>
-	<p>
-		SOAJS is built using NodeJs and MongoDB therefore, you need to have them installed and running on your machine.
-	</p>
+
+	<div>
+	First you need to install <a href="https://www.virtualbox.org">Virtualbox</a>.
+	</div>
+	<pre><code class="bash"># Find your version of Ubuntu with this command:
+$ lsb_release -c
+
+# Using this list here will be the version of the package you need for Virtualbox:
+# For Ubuntu 15.10 ("Wily")
+$ deb http://download.virtualbox.org/virtualbox/debian wily contrib
+
+# For Ubuntu 14.04 ("Trusty")
+$ deb http://download.virtualbox.org/virtualbox/debian trusty contrib
+
+# For Ubuntu 12.04 LTS ("Precise Pangolin")
+$ deb http://download.virtualbox.org/virtualbox/debian precise contrib
+
+# For Debian 8 ("Jessie")
+$ deb http://download.virtualbox.org/virtualbox/debian jessie contrib
+
+# For Debian 7 ("Wheezy")
+$ deb http://download.virtualbox.org/virtualbox/debian wheezy contrib
+
+# To add this to your list of packages:
+# echo the line above that matches your version such as:
+
+$ echo "deb http://download.virtualbox.org/virtualbox/debian wily contrib" >> /etc/apt/sources.list
+
+# Add the needed key and install Virtualbox 5.0
+$ wget http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc
+$ apt-key add oracle_vbox.asc
+$ apt-get update
+$ apt-get install virtualbox-5.0</code></pre>
+	<div><br>
+		<p>
+			SOAJS is built using NodeJs and MongoDB therefore, you need to have them installed and running on your
+			machine.
+		</p>
 	<pre><code class="bash">$ apt-get update
 
 # install NodeJs, NPM & MongoDB
@@ -20,52 +57,64 @@ $ ln -s /usr/bin/nodejs /usr/bin/node
 $ curl -fsSL https://get.docker.com/ | sh
 
 # Install Docker-machine
-$ curl -L https://github.com/docker/machine/releases/download/v0.6.0/docker-machine-`uname -s`-`uname -m` >/usr/local/bin/docker-machine && chmod +x /usr/local/bin/docker-machine
+$ curl -L https://github.com/docker/machine/releases/download/v0.6.0/docker-machine-`uname -s`-`uname -m`
+>/usr/local/bin/docker-machine && chmod +x /usr/local/bin/docker-machine
 
 # turn off mongo since we only need its tools in the remaining steps
 $ sudo service mongodb stop</code></pre>
+	</div>
+
 	<h3>Installation</h3>
+
 	<p>
-		Now install <a target="_blank" href="http://www.npmjs.org/packages/soajs.utilities">soajs.utilities</a> via NPM in /opt/soajs to acquire the configuration files needed to deploy SOAJS.
+		Now install <a target="_blank" href="http://www.npmjs.org/packages/soajs.utilities">soajs.utilities</a> via NPM
+		in /opt/soajs to acquire the configuration files needed to deploy SOAJS.
 	</p>
 	<pre><code class="bash"># soajs modules go here
-$ mkdir -p /opt/soajs/node_modules/ && cd /opt/soajs/
+		$ mkdir -p /opt/soajs/node_modules/ && cd /opt/soajs/
 
-# install soajs.utilities
-$ npm install soajs.utilities
+		# install soajs.utilities
+		$ npm install soajs.utilities
 
-# move the utilities to /opt/soajs/
-$ mv /opt/soajs/node_modules/soajs.utilities ../
+		# move the utilities to /opt/soajs/
+		$ mv /opt/soajs/node_modules/soajs.utilities ../
 
-#Navigate to soajs.utilities and run the installation script
-$ cd soajs.utilities/lib/
+		#Navigate to soajs.utilities and run the installation script
+		$ cd soajs.utilities/lib/
 
-#execute the installer script
-$ ./dockermachineDeploy.sh</code></pre>
-	<em>The above command will install SOAJS framework and all the SOAJS core services from NPM then start all these services.</em>
+		#execute the installer script
+		$ ./dockermachineDeploy.sh</code></pre>
+	<em>The above command will install SOAJS framework and all the SOAJS core services from NPM then start all these
+		services.</em>
+
 	<p>
-		Once you run the above script, choose <b>option 1</b> which refers to new installation.<br />
+		Once you run the above script, choose <b>option 1</b> which refers to new installation.<br/>
 		During the installation, the script will ask you to enter a domain for your application.
 	</p>
 	<h3>Configuration</h3>
+
 	<p>
 		Update the hosts file on your machine and point out the following domains:
 	</p>
 	<pre><code class="bash">$ gedit /etc/hosts
-127.0.0.1   dashboard-api.soajs.org
-127.0.0.1   dashboard.soajs.org
-127.0.0.1   api.mydomain.com</code></pre>
+		127.0.0.1 dashboard-api.soajs.org
+		127.0.0.1 dashboard.soajs.org
+		127.0.0.1 api.mydomain.com</code></pre>
 	<p>
 		Once the Installation script finishes, it will output the above two lines with the correct IP address.<br/>
-		Make sure you put the correct IP address instead of 127.0.0.1 in your /etc/hosts file.<br />
+		Make sure you put the correct IP address instead of 127.0.0.1 in your /etc/hosts file.<br/>
 		The <b>api.mydomain.com</b> will actually contain the value of the domain you entered during installation.
 	</p>
 	<h3>Usage</h3>
+
 	<p>
-		The domain dashboard-api.soajs.org redirects requests to the dashboard services which allows you to manage the provisioned information in core database.
+		The domain dashboard-api.soajs.org redirects requests to the dashboard services which allows you to manage the
+		provisioned information in core database.
 	</p>
 	<p>
-		In your browser, go to <a target="_blank" href="http://dashboard.soajs.org">http://dashboard.soajs.org</a> and login using the administrator account. This account was created when you ran the installation script. A sample data was also imported by the script and provides the following accounts:
+		In your browser, go to <a target="_blank" href="http://dashboard.soajs.org">http://dashboard.soajs.org</a> and
+		login using the administrator account. This account was created when you ran the installation script. A sample
+		data was also imported by the script and provides the following accounts:
 	</p>
 	<b>Owner:</b> ( Full access to all Dashboard services )
 	<ul>
@@ -79,6 +128,10 @@ $ ./dockermachineDeploy.sh</code></pre>
 		<li><b>Password:</b>&nbsp; password</li>
 	</ul>
 	<p>
-		Once you login, you can modify these credentials, monitor the services and perform all core operations related to <a href="#/documentation/advanced/multitenancy">Multitenancy</a>, <a href="#/documentation/advanced/productization">Productization</a>, <a href="#/documentation/advanced/environment">Multi Environment</a> and other. Checkout the <a href="#/documentation/ui/dashboard">Dashboard</a> to see what features are offered.
+		Once you login, you can modify these credentials, monitor the services and perform all core operations related
+		to <a href="#/documentation/advanced/multitenancy">Multitenancy</a>,
+		<a href="#/documentation/advanced/productization">Productization</a>,
+		<a href="#/documentation/advanced/environment">Multi Environment</a> and other. Checkout the
+		<a href="#/documentation/ui/dashboard">Dashboard</a> to see what features are offered.
 	</p>
 </div>

@@ -18,8 +18,12 @@ $ ln -s /usr/bin/nodejs /usr/bin/node
 # Install Docker
 $ curl -fsSL https://get.docker.com/ | sh
 
+# Install Docker-machine
+$ curl -L https://github.com/docker/machine/releases/download/v0.6.0/docker-machine-`uname -s`-`uname -m` >/usr/local/bin/docker-machine && chmod +x /usr/local/bin/docker-machine
+
 # turn off mongo since we only need its tools in the remaining steps
 $ sudo service mongodb stop</code></pre>
+
 	<h3>Installation</h3>
 	<p>
 		Now install <a target="_blank" href="http://www.npmjs.org/packages/soajs.utilities">soajs.utilities</a> via NPM in /opt/soajs to acquire the configuration files needed to deploy SOAJS.
