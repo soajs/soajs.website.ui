@@ -10,9 +10,9 @@
 	<hr/>
 	<h3>Prerequisites</h3>
 
-	<div>
-	First you need to install <a target="https://www.virtualbox.org/" href="https://www.virtualbox.org">Virtualbox</a>.
-	</div>
+	<p>
+		In order for Docker Machine to work, you need Virtualbox. You can Install it from the <a href="https://www.virtualbox.org/" target="_blank">Official Virtualbox Website</a>.<br />
+	</p>
 	<pre><code class="bash"># Find your version of Ubuntu with this command:
 $ lsb_release -c
 
@@ -42,11 +42,11 @@ $ wget http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc
 $ apt-key add oracle_vbox.asc
 $ apt-get update
 $ apt-get install virtualbox-5.0</code></pre>
-	<div><br>
-		<p>
-			SOAJS is built using NodeJs and MongoDB therefore, you need to have them installed and running on your
-			machine.
-		</p>
+	<br>
+	<p>
+		SOAJS is built using NodeJs and MongoDB therefore, you need to have them installed and running on your
+		machine.
+	</p>
 	<pre><code class="bash">$ apt-get update
 
 # install NodeJs, NPM & MongoDB
@@ -62,7 +62,6 @@ $ curl -L https://github.com/docker/machine/releases/download/v0.6.0/docker-mach
 
 # turn off mongo since we only need its tools in the remaining steps
 $ sudo service mongodb stop</code></pre>
-	</div>
 
 	<h3>Installation</h3>
 
