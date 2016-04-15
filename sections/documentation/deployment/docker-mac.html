@@ -1,0 +1,99 @@
+<a id="docker-deployment-mac"></a>
+<h1>Docker Deployment on Mac</h1>
+<div class="white-container">
+	<p>
+		This page helps you install SOAJS using docker and offer you the benefit of deploying your cloud of services using containers.
+	</p>
+	<hr/>
+	<h3>Prerequisites</h3>
+	<p>
+		SOAJS is built using NodeJs and MongoDB therefore, you need to have them installed and running on your machine.
+	</p>
+	<pre><code class="bash"># Install Xcode command-line tools, this is recommended for brew
+$ xcode-select --install
+
+# Install Brew
+$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+$ brew update
+$ brew upgrade
+$ brew services
+
+# Install NodeJS, Docker, Docker-machine and MongoDB
+$ brew install homebrew/versions/node012 docker docker-machine mongodb
+$ brew services stop mongodb</code></pre>
+	<br>
+	<table width="100%" class="myTable">
+		<thead>
+			<tr>
+				<th>Technology Name</th>
+				<th>Link</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>MongoDB</td>
+				<td><a href="https://www.mongodb.org/" target="_blank">Official Link</a></td>
+			</tr>
+			<tr class="even">
+				<td>NodeJS</td>
+				<td><a href="https://www.nodejs.org/" target="_blank">Official Link</a></td>
+			</tr>
+			<tr>
+				<td>Nginx</td>
+				<td><a href="https://www.nginx.org/" target="_blank">Official Link</a></td>
+			</tr>
+			<tr class="even">
+				<td>Docker</td>
+				<td><a href="https://docs.docker.com/" target="_blank">Official Link</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<h3>Installation</h3>
+	<p>
+		Now install <a target="_blank" href="http://www.npmjs.org/packages/soajs.utilities">soajs.utilities</a> via NPM in /opt/soajs to acquire the configuration files needed to deploy SOAJS.
+	</p>
+	<pre><code class="bash"># install soajs.utilities
+$ mkdir -p /opt/soajs/ && cd /opt/soajs/
+$ npm install soajs.utilities
+$ mv /opt/soajs/node_modules/soajs.utilities /opt/soajs/
+
+#Navigate to soajs.utilities and run the installation script
+$ cd /opt/soajs/soajs.utilities/lib/
+
+#execute the installer script
+$ ./dockerDeploy.sh</code></pre>
+    <em>The above command will install SOAJS framework and all the SOAJS core services from NPM then start all these services.</em>
+	<br/>
+	<h3>Configuration</h3>
+	<p>
+		Update the hosts file on your machine and point out the following domains:
+	</p>
+	<pre><code class="bash">$ gedit /etc/hosts
+127.0.0.1   dashboard-api.soajs.org
+127.0.0.1   dashboard.soajs.org</code></pre>
+	<p>
+		Once the Installation script finishes, it will output the above two lines with the correct IP address.<br/>
+		Make sure you put the correct IP address instead of 127.0.0.1 in your /etc/hosts file.<br />
+	</p>
+	<h3>Usage</h3>
+	<p>
+		The domain dashboard-api.soajs.org redirects requests to the dashboard services which allows you to manage the provisioned information in core database.
+	</p>
+	<p>
+		In your browser, go to <a target="_blank" href="http://dashboard.soajs.org">http://dashboard.soajs.org</a> and login using the administrator account. This account was created when you ran the installation script. A sample data was also imported by the script and provides the following accounts:
+	</p>
+	<b>Owner:</b> ( Full access to all Dashboard services )
+	<ul>
+		<li><b>Username:</b>&nbsp; owner</li>
+		<li><b>Password:</b>&nbsp; password</li>
+	</ul>
+	<br/>
+	<b>Client:</b> ( Limited access to Dashboard services )
+	<ul>
+		<li><b>Username:</b>&nbsp; client</li>
+		<li><b>Password:</b>&nbsp; password</li>
+	</ul>
+	<p>
+		Once you login, you can modify these credentials, monitor the services and perform all core operations related to <a href="#/documentation/advanced/multitenancy">Multitenancy</a>, <a href="#/documentation/advanced/productization">Productization</a>, <a href="#/documentation/advanced/environment">Multi Environment</a> and other. Checkout the <a href="#/documentation/ui/dashboard">Dashboard</a> to see what features are offered.
+	</p>
+</div>
