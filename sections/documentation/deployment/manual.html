@@ -100,7 +100,7 @@ $ ./manualDeploy.sh</code></pre>
             </p>
             <pre><code class="bash">$ curl -X GET "http://api.soajs.org:5001/heartbeat"</code></pre>
             <p>
-                URAC services runs on port 4001 making its maintenance port equal to 5001 as explained in <a href="#/documentation/core/service">service</a> section under documentation.
+                URAC service runs on port 4001 making its maintenance port equal to 5001 as explained in <a href="#/documentation/core/service">service</a> section under documentation.
             </p>
             <h5>Response:</h5>
             <pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"URAC","type":"rest","route":"/heartbeat"}}</code></pre>
@@ -115,7 +115,7 @@ $ ./manualDeploy.sh</code></pre>
             </p>
             <pre><code class="bash">$ curl -X GET "http://api.soajs.org:5003/heartbeat"</code></pre>
             <p>
-                Dashboard services runs on port 4003 making its maintenance port equal to 5003.
+                Dashboard service runs on port 4003 making its maintenance port equal to 5003.
             </p>
             <h5>Response:</h5>
             <pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"DASHBOARD","type":"rest","route":"/heartbeat"}}</code></pre>
