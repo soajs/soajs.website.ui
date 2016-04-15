@@ -10,14 +10,14 @@
 		SOAJS is built using NodeJs and MongoDB therefore, you need to have them installed and running on your machine.
 	</p>
 	<pre><code class="bash"># install NodeJs, NPM, MongoDB & Nginx
-$ apt-get update && apt-get install -y npm libkrb5-dev make g++ build-essential nodejs mongodb
-$ ln -s /usr/bin/nodejs /usr/bin/node
+$ sudo apt-get update && sudo apt-get install -y npm libkrb5-dev make g++ build-essential nodejs mongodb
+$ sudo ln -s /usr/bin/nodejs /usr/bin/node
 
 # Install Docker
-$ curl -fsSL https://get.docker.com/ | sh
+$ sudo curl -fsSL https://get.docker.com/ | sh
 
 # turn off mongo since we only need its tools in the remaining steps
-$ service mongodb stop</code></pre>
+$ sudo service mongodb stop</code></pre>
 	<br>
 	<table width="100%" class="myTable">
 		<thead>
