@@ -12,19 +12,53 @@
     </p>
     <b>Ubuntu:</b>
 	<pre><code class="bash"># install NodeJs, NPM, MongoDB & Nginx
-$ apt-get install nodejs npm mongodb nginx
-$ ln -s /usr/bin/nodejs /usr/bin/node</code></pre>
+$ apt-get update && apt-get install -y npm libkrb5-dev make g++ build-essential nodejs mongodb nginx
+$ ln -s /usr/bin/nodejs /usr/bin/node
+$ service mongodb start</code></pre>
     <br/>
     <b>MAC:</b>
-	<pre><code class="bash"># install NodeJs, MongoDB & Nginx
-$ brew install nodejs mongodb nginx</code></pre>
+	<pre><code class="bash"># Install Xcode command-line tools, this is recommended for brew
+$ xcode-select --install
+
+# Install Brew
+$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+$ brew update
+$ brew upgrade
+$ brew services
+
+# Install NodeJS, MongoDB, Nginx
+$ brew install homebrew/versions/node012 mongodb nginx
+$ brew services start mongodb
+$ brew services start nginx</code></pre>
+	<br>
+	<table width="100%" class="myTable">
+		<thead>
+			<tr>
+				<th>Technology Name</th>
+				<th>Official Link</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>MongoDB</td>
+				<td><a href="https://www.mongodb.org/" target="_blank">Official Link</a></td>
+			</tr>
+			<tr class="even">
+				<td>NodeJS</td>
+				<td><a href="https://www.nodejs.org/" target="_blank">Official Link</a></td>
+			</tr>
+			<tr>
+				<td>Nginx</td>
+				<td><a href="https://www.nginx.org/" target="_blank">Official Link</a></td>
+			</tr>
+		</tbody>
+	</table>
 	<h3>Configuration</h3>
 	<p>
 		The next step requires you added the below entries in your /etc/hosts file:
 	</p>
 	<pre><code class="bash"># add the following entries, they are explained below
-127.0.0.1   dashboard-api.soajs.org
-127.0.0.1   dashboard.soajs.org</code></pre>
+$ sudo -- sh -c -e "echo '127.0.0.1   dashboard-api.soajs.org dashboard.soajs.org' >> /etc/hosts"</code></pre>
 	<p>
 		The domain dashboard-api.soajs.org redirects requests to the dashboard services which allows you to manage the provisioned information in core database.
 	</p>
@@ -39,7 +73,7 @@ $ mkdir -p /opt/soajs/node_modules/ && cd /opt/soajs/
 $ npm install soajs.utilities
 
 # move the utilities to /opt/soajs/
-$ mv /opt/soajs/node_modules/soajs.utilities /opt/soajs/
+$ mv /opt/soajs/node_modules/soajs.utilities/ /opt/soajs/
 
 #execute the installer script
 $ cd /opt/soajs/soajs.utilities/lib/
