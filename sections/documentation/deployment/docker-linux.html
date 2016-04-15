@@ -9,36 +9,53 @@
 	<p>
 		SOAJS is built using NodeJs and MongoDB therefore, you need to have them installed and running on your machine.
 	</p>
-	<pre><code class="bash">$ apt-get update
-
-# install NodeJs, NPM & MongoDB
-$ apt-get install -y npm libkrb5-dev make g++ build-essential nodejs mongodb
+	<pre><code class="bash"># install NodeJs, NPM, MongoDB & Nginx
+$ apt-get update && apt-get install -y npm libkrb5-dev make g++ build-essential nodejs mongodb
 $ ln -s /usr/bin/nodejs /usr/bin/node
 
 # Install Docker
 $ curl -fsSL https://get.docker.com/ | sh
 
-# Install Docker-machine
-$ curl -L https://github.com/docker/machine/releases/download/v0.6.0/docker-machine-`uname -s`-`uname -m` >/usr/local/bin/docker-machine && chmod +x /usr/local/bin/docker-machine
-
 # turn off mongo since we only need its tools in the remaining steps
-$ sudo service mongodb stop</code></pre>
-
+$ service mongodb stop</code></pre>
+	<br>
+	<table width="100%" class="myTable">
+		<thead>
+			<tr>
+				<th>Technology Name</th>
+				<th>Link</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>MongoDB</td>
+				<td><a href="https://www.mongodb.org/" target="_blank">Official Link</a></td>
+			</tr>
+			<tr class="even">
+				<td>NodeJS</td>
+				<td><a href="https://www.nodejs.org/" target="_blank">Official Link</a></td>
+			</tr>
+			<tr>
+				<td>Nginx</td>
+				<td><a href="https://www.nginx.org/" target="_blank">Official Link</a></td>
+			</tr>
+			<tr class="even">
+				<td>Docker</td>
+				<td><a href="https://docs.docker.com/" target="_blank">Official Link</a></td>
+			</tr>
+		</tbody>
+	</table>
 	<h3>Installation</h3>
 	<p>
 		Now install <a target="_blank" href="http://www.npmjs.org/packages/soajs.utilities">soajs.utilities</a> via NPM in /opt/soajs to acquire the configuration files needed to deploy SOAJS.
 	</p>
-	<pre><code class="bash"># soajs modules go here
-$ mkdir -p /opt/soajs/node_modules/ && cd /opt/soajs/
-
-# install soajs.utilities
+	<pre><code class="bash"># install soajs.utilities
+$ mkdir -p /opt/soajs/ && cd /opt/soajs/
 $ npm install soajs.utilities
-
-# move the utilities to /opt/soajs/
-$ mv /opt/soajs/node_modules/soajs.utilities ../
+$ mv /opt/soajs/node_modules/soajs.utilities /opt/soajs/
 
 #Navigate to soajs.utilities and run the installation script
-$ cd soajs.utilities/lib/
+$ cd /opt/soajs/soajs.utilities/lib/
 
 #execute the installer script
 $ ./dockerDeploy.sh</code></pre>
