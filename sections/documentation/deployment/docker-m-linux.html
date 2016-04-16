@@ -38,57 +38,29 @@ $ sudo service mongodb stop</code></pre>
 				<td><a href="https://www.nodejs.org/" target="_blank">Official Link</a></td>
 			</tr>
 			<tr>
-				<td>Nginx</td>
-				<td><a href="https://www.nginx.org/" target="_blank">Official Link</a></td>
-			</tr>
-			<tr class="even">
 				<td>Docker & Docker Machine</td>
 				<td><a href="https://docs.docker.com/" target="_blank">Official Link</a></td>
 			</tr>
-			<tr>
-				<td>Virtualbox</td>
-				<td><a href="https://www.virtualbox.org/" target="_blank">Official Link</a></td>
-			</tr>
 		</tbody>
 	</table>
-	<p>
-		SOAJS is built using NodeJs and MongoDB therefore, you need to have them installed and running on your
-		machine.
-	</p>
-
 	<h3>Installation</h3>
 	<p>
 		Now install <a target="_blank" href="http://www.npmjs.org/packages/soajs.utilities">soajs.utilities</a> via NPM
-		in /opt/soajs to acquire the configuration files needed to deploy SOAJS.
+		to acquire the configuration files needed to deploy SOAJS.
 	</p>
 <pre><code class="bash"># install soajs.utilities
-$ npm install soajs.utilities
-
-#Navigate to soajs.utilities and run the installation script
-$ cd soajs.utilities/lib/
-
-#execute the installer script
+$ npm install soajs.utilities</code></pre>
+<p>
+	Navigate to soajs.utilities and run the installation script
+</p>
+<pre><code class="bash">#execute the installer script
 $ ./dockermachineDeploy.sh</code></pre>
 	<em>The above command will install SOAJS framework and all the SOAJS core services from NPM then start all these services.</em>
 
 	<p>
 		Once you run the above script, choose <b>option 1</b> which refers to new installation.<br/>
-		During the installation, the script will ask you to enter a domain for your application.
 	</p>
-	<h3>Configuration</h3>
-
-	<p>
-		Update the hosts file on your machine and point out the following domains:
-	</p>
-	<pre><code class="bash">$ gedit /etc/hosts
-127.0.0.1 dashboard-api.soajs.org
-127.0.0.1 dashboard.soajs.org
-127.0.0.1 api.mydomain.com</code></pre>
-	<p>
-		Once the Installation script finishes, it will output the above two lines with the correct IP address.<br/>
-		Make sure you put the correct IP address instead of 127.0.0.1 in your /etc/hosts file.<br/>
-		The <b>api.mydomain.com</b> will actually contain the value of the domain you entered during installation.
-	</p>
+	<div class="redFlag">Make sure you update your /etc/hosts with the output of the script.</div>
 	<h3>Usage</h3>
 
 	<p>
