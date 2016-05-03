@@ -278,6 +278,12 @@ var navigation = [
 		'url': '#/documentation/deployment/docker-linux'
 	},
 	{
+		'id': 'docker-mac',
+		'label': 'soajs Docker Deployment on Mac',
+		'title': 'SOAJS | Deployment | Docker Deployment on Mac',
+		'url': '#/documentation/deployment/docker-mac'
+	},
+	{
 		'id': 'docker-files',
 		'label': 'soajs docker-files',
 		'title': 'SOAJS | Deployment | Docker Images',

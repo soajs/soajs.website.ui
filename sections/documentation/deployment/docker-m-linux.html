@@ -9,101 +9,58 @@
 	</p>
 	<hr/>
 	<h3>Prerequisites</h3>
-
-	<p>
-		In order for Docker Machine to work, you need Virtualbox. You can Install it from the <a href="https://www.virtualbox.org/" target="_blank">Official Virtualbox Website</a>.<br />
-	</p>
-	<pre><code class="bash"># Find your version of Ubuntu with this command:
-$ lsb_release -c
-
-# Using this list here will be the version of the package you need for Virtualbox:
-# For Ubuntu 15.10 ("Wily")
-$ deb http://download.virtualbox.org/virtualbox/debian wily contrib
-
-# For Ubuntu 14.04 ("Trusty")
-$ deb http://download.virtualbox.org/virtualbox/debian trusty contrib
-
-# For Ubuntu 12.04 LTS ("Precise Pangolin")
-$ deb http://download.virtualbox.org/virtualbox/debian precise contrib
-
-# For Debian 8 ("Jessie")
-$ deb http://download.virtualbox.org/virtualbox/debian jessie contrib
-
-# For Debian 7 ("Wheezy")
-$ deb http://download.virtualbox.org/virtualbox/debian wheezy contrib
-
-# To add this to your list of packages:
-# echo the line above that matches your version such as:
-
-$ echo "deb http://download.virtualbox.org/virtualbox/debian wily contrib" >> /etc/apt/sources.list
-
-# Add the needed key and install Virtualbox 5.0
-$ wget http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc
-$ apt-key add oracle_vbox.asc
-$ apt-get update
-$ apt-get install virtualbox-5.0</code></pre>
-	<br>
-	<p>
-		SOAJS is built using NodeJs and MongoDB therefore, you need to have them installed and running on your
-		machine.
-	</p>
-	<pre><code class="bash">$ apt-get update
-
-# install NodeJs, NPM & MongoDB
-$ apt-get install -y npm libkrb5-dev make g++ build-essential nodejs mongodb
-$ ln -s /usr/bin/nodejs /usr/bin/node
+	<pre><code class="bash"># install NodeJS MongoDB Docker Docker-Machine
+$ sudo apt-get update && sudo apt-get install -y npm libkrb5-dev make g++ build-essential nodejs mongodb
 
 # Install Docker
-$ curl -fsSL https://get.docker.com/ | sh
+$ sudo curl -fsSL https://get.docker.com/ | sh
 
 # Install Docker-machine
-$ curl -L https://github.com/docker/machine/releases/download/v0.6.0/docker-machine-`uname -s`-`uname -m`
->/usr/local/bin/docker-machine && chmod +x /usr/local/bin/docker-machine
+$ sudo curl -L https://github.com/docker/machine/releases/download/v0.6.0/docker-machine-`uname -s`-`uname -m` >/usr/local/bin/docker-machine && sudo chmod +x /usr/local/bin/docker-machine
 
-# turn off mongo since we only need its tools in the remaining steps
+$ sudo ln -s /usr/bin/nodejs /usr/bin/node
 $ sudo service mongodb stop</code></pre>
-
+	<br>
+	<table width="100%" class="myTable">
+		<thead>
+			<tr>
+				<th>Technology Name</th>
+				<th>Link</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>MongoDB</td>
+				<td><a href="https://www.mongodb.org/" target="_blank">Official Link</a></td>
+			</tr>
+			<tr class="even">
+				<td>NodeJS</td>
+				<td><a href="https://www.nodejs.org/" target="_blank">Official Link</a></td>
+			</tr>
+			<tr>
+				<td>Docker & Docker Machine</td>
+				<td><a href="https://docs.docker.com/" target="_blank">Official Link</a></td>
+			</tr>
+		</tbody>
+	</table>
 	<h3>Installation</h3>
-
 	<p>
 		Now install <a target="_blank" href="http://www.npmjs.org/packages/soajs.utilities">soajs.utilities</a> via NPM
-		in /opt/soajs to acquire the configuration files needed to deploy SOAJS.
+		to acquire the configuration files needed to deploy SOAJS.
 	</p>
-	<pre><code class="bash"># soajs modules go here
-		$ mkdir -p /opt/soajs/node_modules/ && cd /opt/soajs/
-
-		# install soajs.utilities
-		$ npm install soajs.utilities
-
-		# move the utilities to /opt/soajs/
-		$ mv /opt/soajs/node_modules/soajs.utilities ../
-
-		#Navigate to soajs.utilities and run the installation script
-		$ cd soajs.utilities/lib/
-
-		#execute the installer script
-		$ ./dockermachineDeploy.sh</code></pre>
-	<em>The above command will install SOAJS framework and all the SOAJS core services from NPM then start all these
-		services.</em>
+<pre><code class="bash"># install soajs.utilities
+$ npm install soajs.utilities</code></pre>
+<p>
+	Navigate to soajs.utilities/lib and run the installation script
+</p>
+<pre><code class="bash">#execute the installer script
+$ ./dockermachineDeploy.sh</code></pre>
+	<em>The above command will install SOAJS framework and all the SOAJS core services from NPM then start all these services.</em>
 
 	<p>
 		Once you run the above script, choose <b>option 1</b> which refers to new installation.<br/>
-		During the installation, the script will ask you to enter a domain for your application.
 	</p>
-	<h3>Configuration</h3>
-
-	<p>
-		Update the hosts file on your machine and point out the following domains:
-	</p>
-	<pre><code class="bash">$ gedit /etc/hosts
-		127.0.0.1 dashboard-api.soajs.org
-		127.0.0.1 dashboard.soajs.org
-		127.0.0.1 api.mydomain.com</code></pre>
-	<p>
-		Once the Installation script finishes, it will output the above two lines with the correct IP address.<br/>
-		Make sure you put the correct IP address instead of 127.0.0.1 in your /etc/hosts file.<br/>
-		The <b>api.mydomain.com</b> will actually contain the value of the domain you entered during installation.
-	</p>
+	<div class="redFlag">Make sure you update your /etc/hosts with the output of the script.</div>
 	<h3>Usage</h3>
 
 	<p>

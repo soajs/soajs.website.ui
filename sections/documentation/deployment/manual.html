@@ -5,6 +5,16 @@
         SOAJS can be deployed manually on both Linux and MAC platforms.<br />
 	    You have chose manual installation therefore, you need to install the prerequisites manually, configure your hosts file then run the installation script and finally set up the UI.
     </p>
+	<div class="redFlag">
+		The Manual Deployment will deploy and start your services in the same environment.<br />
+		Therefore if you use this deployment, you need to export 2 environment variables everytime before you start a service.<br />
+		<u>Ex:</u>
+		<ul>
+			<li><b>export SOAJS_ENV=dashboard</b></li>
+			<li><b>export SOAJS_SRVIP=127.0.0.1</b></li>
+		</ul>
+
+	</div>
     <hr/>
     <h3>Prerequisites</h3>
     <p>
@@ -12,9 +22,9 @@
     </p>
     <b>Ubuntu:</b>
 	<pre><code class="bash"># install NodeJs, NPM, MongoDB & Nginx
-$ apt-get update && apt-get install -y npm libkrb5-dev make g++ build-essential nodejs mongodb nginx
-$ ln -s /usr/bin/nodejs /usr/bin/node
-$ service mongodb start</code></pre>
+$ sudo apt-get update && sudo apt-get install -y npm libkrb5-dev make g++ build-essential nodejs mongodb nginx
+$ sudo ln -s /usr/bin/nodejs /usr/bin/node
+$ sudo service mongodb start</code></pre>
     <br/>
     <b>MAC:</b>
 	<pre><code class="bash"># Install Xcode command-line tools, this is recommended for brew
@@ -88,9 +98,9 @@ $ ./manualDeploy.sh</code></pre>
             <p>
                 Perform a Heartbeat check on the service:
             </p>
-            <pre><code class="bash">$ curl -X GET "http://api.soajs.org:5001/heartbeat"</code></pre>
+            <pre><code class="bash">$ curl -X GET "http://dashboard-api.soajs.org:5001/heartbeat"</code></pre>
             <p>
-                URAC services runs on port 4001 making its maintenance port equal to 5001 as explained in <a href="#/documentation/core/service">service</a> section under documentation.
+                URAC service runs on port 4001 making its maintenance port equal to 5001 as explained in <a href="#/documentation/core/service">service</a> section under documentation.
             </p>
             <h5>Response:</h5>
             <pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"URAC","type":"rest","route":"/heartbeat"}}</code></pre>
@@ -103,9 +113,9 @@ $ ./manualDeploy.sh</code></pre>
             <p>
                 Dashboard contains 2 sections, service and UI. At this stage, we are working with the service and the UI is explained below. Perform a Heartbeat check on the service:
             </p>
-            <pre><code class="bash">$ curl -X GET "http://api.soajs.org:5003/heartbeat"</code></pre>
+            <pre><code class="bash">$ curl -X GET "http://dashboard-api.soajs.org:5003/heartbeat"</code></pre>
             <p>
-                Dashboard services runs on port 4003 making its maintenance port equal to 5003.
+                Dashboard service runs on port 4003 making its maintenance port equal to 5003.
             </p>
             <h5>Response:</h5>
             <pre><code class="bash">{"result":true,"ts":1427373613796,"service":{"service":"DASHBOARD","type":"rest","route":"/heartbeat"}}</code></pre>
@@ -117,7 +127,7 @@ $ ./manualDeploy.sh</code></pre>
             <p>
                 Perform a Heartbeat check on the service:
             </p>
-            <pre><code class="bash">$ curl -X GET "http://api.soajs.org:5000/heartbeat"</code></pre>
+            <pre><code class="bash">$ curl -X GET "http://dashboard-api.soajs.org:5000/heartbeat"</code></pre>
             <p>
                 The controller services runs on port 4000 making its maintenance port equal to 5000.
             </p>
