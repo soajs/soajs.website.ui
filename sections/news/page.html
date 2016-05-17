@@ -4,6 +4,102 @@
 
 		<div class="white-container">
 			<div class="bulletin">
+				<div class="head">Release Bull Shark
+					<div class="releaseDate"> May 17, 2016</div>
+				</div>
+				<div class="body">
+					<table width="100%" class="myTable releaseTables" align="center" id="BullSharkReleaseTable">
+						<thead>
+						<tr>
+							<th class="pckName">Package Name</th>
+							<th class="pckVersion">Package Version</th>
+							<th>Release Notes</th>
+						</tr>
+						</thead>
+						<tr class="even">
+							<td><b>soajs</b></td>
+							<td align="center">0.3.2</td>
+							<td>
+								<div>
+									<b class="feature">Features:</b>
+									<ul>
+										<li>Updated log message displayed when unable to connect to mongo database</li>
+									</ul>
+									<b class="bug">Bug Fixes:</b>
+									<ul>
+										<li>Fixed a bug in access level rendering in multi-tenant session library</li>
+										<li>Fixed a bug that prevented the usage of tenant configuration when micro service doesn't support sessions</li>
+									</ul>
+									<b class="etest">Enhanced Tests:</b>
+									<ul>
+										<li>Updated tests to cover the newly introduced features</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td><b>soajs.urac</b></td>
+							<td align="center">0.2.1</td>
+							<td>
+								<div>
+									<b class="feature">Features:</b>
+									<ul>
+										<li>Provided support to add optional additional password encryption via tenant configuration</li>
+									</ul>
+									<b class="etest">Enhanced Tests:</b>
+									<ul>
+										<li>Updated tests to cover the newly introduced features</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr class="even">
+							<td><b>soajs.dashboard</b></td>
+							<td align="center">0.3.3</td>
+							<td>
+								<div>
+									<b class="feature">Features:</b>
+									<ul>
+										<li>Separated Nginx and controller hosts</li>
+										<li>Updated Git Accounts code to become driver driven and created an independant GitHub driver</li>
+										<li>Moved all static variables into the main dashboard configuration file</li>
+										<li>Updated Dashboard UI to use Angular v1.4.10</li>
+										<li>Updated Services section to enable displaying service APIs per version</li>
+										<li>Updated Host Logs modal to enable zooming logs for a better user experience</li>
+										<li>Updated daemon hosts display to show the configuration that was used to run the daemon</li>
+										<li>Updated hosts display to show the branch that was used to clone repositories when deploying a service/daemon</li>
+										<li>Updated Hosts API code to follow the new coding standard of SOAJS Artifact</li>
+										<li>Removed the ability to set or edit ports when creating and updating environments</li>
+										<li>Updated Add New Hosts functionality to use the new deployer</li>
+										<li>Added the ability to restart a service/daemon that is already deployed without having to delete and re-deploy it</li>
+										<li>Added check in activate and sync repository to verify that git provider is supported</li>
+										<li>Added checks to verify that git account and respository information is present before syncing and deactivating a respository</li>
+										<li>Updated sync repository API route to accept 'provider' value in post body instead of query</li>
+										<li>Added check to verify that tenant record exists when listing tenant oauth users</li>
+										<li>Updated Refresh button in Hosts section to fetch active and zombie containers (previously active containers only)</li>
+										<li>Added check to verify that environment record exists before listing clusters and databases</li>
+									</ul>
+									<b class="bug">Bug Fixes:</b>
+									<ul>
+										<li>Fixed UI issue when selecting tenant external keys for a daemon job</li>
+										<li>Fixed an issue reported by Google Chrome users when refreshing Dashboard UI pages</li>
+										<li>Fixed an issue that prevented the left menu from rendering properly in the Operate tab</li>
+										<li>Fixed a bug in the Content Management UI</li>
+										<li>Fixed a bug in Update User ACL</li>
+									</ul>
+									<b class="etest">Enhanced Tests:</b>
+									<ul>
+										<li>Updated tests to cover the newly introduced features</li>
+									</ul>
+								</div>
+
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<br />
+			<div class="bulletin">
 				<div class="head">Release Manta Ray
 					<div class="releaseDate"> April 12, 2016</div>
 				</div>
