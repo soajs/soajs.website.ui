@@ -5,7 +5,7 @@
 		<div class="white-container">
 			<div class="bulletin">
 				<div class="head">Release Bull Shark
-					<div class="releaseDate"> May 17, 2016</div>
+					<div class="releaseDate"> May 20, 2016</div>
 				</div>
 				<div class="body">
 					<table width="100%" class="myTable releaseTables" align="center" id="BullSharkReleaseTable">
@@ -18,7 +18,7 @@
 						</thead>
 						<tr class="even">
 							<td><b>soajs</b></td>
-							<td align="center">0.3.2</td>
+							<td align="center">0.3.1</td>
 							<td>
 								<div>
 									<b class="feature">Features:</b>
@@ -54,14 +54,44 @@
 							</td>
 						</tr>
 						<tr class="even">
+							<td><b>soajs.utilities</b></td>
+							<td align="center">0.2.3</td>
+							<td>
+								<div>
+									<b class="feature">Features:</b>
+									<ul>
+										<li>Provided the ability to choose whether to deploy nginx containers</li>
+										<li>Updated deployment scripts to use the new SOAJS deployer for docker and docker machine deployment</li>
+										<li>Added the ability to label swarms</li>
+									</ul>
+									<b class="bug">Bug Fixes:</b>
+									<ul>
+										<li>Fixed overwrite issue when installing from the same source to VirtualBox and a Cloud Provider or try installing twice to the same location</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td><b>soajs.mongodb.data</b></td>
+							<td align="center">0.2.0</td>
+							<td>
+								<div>
+									<b class="etest">Enhanced Tests:</b>
+									<ul>
+										<li>Updated Test Data to support new features.</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr class="even">
 							<td><b>soajs.dashboard</b></td>
-							<td align="center">0.3.3</td>
+							<td align="center">0.3.4</td>
 							<td>
 								<div>
 									<b class="feature">Features:</b>
 									<ul>
 										<li>Separated Nginx and controller hosts</li>
-										<li>Updated Git Accounts code to become driver driven and created an independant GitHub driver</li>
+										<li>Updated Git Accounts code to become driver driven and created an independent GitHub driver</li>
 										<li>Moved all static variables into the main dashboard configuration file</li>
 										<li>Updated Dashboard UI to use Angular v1.4.10</li>
 										<li>Updated Services section to enable displaying service APIs per version</li>
@@ -73,7 +103,7 @@
 										<li>Updated Add New Hosts functionality to use the new deployer</li>
 										<li>Added the ability to restart a service/daemon that is already deployed without having to delete and re-deploy it</li>
 										<li>Added check in activate and sync repository to verify that git provider is supported</li>
-										<li>Added checks to verify that git account and respository information is present before syncing and deactivating a respository</li>
+										<li>Added checks to verify that git account and repository information is present before syncing and deactivating a repository</li>
 										<li>Updated sync repository API route to accept 'provider' value in post body instead of query</li>
 										<li>Added check to verify that tenant record exists when listing tenant oauth users</li>
 										<li>Updated Refresh button in Hosts section to fetch active and zombie containers (previously active containers only)</li>
@@ -112,22 +142,6 @@
 							<th>Release Notes</th>
 						</tr>
 						</thead>
-						<tr class="even">
-							<td><b>soajs</b></td>
-							<td align="center">0.3.1</td>
-							<td>
-								<div>
-									<b class="bug">Bug Fixes:</b>
-									<ul>
-										<li>Fixes rendering issue in dashboard UI under organization chart.</li>
-									</ul>
-									<b class="etest">Enhanced Tests:</b>
-									<ul>
-										<li>Updated tests output logging to reach a status successful.</li>
-									</ul>
-								</div>
-							</td>
-						</tr>
 						<tr>
 							<td><b>soajs</b></td>
 							<td align="center">0.3.0</td>
@@ -143,9 +157,14 @@
 										<li>Changes to clusters while service is running will no longer cause service to crash</li>
 										<li>oAuth can now be turned on/off per tenant.</li>
 									</ul>
+									<b class="bug">Bug Fixes:</b>
+									<ul>
+										<li>Fixed rendering issue in dashboard UI under organization chart.</li>
+									</ul>
 									<b class="etest">Enhanced Tests:</b>
 									<ul>
 										<li>Updated Code & Test cases to increase coverage.</li>
+										<li>Updated tests output logging to reach a status successful.</li>
 									</ul>
 								</div>
 							</td>
@@ -183,7 +202,7 @@
 						</tr>
 						<tr class="even">
 							<td><b>soajs.dashboard</b></td>
-							<td align="center">0.3.2</td>
+							<td align="center">0.3.3</td>
 							<td>
 								<div>
 									<b class="feature">Features:</b>
