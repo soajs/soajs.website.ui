@@ -4,6 +4,134 @@
 
 		<div class="white-container">
 			<div class="bulletin">
+				<div class="head">Release Salmon Shark
+					<div class="releaseDate"> June 30, 2016</div>
+				</div>
+				<div class="body">
+					<table width="100%" class="myTable releaseTables" align="center" id="SalmonSharkReleaseTable">
+						<thead>
+						<tr>
+							<th class="pckName">Package Name</th>
+							<th class="pckVersion">Package Version</th>
+							<th>Release Notes</th>
+						</tr>
+						</thead>
+						<tr class="even">
+							<td><b>soajs</b></td>
+							<td align="center">0.3.2</td>
+							<td>
+								<div>
+									<b class="feature">Features:</b>
+									<ul>
+										<li>Updated IMFV to support RESTful APIs per method</li>
+										<li>Added support for Solo mode which allows running SOAJS in standalone mode without the need for a running mongo database</li>
+										<li>Added support for custom registry that enables users to set their custom registry per environment</li>
+										<li>Added Mongodb as an npm dependency</li>
+										<li>Updated Registry and Provision to be model driven</li>
+										<li>Enhanced SOAJS OAuth functionality</li>
+										<li>Added support for 'options' param in mongo.count function</li>
+									</ul>
+									<b class="bug">Bug Fixes:</b>
+									<ul>
+										<li>Fixed a bug that prevented the auto-registration of daemon jobs for daemons that are running in manual deployment mode</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td><b>soajs.urac</b></td>
+							<td align="center">0.2.2</td>
+							<td>
+								<div>
+									<b class="feature">Features:</b>
+									<ul>
+										<li>Optimized code to insure better data handling</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr class="even">
+							<td><b>soajs.utilities</b></td>
+							<td align="center">0.2.4</td>
+							<td>
+								<div>
+									<b class="feature">Features:</b>
+									<ul>
+										<li>Added default memory and CPU count for docker machines with the ability to set custom values</li>
+										<li>Accelerated deployment of services via dockerDeploy and dockermachineDeploy by using local SOAJS package included in docker image</li>
+										<li>Added check for docker machine version running on host before proceeding in dockermachineDeploy script</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td><b>soajs.mongodb.data</b></td>
+							<td align="center">0.2.1</td>
+							<td>
+								<div>
+									<b class="etest">Enhanced Tests:</b>
+									<ul>
+										<li>Updated Test Data to support new features.</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr class="even">
+							<td><b>soajs.oauth</b></td>
+							<td align="center">0.3.0</td>
+							<td>
+								<div>
+									<b class="feature">Features:</b>
+									<ul>
+										<li>Revamped API routes to follow the RESTful standards</li>
+									</ul>
+									<b class="etest">Enhanced Tests:</b>
+									<ul>
+										<li>Updated test cases to cover the newly introduced features</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr class="even">
+							<td><b>soajs.dashboard</b></td>
+							<td align="center">0.3.4</td>
+							<td>
+								<div>
+									<b class="feature">Features:</b>
+									<ul>
+										<li>Provided the ability to assign dynamic or static Nginx ports when adding new Nginx containers or deploying an environment</li>
+										<li>Revamped Update Tenant Security to fully support external keys per environment</li>
+										<li>Enhanced the functionality of changing tenant security by restricting it to the owner of the application only</li>
+										<li>Updated UI to include a JSON editor that replaces text areas for fields that require JSON objects as input</li>
+										<li>Added refresh list button in Services, Daemons, and Static Content sections</li>
+										<li>Added search box to quickly navigate and find Git repositories in Git Accounts section</li>
+										<li>Revamped the look and feel of Add/Edit Clusters form</li>
+										<li>Added two new input types for the Form UI: Tabset and Jsoneditor</li>
+										<li>Added several assurances to guarantee service stability and fault tolerance</li>
+										<li>Added terminal logging to make the activation and syncing of git repositories more transparent to users</li>
+										<li>Added a Custom Registry UI section that enables users to set their custom registry information per environment</li>
+										<li>Added the ability to accelerate host deployment for docker and docker machine platforms by using the SOAJS package included in the docker image</li>
+									</ul>
+									<b class="bug">Bug Fixes:</b>
+									<ul>
+										<li>Fixed a bug that prevented users from updating tenant security</li>
+										<li>Fixed bugs in Edit Application ACL and Edit User ACL UI sections</li>
+										<li>Fixed a bug in List Application External Keys that caused wrong display of keys with dashboard access</li>
+										<li>Fixed a bug in activate repository functionality when activating large repositories of type 'multi'</li>
+									</ul>
+									<b class="etest">Enhanced Tests:</b>
+									<ul>
+										<li>Added new test cases to cover the newly introduced features and enhanced other test cases</li>
+									</ul>
+								</div>
+
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<br />
+			<div class="bulletin">
 				<div class="head">Release Bull Shark
 					<div class="releaseDate"> May 20, 2016</div>
 				</div>
