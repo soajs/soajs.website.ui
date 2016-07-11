@@ -5,7 +5,7 @@
 		<div class="white-container">
 			<div class="bulletin">
 				<div class="head">Release Salmon Shark
-					<div class="releaseDate"> June 30, 2016</div>
+					<div class="releaseDate"> July 11, 2016</div>
 				</div>
 				<div class="body">
 					<table width="100%" class="myTable releaseTables" align="center" id="SalmonSharkReleaseTable">
@@ -26,8 +26,7 @@
 										<li>Updated IMFV to support RESTful APIs per method</li>
 										<li>Added support for Solo mode which allows running SOAJS in standalone mode without the need for a running mongo database</li>
 										<li>Added support for custom registry that enables users to set their custom registry per environment</li>
-										<li>Added Mongodb as an npm dependency</li>
-										<li>Updated Registry and Provision to be model driven</li>
+										<li>Updated Registry and Provision to use model as an injected dependency</li>
 										<li>Enhanced SOAJS OAuth functionality</li>
 										<li>Added support for 'options' param in mongo.count function</li>
 									</ul>
@@ -52,7 +51,7 @@
 						</tr>
 						<tr class="even">
 							<td><b>soajs.utilities</b></td>
-							<td align="center">0.2.4</td>
+							<td align="center">0.2.11</td>
 							<td>
 								<div>
 									<b class="feature">Features:</b>
@@ -66,7 +65,7 @@
 						</tr>
 						<tr>
 							<td><b>soajs.mongodb.data</b></td>
-							<td align="center">0.2.1</td>
+							<td align="center">0.2.2</td>
 							<td>
 								<div>
 									<b class="etest">Enhanced Tests:</b>
@@ -92,9 +91,9 @@
 								</div>
 							</td>
 						</tr>
-						<tr class="even">
+						<tr>
 							<td><b>soajs.dashboard</b></td>
-							<td align="center">0.3.4</td>
+							<td align="center">0.3.11</td>
 							<td>
 								<div>
 									<b class="feature">Features:</b>
@@ -106,11 +105,12 @@
 										<li>Added refresh list button in Services, Daemons, and Static Content sections</li>
 										<li>Added search box to quickly navigate and find Git repositories in Git Accounts section</li>
 										<li>Revamped the look and feel of Add/Edit Clusters form</li>
-										<li>Added two new input types for the Form UI: Tabset and Jsoneditor</li>
+										<li>Added two new input types in UI Form Library: Tabset and Jsoneditor</li>
 										<li>Added several assurances to guarantee service stability and fault tolerance</li>
 										<li>Added terminal logging to make the activation and syncing of git repositories more transparent to users</li>
 										<li>Added a Custom Registry UI section that enables users to set their custom registry information per environment</li>
 										<li>Added the ability to accelerate host deployment for docker and docker machine platforms by using the SOAJS package included in the docker image</li>
+										<li>Added Additional UI enhancements</li>
 									</ul>
 									<b class="bug">Bug Fixes:</b>
 									<ul>
@@ -125,6 +125,22 @@
 									</ul>
 								</div>
 
+							</td>
+						</tr>
+						<tr class="even">
+							<td><b>soajs.prx</b></td>
+							<td align="center">0.0.2</td>
+							<td>
+								<div>
+									<b class="feature">Features:</b>
+									<ul>
+										<li>Redirected all traffic to use HTTP</li>
+									</ul>
+									<b class="etest">Enhanced Tests:</b>
+									<ul>
+										<li>Updated test cases to cover the newly introduced features</li>
+									</ul>
+								</div>
 							</td>
 						</tr>
 					</table>
