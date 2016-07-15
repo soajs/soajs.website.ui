@@ -15,6 +15,11 @@
     "desc": "Optional environment variable used to specify which IP address to use if the machine has more than one active interface."
   },
   {
+    "env": "SOAJS_SOLO",
+    "default": "false",
+    "desc": "Optional environment variable used to launch any service on top of SOAJS without the need of a database."
+  },
+  {
     "env": "SOAJS_SRV_AUTOREGISTERHOST",
     "default": "true",
     "desc": "Optional environment variable used in case a service should register itself or not."
