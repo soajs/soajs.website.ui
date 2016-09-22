@@ -1,0 +1,156 @@
+<a id="service"></a>
+<h1>SOAJS Daemon</h1>
+<div class="white-container">
+    Building a daemon with SOAJS is straight forward; Start by installing SOAJS via npm:
+	<pre><code class="bash"># create a directory for soajs
+$ mkdir -p /opt/soajs/node_modules/
+
+# install soajs
+$ npm install soajs</code></pre>
+	Create your daemon next to the <b>node_modules</b> directory:<br />
+	<pre><code class="bash">$ mkdir /opt/soajs/myDaemon/</code></pre>
+    <ol>
+        <li>Create 2 files in that directory:
+            <ol>
+                <li><u><b>index.js</b></u> used to write your the code for the daemon jobs.</li>
+                <li><u><b>config.js</b></u> used for custom daemon configuration.</li>
+            </ol>
+        </li>
+    </ol>
+	<pre><code class="bash">$ cd /opt/soajs/
+$ ll -la
+drwxr-xr-x   8 admin  root   272 Mar 20 17:56 .
+drwxr-xr-x   9 admin  root   306 Mar 25 14:06 ..
+drwxr-xr-x  12 admin  root   408 Mar 24 11:08 node_modules
+drwxr-xr-x  12 admin  root   408 Mar 24 11:08 myDaemon
+
+#list myDaemon
+$ ll -la myDaemon
+drwxr-xr-x  12 admin  root   408 Mar 24 11:08 .
+drwxr-xr-x   8 admin  root   272 Mar 20 17:56 ..
+-rw-r--r--   1 admin  root   612 Mar 24 14:40 config.js
+-rw-r--r--   1 admin  root   612 Mar 24 14:40 index.js
+
+#list node_modules folder
+$ ll -la node_modules
+drwxr-xr-x  12 admin  root   408 Mar 24 11:08 .
+drwxr-xr-x   8 admin  root   272 Mar 20 17:56 ..
+drwxr-xr-x  18 admin  root   612 Mar 24 14:40 soajs</code></pre>
+    <hr/>
+    <h3>Basic Example</h3>
+
+    <p>
+        The following code snippet shows how to write a daemon with SOAJS that has one job. The job simply prints a string message to the terminal. This message is loaded from the daemon configuration that is provisioned in the database. The message varies depending on the environment the daemon is running in.<br />
+	    The second file config.js, contains the daemon declaration information such as name and port number.
+    </p>
+	<tabset>
+		<tab heading="index.js">
+			<pre><code class="javascript">"use strict";
+var soajs = require("soajs");
+var config = require("./config");
+var daemonDriver = new soajs.server.daemon(config);
+daemonDriver.init(function () {
+   daemonDriver.job('myJob', function (soajs, next) {
+		//print the message value from daemon configuration above
+		console.log(soajs.servicesConfig[process.env.SOAJS_ENV.toUpperCase()].message + " " + process.env.SOAJS_ENV.toUpperCase());
+		next();
+   });
+
+   daemonDriver.start();
+});</code></pre>
+			<h4>Code walkthrough</h4>
+			<ul class="codeList">
+				<li><b>Line1-</b> "strict mode” JavaScript.</li>
+				<li><b>Line2-</b> Require SOAJS framework.</li>
+				<li><b>Line3-</b> Require local configuration file.</li>
+				<li><b>Line4-</b> Create a daemon using SOAJS.<br/></li>
+				<li><b>Line5-</b> Initialize the Daemon.</li>
+				<li><b>Line6-</b> Create Job <b style="color:red;">“myJob”</b>. Job takes two parameters: SOAJS - next.</li>
+				<li><b>Line7-</b> Formulate a message from the group configuration followed by environment value and print it to the terminal.</li>
+				<li><b>Line10-</b> Start the service.</li>
+			</ul>
+		</tab>
+		<tab heading="config.js">
+			<pre><code class="javascript">"use strict";
+var config = {
+   serviceVersion: 1,
+   serviceName: "daemonname",
+   serviceGroup: "My Group",
+   servicePort: 4171,
+   "errors": {},
+   "schema": {
+      "myJob": {
+         "l": "My Job"
+      }
+   }
+};
+
+module.exports = config;</code></pre>
+			<h4>Code walkthrough</h4>
+			<ul class="codeList">
+				<li><b>Line1-</b> "strict mode” JavaScript.</li>
+				<li><b>Line2-</b> export the JSON object when this file is required.</li>
+				<li><b>Line3-</b> specify the daemon version.</li>
+				<li><b>Line4-</b> specify the daemon name.</li>
+				<li><b>Line5-</b> specify the daemon group.</li>
+				<li><b>Line6-</b> specify the daemon port.<br/></li>
+				<li><b>Line7-</b> Object containing the error codes of this service.</li>
+				<li><b>Line8-</b> Object containing service daemon Jobs.</li>
+				<li><b>Line9-</b> First Job whose name is myJob.</li>
+			</ul>
+		</tab>
+	</tabset>
+	<hr/>
+	<h3>Daemon Configuration Options</h3>
+	<p>
+		The daemon requires a group configuration to be provisioned in the database. Upon starting the daemon, then name of the group should be provided so that at runtime, the daemon load the configuration from that group.
+		<pre>
+			<code class="javascript">{
+	"_id": ObjectId('57a350a7a7a0f5a214516d3a'),
+	"daemonConfigGroup": "GROUPNAME",
+	"daemon": "daemonname",
+	"interval": 60000,           //wait 1 min after the last job finishes and then run again
+	"status": 1,                 //1 means active
+	"processing": "sequential",  //if the daemon has more than one job, process the job sequentially or in parallel
+	"jobs": {
+		"processData": {
+			"type": "global",	 //type of configuration: global or tenantSpecific
+			"serviceConfig": {
+				"DEV": {		 //environment code + configuration per environment
+					"message": "hi"
+				},
+				"PROD": {	     //environment code + configuration per environment
+					"catalog": "hello"
+				}
+			},
+			"tenantExtKeys": [], //if type is tenantSpecific, the list will contain tenant keys
+			"tenantsInfo": []	 // if type is tenantSpecific, the list will contain tenant information
+		}
+	},
+	"order": [		       //applied only if processing is sequential and the order of daemon job is based on array
+		"processData"
+	],
+	"solo": false	       //if more than one daemon are deployed for the same environment, only one will run
+}</code></pre>
+	<hr/>
+	<h3>Starting the Daemon</h3>
+	<p>
+		Every daemon created with SOAJS is implemented using <a href="http://www.nodejs.org" target="_blank">NodeJs</a> therefore start the service using node in a terminal:
+	</p>
+		<pre><code class="bash">$ cd /opt/soajs/myDaemon/
+$ export SOAJS_ENV=dev
+$ export SOAJS_DAEMON_GRP_CONF=GROUPNAME
+$ node index</code></pre>
+	<p>
+		Your daemon will run and will be listening on the port specified in config.js which in this case is 4171. Your Daemon will also be listening on a second port used for maintenance purposes. That port is equal to the default port specified in config.js + 1000 and in this case has the value of 5171.
+	</p>
+	<p>
+		Once you start this daemon, on your terminal you will see the following message printed every 1 min.
+	</p>
+	<pre><code class="bash">//daemon started in dev
+$ hi DEV
+// after 60000 milliseconds
+$ hi DEV
+// after 60000 milliseconds
+$ hi DEV</code></pre>
+</div>
