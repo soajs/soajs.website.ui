@@ -93,6 +93,12 @@ var navigation = [
 		'url': '#/documentation/core/service'
 	},
 	{
+		'id': 'daemon',
+		'label': 'soajs daemon',
+		'title': 'SOAJS | Documentation | Daemon',
+		'url': '#/documentation/core/daemon'
+	},
+	{
 		'id': 'request',
 		'label': 'soajs request',
 		'title': 'SOAJS | Documentation | Request',
