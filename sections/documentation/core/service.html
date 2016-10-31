@@ -101,7 +101,7 @@ module.exports = {
 				<li><b>Line7-</b> specify how long (in seconds) to wait for a response before a request to the service api times out.</li>
 				<li><b>Line8-</b> specify the number of attempts, in case of a timeout, before considering the service api unreachable.</li>
 				<li><b>Line9-</b> if the awareness is enable, the service becomes aware of the controller's location.</li>
-				<li><b>Line10-</b> specify if the service is <a href="#/documentation/advanced/multitenant">multitenant</a>.</li>
+				<li><b>Line10-</b> specify if the service is <a href="#/documentation/advanced/multitenancy">multitenant</a>.</li>
 				<li><b>Line11-</b> specify if the service should be protected by <a href="#/documentation/services/oauth">oAuth</a>.</li>
 				<li><b>Line12-</b> Object containing the error codes of this service.</li>
 				<li><b>Line13-</b> Object containing service APIs schema.</li>
@@ -127,7 +127,7 @@ module.exports = {
 				<tr>
 					<td><b>extKeyRequired</b></td>
 					<td>soajs evolves the service and makes it multitenant supportive.<br />
-						- The service thus can be used by multiple tenants and is only accessible when a tenant key is provided <a href="#/documentation/advanced/multitenant">Read&nbsp;More</a><br />
+						- The service thus can be used by multiple tenants and is only accessible when a tenant key is provided <a href="#/documentation/advanced/multitenancy">Read&nbsp;More</a><br />
 						- Key security is turned on; device and geo information can be configured <a href="#/documentation/core/key-security">Read&nbsp;More</a><br />
 						- If configured, SOAJS will also be able to compare the access to the requested service APIs<a href="#/documentation/core/acl">Read&nbsp;More</a><br />
 					</td>
