@@ -40,6 +40,16 @@ a:hover {
     border-radius: 5px;
 }
 
+.w-100{
+    width:100%;
+}
+.c-both{
+    clear:both;
+}
+
+.t-center{
+    text-align:center;
+}
 /*
     HEADER, LOGO AND TOP MENU
 */
@@ -214,6 +224,20 @@ a:hover {
     color: white;
 }
 
+.small-button2 {
+    width: 200px;
+    display: block;
+    background: url('../images/yellow-btn-bg.png') repeat-x;
+    border-radius: 5px;
+    font-size: 18px;
+    height: 43px;
+    padding: 6px 37px 8px;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+}
+
+.small-button2:hover,
 .small-button:hover {
     color: #000;
     text-decoration: none;
