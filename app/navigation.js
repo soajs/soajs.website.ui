@@ -30,9 +30,7 @@ var navigation = [
 		'id': 'getStarted',
 		'label': 'getStarted',
 		'title': 'SOAJS | Get Sarted',
-		'url': '#/getStarted/:section?/:anchor?',
-		'tplPath': 'sections/getstarted/page.html',
-		'scripts': ['sections/getstarted/controller.js']
+		'url': 'https://soajsorg.atlassian.net/wiki/spaces/EX',
 	},
 	{
 		'id': 'example01',
@@ -179,7 +177,7 @@ var navigation = [
 		'id': 'urac',
 		'label': 'soajs urac',
 		'title': 'SOAJS | Documentation | Urac',
-		'url': '#/documentation/services/urac'
+		'url': 'https://soajsorg.atlassian.net/wiki/spaces/URAC'
 	},
 	{
 		'id': 'oauth',
@@ -240,60 +238,6 @@ var navigation = [
 		'label': 'soajs dashboard form',
 		'title': 'SOAJS | Documentation | Dashboard Form',
 		'url': '#/documentation/ui/form'
-	},
-	{
-		'id': 'manual',
-		'label': 'soajs Manual Deployment',
-		'title': 'SOAJS | Deployment | Manual Deployment',
-		'url': '#/documentation/deployment/manual'
-	},
-	{
-		'id': 'manual-mac',
-		'label': 'soajs Manual Deployment on Mac',
-		'title': 'SOAJS | Deployment | Manual Deployment on MAC',
-		'url': '#/documentation/deployment/manual-mac'
-	},
-	{
-		'id': 'manual-linux',
-		'label': 'soajs Manual Deployment on Linux',
-		'title': 'SOAJS | Deployment | Manual Deployment on Linux',
-		'url': '#/documentation/deployment/manual-linux'
-	},
-	{
-		'id': 'docker',
-		'label': 'soajs Docker Deployment',
-		'title': 'SOAJS | Deployment | Docker Deployment',
-		'url': '#/documentation/deployment/docker'
-	},
-	{
-		'id': 'docker-m-mac',
-		'label': 'soajs Docker Machine Deployment on Mac',
-		'title': 'SOAJS | Deployment | Docker Machine Deployment on MAC',
-		'url': '#/documentation/deployment/docker-m-mac'
-	},
-	{
-		'id': 'docker-m-linux',
-		'label': 'soajs Docker Machine Deployment on Linux',
-		'title': 'SOAJS | Deployment | Docker Machine Deployment on Linux',
-		'url': '#/documentation/deployment/docker-m-linux'
-	},
-	{
-		'id': 'docker-linux',
-		'label': 'soajs Docker Deployment on Linux',
-		'title': 'SOAJS | Deployment | Docker Deployment on Linux',
-		'url': '#/documentation/deployment/docker-linux'
-	},
-	{
-		'id': 'docker-mac',
-		'label': 'soajs Docker Deployment on Mac',
-		'title': 'SOAJS | Deployment | Docker Deployment on Mac',
-		'url': '#/documentation/deployment/docker-mac'
-	},
-	{
-		'id': 'docker-files',
-		'label': 'soajs docker-files',
-		'title': 'SOAJS | Deployment | Docker Images',
-		'url': '#/documentation/deployment/docker-files'
 	}
 ];
 
