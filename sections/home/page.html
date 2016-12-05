@@ -32,7 +32,10 @@
 						<li ng-repeat="badge in repos" ng-class-even ="'even'" ng-class-odd ="'odd'">
 							<div id="repo{{badge.id}}" class="repoinner">
 
-								<div class="repoLabel" ng-if="badge.documentation"><a href="{{badge.documentation}}">{{badge.label}}</a></div>
+								<div class="repoLabel" ng-if="badge.documentation">
+									<a ng-if="!badge.external" href="{{badge.documentation}}">{{badge.label}}</a>
+									<a ng-if="badge.external" target="_blank" href="{{badge.documentation}}">{{badge.label}}</a>
+								</div>
 								<div class="repoLabel" ng-if="!badge.documentation"><a>{{badge.label}}</a></div>
 
 								<div class="repoLinks npm" ng-if="badge.npm">

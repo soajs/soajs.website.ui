@@ -1,9 +1,0 @@
-{
-  "result": true,
-  "ts": 1425372634090,
-  "service": {
-    "service": "urac",
-    "type": "rest",
-    "route": "/heartbeat"
-  }
-}

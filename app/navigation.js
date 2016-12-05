@@ -30,7 +30,7 @@ var navigation = [
 		'id': 'getStarted',
 		'label': 'getStarted',
 		'title': 'SOAJS | Get Sarted',
-		'url': 'https://soajsorg.atlassian.net/wiki/spaces/EX',
+		'url': 'https://soajsorg.atlassian.net/wiki/spaces/EX'
 	},
 	{
 		'id': 'example01',

@@ -1,9 +1,0 @@
-{
-  "result": true,
-  "ts": 1425372737466,
-  "service": {
-    "service": "example03",
-    "type": "rest",
-    "route": "/heartbeat"
-  }
-}
