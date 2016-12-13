@@ -33,7 +33,8 @@
     "npm":"soajs.oauth",
     "travis":"soajs/soajs.oauth",
     "coveralls":"soajs/soajs.oauth",
-    "documentation": "#/documentation/services/oauth",
+    "documentation": "https://soajsorg.atlassian.net/wiki/display/OAUT/oAuth",
+    "external": true,
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.oauth&type=watch&count=true"
   },
   {
@@ -51,7 +52,8 @@
     "npm":"soajs.examples",
     "travis":"soajs/soajs.examples",
     "coveralls":"soajs/soajs.examples",
-    "documentation": "#/getStarted",
+    "documentation": "https://soajsorg.atlassian.net/wiki/display/EX/03+Examples",
+    "external": true,
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.examples&type=watch&count=true"
   },
   {
@@ -69,7 +71,8 @@
     "npm":"soajs.prx",
     "travis":"soajs/soajs.prx",
     "coveralls":"soajs/soajs.prx",
-    "documentation": "#/documentation/services/proxy",
+    "documentation": "https://soajsorg.atlassian.net/wiki/display/PROX/Proxy",
+    "external": true,
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.prx&type=watch&count=true"
   },
   {
