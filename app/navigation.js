@@ -183,13 +183,43 @@ var navigation = [
 		'id': 'oauth',
 		'label': 'soajs oauth',
 		'title': 'SOAJS | Documentation | oAuth',
-		'url': '#/documentation/services/oauth'
+		'url': '#/documentation/services/oauth',
+		'tplPath': 'sections/documentation/services/oauth.html'
 	},
 	{
 		'id': 'proxy',
 		'label': 'soajs proxy',
 		'title': 'SOAJS | Documentation | proxy',
-		'url': '#/documentation/services/proxy'
+		'url': '#/documentation/services/proxy',
+		'tplPath': 'sections/documentation/services/proxy.html'
+	},
+	{
+		'id': 'urac2',
+		'label': 'soajs urac',
+		'title': 'SOAJS | Documentation | urac',
+		'url': '#/documentation/urac',
+		'tplPath': 'sections/documentation/services/urac.html'
+	},
+	{
+		'id': 'oauth2',
+		'label': 'soajs oauth',
+		'title': 'SOAJS | Documentation | oauth',
+		'url': '#/documentation/oauth',
+		'tplPath': 'sections/documentation/services/oauth.html'
+	},
+	{
+		'id': 'proxy2',
+		'label': 'soajs proxy',
+		'title': 'SOAJS | Documentation | proxy',
+		'url': '#/documentation/proxy',
+		'tplPath': 'sections/documentation/services/proxy.html'
+	},
+	{
+		'id': 'proxy3',
+		'label': 'soajs proxy',
+		'title': 'SOAJS | Documentation | proxy',
+		'url': '#/documentation/services/prx',
+		'tplPath': 'sections/documentation/services/proxy.html'
 	},
     {
         'id': 'gcs',

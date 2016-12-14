@@ -26,14 +26,24 @@ documentationApp.controller('documentationtCtrl', ['$scope', '$http', '$routePar
 			$compile(angularElement.contents())($scope);
 			renderCodeSnippets();
 		}).error(function() {
-			alert("Error fetching documentation page. Please try again.");
+			console.log("Error fetching documentation page. Please try again.");
 		});
 
 		$scope.docuLink = "/documentation/" + sectionName + '/' + subSectionName;
 	};
 
-	if($routeParams && $routeParams.section) {
+	if($routeParams && $routeParams.section && $routeParams.subSection) {
 		$scope.loadSection($routeParams.section, $routeParams.subSection);
+	}
+	else if($routeParams && $routeParams.section) {
+		var angularElement = angular.element(document.getElementById('documentationPreview'));
+		$http.get('sections/documentation/services/' + $routeParams.section + ".html").success(function(data) {
+			angularElement.html(data);
+			$compile(angularElement.contents())($scope);
+			renderCodeSnippets();
+		}).error(function() {
+			console.log("Error fetching documentation page. Please try again.");
+		});
 	}
 	else {
 		$scope.loadSection('core', 'service');

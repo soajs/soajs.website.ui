@@ -87,6 +87,7 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', function ($sc
 			var p = $location.path().split(sp);
 			$scope.currentLocation = p[0];
 		}
+		
 	});
 	/*
 	 if($routeParams && $routeParams.anchor && $routeParams.anchor !== '' && jQuery) {
