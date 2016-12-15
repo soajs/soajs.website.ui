@@ -99,7 +99,8 @@
     "id": "Controller",
     "label": "Controller",
     "npm":"soajs.controller",
-    "documentation": "#/documentation/controller",
+    "documentation": "https://soajsorg.atlassian.net/wiki/display/CON/Controller",
+    "external": true,
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.controller&type=watch&count=true"
   },
   {

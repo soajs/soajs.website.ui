@@ -177,7 +177,7 @@ var navigation = [
 		'id': 'urac',
 		'label': 'soajs urac',
 		'title': 'SOAJS | Documentation | Urac',
-		'url': 'https://soajsorg.atlassian.net/wiki/spaces/URAC'
+		'url': '#/documentation/services/urac'
 	},
 	{
 		'id': 'oauth',
