@@ -57,6 +57,14 @@
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.examples&type=watch&count=true"
   },
   {
+    "id": "composer",
+    "label": "Composer",
+    "npm":"soajs.composer",
+    "travis":"soajs/soajs.composer",
+    "coveralls":"soajs/soajs.composer",
+    "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.composer&type=watch&count=true"
+  },
+  {
     "id": "GCS",
     "label": "GCS",
     "npm":"soajs.gcs",
