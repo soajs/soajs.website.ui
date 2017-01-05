@@ -36,6 +36,12 @@
     "description": "This object contains the module's page permission, the user's ACL is matched against this entry to determine if the page is accessiblew"
   },
   {
+    "name": "pillar",
+    "type": "Object",
+    "mandatory": "YES",
+    "description": "Define which pillar this module belongs to as well as the position inside that pillar."
+  },
+  {
     "name": "icon",
     "type": "String",
     "mandatory": "NO",

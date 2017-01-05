@@ -11,6 +11,11 @@ var myModuleNav = [
 			'service': 'myService',
 			'route': '/list'
 		},
+		'pillar': {
+			'name': 'operate',
+			'label': 'Operate',
+			'position': 4
+		},
 		//menu & tracker information
 		'icon': '',
 		'mainMenu': true,
