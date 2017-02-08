@@ -5,6 +5,7 @@
     "npm": "soajs",
     "travis":"soajs/soajs",
     "coveralls":"soajs/soajs",
+    "docker": "soajsorg/soajs",
     "documentation": "#/documentation/",
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs&type=watch&count=true"
   },

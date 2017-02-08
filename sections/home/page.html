@@ -52,17 +52,15 @@
 								<div class="repoLinks coveralls" ng-if="badge.coveralls">
 									<a href="https://coveralls.io/r/{{badge.coveralls}}" target="_blank"><img ng-src="https://coveralls.io/repos/{{badge.coveralls}}/badge.svg" alt="Coverage Status"></a>
 								</div>
-
+								<div class="repoLinks coveralls" ng-if="badge.docker">
+									<a href="https://hub.docker.com/search/?isAutomated=0&isOfficial=0&page=1&pullCount=0&q=soajs&starCount=0" target="_blank"><img ng-src="https://img.shields.io/docker/pulls/{{badge.docker}}.svg" alt="Docker Downloads"></a>
+								</div>
 								<div class="repoLinks gitLink" ng-if="badge.github">
 									<iframe ng-src="{{badge.github | trustAsResourceUrl}}" frameborder="0" scrolling="0" style="" allowTransparency="true"></iframe>
 								</div>
 							</div>
 						</li>
 					</ul>
-				</div>
-				<div class="w-100 c-both t-center">
-					<br />
-					<a target="_blank" class="small-button2" href="https://soajsorg.atlassian.net/wiki/display/IN/Installer">Install SOAJS</a>
 				</div>
 			</div>
 		</div>

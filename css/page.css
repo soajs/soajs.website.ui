@@ -427,7 +427,7 @@ a:hover {
 
 .white-banner .banner-container .repos ul li div .repoLinks {
     float: left;
-    margin: 5px;
+    margin: 4px;
     position: relative;
     top: 6px;
 }
@@ -464,6 +464,7 @@ a:hover {
 .white-banner .banner-container .repos ul li .gitLink iframe {
     width: 90px;
     height: 26px;
+    margin-top: 6px;
 }
 
 .white-banner .banner-container .repos .npm img{
