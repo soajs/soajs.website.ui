@@ -1,8 +1,0 @@
-{
-    "result" : true,
-    "data" : {
-        "firstName" : "John",
-        "lastName" : "Smith",
-        "email" : "john@smith.com"
-    }
-}

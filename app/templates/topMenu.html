@@ -3,7 +3,8 @@
 		<!--Navigation list-->
 		<div class="nav-container">
 			<div class="branding">
-				<a ng-click="menuVisible = false" href="#/"><img class="logo" ng-src="images/logo.png" alt="Soajs logo" /></a>
+				<a ng-click="menuVisible = false" href="#/">
+					<img class="logo" ng-src="images/logo.png" alt="Soajs logo"/></a>
 			</div>
 
 			<div ng-class="{'menu-open': menuVisible === true}" ng-click="menuVisible = !menuVisible" class="menu">
@@ -13,11 +14,13 @@
 			</div>
 
 			<ul class="topnav ng-isolate-scope" ng-class="{'menu-open': menuVisible === true}" click-outside="" is-open="menuVisible">
-				<li ng-click="menuVisible = false" class="getStarted"><a target="_blank" href="https://soajsorg.atlassian.net/wiki/spaces/EX">Get Started</a></li>
-				<li ng-click="menuVisible = false" class="features" ng-class="{'active': currentLocation === '/features'}"><a href="#/features">Features</a></li>
-				<li ng-click="menuVisible = false" class="documentation" ng-class="{'active': currentLocation === '/documentation'}"><a href="#/documentation" >Documentation</a></li>
-				<li ng-click="menuVisible = false" class="news" ng-class="{'active': currentLocation === '/news'}"><a href="#/news">News</a></li>
-				<li ng-click="menuVisible = false" class="contactUs" ng-class="{'active': currentLocation === '/contactUs'}"><a href="#/contactUs">Contact Us</a></li>
+				<li ng-click="menuVisible = false" class="getStarted">
+					<a target="_blank" href="https://soajsorg.atlassian.net/wiki/spaces/EX">Get Started</a></li>
+
+				<li ng-click="menuVisible = false" class="news" ng-class="{'active': currentLocation === '/news'}">
+					<a href="#/news">News</a></li>
+				<li ng-click="menuVisible = false" class="contactUs" ng-class="{'active': currentLocation === '/contactUs'}">
+					<a href="#/contactUs">Contact Us</a></li>
 			</ul>
 		</div>
 	</div>
