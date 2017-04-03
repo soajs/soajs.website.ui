@@ -65,6 +65,23 @@ a:hover {
     background: -ms-linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* ie10+ */
     background: linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* w3c */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4b500', endColorstr='#f48600',GradientType=1 ); /* ie6-9 */
+
+
+}
+/*Home page specific*/
+.jumbotron.home{
+    height: 550px;
+    /* bg image for home page*/
+    background-image: url('../images/homepage/bg chading.png');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-image: url('../images/homepage/bg chading.png'), -moz-linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* ff3.6+ */
+    background-image: url('../images/homepage/bg chading.png'), -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(244,134,0,1)), color-stop(100%, rgba(244,181,0,1))); /* safari4+,chrome */
+    background-image: url('../images/homepage/bg chading.png'), -webkit-linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* safari5.1+,chrome10+ */
+    background-image: url('../images/homepage/bg chading.png'), -o-linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* opera 11.10+ */
+    background-image: url('../images/homepage/bg chading.png'), -ms-linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* ie10+ */
+    background-image: url('../images/homepage/bg chading.png'), linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4b500', endColorstr='#f48600',GradientType=1 ); /* ie6-9 */
 }
 .jumbotron h1, .jumbotron .h1 {
     font-size: 63px;
