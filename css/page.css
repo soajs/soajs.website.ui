@@ -266,11 +266,29 @@ Footer section
 }
 
 .bottom {
-    color: rgb(61, 61, 61);
-    box-sizing: border-box;
-    font-size: 18px;
-    font-weight: 400;
-    height: auto;
-    padding: 15px 0;
+    height: 92px;
     width: 100%;
+}
+
+.orangeLine
+{
+    background-color: #f49c1c;
+    height: 5px;
+}
+
+.blueLine
+{
+    background-color: #397999;
+    height: 5px;
+}
+
+.greenLine
+{
+    background-color: #418774;
+    height: 5px;
+}
+.redLine
+{
+    background-color: #aa3f3f;
+    height: 5px;
 }
