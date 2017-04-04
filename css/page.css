@@ -56,7 +56,7 @@ a:hover {
  **************/
 .jumbotron
 {
-    height: 300px;
+    height: 315px;
     color: white;
     background: -moz-linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* ff3.6+ */
     background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(244,134,0,1)), color-stop(100%, rgba(244,181,0,1))); /* safari4+,chrome */
@@ -72,20 +72,21 @@ a:hover {
 .jumbotron.home{
     height: 550px;
     /* bg image for home page*/
-    background-image: url('../images/homepage/bg chading.png');
-    background-repeat: no-repeat;
-    background-position: top;
-    background-image: url('../images/homepage/bg chading.png'), -moz-linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* ff3.6+ */
-    background-image: url('../images/homepage/bg chading.png'), -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(244,134,0,1)), color-stop(100%, rgba(244,181,0,1))); /* safari4+,chrome */
-    background-image: url('../images/homepage/bg chading.png'), -webkit-linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* safari5.1+,chrome10+ */
-    background-image: url('../images/homepage/bg chading.png'), -o-linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* opera 11.10+ */
-    background-image: url('../images/homepage/bg chading.png'), -ms-linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* ie10+ */
-    background-image: url('../images/homepage/bg chading.png'), linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* w3c */
+    background-image: url('../images/homepage/shade.png');
+    background-repeat: repeat-x;
+    background-position: bottom;
+    background-image: url('../images/homepage/shade.png'), -moz-linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* ff3.6+ */
+    background-image: url('../images/homepage/shade.png'), -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(244,134,0,1)), color-stop(100%, rgba(244,181,0,1))); /* safari4+,chrome */
+    background-image: url('../images/homepage/shade.png'), -webkit-linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* safari5.1+,chrome10+ */
+    background-image: url('../images/homepage/shade.png'), -o-linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* opera 11.10+ */
+    background-image: url('../images/homepage/shade.png'), -ms-linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* ie10+ */
+    background-image: url('../images/homepage/shade.png'), linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* w3c */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4b500', endColorstr='#f48600',GradientType=1 ); /* ie6-9 */
 }
 .jumbotron h1, .jumbotron .h1 {
-    font-size: 63px;
+    font-size: 48px;
     font-color: white;
+    margin-top: 100px;
 }
 .topbar-wrapper {
     position: fixed;
@@ -265,10 +266,7 @@ Footer section
     width: 100%;
 }
 
-.bottom {
-    height: 92px;
-    width: 100%;
-}
+
 
 .orangeLine
 {
@@ -291,4 +289,42 @@ Footer section
 {
     background-color: #aa3f3f;
     height: 5px;
+}
+
+
+
+.copyright
+{
+    margin-top:70px;
+    margin-bottom:50px;
+}
+
+.circle
+{
+    background-color: white;
+    border-radius: 50%;
+    border: 1x solid grey;
+    padding:10px;
+    cursor:pointer;
+
+}
+
+.bottom .socialMedia
+{
+    padding-top: 90px;
+}
+.bottom .menu
+{
+    padding-top: 30px;
+}
+.bottom .menu a
+{
+    padding-left: 30px;
+    color:white;
+}
+.bottom .socialMedia i
+{
+    margin-right: 15px;
+    color: #122733;
+    font-size: 24px;
 }
