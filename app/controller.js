@@ -49,6 +49,15 @@ app.config([
 ]);
 
 app.controller('mainCtrl', ['$scope', '$location', '$routeParams', function ($scope, $location, $routeParams) {
+	$scope.pageTitle = "Page title goes here";
+	$scope.subTitle = "goes here";
+
+	$scope.$on('refreshPageTitle', function (event, args) {
+		$scope.pageTitle = args.title;
+		if (args.subTitle) {
+			$scope.subTitle = args.subTitle;
+		}
+	});
 
 	$scope.today = new Date().getTime();
 
