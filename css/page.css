@@ -588,6 +588,43 @@ max-width: 300px;
 {
     height: 420px;
 }
+/**********************
+*
+* Accordion
+*
+**********************/
+
+.panel-body .content:nth-child(odd){
+    background-color:#e6e6e6;
+}
+.panel-body .content:nth-child(even){
+    background-color:white;
+}
+.panel-default > .panel-heading{
+    background-color:#122733;
+    background-image: none;
+    color:white;
+}
+
+.panel-body{
+    padding: 0;
+}
+
+.panel-heading .accordion-toggle:after {
+    /* symbol for "opening" panels */
+    font-family: soajs;
+    content: "\f005";
+    float: right;
+    color: grey;
+}
+.panel-heading .accordion-toggle.collapsed:after {
+    /* symbol for "collapsed" panels */
+    font-family: soajs;
+    content: "\f004";
+}
+.panel-heading .pull-right {
+    margin-right:12px;
+}
 /*****************
 *
 * Bootstrap overrides
@@ -596,4 +633,3 @@ max-width: 300px;
 .btn {
     border-radius: 25px;
 }
-
