@@ -66,8 +66,6 @@ a:hover {
     background: -ms-linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* ie10+ */
     background: linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* w3c */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4b500', endColorstr='#f48600',GradientType=1 ); /* ie6-9 */
-
-
 }
 /*Home page specific*/
 .jumbotron.home{
@@ -337,57 +335,6 @@ Setions
     background-color: white;}
 /**********************
 *
-* what is simple section with background parallax image
-*
-**********************/
-.whatis{
-    /* The image used */
-    background-image: url("../images/homepage/whatis.png") ;
-    background-color: #000;
-    /* Set a specific height
-    */
-    /* Create the parallax scrolling effect*/
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    position: relative;
-}
-/*
-.whatis:after {
-    content: '\A';
-    position: absolute;
-    width: 100%; height:100%;
-    top:0; left:0;
-    background:rgba(0,0,0,0.6);
-    transition: all 1s;
-    -webkit-transition: all 1s;
-    z-index: 0;
-}*/
-.whatis .content{
-    height:400px;
-    padding-top: 80px;
-    padding-bottom: 80px;
-    width: 100%;
-    top:0; left:0;
-    opacity: 1;
-    background:rgba(0,0,0,0.6);
-    transition: all 1s;
-    -webkit-transition: all 1s;
-
-}
-.whatis .content h2{
-    font-size:40px;
-
-}
-.whatis .btn{
-    z-index: 10;
-}
-/**********************
-*
 * navy :  section with navy background
 *
 **********************/
@@ -439,7 +386,16 @@ Setions
 **********************/
 .green{background-color: #418774}
 
+.orange-shade{
+    background: -moz-linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* ff3.6+ */
+    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(244,134,0,1)), color-stop(100%, rgba(244,181,0,1))); /* safari4+,chrome */
+    background: -webkit-linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* safari5.1+,chrome10+ */
+    background: -o-linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* opera 11.10+ */
+    background: -ms-linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* ie10+ */
+    background: linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4b500', endColorstr='#f48600',GradientType=1 ); /* ie6-9 */
 
+}
 
 /*************************************************************************************
 *
@@ -485,6 +441,21 @@ Setions
 .blue-txt-hover:hover{color: #397999}
 .red-txt-hover:hover{color: #aa3f3f}
 .green-txt-hover:hover{color: #418774}
+
+/*************************************************************************************
+*
+* border coloring
+*
+*************************************************************************************/
+.white-border{ border-color: white; border-style: solid;}
+.navy-border{  border-color: #19303f;border-style: solid;}
+.navy-dark-border{border-color: #122733;border-style: solid;}
+.yellow-border{border-color: #f49c1c ;border-style: solid;}
+.yellow-light-border{border-color: #f4b500;border-style: solid;}
+.yellow-dark-border{border-color: #f48600;border-style: solid;}
+.blue-border{border-color: #397999;border-style: solid;}
+.red-border{border-color: #aa3f3f;border-style: solid;}
+.green-border{border-color: #418774;border-style: solid;}
 
 /**********************
 *
@@ -533,24 +504,90 @@ max-width: 300px;
 *
 **********************/
 
-.seperator5{
+.separator5{
     height: 5px;
     width:100%;
 }
-.seperator10{
+.separator10{
     height: 10px;
     width:100%;
 }
-.seperator50{
+.separator50{
     height: 50px;
     width:100%;
 }
 
 
 
+/**********************
+*
+* Homepage sections
+*
+**********************/
+
+/**********************
+*
+* what is simple section with background parallax image
+*
+**********************/
+.whatis{
+    /* The image used */
+    background-image: url("../images/homepage/whatis.png") ;
+    background-color: #000;
+    /* Set a specific height
+    */
+    /* Create the parallax scrolling effect*/
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: relative;
+}
+/*
+.whatis:after {
+    content: '\A';
+    position: absolute;
+    width: 100%; height:100%;
+    top:0; left:0;
+    background:rgba(0,0,0,0.6);
+    transition: all 1s;
+    -webkit-transition: all 1s;
+    z-index: 0;
+}*/
+.whatis .content{
+    height:400px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    width: 100%;
+    top:0; left:0;
+    opacity: 1;
+    background:rgba(0,0,0,0.6);
+    transition: all 1s;
+    -webkit-transition: all 1s;
+
+}
+.whatis .content h2{
+    font-size:40px;
+
+}
+.whatis .btn{
+    z-index: 10;
+}
 
 
+/**********************
+*
+* small box
+*
+**********************/
 
+.smallBox
+{
+    height: 420px;
+}
 /*****************
 *
 * Bootstrap overrides
