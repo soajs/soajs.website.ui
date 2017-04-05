@@ -1,11 +1,10 @@
 "use strict";
 var newsApp = app.components;
 
-newsApp.controller('newsDetailCtrl', ['$scope', function ($scope) {
+newsApp.controller('casePageCtrl', ['$scope', function ($scope) {
 	var pageData = {
-		title: "News Room",
+		title: "Case Studies",
 		subTitle: ""
 	};
 	$scope.$parent.$emit('refreshPageTitle', pageData);
-
 }]);

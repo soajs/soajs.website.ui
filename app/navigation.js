@@ -19,21 +19,21 @@ var navigation = [
         'scripts': ['sections/news/controller.js']
     },
     {
-        'id': 'newsDetail',
-        'label': 'NewsDetail',
-        'title': 'SOAJS | News Detail',
-        'url': '#/newsDetail',
-        'tplPath': 'sections/newsDetail/page.html',
-        'scripts': ['sections/newsDetail/controller.js']
+        'id': 'contactUs',
+        'label': 'contactUs',
+        'title': 'SOAJS | Contact Us',
+        'url': '#/contactUs',
+        'tplPath': 'sections/contactus/page.html',
+        'scripts': ['sections/contactus/controller.js']
     },
-	{
-		'id': 'contactUs',
-		'label': 'contactUs',
-		'title': 'SOAJS | Contact Us',
-		'url': '#/contactUs',
-		'tplPath': 'sections/contactus/page.html',
-		'scripts': ['sections/contactus/controller.js']
-	},
+    {
+        'id': 'case',
+        'label': 'Case Study',
+        'title': 'SOAJS | Case Study',
+        'url': '#/case',
+        'tplPath': 'sections/case/page.html',
+        'scripts': ['sections/case/controller.js']
+    },
 	{
 		'id': 'getStarted',
 		'label': 'getStarted',
