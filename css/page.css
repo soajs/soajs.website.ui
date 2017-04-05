@@ -6,6 +6,7 @@ body, html {
     text-align: left;
     margin: 0;
     padding: 0;
+    border : 0;
     font-family: 'Lato', sans-serif;
     line-height: 1.9em;
 }
@@ -343,10 +344,9 @@ Setions
     /* The image used */
     background-image: url("../images/homepage/whatis.png") ;
 
-    /* Set a specific height */
-    height: 450px;
-    width: 100%;
-    /* Create the parallax scrolling effect */
+    /* Set a specific height
+    */
+    /* Create the parallax scrolling effect*/
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -354,6 +354,16 @@ Setions
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+.whatis .content{
+    height:400px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+}
+.whatis .content h2{
+    font-size:40px;
+
 }
 /**********************
 *
@@ -476,12 +486,17 @@ max-width: 300px;
 
 .seperator5{
     height: 5px;
+    width:100%;
 }
 .seperator10{
     height: 10px;
+    width:100%;
 }
 .seperator50{
     height: 50px;
+    width:100%;
 }
+
+
 
 

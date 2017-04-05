@@ -46,7 +46,7 @@
     <script src="app/scripts/bootstrap.min.js"></script>
 	<script src="app/navigation.js"></script>
 	<script src="app/controller.js"></script>
-
+    <script src="app/scripts/parallax.js"></script>
 </head>
 
 <body ng-controller="mainCtrl">
@@ -62,12 +62,7 @@
 	    <div>{{subTitle}}</div>
     </div>
 </div>
-<div class="container">
-    <div ng-view autoscroll="true"></div>
-    <div id="push"></div>
-    <div class="clearfix"></div>
-</div> <!-- /container -->
-
+<div ng-view></div>
 
 <div class="col-lg-3 col-xs-3 orangeLine">--</div>
 <div class="col-lg-3 col-xs-3  blueLine">--</div>
