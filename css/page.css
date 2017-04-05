@@ -343,7 +343,7 @@ Setions
 .whatis{
     /* The image used */
     background-image: url("../images/homepage/whatis.png") ;
-
+    background-color: #000;
     /* Set a specific height
     */
     /* Create the parallax scrolling effect*/
@@ -354,6 +354,17 @@ Setions
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    position: relative;
+}
+.whatis:after {
+    content: '\A';
+    position: absolute;
+    width: 100%; height:100%;
+    top:0; left:0;
+    background:rgba(0,0,0,0.6);
+    opacity: 1;
+    transition: all 1s;
+    -webkit-transition: all 1s;
 }
 .whatis .content{
     height:400px;
@@ -496,6 +507,8 @@ max-width: 300px;
     height: 50px;
     width:100%;
 }
+
+
 
 
 
