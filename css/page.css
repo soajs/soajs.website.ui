@@ -356,25 +356,35 @@ Setions
     background-size: cover;
     position: relative;
 }
+/*
 .whatis:after {
     content: '\A';
     position: absolute;
     width: 100%; height:100%;
     top:0; left:0;
     background:rgba(0,0,0,0.6);
-    opacity: 1;
     transition: all 1s;
     -webkit-transition: all 1s;
-}
+    z-index: 0;
+}*/
 .whatis .content{
     height:400px;
     padding-top: 80px;
     padding-bottom: 80px;
+    width: 100%;
+    top:0; left:0;
+    opacity: 1;
+    background:rgba(0,0,0,0.6);
+    transition: all 1s;
+    -webkit-transition: all 1s;
 
 }
 .whatis .content h2{
     font-size:40px;
 
+}
+.whatis .btn{
+    z-index: 10;
 }
 /**********************
 *
@@ -512,4 +522,13 @@ max-width: 300px;
 
 
 
+
+/*****************
+*
+* Bootstrap overrides
+*****************/
+
+.btn {
+    border-radius: 25px;
+}
 
