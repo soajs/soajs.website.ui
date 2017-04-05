@@ -441,7 +441,20 @@ Setions
 
 
 
-
+/*************************************************************************************
+*
+* Background hover effects
+*
+*************************************************************************************/
+.white-hover:hover{ background-color: white;}
+.navy-hover:hover{  background-color: #19303f;}
+.navy-dark-hover:hover{olor: #122733}
+.yellow-hover:hover{background-color: #f49c1c}
+.yellow-light-hover:hover{background-color: #f4b500}
+.yellow-dark-hover:hover{background-color: #f48600}
+.blue-hover:hover{background-color: #397999}
+.red-hover:hover{background-color: #aa3f3f}
+.green-hover:hover{background-color: #418774}
 
 /*************************************************************************************
 *
@@ -457,6 +470,21 @@ Setions
 .blue-txt{color: #397999}
 .red-txt{color: #aa3f3f}
 .green-txt{color: #418774}
+
+/*************************************************************************************
+*
+* text hover-effects
+*
+*************************************************************************************/
+.white-txt-hover:hover{ color: white;}
+.navy-txt-hover:hover{  color: #19303f;}
+.navy-dark-txt-hover:hover{olor: #122733}
+.yellow-txt-hover:hover{color: #f49c1c}
+.yellow-light-txt-hover:hover{color: #f4b500}
+.yellow-dark-txt-hover:hover{color: #f48600}
+.blue-txt-hover:hover{color: #397999}
+.red-txt-hover:hover{color: #aa3f3f}
+.green-txt-hover:hover{color: #418774}
 
 /**********************
 *
