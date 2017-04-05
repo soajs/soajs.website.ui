@@ -10,14 +10,22 @@ var navigation = [
 		'tplPath': 'sections/home/page.html',
 		'scripts': ['sections/home/controller.js']
 	},
-	{
-		'id': 'news',
-		'label': 'News',
-		'title': 'SOAJS | News',
-		'url': '#/news',
-		'tplPath': 'sections/news/page.html',
-		'scripts': ['sections/news/controller.js']
-	},
+    {
+        'id': 'news',
+        'label': 'News',
+        'title': 'SOAJS | News',
+        'url': '#/news',
+        'tplPath': 'sections/news/page.html',
+        'scripts': ['sections/news/controller.js']
+    },
+    {
+        'id': 'newsDetail',
+        'label': 'NewsDetail',
+        'title': 'SOAJS | News Detail',
+        'url': '#/newsDetail',
+        'tplPath': 'sections/newsDetail/page.html',
+        'scripts': ['sections/newsDetail/controller.js']
+    },
 	{
 		'id': 'contactUs',
 		'label': 'contactUs',
