@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'soajs';
-  src: url('../font/soajs.eot?15953846');
-  src: url('../font/soajs.eot?15953846#iefix') format('embedded-opentype'),
-       url('../font/soajs.woff2?15953846') format('woff2'),
-       url('../font/soajs.woff?15953846') format('woff'),
-       url('../font/soajs.ttf?15953846') format('truetype'),
-       url('../font/soajs.svg?15953846#soajs') format('svg');
+  src: url('../font/soajs.eot?88679701');
+  src: url('../font/soajs.eot?88679701#iefix') format('embedded-opentype'),
+       url('../font/soajs.woff2?88679701') format('woff2'),
+       url('../font/soajs.woff?88679701') format('woff'),
+       url('../font/soajs.ttf?88679701') format('truetype'),
+       url('../font/soajs.svg?88679701#soajs') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'soajs';
-    src: url('../font/soajs.svg?15953846#soajs') format('svg');
+    src: url('../font/soajs.svg?88679701#soajs') format('svg');
   }
 }
 */
@@ -63,4 +63,5 @@
 .icon-home-deploy:before { content: '\e805'; } /* '' */
 .icon-home-manage:before { content: '\e806'; } /* '' */
 .icon-home-operate:before { content: '\e807'; } /* '' */
+.icon-cogs:before { content: '\e808'; } /* '' */
 .icon-logo-white:before { content: '\e809'; } /* '' */

@@ -49,11 +49,13 @@ app.config([
 ]);
 
 app.controller('mainCtrl', ['$scope', '$location', '$routeParams', function ($scope, $location, $routeParams) {
-	$scope.pageTitle = "Page title goes here";
-	$scope.subTitle = "goes here";
+    $scope.pageTitle = "";
+    $scope.titleLine2 = "";
+	$scope.subTitle = "";
 
 	$scope.$on('refreshPageTitle', function (event, args) {
-		$scope.pageTitle = args.title;
+        $scope.pageTitle = args.title;
+        $scope.titleLine2 = args.titleLine2;
 		if (args.subTitle) {
 			$scope.subTitle = args.subTitle;
 		}

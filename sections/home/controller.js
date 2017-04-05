@@ -1,10 +1,12 @@
 "use strict";
 var homeApp = app.components;
 homeApp.controller('homePageCtrl', ['$scope', '$http', function ($scope, $http) {
-    $scope.name = "Jamil";
-    $scope.page = {
-        "name": "Home",
-        "bannerClass": "homeTop"
+    $scope.pageTitle = "Home";
+    $scope.subTitle ="";
+    var pageData = {
+        title: "Complete enterprise open source",
+        titleLine2: "platform as a service solution",
+        subTitle: "Achieve with certainty: ROI, Speed, Quality, Standardization"
     };
-
+    $scope.$parent.$emit('refreshPageTitle', pageData);
 }]);

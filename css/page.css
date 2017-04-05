@@ -83,10 +83,12 @@ a:hover {
     background-image: url('../images/homepage/shade.png'), linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* w3c */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4b500', endColorstr='#f48600',GradientType=1 ); /* ie6-9 */
 }
+.jumbotron h1:first-of-type{
+    margin-top: 100px;
+}
 .jumbotron h1, .jumbotron .h1 {
     font-size: 48px;
     font-color: white;
-    margin-top: 100px;
 }
 .topbar-wrapper {
     position: fixed;
@@ -299,15 +301,6 @@ Footer section
     margin-bottom:50px;
 }
 
-.circle
-{
-    background-color: white;
-    border-radius: 50%;
-    border: 1x solid grey;
-    padding:10px;
-    cursor:pointer;
-
-}
 
 .bottom .socialMedia
 {
@@ -328,3 +321,167 @@ Footer section
     color: #122733;
     font-size: 24px;
 }
+
+/**
+Setions
+ */
+
+
+/**********************
+*
+* white: plain section full width with white background
+*
+**********************/
+.white, .simple{
+    background-color: white;}
+/**********************
+*
+* what is simple section with background parallax image
+*
+**********************/
+.whatis{
+    /* The image used */
+    background-image: url("../images/homepage/whatis.png") ;
+
+    /* Set a specific height */
+    height: 450px;
+    width: 100%;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+/**********************
+*
+* navy :  section with navy background
+*
+**********************/
+.navy{  background-color: #19303f;}
+/**********************
+*
+* navy-dark :  section with navy-dark background,
+*
+**********************/
+.navy-dark{background-color: #122733}
+
+/**********************
+*
+* yellow :  section with yello background,
+*
+**********************/
+.yellow{background-color: #f49c1c}
+
+/**********************
+*
+* yellow-light :  section with Light Yellow background,
+*
+**********************/
+.yellow-light{background-color: #f4b500}
+/**********************
+*
+* yellow-dark :  section with Dark Yellow background,
+*
+**********************/
+.yellow-dark{background-color: #f48600}
+
+/**********************
+*
+* blue :  section with  Blue background,
+*
+**********************/
+.blue{background-color: #397999}
+
+/**********************
+*
+* red :  section with  Red background,
+*
+**********************/
+.red{background-color: #aa3f3f}
+/**********************
+*
+* green :  section with  Green background,
+*
+**********************/
+.green{background-color: #418774}
+
+
+
+
+
+/*************************************************************************************
+*
+* text coloring
+*
+*************************************************************************************/
+.white-txt{ color: white;}
+.navy-txt{  color: #19303f;}
+.navy-dark-txt{olor: #122733}
+.yellow-txt{color: #f49c1c}
+.yellow-light-txt{color: #f4b500}
+.yellow-dark-txt{color: #f48600}
+.blue-txt{color: #397999}
+.red-txt{color: #aa3f3f}
+.green-txt{color: #418774}
+
+/**********************
+*
+* images control
+*
+**********************/
+
+img.wide{
+    max-width: 700px;
+}
+
+img.thumb{
+max-width: 300px;
+}
+
+/**********************
+*
+* Elements  Icons
+*
+**********************/
+.circle
+{
+    border-radius: 50%;
+    border: 1x solid grey;
+    padding:10px;
+    cursor:pointer;
+
+}
+.icon {
+    margin-top:50px;
+
+}
+.icon i {
+    font-size: 90px;
+
+}
+.icon h1 {
+     font-size: 128px;
+ }
+.icon .circle{
+    padding:35px;
+}
+/**********************
+*
+* Elements  separator
+*
+**********************/
+
+.seperator5{
+    height: 5px;
+}
+.seperator10{
+    height: 10px;
+}
+.seperator50{
+    height: 50px;
+}
+
+
