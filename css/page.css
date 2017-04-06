@@ -1127,6 +1127,7 @@ div.bulletin {
     border-radius: 8px;
     clear: both;
     display: table;
+    margin-bottom: 15px;
 }
 
 div.bulletin div.head {
@@ -1212,6 +1213,10 @@ div.bulletin div.body div.img img{
 
 #newsPage b.feature {
     color: #139948;
+}
+
+#newsPage b.highlight {
+    color: #DF9630;
 }
 
 #newsPage b.bug {

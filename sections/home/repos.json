@@ -19,6 +19,22 @@
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=connect-mongo-soajs&type=watch&count=true"
   },
   {
+    "id": "Core.libs",
+    "label": "SOAJS Core Libraries",
+    "npm": "soajs.core.libs",
+    "documentation": "",
+    "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.core.libs&type=watch&count=true"
+  },
+  {
+    "id": "Core.modules",
+    "label": "SOAJS Core Modules",
+    "npm": "soajs.core.modules",
+    "travis":"soajs/soajs.core.modules",
+    "coveralls": "soajs/soajs.core.modules",
+    "documentation": "",
+    "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.core.modules&type=watch&count=true"
+  },
+  {
     "id": "URAC",
     "label": "URAC",
     "npm":"soajs.urac",
@@ -44,7 +60,7 @@
     "npm":"soajs.dashboard",
     "travis":"soajs/soajs.dashboard",
     "coveralls":"soajs/soajs.dashboard",
-    "documentation": "#/documentation/services/dashboard-services",
+    "documentation": "#/documentation/ui/dashboard",
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.dashboard&type=watch&count=true"
   },
   {
@@ -125,5 +141,12 @@
     "label": "Utilities",
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.utilities&type=watch&count=true",
     "npm":"soajs.utilities"
+  },
+  {
+    "id": "Grunt",
+    "label": "SOAJS Grunt",
+    "npm":"grunt-soajs",
+    "documentation": "https://soajsorg.atlassian.net/wiki/display/SWAG/02+-+Generator",
+    "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=grunt-soajs&type=watch&count=true"
   }
 ]
