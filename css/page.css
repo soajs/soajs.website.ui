@@ -530,10 +530,14 @@ max-width: 300px;
     font-size: 128px;
 }
 .content{
-    margin-top:70px;
-    margin-bottom:50px;
-    margin-left:90px;
-    margin-right:50px;
+    /*
+    padding-top:70px;
+    padding-bottom:50px;
+    padding-left:90px;
+    padding-right:50px;
+    */
+    margin:0;
+    padding: 0;
 }
 
 /**********************
@@ -563,18 +567,10 @@ max-width: 300px;
     background-size: cover;
     position: relative;
 }
-/*
-.whatis:after {
-    content: '\A';
-    position: absolute;
-    width: 100%; height:100%;
-    top:0; left:0;
-    background:rgba(0,0,0,0.6);
-    transition: all 1s;
-    -webkit-transition: all 1s;
-    z-index: 0;
-}*/
+
 .whatis .content{
+    margin: 0;
+    padding: 0;
     height:400px;
     padding-top: 80px;
     padding-bottom: 80px;
@@ -667,6 +663,13 @@ color: #e7e7e7;}
     table-layout: fixed;
     height: 100%;
     width: 100%;
+    padding: 0;
+    margin:0;
+    margin-left: -20px;
+}
+.row-height div{
+    margin:0;
+    padding: 0;
 }
 .col-height {
     display: table-cell;
