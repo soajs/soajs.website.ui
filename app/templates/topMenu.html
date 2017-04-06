@@ -14,13 +14,17 @@
 			</div>
 
 			<ul class="topnav ng-isolate-scope" ng-class="{'menu-open': menuVisible === true}" click-outside="" is-open="menuVisible">
-				<li ng-click="menuVisible = false" class="getStarted">
-					<a target="_blank" href="https://soajsorg.atlassian.net/wiki/spaces/EX">Get Started</a></li>
 
-				<li ng-click="menuVisible = false" class="news" ng-class="{'active': currentLocation === '/news'}">
-					<a href="#/news">News</a></li>
+                <li ng-click="menuVisible = false" class="news" ng-class="{'active': currentLocation === '/platform'}">
+                    <a href="#/platform">Platform</a></li>
+                <li ng-click="menuVisible = false" class="news" ng-class="{'active': currentLocation === '/study'}">
+                    <a href="#/study">Studies</a></li>
+                <li ng-click="menuVisible = false" class="news" ng-class="{'active': currentLocation === '/news'}">
+                    <a href="#/news">News</a></li>
 				<li ng-click="menuVisible = false" class="contactUs" ng-class="{'active': currentLocation === '/contactUs'}">
 					<a href="#/contactUs">Contact Us</a></li>
+                <li ng-click="menuVisible = false" class="getStarted">
+                    <a target="_blank" href="https://soajsorg.atlassian.net/wiki/spaces/EX">Get Started</a></li>
 			</ul>
 		</div>
 	</div>

@@ -27,12 +27,28 @@ var navigation = [
         'scripts': ['sections/contactus/controller.js']
     },
     {
+        'id': 'aboutUs',
+        'label': 'aboutUs',
+        'title': 'SOAJS | About Us',
+        'url': '#/about',
+        'tplPath': 'sections/about/page.html',
+        'scripts': ['sections/about/controller.js']
+    },
+    {
         'id': 'case',
         'label': 'Case Study',
         'title': 'SOAJS | Case Study',
         'url': '#/case',
         'tplPath': 'sections/case/page.html',
         'scripts': ['sections/case/controller.js']
+    },
+    {
+        'id': 'digital',
+        'label': 'Digital Transformation',
+        'title': 'SOAJS | Digital Transformation',
+        'url': '#/digital',
+        'tplPath': 'sections/case/digital.html',
+        'scripts': ['sections/case/controllerDigital.js']
     },
 	{
 		'id': 'getStarted',

@@ -333,6 +333,10 @@ Setions
 **********************/
 .white, .simple{
     background-color: white;}
+.simple
+{
+    margin-bottom:40px;
+}
 /**********************
 *
 * navy :  section with navy background
