@@ -35,6 +35,14 @@ var navigation = [
         'scripts': ['sections/about/controller.js']
     },
     {
+        'id': 'platform',
+        'label': 'platform',
+        'title': 'SOAJS | Platform',
+        'url': '#/platform',
+        'tplPath': 'sections/platform/page.html',
+        'scripts': ['sections/platform/controller.js']
+    },
+    {
         'id': 'case',
         'label': 'Case Study',
         'title': 'SOAJS | Case Study',
