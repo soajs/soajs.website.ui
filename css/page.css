@@ -530,14 +530,11 @@ max-width: 300px;
     font-size: 128px;
 }
 .content{
-    /*
     padding-top:70px;
     padding-bottom:50px;
     padding-left:90px;
     padding-right:50px;
-    */
-    margin:0;
-    padding: 0;
+
 }
 
 /**********************
@@ -665,11 +662,6 @@ color: #e7e7e7;}
     width: 100%;
     padding: 0;
     margin:0;
-    margin-left: -20px;
-}
-.row-height div{
-    margin:0;
-    padding: 0;
 }
 .col-height {
     display: table-cell;
