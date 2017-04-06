@@ -532,7 +532,10 @@ max-width: 300px;
 .content{
     margin-top:70px;
     margin-bottom:50px;
+    margin-left:90px;
+    margin-right:50px;
 }
+
 /**********************
 *
 * Homepage sections
@@ -649,10 +652,16 @@ color: #e7e7e7;}
 .panel-heading .pull-right {
     margin-right:12px;
 }
+#accordion .content
+{
+ margin:0;
+}
 
-
-/* columns of same height styles */
-
+/**********************
+*
+* columns of same height styles
+*
+**********************/
 .row-height {
     display: table;
     table-layout: fixed;
