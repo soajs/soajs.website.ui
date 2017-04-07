@@ -82,6 +82,10 @@ a:hover {
     background-image: url('../images/homepage/shade.png'), linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* w3c */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4b500', endColorstr='#f48600',GradientType=1 ); /* ie6-9 */
 }
+.jumbotron.platform{
+    background-image: none;
+    background-color: #19303f;
+}
 .jumbotron h1:first-of-type{
     margin-top: 100px;
 }
@@ -148,6 +152,11 @@ a:hover {
     margin-top:10px;
     float: left;
     list-style-type: none;
+    margin-right: 7px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 
 .topbar .topnav li a {
@@ -155,9 +164,7 @@ a:hover {
     cursor: pointer;
     display: block;
     font-size: 16px;
-    margin: 4px 14px;
     outline: 0 none;
-    padding: 2px;
     white-space: nowrap;
 }
 
