@@ -106,21 +106,27 @@ a:hover {
     position: relative;
     width: 100%;
     z-index: 100;
-
-    background: -moz-linear-gradient(45deg, #f4b500 0%, #f48600 100%); /* ff3.6+ */
-    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #f4b500), color-stop(100%, #f48600)); /* safari4+,chrome */
-    background: -webkit-linear-gradient(45deg, #f4b500 0%, #f48600 100%); /* safari5.1+,chrome10+ */
-    background: -o-linear-gradient(45deg, #f4b500 0%, #f48600 100%); /* opera 11.10+ */
-    background: -ms-linear-gradient(45deg, #f4b500 0%, #f48600 100%); /* ie10+ */
-    background: linear-gradient(45deg, #f4b500 0%, #f48600 100%); /* w3c */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f48600', endColorstr='#f4b500',GradientType=1 ); /* ie6-9 */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4b500', endColorstr='#f48600',GradientType=1 ); /* ie6-9 */
+}
+.topbar.scrolling{
+    background-color: white;
+    color:#19303f;
+}
+.topbar.scrolling .topnav li a{
+    color:#19303f;
+    border: 2px solid white;
 }
 
+.topbar.scrolling .topnav li.active, .topbar.scrolling .topnav li:hover {
+    border: 2px solid #f48600;
+
+}
+.topbar.scrolling .topnav li.active a, .topbar.scrolling .topnav li:hover a{
+    color:#f48600;
+}
 .topbar .nav-container {
     box-sizing: border-box;
     margin: 0 auto;
-    width: 997px;
+    /*width: 997px;*/
 }
 
 /* logo and logo container */
