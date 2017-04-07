@@ -59,13 +59,13 @@ a:hover {
 {
     height: 315px;
     color: white;
-    background: -moz-linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* ff3.6+ */
-    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(244,134,0,1)), color-stop(100%, rgba(244,181,0,1))); /* safari4+,chrome */
-    background: -webkit-linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* safari5.1+,chrome10+ */
-    background: -o-linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* opera 11.10+ */
-    background: -ms-linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* ie10+ */
-    background: linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* w3c */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4b500', endColorstr='#f48600',GradientType=1 ); /* ie6-9 */
+    background: -moz-linear-gradient(45deg, #f4b500 0%, #F4B500 0%, #f48600 100%); /* ff3.6+ */
+    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #f4b500), color-stop(0%, #F4B500), color-stop(100%, #f48600)); /* safari4+,chrome */
+    background: -webkit-linear-gradient(45deg, #f4b500 0%, #F4B500 0%, #f48600 100%); /* safari5.1+,chrome10+ */
+    background: -o-linear-gradient(45deg, #f4b500 0%, #F4B500 0%, #f48600 100%); /* opera 11.10+ */
+    background: -ms-linear-gradient(45deg, #f4b500 0%, #F4B500 0%, #f48600 100%); /* ie10+ */
+    background: linear-gradient(45deg, #f4b500 0%, #F4B500 0%, #f48600 100%); /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f48600', endColorstr='#f4b500',GradientType=1 ); /* ie6-9 */
 }
 /*Home page specific*/
 .jumbotron.home{
@@ -74,13 +74,14 @@ a:hover {
     background-image: url('../images/homepage/shade.png');
     background-repeat: repeat-x;
     background-position: bottom;
-    background-image: url('../images/homepage/shade.png'), -moz-linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* ff3.6+ */
-    background-image: url('../images/homepage/shade.png'), -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(244,134,0,1)), color-stop(100%, rgba(244,181,0,1))); /* safari4+,chrome */
-    background-image: url('../images/homepage/shade.png'), -webkit-linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* safari5.1+,chrome10+ */
-    background-image: url('../images/homepage/shade.png'), -o-linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* opera 11.10+ */
-    background-image: url('../images/homepage/shade.png'), -ms-linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* ie10+ */
-    background-image: url('../images/homepage/shade.png'), linear-gradient(45deg, rgba(244,134,0,1) 0%, rgba(244,181,0,1) 100%); /* w3c */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4b500', endColorstr='#f48600',GradientType=1 ); /* ie6-9 */
+
+    background-image: url('../images/homepage/shade.png'),-moz-linear-gradient(45deg, #f4b500 0%, #F4B500 0%, #f48600 100%); /* ff3.6+ */
+    background-image: url('../images/homepage/shade.png'),-webkit-gradient(linear, left bottom, right top, color-stop(0%, #f4b500), color-stop(0%, #F4B500), color-stop(100%, #f48600)); /* safari4+,chrome */
+    background-image: url('../images/homepage/shade.png'),-webkit-linear-gradient(45deg, #f4b500 0%, #F4B500 0%, #f48600 100%); /* safari5.1+,chrome10+ */
+    background-image: url('../images/homepage/shade.png'),-o-linear-gradient(45deg, #f4b500 0%, #F4B500 0%, #f48600 100%); /* opera 11.10+ */
+    background-image: url('../images/homepage/shade.png'),-ms-linear-gradient(45deg, #f4b500 0%, #F4B500 0%, #f48600 100%); /* ie10+ */
+    background-image: url('../images/homepage/shade.png'),linear-gradient(45deg, #f4b500 0%, #F4B500 0%, #f48600 100%); /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f48600', endColorstr='#f4b500',GradientType=1 ); /* ie6-9 */
 }
 .jumbotron.platform{
     background-image: none;
@@ -101,10 +102,19 @@ a:hover {
 }
 
 .topbar {
-    height: 90px;
+    height: 70px;
     position: relative;
     width: 100%;
     z-index: 100;
+
+    background: -moz-linear-gradient(45deg, #f4b500 0%, #f48600 100%); /* ff3.6+ */
+    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #f4b500), color-stop(100%, #f48600)); /* safari4+,chrome */
+    background: -webkit-linear-gradient(45deg, #f4b500 0%, #f48600 100%); /* safari5.1+,chrome10+ */
+    background: -o-linear-gradient(45deg, #f4b500 0%, #f48600 100%); /* opera 11.10+ */
+    background: -ms-linear-gradient(45deg, #f4b500 0%, #f48600 100%); /* ie10+ */
+    background: linear-gradient(45deg, #f4b500 0%, #f48600 100%); /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f48600', endColorstr='#f4b500',GradientType=1 ); /* ie6-9 */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4b500', endColorstr='#f48600',GradientType=1 ); /* ie6-9 */
 }
 
 .topbar .nav-container {
@@ -157,6 +167,10 @@ a:hover {
     padding-left: 10px;
     padding-top: 4px;
     padding-bottom: 4px;
+    -webkit-border-radius: 22px;
+    -moz-border-radius: 22px;
+    border-radius: 22px;
+    border: 2px solid rgba(255, 255, 255, 0);
 }
 
 .topbar .topnav li a {
@@ -174,7 +188,7 @@ a:hover {
     -webkit-border-radius: 22px;
     -moz-border-radius: 22px;
     border-radius: 22px;
-    border: 2px solid white;
+    border: 2px solid rgba(255, 255, 255, 1);
 }
 
 .topbar .topnav li:hover a {
