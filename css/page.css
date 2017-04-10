@@ -38,19 +38,24 @@ a:hover {
     background-color: #ea9999;
     border-radius: 5px;
 }
-
-.w-100 {
+/**************
+ width control
+**************/
+.full-width {
     width: 100%;
 }
 
-.c-both {
-    clear: both;
+.half-width {
+    width: 50%;
 }
 
-.t-center {
-    text-align: center;
+.quarter-width {
+    width: 25%;
 }
 
+.three-quarter-width {
+    width: 75%;
+}
 /**************
   HEADER, LOGO
   AND TOP MENU
@@ -427,6 +432,11 @@ Setions
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4b500', endColorstr='#f48600',GradientType=1 ); /* ie6-9 */
 
 }
+.fbColor{background-color: #3B569E}
+.twitterColor{background-color: #5DA6DB}
+.instaColor{background-color: #0383B0}
+
+
 
 /*************************************************************************************
 *
@@ -435,7 +445,7 @@ Setions
 *************************************************************************************/
 .white-hover:hover{ background-color: white;}
 .navy-hover:hover{  background-color: #19303f;}
-.navy-dark-hover:hover{olor: #122733}
+.navy-dark-hover:hover{ background-color: #122733}
 .yellow-hover:hover{background-color: #f49c1c}
 .yellow-light-hover:hover{background-color: #f4b500}
 .yellow-dark-hover:hover{background-color: #f48600}
