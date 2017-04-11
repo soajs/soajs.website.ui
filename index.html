@@ -56,11 +56,14 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron" ng-class="{'home': currentLocation === '/' , 'platform': currentLocation === '/platform'}">
     <top-menu></top-menu>
-
     <div class="text-center">
         <h1>{{pageTitle}}</h1><h1>{{titleLine2}}</h1>
 	    <div>{{subTitle}}</div>
     </div>
+
+    <div class="text-center">
+        <button type="button" class="btn yellow-dark white-txt yellow-light-hover">Get Started</button>&nbsp;
+        <button type="button" class="btn yellow-dark white-txt yellow-light-hover">See the docs</button></div>
 </div>
 <div ng-view></div>
 

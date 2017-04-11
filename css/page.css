@@ -29,16 +29,14 @@ a {
 
 a:hover {
     color: #DA9437;
+    text-decoration: none;
+}
+h2, .h2 {
+    font-size: 30px;
+    font-size: 2.34vmax;
+
 }
 
-.redFlag {
-    width: 100%;
-    margin: 5px 0;
-    padding: 10px;
-    border: solid 2px #990000;
-    background-color: #ea9999;
-    border-radius: 5px;
-}
 /**************
  width control
 **************/
@@ -371,6 +369,8 @@ Setions
 {
     margin-bottom:40px;
 }
+.gray{
+    background-color: gray;}
 /**********************
 *
 * navy :  section with navy background
@@ -446,6 +446,7 @@ Setions
 *
 *************************************************************************************/
 .white-hover:hover{ background-color: white;}
+.gray-hover:hover{background-color: gray}
 .navy-hover:hover{  background-color: #19303f;}
 .navy-dark-hover:hover{ background-color: #122733}
 .yellow-hover:hover{background-color: #f49c1c}
@@ -461,6 +462,7 @@ Setions
 *
 *************************************************************************************/
 .white-txt{ color: white;}
+.gray-txt{color: gray}
 .navy-txt{  color: #19303f;}
 .navy-dark-txt{olor: #122733}
 .yellow-txt{color: #f49c1c}
@@ -476,6 +478,7 @@ Setions
 *
 *************************************************************************************/
 .white-txt-hover:hover{ color: white;}
+.gray-txt-hover:hover{ color: gray;}
 .navy-txt-hover:hover{  color: #19303f;}
 .navy-dark-txt-hover:hover{olor: #122733}
 .yellow-txt-hover:hover{color: #f49c1c}
@@ -491,6 +494,7 @@ Setions
 *
 *************************************************************************************/
 .white-border{ border-color: white; border-style: solid;}
+.gray-border{ border-color: gray; border-style: solid;}
 .navy-border{  border-color: #19303f;border-style: solid;}
 .navy-dark-border{border-color: #122733;border-style: solid;}
 .yellow-border{border-color: #f49c1c ;border-style: solid;}
@@ -857,13 +861,4 @@ input.form-control:focus , .form-control:focus
     padding: 9px 20px;
     font-size: 16px;
     font-size: 1.25vmax;
-}
-/*****************
-*
-* screen size specific fonts
-*****************/
-h2, .h2 {
-    font-size: 30px;
-    font-size: 2.34vmax;
-
 }
