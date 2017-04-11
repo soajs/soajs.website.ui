@@ -5,7 +5,7 @@
 
             <div class="separator50"></div>
             <div class="separator100"></div>
-            <div class="col-lg-3 col-md-6  col-sm-6 col-xs-12">
+            <div class="col-lg-3 col-md-6  col-sm-6 col-xs-12 text-center">
                 <div class="icon">
                     <i class="yellow-light white-txt circle icon-cogs"></i>
                     <div class="separator50"></div>
@@ -15,7 +15,7 @@
                     <a class="yellow-txt">Learn More ></a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6  col-sm-6  col-xs-12">
+            <div class="col-lg-3 col-md-6  col-sm-6  col-xs-12 text-center">
                 <div class="icon">
                     <i class="red white-txt circle icon-home-manage"></i>
                     <div class="separator50"></div>
@@ -25,7 +25,7 @@
                     <a class="red-txt">Learn More ></a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6  col-sm-6 col-xs-12 ">
+            <div class="col-lg-3 col-md-6  col-sm-6 col-xs-12  text-center">
                 <div class="icon">
                     <i class="green white-txt circle icon-home-deploy"></i>
                     <div class="separator50"></div>
@@ -35,7 +35,7 @@
                     <a class="green-txt">Learn More ></a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6  col-sm-6 col-xs-12 ">
+            <div class="col-lg-3 col-md-6  col-sm-6 col-xs-12 text-center ">
                 <div class="icon">
                     <i class="blue white-txt circle icon-home-operate"></i>
                     <div class="separator50"></div>
@@ -61,7 +61,7 @@
             </p>
             <div class="separator50"></div>
             <button type="button" class="btn yellow-dark white-txt yellow-light-hover">Get Started</button>&nbsp;
-	        <button type="button" class="btn yellow-dark white-txt yellow-light-hover">Install Dashboard</button>
+            <button type="button" class="btn yellow-dark white-txt yellow-light-hover">Install Dashboard</button>
         </div>
     </div>
     <div class="container">
@@ -86,42 +86,73 @@
         </div>
     </div>
 
-        <div class="row-height  navy white-txt text-center">
-            <div class="col-md-6 col-md-12 col-sm-height navy">
-                <div class="inside inside-full-height">
-                    <div class="content">
+    <div class="row-height  navy white-txt text-center">
+        <div class="col-md-6 col-md-12 col-sm-height navy">
+            <div class="inside inside-full-height">
+                <div class="content">
 
-                        <h2>What are you developing with SOAJS?</h2>
-                        <div class="separator10"></div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+                    <h2>What are you developing with SOAJS?</h2>
+                    <div class="separator10"></div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
 
-                        <div class="separator50"></div>
-                        <button type="button" class="btn navy bordered white-border white-txt white-hover">Submit your
-                            project
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-12 col-sm-height navy-dark ">
-                <div class="inside inside-full-height">
-                    <div class="content">
-                        <h2>Request a demo</h2>
-                        <input type="text">
-                        <div class="separator10"></div>
-                        <input type="text">
-                        <div class="separator10"></div>
-                        <input type="text">
-                        <div class="separator10"></div>
-                        <button type="button" class="btn navy bordered white-border white-txt white-hover">Submit your
-                            request
-                        </button>
-
-                    </div>
+                    <div class="separator50"></div>
+                    <button type="button" class="btn navy bordered white-border white-txt white-hover">Submit your
+                        project
+                    </button>
                 </div>
             </div>
         </div>
+        <div class="col-md-6 col-sm-12 col-sm-height navy-dark ">
+            <div class="inside inside-full-height">
+                <div class="content">
+                    <form name="requestForm" ng-submit="" novalidate class="colorForm">
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-12">
+                                <input ng-model="contact.name" type="text" class="form-control" placeholder="First Name"
+                                       tooltip="Enter your first name" required/></div>
+                            <div class="col-md-6 col-sm-12">
+                                <input ng-model="contact.lname" type="text" class="form-control" placeholder="Last Name"
+                                       tooltip="Enter your last name" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-12">
+                                <input ng-model="contact.email" type="email" class="form-control" placeholder="Email"
+                                       tooltip="Enter your email address..." required/>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <input ng-model="contact.company" type="text" class="form-control" placeholder="Email"
+                                       tooltip="Enter your comapny name..." required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-12">
+                                <input ng-model="contact.role" type="text" class="form-control" placeholder="Rolee"
+                                       tooltip="Enter your business role" required/></div>
+                            <div class="col-md-6 col-sm-12">
+                                <input ng-model="contact.country" type="text" class="form-control" placeholder="Country"
+                                       tooltip="Enter your country" required/>
+                            </div>
+                        </div>
 
+                        <div class="form-group">
+                            <div class="col-md-12 col-sm-12">
+                                <textarea required class="form-control" placeholder="Message"
+                                          tooltip="Provide as much information as possible in your message..." rows="10"
+                                          ng-model="contact.message"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn navy bordered white-border white-txt white-hover">Submit your Request
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <div class="col-lg-12 orange-shade white-txt text-center">
