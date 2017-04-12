@@ -5,14 +5,12 @@ app.config([
 	'$routeProvider',
 	'$controllerProvider',
 	'$compileProvider',
+	'$locationProvider',
 	'$filterProvider',
 	'$provide',
 	'$sceDelegateProvider',
-	function ($routeProvider, $controllerProvider, $compileProvider, $filterProvider, $provide, $sceDelegateProvider) {
+	function ($routeProvider, $controllerProvider, $compileProvider,$locationProvider, $filterProvider, $provide, $sceDelegateProvider) {
 
-
-        // Configure existing providers
-        //$routeProvider.hashPrefix('#');
 		app.compileProvider = $compileProvider;
 		navigation.forEach(function (navigationEntry) {
 			if (navigationEntry.scripts && navigationEntry.scripts.length > 0) {
@@ -43,6 +41,9 @@ app.config([
 		$routeProvider.otherwise({
 			redirectTo: navigation[0].url.replace('#', '')
 		});
+
+        $locationProvider.html5Mode(true);
+        $locationProvider.hashPrefix('!');
 
 		app.components = {
 			controller: $controllerProvider.register,

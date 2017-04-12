@@ -12,9 +12,9 @@ var navigation = [
 	},
     {
         'id': 'news',
-        'label': 'News',
-        'title': 'SOAJS | News',
-        'url': '#/news',
+        'label': 'Releases',
+        'title': 'SOAJS | Releases',
+        'url': '/news',
         'tplPath': 'sections/news/page.html',
         'scripts': ['sections/news/controller.js']
     },
