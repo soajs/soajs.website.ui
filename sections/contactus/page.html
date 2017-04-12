@@ -5,7 +5,8 @@
         <div class="row">
 
             <div class="col-lg-12 col-md-12">
-                <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+                <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}
+                </alert>
             </div>
             <div class="col-lg-6 col-md-12">
                 <h2>Send us a message</h2>
@@ -46,6 +47,55 @@
                     </div>
                     <br class="clearfix">
                 </form>
+
+<!--
+                <div class="navy col-md-12">
+                    <form name="requestForm" ng-submit="" novalidate class="colorForm">
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-12">
+                                <input ng-model="contact.name" type="text" class="form-control" placeholder="First Name"
+                                       tooltip="Enter your first name" required/></div>
+                            <div class="col-md-6 col-sm-12">
+                                <input ng-model="contact.lname" type="text" class="form-control" placeholder="Last Name"
+                                       tooltip="Enter your last name" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-12">
+                                <input ng-model="contact.email" type="email" class="form-control" placeholder="Email"
+                                       tooltip="Enter your email address..." required/>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <input ng-model="contact.company" type="text" class="form-control" placeholder="Email"
+                                       tooltip="Enter your comapny name..." required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-12">
+                                <input ng-model="contact.role" type="text" class="form-control" placeholder="Rolee"
+                                       tooltip="Enter your business role" required/></div>
+                            <div class="col-md-6 col-sm-12">
+                                <input ng-model="contact.country" type="text" class="form-control" placeholder="Country"
+                                       tooltip="Enter your country" required/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12 col-sm-12">
+                                <textarea required class="form-control" placeholder="Message"
+                                          tooltip="Provide as much information as possible in your message..." rows="10"
+                                          ng-model="contact.message"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn navy bordered white-border white-txt white-hover">Submit
+                                your Request
+                            </button>
+                        </div>
+                    </form>
+                </div>
+-->
+
                 <div class="separator50"></div>
             </div>
             <div class="col-lg-6 col-md-12">
@@ -73,5 +123,6 @@
             </div>
 
         </div>
-    </div>tt
+    </div>
+    tt
 </div>

@@ -123,6 +123,7 @@ h2, .h2 {
 .topbar.scrolling {
     background-color: white;
     color: #19303f;
+    border-bottom: 1px grey solid;
 }
 
 .topbar.scrolling .topnav li a {
