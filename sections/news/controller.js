@@ -8,4 +8,8 @@ newsApp.controller('newsPageCtrl', ['$scope', function ($scope) {
 	};
 	$scope.$parent.$emit('refreshPageTitle', pageData);
 
+    $http.get("sections/home/repos.json").success(function(data) {
+        $scope.repos = data;
+    });
+
 }]);
