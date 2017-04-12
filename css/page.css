@@ -332,14 +332,15 @@ Footer section
 .copyright {
     margin-top: 70px;
     margin-bottom: 50px;
+    color:gray;3
 }
 
 .bottom .socialMedia {
-    padding-top: 90px;
+    padding-top:30px;
 }
 
 .bottom .menu {
-    padding-top: 30px;
+    padding-top: 90px;
 }
 
 .bottom .menu a {

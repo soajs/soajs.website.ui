@@ -10,6 +10,9 @@ app.config([
 	'$sceDelegateProvider',
 	function ($routeProvider, $controllerProvider, $compileProvider, $filterProvider, $provide, $sceDelegateProvider) {
 
+
+        // Configure existing providers
+        //$routeProvider.hashPrefix('#');
 		app.compileProvider = $compileProvider;
 		navigation.forEach(function (navigationEntry) {
 			if (navigationEntry.scripts && navigationEntry.scripts.length > 0) {
