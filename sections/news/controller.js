@@ -1,7 +1,7 @@
 "use strict";
 var newsApp = app.components;
 
-newsApp.controller('newsPageCtrl', ['$scope', function ($scope) {
+newsApp.controller('newsPageCtrl', ['$scope', '$http', function ($scope, $http) {
 	var pageData = {
 		title: "Releases",
 		subTitle: ""
