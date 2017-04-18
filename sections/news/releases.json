@@ -2,7 +2,7 @@
   {
     "id": "rivershark1",
     "label": "Release River Shark 1",
-    "date": " April 5, 2017",
+    "date": "April 5, 2017",
     "repos": [
       {
         "name": "grunt-soajs",
@@ -16,34 +16,13 @@
         ]
       },
       {
-        "name": "soajs",
+        "name": "soajs.mongodb.data",
         "version": "1.0.0",
         "features": [
         ],
-        "bugFixes": [
-        ]
-      },
-      {
-        "name": "soajs.artifact",
-        "version": "1.0.0",
-        "features": [
-        ],
-        "bugFixes": [
-        ]
-      },
-
-      {
-        "name": "soajs.composer",
-        "version": "1.0.0",
-        "features": [
-        ],
-        "bugFixes": [
-        ]
-      },
-      {
-        "name": "soajs.controller",
-        "version": "1.0.0",
-        "features": [
+        "enhancedTests": [
+          "Updated test data for existing repos",
+          "Provided new sample data for sessionless"
         ],
         "bugFixes": [
         ]
@@ -52,24 +31,111 @@
         "name": "soajs.core.libs",
         "version": "0.1.0",
         "features": [
+          "First Release: Contains list of all core libraries"
         ]
       },
       {
         "name": "soajs.core.modules",
         "version": "0.1.0",
         "features": [
+          "First Release: Contains list of all core modules"
         ]
       },
-
       {
-        "name": "soajs.dashboard",
+        "name": "soajs.urac.driver",
         "version": "1.0.0",
         "features": [
+          "Added support for sessionless behavior"
         ],
         "bugFixes": [
         ]
       },
-
+      {
+        "name": "soajs",
+        "version": "1.0.0",
+        "features": [
+          "Added support for sessionless behavior"
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.composer",
+        "version": "1.0.0",
+        "features": [
+          "Updated code to use core.libs"
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.controller",
+        "version": "1.0.0",
+        "features": [
+          "Updated dependency list to work with new version"
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "1.0.0",
+        "features": [
+          "Added support for sessionless behavior",
+          "Optimized dashboard tenant key access",
+          "Enhanced UI/UX"
+        ],
+        "bugFixes": [
+          "Fixed SSL configuration issue in deploy/redeploy NGINX with kubernetes driver"
+        ]
+      },
+      {
+        "name": "soajs.oauth",
+        "version": "1.0.0",
+        "features": [
+          "Added support for sessionless behavior"
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.prx",
+        "version": "1.0.0",
+        "features": [
+          "Added support for sessionless behavior",
+          "Revamped test cases"
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.urac",
+        "version": "1.0.0",
+        "features": [
+          "Added support for sessionless behavior"
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.gcs",
+        "version": "1.0.0",
+        "features": [
+          "Added support for sessionless behavior",
+          "Revamped test cases"
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.utilities",
+        "version": "1.0.0",
+        "features": [
+          "Updated dependency list to work with new versions"
+        ],
+        "bugFixes": [
+        ]
+      },
       {
         "name": "soajs.examples",
         "version": "0.1.0",
@@ -83,22 +149,6 @@
               "oauth+acl"
             ]
           }
-        ]
-      },
-      {
-        "name": "soajs.gcs",
-        "version": "1.0.0",
-        "features": [
-        ],
-        "bugFixes": [
-        ]
-      },
-      {
-        "name": "soajs.installer",
-        "version": "1.0.0",
-        "features": [
-        ],
-        "bugFixes": [
         ]
       },
       {
@@ -120,153 +170,1036 @@
         ]
       },
       {
-        "name": "soajs.mongodb.data",
+        "name": "soajs.artifact",
         "version": "1.0.0",
         "features": [
+          "Locked dependency list",
+          "Updated travis recipe"
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.installer",
+        "version": "1.0.0",
+        "features": [
+          "Updated all configuration files to support sessionLess behavior"
+        ],
+        "bugFixes": [
+        ]
+      }
+    ]
+  },
+  {
+    "id": "Whale Shark",
+    "label": "Release Whale Shark",
+    "date": "March 31, 2017",
+    "repos": [
+      {
+        "name": "grunt-soajs",
+        "version": "0.0.5",
+        "features": [
+          "Provides grunt plugin to build and rebuild swagger generated soajs microservices on top of soajs.composer"
+        ],
+        "bugFixes": [
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs.mongodb.data",
+        "version": "release/v0.x",
+        "enhancedTests": [
+          "Updated test data for all release/v0.x"
+        ],
+        "features": [
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.urac.driver",
+        "version": "release/v0.x",
+        "features": [
+          "First release, provides common grounds between <b>soajs.oauth</b> and <b>soajs.urac</b>"
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs",
+        "version": "release/v0.x",
+        "features": [
+          "Improved high availability awareness at controller level",
+          "Provided new maintenance route to rebuild controller's awareness",
+          "Added support for High availability deployment with stateless behavior",
+          "Added support to deploy swagger generated microservices",
+          "Added support for Multitenant database connection caching",
+          "Added awarenessEnv support for daemons"
+        ],
+        "bugFixes": [
+          "Fixed issue in ACL setting"
+        ]
+      },
+      {
+        "name": "soajs.core.drivers",
+        "version": "release/v0.x",
+        "features": [
+          "Added Support for namespace and readiness in kubernetes driver",
+          "Added Support for v8 memory management"
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.composer",
+        "version": "release/v0.x",
+        "features": [
+        ],
+        "bugFixes": [
+          "Fixed issue related to reusing Mongo multitenant connections"
+        ]
+      },
+      {
+        "name": "soajs.controller",
+        "version": "release/v0.x",
+        "features": [
+        ],
+        "description": [
+          "Locked down last 0.x updates to release/v0.x",
+          "No further updates for 0.x branches."
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "release/v0.x",
+        "features": [
+          "Added Support for namespace and readiness in kubernetes driver",
+          "Maskurated password values in HA services",
+          "Added Support nodejs memory management",
+          "Provided ability to volume SSL certificates from secrets when using kubernetes deployment"
+        ],
+        "bugFixes": [
+          "Minor bug fix when listing custom ui services.",
+          "Provided default value for JSON editor when value is null or undefined.",
+          "Fixed wrong method to application ext key delete"
+        ]
+      },
+      {
+        "name": "soajs.installer",
+        "version": "release/v0.x",
+        "features": [
+          "Provided ability to deploy custom UI dashboard themes from bitbucket & bitbucket enterprise",
+          "Added Support for namespace and readiness in kubernetes driver",
+          "Replaced Kubernetes Proxy with Tokens",
+          "Added notifications in manual deployment before installing SOAJS regarding web ports",
+          "Provided support to deploy SOAJS with custom SSL configuration"
+        ],
+        "bugFixes": [
+          "Fixed issue related to deploy nginx manual mode on OSX"
+        ]
+      },
+      {
+        "name": "soajs.prx",
+        "version": "release/v0.x",
+        "description": [
+          "Locked down last 0.x updates to release/v0.x",
+          "No further updates for 0.x branches."
         ],
         "bugFixes": [
         ]
       },
       {
         "name": "soajs.oauth",
-        "version": "1.0.0",
+        "version": "release/v0.x",
         "features": [
+          "Factored out functionality to <b>soajs.urac.driver</b>"
         ],
         "bugFixes": [
         ]
       },
-      {
-        "name": "soajs.prx",
-        "version": "1.0.0",
-        "features": [
-        ],
-        "bugFixes": [
-        ]
-      },
-
       {
         "name": "soajs.urac",
-        "version": "1.0.0",
+        "version": "release/v0.x",
         "features": [
-        ],
-        "bugFixes": [
-        ]
-      },
-
-      {
-        "name": "soajs.urac.driver",
-        "version": "1.0.0",
-        "features": [
+          "Factored out functionality to <b>soajs.urac.driver</b>"
         ],
         "bugFixes": [
         ]
       },
       {
         "name": "soajs.utilities",
-        "version": "1.0.0",
+        "version": "release/v0.x",
         "features": [
-        ],
-        "bugFixes": [
-        ]
-      }
-
-    ]
-  },
-  {
-    "id": "sampleeeeeeee LionFish",
-    "label": "Release LionFish",
-    "date": "August 31, 2015",
-    "repos": [
-      {
-        "name": "soajs",
-        "version": "0.2.1",
-        "bugFixes": [
-        ],
-        "features": [
-        ],
-        "enhancedTests": [
-        ]
-      },
-      {
-        "name": "soajs.urac",
-        "version": "0.1.2",
-        "features": [
-        ],
-        "enhancedTests": [
-        ]
-      },
-      {
-        "name": "soajs.oauth",
-        "version": "0.1.2",
-        "features": [
-        ],
-        "enhancedTests": [
-        ]
-      },
-      {
-        "name": "soajs.dashboard",
-        "version": "0.2.2",
-        "features": [
+          "Added support to patch data after Dashboard Installation via SOAJS installer",
+          "Updated sample data for urac new template engine"
         ],
         "bugFixes": [
         ]
       },
       {
         "name": "soajs.examples",
-        "version": "0.1.3",
+        "version": "release/v0.x",
+        "description": [
+          "Locked down last 0.x updates to release/v0.x",
+          "No further updates for 0.x branches."
+        ]
+      },
+      {
+        "name": "soajs.gcs",
+        "version": "release/v0.x",
+        "description": [
+          "Locked down last 0.x updates to release/v0.x",
+          "No further updates for 0.x branches."
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.jsconf",
+        "version": "release/v0.x",
+        "description": [
+          "Locked down last 0.x updates to release/v0.x",
+          "No further updates for 0.x branches."
+        ],
+        "custom": [
+        ]
+      },
+      {
+        "name": "soajs.artifact",
+        "version": "release/v0.x",
+        "features": [
+        ],
+        "bugFixes": [
+          "Removed dot character from service name; causing deployment problems in docker and kubernetes deployment"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "Release Hammerhead 3",
+    "label": "Release Hammerhead 3",
+    "date": "January 16, 2017",
+    "repos": [
+      {
+        "name": "soajs.dashboard",
+        "version": "0.4.4",
+        "features": [
+          "fixed issue with bitbucket enterprise integration when repositories have space characters in their name",
+          "fixed issue with bitbucket enterprise integration when pulling from branches other than master",
+          "fixed issue with handling stream API responses in the UI SDK"
+        ],
+        "enhancedTests": [
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.installer",
+        "version": "0.0.5",
+        "features": [
+          "provided ability to deploy custom UI dashboard themes from bitbucket & bitbucket enterprise"
+        ],
+        "enhancedTests": [
+        ],
+        "bugFixes": [
+        ]
+      }
+    ]
+  },
+  {
+    "id": "Release Hammerhead 2",
+    "label": "Release Hammerhead 2",
+    "date": "December 29, 2016",
+    "repos": [
+      {
+        "name": "soajs.mongodb.data",
+        "version": "0.2.6",
+        "features": [
+        ],
+        "bugFixes": [
+        ],
+        "enhancedTests": [
+          "Updated sample data for urac new templating engine",
+          "added sample data for composer",
+          "added sample data for gcs"
+        ]
+      },
+      {
+        "name": "soajs",
+        "version": "0.4.2",
+        "features": [
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.oauth",
+        "version": "0.3.3",
+        "features": [
+          "Updated code to support model injection",
+          "removed dependency bcrypt and switch to use soajs hasher"
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "0.4.3",
+        "features": [
+          "Updated UI certificates and platform",
+          "Added support for kubernetes port range when deploying environments",
+          "Updated all UI modules to provide methods per API call",
+          "Updated how ACL is rendered before and how permissions are checked",
+          "Transformed the REST layer to use methods based on functionality"
+        ],
+        "enhancedTests": [
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.gcs",
+        "version": "0.1.2",
+        "features": [
+        ],
+        "enhancedTests": [
+          "Updated and added new test cases to increase coverage"
+        ]
+      },
+      {
+        "name": "soajs.installer",
+        "version": "0.0.4",
+        "features": [
+          "Added check previous installation on main page",
+          "Revamped look and feel of cluster configuration page"
+        ],
+        "enhancedTests": [
+          "cope optimization and bug fixes",
+          "enhanced user experience while using the UI wizard",
+          "added extra validation checks in several sections of the wizard"
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.jsconf",
+        "version": "0.0.2",
+        "enhancedTests": [
+          "Updated test cases"
+        ],
+        "features": [
+        ]
+      },
+      {
+        "name": "soajs.composer",
+        "version": "0.0.1",
+        "description": [
+        ],
+        "features": [
+          "First release for soajs.composer that allows created services and daemons on top of soajs"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "Release Hammerhead",
+    "label": "Release Hammerhead",
+    "date": "December 5, 2016",
+    "repos": [
+      {
+        "name": "soajs.mongodb.data",
+        "version": "0.2.4",
+        "features": [
+        ],
+        "bugFixes": [
+        ],
+        "enhancedTests": [
+          "Updated Test Data to support new features.",
+          "Updated provision data for urac to work with handlebars"
+        ]
+      },
+      {
+        "name": "soajs",
+        "version": "0.4.1",
+        "features": [
+          "added support for HA container deployment like swarm & kubernetes",
+          "added cron function to the daemon",
+          "core ACL supports restful API including path param",
+          "passportjs support",
+          "created new driver for elasticsearch",
+          "added support for authorization generation and hasher functionality",
+          "replaced swig with handlebars"
+        ],
+        "bugFixes": [
+          "Fixed crash issue when starting daemons in SOLO mode"
+        ]
+      },
+      {
+        "name": "soajs.urac",
+        "version": "0.3.1",
+        "features": [
+          "Transformed code to become model injection",
+          "Added apis for token management",
+          "Added support for passport login integration",
+          "Updated templates to work with handlebars"
+        ],
+        "enhancedTests": [
+          "Updated test cases to cover the newly introduced features"
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.oauth",
+        "version": "0.3.2",
+        "features": [
+          "Updated Dependency list to use the new soajs"
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "0.4.0",
+        "features": [
+          "Updated dashboard service and UI to support the new High Availability deployments available for SOAJS",
+          "Added Kubernetes driver to allow managing a SOAJS Kubernetes deployment",
+          "Added support for Bitbucket.org and Enterprise Bitbucket in dashboard git accounts section",
+          "Revamped dashboard service code to fully support and implement data model injection",
+          "Revamped Platforms & Certificates UI section and added Kubernetes platform management",
+          "Added more elaborative error responses when activating/syncing git repositories in git accounts section",
+          "Updated add/edit/delete environment UI functionality, user no longer needs to logout and re-login to see changes",
+          "Added URAC management section under Operate pillar",
+          "Updated Dependency list to use the new soajs"
+        ],
+        "enhancedTests": [
+          "Added new test cases to cover the newly introduced features and enhanced other test cases"
+        ],
+        "bugFixes": [
+          "Fixed a bug that prevented setting database prefix in dashboard UI"
+        ]
+      },
+      {
+        "name": "soajs.prx",
+        "version": "0.0.3",
+        "features": [
+          "Changed error codes",
+          "Updated Dependency list to use the new soajs"
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.gcs",
+        "version": "0.1.1",
+        "features": [
+          "Updated Dependency list to use the new soajs"
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.examples",
+        "version": "0.2.2",
+        "features": [
+          "Added postman folder containing all examples in postman format",
+          "Updated Dependency list to use the new soajs"
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.installer",
+        "version": "0.0.1",
+        "features": [
+          "First Release: Install dashboard environment"
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.jsconf",
+        "version": "0.0.1",
+        "description": [
+        ],
+        "features": [
+          "First Release: Advanced SOAJS Examples"
+        ]
+      },
+      {
+        "name": "soajs.artifact",
+        "version": "0.0.1",
+        "features": [
+          "First release: Emphasizes on model injection"
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.controller",
+        "version": "0.2.1",
+        "features": [
+          "Updated Dependency list to use the new soajs"
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.utilities",
+        "version": "0.3.0",
+        "features": [
+          "Revamped to import provision for getStarted - artifact - JSConf using CLI command",
+          "Updated provision data for urac to work with handlebars"
+        ],
+        "bugFixes": [
+        ]
+      }
+    ]
+  },
+  {
+    "id": "Release Salmon Shark",
+    "label": "Release Salmon Shark",
+    "date": "July 11, 2016",
+    "repos": [
+      {
+        "name": "soajs.mongodb.data",
+        "version": "0.2.2",
+        "bugFixes": [
+        ],
+        "features": [
+        ],
+        "enhancedTests": [
+          "Updated Test Data to support new features."
+        ]
+      },
+      {
+        "name": "soajs",
+        "version": "0.3.2",
+        "bugFixes": [
+          "Fixed a bug that prevented the auto-registration of daemon jobs for daemons that are running in manual deployment mode"
+        ],
+        "features": [
+          "Updated IMFV to support RESTful APIs per method",
+          "Added support for Solo mode which allows running SOAJS in standalone mode without the need for a running mongo database. Simply set the environment variable SOAJS_SOLO to true",
+          "Added support for custom registry that enables users to set their custom registry per environment",
+          "Updated Registry and Provision to use model as an injected dependency",
+          "Enhanced SOAJS OAuth functionality",
+          "Added support for 'options' param in mongo.count function"
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs.urac",
+        "version": "0.2.2",
+        "bugFixes": [
+        ],
+        "features": [
+          "Optimized code to insure better data handling"
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs.oauth",
+        "version": "0.3.1",
+        "bugFixes": [
+        ],
+        "features": [
+          "Revamped API routes to follow the RESTful standards"
+        ],
+        "enhancedTests": [
+          "Updated test cases to cover the newly introduced features"
+        ]
+      },
+      {
+        "name": "soajs.utilities",
+        "version": "0.2.11",
+        "bugFixes": [
+        ],
+        "features": [
+          "Added default memory and CPU count for docker machines with the ability to set custom values",
+          "Accelerated deployment of services via dockerDeploy and dockermachineDeploy by using local SOAJS package included in docker image",
+          "Added check for docker machine version running on host before proceeding in dockermachineDeploy script"
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "0.3.12",
+        "bugFixes": [
+          "Fixed a bug that prevented users from updating tenant security",
+          "Fixed bugs in Edit Application ACL and Edit User ACL UI sections",
+          "Fixed a bug in List Application External Keys that caused wrong display of keys with dashboard access",
+          "Fixed a bug in activate repository functionality when activating large repositories of type 'multi'"
+        ],
+        "features": [
+          "Provided the ability to assign dynamic or static Nginx ports when adding new Nginx containers or deploying an environment",
+          "Revamped Update Tenant Security to fully support external keys per environment",
+          "Enhanced the functionality of changing tenant security by restricting it to the owner of the application only",
+          "Updated UI to include a JSON editor that replaces text areas for fields that require JSON objects as input",
+          "Added refresh list button in Services, Daemons, and Static Content sections",
+          "Added search box to quickly navigate and find Git repositories in Git Accounts section",
+          "Revamped the look and feel of Add/Edit Clusters form",
+          "Added two new input types in UI Form Library: Tabset and Jsoneditor",
+          "Added several assurances to guarantee service stability and fault tolerance",
+          "Added terminal logging to make the activation and syncing of git repositories more transparent to users",
+          "Added a Custom Registry UI section that enables users to set their custom registry information per environment",
+          "Added the ability to accelerate host deployment for docker and docker machine platforms by using the SOAJS package included in the docker image",
+          "Added Additional UI enhancements"
+        ],
+        "enhancedTests": [
+          "Added new test cases to cover the newly introduced features and enhanced other test cases"
+        ]
+      },
+      {
+        "name": "soajs.prx",
+        "version": "0.0.2",
+        "bugFixes": [
+        ],
+        "features": [
+          "Redirected all traffic to use HTTP"
+        ],
+        "enhancedTests": [
+          "Updated test cases to cover the newly introduced features"
+        ]
+      },
+      {
+        "name": "soajs.examples",
+        "version": "0.2.1",
+        "bugFixes": [
+        ],
+        "features": [
+        ],
+        "enhancedTests": [
+          "Updated test cases"
+        ]
+      },
+      {
+        "name": "connect-mongo-soajs",
+        "version": "0.1.0",
+        "bugFixes": [
+        ],
+        "features": [
+          "Updated code and cluster configuration to support the lates version of mongodb driver"
+        ],
+        "enhancedTests": [
+          "Updated test cases to cover the newly introduced features"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "Release Bull Shark",
+    "label": "Release Bull Shark",
+    "date": "May 20, 2016",
+    "repos": [
+      {
+        "name": "soajs",
+        "version": "0.3.1",
+        "bugFixes": [
+          "Fixed a bug in access level rendering in multi-tenant session library",
+          "Fixed a bug that prevented the usage of tenant configuration when micro service doesn't support sessions"
+        ],
+        "features": [
+          "Updated log message displayed when unable to connect to mongo database"
+        ],
+        "enhancedTests": [
+          "Updated tests to cover the newly introduced features"
+        ]
+      },
+      {
+        "name": "soajs.urac",
+        "version": "0.2.1",
+        "bugFixes": [
+        ],
+        "features": [
+          "Provided support to add optional additional password encryption via tenant configuration"
+        ],
+        "enhancedTests": [
+          "Updated tests to cover the newly introduced features"
+        ]
+      },
+      {
+        "name": "soajs.utilities",
+        "version": "0.2.3",
+        "bugFixes": [
+          "Fixed overwrite issue when installing from the same source to VirtualBox and a Cloud Provider or try installing twice to the same location"
+        ],
+        "features": [
+          "Provided the ability to choose whether to deploy nginx containers",
+          "Updated deployment scripts to use the new SOAJS deployer for docker and docker machine deployment",
+          "Added the ability to label swarms"
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "0.3.4",
+        "bugFixes": [
+          "Fixed UI issue when selecting tenant external keys for a daemon job",
+          "Fixed an issue reported by Google Chrome users when refreshing Dashboard UI pages",
+          "Fixed an issue that prevented the left menu from rendering properly in the Operate tab",
+          "Fixed a bug in the Content Management UI",
+          "Fixed a bug in Update User ACL"
+        ],
+        "features": [
+          "Separated Nginx and controller hosts",
+          "Updated Git Accounts code to become driver driven and created an independent GitHub driver",
+          "Moved all static variables into the main dashboard configuration file",
+          "Updated Dashboard UI to use Angular v1.4.10",
+          "Updated Services section to enable displaying service APIs per version",
+          "Updated Host Logs modal to enable zooming logs for a better user experience",
+          "Updated daemon hosts display to show the configuration that was used to run the daemon",
+          "Updated hosts display to show the branch that was used to clone repositories when deploying a service/daemon",
+          "Updated Hosts API code to follow the new coding standard of SOAJS Artifact",
+          "Removed the ability to set or edit ports when creating and updating environments",
+          "Updated Add New Hosts functionality to use the new deployer",
+          "Added the ability to restart a service/daemon that is already deployed without having to delete and re-deploy it",
+          "Added check in activate and sync repository to verify that git provider is supported",
+          "Added checks to verify that git account and repository information is present before syncing and deactivating a repository",
+          "Updated sync repository API route to accept 'provider' value in post body instead of query",
+          "Added check to verify that tenant record exists when listing tenant oauth users",
+          "Updated Refresh button in Hosts section to fetch active and zombie containers (previously active containers only)",
+          "Added check to verify that environment record exists before listing clusters and databases"
+        ],
+        "enhancedTests": [
+          "Updated tests to cover the newly introduced features"
+        ]
+      },
+      {
+        "name": "soajs.mongodb.data",
+        "version": "0.2.0",
+        "bugFixes": [
+        ],
+        "features": [
+        ],
+        "enhancedTests": [
+          "Updated Test Data to support new features."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "Release Manta Ray",
+    "label": "Release Manta Ray",
+    "date": "April 12, 2016",
+    "repos": [
+      {
+        "name": "soajs",
+        "version": "0.3.0",
+        "bugFixes": [
+          "Fixed rendering issue in dashboard UI under organization chart."
+        ],
+        "features": [
+          "Added awareness between instances and between environments",
+          "Added persistent mongo connection",
+          "Added mongo connection reusability & faster performance behavior",
+          "Added support for mongo.aggregate",
+          "Access levels are now driven per environment",
+          "Changes to clusters while service is running will no longer cause service to crash",
+          "oAuth can now be turned on/off per tenant."
+        ],
+        "enhancedTests": [
+          "Updated Code & Test cases to increase coverage.",
+          "Updated tests output logging to reach a status successful."
+        ]
+      },
+      {
+        "name": "soajs.urac",
+        "version": "0.2.0",
+        "bugFixes": [
+        ],
+        "features": [
+          "Added new APIs to update user record configuration."
+        ],
+        "enhancedTests": [
+          "Updated Code & Test cases to increase coverage."
+        ]
+      },
+      {
+        "name": "soajs.utilities",
+        "version": "0.2.2",
+        "bugFixes": [
+        ],
+        "features": [
+          "Added support for Docker Machine Deploy Locally.",
+          "Added support for Docker Machine Deploy Cloud.",
+          "Updated behavior of Docker Deploy.",
+          "Updated behavior of Manual Deploy."
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "0.3.3",
+        "bugFixes": [
+          "Removed unnecessary indexing in daemon group configurations Mongo collection.",
+          "Several UI fixes and improvements in forms"
+        ],
+        "features": [
+          "Added groups in Hosts section under Deploy pillar.",
+          "Added the ability to deploy daemons from the Dashboard UI.",
+          "Locked the list of services that can be deployed in the Dashboard environment.",
+          "Added support for service versioning, UI currently displays latest version only.",
+          "Added support for docker machine deployment.",
+          "Created new Platforms section under Deploy pillar providing users the ability to configure different platform deployment.",
+          "Added Static Content section under Develop pillar to manage frontend UIs.",
+          "Added the ability to bundle static content when deploying a new environment.",
+          "Removed the ability to manually upload or edit a service.",
+          "Removed the ability to manually add/edit/delete a daemon.",
+          "Added Git Accounts section under Develop pillar.",
+          "Added support for GitHub accounts. Users can now add personal accounts and public organizations accounts.",
+          "Added the ability to activate repositories in order to make their content available for deployment.",
+          "Introduced new multi service.",
+          "Newly deployed instances are now cloned from git repositories using SOAJS deployer.",
+          "Updated Hosts section to allow user to select repository branch to deploy from and added homogeneity awareness.",
+          "Removed the ability to edit the database name in the Databases section under Deploy pillar."
+        ],
+        "enhancedTests": [
+          "Updated test cases to meet the newly introduced features."
+        ]
+      },
+      {
+        "name": "soajs.mongodb.data",
+        "version": "0.1.9",
+        "bugFixes": [
+        ],
+        "features": [
+        ],
+        "enhancedTests": [
+          "Updated Test Data to support new features."
+        ]
+      },
+      {
+        "name": "soajs.oauth",
+        "version": "0.2.0",
+        "bugFixes": [
+        ],
+        "features": [
+        ],
+        "enhancedTests": [
+          "Updated Code & Test cases to increase coverage."
+        ]
+      },
+      {
+        "name": "soajs.examples",
+        "version": "0.2.0",
+        "bugFixes": [
+        ],
+        "features": [
+          "Added support for multi service."
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs.prx",
+        "version": "0.0.1",
+        "description": [
+          "First Release"
+        ],
         "features": [
         ],
         "enhancedTests": [
         ]
       },
       {
-        "name": "soajs.controller",
-        "version": "0.1.1",
-        "features": [
-        ]
-      },
-      {
-        "name": "soajs.GCS",
-        "version": "0.0.1",
-        "description": [
-          "First Release"
+        "name": "soajs.gcs",
+        "version": "0.1.0",
+        "bugFixes": [
         ],
         "features": [
-          "Ability to deploy multiple services using the same module code but with different names and versions.",
-          "Supports ADD - EDIT - GET - DELETE - LIST APIs to add & manage data in static and multitenant databases.",
-          "Supports Uploading and Streaming Media Files into and out of GridFS",
-          "Ability to manage data across different environments",
-          "Can have multiple nodes for the same service for load distribution",
-          "Supports Multiple versions for both Service & Data schemas"
+          "Removed code to connect to other environments, not needed anymore."
+        ],
+        "enhancedTests": [
+          "Updated Code & Test cases to increase coverage."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "Release Electric Eel",
+    "label": "Release Electric Eel",
+    "date": "December 22, 2015",
+    "repos": [
+      {
+        "name": "soajs",
+        "version": "0.2.8",
+        "bugFixes": [
+          "Bug fix in getUrac, was not returning user config when needed."
+        ],
+        "features": [
+          "Services now insert/update their configuration information upon start."
+        ],
+        "enhancedTests": [
         ]
       },
       {
-        "name": "soajs.utilities",
-        "version": "0.1.11",
+        "name": "soajs.dashboard",
+        "version": "0.2.8",
+        "bugFixes": [
+          "Fixed a minor bug in Grid UI filtering functionality.",
+          "Fixed a minor bug when updating application configuration (no longer replies with empty object) causing boxes to turn grey if empty."
+        ],
         "features": [
+          "Added the ability to select a dashboard package when creating a tenant.",
+          "Creating a tenant with a dashboard package automatically creates an application, key, and external key and adds the external key to the list of dashboard tenant keys.",
+          "Creating an external key while using a locked package automatically adds it to the list of dashboard tenant keys if the tenant doesn’t have one already.",
+          "Merged tenants listing and dashboard tenant keys listing into one section.",
+          "Tenants with dashboard access now marked with a star. Listing external keys now shows which key is used to access dashboard.",
+          "Deleting an external key with dashboard access automatically removes it from the list of dashboard tenant keys.",
+          "Deleting a tenant, application, or key that contains an external key with dashboard access automatically removes it from the list of dashboard tenant keys.",
+          "Operator is no longer allowed to delete tenant/application/key/external_key/product/package he/she is currently logged in with.",
+          "Adding a tenant now requires a mandatory new input: tenant's administrator email address.",
+          "Added ability to expand/collapse a tenant box in tenant listing for a better user experience.",
+          "Dashboard product now marked with green borders and displayed at the top of product listing.",
+          "Applications with dashboard access now marked with a star in Settings section. Listing external keys now shows which key is used to access dashboard.",
+          "Tenants are now categorized and displayed by role. Two roles are currently displayed: Product and Client.",
+          "Users can add a tag to a tenant for better tenant organization.",
+          "Tenant Search feature included in Multi-tenancy section (allows search by tenant name, code, and tag).",
+          "Tenant code is no longer added by user. It gets automatically generated on Add Tenant.",
+          "If adding an admin user or group for a new tenant fails, new tenant won't be added.",
+          "Running daemons are now listed in Hosts section with the services listing."
+        ],
+        "enhancedTests": [
+          "Updated test cases to meet the newly introduced features."
         ]
       },
       {
-        "name": "soajs.utilities",
-        "version": "0.1.10",
+        "name": "soajs.urac",
+        "version": "0.1.4",
+        "bugFixes": [
+          "Fixed issue caused when calling urac apis and not providing tenant keys with valid Services Config."
+        ],
         "features": [
+        ],
+        "enhancedTests": [
+        ]
+      }
+    ]
+  },
+  {
+    "id": "Release JawFish",
+    "label": "Release JawFish",
+    "date": "November 27, 2015",
+    "repos": [
+      {
+        "name": "connect-mongo-soajs",
+        "version": "0.0.4",
+        "bugFixes": [
+        ],
+        "features": [
+          "Added support for the new mongoskin with backward compatibility."
+        ],
+        "enhancedTests": [
         ]
       },
       {
-        "name": "soajs.utilities",
-        "version": "0.1.9",
+        "name": "soajs",
+        "version": "0.2.5",
+        "bugFixes": [
+        ],
         "features": [
+          "Added support for the new mongoskin with backward compatibility"
+        ],
+        "enhancedTests": [
         ]
       },
       {
-        "name": "soajs.utilities",
-        "version": "0.1.8",
+        "name": "soajs.dashboard",
+        "version": "0.2.7",
+        "bugFixes": [
+          "bug fix in edit cluster servers on UI."
+        ],
         "features": [
+          "Dashboard UI now reads the protocol from the domain dynamically.",
+          "Added black overlay when form modal opens.",
+          "Added support for a loading overlay message for long api calls."
+        ],
+        "enhancedTests": [
         ]
       },
+      {
+        "name": "soajs.dashboard",
+        "version": "0.2.6",
+        "bugFixes": [
+          "Input type number with default value 0."
+        ],
+        "features": [
+          "Provided ability to use filters in custom modules.",
+          "Added classes to grid columns based on field names.",
+          "Dashboard UI is now pillar driven.",
+          "Content management system removed environment tabs.",
+          "Added ability to manage data across multiple environments."
+        ],
+        "enhancedTests": [
+        ]
+      }
+    ]
+  },
+  {
+    "id": "Release BeardFish",
+    "label": "Release BeardFish",
+    "date": "November 25, 2015",
+    "repos": [
       {
         "name": "soajs.mongodb.data",
-        "version": "0.1.4",
+        "version": "0.1.6",
+        "bugFixes": [
+        ],
+        "features": [
+        ],
+        "enhancedTests": [
+          "Updated test data to support new core features."
+        ]
+      },
+      {
+        "name": "soajs",
+        "version": "0.2.4",
+        "bugFixes": [
+        ],
+        "features": [
+          "Added support for mongo distinct.",
+          "Added multi version service.",
+          "User provisioning now merges with tenant provisioning.",
+          "Imfv now supports tenant specific"
+        ],
+        "enhancedTests": [
+          "Updated test cases."
+        ]
+      },
+      {
+        "name": "soajs.urac",
+        "version": "0.1.3",
+        "bugFixes": [
+          "Fixed time rendering display in email templates."
+        ],
+        "features": [
+          "Forgot password now uses either username or email."
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "0.2.6",
+        "bugFixes": [
+          "Input type number with default value 0."
+        ],
+        "features": [
+          "Provided ability to use filters in custom modules.",
+          "Added classes to grid columns based on field names.",
+          "Dashboard UI is now pillar driven.",
+          "Content management system removed environment tabs.",
+          "Added ability to manage data across multiple environments."
+        ],
         "enhancedTests": [
         ]
       }
@@ -285,12 +1218,14 @@
         "features": [
         ],
         "enhancedTests": [
+          "locked version for mongoskin, since the later does not support backward compatibility."
         ]
       },
       {
         "name": "connect-mongo-soajs",
         "version": "0.0.3",
         "enhancedTests": [
+          "locked version for mongoskin, since the later does not support backward compatibility."
         ]
       }
     ]
@@ -306,8 +1241,12 @@
         "bugFixes": [
         ],
         "features": [
+          "Introduced new roaming feature.",
+          "Added new Daemon manager core support.",
+          "Added new soajs.mongo findStream functionality."
         ],
         "enhancedTests": [
+          "Updated test cases to meet the newly introduced features"
         ]
       },
       {
@@ -316,40 +1255,54 @@
         "features": [
         ],
         "bugFixes": [
+          "fixed issue with key in headers in form upload and download",
+          "fixed issue with domain value when deploying new environments via docker",
+          "fixed issue with form validation and inputs of type group"
         ]
       },
       {
         "name": "soajs.dashboard",
         "version": "0.2.4",
         "features": [
+          "Added maxlength property to inputs of type text in form UI."
         ],
         "bugFixes": [
+          "Removed unneeded domain value from environments section",
+          "Fixed issue in multitenancy UI causing angular to make the same call twice to retrieve tenants list."
         ]
       },
       {
         "name": "soajs.dashboard",
         "version": "0.2.3",
         "features": [
+          "Added Support for ext Key roaming based on logged in user.",
+          "Added new management interface under multitenancy for dashboard ext keys roaming support."
         ],
         "bugFixes": [
+        ],
+        "enhancedTests": [
+          "Updated test cases to support new features."
+        ]
+      },
+      {
+        "name": "soajs.utilities",
+        "version": "0.1.13",
+        "enhancedTests": [
+          "Updated test data for dashboard fixes."
         ]
       },
       {
         "name": "soajs.utilities",
         "version": "0.1.12",
         "features": [
-        ]
-      },
-      {
-        "name": "soajs.utilities",
-        "version": "0.1.13",
-        "features": [
+          "Updated test data to support new ext key roaming feature."
         ]
       },
       {
         "name": "soajs.mongodb.data",
         "version": "0.1.6",
         "enhancedTests": [
+          "Updated test data for dashboard added support for get ext key."
         ]
       }
     ]
@@ -360,27 +1313,45 @@
     "date": "August 10, 2015",
     "repos": [
       {
+        "name": "soajs.mongodb.data",
+        "version": "0.1.4",
+        "enhancedTests": [
+          "updated test data for all service to use the new logger themeable configuration example02",
+          "added new test data for GCS module."
+        ]
+      },
+      {
         "name": "soajs",
         "version": "0.2.0",
         "bugFixes": [
+          "Bug fix in service port registration under registry in the case of no port provided."
         ],
         "features": [
+          "Service Hosts auto registration is now dependent on new env variable SOAJS_SRV_AUTOREGISTERHOST",
+          "Changed object.hasOwnProperty(x) to Object.hasOwnProperty.call(object, x) in all occurences",
+          "Added support to check if awareness is set upon service auto registration",
+          "Updated controller to forward the request to the service instead of redirecting it.",
+          "Added new Logging, and updated all existing logging in both controller and service initialization."
         ],
         "enhancedTests": [
+          "Updated test caes to meet the newly introduced features"
         ]
       },
       {
         "name": "soajs.urac",
         "version": "0.1.2",
         "features": [
+          "Changed soajs to peerDependencies."
         ],
         "enhancedTests": [
+          "Updated test cases to assure error messages based on the new imfv error messages."
         ]
       },
       {
         "name": "soajs.oauth",
         "version": "0.1.2",
         "features": [
+          "Changed soajs to peerDependencies"
         ],
         "enhancedTests": [
         ]
@@ -389,6 +1360,20 @@
         "name": "soajs.dashboard",
         "version": "0.2.2",
         "features": [
+          "Revamped Dashboard UI Menu and Navigation.",
+          "Updated Form UI, added support for media files: Documents - Images - Videos & Audio Tracks.",
+          "Added the ability to upload custom services as a zip files.",
+          "Create/Remove Hosts & services now trigger reloadRegistry at environment controllers for awareness updates.",
+          "Dashboard can now deploy hosts using Docker with support for both Boot2docker and Socket.",
+          "Deploy services with NODE_ENV=production for express optimization.",
+          "Deploy services can pass on optional custom environment variables.",
+          "Updated Environment section, Registry now shows which info is reload upon executing reloadRegistry and which require a service restart.",
+          "Added new Content Builder UI Module & Service to create & manage Generic Services Schema with different configuration, APIs and custom workflows, multiple Inputs of different types and version support.",
+          "Added new Content Management UI Module to load and manage data of deployed generic services in all available environments as well as upload & download media files to GridFS"
+        ],
+        "enhancedTests": [
+          "Updated test cases to support new configuration.",
+          "Created new test cases to meet the newly added features."
         ],
         "bugFixes": [
         ]
@@ -397,6 +1382,8 @@
         "name": "soajs.examples",
         "version": "0.1.3",
         "features": [
+          "Changed soajs to peerDependencies.",
+          "Added package.json in all examples folders."
         ],
         "enhancedTests": [
         ]
@@ -405,6 +1392,7 @@
         "name": "soajs.controller",
         "version": "0.1.1",
         "features": [
+          "Changed soajs to peerDependencies."
         ]
       },
       {
@@ -426,30 +1414,32 @@
         "name": "soajs.utilities",
         "version": "0.1.11",
         "features": [
+        ],
+        "bugFixes": [
+          "Added missing environment variable in manual deployment script.",
+          "Added create upload folder in manual deployment script."
         ]
       },
       {
         "name": "soajs.utilities",
         "version": "0.1.10",
-        "features": [
+        "bugFixes": [
+          "Fix Issue with bcrypt binding when deploying services via docker."
         ]
       },
       {
         "name": "soajs.utilities",
         "version": "0.1.9",
         "features": [
+          "Updated README.md file with the new commands supported by soajs.utilities"
         ]
       },
       {
         "name": "soajs.utilities",
         "version": "0.1.8",
         "features": [
-        ]
-      },
-      {
-        "name": "soajs.mongodb.data",
-        "version": "0.1.4",
-        "enhancedTests": [
+          "Create manual deploy script that automates manual deployment on both MAC & Linux",
+          "Create docker deploy script that automates docker deployment on both MAC & Linux"
         ]
       }
     ]
@@ -463,8 +1453,11 @@
         "name": "soajs",
         "version": "0.1.5",
         "bugFixes": [
+          "fixed issue when requiring awareness middle ware in service"
         ],
         "features": [
+          "Added ability to read and store service requestTimeout & requestTimeoutRenewal while registering a service",
+          "Added new getPackageAcl in multi tenant session"
         ],
         "enhancedTests": [
         ]
@@ -473,14 +1466,18 @@
         "name": "soajs.urac",
         "version": "0.1.1",
         "features": [
+          "Added requestTimeout and requestTimeoutRenewal to local service config file, used while registering this service",
+          "Added tenant Id and tenant code to users and groups records & updated corresponding services"
         ],
         "enhancedTests": [
+          "Updated test cases to meet the newly introduced features"
         ]
       },
       {
         "name": "soajs.oauth",
         "version": "0.1.1",
         "features": [
+          "Added requestTimeout and requestTimeoutRenewal to local service config file, used while registering this service"
         ],
         "enhancedTests": [
         ]
@@ -489,16 +1486,34 @@
         "name": "soajs.dashboard",
         "version": "0.2.1",
         "features": [
+          "Added fallback redirection to myAccount if logged in user has no access to any other section",
+          "Removed join feature from Dashboard UI"
         ],
         "bugFixes": [
+          "Bug fix in assign users to group",
+          "Bug fix in multitenancy while selecting restricted apis",
+          "Bug fix in productization while selecting restricted apis",
+          "Bug fix in editEnvironment proxy select field value"
         ]
       },
       {
         "name": "soajs.dashboard",
         "version": "0.2.0",
         "features": [
+          "Added requestTimeout and requestTimeoutRenewal to local service config file, used while registering this service",
+          "Created new Settings section and added its UI module and APIs",
+          "Added ability to update services configuration in services section such as port, timeout and timeout renewal",
+          "Changed form labels and help text in add/update environments",
+          "Added refresh button in environment / hosts section",
+          "Added support for change tenant security key configuration in edit environment",
+          "Removed dashboard tenant from multi-tenants in UI and added it in new settings section",
+          "When tenants are created, dashboard adds new administrator user and group for each tenant",
+          "Added new tenants tab under members for owners to manage users & groups per client tenants",
+          "Removed support for join in UI",
+          "Optimized and updated all UI code"
         ],
-        "bugFixes": [
+        "enhancedTests": [
+          "Updated test cases to meet the newly introduced features"
         ]
       },
       {
@@ -506,45 +1521,50 @@
         "version": "0.1.2",
         "features": [
         ],
-        "enhancedTests": [
+        "bugFixes": [
+          "Fixed email IMFV configuration for post and put APIs",
+          "Changed extKey of example02 to false",
+          "Removed key from request headers in example02 test cases"
         ]
       },
       {
         "name": "soajs.examples",
         "version": "0.1.1",
         "features": [
+          "Added requestTimeout and requestTimeoutRenewal to local service config file, used while registering this service"
         ],
         "enhancedTests": [
-        ]
-      },
-      {
-        "name": "soajs.controller",
-        "version": "0.1.0",
-        "features": [
         ]
       },
       {
         "name": "soajs.utilities",
         "version": "0.1.7",
         "features": [
+          "Updated test data for example02, urac and Test Tenant 1 code"
         ]
       },
       {
         "name": "soajs.utilities",
         "version": "0.1.6",
         "features": [
+          "Updated test data provisioning for all services",
+          "Created new service configuration for dashboard owners and clients",
+          "Added new service ( settings )",
+          "Created new dashboard packages for owners and clients"
         ]
       },
       {
         "name": "soajs.mongodb.data",
         "version": "0.1.3",
         "enhancedTests": [
+          "Updated test data for example02 and user2 and renamed tenant TN1 to TNT1"
         ]
       },
       {
         "name": "soajs.mongodb.data",
         "version": "0.1.2",
         "enhancedTests": [
+          "Updated test data for all services using this package"
         ]
       }
     ]
@@ -558,8 +1578,12 @@
         "name": "soajs",
         "version": "0.1.3",
         "bugFixes": [
+          "fixed log typo at servers->service",
+          "fixed registering hosts for controller",
+          "fixed auto-registering hosts for service"
         ],
         "features": [
+          "Added ability for services to auto-register"
         ],
         "enhancedTests": [
         ]
@@ -568,20 +1592,24 @@
         "name": "soajs.dashboard",
         "version": "0.1.1",
         "features": [
+          "Changed Services Hosts maintenance operations to use dashboard API."
         ],
-        "bugFixes": [
+        "enhancedTests": [
+          "Updated test cases and coverage"
         ]
       },
       {
         "name": "soajs.utilities",
         "version": "0.1.5",
         "features": [
+          "Updated provisioned data"
         ]
       },
       {
         "name": "soajs.mongodb.data",
         "version": "0.1.1",
         "enhancedTests": [
+          "Updated test data for all services to accommodate service auto-register"
         ]
       }
     ]
@@ -597,6 +1625,11 @@
         "bugFixes": [
         ],
         "features": [
+          "Added awareness",
+          "Added awarenessStat to maintenance Route",
+          "Moved registry to database",
+          "req.soajs.tenant provides more information",
+          "Enabled CORS on maintenance port"
         ],
         "enhancedTests": [
         ]
@@ -605,6 +1638,10 @@
         "name": "soajs.urac",
         "version": "0.1.0",
         "features": [
+          "Changed service initialization to accomodate self awareness",
+          "Removed permissions from group",
+          "Added labels and groups to service apis",
+          "Added new API Get User by Id"
         ],
         "enhancedTests": [
         ]
@@ -613,6 +1650,8 @@
         "name": "soajs.oauth",
         "version": "0.1.0",
         "features": [
+          "Changed service initialization to accomodate self awareness",
+          "Added labels and groups to service apis"
         ],
         "enhancedTests": [
         ]
@@ -621,14 +1660,24 @@
         "name": "soajs.dashboard",
         "version": "0.1.0",
         "features": [
+          "Changed service initialization to accomodate self awareness",
+          "Created new apis for environment, registry, services and hosts handling",
+          "Created new apis for fetching product packages and tenant ACL",
+          "Dashboard UI permissions are now driven by ACL returned from API",
+          "Updated Existing Dashboard UI look and feel",
+          "Added New features in Dashboard UI"
         ],
-        "bugFixes": [
+        "enhancedTests": [
+          "Updated test cases and coverage"
         ]
       },
       {
         "name": "soajs.examples",
         "version": "0.1.0",
         "features": [
+          "Changed services initialization to accomodate self awareness",
+          "Added labels and groups to service apis",
+          "Added hello world service"
         ],
         "enhancedTests": [
         ]
@@ -637,12 +1686,21 @@
         "name": "soajs.controller",
         "version": "0.1.0",
         "features": [
+          "Changed service initialization to accomodate self awareness."
         ]
       },
       {
         "name": "soajs.utilities",
         "version": "0.1.4",
         "features": [
+          "Updated provisioned data",
+          "Docker image automation for soajs service from NPM",
+          "Docker image automation for soajs service from local folder",
+          "Docker image automation for soajs nginx",
+          "Docker image automation for soajs framework from local folder",
+          "Composer run all",
+          "Composer run all with dashboard",
+          "Composer run all with examples"
         ]
       },
       {
@@ -775,6 +1833,69 @@
       },
       {
         "name": "soajs.mongodb.data",
+        "version": "0.0.1",
+        "description": [
+          "First Release"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "Release Clownfish",
+    "label": "Release Clownfish",
+    "date": "March 20, 2015",
+    "repos": [
+      {
+        "name": "soajs",
+        "version": "0.0.1",
+        "description": [
+          "First Release"
+        ]
+      },
+      {
+        "name": "soajs.controller",
+        "version": "0.0.1",
+        "description": [
+          "First Release"
+        ]
+      },
+      {
+        "name": "soajs.urac",
+        "version": "0.0.1",
+        "description": [
+          "First Release"
+        ]
+      },
+      {
+        "name": "soajs.oauth",
+        "version": "0.0.1",
+        "description": [
+          "First Release"
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "0.0.1",
+        "description": [
+          "First Release"
+        ]
+      },
+      {
+        "name": "soajs.examples",
+        "version": "0.0.1",
+        "description": [
+          "First Release"
+        ]
+      },
+      {
+        "name": "soajs.utilities",
+        "version": "0.0.1",
+        "description": [
+          "First Release"
+        ]
+      },
+      {
+        "name": "connect-mongo-soajs",
         "version": "0.0.1",
         "description": [
           "First Release"

@@ -89,126 +89,6 @@
 			<h2>Releases</h2>
 
 			<div class="panel-group" id="accordion">
-				<!--  River Shark -->
-				<div class="panel panel-default">
-					<div class="panel-heading painted">
-						<h4 class="panel-title">
-							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne">
-								Release River Shark 1
-							</a>
-							<span class="pull-right">April 5, 2017</span>
-						</h4>
-					</div>
-					<div id="collapseOne" class="panel-collapse collapse in">
-						<div class="panel-body">
-
-							<div class="col-md-12 col-xs-12 content">
-								<div class="col-md-8 col-xs-6">
-									<div class="col-md-6 col-xs-12">soajs.prx</div>
-									<div class="col-md-6 col-xs-12">1.0.0</div>
-								</div>
-								<div class="col-md-4 col-xs-6">
-									<h4 class="green-txt">Features:</h4>
-									<ul>
-										<li>Added support for sessionless behavior</li>
-										<li>Revamped test cases</li>
-									</ul>
-								</div>
-
-							</div>
-
-							<div class="col-md-12 col-xs-12 content">
-								<div class="col-md-8 col-xs-6">
-									<div class="col-md-6 col-xs-12">soajs.gcs</div>
-									<div class="col-md-6 col-xs-12">1.0.0</div>
-								</div>
-								<div class="col-md-4 col-xs-6">
-									<h4 class="green-txt">Features:</h4>
-									<ul>
-										<li>Added support for sessionless behavior</li>
-										<li>Revamped test cases</li>
-									</ul>
-								</div>
-							</div>
-
-							<div class="col-md-12 col-xs-12 content">
-								<div class="col-md-8 col-xs-6">
-									<div class="col-md-6 col-xs-12">soajs.utilities</div>
-									<div class="col-md-6 col-xs-12">1.0.0</div>
-								</div>
-								<div class="col-md-4 col-xs-6">
-									<h4 class="green-txt">Features:</h4>
-									<ul>
-										<li>Updated dependency list to work with new versions</li>
-									</ul>
-								</div>
-							</div>
-
-							<div class="col-md-12 col-xs-12 content">
-								<div class="col-md-8 col-xs-6">
-									<div class="col-md-6 col-xs-12">soajs.examples</div>
-									<div class="col-md-6 col-xs-12">1.0.0</div>
-								</div>
-								<div class="col-md-4 col-xs-6">
-
-									<h4 class="yellow-dark-txt">Demo that highlights service security through:</h4>
-									<ul>
-										<li>oauth</li>
-										<li>acl</li>
-										<li>oauth+acl</li>
-									</ul>
-								</div>
-							</div>
-
-							<div class="col-md-12 col-xs-12 content">
-								<div class="col-md-8 col-xs-6">
-									<div class="col-md-6 col-xs-12">soajs.jsconf</div>
-									<div class="col-md-6 col-xs-12">1.0.0</div>
-								</div>
-								<div class="col-md-4 col-xs-6">
-									<h4 class="yellow-dark-txt">Demo that highlights:</h4>
-									<ul>
-										<li>IMFV</li>
-										<li>oauth</li>
-										<li>Multitenancy</li>
-										<li>Key security</li>
-									</ul>
-
-								</div>
-							</div>
-
-							<div class="col-md-12 col-xs-12 content">
-								<div class="col-md-8 col-xs-6">
-									<div class="col-md-6 col-xs-12">soajs.artifact</div>
-									<div class="col-md-6 col-xs-12">1.0.0</div>
-								</div>
-								<div class="col-md-4 col-xs-6">
-									<h4 class="green-txt">Features:</h4>
-									<ul>
-										<li>Locked dependency list</li>
-										<li>Updated travis recipe</li>
-									</ul>
-								</div>
-							</div>
-
-
-							<div class="col-md-12 col-xs-12 content">
-								<div class="col-md-8 col-xs-6">
-									<div class="col-md-6 col-xs-12">soajs.installer</div>
-									<div class="col-md-6 col-xs-12">1.0.0</div>
-								</div>
-								<div class="col-md-4 col-xs-6">
-									<h4 class="green-txt">Features:</h4>
-									<ul>
-										<li>Updated all configuration files to support sessionLess behavior</li>
-									</ul>
-								</div>
-							</div>
-
-
-						</div>
-					</div>
-				</div>
 
 				<div class="panel panel-default" ng-repeat="release in newsList">
 					<div class="panel-heading">
@@ -245,7 +125,7 @@
 										<div ng-if="repo.features && repo.features.length">
 											<h4 class="green-txt">Features:</h4>
 											<ul>
-												<li ng-repeat="feature in repo.features">{{feature}}</li>
+												<li ng-repeat="feature in repo.features" ng-bind-html="feature|toTrustedHtml"></li>
 											</ul>
 										</div>
 										<div ng-if="repo.enhancedTests && repo.enhancedTests.length">
