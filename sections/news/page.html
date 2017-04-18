@@ -1,3 +1,22 @@
+<style>
+	.releases ul {
+		padding-left: 0px;
+		list-style-position: inside;
+	}
+
+	.releases .releaseNotes {
+		font-weight: bold;
+	}
+
+	.releases .repoName {
+		padding: 0;
+	}
+
+	.releases .repoName-wrapper {
+		padding: 0;
+	}
+
+</style>
 <div class="container">
 	<div ng-controller="newsPageCtrl">
 		<!--
@@ -88,7 +107,7 @@
 
 			<h2>Releases</h2>
 
-			<div class="panel-group" id="accordion">
+			<div class="panel-group releases" id="accordion">
 
 				<div class="panel panel-default" ng-repeat="release in newsList">
 					<div class="panel-heading">
@@ -99,44 +118,43 @@
 							<span class="pull-right">{{release.date}}</span>
 						</h4>
 					</div>
-					<div id="collapse_{{$index}}" class="panel-collapse collapse">
+					<div id="collapse_{{$index}}" class="panel-collapse collapse" ng-class="{'in': $index === 0}">
 						<div class="panel-body">
 							<div ng-if="release.content">
 								<div ng-repeat="line in release.content" ng-bind-html="line|toTrustedHtml"></div>
 
 							</div>
 							<div ng-if="release.repos">
-								<div ng-repeat="repo in release.repos" class="col-md-12 col-xs-12 content">
-									<div class="col-md-8 col-xs-6">
-										<div class="col-md-6 col-xs-12">{{repo.name}}</div>
-										<div class="col-md-6 col-xs-12">{{repo.version}}</div>
+								<div ng-repeat="repo in release.repos" class="col-md-12 col-xs-12 content oneRepo">
+									<div class="col-md-4 col-sm-4 col-xs-12 repoName-wrapper">
+										<div class="col-md-8 col-xs-12 repoName">{{repo.name}}</div>
+										<div class="col-md-4 col-xs-12 version">{{repo.version}}</div>
 									</div>
-
-									<div class="col-md-4 col-xs-6">
+									<div class="col-md-8 col-sm-8 col-xs-12">
 										<div ng-if="repo.description">
 											<div ng-repeat="line in repo.description">{{line}}</div>
 										</div>
 										<div ng-if="repo.bugFixes && repo.bugFixes.length">
-											<h4 class="red-txt">Bug fixes:</h4>
+											<div class="releaseNotes red-txt bug">Bug fixes:</div>
 											<ul>
 												<li ng-repeat="bug in repo.bugFixes">{{bug}}</li>
 											</ul>
 										</div>
 										<div ng-if="repo.features && repo.features.length">
-											<h4 class="green-txt">Features:</h4>
+											<div class="releaseNotes green-txt feature">Features:</div>
 											<ul>
 												<li ng-repeat="feature in repo.features" ng-bind-html="feature|toTrustedHtml"></li>
 											</ul>
 										</div>
 										<div ng-if="repo.enhancedTests && repo.enhancedTests.length">
-											<h4 class="red-txt">Enhanced Tests:</h4>
+											<div class="releaseNotes red-txt etest">Enhanced Tests:</div>
 											<ul>
 												<li ng-repeat="test in repo.enhancedTests">{{test}}</li>
 											</ul>
 										</div>
 										<div ng-if="repo.custom">
 											<div ng-repeat="oneData in repo.custom">
-												<h4 class="{{oneData.class}}">{{oneData.label}}</h4>
+												<div class="releaseNotes {{oneData.class}}">{{oneData.label}}</div>
 												<ul>
 													<li ng-repeat="item in oneData.data">{{item}}</li>
 												</ul>
@@ -144,9 +162,7 @@
 
 										</div>
 									</div>
-
 								</div>
-
 							</div>
 
 						</div>
