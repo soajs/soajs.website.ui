@@ -68,51 +68,18 @@
         </div>
     -->
 
-        -----------------
-        -----------------
-        -----------------
-        <div class="repos">
-            <ul>
-                <li ng-repeat="badge in repos" ng-class-even ="'even'" ng-class-odd ="'odd'">
-                    <div id="repo{{badge.id}}" class="repoinner">
-
-                        <div class="repoLabel" ng-if="badge.documentation">
-                            <a ng-if="!badge.external" href="{{badge.documentation}}">{{badge.label}}</a>
-                            <a ng-if="badge.external" target="_blank" href="{{badge.documentation}}">{{badge.label}}</a>
-                        </div>
-                        <div class="repoLabel" ng-if="!badge.documentation"><a>{{badge.label}}</a></div>
-
-                        <div class="repoLinks npm" ng-if="badge.npm">
-                            <a href="https://badge.fury.io/js/{{badge.npm}}" target="_blank"><img ng-src="https://badge.fury.io/js/{{badge.npm}}.svg" alt="NPM version"></a>
-                        </div>
-                        <div class="repoLinks travis" ng-if="badge.travis">
-                            <a href="https://travis-ci.org/{{badge.travis}}" target="_blank"><img data-bindattr-732="732" ng-src="https://travis-ci.org/{{badge.travis}}.svg" alt="Build status"></a>
-                        </div>
-
-                        <div class="repoLinks coveralls" ng-if="badge.coveralls">
-                            <a href="https://coveralls.io/r/{{badge.coveralls}}" target="_blank"><img ng-src="https://coveralls.io/repos/{{badge.coveralls}}/badge.svg" alt="Coverage Status"></a>
-                        </div>
-
-                        <div class="repoLinks gitLink" ng-if="badge.github">
-                            <iframe ng-src="{{badge.github | trustAsResourceUrl}}" frameborder="0" scrolling="0" style="" allowTransparency="true"></iframe>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        -----------------
-        -----------------
-
-
-
 
         <div class="col-lg-8 col-md-12 ">
             <h2>SOAJS News </h2>
             <p>
-                River Shark Release contains the latest SOAJS updates and the first release in its new <b>1.x</b> version.<br>
-                In this new version, SOAJS introduced the new <b>sessionless behavior</b> where logged in users no longer have sessions unless required by the microservices to store custom product information.<br>
-                In addition, soajs framework is broken down to multiple repositories for better management, flexibility, modulatiry and usage.<br>
-                Please use the latest version of the <a href="https://soajsorg.atlassian.net/wiki/display/IN/Installer">SOAJS Installer</a> to deploy this new version.
+                River Shark Release contains the latest SOAJS updates and the first release in its new <b>1.x</b>
+                version.<br>
+                In this new version, SOAJS introduced the new <b>sessionless behavior</b> where logged in users no
+                longer have sessions unless required by the microservices to store custom product information.<br>
+                In addition, soajs framework is broken down to multiple repositories for better management, flexibility,
+                modulatiry and usage.<br>
+                Please use the latest version of the <a href="https://soajsorg.atlassian.net/wiki/display/IN/Installer">SOAJS
+                Installer</a> to deploy this new version.
             </p>
             <div class="red white-txt text-center">The new SOAJS version is not backward compatible.</div>
         </div>
