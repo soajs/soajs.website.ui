@@ -6,7 +6,7 @@ var navigation = [
 		'title': 'SOAJS Dream Framework',
 		'description': 'SOAJS is an open source dream framework that empowers building crazy fast the API-nization layer between the product frontend (UI/UX) and backend (business logic). soajs is an api management with service oriented architecture.',
 		'keywords': '#soajs@soajsorg, soa, soajs, service oriented architecture, multitenant, multi-tenant, productization, software, linux, platform, node, mongo, framework, npm, javascript, angularjs, angular, js, nodejs, mongodb, haproxy, cloud architecture, software as a service, saas, user registration and access control urac, security, cloud awareness, cloud-awareness, self awareness, self-awareness, multi service, multiservice, multi-service, enterprise solution, API, API management, enterprise APIs, elastic search, elastic-search, elasticsearch',
-		'url': '#/',
+		'url': '/',
 		'tplPath': 'sections/home/page.html',
 		'scripts': ['sections/home/controller.js']
 	},
@@ -22,7 +22,7 @@ var navigation = [
         'id': 'contactUs',
         'label': 'contactUs',
         'title': 'SOAJS | Contact Us',
-        'url': '#/contactUs',
+        'url': '/contactUs',
         'tplPath': 'sections/contactus/page.html',
         'scripts': ['sections/contactus/controller.js']
     },
@@ -30,7 +30,7 @@ var navigation = [
         'id': 'aboutUs',
         'label': 'aboutUs',
         'title': 'SOAJS | About Us',
-        'url': '#/about',
+        'url': '/about',
         'tplPath': 'sections/about/page.html',
         'scripts': ['sections/about/controller.js']
     },
@@ -38,7 +38,7 @@ var navigation = [
         'id': 'platform',
         'label': 'platform',
         'title': 'SOAJS | Platform',
-        'url': '#/platform',
+        'url': '/platform',
         'tplPath': 'sections/platform/page.html',
         'scripts': ['sections/platform/controller.js']
     },
@@ -46,7 +46,7 @@ var navigation = [
         'id': 'case',
         'label': 'Case Study',
         'title': 'SOAJS | Case Study',
-        'url': '#/case',
+        'url': '/case',
         'tplPath': 'sections/case/page.html',
         'scripts': ['sections/case/controller.js']
     },
@@ -54,7 +54,7 @@ var navigation = [
         'id': 'digital',
         'label': 'Digital Transformation',
         'title': 'SOAJS | Digital Transformation',
-        'url': '#/digital',
+        'url': '/digital',
         'tplPath': 'sections/case/digital.html',
         'scripts': ['sections/case/controllerDigital.js']
     },
