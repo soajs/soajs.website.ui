@@ -72,7 +72,70 @@
     <div class="container">
         <div class="row">
             <div class="simple text-center navy-dark-txt">
+
+                <!--  <ul>
+                      <li ng-repeat="badge in repos" ng-class-even ="'even'" ng-class-odd ="'odd'">
+                          <div id="repo{{badge.id}}" class="repoinner">
+                              <div class="repoLabel" ng-if="badge.documentation">
+                                  <a ng-if="!badge.external" href="{{badge.documentation}}">{{badge.label}}</a>
+                                  <a ng-if="badge.external" target="_blank" href="{{badge.documentation}}">{{badge.label}}</a>
+                              </div>
+                              <div class="repoLabel" ng-if="!badge.documentation"><a>{{badge.label}}</a></div>
+
+                              <div class="repoLinks npm" ng-if="badge.npm">
+                                  <a href="https://badge.fury.io/js/{{badge.npm}}" target="_blank"><img ng-src="https://badge.fury.io/js/{{badge.npm}}.svg" alt="NPM version"></a>
+                              </div>
+                              <div class="repoLinks travis" ng-if="badge.travis">
+                                  <a href="https://travis-ci.org/{{badge.travis}}" target="_blank"><img data-bindattr-732="732" ng-src="https://travis-ci.org/{{badge.travis}}.svg" alt="Build status"></a>
+                              </div>
+
+                              <div class="repoLinks coveralls" ng-if="badge.coveralls">
+                                  <a href="https://coveralls.io/r/{{badge.coveralls}}" target="_blank"><img ng-src="https://coveralls.io/repos/{{badge.coveralls}}/badge.svg" alt="Coverage Status"></a>
+                              </div>
+
+                              <div class="repoLinks gitLink" ng-if="badge.github">
+                                  <iframe ng-src="{{badge.github | trustAsResourceUrl}}" frameborder="0" scrolling="0" style="" allowTransparency="true"></iframe>
+                              </div>
+                          </div>
+                      </li>
+                  </ul>
+  -->
                 <h2>Join the SOAJS community</h2>
+                <div class="separator50"></div>
+                <div ng-repeat="badge in repos">
+
+                    <div class="col-lg-6 col-sm-6 col-xs-12">
+                        <H2 class="repoLabel" ng-if="badge.documentation">
+                            <a ng-if="!badge.external" href="{{badge.documentation}}">{{badge.label}}</a>
+                            <a ng-if="badge.external" target="_blank"
+                               href="{{badge.documentation}}">{{badge.label}}</a>
+                        </H2>
+                        <div id="repo{{badge.id}}" class="badgesinner">
+                            <div class="repoLabel" ng-if="!badge.documentation"><a>{{badge.label}}</a></div>
+                            <div class="repoLinks npm" ng-if="badge.npm">
+                                <a href="https://badge.fury.io/js/{{badge.npm}}" target="_blank"><img
+                                    ng-src="https://badge.fury.io/js/{{badge.npm}}.svg" alt="NPM version"></a>
+                            </div>
+                            <div class="repoLinks travis" ng-if="badge.travis">
+                                <a href="https://travis-ci.org/{{badge.travis}}" target="_blank"><img
+                                    data-bindattr-732="732" ng-src="https://travis-ci.org/{{badge.travis}}.svg"
+                                    alt="Build status"></a>
+                            </div>
+
+                            <div class="repoLinks coveralls" ng-if="badge.coveralls">
+                                <a href="https://coveralls.io/r/{{badge.coveralls}}" target="_blank"><img
+                                    ng-src="https://coveralls.io/repos/{{badge.coveralls}}/badge.svg"
+                                    alt="Coverage Status"></a>
+                            </div>
+                            <div class="repoLinks gitLink" ng-if="badge.github">
+                                <div style="height:12px;">&nbsp;</div>
+                                <iframe ng-src="{{badge.github | trustAsResourceUrl}}" frameborder="0" scrolling="0" style="" allowTransparency="true"></iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
                 <div class="separator50"></div>
                 <div class="col-lg-4 col-sm-4 col-xs-12">
                     <h2 class="yellow-dark-txt">320</h2>
@@ -116,7 +179,8 @@
                     <div class="separator10"></div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
-                    <button type="button" class="btn navy bordered white-border white-txt white-hover">Request a demo </button>
+                    <button type="button" class="btn navy bordered white-border white-txt white-hover">Request a demo
+                    </button>
                 </div>
             </div>
         </div>

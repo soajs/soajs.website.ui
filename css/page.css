@@ -1006,6 +1006,34 @@ hr {
     }
 }
 
+
+/*****************
+*
+* Badges
+*****************/
+.badgesinner div{
+    display:inline-block;
+    margin: 0;
+    padding : 0;
+    margin-top: 2px;
+    float: left;
+    margin-right:2px;
+}
+.badgesinner {
+    margin-top: 12px;
+}
+
+.badgesinner .gitLink {
+    overflow: hidden;
+    position: relative;
+    top: 6px;
+}
+.badgesinner .gitLink iframe
+{
+    height: 22px;
+    width: 90px;
+
+}
 /*****************
 *
 * Forms
