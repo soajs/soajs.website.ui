@@ -1,14 +1,17 @@
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <div ng-controller="contactCtrl">
+
+    <!-- White top section -->
     <div class="container">
         <div class="row">
-
+            <!-- Messages nd notifications -->
             <div class="col-lg-12 col-md-12">
                 <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}
                 </alert>
             </div>
-            <div class="col-lg-6 col-md-12">
+            <!-- General contact us form -->
+            <div class="col-lg-6 col-md-8">
                 <h2>Send us a message</h2>
                 <form name="contactForm" ng-submit="contactForm.$valid && sendContact()" novalidate>
 
@@ -47,9 +50,71 @@
                     </div>
                     <br class="clearfix">
                 </form>
+                <div class="separator50"></div>
+            </div>
+            <!-- twitter feeds -->
+            <div class="col-lg-4 col-md-4 hidden-sm  hidden-sm hidden-xs pull-right">
+                <a class="twitter-timeline" data-height="530" href="https://twitter.com/soajsorg">Tweets by soajsorg</a>
+                <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
 
-<!--
-                <div class="navy col-md-12">
+        </div>
+    </div>
+
+
+    <!-- two sided boxes -->
+    <div class="row-height  navy white-txt text-center">
+        <div class="col-md-6 col-md-12 col-sm-height navy">
+            <div class="inside inside-full-height">
+                <div class="content">
+
+                    <h2 class="white-txt text-center" id="request">Submit your project</h2>
+                    <form name="requestForm" ng-submit="" novalidate class="colorForm">
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-12">
+                                <input ng-model="project.name" type="text" class="form-control" placeholder="First Name"
+                                       tooltip="Enter your first name" required/></div>
+                            <div class="col-md-6 col-sm-12">
+                                <input ng-model="project.lname" type="text" class="form-control" placeholder="Last Name" tooltip="Enter your last name" required/>
+                            </div>
+
+                            <div class="col-md-6 col-sm-12">
+                                <input ng-model="project.custom1" type="text" class="form-control" placeholder="Custom Field 1" tooltip="Input data" required/>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <input ng-model="project.custom2" type="text" class="form-control" placeholder="Custom Field 2 " tooltip="Input data" required/>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <input ng-model="project.custom3" type="text" class="form-control" placeholder="Custom Field 3" tooltip="Input data" required/>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <input ng-model="project.custom4" type="text" class="form-control" placeholder="Custom Field 4" tooltip="Input data" required/>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <input ng-model="project.custom5" type="text" class="form-control" placeholder="Custom Field 5" tooltip="Input data" required/>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="g-recaptcha" data-sitekey="6LcMzgMTAAAAAKd0Lqit5HJUI2Y6evlriyxT8-Zj"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group">
+                            <button type="button" class="btn navy bordered white-border white-txt white-hover">Submit Your project
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="separator50"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Request a Demo form -->
+        <div class="col-md-6 col-sm-12 col-sm-height navy-dark ">
+            <div class="inside inside-full-height">
+                <div class="content">
+                    <div class="separator50"></div>
+                    <h2 class="white-txt text-center" id="request">Request a Demo</h2>
                     <form name="requestForm" ng-submit="" novalidate class="colorForm">
                         <div class="form-group">
                             <div class="col-md-6 col-sm-12">
@@ -72,7 +137,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-6 col-sm-12">
-                                <input ng-model="contact.role" type="text" class="form-control" placeholder="Rolee"
+                                <input ng-model="contact.role" type="text" class="form-control" placeholder="Role"
                                        tooltip="Enter your business role" required/></div>
                             <div class="col-md-6 col-sm-12">
                                 <input ng-model="contact.country" type="text" class="form-control" placeholder="Country"
@@ -88,41 +153,33 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <div class="g-recaptcha" data-sitekey="6LcMzgMTAAAAAKd0Lqit5HJUI2Y6evlriyxT8-Zj"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group">
                             <button type="button" class="btn navy bordered white-border white-txt white-hover">Submit
                                 your Request
                             </button>
                         </div>
+                        <div class="separator50"></div>
+
                     </form>
                 </div>
--->
-
-                <div class="separator50"></div>
             </div>
-            <div class="col-lg-6 col-md-12">
-                <h2 id="details">Contact details</h2>
-                <h4 class="yellow-dark-txt">Email</h4>
-                info@soajs.org
-                <h4 class="yellow-dark-txt">PHONE NUMBER</h4>
-                00961 123456
-                <h4 class="yellow-dark-txt">FOLLOW US</h4>
-                <div class="socialMedia   col-lg-12">
-                    <i class="fbColor navy-dark-hover yellow-dark-txt-hover white-txt circle icon-footer-facebook-color"></i>
-                    <i class="twitterColor navy-dark-hover yellow-dark-txt-hover white-txt circle icon-footer-linkedin"></i>
-                    <i class="instaColor navy-dark-hover yellow-dark-txt-hover white-txt circle icon-footer-twitter-color"></i>
-                </div>
-            </div>
-
-            <div class="clearfix"></div>
-            <hr class="full-width">
-            <div class="clearfix"></div>
-            <div class="col-lg-12 col-md-12 text-center">
-                <h2  id="interested">Interested in joining our team? </h2>
-                Send us your CV and job position to <a href="mailto:team@soajs.org">team@soajs.org</a>
-                <div class="separator50"></div>
-                <div class="separator50"></div>
-            </div>
-
         </div>
     </div>
-    tt
+
+
+    <!-- Shaded Orange strip -->
+    <div class="col-lg-12 orange-shade spearator50">&nbsp;</div>
+
+
+    <!-- Join the Team -->
+    <div class="col-lg-12 col-md-12 text-center">
+        <h2 id="interested">Interested in joining our team? </h2>
+        Send us your CV and job position to <a href="mailto:team@soajs.org">team@soajs.org</a>
+        <div class="separator50"></div>
+        <div class="separator50"></div>
+    </div>
+
 </div>
