@@ -1,18 +1,785 @@
 [
   {
     "id": "rivershark1",
-    "label": "Release River Shark 1 ",
-    "Date": " April 5, 2017",
-    "data" : [
+    "label": "Release River Shark 1",
+    "date": " April 5, 2017",
+    "repos": [
+      {
+        "name": "grunt-soajs",
+        "version": "0.0.6",
+        "features": [
+          "dbs and models are now optional"
+        ],
+        "bugFixes": [
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs",
+        "version": "1.0.0",
+        "features": [
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.artifact",
+        "version": "1.0.0",
+        "features": [
+        ],
+        "bugFixes": [
+        ]
+      },
+
+      {
+        "name": "soajs.composer",
+        "version": "1.0.0",
+        "features": [
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.controller",
+        "version": "1.0.0",
+        "features": [
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.core.libs",
+        "version": "0.1.0",
+        "features": [
+        ]
+      },
+      {
+        "name": "soajs.core.modules",
+        "version": "0.1.0",
+        "features": [
+        ]
+      },
+
+      {
+        "name": "soajs.dashboard",
+        "version": "1.0.0",
+        "features": [
+        ],
+        "bugFixes": [
+        ]
+      },
+
+      {
+        "name": "soajs.examples",
+        "version": "0.1.0",
+        "custom": [
+          {
+            "label": "Demo that highlights service security through:",
+            "class": "yellow-dark-txt",
+            "data": [
+              "oauth",
+              "acl",
+              "oauth+acl"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "soajs.gcs",
+        "version": "1.0.0",
+        "features": [
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.installer",
+        "version": "1.0.0",
+        "features": [
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.jsconf",
+        "version": "0.1.0",
+        "features": [
+        ],
+        "custom": [
+          {
+            "label": "Demo that highlights:",
+            "class": "yellow-dark-txt",
+            "data": [
+              "IMFV",
+              "oauth",
+              "Multitenancy",
+              "Key security"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "soajs.mongodb.data",
+        "version": "1.0.0",
+        "features": [
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.oauth",
+        "version": "1.0.0",
+        "features": [
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.prx",
+        "version": "1.0.0",
+        "features": [
+        ],
+        "bugFixes": [
+        ]
+      },
+
+      {
+        "name": "soajs.urac",
+        "version": "1.0.0",
+        "features": [
+        ],
+        "bugFixes": [
+        ]
+      },
+
+      {
+        "name": "soajs.urac.driver",
+        "version": "1.0.0",
+        "features": [
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.utilities",
+        "version": "1.0.0",
+        "features": [
+        ],
+        "bugFixes": [
+        ]
+      }
 
     ]
   },
   {
-    "id": "rivershark1",
-    "label": "Release River Shark 1 ",
-    "Date": " April 5, 2017",
-    "data" : [
-
+    "id": "sampleeeeeeee LionFish",
+    "label": "Release LionFish",
+    "date": "August 31, 2015",
+    "repos": [
+      {
+        "name": "soajs",
+        "version": "0.2.1",
+        "bugFixes": [
+        ],
+        "features": [
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs.urac",
+        "version": "0.1.2",
+        "features": [
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs.oauth",
+        "version": "0.1.2",
+        "features": [
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "0.2.2",
+        "features": [
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.examples",
+        "version": "0.1.3",
+        "features": [
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs.controller",
+        "version": "0.1.1",
+        "features": [
+        ]
+      },
+      {
+        "name": "soajs.GCS",
+        "version": "0.0.1",
+        "description": [
+          "First Release"
+        ],
+        "features": [
+          "Ability to deploy multiple services using the same module code but with different names and versions.",
+          "Supports ADD - EDIT - GET - DELETE - LIST APIs to add & manage data in static and multitenant databases.",
+          "Supports Uploading and Streaming Media Files into and out of GridFS",
+          "Ability to manage data across different environments",
+          "Can have multiple nodes for the same service for load distribution",
+          "Supports Multiple versions for both Service & Data schemas"
+        ]
+      },
+      {
+        "name": "soajs.utilities",
+        "version": "0.1.11",
+        "features": [
+        ]
+      },
+      {
+        "name": "soajs.utilities",
+        "version": "0.1.10",
+        "features": [
+        ]
+      },
+      {
+        "name": "soajs.utilities",
+        "version": "0.1.9",
+        "features": [
+        ]
+      },
+      {
+        "name": "soajs.utilities",
+        "version": "0.1.8",
+        "features": [
+        ]
+      },
+      {
+        "name": "soajs.mongodb.data",
+        "version": "0.1.4",
+        "enhancedTests": [
+        ]
+      }
+    ]
+  },
+  {
+    "id": "Release BlueFish",
+    "label": "Release BlueFish",
+    "date": "October 15, 2015",
+    "repos": [
+      {
+        "name": "soajs",
+        "version": "0.2.2",
+        "bugFixes": [
+        ],
+        "features": [
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "connect-mongo-soajs",
+        "version": "0.0.3",
+        "enhancedTests": [
+        ]
+      }
+    ]
+  },
+  {
+    "id": "Release LionFish",
+    "label": "Release LionFish",
+    "date": "August 31, 2015",
+    "repos": [
+      {
+        "name": "soajs",
+        "version": "0.2.1",
+        "bugFixes": [
+        ],
+        "features": [
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "0.2.5",
+        "features": [
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "0.2.4",
+        "features": [
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "0.2.3",
+        "features": [
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.utilities",
+        "version": "0.1.12",
+        "features": [
+        ]
+      },
+      {
+        "name": "soajs.utilities",
+        "version": "0.1.13",
+        "features": [
+        ]
+      },
+      {
+        "name": "soajs.mongodb.data",
+        "version": "0.1.6",
+        "enhancedTests": [
+        ]
+      }
+    ]
+  },
+  {
+    "id": "Release TigerFish",
+    "label": "Release TigerFish",
+    "date": "August 10, 2015",
+    "repos": [
+      {
+        "name": "soajs",
+        "version": "0.2.0",
+        "bugFixes": [
+        ],
+        "features": [
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs.urac",
+        "version": "0.1.2",
+        "features": [
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs.oauth",
+        "version": "0.1.2",
+        "features": [
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "0.2.2",
+        "features": [
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.examples",
+        "version": "0.1.3",
+        "features": [
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs.controller",
+        "version": "0.1.1",
+        "features": [
+        ]
+      },
+      {
+        "name": "soajs.GCS",
+        "version": "0.0.1",
+        "description": [
+          "First Release"
+        ],
+        "features": [
+          "Ability to deploy multiple services using the same module code but with different names and versions.",
+          "Supports ADD - EDIT - GET - DELETE - LIST APIs to add & manage data in static and multitenant databases.",
+          "Supports Uploading and Streaming Media Files into and out of GridFS",
+          "Ability to manage data across different environments",
+          "Can have multiple nodes for the same service for load distribution",
+          "Supports Multiple versions for both Service & Data schemas"
+        ]
+      },
+      {
+        "name": "soajs.utilities",
+        "version": "0.1.11",
+        "features": [
+        ]
+      },
+      {
+        "name": "soajs.utilities",
+        "version": "0.1.10",
+        "features": [
+        ]
+      },
+      {
+        "name": "soajs.utilities",
+        "version": "0.1.9",
+        "features": [
+        ]
+      },
+      {
+        "name": "soajs.utilities",
+        "version": "0.1.8",
+        "features": [
+        ]
+      },
+      {
+        "name": "soajs.mongodb.data",
+        "version": "0.1.4",
+        "enhancedTests": [
+        ]
+      }
+    ]
+  },
+  {
+    "id": "Release Dragonfish",
+    "label": "Release Dragonfish",
+    "date": "May 20, 2015",
+    "repos": [
+      {
+        "name": "soajs",
+        "version": "0.1.5",
+        "bugFixes": [
+        ],
+        "features": [
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs.urac",
+        "version": "0.1.1",
+        "features": [
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs.oauth",
+        "version": "0.1.1",
+        "features": [
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "0.2.1",
+        "features": [
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "0.2.0",
+        "features": [
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.examples",
+        "version": "0.1.2",
+        "features": [
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs.examples",
+        "version": "0.1.1",
+        "features": [
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs.controller",
+        "version": "0.1.0",
+        "features": [
+        ]
+      },
+      {
+        "name": "soajs.utilities",
+        "version": "0.1.7",
+        "features": [
+        ]
+      },
+      {
+        "name": "soajs.utilities",
+        "version": "0.1.6",
+        "features": [
+        ]
+      },
+      {
+        "name": "soajs.mongodb.data",
+        "version": "0.1.3",
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs.mongodb.data",
+        "version": "0.1.2",
+        "enhancedTests": [
+        ]
+      }
+    ]
+  },
+  {
+    "id": "Release Trunkfish",
+    "label": "Release Trunkfish",
+    "date": "May 5, 2015",
+    "repos": [
+      {
+        "name": "soajs",
+        "version": "0.1.3",
+        "bugFixes": [
+        ],
+        "features": [
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "0.1.1",
+        "features": [
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.utilities",
+        "version": "0.1.5",
+        "features": [
+        ]
+      },
+      {
+        "name": "soajs.mongodb.data",
+        "version": "0.1.1",
+        "enhancedTests": [
+        ]
+      }
+    ]
+  },
+  {
+    "id": "Release Thornfish",
+    "label": "Release Thornfish",
+    "date": "April 30, 2015",
+    "repos": [
+      {
+        "name": "soajs",
+        "version": "0.1.1",
+        "bugFixes": [
+        ],
+        "features": [
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs.urac",
+        "version": "0.1.0",
+        "features": [
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs.oauth",
+        "version": "0.1.0",
+        "features": [
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "0.1.0",
+        "features": [
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.examples",
+        "version": "0.1.0",
+        "features": [
+        ],
+        "enhancedTests": [
+        ]
+      },
+      {
+        "name": "soajs.controller",
+        "version": "0.1.0",
+        "features": [
+        ]
+      },
+      {
+        "name": "soajs.utilities",
+        "version": "0.1.4",
+        "features": [
+        ]
+      },
+      {
+        "name": "soajs.mongodb.data",
+        "version": "0.1.0",
+        "enhancedTests": [
+          "Updated test data for all services using this package"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "Release Goldfish",
+    "label": "Release Goldfish",
+    "date": "April 15, 2015",
+    "repos": [
+      {
+        "name": "soajs",
+        "version": "0.0.2",
+        "bugFixes": [
+          "Updated how headers content-type are read in imfv and parsed.",
+          "Fixed service crash when service key information is not found in database."
+        ],
+        "features": [
+          "Added Apache License"
+        ],
+        "enhancedTests": [
+          "Added soajs.mongodb.data as dev dependency and integrated it in test cases.",
+          "Removed old provisioned data from module."
+        ]
+      },
+      {
+        "name": "soajs.urac",
+        "version": "0.0.2",
+        "features": [
+          "Added support to manage members groups.",
+          "Updated login API and how dashboard ui permissions are being fetched.",
+          "Added locked feature for user and group records to prevent deletion of administrator account from dashboard ui.",
+          "Updated IMFV configuration to include new format for username parameters.",
+          "Added Apache License."
+        ],
+        "enhancedTests": [
+          "Added new tests for group APIs",
+          "Updated email values in test cases.",
+          "Added soajs.mongodb.data as dev dependency and integrated in test cases.",
+          "Removed old provisioned data from module."
+        ]
+      },
+      {
+        "name": "soajs.oauth",
+        "version": "0.0.3",
+        "features": [
+          "Added Apache License"
+        ],
+        "enhancedTests": [
+          "Added soajs.mongodb.data to dev dependency and included it in test cases.",
+          "Removed old provisioned data from module."
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "0.0.3",
+        "features": [
+          "Updated domain to point to dashboard-api.soajs.org"
+        ],
+        "bugFixes": [
+          "Bug fix in how the connector is parsing API responses"
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "0.0.2",
+        "features": [
+          "Added locked feature for environment, product and tenant. Locked records cannot be deleted.",
+          "Updated how permissions are read after login in the UI.",
+          "Updated UI form library.",
+          "Updated UI grid library.",
+          "Under Productization section, combined the management of products and packages under one section.",
+          "Added new APIs to add/manage oauth users in service.",
+          "Added UI support for Urac group management APIs.",
+          "Added Apache License."
+        ],
+        "enhancedTests": [
+          "Updated test data used in test cases.",
+          "Added soajs.mongodb.data as dev dependency and included it in test cases.",
+          "Removed old provisioned data from module."
+        ],
+        "bugFixes": [
+          "Updated how the acl object is posted from the ui",
+          "Updated search function in ui grid library"
+        ]
+      },
+      {
+        "name": "soajs.examples",
+        "version": "0.0.2",
+        "features": [
+          "Added Apache License"
+        ],
+        "enhancedTests": [
+          "Added test cases to increase coverage.",
+          "Added soajs.mongodb.data as dev dependency and included it in test cases.",
+          "Removed old provisioned data from module."
+        ]
+      },
+      {
+        "name": "connect-mongo-soajs",
+        "version": "0.0.2",
+        "features": [
+          "Enhanced Documentation; README file.",
+          "Enhanced examples.",
+          "Added Apache License."
+        ],
+        "enhancedTests": [
+          "Added test cases to increase coverage."
+        ]
+      },
+      {
+        "name": "soajs.controller",
+        "version": "0.0.2",
+        "features": [
+          "Added Apache License."
+        ]
+      },
+      {
+        "name": "soajs.utilities",
+        "version": "0.0.1",
+        "description": [
+          "First Release"
+        ]
+      },
+      {
+        "name": "soajs.mongodb.data",
+        "version": "0.0.1",
+        "description": [
+          "First Release"
+        ]
+      }
     ]
   }
 ]

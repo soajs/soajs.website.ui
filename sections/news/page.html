@@ -1,463 +1,282 @@
 <div class="container">
-    <div ng-controller="newsPageCtrl">
-        <!--
-        <div class="row">
+	<div ng-controller="newsPageCtrl">
+		<!--
+		<div class="row">
 
-            <!-- main news - large -->
-        <!--
-            <div class="col-lg-8 col-md-12 ">
-                <h2>Heading</h2>
-                <img src="images/news/demo1.png" class="wide"/>
-                <div class="date">13th Jun</div>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                    mauris
-                    condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-                    euismod.
-                    Donec sed odio dui.
-                </p>
+			<!-- main news - large -->
+		<!--
+			<div class="col-lg-8 col-md-12 ">
+				<h2>Heading</h2>
+				<img src="images/news/demo1.png" class="wide"/>
+				<div class="date">13th Jun</div>
+				<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+					mauris
+					condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
+					euismod.
+					Donec sed odio dui.
+				</p>
 
-            </div>
+			</div>
 
-            <div class="col-lg-4  hidden-md  hidden-sm hidden-xs">
-                <a class="twitter-timeline" data-height="530" href="https://twitter.com/soajsorg">Tweets by soajsorg</a>
-                <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-            </div>
+			<div class="col-lg-4  hidden-md  hidden-sm hidden-xs">
+				<a class="twitter-timeline" data-height="530" href="https://twitter.com/soajsorg">Tweets by soajsorg</a>
+				<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+			</div>
 
-            <div class="clearfix"></div>
+			<div class="clearfix"></div>
 
-            <div class="col-lg-4 col-sm-6 col-xs-12">
-                <h2>Heading</h2>
-                <img src="images/news/demo2.png" class="thumb"/>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                    mauris
-                    condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-                    euismod.
-                    Donec sed odio dui.
-                </p>
-                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-            </div>
+			<div class="col-lg-4 col-sm-6 col-xs-12">
+				<h2>Heading</h2>
+				<img src="images/news/demo2.png" class="thumb"/>
+				<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+					mauris
+					condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
+					euismod.
+					Donec sed odio dui.
+				</p>
+				<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+			</div>
 
-            <div class="col-lg-4  col-sm-6 col-xs-12">
-                <h2>Heading</h2>
-                <img src="images/news/demo1.png" class="thumb"/>
-                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
-                    porta
-                    felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-                    fermentum
-                    massa justo sit amet risus.
-                </p>
-                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-            </div>
-            <div class="clearfix hidden-lg"></div>
-            <div class="col-lg-4  col-sm-6 col-xs-12">
-                <h2>Heading</h2>
-                <img src="images/news/demo3.png" class="thumb"/>
-                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
-                    porta
-                    felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-                    fermentum
-                    massa justo sit amet risus.
-                </p>
-                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-            </div>
+			<div class="col-lg-4  col-sm-6 col-xs-12">
+				<h2>Heading</h2>
+				<img src="images/news/demo1.png" class="thumb"/>
+				<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
+					porta
+					felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+					fermentum
+					massa justo sit amet risus.
+				</p>
+				<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+			</div>
+			<div class="clearfix hidden-lg"></div>
+			<div class="col-lg-4  col-sm-6 col-xs-12">
+				<h2>Heading</h2>
+				<img src="images/news/demo3.png" class="thumb"/>
+				<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
+					porta
+					felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+					fermentum
+					massa justo sit amet risus.
+				</p>
+				<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+			</div>
 
-            <div class="col-sm-6  hidden-lg col-xs-12">
-                <a class="twitter-timeline" data-height="530" href="https://twitter.com/soajsorg">Tweets by soajsorg</a>
-                <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-            </div>
-        </div>
-    -->
-
-
-        <div class="col-lg-8 col-md-12 ">
-            <h2>SOAJS News </h2>
-            <p>
-                River Shark Release contains the latest SOAJS updates and the first release in its new <b>1.x</b>
-                version.<br>
-                In this new version, SOAJS introduced the new <b>sessionless behavior</b> where logged in users no
-                longer have sessions unless required by the microservices to store custom product information.<br>
-                In addition, soajs framework is broken down to multiple repositories for better management, flexibility,
-                modulatiry and usage.<br>
-                Please use the latest version of the <a href="https://soajsorg.atlassian.net/wiki/display/IN/Installer">SOAJS
-                Installer</a> to deploy this new version.
-            </p>
-            <div class="red white-txt text-center">The new SOAJS version is not backward compatible.</div>
-        </div>
-        <div class="clearfix"></div>
-        <div class="row">
-
-            <h2>Releases</h2>
-
-            <div class="panel-group" id="accordion">
-                <!--  River Shark -->
-                <div class="panel panel-default">
-                    <div class="panel-heading painted">
-                        <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
-                               data-target="#collapseOne">
-                                Release River Shark 1
-                            </a>
-                            <span class="pull-right">April 5, 2017</span>
-                        </h4>
-                    </div>
-                    <div id="collapseOne" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            <div class="col-md-12 col-xs-12 content">
-                                <div class="col-md-8 col-xs-6">
-                                    <div class="col-md-6 col-xs-12">grunt-soajs</div>
-                                    <div class="col-md-6 col-xs-12">0.0.6</div>
-                                </div>
-                                <div class="col-md-4 col-xs-6">
-                                    <h4 class="green-txt">Features:</h4>
-                                    <ul>
-                                        <li>dbs and models are now optional</li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                            <div class="col-md-12 col-xs-12 content">
-                                <div class="col-md-8 col-xs-6">
-                                    <div class="col-md-6 col-xs-12">soajs.mongodb.data</div>
-                                    <div class="col-md-6 col-xs-12">1.0.0</div>
-                                </div>
-                                <div class="col-md-4 col-xs-6">
-                                    <h4 class="red-txt">Enhanced Tests:</h4>
-                                    <ul>
-                                        <li>Updated test data for existing repos</li>
-                                        <li>Provided new sample data for sessionless</li>
-                                    </ul>
-
-                                </div>
-
-                            </div>
-                            <div class="col-md-12 col-xs-12 content">
-                                <div class="col-md-8 col-xs-6">
-                                    <div class="col-md-6 col-xs-12">soajs.core.libs</div>
-                                    <div class="col-md-6 col-xs-12">1.0.0</div>
-                                </div>
-                                <div class="col-md-4 col-xs-6">
-                                    <h4 class="green-txt">Features:</h4>
-                                    <ul>
-                                        <li>First Release: Contains list of all core libraries</li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                            <div class="col-md-12 col-xs-12 content">
-                                <div class="col-md-8 col-xs-6">
-                                    <div class="col-md-6 col-xs-12">soajs.core.modules</div>
-                                    <div class="col-md-6 col-xs-12">1.0.0</div>
-                                </div>
-                                <div class="col-md-4 col-xs-6">
-                                    <h4 class="green-txt">Features:</h4>
-                                    <ul>
-                                        <li>First Release: Contains list of all core libraries</li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                            <div class="col-md-12 col-xs-12 content">
-                                <div class="col-md-8 col-xs-6">
-                                    <div class="col-md-6 col-xs-12">soajs.urac.driver</div>
-                                    <div class="col-md-6 col-xs-12">1.0.0</div>
-                                </div>
-                                <div class="col-md-4 col-xs-6">
-                                    <h4 class="green-txt">Features:</h4>
-                                    <ul>
-                                        <li>Added support for sessionless behavior</li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                            <div class="col-md-12 col-xs-12 content">
-                                <div class="col-md-8 col-xs-6">
-                                    <div class="col-md-6 col-xs-12">soajs</div>
-                                    <div class="col-md-6 col-xs-12">1.0.0</div>
-                                </div>
-                                <div class="col-md-4 col-xs-6">
-                                    <h4 class="green-txt">Features:</h4>
-                                    <ul>
-                                        <li>Added support for sessionless behavior</li>
-                                    </ul>
-
-                                </div>
-
-                            </div>
-                            <div class="col-md-12 col-xs-12 content">
-                                <div class="col-md-8 col-xs-6">
-                                    <div class="col-md-6 col-xs-12">soajs.controller</div>
-                                    <div class="col-md-6 col-xs-12">1.0.0</div>
-                                </div>
-                                <div class="col-md-4 col-xs-6">
-                                    <h4 class="green-txt">Features:</h4>
-                                    <ul>
-                                        <li>Updated dependency list to work with new version</li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                            <div class="col-md-12 col-xs-12 content">
-                                <div class="col-md-8 col-xs-6">
-                                    <div class="col-md-6 col-xs-12">soajs.composer</div>
-                                    <div class="col-md-6 col-xs-12">1.0.0</div>
-                                </div>
-                                <div class="col-md-4 col-xs-6">
-                                    <h4 class="green-txt">Features:</h4>
-                                    <ul>
-                                        <li>Updated code to use core.libs</li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                            <div class="col-md-12 col-xs-12 content">
-                                <div class="col-md-8 col-xs-6">
-                                    <div class="col-md-6 col-xs-12">soajs.urac</div>
-                                    <div class="col-md-6 col-xs-12">1.0.0</div>
-                                </div>
-                                <div class="col-md-4 col-xs-6">
-                                    <h4 class="green-txt">Features:</h4>
-                                    <ul>
-                                        <li>Added support for sessionless behavior</li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                            <div class="col-md-12 col-xs-12 content">
-                                <div class="col-md-8 col-xs-6">
-                                    <div class="col-md-6 col-xs-12">soajs.oauth</div>
-                                    <div class="col-md-6 col-xs-12">1.0.0</div>
-                                </div>
-                                <div class="col-md-4 col-xs-6">
-                                    <h4 class="green-txt">Features:</h4>
-                                    <ul>
-                                        <li>Added support for sessionless behavior</li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                            <div class="col-md-12 col-xs-12 content">
-                                <div class="col-md-8 col-xs-6">
-                                    <div class="col-md-6 col-xs-12">soajs.dashboard</div>
-                                    <div class="col-md-6 col-xs-12">1.0.0</div>
-                                </div>
-                                <div class="col-md-4 col-xs-6">
-                                    <h4 class="green-txt">Features:</h4>
-                                    <ul>
-                                        <li>Added support for sessionless behavior</li>
-                                        <li>Optimized dashboard tenant key access</li>
-                                        <li>Enhanced UI/UX</li>
-                                    </ul>
-                                    <h4 class="red-txt">Bug fixes:</h4>
-                                    <ul>
-                                        <li>Fixed SSL configuration issue in deploy/redeploy NGINX with kubernetes
-                                            driver
-                                        </li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                            <div class="col-md-12 col-xs-12 content">
-                                <div class="col-md-8 col-xs-6">
-                                    <div class="col-md-6 col-xs-12">soajs.prx</div>
-                                    <div class="col-md-6 col-xs-12">1.0.0</div>
-                                </div>
-                                <div class="col-md-4 col-xs-6">
-                                    <h4 class="green-txt">Features:</h4>
-                                    <ul>
-                                        <li>Added support for sessionless behavior</li>
-                                        <li>Revamped test cases</li>
-                                    </ul>
-                                </div>
-
-                            </div>
-
-                            <div class="col-md-12 col-xs-12 content">
-                                <div class="col-md-8 col-xs-6">
-                                    <div class="col-md-6 col-xs-12">soajs.gcs</div>
-                                    <div class="col-md-6 col-xs-12">1.0.0</div>
-                                </div>
-                                <div class="col-md-4 col-xs-6">
-                                    <h4 class="green-txt">Features:</h4>
-                                    <ul>
-                                        <li>Added support for sessionless behavior</li>
-                                        <li>Revamped test cases</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 col-xs-12 content">
-                                <div class="col-md-8 col-xs-6">
-                                    <div class="col-md-6 col-xs-12">soajs.utilities</div>
-                                    <div class="col-md-6 col-xs-12">1.0.0</div>
-                                </div>
-                                <div class="col-md-4 col-xs-6">
-                                    <h4 class="green-txt">Features:</h4>
-                                    <ul>
-                                        <li>Updated dependency list to work with new versions</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 col-xs-12 content">
-                                <div class="col-md-8 col-xs-6">
-                                    <div class="col-md-6 col-xs-12">soajs.examples</div>
-                                    <div class="col-md-6 col-xs-12">1.0.0</div>
-                                </div>
-                                <div class="col-md-4 col-xs-6">
-
-                                    <h4 class="yellow-dark-txt">Demo that highlights service security through:</h4>
-                                    <ul>
-                                        <li>oauth</li>
-                                        <li>acl</li>
-                                        <li>oauth+acl</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 col-xs-12 content">
-                                <div class="col-md-8 col-xs-6">
-                                    <div class="col-md-6 col-xs-12">soajs.jsconf</div>
-                                    <div class="col-md-6 col-xs-12">1.0.0</div>
-                                </div>
-                                <div class="col-md-4 col-xs-6">
-                                    <h4 class="yellow-dark-txt">Demo that highlights:</h4>
-                                    <ul>
-                                        <li>IMFV</li>
-                                        <li>oauth</li>
-                                        <li>Multitenancy</li>
-                                        <li>Key security</li>
-                                    </ul>
-
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 col-xs-12 content">
-                                <div class="col-md-8 col-xs-6">
-                                    <div class="col-md-6 col-xs-12">soajs.artifact</div>
-                                    <div class="col-md-6 col-xs-12">1.0.0</div>
-                                </div>
-                                <div class="col-md-4 col-xs-6">
-                                    <h4 class="green-txt">Features:</h4>
-                                    <ul>
-                                        <li>Locked dependency list</li>
-                                        <li>Updated travis recipe</li>
-                                    </ul>
-                                </div>
-                            </div>
+			<div class="col-sm-6  hidden-lg col-xs-12">
+				<a class="twitter-timeline" data-height="530" href="https://twitter.com/soajsorg">Tweets by soajsorg</a>
+				<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+			</div>
+		</div>
+	-->
 
 
-                            <div class="col-md-12 col-xs-12 content">
-                                <div class="col-md-8 col-xs-6">
-                                    <div class="col-md-6 col-xs-12">soajs.installer</div>
-                                    <div class="col-md-6 col-xs-12">1.0.0</div>
-                                </div>
-                                <div class="col-md-4 col-xs-6">
-                                    <h4 class="green-txt">Features:</h4>
-                                    <ul>
-                                        <li>Updated all configuration files to support sessionLess behavior</li>
-                                    </ul>
-                                </div>
-                            </div>
+		<div class="col-lg-8 col-md-12">
+			<h2>SOAJS News </h2>
+			<p>
+				River Shark Release contains the latest SOAJS updates and the first release in its new <b>1.x</b>
+				version.<br>
+				In this new version, SOAJS introduced the new <b>sessionless behavior</b> where logged in users no
+				longer have sessions unless required by the microservices to store custom product information.<br>
+				In addition, soajs framework is broken down to multiple repositories for better management, flexibility,
+				modulatiry and usage.<br>
+				Please use the latest version of the <a href="https://soajsorg.atlassian.net/wiki/display/IN/Installer">SOAJS
+				Installer</a> to deploy this new version.
+			</p>
+			<div class="red white-txt text-center">The new SOAJS version is not backward compatible.</div>
+		</div>
+		<div class="clearfix"></div>
+		<div class="row">
+
+			<h2>Releases</h2>
+
+			<div class="panel-group" id="accordion">
+				<!--  River Shark -->
+				<div class="panel panel-default">
+					<div class="panel-heading painted">
+						<h4 class="panel-title">
+							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne">
+								Release River Shark 1
+							</a>
+							<span class="pull-right">April 5, 2017</span>
+						</h4>
+					</div>
+					<div id="collapseOne" class="panel-collapse collapse in">
+						<div class="panel-body">
+
+							<div class="col-md-12 col-xs-12 content">
+								<div class="col-md-8 col-xs-6">
+									<div class="col-md-6 col-xs-12">soajs.prx</div>
+									<div class="col-md-6 col-xs-12">1.0.0</div>
+								</div>
+								<div class="col-md-4 col-xs-6">
+									<h4 class="green-txt">Features:</h4>
+									<ul>
+										<li>Added support for sessionless behavior</li>
+										<li>Revamped test cases</li>
+									</ul>
+								</div>
+
+							</div>
+
+							<div class="col-md-12 col-xs-12 content">
+								<div class="col-md-8 col-xs-6">
+									<div class="col-md-6 col-xs-12">soajs.gcs</div>
+									<div class="col-md-6 col-xs-12">1.0.0</div>
+								</div>
+								<div class="col-md-4 col-xs-6">
+									<h4 class="green-txt">Features:</h4>
+									<ul>
+										<li>Added support for sessionless behavior</li>
+										<li>Revamped test cases</li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="col-md-12 col-xs-12 content">
+								<div class="col-md-8 col-xs-6">
+									<div class="col-md-6 col-xs-12">soajs.utilities</div>
+									<div class="col-md-6 col-xs-12">1.0.0</div>
+								</div>
+								<div class="col-md-4 col-xs-6">
+									<h4 class="green-txt">Features:</h4>
+									<ul>
+										<li>Updated dependency list to work with new versions</li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="col-md-12 col-xs-12 content">
+								<div class="col-md-8 col-xs-6">
+									<div class="col-md-6 col-xs-12">soajs.examples</div>
+									<div class="col-md-6 col-xs-12">1.0.0</div>
+								</div>
+								<div class="col-md-4 col-xs-6">
+
+									<h4 class="yellow-dark-txt">Demo that highlights service security through:</h4>
+									<ul>
+										<li>oauth</li>
+										<li>acl</li>
+										<li>oauth+acl</li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="col-md-12 col-xs-12 content">
+								<div class="col-md-8 col-xs-6">
+									<div class="col-md-6 col-xs-12">soajs.jsconf</div>
+									<div class="col-md-6 col-xs-12">1.0.0</div>
+								</div>
+								<div class="col-md-4 col-xs-6">
+									<h4 class="yellow-dark-txt">Demo that highlights:</h4>
+									<ul>
+										<li>IMFV</li>
+										<li>oauth</li>
+										<li>Multitenancy</li>
+										<li>Key security</li>
+									</ul>
+
+								</div>
+							</div>
+
+							<div class="col-md-12 col-xs-12 content">
+								<div class="col-md-8 col-xs-6">
+									<div class="col-md-6 col-xs-12">soajs.artifact</div>
+									<div class="col-md-6 col-xs-12">1.0.0</div>
+								</div>
+								<div class="col-md-4 col-xs-6">
+									<h4 class="green-txt">Features:</h4>
+									<ul>
+										<li>Locked dependency list</li>
+										<li>Updated travis recipe</li>
+									</ul>
+								</div>
+							</div>
 
 
-                        </div>
-                    </div>
-                </div>
+							<div class="col-md-12 col-xs-12 content">
+								<div class="col-md-8 col-xs-6">
+									<div class="col-md-6 col-xs-12">soajs.installer</div>
+									<div class="col-md-6 col-xs-12">1.0.0</div>
+								</div>
+								<div class="col-md-4 col-xs-6">
+									<h4 class="green-txt">Features:</h4>
+									<ul>
+										<li>Updated all configuration files to support sessionLess behavior</li>
+									</ul>
+								</div>
+							</div>
 
 
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
-                               data-target="#collapseTwo">
-                                Release name #2
-                            </a>
-                            <span class="pull-right">Date here</span>
-                        </h4>
-                    </div>
-                    <div id="collapseTwo" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="col-md-12 col-xs-12 content">
-                                <div class="col-md-8 col-xs-6">
-                                    <div class="col-md-6 col-xs-12">Repository</div>
-                                    <div class="col-md-6 col-xs-12">version</div>
-                                </div>
-                                <div class="col-md-4 col-xs-6">
-                                    Desscription
-                                </div>
+						</div>
+					</div>
+				</div>
 
-                            </div>
-                            <div class="col-md-12 col-xs-12 content">
-                                <div class="col-md-8 col-xs-6">
-                                    <div class="col-md-6 col-xs-12">Repository</div>
-                                    <div class="col-md-6 col-xs-12">version</div>
-                                </div>
-                                <div class="col-md-4 col-xs-6">
-                                    Desscription
-                                </div>
+				<div class="panel panel-default" ng-repeat="release in newsList">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" data-target="#collapse_{{$index}}">
+								{{release.label}}
+							</a>
+							<span class="pull-right">{{release.date}}</span>
+						</h4>
+					</div>
+					<div id="collapse_{{$index}}" class="panel-collapse collapse">
+						<div class="panel-body">
+							<div ng-if="release.content">
+								<div ng-repeat="line in release.content" ng-bind-html="line|toTrustedHtml"></div>
 
-                            </div>
-                            <div class="col-md-12 col-xs-12 content">
-                                <div class="col-md-8 col-xs-6">
-                                    <div class="col-md-6 col-xs-12">Repository</div>
-                                    <div class="col-md-6 col-xs-12">version</div>
-                                </div>
-                                <div class="col-md-4 col-xs-6">
-                                    Desscription
-                                </div>
+							</div>
+							<div ng-if="release.repos">
+								<div ng-repeat="repo in release.repos" class="col-md-12 col-xs-12 content">
+									<div class="col-md-8 col-xs-6">
+										<div class="col-md-6 col-xs-12">{{repo.name}}</div>
+										<div class="col-md-6 col-xs-12">{{repo.version}}</div>
+									</div>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
-                               data-target="#collapseThree">
-                                Release name #3
-                            </a>
-                            <span class="pull-right">October 2, 2015</span>
-                        </h4>
-                    </div>
-                    <div id="collapseThree" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="col-md-12 col-xs-12 content">
-                                <div class="col-md-8 col-xs-6">
-                                    <div class="col-md-6 col-xs-12">Repository</div>
-                                    <div class="col-md-6 col-xs-12">version</div>
-                                </div>
-                                <div class="col-md-4 col-xs-6">
-                                    Desscription
-                                </div>
+									<div class="col-md-4 col-xs-6">
+										<div ng-if="repo.description">
+											<div ng-repeat="line in repo.description">{{line}}</div>
+										</div>
+										<div ng-if="repo.bugFixes && repo.bugFixes.length">
+											<h4 class="red-txt">Bug fixes:</h4>
+											<ul>
+												<li ng-repeat="bug in repo.bugFixes">{{bug}}</li>
+											</ul>
+										</div>
+										<div ng-if="repo.features && repo.features.length">
+											<h4 class="green-txt">Features:</h4>
+											<ul>
+												<li ng-repeat="feature in repo.features">{{feature}}</li>
+											</ul>
+										</div>
+										<div ng-if="repo.enhancedTests && repo.enhancedTests.length">
+											<h4 class="red-txt">Enhanced Tests:</h4>
+											<ul>
+												<li ng-repeat="test in repo.enhancedTests">{{test}}</li>
+											</ul>
+										</div>
+										<div ng-if="repo.custom">
+											<div ng-repeat="oneData in repo.custom">
+												<h4 class="{{oneData.class}}">{{oneData.label}}</h4>
+												<ul>
+													<li ng-repeat="item in oneData.data">{{item}}</li>
+												</ul>
+											</div>
 
-                            </div>
-                            <div class="col-md-12 col-xs-12 content">
-                                <div class="col-md-8 col-xs-6">
-                                    <div class="col-md-6 col-xs-12">Repository</div>
-                                    <div class="col-md-6 col-xs-12">version</div>
-                                </div>
-                                <div class="col-md-4 col-xs-6">
-                                    Desscription
-                                </div>
+										</div>
+									</div>
 
-                            </div>
-                            <div class="col-md-12 col-xs-12 content">
-                                <div class="col-md-8 col-xs-6">
-                                    <div class="col-md-6 col-xs-12">Repository</div>
-                                    <div class="col-md-6 col-xs-12">version</div>
-                                </div>
-                                <div class="col-md-4 col-xs-6">
-                                    Desscription
-                                </div>
+								</div>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+							</div>
+
+						</div>
+					</div>
+				</div>
 
 
-        </div>
-    </div>
+			</div>
+
+
+		</div>
+	</div>
 </div>

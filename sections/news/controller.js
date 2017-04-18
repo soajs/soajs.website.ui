@@ -7,9 +7,11 @@ newsApp.controller('newsPageCtrl', ['$scope', '$http', function ($scope, $http) 
 		subTitle: ""
 	};
 	$scope.$parent.$emit('refreshPageTitle', pageData);
-
+	
+	$scope.newsList = [];
     $http.get("sections/news/releases.json").success(function(data) {
-        $scope.repos = data;
+	    $scope.newsList = data;
     });
 
+	
 }]);

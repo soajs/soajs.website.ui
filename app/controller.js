@@ -124,3 +124,9 @@ app.filter('trustAsResourceUrl', ['$sce', function ($sce) {
 		return $sce.trustAsResourceUrl(val);
 	};
 }]);
+
+app.filter('toTrustedHtml', ['$sce', function ($sce) {
+	return function (text) {
+		return $sce.trustAsHtml(text);
+	};
+}]);
