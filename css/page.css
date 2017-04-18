@@ -227,24 +227,12 @@ h2, .h2 {
 }
 
 .topbar .getStarted {
-    width: 122px;
+    /*width: 122px;*/
     white-space: nowrap;
 }
 
-.topbar .features {
-    width: 99px;
-}
-
-.topbar .documentation {
-    width: 143px;
-}
-
-.topbar .news {
-    width: 77px;
-}
-
 .topbar .contactUs {
-    width: 113px;
+    /*width: 113px;*/
 }
 
 .hljs {
@@ -332,7 +320,7 @@ Footer section
 .copyright {
     margin-top: 70px;
     margin-bottom: 50px;
-    color:gray;3
+    color:gray;
 }
 
 .bottom .socialMedia {
@@ -684,7 +672,7 @@ img.thumb {
 **********************/
 .circle {
     border-radius: 50%;
-    border: 1x solid grey;
+    border: 1px solid grey;
     padding: 10px;
     cursor: pointer;
 
