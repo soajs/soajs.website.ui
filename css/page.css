@@ -1065,4 +1065,5 @@ input.form-control:focus, .form-control:focus {
     border-radius: 25px;
     padding: 9px 20px;
     font-size: 16px;
+    outline:none !important;
 }
