@@ -341,7 +341,13 @@ Footer section
     color: #122733;
     font-size: 24px;
 }
+.socialMedia a{
+    outline:none !important;
 
+}
+ .socialMedia i {
+    font-size: 32px;
+}
 /**
 Setions
  */
@@ -524,7 +530,7 @@ Setions
 }
 
 .navy-dark-txt {
-    olor: #122733
+    color: #122733
 }
 
 .yellow-txt {
@@ -569,7 +575,7 @@ Setions
 }
 
 .navy-dark-txt-hover:hover {
-    olor: #122733
+    color: #122733
 }
 
 .yellow-txt-hover:hover {
@@ -672,12 +678,20 @@ img.thumb {
 **********************/
 .circle {
     border-radius: 50%;
-    border: 1px solid grey;
     padding: 10px;
     cursor: pointer;
-
+    outline:none !important;
 }
 
+.circle.no-border {
+ border: none;
+}
+
+.gitter
+{
+
+    background-image: url("../images/gitter.png");
+}
 .icon {
     margin-top: 50px;
 
@@ -695,6 +709,8 @@ img.thumb {
 .icon .circle {
     padding: 15px;
 }
+
+
 
 /**********************
 *
@@ -717,6 +733,71 @@ img.thumb {
     width: 100%;
 }
 
+
+hr.white{
+    width: 55px;
+    height: 2px;
+    color: white;
+}
+hr.yellow-dark{
+    width: 55px;
+    height: 2px;
+    color: #f48600;
+}
+
+hr.gray {
+    width: 55px;
+    height: 2px;
+    color: gray
+}
+
+hr.navy {
+    width: 55px;
+    height: 2px;
+    color: #19303f;
+}
+
+hr.navy-dark {
+    width: 55px;
+    height: 2px;
+    color: #122733
+}
+
+hr.yellow {
+    width: 55px;
+    height: 2px;
+    color: #f49c1c
+}
+
+hr.yellow-light {
+    width: 55px;
+    height: 2px;
+    color: #f4b500
+}
+
+hr.yellow-dark {
+    width: 55px;
+    height: 2px;
+    color: #f48600
+}
+
+hr.blue {
+    width: 55px;
+    height: 2px;
+    color: #397999
+}
+
+hr.red {
+    width: 55px;
+    height: 2px;
+    color: #aa3f3f
+}
+
+hr.green {
+    width: 55px;
+    height: 2px;
+    color: #418774
+}
 /**********************
 *
 * misc
