@@ -47,16 +47,6 @@
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.gcs&type=watch&count=true"
   },
   {
-    "id": "PRX",
-    "label": "Proxy",
-    "npm":"soajs.prx",
-    "travis":"soajs/soajs.prx",
-    "coveralls":"soajs/soajs.prx",
-    "documentation": "https://soajsorg.atlassian.net/wiki/display/PROX/Proxy",
-    "external": true,
-    "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.prx&type=watch&count=true"
-  },
-  {
     "id": "Controller",
     "label": "Controller",
     "npm":"soajs.controller",

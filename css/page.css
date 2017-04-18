@@ -1004,7 +1004,6 @@ hr {
     margin: 0;
     padding : 0;
     margin-top: 2px;
-    float: left;
     margin-right:2px;
 }
 .badgesinner {
@@ -1012,7 +1011,6 @@ hr {
 }
 
 .badgesinner .gitLink {
-    overflow: hidden;
     position: relative;
     top: 6px;
 }
