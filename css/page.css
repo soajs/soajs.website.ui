@@ -136,7 +136,6 @@ navbar-default .navbar-nav > li > a,
     color:white;
     box-shadow: none;
 }
-
 .topbar-wrapper {
     position: fixed;
     top: 0;
@@ -149,6 +148,12 @@ navbar-default .navbar-nav > li > a,
     background-color: white;
     color: #19303f;
     border-bottom: 1px grey solid;
+}
+
+.topbar.scrolling .topnav > .open > a:hover,
+.topbar.scrolling .topnav > .open > a
+{
+    color: #19303f;
 }
 
 .topbar.scrolling .topnav li a {
