@@ -1,192 +1,197 @@
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=myCallBack&render=explicit" async defer></script>
 
 <div ng-controller="contactCtrl">
 
-    <!-- White top section -->
-    <div class="container">
-        <div class="row">
-            <!-- Messages nd notifications -->
-            <div class="col-lg-12 col-md-12">
-                <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}
-                </alert>
-            </div>
-            <!-- General contact us form -->
-            <div class="col-lg-6 col-md-8">
-                <h2>Send us a message</h2>
-                <form name="contactForm" ng-submit="contactForm.$valid && sendContact()" novalidate>
+	<!-- White top section -->
+	<div class="container">
+		<div class="row">
+			<!-- Messages nd notifications -->
+			<div class="col-lg-12 col-md-12">
+				<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}
+				</alert>
+			</div>
+			<!-- General contact us form -->
+			<div class="col-lg-6 col-md-8">
+				<h2>Send us a message</h2>
+				<form name="contactForm" ng-submit="contactForm.$valid && sendContact()" novalidate>
 
-                    <div class="form-group">
-                        <input ng-model="contact.name" type="text" placeholder="Your Name" class="form-control"
-                               tooltip="Enter your full name..." required/>
-                    </div>
-                    <div class="form-group">
-                        <input ng-model="contact.email" type="email" class="form-control"
-                               placeholder="Email" tooltip="Enter your email address..." required/>
-                    </div>
+					<div class="form-group">
+						<input ng-model="contact.name" type="text" placeholder="Your Name" class="form-control"
+						       tooltip="Enter your full name..." required/>
+					</div>
+					<div class="form-group">
+						<input ng-model="contact.email" type="email" class="form-control" placeholder="Email" tooltip="Enter your email address..." required/>
+					</div>
 
-                    <div class="form-group">
-                        <select ng-model="contact.purpose" class="form-control"
-                                tootltip="Pick a purpose for your message..." required>
-                            <option value=""> -- Subject --</option>
-                            <option value="Support">I need Support</option>
-                            <option value="Feedback">I have feedback</option>
-                            <option value="Consultancy">I need Consultancy</option>
-                        </select></div>
+					<div class="form-group">
+						<select ng-model="contact.purpose" class="form-control"
+						        tootltip="Pick a purpose for your message..." required>
+							<option value=""> -- Subject --</option>
+							<option value="Support">I need Support</option>
+							<option value="Feedback">I have feedback</option>
+							<option value="Consultancy">I need Consultancy</option>
+						</select></div>
 
-                    <div class="form-group">
+					<div class="form-group">
                 <textarea required class="form-control" placeholder="Write your message here..."
                           tooltip="Provide as much information as possible in your message..." rows="10"
                           ng-model="contact.message"></textarea>
-                    </div>
+					</div>
 
-                    <div class="form-group">
-                        <div class="g-recaptcha" data-sitekey="6LcMzgMTAAAAAKd0Lqit5HJUI2Y6evlriyxT8-Zj"></div>
-                    </div>
+					<div class="form-group">
+						<div id="captcha1"></div>
+					</div>
 
-                    <div class="form-group">
-                        <input type="submit" class="btn yellow yellow-dark-hover white-txt pull-right"
-                               value="Submit"/>
-                    </div>
-                    <br class="clearfix">
-                </form>
-                <div class="separator50"></div>
-            </div>
-            <!-- twitter feeds -->
-            <div class="col-lg-4 col-md-4 hidden-sm  hidden-sm hidden-xs pull-right">
-                <div class="socialMedia col-lg-12 text-center">
-                    <a href="https://gitter.im/soajs/soajs" class="" target="_blank"><i class="yellow-dark white-txt white-border circle yellow-hover navy-dark-txt-hover    icon-gitter"></i></a>
-                    <a href="https://twitter.com/soajsorg" class="" target="_blank"><i class="yellow-dark white-txt white-border circle yellow-hover  navy-dark-txt-hover icon-footer-twitter-color"></i></a>
-                </div>
-                <a class="twitter-timeline" data-height="530" href="https://twitter.com/soajsorg">Tweets by soajsorg</a>
-                <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-
-            </div>
-
-        </div>
-    </div>
+					<div class="form-group">
+						<input type="submit" class="btn yellow yellow-dark-hover white-txt pull-right"
+						       value="Submit"/>
+					</div>
+					<br class="clearfix">
+				</form>
+				<div class="separator50"></div>
+			</div>
+			<!-- twitter feeds -->
+			<div class="col-lg-4 col-md-4 hidden-sm  hidden-sm hidden-xs pull-right">
+				<div class="socialMedia col-lg-12 text-center">
+					<a href="https://gitter.im/soajs/soajs" class="" target="_blank"><i class="yellow-dark white-txt white-border circle yellow-hover navy-dark-txt-hover    icon-gitter"></i></a>
+					<a href="https://twitter.com/soajsorg" class="" target="_blank"><i class="yellow-dark white-txt white-border circle yellow-hover  navy-dark-txt-hover icon-footer-twitter-color"></i></a>
+				</div>
+				<a class="twitter-timeline" data-height="530" href="https://twitter.com/soajsorg">Tweets by soajsorg</a>
+				<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
-    <!-- two sided boxes -->
-    <div class="row-height  navy white-txt text-center">
-        <div class="col-md-6 col-md-12 col-sm-height navy" id="submit">
-            <div class="inside inside-full-height">
-                <div class="content">
+			</div>
 
-                    <h2 class="white-txt text-center" >Submit your project</h2>
-                    <hr class="yellow-dark">
-                    <form name="requestForm" ng-submit="" novalidate class="colorForm">
-                        <div class="form-group">
-                            <div class="col-md-6 col-sm-12">
-                                <input ng-model="project.name" type="text" class="form-control" placeholder="First Name"
-                                       tooltip="Enter your first name" required/></div>
-                            <div class="col-md-6 col-sm-12">
-                                <input ng-model="project.lname" type="text" class="form-control" placeholder="Last Name" tooltip="Enter your last name" required/>
-                            </div>
+		</div>
+	</div>
 
-                            <div class="col-md-6 col-sm-12">
-                                <input ng-model="project.custom1" type="text" class="form-control" placeholder="Custom Field 1" tooltip="Input data" required/>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <input ng-model="project.custom2" type="text" class="form-control" placeholder="Custom Field 2 " tooltip="Input data" required/>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <input ng-model="project.custom3" type="text" class="form-control" placeholder="Custom Field 3" tooltip="Input data" required/>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <input ng-model="project.custom4" type="text" class="form-control" placeholder="Custom Field 4" tooltip="Input data" required/>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <input ng-model="project.custom5" type="text" class="form-control" placeholder="Custom Field 5" tooltip="Input data" required/>
-                            </div>
 
-                        </div>
-                        <div class="form-group">
-                            <div class="g-recaptcha" data-sitekey="6LcMzgMTAAAAAKd0Lqit5HJUI2Y6evlriyxT8-Zj"></div>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="form-group">
-                            <button type="button" class="btn navy bordered white-border white-txt white-hover">Submit Your project
-                            </button>
-                        </div>
-                    </form>
+	<!-- two sided boxes -->
+	<div class="row-height  navy white-txt text-center">
+		<div class="col-md-6 col-md-12 col-sm-height navy" id="submit">
+			<div class="inside inside-full-height">
+				<div class="content">
 
-                    <div class="separator50"></div>
-                </div>
-            </div>
-        </div>
-        <!-- Request a Demo form -->
-        <div class="col-md-6 col-sm-12 col-sm-height navy-dark" id="request">
-            <div class="inside inside-full-height">
-                <div class="content">
-                    <div class="separator50"></div>
-                    <h2 class="white-txt text-center" >Request a Demo</h2>
-                    <hr class="yellow-dark">
-                    <form name="requestForm" ng-submit="" novalidate class="colorForm">
-                        <div class="form-group">
-                            <div class="col-md-6 col-sm-12">
-                                <input ng-model="contact.name" type="text" class="form-control" placeholder="First Name"
-                                       tooltip="Enter your first name" required/></div>
-                            <div class="col-md-6 col-sm-12">
-                                <input ng-model="contact.lname" type="text" class="form-control" placeholder="Last Name"
-                                       tooltip="Enter your last name" required/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-6 col-sm-12">
-                                <input ng-model="contact.email" type="email" class="form-control" placeholder="Email"
-                                       tooltip="Enter your email address..." required/>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <input ng-model="contact.company" type="text" class="form-control" placeholder="Email"
-                                       tooltip="Enter your comapny name..." required/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-6 col-sm-12">
-                                <input ng-model="contact.role" type="text" class="form-control" placeholder="Role"
-                                       tooltip="Enter your business role" required/></div>
-                            <div class="col-md-6 col-sm-12">
-                                <input ng-model="contact.country" type="text" class="form-control" placeholder="Country"
-                                       tooltip="Enter your country" required/>
-                            </div>
-                        </div>
+					<h2 class="white-txt text-center">Submit your project</h2>
+					<hr class="yellow-dark">
+					<form name="requestForm" novalidate class="colorForm">
+						<div class="clearfix form-group">
+							<div class="col-md-6 col-sm-12">
+								<input ng-model="project.name" type="text" class="form-control" placeholder="Your Name"
+								       tooltip="Enter your name" required/></div>
 
-                        <div class="form-group">
-                            <div class="col-md-12 col-sm-12">
+							<div class="col-md-6 col-sm-12">
+								<input ng-model="project.custom1" type="text" class="form-control" placeholder="Custom Field 1" tooltip="Input data" required/>
+							</div>
+							<div class="col-md-6 col-sm-12">
+								<input ng-model="project.custom2" type="text" class="form-control" placeholder="Custom Field 2 " tooltip="Input data" required/>
+							</div>
+							<div class="col-md-6 col-sm-12">
+								<input ng-model="project.custom3" type="text" class="form-control" placeholder="Custom Field 3" tooltip="Input data" required/>
+							</div>
+							<div class="col-md-6 col-sm-12">
+								<input ng-model="project.custom4" type="text" class="form-control" placeholder="Custom Field 4" tooltip="Input data" required/>
+							</div>
+							<div class="col-md-6 col-sm-12">
+								<input ng-model="project.custom5" type="text" class="form-control" placeholder="Custom Field 5" tooltip="Input data" required/>
+							</div>
+
+						</div>
+						<div class="form-group">
+							<div class="col-md-6 col-sm-12">
+								<div id="captcha2"></div>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<div class="form-group">
+							<button type="button" ng-click="requestForm.$valid && sendRequest()" class="btn navy bordered white-border white-txt white-hover">
+								Submit Your project
+							</button>
+						</div>
+					</form>
+
+					<div class="separator50"></div>
+				</div>
+			</div>
+		</div>
+		<!-- Request a Demo form -->
+		<div class="col-md-6 col-sm-12 col-sm-height navy-dark" id="request">
+			<div class="inside inside-full-height">
+				<div class="content">
+					<div class="separator50"></div>
+					<h2 class="white-txt text-center">Request a Demo</h2>
+					<hr class="yellow-dark">
+					<form name="requestDemo" novalidate class="colorForm">
+						<div class="clearfix form-group">
+							<div class="form-group">
+								<div class="col-md-6 col-sm-12">
+									<input ng-model="contact.name" type="text" class="form-control" placeholder="Your Name"
+									       tooltip="Enter your name" required/></div>
+								<div class="col-md-6 col-sm-12">
+									<input ng-model="contact.phone" type="text" class="form-control" placeholder="Phone Number"
+									       tooltip="Enter your phone number"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-6 col-sm-12">
+									<input ng-model="contact.email" type="email" class="form-control" placeholder="Email"
+									       tooltip="Enter your email address..." required/>
+								</div>
+								<div class="col-md-6 col-sm-12">
+									<input ng-model="contact.company" type="text" class="form-control" placeholder="Company Name"
+									       tooltip="Enter your comapny name..." required/>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-6 col-sm-12">
+									<input ng-model="contact.role" type="text" class="form-control" placeholder="Role"
+									       tooltip="Enter your business role" required/></div>
+								<div class="col-md-6 col-sm-12">
+									<input ng-model="contact.country" type="text" class="form-control" placeholder="Country"
+									       tooltip="Enter your country" required/>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-md-12 col-sm-12">
                                 <textarea required class="form-control" placeholder="Message"
                                           tooltip="Provide as much information as possible in your message..." rows="10"
                                           ng-model="contact.message"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="g-recaptcha" data-sitekey="6LcMzgMTAAAAAKd0Lqit5HJUI2Y6evlriyxT8-Zj"></div>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="form-group">
-                            <button type="button" class="btn navy bordered white-border white-txt white-hover">Submit
-                                your Request
-                            </button>
-                        </div>
-                        <div class="separator50"></div>
+								</div>
+							</div>
+						</div>
 
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+						<div class="form-group">
+							<div class="col-md-6 col-sm-12">
+								<div id="captcha3"></div>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<div class="form-group">
+							<button ng-click="sendDemoRequest()" type="button" class="btn navy bordered white-border white-txt white-hover">
+								Submit
+								your Request
+							</button>
+						</div>
+						<div class="separator50"></div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
-    <!-- Shaded Orange strip -->
-    <div class="col-lg-12 orange-shade spearator50">&nbsp;</div>
+	<!-- Shaded Orange strip -->
+	<div class="col-lg-12 orange-shade spearator50">&nbsp;</div>
 
 
-    <!-- Join the Team -->
-    <div class="col-lg-12 col-md-12 text-center">
-        <h2 id="interested">Interested in joining our team? </h2>
-        Send us your CV and job position to <a href="mailto:team@soajs.org">team@soajs.org</a>
-        <div class="separator50"></div>
-        <div class="separator50"></div>
-    </div>
+	<!-- Join the Team -->
+	<div class="col-lg-12 col-md-12 text-center">
+		<h2 id="interested">Interested in joining our team? </h2>
+		Send us your CV and job position to <a href="mailto:team@soajs.org">team@soajs.org</a>
+		<div class="separator50"></div>
+		<div class="separator50"></div>
+	</div>
 
 </div>

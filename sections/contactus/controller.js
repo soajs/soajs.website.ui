@@ -1,6 +1,6 @@
 "use strict";
 var contactUsApp = app.components;
-contactUsApp.controller('contactCtrl', ['$scope', '$http', '$timeout', function ($scope, $http, $timeout) {
+contactUsApp.controller('contactCtrl', [ '$scope', '$http', '$timeout', function ($scope, $http, $timeout) {
 	$scope.alerts = [];
 
 	$scope.closeAlert = function (index) {
@@ -14,14 +14,15 @@ contactUsApp.controller('contactCtrl', ['$scope', '$http', '$timeout', function 
 	};
 
 	$scope.sendContact = function () {
-		$scope.alerts.push({'type': 'warning', 'msg': "Your message is being sent, please wait ..."});
+		$scope.alerts.push({ 'type': 'warning', 'msg': "Your message is being sent, please wait ..." });
 		if ($scope.contactForm.$valid) {
-			$scope.contact.captcha = document.getElementById('g-recaptcha-response').value;
+			$scope.contact.captcha = iCaptcha1Value;
+			
 			$http({
 				method: 'POST',
 				url: '/sections/contactus/sendMail.php',
 				data: $scope.contact,
-				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 			}).success(function (data, status, headers, config) {
 				grecaptcha.reset();
 				if (data.result === true) {
@@ -56,11 +57,23 @@ contactUsApp.controller('contactCtrl', ['$scope', '$http', '$timeout', function 
 		}
 	};
 
+	$scope.sendRequest = function () {
+		$scope.alerts.push({ 'type': 'warning', 'msg': "Your message is being sent, please wait ..." });
+	};
+
+	$scope.sendDemoRequest = function () {
+		if($scope.requestDemo.$valid){
+
+		}
+		$scope.alerts.push({ 'type': 'warning', 'msg': "Your message is being sent, please wait ..." });
+	};
+
+
 	var pageData = {
 		title: "Contact Us",
 		subTitle: "Contact"
 	};
 	$scope.$parent.$emit('refreshPageTitle', pageData);
 
-}]);
+} ]);
 

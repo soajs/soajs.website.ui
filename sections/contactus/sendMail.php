@@ -1,5 +1,7 @@
 <?php
-
+	
+	$subject = "New Email from SOAJS Website";
+	
     function buildResponse($msg){
         if($msg != null){
             $response = array(
@@ -53,32 +55,100 @@
         buildResponse( 'Invalid Captcha Provided.');
     }
 
+	if($postedData->isRequestDemo){
+	$subject = "New Demo Request from SOAJS Website";
+	
+	$body = <<<HTML
+        Dear Administrator,<br/>
+        The following message has been sent from the Request a Demo Section of SOAJS Website.<br /><br />
+        <table cellspacing='1' cellpadding='3' border='0' width='1000' align='center'>
+        <tr>
+        <td width='70' align='left'><strong>Name:</strong></td>
+        <td align='left'>$name</td>
+        </tr>
+        <tr>
+        <td width='70' align='left'><strong>E-mail:</strong></td>
+        <td align='left'>$email</td>
+        </tr>
+        <tr>
+        <td width='70' align='left'><strong>Purpose:</strong></td>
+        <td align='left'>$purpose</td>
+        </tr>
+        <tr>
+        <td colspan='2' align='left'>
+          <strong>Message:</strong><br />
+          $message
+        </td>
+        </tr>
+        </table><br /><br />
+        Regards,<br/>
+        SOAJS Website.
+    HTML;
+    
+	}
+	else if($postedData->isSubmitProject){
+	
+	$subject = "New Project from SOAJS Website";
+	
+	$body = <<<HTML
+	    Dear Administrator,<br/>
+	    The following message has been sent from the Contact Us Section of SOAJS Website.<br /><br />
+	    <table cellspacing='1' cellpadding='3' border='0' width='1000' align='center'>
+	    <tr>
+	    <td width='70' align='left'><strong>Name:</strong></td>
+	    <td align='left'>$name</td>
+	    </tr>
+	    <tr>
+	    <td width='70' align='left'><strong>E-mail:</strong></td>
+	    <td align='left'>$email</td>
+	    </tr>
+	    <tr>
+	    <td width='70' align='left'><strong>Purpose:</strong></td>
+	    <td align='left'>$purpose</td>
+	    </tr>
+	    <tr>
+	    <td colspan='2' align='left'>
+	      <strong>Message:</strong><br />
+	      $message
+	    </td>
+	    </tr>
+	    </table><br /><br />
+	    Regards,<br/>
+	    SOAJS Website.
+	HTML;
+
+    }
+    else {
+    
     $body = <<<HTML
-    Dear Administrator,<br/>
-    The following message has been sent from the Contact Us Section of SOAJS Website.<br /><br />
-    <table cellspacing='1' cellpadding='3' border='0' width='1000' align='center'>
-    <tr>
-    <td width='70' align='left'><strong>Name:</strong></td>
-    <td align='left'>$name</td>
-    </tr>
-    <tr>
-    <td width='70' align='left'><strong>E-mail:</strong></td>
-    <td align='left'>$email</td>
-    </tr>
-    <tr>
-    <td width='70' align='left'><strong>Purpose:</strong></td>
-    <td align='left'>$purpose</td>
-    </tr>
-    <tr>
-    <td colspan='2' align='left'>
-      <strong>Message:</strong><br />
-      $message
-    </td>
-    </tr>
-    </table><br /><br />
-    Regards,<br/>
-    SOAJS Website.
-HTML;
+        Dear Administrator,<br/>
+        The following message has been sent from the Contact Us Section of SOAJS Website.<br /><br />
+        <table cellspacing='1' cellpadding='3' border='0' width='1000' align='center'>
+        <tr>
+        <td width='70' align='left'><strong>Name:</strong></td>
+        <td align='left'>$name</td>
+        </tr>
+        <tr>
+        <td width='70' align='left'><strong>E-mail:</strong></td>
+        <td align='left'>$email</td>
+        </tr>
+        <tr>
+        <td width='70' align='left'><strong>Purpose:</strong></td>
+        <td align='left'>$purpose</td>
+        </tr>
+        <tr>
+        <td colspan='2' align='left'>
+          <strong>Message:</strong><br />
+          $message
+        </td>
+        </tr>
+        </table><br /><br />
+        Regards,<br/>
+        SOAJS Website.
+    HTML;
+    
+    }
+    
 
     $headers = "MIME-Version: 1.0\r\n";
     $headers .= "Content-type: text/html; charset=utf-8\r\n";
@@ -93,8 +163,8 @@ HTML;
     $headers .= "X-Mailer: PHP" . phpversion () . "\r\n";
     $headers .= "X-Sender-IP: " . getenv ( 'REMOTE_ADDR' ) . "\r\n";
     $headers .= "Content-Transfer-Encoding: 7bit\r\n";
-
-    $status = mail ( $to, "New Email from SOAJS Website", $body, $headers );
+	
+    $status = mail ( $to, $subject, $body, $headers );
 
     if ($status)
         buildResponse(null);
