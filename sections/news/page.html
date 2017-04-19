@@ -1,29 +1,10 @@
-<style>
-	.releases ul {
-		padding-left: 0px;
-		list-style-position: inside;
-	}
-
-	.releases .releaseNotes {
-		font-weight: bold;
-	}
-
-	.releases .repoName {
-		padding: 0;
-	}
-
-	.releases .repoName-wrapper {
-		padding: 0;
-	}
-
-</style>
 <div class="container">
 	<div ng-controller="newsPageCtrl">
-		<!--
-		<div class="row">
+
+		<div class="row" style="display: none">
 
 			<!-- main news - large -->
-		<!--
+
 			<div class="col-lg-8 col-md-12 ">
 				<h2>Heading</h2>
 				<img src="images/news/demo1.png" class="wide"/>
@@ -85,93 +66,96 @@
 				<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 			</div>
 		</div>
-	-->
+		<div class="row">
+			<div class="col-lg-8 col-md-12">
 
-
-		<div class="col-lg-8 col-md-12">
-			<h2>SOAJS News </h2>
-			<p>
-				River Shark Release contains the latest SOAJS updates and the first release in its new <b>1.x</b>
-				version.<br>
-				In this new version, SOAJS introduced the new <b>sessionless behavior</b> where logged in users no
-				longer have sessions unless required by the microservices to store custom product information.<br>
-				In addition, soajs framework is broken down to multiple repositories for better management, flexibility,
-				modulatiry and usage.<br>
-				Please use the latest version of the <a href="https://soajsorg.atlassian.net/wiki/display/IN/Installer">SOAJS
-				Installer</a> to deploy this new version.
-			</p>
-			<div class="red white-txt text-center">The new SOAJS version is not backward compatible.</div>
+				<h2>SOAJS News </h2>
+				<p>
+					River Shark Release contains the latest SOAJS updates and the first release in its new <b>1.x</b>
+					version.<br>
+					In this new version, SOAJS introduced the new <b>sessionless behavior</b> where logged in users no
+					longer have sessions unless required by the microservices to store custom product information.<br>
+					In addition, soajs framework is broken down to multiple repositories for better management,
+					flexibility,
+					modulatiry and usage.<br>
+					Please use the latest version of the
+					<a href="https://soajsorg.atlassian.net/wiki/display/IN/Installer">SOAJS
+						Installer</a> to deploy this new version.
+				</p>
+				<div class="red white-txt text-center">The new SOAJS version is not backward compatible.</div>
+			</div>
 		</div>
 		<div class="clearfix"></div>
+
 		<div class="row">
+			<div class="col-lg-12 col-md-12">
+				<h2>Releases</h2>
 
-			<h2>Releases</h2>
+				<div class="panel-group releases" id="accordion">
 
-			<div class="panel-group releases" id="accordion">
+					<div class="panel panel-default" ng-repeat="release in newsList">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" data-target="#collapse_{{$index}}">
+									{{release.label}}
+								</a>
+								<span class="pull-right">{{release.date}}</span>
+							</h4>
+						</div>
+						<div id="collapse_{{$index}}" class="panel-collapse collapse" ng-class="{'in': $index === 0}">
+							<div class="panel-body">
+								<div ng-if="release.content">
+									<div ng-repeat="line in release.content" ng-bind-html="line|toTrustedHtml"></div>
 
-				<div class="panel panel-default" ng-repeat="release in newsList">
-					<div class="panel-heading">
-						<h4 class="panel-title">
-							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" data-target="#collapse_{{$index}}">
-								{{release.label}}
-							</a>
-							<span class="pull-right">{{release.date}}</span>
-						</h4>
-					</div>
-					<div id="collapse_{{$index}}" class="panel-collapse collapse" ng-class="{'in': $index === 0}">
-						<div class="panel-body">
-							<div ng-if="release.content">
-								<div ng-repeat="line in release.content" ng-bind-html="line|toTrustedHtml"></div>
-
-							</div>
-							<div ng-if="release.repos">
-								<div ng-repeat="repo in release.repos" class="col-md-12 col-xs-12 content oneRepo">
-									<div class="col-md-4 col-sm-4 col-xs-12 repoName-wrapper">
-										<div class="col-md-8 col-xs-12 repoName">{{repo.name}}</div>
-										<div class="col-md-4 col-xs-12 version">{{repo.version}}</div>
-									</div>
-									<div class="col-md-8 col-sm-8 col-xs-12">
-										<div ng-if="repo.description">
-											<div ng-repeat="line in repo.description">{{line}}</div>
+								</div>
+								<div ng-if="release.repos">
+									<div ng-repeat="repo in release.repos" class="col-md-12 col-xs-12 content oneRepo">
+										<div class="col-md-4 col-sm-4 col-xs-12 repoName-wrapper">
+											<div class="col-md-8 col-xs-12 repoName">{{repo.name}}</div>
+											<div class="col-md-4 col-xs-12 version">{{repo.version}}</div>
 										</div>
-										<div ng-if="repo.bugFixes && repo.bugFixes.length">
-											<div class="releaseNotes red-txt bug">Bug fixes:</div>
-											<ul>
-												<li ng-repeat="bug in repo.bugFixes">{{bug}}</li>
-											</ul>
-										</div>
-										<div ng-if="repo.features && repo.features.length">
-											<div class="releaseNotes green-txt feature">Features:</div>
-											<ul>
-												<li ng-repeat="feature in repo.features" ng-bind-html="feature|toTrustedHtml"></li>
-											</ul>
-										</div>
-										<div ng-if="repo.enhancedTests && repo.enhancedTests.length">
-											<div class="releaseNotes red-txt etest">Enhanced Tests:</div>
-											<ul>
-												<li ng-repeat="test in repo.enhancedTests">{{test}}</li>
-											</ul>
-										</div>
-										<div ng-if="repo.custom">
-											<div ng-repeat="oneData in repo.custom">
-												<div class="releaseNotes {{oneData.class}}">{{oneData.label}}</div>
+										<div class="col-md-8 col-sm-8 col-xs-12">
+											<div ng-if="repo.description">
+												<div ng-repeat="line in repo.description">{{line}}</div>
+											</div>
+											<div ng-if="repo.bugFixes && repo.bugFixes.length">
+												<div class="releaseNotes red-txt bug">Bug fixes:</div>
 												<ul>
-													<li ng-repeat="item in oneData.data">{{item}}</li>
+													<li ng-repeat="bug in repo.bugFixes">{{bug}}</li>
 												</ul>
 											</div>
+											<div ng-if="repo.features && repo.features.length">
+												<div class="releaseNotes green-txt feature">Features:</div>
+												<ul>
+													<li ng-repeat="feature in repo.features" ng-bind-html="feature|toTrustedHtml"></li>
+												</ul>
+											</div>
+											<div ng-if="repo.enhancedTests && repo.enhancedTests.length">
+												<div class="releaseNotes red-txt etest">Enhanced Tests:</div>
+												<ul>
+													<li ng-repeat="test in repo.enhancedTests">{{test}}</li>
+												</ul>
+											</div>
+											<div ng-if="repo.custom">
+												<div ng-repeat="oneData in repo.custom">
+													<div class="releaseNotes {{oneData.class}}">{{oneData.label}}</div>
+													<ul>
+														<li ng-repeat="item in oneData.data">{{item}}</li>
+													</ul>
+												</div>
 
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
 
+							</div>
 						</div>
 					</div>
+
+
 				</div>
-
-
 			</div>
-
 
 		</div>
 	</div>
