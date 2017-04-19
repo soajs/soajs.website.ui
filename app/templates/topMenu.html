@@ -1,32 +1,92 @@
 <div id="topMenu-section1" class="topbar-wrapper">
-	<div class="topbar ng-scope">
-		<!--Navigation list-->
-		<div class="nav-container">
-			<div class="branding">
-				<a ng-click="menuVisible = false" href="/">
-					<img class="logo" ng-src="images/logow.png" alt="Soajs logo"/></a>
-			</div>
+    <div class="topbar ng-scope">
 
-			<div ng-class="{'menu-open': menuVisible === true}" ng-click="menuVisible = !menuVisible" class="menu">
-				<div class="menu-button-stripe"></div>
-				<div class="menu-button-stripe"></div>
-				<div class="menu-button-stripe"></div>
-			</div>
+        <!--Navigation list-->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="branding">
+                        <a ng-click="menuVisible = false" href="/">
+                            <img class="logo" ng-src="images/logow.png" alt="Soajs"/></a>
+                    </div>
 
-			<ul class="topnav ng-isolate-scope" ng-class="{'menu-open': menuVisible === true}" click-outside="" is-open="menuVisible">
+                </div>
 
-				<li ng-click="menuVisible = false" class="" ng-class="{'active': currentLocation === '/platform'}">
-					<a href="/platform">Products</a></li>
-				<li ng-click="menuVisible = false" class="" ng-class="{'active': currentLocation === '/study'}">
-					<a href="/case">Studies</a></li>
-				<li ng-click="menuVisible = false" class="" ng-class="{'active': currentLocation === '/news'}">
-					<a href="/news">Releases</a></li>
-				<li ng-click="menuVisible = false" class="contactUs" ng-class="{'active': currentLocation === '/contactUs'}">
-					<a href="/contactUs">Contact Us</a></li>
-				<li ng-click="menuVisible = false" class="getStarted">
-					<a target="_blank" href="https://soajsorg.atlassian.net/wiki/spaces/EX">Get Started</a>
-				</li>
-			</ul>
-		</div>
-	</div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><!-- if you want to add any left menu links u can add them here. --></li>
+                    </ul>
+                    <ul class="topnav nav navbar-nav navbar-right" ng-class="{'menu-open': menuVisible === true}"
+                        click-outside="" is-open="menuVisible" s>
+
+
+                        <li class="dropdown" ng-click="menuVisible = false"   ng-class="{'active': currentLocation === '/platform'}">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/products/framework">Framework</a></li>
+                                <li><a href="/products/oauth">OAuth</a></li>
+                                <li><a href="/products/urac">Urac</a></li>
+                                <li><a href="/products/dashboard">Dahsboard</a></li>
+                                <!--<li role="separator" class="divider"></li>-->
+                                <li><a href="/products/gcs">GCS</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li ng-click="menuVisible = false" class="" ng-class="{'active': currentLocation === '/case'}">
+                            <a href="/case">Studies</a></li>
+                        <li ng-click="menuVisible = false" class="" ng-class="{'active': currentLocation === '/news'}">
+                            <a href="/news">Releases</a></li>
+                        <li ng-click="menuVisible = false" class="contactUs"
+                            ng-class="{'active': currentLocation === '/contactUs'}">
+                            <a href="/contactUs">Contact Us</a></li>
+                        <li ng-click="menuVisible = false" class="getStarted">
+                            <a target="_blank" href="https://soajsorg.atlassian.net/wiki/spaces/EX">Get Started</a>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <!-- <div class="nav-container">
+
+
+               <div class="branding">
+                   <a ng-click="menuVisible = false" href="/">
+                       <img class="logo" ng-src="images/logow.png" alt="Soajs logo"/></a>
+               </div>
+
+               <div ng-class="{'menu-open': menuVisible === true}" ng-click="menuVisible = !menuVisible" class="menu">
+                   <div class="menu-button-stripe"></div>
+                   <div class="menu-button-stripe"></div>
+                   <div class="menu-button-stripe"></div>
+               </div>
+
+               <ul class="topnav ng-isolate-scope" ng-class="{'menu-open': menuVisible === true}" click-outside="" is-open="menuVisible">
+
+                   <li ng-click="menuVisible = false" class="" ng-class="{'active': currentLocation === '/platform'}">
+                       <a href="/platform">Products</a></li>
+                   <li ng-click="menuVisible = false" class="" ng-class="{'active': currentLocation === '/study'}">
+                       <a href="/case">Studies</a></li>
+                   <li ng-click="menuVisible = false" class="" ng-class="{'active': currentLocation === '/news'}">
+                       <a href="/news">Releases</a></li>
+                   <li ng-click="menuVisible = false" class="contactUs" ng-class="{'active': currentLocation === '/contactUs'}">
+                       <a href="/contactUs">Contact Us</a></li>
+                   <li ng-click="menuVisible = false" class="getStarted">
+                       <a target="_blank" href="https://soajsorg.atlassian.net/wiki/spaces/EX">Get Started</a>
+                   </li>
+               </ul>
+           </div>
+   -->
+
+
+    </div>
 </div>

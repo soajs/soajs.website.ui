@@ -1,6 +1,11 @@
 @charset "utf-8";
 /* CSS Document */
 
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
 body, html {
     font-size: 16px;
     text-align: left;
@@ -106,16 +111,32 @@ h2, .h2 {
     margin-top: 100px;
 }
 
+.navbar-default {
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+.navbar-default.scrolling {
+    background-color: white;
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus,
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > li > a,
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    background: none;
+    color: white;
+    box-shadow: none;
+}
 .topbar-wrapper {
     position: fixed;
     top: 0;
-    width: 100%;
-    z-index: 100;
-}
-
-.topbar {
-    height: 70px;
-    position: relative;
     width: 100%;
     z-index: 100;
 }
@@ -124,6 +145,12 @@ h2, .h2 {
     background-color: white;
     color: #19303f;
     border-bottom: 1px grey solid;
+}
+
+.topbar.scrolling .topnav > .open > a:hover,
+.topbar.scrolling .topnav > .open > a
+{
+    color: #19303f;
 }
 
 .topbar.scrolling .topnav li a {
@@ -160,7 +187,6 @@ h2, .h2 {
 }
 
 .topbar .branding .version {
-    color: #fff;
     font-size: 12px;
     opacity: 0.7;
     display: block;
@@ -183,7 +209,6 @@ h2, .h2 {
 
 .topbar .topnav li {
     margin-top: 10px;
-    float: left;
     list-style-type: none;
     margin-right: 7px;
     padding-right: 10px;
@@ -320,11 +345,11 @@ Footer section
 .copyright {
     margin-top: 70px;
     margin-bottom: 50px;
-    color:gray;
+    color: gray;
 }
 
 .bottom .socialMedia {
-    padding-top:30px;
+    padding-top: 30px;
 }
 
 .bottom .menu {
@@ -341,13 +366,16 @@ Footer section
     color: #122733;
     font-size: 24px;
 }
-.socialMedia a{
-    outline:none !important;
+
+.socialMedia a {
+    outline: none !important;
 
 }
- .socialMedia i {
+
+.socialMedia i {
     font-size: 32px;
 }
+
 /**
 Setions
  */
@@ -360,6 +388,7 @@ Setions
 .white, .simple {
     background-color: white;
 }
+
 .simple {
     margin-bottom: 40px;
 }
@@ -452,7 +481,6 @@ Setions
     background: -ms-linear-gradient(45deg, rgba(244, 134, 0, 1) 0%, rgba(244, 181, 0, 1) 100%); /* ie10+ */
     background: linear-gradient(45deg, rgba(244, 134, 0, 1) 0%, rgba(244, 181, 0, 1) 100%); /* w3c */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4b500', endColorstr='#f48600', GradientType=1); /* ie6-9 */
-
 }
 
 .fbColor {
@@ -680,18 +708,18 @@ img.thumb {
     border-radius: 50%;
     padding: 10px;
     cursor: pointer;
-    outline:none !important;
+    outline: none !important;
 }
 
 .circle.no-border {
- border: none;
+    border: none;
 }
 
-.gitter
-{
+.gitter {
 
     background-image: url("../images/gitter.png");
 }
+
 .icon {
     margin-top: 50px;
 
@@ -709,8 +737,6 @@ img.thumb {
 .icon .circle {
     padding: 15px;
 }
-
-
 
 /**********************
 *
@@ -733,13 +759,13 @@ img.thumb {
     width: 100%;
 }
 
-
-hr.white{
+hr.white {
     width: 55px;
     height: 2px;
     color: white;
 }
-hr.yellow-dark{
+
+hr.yellow-dark {
     width: 55px;
     height: 2px;
     color: #f48600;
@@ -775,12 +801,6 @@ hr.yellow-light {
     color: #f4b500
 }
 
-hr.yellow-dark {
-    width: 55px;
-    height: 2px;
-    color: #f48600
-}
-
 hr.blue {
     width: 55px;
     height: 2px;
@@ -798,6 +818,7 @@ hr.green {
     height: 2px;
     color: #418774
 }
+
 /**********************
 *
 * misc
@@ -806,6 +827,7 @@ hr.green {
 .content i {
     font-size: 128px;
 }
+
 /* ja: change it specifically
 .content {
     padding-top: 70px;
@@ -894,6 +916,9 @@ hr {
 * Accordion
 *
 **********************/
+.panel-body {
+    padding: 0;
+}
 
 .panel-body .content:nth-child(odd) {
     background-color: #e6e6e6;
@@ -907,10 +932,6 @@ hr {
     background-color: #122733;
     background-image: none;
     color: white;
-}
-
-.panel-body {
-    padding: 0;
 }
 
 .panel-heading .accordion-toggle:after {
@@ -933,6 +954,28 @@ hr {
 
 #accordion .content {
     margin: 0;
+}
+
+/**********************
+*
+* Releases table
+*
+**********************/
+.releases ul {
+    padding-left: 0px;
+    list-style-position: inside;
+}
+
+.releases .releaseNotes {
+    font-weight: bold;
+}
+
+.releases .repoName {
+    padding: 0;
+}
+
+.releases .repoName-wrapper {
+    padding: 0;
 }
 
 /**********************
@@ -967,126 +1010,18 @@ hr {
     vertical-align: bottom;
 }
 
-@media (min-width: 480px) {
-    .row-xs-height {
-        display: table;
-        table-layout: fixed;
-        height: 100%;
-        width: 100%;
-    }
-
-    .col-xs-height {
-        display: table-cell;
-        float: none;
-        height: 100%;
-    }
-
-    .col-xs-top {
-        vertical-align: top;
-    }
-
-    .col-xs-middle {
-        vertical-align: middle;
-    }
-
-    .col-xs-bottom {
-        vertical-align: bottom;
-    }
-}
-
-@media (min-width: 768px) {
-    .row-sm-height {
-        display: table;
-        table-layout: fixed;
-        height: 100%;
-        width: 100%;
-    }
-
-    .col-sm-height {
-        display: table-cell;
-        float: none;
-        height: 100%;
-    }
-
-    .col-sm-top {
-        vertical-align: top;
-    }
-
-    .col-sm-middle {
-        vertical-align: middle;
-    }
-
-    .col-sm-bottom {
-        vertical-align: bottom;
-    }
-}
-
-@media (min-width: 992px) {
-    .row-md-height {
-        display: table;
-        table-layout: fixed;
-        height: 100%;
-        width: 100%;
-    }
-
-    .col-md-height {
-        display: table-cell;
-        float: none;
-        height: 100%;
-    }
-
-    .col-md-top {
-        vertical-align: top;
-    }
-
-    .col-md-middle {
-        vertical-align: middle;
-    }
-
-    .col-md-bottom {
-        vertical-align: bottom;
-    }
-}
-
-@media (min-width: 1200px) {
-    .row-lg-height {
-        display: table;
-        table-layout: fixed;
-        height: 100%;
-        width: 100%;
-    }
-
-    .col-lg-height {
-        display: table-cell;
-        float: none;
-        height: 100%;
-    }
-
-    .col-lg-top {
-        vertical-align: top;
-    }
-
-    .col-lg-middle {
-        vertical-align: middle;
-    }
-
-    .col-lg-bottom {
-        vertical-align: bottom;
-    }
-}
-
-
 /*****************
 *
 * Badges
 *****************/
-.badgesinner div{
-    display:inline-block;
+.badgesinner div {
+    display: inline-block;
     margin: 0;
-    padding : 0;
+    padding: 0;
     margin-top: 2px;
-    margin-right:2px;
+    margin-right: 2px;
 }
+
 .badgesinner {
     margin-top: 12px;
 }
@@ -1095,12 +1030,12 @@ hr {
     position: relative;
     top: 6px;
 }
-.badgesinner .gitLink iframe
-{
+
+.badgesinner .gitLink iframe {
     height: 22px;
     width: 90px;
-
 }
+
 /*****************
 *
 * Forms
@@ -1129,7 +1064,6 @@ hr {
 }
 
 .colorForm .btn {
-
     margin-top: 12px;
 }
 
@@ -1146,5 +1080,21 @@ input.form-control:focus, .form-control:focus {
     border-radius: 25px;
     padding: 9px 20px;
     font-size: 16px;
-    outline:none !important;
+    outline: none !important;
 }
+
+/*****************
+*
+* Forms
+*****************/
+.colorForm .form-control {
+    margin-top: 12px;
+    background: none;
+    color: white;
+    border-color: gray;
+}
+
+input.form-control:focus, .form-control:focus {
+    border-color: white;
+}
+
