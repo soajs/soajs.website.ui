@@ -6,7 +6,11 @@
     "travis":"soajs/soajs",
     "coveralls":"soajs/soajs",
     "documentation": "#/documentation/",
-    "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs&type=watch&count=true"
+    "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs&type=watch&count=true",
+    "docker": {
+      "link": "https://hub.docker.com/search/?isAutomated=0&isOfficial=0&page=1&pullCount=0&q=soajs&starCount=0",
+      "label": "https://img.shields.io/docker/pulls/soajsorg/soajs.svg"
+    }
   },
   {
     "id": "URAC",
