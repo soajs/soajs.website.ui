@@ -106,6 +106,37 @@ h2, .h2 {
     margin-top: 100px;
 }
 
+
+
+
+
+
+.navbar-default
+{
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+.navbar-default.scrolling
+{
+    background-color: white;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus,
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus,
+navbar-default .navbar-nav > li > a,
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus
+{
+    background: none;
+    color:white;
+    box-shadow: none;
+}
+
 .topbar-wrapper {
     position: fixed;
     top: 0;
@@ -113,12 +144,6 @@ h2, .h2 {
     z-index: 100;
 }
 
-.topbar {
-    height: 70px;
-    position: relative;
-    width: 100%;
-    z-index: 100;
-}
 
 .topbar.scrolling {
     background-color: white;
@@ -183,7 +208,6 @@ h2, .h2 {
 
 .topbar .topnav li {
     margin-top: 10px;
-    float: left;
     list-style-type: none;
     margin-right: 7px;
     padding-right: 10px;
@@ -1148,3 +1172,4 @@ input.form-control:focus, .form-control:focus {
     font-size: 16px;
     outline:none !important;
 }
+
