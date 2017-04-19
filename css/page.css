@@ -111,34 +111,27 @@ h2, .h2 {
     margin-top: 100px;
 }
 
-
-
-
-
-
-.navbar-default
-{
+.navbar-default {
     background: none;
     border: none;
     box-shadow: none;
 }
 
-.navbar-default.scrolling
-{
+.navbar-default.scrolling {
     background-color: white;
 }
+
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus,
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus,
-navbar-default .navbar-nav > li > a,
+.navbar-default .navbar-nav > li > a,
 .navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus
-{
+.navbar-default .navbar-nav > li > a:focus {
     background: none;
-    color:white;
+    color: white;
     box-shadow: none;
 }
 
@@ -148,7 +141,6 @@ navbar-default .navbar-nav > li > a,
     width: 100%;
     z-index: 100;
 }
-
 
 .topbar.scrolling {
     background-color: white;
@@ -348,11 +340,11 @@ Footer section
 .copyright {
     margin-top: 70px;
     margin-bottom: 50px;
-    color:gray;
+    color: gray;
 }
 
 .bottom .socialMedia {
-    padding-top:30px;
+    padding-top: 30px;
 }
 
 .bottom .menu {
@@ -369,13 +361,16 @@ Footer section
     color: #122733;
     font-size: 24px;
 }
-.socialMedia a{
-    outline:none !important;
+
+.socialMedia a {
+    outline: none !important;
 
 }
- .socialMedia i {
+
+.socialMedia i {
     font-size: 32px;
 }
+
 /**
 Setions
  */
@@ -388,6 +383,7 @@ Setions
 .white, .simple {
     background-color: white;
 }
+
 .simple {
     margin-bottom: 40px;
 }
@@ -707,18 +703,18 @@ img.thumb {
     border-radius: 50%;
     padding: 10px;
     cursor: pointer;
-    outline:none !important;
+    outline: none !important;
 }
 
 .circle.no-border {
- border: none;
+    border: none;
 }
 
-.gitter
-{
+.gitter {
 
     background-image: url("../images/gitter.png");
 }
+
 .icon {
     margin-top: 50px;
 
@@ -736,8 +732,6 @@ img.thumb {
 .icon .circle {
     padding: 15px;
 }
-
-
 
 /**********************
 *
@@ -760,13 +754,13 @@ img.thumb {
     width: 100%;
 }
 
-
-hr.white{
+hr.white {
     width: 55px;
     height: 2px;
     color: white;
 }
-hr.yellow-dark{
+
+hr.yellow-dark {
     width: 55px;
     height: 2px;
     color: #f48600;
@@ -819,6 +813,7 @@ hr.green {
     height: 2px;
     color: #418774
 }
+
 /**********************
 *
 * misc
@@ -827,6 +822,7 @@ hr.green {
 .content i {
     font-size: 128px;
 }
+
 /* ja: change it specifically
 .content {
     padding-top: 70px;
@@ -915,6 +911,9 @@ hr {
 * Accordion
 *
 **********************/
+.panel-body {
+    padding: 0;
+}
 
 .panel-body .content:nth-child(odd) {
     background-color: #e6e6e6;
@@ -928,10 +927,6 @@ hr {
     background-color: #122733;
     background-image: none;
     color: white;
-}
-
-.panel-body {
-    padding: 0;
 }
 
 .panel-heading .accordion-toggle:after {
@@ -1014,13 +1009,14 @@ hr {
 *
 * Badges
 *****************/
-.badgesinner div{
-    display:inline-block;
+.badgesinner div {
+    display: inline-block;
     margin: 0;
-    padding : 0;
+    padding: 0;
     margin-top: 2px;
-    margin-right:2px;
+    margin-right: 2px;
 }
+
 .badgesinner {
     margin-top: 12px;
 }
@@ -1029,10 +1025,12 @@ hr {
     position: relative;
     top: 6px;
 }
+
 .badgesinner .gitLink iframe {
     height: 22px;
     width: 90px;
 }
+
 /*****************
 *
 * Forms
@@ -1061,7 +1059,6 @@ hr {
 }
 
 .colorForm .btn {
-
     margin-top: 12px;
 }
 
@@ -1078,143 +1075,9 @@ input.form-control:focus, .form-control:focus {
     border-radius: 25px;
     padding: 9px 20px;
     font-size: 16px;
-    outline:none !important;
+    outline: none !important;
 }
 
-@media (min-width: 480px) {
-    .row-xs-height {
-        display: table;
-        table-layout: fixed;
-        height: 100%;
-        width: 100%;
-    }
-
-    .col-xs-height {
-        display: table-cell;
-        float: none;
-        height: 100%;
-    }
-
-    .col-xs-top {
-        vertical-align: top;
-    }
-
-    .col-xs-middle {
-        vertical-align: middle;
-    }
-
-    .col-xs-bottom {
-        vertical-align: bottom;
-    }
-}
-
-@media (min-width: 768px) {
-    .row-sm-height {
-        display: table;
-        table-layout: fixed;
-        height: 100%;
-        width: 100%;
-    }
-
-    .col-sm-height {
-        display: table-cell;
-        float: none;
-        height: 100%;
-    }
-
-    .col-sm-top {
-        vertical-align: top;
-    }
-
-    .col-sm-middle {
-        vertical-align: middle;
-    }
-
-    .col-sm-bottom {
-        vertical-align: bottom;
-    }
-}
-
-@media (min-width: 992px) {
-    .row-md-height {
-        display: table;
-        table-layout: fixed;
-        height: 100%;
-        width: 100%;
-    }
-
-    .col-md-height {
-        display: table-cell;
-        float: none;
-        height: 100%;
-    }
-
-    .col-md-top {
-        vertical-align: top;
-    }
-
-    .col-md-middle {
-        vertical-align: middle;
-    }
-
-    .col-md-bottom {
-        vertical-align: bottom;
-    }
-}
-
-@media (min-width: 1200px) {
-    .row-lg-height {
-        display: table;
-        table-layout: fixed;
-        height: 100%;
-        width: 100%;
-    }
-
-    .col-lg-height {
-        display: table-cell;
-        float: none;
-        height: 100%;
-    }
-
-    .col-lg-top {
-        vertical-align: top;
-    }
-
-    .col-lg-middle {
-        vertical-align: middle;
-    }
-
-    .col-lg-bottom {
-        vertical-align: bottom;
-    }
-}
-
-
-/*****************
-*
-* Badges
-*****************/
-.badgesinner div{
-    display:inline-block;
-    margin: 0;
-    padding : 0;
-    margin-top: 2px;
-    margin-right:2px;
-}
-.badgesinner {
-    margin-top: 12px;
-}
-
-.badgesinner .gitLink {
-    position: relative;
-    top: 6px;
-}
-.badgesinner .gitLink iframe
-{
-    height: 22px;
-    width: 90px;
-
-}
 /*****************
 *
 * Forms
@@ -1226,40 +1089,7 @@ input.form-control:focus, .form-control:focus {
     border-color: gray;
 }
 
-.colorForm .form-control::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: white;
-}
-
-.colorForm .form-control::-moz-placeholder { /* Firefox 19+ */
-    color: white;
-}
-
-.colorForm .form-control:-ms-input-placeholder { /* IE 10+ */
-    color: white;
-}
-
-.colorForm .form-control:-moz-placeholder { /* Firefox 18- */
-    color: white;
-}
-
-.colorForm .btn {
-
-    margin-top: 12px;
-}
-
 input.form-control:focus, .form-control:focus {
     border-color: white;
-}
-
-/*****************
-*
-* Bootstrap overrides
-*****************/
-
-.btn {
-    border-radius: 25px;
-    padding: 9px 20px;
-    font-size: 16px;
-    outline:none !important;
 }
 
