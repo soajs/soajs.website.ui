@@ -4,10 +4,11 @@
     <!-- Rounded  Icons Section -->
     <div class="container">
         <div class="row">
-
             <div class="separator50"></div>
             <div class="separator100"></div>
-            <div class="col-lg-3 col-md-6  col-sm-6 col-xs-12 text-center">
+
+            <div class="col-lg-1 md-hide "></div>
+            <div class="col-lg-2 col-md-6  col-sm-6 col-xs-12 text-center">
                 <div class="icon">
                     <i class="yellow-light white-txt circle icon-cogs"></i>
                     <div class="separator50"></div>
@@ -17,9 +18,9 @@
                     <a class="yellow-txt" href="/products/soajs">Learn More ></a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6  col-sm-6  col-xs-12 text-center">
+            <div class="col-lg-2 col-md-6  col-sm-6 col-xs-12 text-center">
                 <div class="icon">
-                    <i class="red white-txt circle icon-home-manage"></i>
+                    <i class="red white-txt circle icon-key"></i>
                     <div class="separator50"></div>
                     <h2>Dashboard</h2>
                     <div class="separator10"></div>
@@ -27,9 +28,9 @@
                     <a class="red-txt">Learn More ></a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6  col-sm-6 col-xs-12  text-center">
+            <div class="col-lg-2 col-md-4  col-sm-4 col-xs-12  text-center">
                 <div class="icon">
-                    <i class="green white-txt circle icon-home-deploy"></i>
+                    <i class="green white-txt circle icon-lock-open-alt"></i>
                     <div class="separator50"></div>
                     <h2>URAC</h2>
                     <div class="separator10"></div>
@@ -37,9 +38,9 @@
                     <a class="green-txt">Learn More ></a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6  col-sm-6 col-xs-12 text-center ">
+            <div class="col-lg-2 col-md-4  col-sm-4 col-xs-12 text-center ">
                 <div class="icon">
-                    <i class="blue white-txt circle icon-home-operate"></i>
+                    <i class="blue white-txt circle icon-home-manage"></i>
                     <div class="separator50"></div>
                     <h2>oAuth</h2>
                     <div class="separator10"></div>
@@ -47,7 +48,7 @@
                     <a class="blue-txt">Learn More ></a>
                 </div>
             </div>
-	        <div class="col-lg-3 col-md-6  col-sm-6 col-xs-12 text-center ">
+	        <div class="col-lg-2 col-md-6  col-sm-6 col-xs-12 text-center ">
 		        <div class="icon">
 			        <i class="blue white-txt circle icon-home-operate"></i>
 			        <div class="separator50"></div>
@@ -57,6 +58,18 @@
 			        <a class="blue-txt">Learn More ></a>
 		        </div>
 	        </div>
+            <div class="col-lg-2 col-md-4  col-sm-4 col-xs-12 text-center ">
+                <div class="icon">
+                    <i class="yellow-dark white-txt circle icon-home-deploy"></i>
+                    <div class="separator50"></div>
+                    <h2>Gcs</h2>
+                    <div class="separator10"></div>
+                    <p>Capable of running on any data source or existing technology</p>
+                    <a class="yellow-dark-txt">Learn More ></a>
+                </div>
+            </div>
+
+            <div class="col-lg-1 md-hide "></div>
             <div class="col-xs-12 separator50"></div>
 
         </div>
@@ -77,24 +90,49 @@
         </div>
     </div>
 
-    <!-- Join the community white section -->
+    <!-- Join the community white section  ( Badges )-->
     <div class="container">
         <div class="row">
             <div class="simple text-center navy-dark-txt">
+
+                <div class="separator50"></div>
                 <h2>Join the SOAJS community</h2>
                 <div class="separator50"></div>
-                <div class="col-lg-4 col-sm-4 col-xs-12">
-                    <h2 class="yellow-dark-txt">320</h2>
-                    <p>Developers using Soajs</p>
+                <div ng-repeat="badge in repos">
+
+                    <div class="col-lg-4 col-sm-6 col-xs-12">
+                        <H2 class="yellow-dark-txt" ng-if="badge.documentation">
+                            <a ng-if="!badge.external" href="{{badge.documentation}}">{{badge.label}}</a>
+                            <a ng-if="badge.external" target="_blank"
+                               href="{{badge.documentation}}">{{badge.label}}</a>
+                        </H2>
+                        <div id="repo{{badge.id}}" class="badgesinner">
+                            <div class="repoLabel" ng-if="!badge.documentation"><a>{{badge.label}}</a></div>
+                            <div class="repoLinks npm" ng-if="badge.npm">
+                                <a href="https://badge.fury.io/js/{{badge.npm}}" target="_blank"><img
+                                    ng-src="https://badge.fury.io/js/{{badge.npm}}.svg" alt="NPM version"></a>
+                            </div>
+                            <div class="repoLinks travis" ng-if="badge.travis">
+                                <a href="https://travis-ci.org/{{badge.travis}}" target="_blank"><img
+                                    data-bindattr-732="732" ng-src="https://travis-ci.org/{{badge.travis}}.svg"
+                                    alt="Build status"></a>
+                            </div>
+
+                            <div class="repoLinks coveralls" ng-if="badge.coveralls">
+                                <a href="https://coveralls.io/r/{{badge.coveralls}}" target="_blank"><img
+                                    ng-src="https://coveralls.io/repos/{{badge.coveralls}}/badge.svg"
+                                    alt="Coverage Status"></a>
+                            </div>
+                            <div class="repoLinks gitLink" ng-if="badge.github">
+                                <div style="height:12px;">&nbsp;</div>
+                                <iframe ng-src="{{badge.github | trustAsResourceUrl}}" frameborder="0" scrolling="0" style="" allowTransparency="true"></iframe>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="col-lg-4 col-sm-4 col-xs-12">
-                    <h2 class="yellow-dark-txt">1000+</h2>
-                    <p>Apps Created</p>
-                </div>
-                <div class="col-lg-4 col-sm-4 col-xs-12">
-                    <h2 class="yellow-dark-txt">620</h2>
-                    <p>Downloads per week</p>
-                </div>
+                <div class="clearfix"></div>
+                <div class="separator50"></div>
             </div>
 
         </div>
@@ -107,14 +145,16 @@
                 <div class="content">
 
                     <h2>What are you developing with SOAJS?</h2>
+                    <hr class="yellow-dark">
                     <div class="separator10"></div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
 
                     <div class="separator50"></div>
-                    <button type="button" class="btn navy bordered white-border white-txt white-hover">Submit your
+                    <button type="button" class="btn navy bordered white-border white-txt white-hover"  onclick="javascript: window.location.href='/contactUs#submit'" >Submit your
                         project
                     </button>
+                    <div class="separator50"></div>
                 </div>
             </div>
         </div>
@@ -122,17 +162,19 @@
             <div class="inside inside-full-height">
                 <div class="content">
                     <h2>Demo</h2>
+                    <hr class="yellow-dark">
                     <div class="separator10"></div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
-                    <button type="button" class="btn navy bordered white-border white-txt white-hover">Request a demo </button>
+                    <button type="button" class="btn navy bordered white-border white-txt white-hover" onclick="javascript: window.location.href='/contactUs#request'">Request a demo
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
 
-    <!-- Shaded Orane strip -->
+    <!-- Shaded Orange strip -->
     <div class="col-lg-12 orange-shade spearator50">&nbsp;</div>
     <!-- Bottom White section-->
     <div class="simple">

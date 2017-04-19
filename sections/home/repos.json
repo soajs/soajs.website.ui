@@ -9,15 +9,6 @@
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs&type=watch&count=true"
   },
   {
-    "id": "Mongo",
-    "label": "Connect Mongo SOAJS",
-    "npm": "connect-mongo-soajs",
-    "travis":"soajs/connect-mongo-soajs",
-    "coveralls": "soajs/connect-mongo-soajs",
-    "documentation": "#/documentation/",
-    "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=connect-mongo-soajs&type=watch&count=true"
-  },
-  {
     "id": "URAC",
     "label": "URAC",
     "npm":"soajs.urac",
@@ -47,24 +38,6 @@
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.dashboard&type=watch&count=true"
   },
   {
-    "id": "Examples",
-    "label": "Examples",
-    "npm":"soajs.examples",
-    "travis":"soajs/soajs.examples",
-    "coveralls":"soajs/soajs.examples",
-    "documentation": "https://soajsorg.atlassian.net/wiki/display/EX/03+Examples",
-    "external": true,
-    "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.examples&type=watch&count=true"
-  },
-  {
-    "id": "composer",
-    "label": "Composer",
-    "npm":"soajs.composer",
-    "travis":"soajs/soajs.composer",
-    "coveralls":"soajs/soajs.composer",
-    "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.composer&type=watch&count=true"
-  },
-  {
     "id": "GCS",
     "label": "GCS",
     "npm":"soajs.gcs",
@@ -74,55 +47,11 @@
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.gcs&type=watch&count=true"
   },
   {
-    "id": "PRX",
-    "label": "Proxy",
-    "npm":"soajs.prx",
-    "travis":"soajs/soajs.prx",
-    "coveralls":"soajs/soajs.prx",
-    "documentation": "https://soajsorg.atlassian.net/wiki/display/PROX/Proxy",
-    "external": true,
-    "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.prx&type=watch&count=true"
-  },
-  {
-    "id": "JSCONF",
-    "label": "JsConf",
-    "npm":"soajs.jsconf",
-    "travis":"soajs/soajs.jsconf",
-    "coveralls":"soajs/soajs.jsconf",
-    "documentation": "https://soajsorg.atlassian.net/wiki/display/EX/04+JSCONF",
-    "external": true,
-    "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.jsconf&type=watch&count=true"
-  },
-  {
-    "id": "ARTIFACT",
-    "label": "Artifact",
-    "npm":"soajs.artifact",
-    "travis":"soajs/soajs.artifact",
-    "coveralls":"soajs/soajs.artifact",
-    "documentation": "https://soajsorg.atlassian.net/wiki/display/EX/05+Artifact",
-    "external": true,
-    "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.artifact&type=watch&count=true"
-  },
-  {
     "id": "Controller",
     "label": "Controller",
     "npm":"soajs.controller",
     "documentation": "https://soajsorg.atlassian.net/wiki/display/CON/Controller",
     "external": true,
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.controller&type=watch&count=true"
-  },
-  {
-    "id": "INSTALL",
-    "label": "Installer",
-    "npm":"soajs.installer",
-    "documentation": "https://soajsorg.atlassian.net/wiki/display/IN/Installer",
-    "external": true,
-    "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.installer&type=watch&count=true"
-  },
-  {
-    "id": "Utilities",
-    "label": "Utilities",
-    "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.utilities&type=watch&count=true",
-    "npm":"soajs.utilities"
   }
 ]

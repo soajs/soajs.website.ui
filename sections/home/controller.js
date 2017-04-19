@@ -9,4 +9,11 @@ homeApp.controller('homePageCtrl', ['$scope', '$http', function ($scope, $http) 
         subTitle: "Achieve with certainty: ROI, Speed, Quality, Standardization"
     };
     $scope.$parent.$emit('refreshPageTitle', pageData);
+
+
+    $http.get("sections/home/repos.json").success(function(data) {
+        $scope.repos = data;
+    });
+
+
 }]);
