@@ -54,9 +54,9 @@ var navigation = [
         'id': 'digital',
         'label': 'Digital Transformation',
         'title': 'SOAJS | Digital Transformation',
-        'url': '/digital',
+        'url': '/case/digital',
         'tplPath': 'sections/case/digital.html',
-        'scripts': ['sections/case/controllerDigital.js']
+        'scripts': ['sections/case/controller.js']
     },
 	{
 		'id': 'getStarted',

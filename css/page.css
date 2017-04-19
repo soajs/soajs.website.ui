@@ -1,6 +1,11 @@
 @charset "utf-8";
 /* CSS Document */
 
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
 body, html {
     font-size: 16px;
     text-align: left;
@@ -160,7 +165,6 @@ h2, .h2 {
 }
 
 .topbar .branding .version {
-    color: #fff;
     font-size: 12px;
     opacity: 0.7;
     display: block;
@@ -452,7 +456,6 @@ Setions
     background: -ms-linear-gradient(45deg, rgba(244, 134, 0, 1) 0%, rgba(244, 181, 0, 1) 100%); /* ie10+ */
     background: linear-gradient(45deg, rgba(244, 134, 0, 1) 0%, rgba(244, 181, 0, 1) 100%); /* w3c */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4b500', endColorstr='#f48600', GradientType=1); /* ie6-9 */
-
 }
 
 .fbColor {
@@ -739,6 +742,7 @@ hr.white{
     height: 2px;
     color: white;
 }
+
 hr.yellow-dark{
     width: 55px;
     height: 2px;
@@ -773,12 +777,6 @@ hr.yellow-light {
     width: 55px;
     height: 2px;
     color: #f4b500
-}
-
-hr.yellow-dark {
-    width: 55px;
-    height: 2px;
-    color: #f48600
 }
 
 hr.blue {
@@ -937,6 +935,28 @@ hr {
 
 /**********************
 *
+* Releases table
+*
+**********************/
+.releases ul {
+    padding-left: 0px;
+    list-style-position: inside;
+}
+
+.releases .releaseNotes {
+    font-weight: bold;
+}
+
+.releases .repoName {
+    padding: 0;
+}
+
+.releases .repoName-wrapper {
+    padding: 0;
+}
+
+/**********************
+*
 * columns of same height styles
 *
 **********************/
@@ -965,6 +985,77 @@ hr {
 
 .col-bottom {
     vertical-align: bottom;
+}
+
+/*****************
+*
+* Badges
+*****************/
+.badgesinner div{
+    display:inline-block;
+    margin: 0;
+    padding : 0;
+    margin-top: 2px;
+    margin-right:2px;
+}
+.badgesinner {
+    margin-top: 12px;
+}
+
+.badgesinner .gitLink {
+    position: relative;
+    top: 6px;
+}
+.badgesinner .gitLink iframe {
+    height: 22px;
+    width: 90px;
+}
+/*****************
+*
+* Forms
+*****************/
+.colorForm .form-control {
+    margin-top: 12px;
+    background: none;
+    color: white;
+    border-color: gray;
+}
+
+.colorForm .form-control::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: white;
+}
+
+.colorForm .form-control::-moz-placeholder { /* Firefox 19+ */
+    color: white;
+}
+
+.colorForm .form-control:-ms-input-placeholder { /* IE 10+ */
+    color: white;
+}
+
+.colorForm .form-control:-moz-placeholder { /* Firefox 18- */
+    color: white;
+}
+
+.colorForm .btn {
+
+    margin-top: 12px;
+}
+
+input.form-control:focus, .form-control:focus {
+    border-color: white;
+}
+
+/*****************
+*
+* Bootstrap overrides
+*****************/
+
+.btn {
+    border-radius: 25px;
+    padding: 9px 20px;
+    font-size: 16px;
+    outline:none !important;
 }
 
 @media (min-width: 480px) {
@@ -1073,78 +1164,4 @@ hr {
     .col-lg-bottom {
         vertical-align: bottom;
     }
-}
-
-
-/*****************
-*
-* Badges
-*****************/
-.badgesinner div{
-    display:inline-block;
-    margin: 0;
-    padding : 0;
-    margin-top: 2px;
-    margin-right:2px;
-}
-.badgesinner {
-    margin-top: 12px;
-}
-
-.badgesinner .gitLink {
-    position: relative;
-    top: 6px;
-}
-.badgesinner .gitLink iframe
-{
-    height: 22px;
-    width: 90px;
-
-}
-/*****************
-*
-* Forms
-*****************/
-.colorForm .form-control {
-    margin-top: 12px;
-    background: none;
-    color: white;
-    border-color: gray;
-}
-
-.colorForm .form-control::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: white;
-}
-
-.colorForm .form-control::-moz-placeholder { /* Firefox 19+ */
-    color: white;
-}
-
-.colorForm .form-control:-ms-input-placeholder { /* IE 10+ */
-    color: white;
-}
-
-.colorForm .form-control:-moz-placeholder { /* Firefox 18- */
-    color: white;
-}
-
-.colorForm .btn {
-
-    margin-top: 12px;
-}
-
-input.form-control:focus, .form-control:focus {
-    border-color: white;
-}
-
-/*****************
-*
-* Bootstrap overrides
-*****************/
-
-.btn {
-    border-radius: 25px;
-    padding: 9px 20px;
-    font-size: 16px;
-    outline:none !important;
 }

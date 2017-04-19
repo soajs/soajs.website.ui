@@ -3,37 +3,45 @@
 @-ms-viewport {
     width: device-width;
 }
+
 .hidden {
     display: none;
     visibility: hidden;
 }
+
 .visible-phone {
     display: none !important;
 }
+
 .visible-tablet {
     display: none !important;
 }
+
 .hidden-desktop {
     display: none !important;
 }
+
 .visible-desktop {
     display: inherit !important;
 }
+
 .visible-print {
     display: none !important;
 }
+
 @media print {
     .visible-print {
         display: inherit !important;
     }
+
     .hidden-print {
         display: none !important;
     }
 }
 
-#twitter-badge{
-    float:right;
-    margin:20px 20px 0 0;
+#twitter-badge {
+    float: right;
+    margin: 20px 20px 0 0;
 }
 
 @media screen and (min-width: 1024px) {
@@ -42,77 +50,55 @@
         width: 47%;
         margin: 10px 0 0 0;
     }
+
     .features-page .left img, .features-page .right img {
         max-width: 385px;
     }
-    .examples img{
+
+    .examples img {
         width: auto;
     }
-    .image-right{
+
+    .image-right {
         float: right;
         margin-left: 5px;
     }
+
     .soajs-features .features-container .feature-list li.odd {
         margin-right: 6%
     }
-    .white-banner .banner-container .repos ul li a img{
-        max-height: 20px;
-    }
 
-    .beaverImg {
 
-    }
-    #beaverImg1{
-        position: absolute;
-        float: right;
-        right: 0;
-        bottom: 0;
-        width: 48%;
-        height: 95%;
-        background-size: 95%;
-    }
-    .banner .about-container  {
+
+    .banner .about-container {
         width: 50%;
     }
-    .banner .banner-container .tagline {
-        width: 95%;
-    }
-    .full-image{
+
+    .full-image {
         width: 95%;
     }
 }
+
 @media screen and (min-width: 1220px) {
-    .main-section-container, .banner .banner-container, .white-banner .banner-container,
+    .main-section-container,
     .soajs-features .features-container, .powered-by-container,
-    .bottom .sharing-footer, .topbar .nav-container, .whyBeaver-container{
+    .bottom .sharing-footer, .topbar .nav-container, .whyBeaver-container {
         width: 1197px;
     }
-    .white-banner .banner-container .repos ul {
-        width: 1190px;
-    }
-    .white-banner .banner-container .repos ul li{
-        width: 565px;
-        height: 80px;
-    }
-    .white-banner .banner-container .repos ul li.even{
-        margin-left: 60px;
-    }
-    .white-banner .banner-container .repos ul {
-    }
-    .repos ul li img .grunt{
+
+    .repos ul li img .grunt {
         width: auto;
     }
-    .banner .banner-container .left-main {
-        background-size: auto 100%;
-    }
 
-    .banner .about-container, .banner .banner-container .tagline {
+    .banner .about-container {
         width: 50%;
     }
-    #dashboard-form, #dashboard-grid{
+
+    #dashboard-form, #dashboard-grid {
         max-width: 900px;
     }
-    .full-image{
+
+    .full-image {
         width: auto;
     }
 }

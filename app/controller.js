@@ -14,6 +14,7 @@ app.config([
 		app.compileProvider = $compileProvider;
 		navigation.forEach(function (navigationEntry) {
 			if (navigationEntry.scripts && navigationEntry.scripts.length > 0) {
+				console.log(navigationEntry);
 				$routeProvider.when(navigationEntry.url.replace('#', ''), {
 					templateUrl: navigationEntry.tplPath,
 					resolve: {
@@ -37,9 +38,9 @@ app.config([
 				}
 			}
 		});
-
+		
 		$routeProvider.otherwise({
-			redirectTo: navigation[0].url.replace('#', '')
+			redirectTo: '/'
 		});
 
         $locationProvider.html5Mode(true);
@@ -60,7 +61,7 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', function ($sc
 	$scope.$on('refreshPageTitle', function (event, args) {
         $scope.pageTitle = args.title;
         $scope.titleLine2 = args.titleLine2;
-		if (args.subTitle) {
+		if (Object.hasOwnProperty.call(args, 'subTitle')) {
 			$scope.subTitle = args.subTitle;
 		}
 	});
