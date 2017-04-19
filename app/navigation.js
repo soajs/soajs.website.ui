@@ -42,6 +42,46 @@ var navigation = [
         'tplPath': 'sections/platform/page.html',
         'scripts': ['sections/platform/controller.js']
     },
+	{
+		'id': 'framework',
+		'label': 'framework',
+		'title': 'SOAJS | Platform',
+		'url': '/products/framework',
+		'tplPath': 'sections/products/framework/page.html',
+		'scripts': ['sections/products/controllers.js']
+	},
+	{
+		'id': 'urac',
+		'label': 'urac',
+		'title': 'SOAJS | URAC',
+		'url': '/products/urac',
+		'tplPath': 'sections/products/urac/page.html',
+		'scripts': ['sections/products/controllers.js']
+	},
+	{
+		'id': 'oauth',
+		'label': 'oauth',
+		'title': 'SOAJS | OAUTH',
+		'url': '/products/oauth',
+		'tplPath': 'sections/products/oauth/page.html',
+		'scripts': ['sections/products/controllers.js']
+	},
+	{
+		'id': 'dashboard',
+		'label': 'Dashboard',
+		'title': 'SOAJS | Dashboard',
+		'url': '/products/dashboard',
+		'tplPath': 'sections/products/dashboard/page.html',
+		'scripts': ['sections/products/controllers.js']
+	},
+	{
+		'id': 'gcs',
+		'label': 'gcs',
+		'title': 'SOAJS | GCS',
+		'url': '/products/gcs',
+		'tplPath': 'sections/products/gcs/page.html',
+		'scripts': ['sections/products/controllers.js']
+	},
     {
         'id': 'case',
         'label': 'Case Study',
