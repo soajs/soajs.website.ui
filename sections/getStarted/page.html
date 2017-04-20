@@ -1,23 +1,22 @@
 <div class="container">
 	<div ng-controller="getStartedCtrl">
-		
-		<div class="row" ng-repeat="level in getstarted">
+
+		<div class="row" ng-repeat="level in getstarted" class="col-lg-12">
 			<h2>{{level.label}}</h2>
 			<hr/>
 			<p>{{level.description}}</p>
-			
-			<div ng-repeat="section in level.sections">
-				<div class="col-lg-6">
-					<div class="col-sm-2">
+			<div class="clearfix"></div>
+			<div ng-repeat="section in level.sections" class="col-lg-6 col-md-6  col-sm-12 docs text-center">
+
+					<div class="col-sm-2 col-md-2">
 						<a href="{{section.link}}"><img ng-src="{{section.icon}}" alt="{{section.title}}" border="0" /></a>
 					</div>
-					<div class="col-sm-10">
+					<div class="col-sm-10 col-md-10">
 						<a href="{{section.link}}"><b>{{section.title}}</b></a><br />
 						<em>{{section.description}}</em>
 					</div>
-				</div>
-				<div class="separator10">&nbsp;</div>
 			</div>
+            <div class="clearfix"></div>
 			<div class="separator50">&nbsp;</div>
 		</div>
 	</div>

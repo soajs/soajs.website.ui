@@ -134,6 +134,77 @@ h2, .h2 {
     color: white;
     box-shadow: none;
 }
+
+.dropdown-menu {
+    background-color: #19303f;
+}
+
+.topbar .dropdown-menu > li{
+    border: none;
+}
+.topbar .topnav .dropdown-menu > li:hover,
+.topbar .topnav .dropdown-menu > li.active,
+.topbar.scrolling .topnav .dropdown-menu > li:hover,
+.topbar.scrolling .topnav .dropdown-menu > li.active
+.topbar.scrolling .topnav .dropdown-menu > li.active a,
+.topbar.scrolling .topnav .dropdown-menu > li.active {
+    border: none;
+    background: none;
+    color:white;
+}
+.topbar .topnav .dropdown-menu > li a:hover,
+.topbar .topnav .dropdown-menu > li a,
+.topbar.scrolling .topnav .dropdown-menu > li a:hover,
+.topbar.scrolling .topnav .dropdown-menu > li a,
+.topbar.scrolling .topnav .dropdown-menu > li.active a:hover,
+.topbar.scrolling .topnav .dropdown-menu > li.active a
+{
+    border: none;
+    background: none;
+    color:white;
+}
+
+.topbar.scrolling .topnav .dropdown-menu > li a:hover,
+.topbar.scrolling .topnav .dropdown-menu > li.active a:hover
+{
+color :#f48600;
+}
+
+.navbar-default .navbar-toggle
+{
+    color:white;
+    background: none;
+    border : none;
+}
+.navbar-default .navbar-toggle:hover,.navbar-default .navbar-toggle:focus  {
+
+    background: none;
+}
+/*
+.navbar-collapse {
+
+}
+.topbar .navbar-collapse {
+    background-color: #19303f;
+    width:200px;
+    float: right;
+}
+.topbar .navbar-collapse .topnav   li:hover a,
+.topbar .navbar-collapse .topnav   li:hover{
+    border: none;
+}
+.topbar .navbar-collapse .topnav   li {
+    border-bottom: 1px solid gray;
+    -webkit-border-radius:0;
+    -moz-border-radius:0;
+    border-radius: 0;
+    width: 100% ;
+}
+.topbar.scrolling .topnav .dropdown-menu li a,
+.topbar.scrolling .topnav .dropdown-menu li.active a {
+    color:white !important;
+}
+*/
 .topbar-wrapper {
     position: fixed;
     top: 0;
@@ -148,8 +219,7 @@ h2, .h2 {
 }
 
 .topbar.scrolling .topnav > .open > a:hover,
-.topbar.scrolling .topnav > .open > a
-{
+.topbar.scrolling .topnav > .open > a {
     color: #19303f;
 }
 
@@ -228,6 +298,7 @@ h2, .h2 {
     font-size: 16px;
     outline: 0 none;
     white-space: nowrap;
+    padding:0;
 }
 
 .topbar .topnav li.active, .topbar .topnav li:hover {
@@ -892,14 +963,14 @@ hr.green {
 
 /**********************
 *
-* small box
+* get started page
 *
 **********************/
 
-.smallBox {
-    height: 420px;
+.docs{
+    margin-bottom : 10px;
+    min-height:155px;
 }
-
 /**********************
 *
 * case studies
