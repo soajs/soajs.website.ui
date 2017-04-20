@@ -1,0 +1,10 @@
+<div class="container">
+	<div ng-controller="productsPageCtrl">
+		<div ng-repeat="product in products" class="{{product.color}} row row-height">
+			<h2>{{product.title}}</h2>
+			<button type="button" class="btn yellow-dark white-txt yellow-light-hover" onclick="window.location.href='{{product.link}}'">Technical Specs</button>
+			<div ng-bind-html="product.text"></div>
+			<div class="separator50">&nbsp;</div>
+		</div>
+	</div>
+</div>
