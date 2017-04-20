@@ -26,22 +26,6 @@ var navigation = [
         'tplPath': 'sections/contactus/page.html',
         'scripts': ['sections/contactus/controller.js']
     },
-    {
-        'id': 'aboutUs',
-        'label': 'aboutUs',
-        'title': 'SOAJS | About Us',
-        'url': '/about',
-        'tplPath': 'sections/about/page.html',
-        'scripts': ['sections/about/controller.js']
-    },
-    {
-        'id': 'platform',
-        'label': 'platform',
-        'title': 'SOAJS | Platform',
-        'url': '/platform',
-        'tplPath': 'sections/platform/page.html',
-        'scripts': ['sections/platform/controller.js']
-    },
 	{
 		'id': 'framework',
 		'label': 'framework',
@@ -103,6 +87,22 @@ var navigation = [
 		'label': 'getStarted',
 		'title': 'SOAJS | Get Sarted',
 		'url': 'https://soajsorg.atlassian.net/wiki/spaces/EX'
+	},
+	{
+		'id': 'getStartedLocal',
+		'label': 'Get Started',
+		'title': 'SOAJS | Get Started',
+		'url': '/getstarted',
+		'tplPath': 'sections/getStarted/page.html',
+		'scripts': ['sections/getStarted/controller.js']
+	},
+	{
+		'id': 'products',
+		'label': 'Products',
+		'title': 'SOAJS | Products',
+		'url': '/products',
+		'tplPath': 'sections/products/page.html',
+		'scripts': ['sections/products/controllers.js']
 	}
 ];
 
