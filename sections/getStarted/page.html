@@ -3,9 +3,22 @@
 		
 		<div class="row" ng-repeat="level in getstarted">
 			<h2>{{level.label}}</h2>
+			<hr/>
 			<p>{{level.description}}</p>
 			
-			
+			<div ng-repeat="section in level.sections">
+				<div class="col-lg-6">
+					<div class="col-sm-2">
+						<a href="{{section.link}}"><img ng-src="{{section.icon}}" alt="{{section.title}}" border="0" /></a>
+					</div>
+					<div class="col-sm-10">
+						<a href="{{section.link}}"><b>{{section.title}}</b></a><br />
+						<em>{{section.description}}</em>
+					</div>
+				</div>
+				<div class="separator10">&nbsp;</div>
+			</div>
+			<div class="separator50">&nbsp;</div>
 		</div>
 	</div>
 </div>
