@@ -467,6 +467,9 @@ Setions
 .gray {
     background-color: gray;
 }
+.black {
+    background-color: #000000;
+}
 
 .bgNone {
     background: none;
