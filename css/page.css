@@ -139,45 +139,22 @@ h2, .h2 {
     background-color: #19303f;
 }
 
-.topbar .dropdown-menu > li{
+.topbar .dropdown-menu > li {
     border: none;
-}
-.topbar .topnav .dropdown-menu > li:hover,
-.topbar .topnav .dropdown-menu > li.active,
-.topbar.scrolling .topnav .dropdown-menu > li:hover,
-.topbar.scrolling .topnav .dropdown-menu > li.active
-.topbar.scrolling .topnav .dropdown-menu > li.active a,
-.topbar.scrolling .topnav .dropdown-menu > li.active {
-    border: none;
-    background: none;
-    color:white;
-}
-.topbar .topnav .dropdown-menu > li a:hover,
-.topbar .topnav .dropdown-menu > li a,
-.topbar.scrolling .topnav .dropdown-menu > li a:hover,
-.topbar.scrolling .topnav .dropdown-menu > li a,
-.topbar.scrolling .topnav .dropdown-menu > li.active a:hover,
-.topbar.scrolling .topnav .dropdown-menu > li.active a
-{
-    border: none;
-    background: none;
-    color:white;
 }
 
 .topbar.scrolling .topnav .dropdown-menu > li a:hover,
-.topbar.scrolling .topnav .dropdown-menu > li.active a:hover
-{
-color :#f48600;
+.topbar.scrolling .topnav .dropdown-menu > li.active a:hover {
+    color: #f48600;
 }
 
-.navbar-default .navbar-toggle
-{
-    color:white;
+.navbar-default .navbar-toggle {
+    color: white;
     background: none;
-    border : none;
+    border: none;
 }
-.navbar-default .navbar-toggle:hover,.navbar-default .navbar-toggle:focus  {
 
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
     background: none;
 }
 
@@ -263,8 +240,6 @@ color :#f48600;
     padding-bottom: 4px;
     -webkit-border-radius: 22px;
     -moz-border-radius: 22px;
-    border-radius: 22px;
-    border: 2px solid rgba(255, 255, 255, 0);
 }
 
 .topbar .topnav li a {
@@ -274,28 +249,18 @@ color :#f48600;
     font-size: 16px;
     outline: 0 none;
     white-space: nowrap;
-    padding:0;
-}
-
-.topbar .topnav li.active, .topbar .topnav li:hover {
-    color: white;
-    font-weight: bold;
-    -webkit-border-radius: 22px;
-    -moz-border-radius: 22px;
-    border-radius: 22px;
-    border: 2px solid rgba(255, 255, 255, 1);
+    padding: 0;
 }
 
 .topbar .topnav li:hover a {
     transition: all 0.25s ease 0s;
     text-decoration: none;
-
 }
 
 .topbar .topnav li.active a {
     text-decoration: none;
-    font-weight: bold;
-    font-weight: 600;
+    /*font-weight: bold;*/
+    /*font-weight: 600;*/
 }
 
 .topbar .getStarted {
@@ -443,6 +408,7 @@ Setions
 .gray {
     background-color: gray;
 }
+
 .black {
     background-color: #000000;
 }
@@ -946,10 +912,11 @@ hr.green {
 *
 **********************/
 
-.docs{
-    margin-bottom : 10px;
-    min-height:155px;
+.docs {
+    margin-bottom: 10px;
+    min-height: 155px;
 }
+
 /**********************
 *
 * case studies
@@ -1148,3 +1115,43 @@ input.form-control:focus, .form-control:focus {
     border-color: white;
 }
 
+@media (min-width: 768px) {
+    .topbar .topnav li {
+        -webkit-border-radius: 22px;
+        -moz-border-radius: 22px;
+        border-radius: 22px;
+        border: 2px solid rgba(255, 255, 255, 0);
+    }
+
+    .topbar .topnav li.active,
+    .topbar .topnav li:hover {
+        color: white;
+        /*font-weight: bold;*/
+        -webkit-border-radius: 22px;
+        -moz-border-radius: 22px;
+        border-radius: 22px;
+        border: 2px solid rgba(255, 255, 255, 1);
+    }
+
+    .topbar .topnav .dropdown-menu > li:hover,
+    .topbar .topnav .dropdown-menu > li.active,
+    .topbar.scrolling .topnav .dropdown-menu > li:hover,
+    .topbar.scrolling .topnav .dropdown-menu > li.active,
+    .topbar.scrolling .topnav .dropdown-menu > li.active a,
+    .topbar.scrolling .topnav .dropdown-menu > li.active {
+        border: none;
+        background: none;
+        color: white;
+    }
+
+    .topbar .topnav .dropdown-menu > li a:hover,
+    .topbar .topnav .dropdown-menu > li a,
+    .topbar.scrolling .topnav .dropdown-menu > li a:hover,
+    .topbar.scrolling .topnav .dropdown-menu > li a,
+    .topbar.scrolling .topnav .dropdown-menu > li.active a:hover,
+    .topbar.scrolling .topnav .dropdown-menu > li.active a {
+        border: none;
+        background: none;
+        color: white;
+    }
+}
