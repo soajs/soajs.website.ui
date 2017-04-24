@@ -2,6 +2,11 @@
 var getStartedApp = app.components;
 
 getStartedApp.controller('getStartedCtrl', ['$scope', function ($scope) {
+    var pageData = {
+        title: "Get Started",
+        subTitle: ""
+    };
+    $scope.$parent.$emit('refreshPageTitle', pageData);
 	$scope.getstarted = [
 		{
 			label: "Beginner's Guide",

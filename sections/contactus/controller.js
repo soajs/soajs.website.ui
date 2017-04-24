@@ -17,7 +17,8 @@ contactUsApp.controller('contactCtrl', [ '$scope', '$http', '$timeout', function
 		$scope.alerts.push({ 'type': 'warning', 'msg': "Your message is being sent, please wait ..." });
 		if ($scope.contactForm.$valid) {
 			$scope.contact.captcha = iCaptcha1Value;
-			
+
+
 			$http({
 				method: 'POST',
 				url: '/sections/contactus/sendMail.php',

@@ -152,6 +152,13 @@ max widths
 */
 
 @media (max-width: 767px) {
+
+    .navbar-header{
+        float:right;
+    }
+    .topbar.scrolling{
+        background:none;
+    }
     .topbar .navbar-collapse {
         background-color: #19303f;
         width: 200px;
