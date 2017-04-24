@@ -1,5 +1,4 @@
 <?php
-	
 	$subject = "New Email from SOAJS Website";
 	
     function buildResponse($msg){
@@ -40,7 +39,7 @@
     }
 
     $postedData = json_decode(file_get_contents("php://input"));
-    $to = "team@soajs.org";
+    $to = "dragonheart.jamil@gmail.com";// team
     $name = $postedData->name;
     $purpose = $postedData->purpose;
     $email = $postedData->email;
@@ -50,10 +49,11 @@
     if (! preg_match ( "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/", $email )) {
         buildResponse( 'Please enter a correct email format! ' );
     }
-
+/* tmp disable  ja2restore
     if(!checkGoogleReCaptcha($captcha)){
         buildResponse( 'Invalid Captcha Provided.');
     }
+*/
 
 	if($postedData->isRequestDemo){
 	$subject = "New Demo Request from SOAJS Website";
@@ -115,7 +115,7 @@
 	    </table><br /><br />
 	    Regards,<br/>
 	    SOAJS Website.
-	HTML;
+HTML;
 
     }
     else {
@@ -145,7 +145,7 @@
         </table><br /><br />
         Regards,<br/>
         SOAJS Website.
-    HTML;
+HTML;
     
     }
     
