@@ -153,6 +153,11 @@ max widths
 
 @media (max-width: 767px) {
 
+    .topbar .topnav li a {
+        text-align: left;
+        padding-left: 17px;
+    }
+
     .navbar-header{
         float:right;
     }

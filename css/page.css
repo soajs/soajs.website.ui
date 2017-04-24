@@ -135,9 +135,10 @@ h2, .h2 {
     box-shadow: none;
 }
 
-.icon-bar{
-    color:red;
+.icon-bar {
+    color: red;
 }
+
 .dropdown-menu {
     background-color: #19303f;
 }
@@ -146,10 +147,10 @@ h2, .h2 {
     border: none;
 }
 
-.topbar.scrolling
-{
+.topbar.scrolling {
     height: 90px;
 }
+
 .topbar.scrolling .topnav .dropdown-menu > li a:hover,
 .topbar.scrolling .topnav .dropdown-menu > li.active a:hover {
     color: #f48600;
@@ -214,7 +215,7 @@ h2, .h2 {
     float: left;
     padding: 14px 0;
     max-height: 65px;
-    margin-left:17px;
+    margin-left: 17px;
 }
 
 .topbar .branding .version {
@@ -233,7 +234,6 @@ h2, .h2 {
     height: 100% !important;
     padding: 16px 20px;
 }
-
 
 .topbar .topnav {
     float: right;
@@ -260,8 +260,6 @@ h2, .h2 {
     outline: 0 none;
     white-space: nowrap;
     padding: 0;
-    text-align: left;
-    padding-left:17px;
 }
 
 .topbar .topnav li:hover a {
@@ -272,6 +270,7 @@ h2, .h2 {
 .topbar .topnav li.active a:hover {
     font-weight: normal;
 }
+
 .topbar .topnav li.active a {
     text-decoration: none;
     font-weight: normal;
@@ -1151,8 +1150,7 @@ input.form-control:focus, .form-control:focus {
 
     .topbar .topnav .dropdown-menu > li:hover,
     .topbar .topnav .dropdown-menu > li.active {
-        border: none;
-        background: none;
+        border: 2px solid #19303f;
         color: white;
     }
 
