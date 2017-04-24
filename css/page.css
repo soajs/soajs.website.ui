@@ -1134,7 +1134,12 @@ input.form-control:focus, .form-control:focus {
     }
 
     .topbar .topnav .dropdown-menu > li:hover,
-    .topbar .topnav .dropdown-menu > li.active,
+    .topbar .topnav .dropdown-menu > li.active {
+        border: none;
+        background: none;
+        color: white;
+    }
+
     .topbar.scrolling .topnav .dropdown-menu > li:hover,
     .topbar.scrolling .topnav .dropdown-menu > li.active,
     .topbar.scrolling .topnav .dropdown-menu > li.active a,
