@@ -170,8 +170,13 @@ h2, .h2 {
     top: 0;
     width: 100%;
     z-index: 100;
+    height:90px;
 }
 
+.navbar-collapse.collapse
+{
+    height:90px;
+}
 .topbar.scrolling {
     background-color: white;
     color: #19303f;
@@ -235,10 +240,6 @@ h2, .h2 {
 }
 
 
-.topbar .topnav {
-    float: right;
-    min-height: 500px;
-}
 
 .topbar .topnav li {
     margin-top: 10px;

@@ -159,6 +159,11 @@ max widths
     .topbar.scrolling{
         background:none;
     }
+
+    .topbar .topnav {
+        float: right;
+        min-height: 500px;
+    }
     .topbar .navbar-collapse {
         background-color: #19303f;
         width: 200px;
