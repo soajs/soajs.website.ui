@@ -261,8 +261,6 @@ h2, .h2 {
     outline: 0 none;
     white-space: nowrap;
     padding: 0;
-    text-align: left;
-    padding-left:17px;
 }
 
 .topbar .topnav li:hover a {
@@ -273,6 +271,7 @@ h2, .h2 {
 .topbar .topnav li.active a:hover {
     font-weight: normal;
 }
+
 .topbar .topnav li.active a {
     text-decoration: none;
     font-weight: normal;
