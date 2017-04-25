@@ -153,22 +153,32 @@ max widths
 
 @media (max-width: 767px) {
 
+    #bs-example-navbar-collapse-1 {
+        border-top: 0;
+    }
+
     .topbar .topnav li a {
         text-align: left;
         padding-left: 17px;
     }
 
-    .navbar-header{
-        float:right;
+    .navbar-header {
+        float: right;
     }
-    .topbar.scrolling{
-        background:none;
+
+    .navbar-default .navbar-header button .icon-bar {
+        background-color: white;
+    }
+
+    .topbar.scrolling {
+        background: none;
     }
 
     .topbar .topnav {
         float: right;
         min-height: 500px;
     }
+
     .topbar .navbar-collapse {
         background-color: #19303f;
         width: 200px;
