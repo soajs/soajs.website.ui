@@ -1131,6 +1131,7 @@ input.form-control:focus, .form-control:focus {
 }
 
 @media (min-width: 768px) {
+
     .topbar .topnav li {
         -webkit-border-radius: 22px;
         -moz-border-radius: 22px;
@@ -1149,12 +1150,11 @@ input.form-control:focus, .form-control:focus {
     }
 
     .topbar .topnav .dropdown-menu > li:hover,
-    .topbar .topnav .dropdown-menu > li.active {
-        border: 2px solid #19303f;
-        color: white;
+    .topbar.scrolling .topnav .dropdown-menu > li:hover {
+        border: 2px solid rgba(255, 255, 255, 0);
     }
 
-    .topbar.scrolling .topnav .dropdown-menu > li:hover,
+    .topbar .topnav .dropdown-menu > li.active,
     .topbar.scrolling .topnav .dropdown-menu > li.active,
     .topbar.scrolling .topnav .dropdown-menu > li.active a,
     .topbar.scrolling .topnav .dropdown-menu > li.active {
