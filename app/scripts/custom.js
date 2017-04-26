@@ -11,3 +11,4 @@ $(window).scroll(function() {
         $("img.logo").attr("src", "images/logow.png");
     }
 });
+

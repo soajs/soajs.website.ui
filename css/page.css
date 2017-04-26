@@ -726,7 +726,6 @@ img.wide {
 img.thumb {
     max-width: 300px;
 }
-
 /**********************
 *
 * Elements  Icons
@@ -958,7 +957,7 @@ hr {
 }
 
 .panel-default > .panel-heading {
-    background-color: #122733;
+    background-color: grey;
     background-image: none;
     color: white;
 }
@@ -985,6 +984,10 @@ hr {
     margin: 0;
 }
 
+
+.panel-default > .panel-heading.actives{
+    background-color:122733;
+}
 /**********************
 *
 * Releases table
