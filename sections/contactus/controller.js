@@ -13,6 +13,10 @@ contactUsApp.controller('contactCtrl', [ '$scope', '$http', '$timeout', function
 		}, 10000);
 	};
 
+    $http.get("sections/home/repos.json").success(function(data) {
+        $scope.repos = data;
+    });
+
 	$scope.sendContact = function () {
 		$scope.alerts.push({ 'type': 'warning', 'msg': "Your message is being sent, please wait ..." });
 		if ($scope.contactForm.$valid) {

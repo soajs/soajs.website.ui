@@ -79,29 +79,34 @@
                     <hr class="yellow-dark">
                     <form name="requestForm" novalidate class="colorForm">
                         <div class="clearfix form-group">
-                            <div class="col-md-6 col-sm-12">
-                                <input ng-model="project.name" type="text" class="form-control" placeholder="Your Name"
-                                       tooltip="Enter your name" required/></div>
 
                             <div class="col-md-6 col-sm-12">
-                                <input ng-model="project.custom1" type="text" class="form-control"
-                                       placeholder="Custom Field 1" tooltip="Input data" required/>
+                                <input ng-model="project.company" type="text" class="form-control"
+                                       placeholder="Company Name" tooltip="Input data" required/>
+                            </div>
+
+                            <div class="col-md-6 col-sm-12">
+                                <input ng-model="project.address" type="text" class="form-control"
+                                       placeholder="Company Address" tooltip="Input data" required/>
                             </div>
                             <div class="col-md-6 col-sm-12">
-                                <input ng-model="project.custom2" type="text" class="form-control"
-                                       placeholder="Custom Field 2 " tooltip="Input data" required/>
+                                <input ng-model="project.contact" type="text" class="form-control"
+                                       placeholder="Contact Name " tooltip="Input data" required/>
                             </div>
                             <div class="col-md-6 col-sm-12">
-                                <input ng-model="project.custom3" type="text" class="form-control"
-                                       placeholder="Custom Field 3" tooltip="Input data" required/>
+                                <input ng-model="project.email" type="text" class="form-control"
+                                       placeholder="Contact Email" tooltip="Input data" required/>
                             </div>
                             <div class="col-md-6 col-sm-12">
-                                <input ng-model="project.custom4" type="text" class="form-control"
-                                       placeholder="Custom Field 4" tooltip="Input data" required/>
+                                <input ng-model="project.phone" type="text" class="form-control"
+                                       placeholder="Contact Phone" tooltip="Input data" required/>
                             </div>
-                            <div class="col-md-6 col-sm-12">
-                                <input ng-model="project.custom5" type="text" class="form-control"
-                                       placeholder="Custom Field 5" tooltip="Input data" required/>
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12">
+                                <textarea required class="form-control" placeholder="Describe your project"
+                                          tooltip="Provide as much information as possible about your project" rows="10"
+                                          ng-model="project.message"></textarea>
+                                </div>
                             </div>
 
                         </div>
@@ -134,33 +139,33 @@
                         <div class="clearfix form-group">
                             <div class="form-group">
                                 <div class="col-md-6 col-sm-12">
-                                    <input ng-model="contact.name" type="text" class="form-control"
+                                    <input ng-model="request.name" type="text" class="form-control"
                                            placeholder="Your Name"
                                            tooltip="Enter your name" required/></div>
                                 <div class="col-md-6 col-sm-12">
-                                    <input ng-model="contact.phone" type="text" class="form-control"
+                                    <input ng-model="request.phone" type="text" class="form-control"
                                            placeholder="Phone Number"
                                            tooltip="Enter your phone number"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-6 col-sm-12">
-                                    <input ng-model="contact.email" type="email" class="form-control"
+                                    <input ng-model="request.email" type="email" class="form-control"
                                            placeholder="Email"
                                            tooltip="Enter your email address..." required/>
                                 </div>
                                 <div class="col-md-6 col-sm-12">
-                                    <input ng-model="contact.company" type="text" class="form-control"
+                                    <input ng-model="request.company" type="text" class="form-control"
                                            placeholder="Company Name"
                                            tooltip="Enter your comapny name..." required/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-6 col-sm-12">
-                                    <input ng-model="contact.role" type="text" class="form-control" placeholder="Role"
-                                           tooltip="Enter your business role" required/></div>
+                                    <input ng-model="request.role" type="text" class="form-control" placeholder="Role"
+                                           tooltip="Enter your business role"/></div>
                                 <div class="col-md-6 col-sm-12">
-                                    <input ng-model="contact.country" type="text" class="form-control"
+                                    <input ng-model="request.country" type="text" class="form-control"
                                            placeholder="Country"
                                            tooltip="Enter your country" required/>
                                 </div>
@@ -168,9 +173,9 @@
 
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12">
-                                <textarea required class="form-control" placeholder="Message"
+                                <textarea required class="form-control" placeholder="Tell us more about your interest regarding SOAJS"
                                           tooltip="Provide as much information as possible in your message..." rows="10"
-                                          ng-model="contact.message"></textarea>
+                                          ng-model="request.message"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -205,22 +210,52 @@
     <div class="separator50"></div>
     <div class="col-lg-3 col-md-2 col-sm-1"></div>
     <div class="col-lg-6 col-md-8 col-sm-10">
-        <h2>Interested in joining our team? </h2>
+        <h2>Become a contributer </h2>
         <form name="joinForm" ng-submit="contactForm.$valid && joinUs()" novalidate>
 
             <div class="form-group">
-                <input ng-model="contact.name" type="text" placeholder="Your Name" class="form-control"
+                <input ng-model="join.name" type="text" placeholder="Your Name" class="form-control"
                        tooltip="Enter your full name..." required/>
             </div>
             <div class="form-group">
-                <input ng-model="contact.email" type="email" class="form-control" placeholder="Email"
+                <input ng-model="join.email" type="email" class="form-control" placeholder="Email"
                        tooltip="Enter your email address..." required/>
             </div>
+            <div class="form-group">
+                <input ng-model="join.location" type="text" class="form-control" placeholder="Location"
+                       tooltip="Location" required/>
+            </div>
+            <div class="form-group">
+                <input ng-model="join.github" type="text" class="form-control" placeholder="Github URL"
+                       tooltip="github url" required/>
+            </div>
+
 
             <div class="form-group">
-                <textarea required class="form-control" placeholder="Write your message here..."
+                <h4>What product do you want to contribute to?</h4>
+                <div ng-repeat="badge in repos">
+                    <input type="checkbox">{{badge.label}}
+                </div>
+            </div>
+
+<!--
+            <div class="form-group">
+            <select id="example-getting-started" multiple="multiple">
+                <option value="cheese">Cheese</option>
+                <option value="tomatoes">Tomatoes</option>
+                <option value="mozarella">Mozzarella</option>
+                <option value="mushrooms">Mushrooms</option>
+                <option value="pepperoni">Pepperoni</option>
+                <option value="onions">Onions</option>
+            </select>
+
+            </div>
+-->
+
+            <div class="form-group">
+                <textarea required class="form-control" placeholder="How can you contirbute"
                           tooltip="Provide as much information as possible in your message..." rows="10"
-                          ng-model="contact.message"></textarea>
+                          ng-model="join.message"></textarea>
             </div>
 
             <div class="form-group">
