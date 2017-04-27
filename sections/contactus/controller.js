@@ -22,7 +22,6 @@ contactUsApp.controller('contactCtrl', [ '$scope', '$http', '$timeout', function
 		if ($scope.contactForm.$valid) {
 			$scope.contact.captcha = iCaptcha1Value;
 
-
 			$http({
 				method: 'POST',
 				url: '/sections/contactus/sendMail.php',

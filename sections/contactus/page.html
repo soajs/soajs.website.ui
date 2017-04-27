@@ -90,7 +90,7 @@
                                        placeholder="Company Address" tooltip="Input data" required/>
                             </div>
                             <div class="col-md-6 col-sm-12">
-                                <input ng-model="project.contact" type="text" class="form-control"
+                                <input ng-model="project.name" type="text" class="form-control"
                                        placeholder="Contact Name " tooltip="Input data" required/>
                             </div>
                             <div class="col-md-6 col-sm-12">
@@ -234,7 +234,7 @@
             <div class="form-group">
                 <h4>What product do you want to contribute to?</h4>
                 <div ng-repeat="badge in repos">
-                    <input type="checkbox">{{badge.label}}
+                    <input type="checkbox" ng-model="join.product">{{badge.label}}
                 </div>
             </div>
 
