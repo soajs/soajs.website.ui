@@ -135,9 +135,10 @@ h2, .h2 {
     box-shadow: none;
 }
 
-.icon-bar{
-    color:red;
+.icon-bar {
+    color: red;
 }
+
 .dropdown-menu {
     background-color: #19303f;
 }
@@ -146,10 +147,10 @@ h2, .h2 {
     border: none;
 }
 
-.topbar.scrolling
-{
+.topbar.scrolling {
     height: 90px;
 }
+
 .topbar.scrolling .topnav .dropdown-menu > li a:hover,
 .topbar.scrolling .topnav .dropdown-menu > li.active a:hover {
     color: #f48600;
@@ -170,7 +171,7 @@ h2, .h2 {
     top: 0;
     width: 100%;
     z-index: 100;
-    height:90px;
+    height: 90px;
 }
 
 .topbar.scrolling {
@@ -215,7 +216,7 @@ h2, .h2 {
     float: left;
     padding: 14px 0;
     max-height: 65px;
-    margin-left:17px;
+    margin-left: 17px;
 }
 
 .topbar .branding .version {
@@ -234,8 +235,6 @@ h2, .h2 {
     height: 100% !important;
     padding: 16px 20px;
 }
-
-
 
 .topbar .topnav li {
     margin-top: 10px;
@@ -726,6 +725,7 @@ img.wide {
 img.thumb {
     max-width: 300px;
 }
+
 /**********************
 *
 * Elements  Icons
@@ -984,10 +984,10 @@ hr {
     margin: 0;
 }
 
-
-.panel-default > .panel-heading.actives{
-    background-color:122733;
+.panel-default > .panel-heading.actives {
+    background-color: #122733;
 }
+
 /**********************
 *
 * Releases table
@@ -1003,6 +1003,10 @@ hr {
 }
 
 .releases .repoName {
+    padding: 0;
+}
+
+.releases .versionRepo {
     padding: 0;
 }
 
@@ -1073,7 +1077,6 @@ hr {
 * Forms
 *****************/
 .colorForm .form-control {
-    margin-top: 12px;
     background: none;
     color: white;
     border-color: gray;
@@ -1115,21 +1118,6 @@ input.form-control:focus, .form-control:focus {
     outline: none !important;
 }
 
-/*****************
-*
-* Forms
-*****************/
-.colorForm .form-control {
-    margin-top: 12px;
-    background: none;
-    color: white;
-    border-color: gray;
-}
-
-input.form-control:focus, .form-control:focus {
-    border-color: white;
-}
-
 @media (min-width: 768px) {
 
     .topbar .topnav li {
@@ -1150,10 +1138,10 @@ input.form-control:focus, .form-control:focus {
     }
 
     .topbar .topnav .dropdown-menu > li:hover,
-    .topbar.scrolling .topnav .dropdown-menu > li:hover
-    {
+    .topbar.scrolling .topnav .dropdown-menu > li:hover {
         border: 2px solid rgba(255, 255, 255, 0);
     }
+
     .topbar .topnav .dropdown-menu > li.active,
     .topbar.scrolling .topnav .dropdown-menu > li.active,
     .topbar.scrolling .topnav .dropdown-menu > li.active a,

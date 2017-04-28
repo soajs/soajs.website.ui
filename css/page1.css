@@ -153,6 +153,10 @@ max widths
 
 @media (max-width: 767px) {
 
+    .oneRepo .repoNews {
+        padding: 0;
+    }
+
     #bs-example-navbar-collapse-1 {
         border-top: 0;
     }
@@ -241,24 +245,31 @@ max widths
     img.thumb {
         max-width: 120px;
     }
+
     .panel-heading {
         height: 70px;
     }
+
     .panel-heading h4 a {
         float: left;
         width: 100%;
-        }
-    .panel-heading .pull-right {float: left!important;
-        margin-top:7px;
     }
-    .panel-heading .text-right {text-align: left;}
 
+    .panel-heading .pull-right {
+        float: left !important;
+        margin-top: 7px;
+    }
+
+    .panel-heading .text-right {
+        text-align: left;
+    }
 
     .form-group {
         overflow: hidden;
     }
-    .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12
-    {
-        padding:2px;
+
+    .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+        /*padding: 2px;*/
     }
+
 }
