@@ -380,7 +380,8 @@ Footer section
 }
 
 .bottom .menu a {
-    padding-left: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
     color: white;
 }
 

@@ -151,6 +151,13 @@
 max widths
 */
 
+@media (max-width: 800px) {
+    .col-sm-height {
+        display: block;
+        float: none;
+    }
+}
+
 @media (max-width: 767px) {
 
     .oneRepo .repoNews {
@@ -241,6 +248,10 @@ max widths
 }
 
 @media (max-width: 480px) {
+
+    form .form-group {
+        padding: 0;
+    }
 
     img.thumb {
         max-width: 120px;
