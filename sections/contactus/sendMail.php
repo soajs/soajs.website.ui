@@ -181,19 +181,14 @@
             <tr>
               <td class="container-padding footer-text" align="left" style="font-family:Helvetica, Arial, sans-serif;font-size:12px;line-height:16px;color:#aaaaaa;padding-left:24px;padding-right:24px">
                 <br><br>
-                All rights reserved: © 2017 SoaJs, SARL.
-                <br><br>
 
-                You are receiving this email because a form was submitted on our website.
-                <br><br>
+                                <strong>Regards</strong><br>
+                                <span class="ios-footer">
+                                  SOAJS<br>
+                                </span>
+                                <a href="http://www.soajs.org" style="color:#aaaaaa">soajs.org</a><br>
 
-                <strong>SoaJS</strong><br>
-                <span class="ios-footer">
-                  Mansoreyi<br>
-                </span>
-                <a href="http://www.soajs.org" style="color:#aaaaaa">soajs.org</a><br>
-
-                <br><br>
+                              </td>
 
               </td>
             </tr>
@@ -329,20 +324,15 @@ HTML;
             </tr>
             <tr>
               <td class="container-padding footer-text" align="left" style="font-family:Helvetica, Arial, sans-serif;font-size:12px;line-height:16px;color:#aaaaaa;padding-left:24px;padding-right:24px">
-                <br><br>
-                All rights reserved: © 2017 SoaJs, SARL.
-                <br><br>
 
                 You are receiving this email because a form was submitted on our website.
                 <br><br>
 
-                <strong>SoaJS</strong><br>
+                <strong>Regards</strong><br>
                 <span class="ios-footer">
-                  Mansoreyi<br>
+                  SOAJS<br>
                 </span>
                 <a href="http://www.soajs.org" style="color:#aaaaaa">soajs.org</a><br>
-
-                <br><br>
 
               </td>
             </tr>
@@ -456,7 +446,7 @@ HTML;
           <table border="0" width="600" cellpadding="0" cellspacing="0" class="container" style="width:600px;max-width:600px">
             <tr>
               <td class="container-padding header" align="left" style="font-family:Helvetica, Arial, sans-serif;font-size:24px;font-weight:bold;padding-bottom:12px;color:#DF4726;padding-left:24px;padding-right:24px">
-                SoaJS
+                SOAJS
               </td>
             </tr>
             <tr>
@@ -479,19 +469,14 @@ HTML;
             <tr>
               <td class="container-padding footer-text" align="left" style="font-family:Helvetica, Arial, sans-serif;font-size:12px;line-height:16px;color:#aaaaaa;padding-left:24px;padding-right:24px">
                 <br><br>
-                All rights reserved: © 2017 SoaJs, SARL.
-                <br><br>
 
-                You are receiving this email because a form was submitted on our website.
-                <br><br>
-
-                <strong>SoaJS</strong><br>
+                <strong>Regards</strong><br>
                 <span class="ios-footer">
-                  Mansoreyi<br>
+                  SOAJS<br>
                 </span>
                 <a href="http://www.soajs.org" style="color:#aaaaaa">soajs.org</a><br>
 
-                <br><br>
+              </td>
 
               </td>
             </tr>
@@ -623,20 +608,16 @@ HTML;
             </tr>
             <tr>
               <td class="container-padding footer-text" align="left" style="font-family:Helvetica, Arial, sans-serif;font-size:12px;line-height:16px;color:#aaaaaa;padding-left:24px;padding-right:24px">
-                <br><br>
-                All rights reserved: © 2017 SoaJs, SARL.
-                <br><br>
 
-                You are receiving this email because a form was submitted on our website.
-                <br><br>
+                 <br><br>
 
-                <strong>SoaJS</strong><br>
-                <span class="ios-footer">
-                  Mansoreyi<br>
-                </span>
-                <a href="http://www.soajs.org" style="color:#aaaaaa">soajs.org</a><br>
+                    <strong>Regards</strong><br>
+                    <span class="ios-footer">
+                      SOAJS<br>
+                    </span>
+                    <a href="http://www.soajs.org" style="color:#aaaaaa">soajs.org</a><br>
 
-                <br><br>
+                  </td>
 
               </td>
             </tr>
