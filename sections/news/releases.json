@@ -78,15 +78,21 @@
         ]
       },
       {
-        "name": "soajs.dashboard",
-        "version": "1.0.0",
+        "name": "soajs.composer",
+        "version": "release/v0.x",
         "features": [
-          "Added support for sessionless behavior",
-          "Optimized dashboard tenant key access",
-          "Enhanced UI/UX"
         ],
         "bugFixes": [
-          "Fixed SSL configuration issue in deploy/redeploy NGINX with kubernetes driver"
+          "Fixed issue related to reusing Mongo multitenant connections"
+        ]
+      },
+      {
+        "name": "soajs.urac",
+        "version": "1.0.0",
+        "features": [
+          "Added support for sessionless behavior"
+        ],
+        "bugFixes": [
         ]
       },
       {
@@ -99,20 +105,23 @@
         ]
       },
       {
+        "name": "soajs.dashboard",
+        "version": "1.0.0",
+        "features": [
+          "Added support for sessionless behavior",
+          "Optimized dashboard tenant key access",
+          "Enhanced UI/UX"
+        ],
+        "bugFixes": [
+          "Fixed SSL configuration issue in deploy/redeploy NGINX with kubernetes driver"
+        ]
+      },
+      {
         "name": "soajs.prx",
         "version": "1.0.0",
         "features": [
           "Added support for sessionless behavior",
           "Revamped test cases"
-        ],
-        "bugFixes": [
-        ]
-      },
-      {
-        "name": "soajs.urac",
-        "version": "1.0.0",
-        "features": [
-          "Added support for sessionless behavior"
         ],
         "bugFixes": [
         ]
@@ -249,15 +258,6 @@
           "Added Support for v8 memory management"
         ],
         "bugFixes": [
-        ]
-      },
-      {
-        "name": "soajs.composer",
-        "version": "release/v0.x",
-        "features": [
-        ],
-        "bugFixes": [
-          "Fixed issue related to reusing Mongo multitenant connections"
         ]
       },
       {
