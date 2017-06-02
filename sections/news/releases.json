@@ -1,4 +1,154 @@
 [
+
+  {
+    "id": "Great White Shark",
+    "label": "Great White Shark",
+    "date": "Jun 2, 2017",
+    "repos": [
+      {
+        "name": "soajs.mongodb.data",
+        "version": "1.0,3",
+        "enhancedTests": [
+          "Introduced new test data for new updates"
+        ]
+      },
+      {
+        "name": "soajs.core.modules",
+        "version": "1.0.4",
+        "features": [
+          "Updated registry to support new feature SOAJS sessionLess Controller"
+        ]
+      },
+      {
+        "name": "soajs.urac.driver",
+        "version": "1.0.2",
+        "features": [
+          "Provided support for new feature SOAJS sessionLess Controller",
+          "Provided support for new driver openam for SSO Login"
+        ],
+        "enhancedTests": [
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs",
+        "version": "1.0.3",
+        "features": [
+          "SOAJS services receive tenant configuration at runtime from controller",
+          "SOAJS services receive URAC information at runtime from controller",
+          "SOAJS controller is now responsible for all security checks",
+          "updated SOAJS architecture to support microservices created in other languages"
+        ],
+        "enhancedTests": [
+          "Updated test cases to support new feature"
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.urac",
+        "version": "1.0.5",
+        "features": [
+          "Added support for SSO login"
+        ],
+        "enhancedTests": [
+          "Updated test cases to support OpenAM"
+        ],
+        "bugFixes": [
+          "Updated api schema configuration defaults for guest users",
+          "Fixed user id issue with 3rd party login"
+
+        ]
+      },
+      {
+        "name": "soajs.oauth",
+        "version": "1.0.2",
+        "features": [
+          "Provided support to the new feature SOAJS sessionLess Controller"
+        ],
+        "enhancedTests": [
+          "Updated test cases to support OpenAM"
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.dashboardh",
+        "version": "1.1.5",
+        "features": [
+
+          "Added Catalog management section under Develop pillar",
+          "Revamped deploy service to support catalog recipes (UI + backend)",
+          "Added metric analytics for all services in docker (UI + backend)",
+          "Added service analytics for nginx for docker & kubernetes (UI + backend)",
+          "Updated code and separated REST & BL layers",
+          "Added new support for Continuous Integration and Continuous Delivery",
+          "Added new support for Updates and Upgrades",
+          "Provided support for feature SOAJS sessionLess Controller when using Swagger Editor",
+          "Provided support for feature SOAJS sessionLess Controller when using Content Builder"
+
+        ],
+        "enhancedTests": [
+          "Updated tests to support new feature"
+        ],
+        "bugFixes": [
+          "Updated test cases to support OpenAM"
+        ]
+      },
+      {
+        "name": "soajs.utilities",
+        "version": "1.0.2",
+        "features": [
+          "Added new functionality to generated keys for owner in TEST environments",
+          "Added new functionality to support catalog recipe deployment"
+
+        ],
+        "enhancedTests": [
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.examples",
+        "version": "1.0.2",
+        "features": [
+          "Updated examples code to support feature SOAJS sessionLess Controller"
+        ],
+        "enhancedTests": [
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.jsconf",
+        "version": "1.0.2",
+        "features": [
+          "Updated jsconf services code to support feature SOAJS sessionLess Controller"
+        ],
+        "enhancedTests": [
+        ],
+        "bugFixes": [
+        ]
+      },
+      {
+        "name": "soajs.installer",
+        "version": "1.0.5",
+        "features": [
+          "Integrated service and metric analytics for cloud deployments (ELK stack)",
+          "Added provision data for default catalog recipes",
+          "Updated driver templates for kubernetes to support feature SOAJS sessionLess Controller",
+          "Updated driver templates for swarm to support feature SOAJS sessionLess Controller"
+
+        ],
+        "enhancedTests": [
+        ],
+        "bugFixes": [
+          "Fixed issue with installation progress bar when using kubernetes & docker deployment"
+        ]
+      }
+    ]
+  },
   {
     "id": "rivershark1",
     "label": "Release River Shark 1",
