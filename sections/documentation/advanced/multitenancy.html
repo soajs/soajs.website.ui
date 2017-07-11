@@ -1,64 +1,10 @@
-<a id="multitenancy"></a>
+<script>
+	setTimeout(function(){
+		window.location.href= "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61509025/Multitenancy";
+	}, 2000);
+</script>
+<a id="multiEnv"></a>
 <h1>Multitenancy</h1>
 <div class="white-container">
-	<p>
-		SOAJS gives you the ability to create multiple tenants and assign product packages to them. A tenant represents a client. So to apply the concept of having one service serve several tenants differently, such as <a href="#/documentation/services/urac">URAC</a>, we need to configure our service to use multitenancy, create tenants and assign keys to them. And when making calls to the APIs of that service, specify the key of the tenant in those requests. <a href="#/getStarted/example03">Example03</a> demonstrates the usage of several tenants and in some cases, several applications of a tenant with the same service.
-	</p>
-	<hr/>
-	<h3>Tenants</h3>
-	<p>
-		Tenants can be created and configured using the <a href="#/documentation/ui/dashboard">Dashboard</a> of SOAJS. Tenants have unique identification codes and optional <a href="#/documentation/services/oauth">oAuth</a> configuration. Checkout <a href="#/getStarted/example02">Example02</a> to learn how to protect a service using <a href="#/documentation/services/oauth">oAuth</a>.
-		<div ng-init="loadCode(path + 'advanced/multitenancy/tenant1.js', 'tenantjs');">
-			<div id="tenantjs"></div>
-		</div>
-		The above snippet represents one tenant records that is stored in the database <b>core_provision</b> under <b>tenants</b>. The tenant is called Test Tenant, has <a href="#/documentation/services/oauth">oAuth</a> security information and has an application array.
-	</p>
-	<br/>
-	<h3>Applications</h3>
-	<div ng-init="loadJson(path + 'advanced/multitenancy/app1.json', 'app1js');">
-		<div id="app1js"></div>
-	</div>
-
-	<p>
-		The above snippet represents an application in a tenant that uses <b>PROD1_PCK1</b> package and inherits the ACL from that package. Since <b>PROD_PCK1</b> provides access to the <a href="#/documentation/services/urac">URAC</a> service, this application can now use the service and give it some custom configuration as shown in the <b>config.urac</b> entry inside the <b>keys</b> array.<br />
-		Every application needs <b>keys</b> to function, without those <b>keys</b> the application by itself does nothing. Once a key is added to an application, the application can then provide custom configuration to a service and can dispose of external keys for that particular key.<br />
-		<b>External Keys</b> are used in requests made to a service; they are secured using <b>geo</b> and <b>device</b> security and have an <b>expiry date</b>. Think of them as <b>license</b> keys. When used, these external keys are checked for device and geo location, and if valid, they are matched with the key represent. Now that the key has been identified, its configuration is loaded and in the cases above, for <a href="#/documentation/services/urac">URAC</a> the tenant configuration for this key is passed to the service for usage. Tenant Key Security is explained in depth in <a href="#/documentation/core/key-security">Key Security</a> section under documentation.
-	</p>
-	<div ng-init="loadJson(path + 'advanced/multitenancy/app2.json', 'app2js');">
-		<div id="app2js"></div>
-	</div>
-	<p>
-		The above snippet is another application in a tenant that uses <b>PROD1_PCK2</b> package, but this time it overrides the ACL of that package with additional permissions. The application grants access to <a href="#/documentation/services/urac">URAC</a>, <b>Example02</b> and <b>Example03</b> and in the key configuration, both <a href="#/documentation/services/urac">URAC</a> and <b>Example03</b> have custom configuration. Keep in mind that the ACL configuration follows the same syntax whether used in packages or in applications. You can learn more about ACL in <a href=#/documentation/core/acl>Access Levels</a> section under documentation.
-	</p>
-	<br/>
-	<h4>Tenant Application Configuration</h4>
-	<p>
-		When loading the configuration of a tenant, the environment is checked first then the configuration is extracted from it. In the above sample, the configuration is stored under <b>dev</b> environment. This means that if the application is running in <b>development</b> environment based on the <a href="#/documentation/advanced/environment">Environment</a> configuration, when invoked, only this configuration is loaded for the URAC service for this given key. If the application is running in another environment, this configuration is not used. SOAJS ins multienvironment and that feature is explained in depth in <a href="#/documentation/advanced/environment">Multi Environment</a> section under documentation.
-	</p>
-	<p>
-		The loaded tenant configuration, will exclude the environment. If you look at the above sample code, both <b>urac</b> and <b>example03</b> are in <b>dev</b> environment but when this configuration is loaded, <b>dev</b> is removed and its content is loaded only resembling something like the below:
-	</p>
-	<pre><code class="json"> "urac": {
-	"hashIterations": 1024,
-	"seedLength": 32
-},
-"example03": {
-	"tenantName": "My Test Tenant"
-}</code></pre>
-	<p>
-		This configuration is then passed on to the service and is accessible via <b>req.soajs.serviceConfig.urac</b> and <b>req.soajs.serviceConfig.example03</b>. The service does not need to know what other configuration this tenant has for other environments. The service only uses what it needs for the environment it is currently running in.
-	</p>
-	<br/>
-	<hr/>
-	<h4>Tenant Full Sample</h4>
-	<p>
-		Grouping the above three snippets will result in the below tenant record:
-	</p>
-	<div ng-init="loadCode(path + 'advanced/multitenancy/multitenancy.js', 'multitenancyjs');">
-		<div id="multitenancyjs"></div>
-	</div>
-	<p>
-		Using both <a href="#/documentation/advanced/productization">Productization</a> and <b>Multitenancy</b> and with the wide combination offered by the <a href="#/documentation/core/acl">Access Levels</a>, SOAJS gives you limitless power to build Service-Oriented Applications that serve multiple tenants, and configure their access as you desire with very little effort and time as well as the ability to deploy that service in <a a href="#/documentation/advanced/environment">Multiple Environments</a>.
-	</p>
-	<script>renderCodeSnippets();</script>
+	<p>The Documentation has been moved to confluence, you will be redirected in a few seconds.</p>
 </div>
