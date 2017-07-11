@@ -4,6 +4,21 @@
 
 		<div class="white-container">
 			<div class="bulletin">
+				<div class="head">SOAJS News
+					<div class="releaseDate">April 5, 2017</div>
+				</div>
+				<div class="body">
+					<p>
+						River Shark Release contains the latest SOAJS updates and the first release in its new <b>1.x</b> version.<br />
+						In this new version, SOAJS introduced the new <b>sessionless behavior</b> where logged in users no longer have sessions unless required by the microservices to store custom product information.<br />
+						In addition, soajs framework is broken down to multiple repositories for better management, flexibility, modulatiry and usage.<br />
+						Please use the latest version of the <a href="https://soajsorg.atlassian.net/wiki/display/IN/Installer">SOAJS Installer</a> to deploy this new version.
+					</p>
+					<div class="redFlag">The new SOAJS version is not backward compatible.</div>
+				</div>
+			</div>
+			<br>
+			<div class="bulletin">
 				<div class="head">Release River Shark 1
 					<div class="releaseDate"> April 5, 2017</div>
 				</div>
@@ -244,6 +259,271 @@
 									<ul>
 										<li>Updated all configuration files to support sessionLess behavior</li>
 									</ul>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="bulletin">
+				<div class="head">SOAJS News
+					<div class="releaseDate"> March 31, 2017</div>
+				</div>
+				<div class="body">
+					<p>
+						Whale Shark Release contains SOAJS's latest cumulative updates to its <b>0.x</b> version.<br />
+						SOAJS has created release branch <b>release/v0.x</b> in all its affected repositories on Github and will keep maintaining these branches when needed.<br />
+						The new updates of SOAJS will switch to version <b>1.x</b> also referred to as <b>sessionless behavior</b>.<br />
+						This new version no longer requires to maintain sessions for logged in users and instead relies on <b>oAuth</b> functionality.
+						
+					</p>
+				</div>
+			</div>
+			<br>
+			<div class="bulletin">
+				<div class="head">Release Whale Shark
+					<div class="releaseDate"> March 31, 2017</div>
+				</div>
+				<div class="body">
+					<table width="100%" class="myTable releaseTables" align="center" id="WhaleSharkReleaseTable1">
+						<thead>
+							<tr>
+								<th class="pckName">Package Name</th>
+								<th class="pckVersion">Package Version</th>
+								<th>Release Notes</th>
+							</tr>
+						</thead>
+						<tr class="even">
+							<td><b>grunt-soajs</b></td>
+							<td align="center">0.0.5</td>
+							<td>
+								<div>
+									<b class="feature">Features:</b>
+									<ul>
+										<li>Provides grunt plugin to build and rebuild swagger generated soajs microservices on top of soajs.composer</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td><b>soajs.mongodb.data</b></td>
+							<td align="center">release/v0.x</td>
+							<td>
+								<div>
+									<b class="etest">Enhanced Tests:</b>
+									<ul>
+										<li>Updated test data for all release/v0.x</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr class="even">
+							<td><b>soajs.urac.driver</b></td>
+							<td align="center">release/v0.x</td>
+							<td>
+								<div>
+									<b class="feature">Features:</b>
+									<ul>
+										<li>First release, provides common grounds between <b>soajs.oauth</b> and <b>soajs.urac</b></li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td><b>soajs</b></td>
+							<td align="center">release/v0.x</td>
+							<td>
+								<div>
+									<b class="feature">Features:</b>
+									<ul>
+										<li>Improved high availability awareness at controller level</li>
+										<li>Provided new maintenance route to rebuild controller's awareness</li>
+										<li>Added support for High availability deployment with stateless behavior</li>
+										<li>Added support to deploy swagger generated microservices</li>
+										<li>Added support for Multitenant database connection caching</li>
+										<li>Added awarenessEnv support for daemons</li>
+									</ul>
+									
+									<b class="bug">Bug Fixes:</b>
+									<ul>
+										<li>Fixed issue in ACL setting</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr class="even">
+							<td><b>soajs.core.drivers</b></td>
+							<td align="center">release/v0.x</td>
+							<td>
+								<div>
+									<b class="feature">Features:</b>
+									<ul>
+										<li>Added Support for namespace and readiness in kubernetes driver</li>
+										<li>Added Support for v8 memory management</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td><b>soajs.composer</b></td>
+							<td align="center">release/v0.x</td>
+							<td>
+								<div>
+									<b class="bug">Bug Fixes:</b>
+									<ul>
+										<li>Fixed issue related to reusing Mongo multitenant connections</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr class="even">
+							<td><b>soajs.urac</b></td>
+							<td align="center">release/v0.x</td>
+							<td>
+								<div>
+									<b class="feature">Features:</b>
+									<ul>
+										<li>Factored out functionality to <b>soajs.urac.driver</b></li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td><b>soajs.oauth</b></td>
+							<td align="center">release/v0.x</td>
+							<td>
+								<div>
+									<b class="feature">Features:</b>
+									<ul>
+										<li>Factored out functionality to <b>soajs.urac.driver</b></li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr class="even">
+							<td><b>soajs.dashboard</b></td>
+							<td align="center">release/v0.x</td>
+							<td>
+								<div>
+									<b class="feature">Features:</b>
+									<ul>
+										<li>Added Support for namespace and readiness in kubernetes driver</li>
+										<li>Maskurated password values in HA services</li>
+										<li>Added Support nodejs memory management</li>
+										<li>Provided ability to volume SSL certificates from secrets when using kubernetes deployment</li>
+									</ul>
+									<b class="bug">Bug Fixes</b>
+									<ul>
+										<li>Minor bug fix when listing custom ui services.</li>
+										<li>Provided default value for JSON editor when value is null or undefined.</li>
+										<li>Fixed wrong method to application ext key delete</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td><b>soajs.prx</b></td>
+							<td align="center">release/v0.x</td>
+							<td>
+								<div>
+									<p>
+										Locked down last 0.x updates to release/v0.x<br />
+										No further updates for 0.x branches.
+									</p>
+								</div>
+							</td>
+						</tr>
+						<tr class="even">
+							<td><b>soajs.gcs</b></td>
+							<td align="center">release/v0.x</td>
+							<td>
+								<div>
+									<p>
+										Locked down last 0.x updates to release/v0.x<br />
+										No further updates for 0.x branches.
+									</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td><b>soajs.utilities</b></td>
+							<td align="center">release/v0.x</td>
+							<td>
+								<div>
+									<b class="feature">Features:</b>
+									<ul>
+										<li>Added support to patch data after Dashboard Installation via SOAJS installer</li>
+										<li>Updated sample data for urac new template engine</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr class="even">
+							<td><b>soajs.examples</b></td>
+							<td align="center">release/v0.x</td>
+							<td>
+								<div>
+									<p>
+										Locked down last 0.x updates to release/v0.x<br />
+										No further updates for 0.x branches.
+									</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td><b>soajs.jsconf</b></td>
+							<td align="center">release/v0.x</td>
+							<td>
+								<div>
+									<p>
+										Locked down last 0.x updates to release/v0.x<br />
+										No further updates for 0.x branches.
+									</p>
+								</div>
+							</td>
+						</tr>
+						<tr class="even">
+							<td><b>soajs.artifact</b></td>
+							<td align="center">release/v0.x</td>
+							<td>
+								<div>
+									<b class="bug">Bug Fixes:</b>
+									<ul>
+										<li>Removed dot character from service name; causing deployment problems in docker and kubernetes deployment</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td><b>soajs.installer</b></td>
+							<td align="center">release/v0.x</td>
+							<td>
+								<div>
+									<b class="feature">Features:</b>
+									<ul>
+										<li>Provided ability to deploy custom UI dashboard themes from bitbucket & bitbucket enterprise</li>
+										<li>Added Support for namespace and readiness in kubernetes driver</li>
+										<li>Replaced Kubernetes Proxy with Tokens</li>
+										<li>Added notifications in manual deployment before installing SOAJS regarding web ports</li>
+										<li>Provided support to deploy SOAJS with custom SSL configuration</li>
+									</ul>
+									
+									<b class="bug">Bug Fixes:</b>
+									<ul>
+										<li>Fixed issue related to deploy nginx manual mode on OSX</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr class="even">
+							<td><b>soajs.controller</b></td>
+							<td align="center">release/v0.x</td>
+							<td>
+								<div>
+									<p>
+										Locked down last 0.x updates to release/v0.x<br />
+										No further updates for 0.x branches.
+									</p>
 								</div>
 							</td>
 						</tr>
@@ -1902,9 +2182,6 @@
 				</div>
 			</div>
 			<br>
-
-
-
 			<div class="bulletin">
 				<div class="head">Release Trunkfish
 					<div class="releaseDate"> May 5, 2015</div>
@@ -2342,7 +2619,6 @@
 				</div>
 			</div>
 			<br>
-
 			<div class="bulletin">
 				<div class="head">Release Clownfish
 					<div class="releaseDate"> March 20, 2015</div>
