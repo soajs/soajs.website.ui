@@ -65,9 +65,19 @@ documentationApp.controller('documentationtCtrl', ['$scope', '$http', '$routePar
 			"link": "https://soajsorg.atlassian.net/wiki/spaces/SOAJ",
 		},
 		{
-			"name": "Dashboard",
-			"description": "The SOAJS Dashboard is a ready made product designed to assist you in managing your cloud of microservices. The Dashboard acts like a Control Panel allowing you to control, develop, manage, deploy, monitor and operate your products through simple clicks.",
-			"link": "https://soajsorg.atlassian.net/wiki/spaces/DSBRD"
+			"name": "Installer",
+			"description": "Deploy Local and Remote clouds using the SOAJS installer. Go live by using the Dashboard and the ready made services.",
+			"link": "https://soajsorg.atlassian.net/wiki/spaces/IN"
+		},
+		{
+			"name": "Updates & Upgrades",
+			"description": "Get Familiar with how to update and upgrade deployed Services/Daemons and UI Sections. Learn how the SOAJS Dashboard provides tons of functionality and features that help you apply these updates with just clicks of a button.",
+			"link": "https://soajsorg.atlassian.net/wiki/spaces/UU"
+		},
+		{
+			"name": "Swagger",
+			"description": "SOAJS Swagger Editor allows you to create a microservice by simply writing the documentation of its APIs.",
+			"link": "https://soajsorg.atlassian.net/wiki/spaces/SWAG"
 		},
 		{
 			"name": "Composer",
@@ -75,14 +85,9 @@ documentationApp.controller('documentationtCtrl', ['$scope', '$http', '$routePar
 			"link": "https://soajsorg.atlassian.net/wiki/spaces/COMP"
 		},
 		{
-			"name": "Generic Content Service",
-			"description": "Generic Content Service is a ready made product that offers a fully mature and ready to use UI wizard that helps you build any informative content microservice along with it's management UI module at the same time.",
-			"link": "https://soajsorg.atlassian.net/wiki/spaces/GCS"
-		},
-		{
-			"name": "Installer",
-			"description": "Deploy Local and Remote clouds using the SOAJS installer. Go live by using the Dashboard and the ready made services.",
-			"link": "https://soajsorg.atlassian.net/wiki/spaces/IN"
+			"name": "Dashboard",
+			"description": "The SOAJS Dashboard is a ready made product designed to assist you in managing your cloud of microservices. The Dashboard acts like a Control Panel allowing you to control, develop, manage, deploy, monitor and operate your products through simple clicks.",
+			"link": "https://soajsorg.atlassian.net/wiki/spaces/DSBRD"
 		},
 		{
 			"name": "Controller",
@@ -105,14 +110,9 @@ documentationApp.controller('documentationtCtrl', ['$scope', '$http', '$routePar
 			"link": "https://soajsorg.atlassian.net/wiki/spaces/PROX"
 		},
 		{
-			"name": "Swagger",
-			"description": "SOAJS Swagger Editor allows you to create a microservice by simply writing the documentation of its APIs.",
-			"link": "https://soajsorg.atlassian.net/wiki/spaces/SWAG"
-		},
-		{
-			"name": "Updates & Upgrades",
-			"description": "Get Familiar with how to update and upgrade deployed Services/Daemons and UI Sections. Learn how the SOAJS Dashboard provides tons of functionality and features that help you apply these updates with just clicks of a button.",
-			"link": "https://soajsorg.atlassian.net/wiki/spaces/UU"
+			"name": "Generic Content Service",
+			"description": "Generic Content Service is a ready made product that offers a fully mature and ready to use UI wizard that helps you build any informative content microservice along with it's management UI module at the same time.",
+			"link": "https://soajsorg.atlassian.net/wiki/spaces/GCS"
 		}
 	];
 }]);
