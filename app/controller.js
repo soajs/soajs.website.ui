@@ -14,7 +14,6 @@ app.config([
 		app.compileProvider = $compileProvider;
 		navigation.forEach(function (navigationEntry) {
 			if (navigationEntry.scripts && navigationEntry.scripts.length > 0) {
-				console.log(navigationEntry);
 				$routeProvider.when(navigationEntry.url.replace('#', ''), {
 					templateUrl: navigationEntry.tplPath,
 					resolve: {
@@ -61,15 +60,11 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', function ($sc
 	$scope.$on('refreshPageTitle', function (event, args) {
         $scope.pageTitle = args.title;
         $scope.titleLine2 = args.titleLine2;
-		if (Object.hasOwnProperty.call(args, 'subTitle')) {
-			$scope.subTitle = args.subTitle;
-		}
 	});
 
 	$scope.today = new Date().getTime();
 
 	$scope.goToAnchor = function (section, anchor) {
-		//console.log("goToAnchor: /" + section + "/" + anchor);
 		$location.path("/" + section + "/" + anchor);
 	};
 

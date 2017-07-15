@@ -1,11 +1,11 @@
 "use strict";
-var newsApp = app.components;
+var platformApp = app.components;
 
-newsApp.controller('platformPageCtrl', ['$scope', function ($scope) {
+platformApp.controller('platformPageCtrl', ['$scope', function ($scope) {
 	var pageData = {
         title: "The platform",
-        class: "platform",
-		subTitle: "Built by engineers, for engineers"
+        class: "platform"
+		// subTitle: "Built by engineers, for engineers"
 	};
 	$scope.$parent.$emit('refreshPageTitle', pageData);
 

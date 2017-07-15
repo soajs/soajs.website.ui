@@ -1,0 +1,24 @@
+<div class="container">
+	<div ng-controller="docPageCtrl">
+		<div class="col-md-4">
+			<div ng-repeat="section in sidebar">
+				<b>{{section.name}}</b>
+				<ul>
+					<li ng-repeat="entry in section.entries">
+						<a href="" ng-click="confluencePage(entry.link)">{{entry.name}}</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div ng-repeat="space in docs" class="row" ng-show="!redirecting">
+				<div class="col-sm-2 col-md-2"><a href="{{space.link}}">{{space.name}}</a></div>
+				<div class="col-sm-10 col-md-10"><em>{{space.description}}</em></div>
+				<div class="col-xs-10">&nbsp;</div>
+			</div>
+		</div>
+		<div ng-show="redirecting">
+			<p>The Documentation has been moved to confluence, you will be redirected in a few seconds.</p>
+		</div>
+	</div>
+</div>

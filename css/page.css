@@ -65,7 +65,7 @@ h2, .h2 {
   AND TOP MENU
  **************/
 .jumbotron {
-    height: 315px;
+    height: 215px;
     color: white;
     background: -moz-linear-gradient(45deg, #f4b500 0%, #F4B500 0%, #f48600 100%); /* ff3.6+ */
     background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #f4b500), color-stop(0%, #F4B500), color-stop(100%, #f48600)); /* safari4+,chrome */
@@ -99,7 +99,7 @@ h2, .h2 {
 }
 
 .jumbotron h1:first-of-type {
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .jumbotron h1, .jumbotron .h1 {
@@ -896,8 +896,8 @@ hr.green {
 .whatis .content {
     margin: 0;
     padding: 0;
-    height: 400px;
-    padding-top: 80px;
+    height: 450px;
+    padding-top: 60px;
     padding-bottom: 80px;
     width: 100%;
     top: 0;

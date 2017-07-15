@@ -1,14 +1,14 @@
-$(window).scroll(function() {
-    var scroll = $(window).scrollTop();
+jQuery(window).scroll(function() {
+    var scroll = jQuery(window).scrollTop();
 
 
-    if (scroll >= 275 && $(window).width() > 767 ) {
-        $(".topbar").addClass("scrolling");
-        $("img.logo").attr("src", "images/logoy.png");
+    if (scroll >= 275 && jQuery(window).width() > 767 ) {
+        jQuery(".topbar").addClass("scrolling");
+        jQuery("img.logo").attr("src", "images/logoy.png");
 
     } else {
-        $(".topbar").removeClass("scrolling");
-        $("img.logo").attr("src", "images/logow.png");
+        jQuery(".topbar").removeClass("scrolling");
+        jQuery("img.logo").attr("src", "images/logow.png");
     }
 });
 

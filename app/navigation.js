@@ -27,69 +27,7 @@ var navigation = [
         'scripts': ['sections/contactus/controller.js']
     },
 	{
-		'id': 'framework',
-		'label': 'framework',
-		'title': 'SOAJS | Platform',
-		'url': '/products/framework',
-		'tplPath': 'sections/products/framework/page.html',
-		'scripts': ['sections/products/controllers.js']
-	},
-	{
-		'id': 'urac',
-		'label': 'urac',
-		'title': 'SOAJS | URAC',
-		'url': '/products/urac',
-		'tplPath': 'sections/products/urac/page.html',
-		'scripts': ['sections/products/controllers.js']
-	},
-	{
-		'id': 'oauth',
-		'label': 'oauth',
-		'title': 'SOAJS | OAUTH',
-		'url': '/products/oauth',
-		'tplPath': 'sections/products/oauth/page.html',
-		'scripts': ['sections/products/controllers.js']
-	},
-	{
-		'id': 'dashboard',
-		'label': 'Dashboard',
-		'title': 'SOAJS | Dashboard',
-		'url': '/products/dashboard',
-		'tplPath': 'sections/products/dashboard/page.html',
-		'scripts': ['sections/products/controllers.js']
-	},
-	{
-		'id': 'gcs',
-		'label': 'gcs',
-		'title': 'SOAJS | GCS',
-		'url': '/products/gcs',
-		'tplPath': 'sections/products/gcs/page.html',
-		'scripts': ['sections/products/controllers.js']
-	},
-    {
-        'id': 'case',
-        'label': 'Case Study',
-        'title': 'SOAJS | Case Study',
-        'url': '/case',
-        'tplPath': 'sections/case/page.html',
-        'scripts': ['sections/case/controller.js']
-    },
-    {
-        'id': 'digital',
-        'label': 'Digital Transformation',
-        'title': 'SOAJS | Digital Transformation',
-        'url': '/case/digital',
-        'tplPath': 'sections/case/digital.html',
-        'scripts': ['sections/case/controller.js']
-    },
-	{
 		'id': 'getStarted',
-		'label': 'getStarted',
-		'title': 'SOAJS | Get Sarted',
-		'url': 'https://soajsorg.atlassian.net/wiki/spaces/EX'
-	},
-	{
-		'id': 'getStartedLocal',
 		'label': 'Get Started',
 		'title': 'SOAJS | Get Started',
 		'url': '/getstarted',
@@ -97,12 +35,20 @@ var navigation = [
 		'scripts': ['sections/getStarted/controller.js']
 	},
 	{
-		'id': 'products',
-		'label': 'Products',
-		'title': 'SOAJS | Products',
-		'url': '/products',
-		'tplPath': 'sections/products/page.html',
-		'scripts': ['sections/products/controllers.js']
+		'id': 'documentation',
+		'label': 'Documentation',
+		'title': 'SOAJS | Documentation',
+		'url': '/documentation',
+		'tplPath': 'sections/documentation/page.html',
+		'scripts': ['sections/documentation/controller.js']
+	},
+	{
+		'id': 'platform',
+		'label': 'Platform',
+		'title': 'SOAJS | Platform',
+		'url': '/platform',
+		'tplPath': 'sections/platform/page.html',
+		'scripts': ['sections/platform/controller.js']
 	}
 ];
 

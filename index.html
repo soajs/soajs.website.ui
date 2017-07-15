@@ -13,7 +13,7 @@
 	<link rel="icon" type="image/png" href="/images/favicon.png">
 	<!--FONT-->
 	<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="/font/soajs.css">
+	<link rel="stylesheet" href="font/soajs.css">
 
 	<!--STYLES-->
 	<link rel="stylesheet" href="/css/highlight.min.css">
@@ -29,7 +29,6 @@
     <link rel="stylesheet" href="/css/bootstrap-multiselect.css" type="text/css"/>
 
 	<script src="/app/scripts/jquery.min.js"></script>
-	<script src="/app/scripts/highlight.min.js"></script>
 
 	<!--SCRIPTS-->
 	<script src="/app/scripts/moment.min.js"></script>
@@ -53,10 +52,10 @@
 
 <body ng-controller="mainCtrl">
 	<!--[if lt IE 8]>
-	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please
-		<a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
 	</p>
 	<![endif]-->
+	
 	<!-- Main jumbotron for a primary marketing message or call to action -->
 	<div class="jumbotron" ng-class="{'home': currentLocation === '/' , 'platform': currentLocation === '/platform'}">
 		<top-menu></top-menu>
@@ -69,7 +68,9 @@
 		<div class="text-center" ng-show="currentLocation === '/'">
 			<button type="button" class="btn bgNone white-txt gray-txt-hover white-hover white-border" onclick="window.location.href='/getstarted'">Get Started</button>
 			&nbsp;
-			<button type="button" class="btn bgNone white-txt gray-txt-hover white-hover white-border" onclick="window.location.href='/products'">See the docs</button>
+			<button type="button" class="btn bgNone white-txt gray-txt-hover white-hover white-border" onclick="window.location.href='https://soajsorg.atlassian.net/wiki/display/IN/Installer'">Install</button>&nbsp;
+			
+			<button type="button" class="btn bgNone white-txt gray-txt-hover white-hover white-border" onclick="window.location.href='/documentation'">See the docs</button>
 		</div>
 	</div>
 	<div ng-view></div>
@@ -88,41 +89,6 @@
     </script>
 	<!-- Google Analytics -->
 	<script>
-
-
-        /*
-        window.onload = function() {
-            if (window.jQuery) {
-                // jQuery is loaded
-                alert("Yeah!");
-            } else {
-                location.reload();
-            }
-        }
-
-
-        $( document ).ready(function() {
-
-            $('.panel-heading a').css("background-color", "red");
-
-            $('.panel-heading a').click(function() {
-
-                alert("ok");
-
-
-                $('.panel-heading a').click(function() {
-                    $('.panel-heading').removeClass('actives');
-                    $(this).parents('.panel-heading').addClass('actives');
-
-                    $('.panel-title').removeClass('actives'); //just to make a visual sense
-                    $(this).parent().addClass('actives'); //just to make a visual sense
-
-                    alert($(this).parents('.panel-heading').attr('class'));
-                });
-            });
-        });
-
-        */
 
 		(function (i, s, o, g, r, a, m) {
 			i[ 'GoogleAnalyticsObject' ] = r;
