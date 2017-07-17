@@ -3,7 +3,7 @@ var docApp = app.components;
 
 docApp.controller('docPageCtrl', ['$scope', '$timeout', function ($scope, $timeout) {
 	var pageData = {
-		title: "SOAJS Documentation Spaces",
+		title: "Documentation",
 		class: "platform",
 		subTitle: ""
 	};
@@ -14,7 +14,7 @@ docApp.controller('docPageCtrl', ['$scope', '$timeout', function ($scope, $timeo
 		$scope.redirecting = true;
 		//todo: scroll to top
 		$timeout(function(){
-			window.location.href= link;
+			window.open(link);
 		}, 5000);
 	};
 	
@@ -35,7 +35,7 @@ docApp.controller('docPageCtrl', ['$scope', '$timeout', function ($scope, $timeo
 			"link": "https://soajsorg.atlassian.net/wiki/spaces/COMP"
 		},
 		{
-			"name": "Generic Content Service",
+			"name": "GCS",
 			"description": "Generic Content Service is a ready made product that offers a fully mature and ready to use UI wizard that helps you build any informative content microservice along with it's management UI module at the same time.",
 			"link": "https://soajsorg.atlassian.net/wiki/spaces/GCS"
 		},
@@ -82,59 +82,59 @@ docApp.controller('docPageCtrl', ['$scope', '$timeout', function ($scope, $timeo
 			entries: [
 				{
 					name: "Create a Service",
-					link: ""
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61347270/Service"
 				},
 				{
 					name: "Create a Daemon",
-					link: ""
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61347851/Daemon"
 				},
 				{
 					name: "Create a UI Module",
-					link: ""
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61708923/UI+Module"
 				},
 				{
 					name: "Request",
-					link: ""
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61353462/Request"
 				},
 				{
 					name: "Response",
-					link: ""
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61353659/Response"
 				},
 				{
 					name: "Environment Variables",
-					link: ""
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61975478/Environment+Variables"
 				},
 				{
 					name: "Profiles",
-					link: ""
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61975404/Profiles"
 				},
 				{
 					name: "Registry",
-					link: ""
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61354289/Registry"
 				},
 				{
 					name: "IMFV",
-					link: ""
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61353979/IMFV"
 				},
 				{
 					name: "Security",
-					link: ""
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61355074/Security"
 				},
 				{
 					name: "Access Levels",
-					link: ""
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61978469/Access+Levels"
 				},
 				{
 					name: "Services Config",
-					link: ""
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61817554/Services+Config"
 				},
 				{
 					name: "Service Operations & Maintenance",
-					link: ""
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61862866/"
 				},
 				{
 					name: "Catalog Recipes",
-					link: ""
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/62493834/Catalog+Recipes"
 				}
 			]
 		},
@@ -143,7 +143,7 @@ docApp.controller('docPageCtrl', ['$scope', '$timeout', function ($scope, $timeo
 			entries: [
 				{
 					name: "Mongo Client Driver",
-					link: ""
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61991783/Mongo+Client+Driver"
 				}
 			]
 		},
@@ -156,15 +156,15 @@ docApp.controller('docPageCtrl', ['$scope', '$timeout', function ($scope, $timeo
 				},
 				{
 					name: "Productization",
-					link: ""
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61517242/Productization"
 				},
 				{
 					name: "Multitenancy",
-					link: ""
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61509025/Multitenancy"
 				},
 				{
 					name: "Multi Environment",
-					link: ""
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61991576/Multi+Environment"
 				}
 			]
 		},
@@ -173,15 +173,15 @@ docApp.controller('docPageCtrl', ['$scope', '$timeout', function ($scope, $timeo
 			entries: [
 				{
 					name: "Swagger",
-					link: ""
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SWAG"
 				},
 				{
 					name: "Composer",
-					link: ""
+					link: "https://soajsorg.atlassian.net/wiki/spaces/COMP"
 				},
 				{
 					name: "GCS",
-					link: ""
+					link: "https://soajsorg.atlassian.net/wiki/spaces/GCS"
 				}
 			]
 		},
@@ -190,19 +190,19 @@ docApp.controller('docPageCtrl', ['$scope', '$timeout', function ($scope, $timeo
 			entries: [
 				{
 					name: "Controller",
-					link: ""
+					link: "https://soajsorg.atlassian.net/wiki/spaces/CON"
 				},
 				{
 					name: "URAC",
-					link: ""
+					link: "https://soajsorg.atlassian.net/wiki/spaces/URAC"
 				},
 				{
 					name: "oAuth",
-					link: ""
+					link: "https://soajsorg.atlassian.net/wiki/spaces/OAUT"
 				},
 				{
 					name: "Dashboard",
-					link: ""
+					link: "https://soajsorg.atlassian.net/wiki/spaces/DSBRD"
 				}
 			]
 		},
@@ -211,7 +211,7 @@ docApp.controller('docPageCtrl', ['$scope', '$timeout', function ($scope, $timeo
 			entries: [
 				{
 					"name": "SOAJS Installer",
-					"link": ""
+					"link": "https://soajsorg.atlassian.net/wiki/spaces/IN"
 				}
 			]
 		},
