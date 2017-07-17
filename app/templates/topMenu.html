@@ -17,7 +17,7 @@
 					</ul>
 					<ul class="topnav nav navbar-nav navbar-right" ng-class="{'menu-open': menuVisible === true}" click-outside="" is-open="menuVisible">
 						
-						<li ng-click="menuVisible = false" class="getStarted">
+						<li ng-click="menuVisible = false" class="getStarted" ng-class="{'active': currentLocation === '/getstarted'}">
 							<a href="/getstarted">Get Started</a>
 						</li>
 						<li ng-click="menuVisible = false" class="" ng-class="{'active': currentLocation === '/platform'}">
