@@ -2,7 +2,7 @@ jQuery(window).scroll(function() {
     var scroll = jQuery(window).scrollTop();
 
 
-    if (scroll >= 275 && jQuery(window).width() > 767 ) {
+    if (scroll >= 190 && jQuery(window).width() > 767 ) {
         jQuery(".topbar").addClass("scrolling");
         jQuery("img.logo").attr("src", "images/logoy.png");
 
