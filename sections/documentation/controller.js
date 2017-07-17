@@ -224,7 +224,7 @@ docApp.controller('docPageCtrl', ['$scope', '$timeout', function ($scope, $timeo
 				},
 				{
 					"name": "UI Form",
-					"link": ""
+					"link": "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/63862512/UI+Form"
 				}
 			]
 		}
