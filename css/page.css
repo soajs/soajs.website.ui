@@ -41,6 +41,9 @@ h2, .h2 {
 
 }
 
+.clear{
+    clear: both;
+}
 /**************
  width control
 **************/
@@ -613,6 +616,12 @@ Setions
     color: #418774
 }
 
+
+.twitterColor-txt {
+    color: #5DA6DB
+}
+
+
 /*************************************************************************************
 *
 * text hover-effects
@@ -1015,6 +1024,16 @@ hr {
     padding: 0;
 }
 
+/**********************
+*
+* Releases table
+*
+**********************/
+
+.sidebar{
+    border-right: 1px solid gray;
+
+}
 /**********************
 *
 * columns of same height styles
