@@ -1,6 +1,6 @@
 <div class="container">
 	<div ng-controller="docPageCtrl">
-		<div class="col-md-3 sidebar "  >
+		<div class="col-xs-12 col-sm-3 sidebar "  >
 			<div ng-repeat="section in sidebar">
 				<b>{{section.name}}</b>
 				<ul>
@@ -10,8 +10,8 @@
 				</ul>
 			</div>
 		</div>
-        <div class="col-md-1"> </div>
-		<div class="col-md-8">
+        <div class="col-sm-1"></div>
+		<div class="col-sm-8">
 			<div ng-repeat="space in docs" class="row" ng-show="!redirecting">
 				<div class="col-sm-2 col-md-2"><a href="{{space.link}}">{{space.name}}</a></div>
 				<div class="col-sm-10 col-md-10"><em>{{space.description}}</em></div>

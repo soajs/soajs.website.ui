@@ -722,6 +722,63 @@ Setions
     border-style: solid;
 }
 
+
+/*************************************************************************************
+*
+* border hover coloring
+*
+*************************************************************************************/
+.white-border-hover:hover {
+    border-color: white;
+    border-style: solid;
+}
+
+.gray-border-hover:hover {
+    border-color: gray;
+    border-style: solid;
+}
+
+.navy-border-hover:hover {
+    border-color: #19303f;
+    border-style: solid;
+}
+
+.navy-dark-border-hover:hover {
+    border-color: #122733;
+    border-style: solid;
+}
+
+.yellow-border-hover:hover {
+    border-color: #f49c1c;
+    border-style: solid;
+}
+
+.yellow-light-border {
+    border-color: #f4b500;
+    border-style: solid;
+}
+
+.yellow-dark-border-hover:hover {
+    border-color: #f48600;
+    border-style: solid;
+}
+
+.blue-border-hover:hover {
+    border-color: #397999;
+    border-style: solid;
+}
+
+.red-border-hover:hover {
+    border-color: #aa3f3f;
+    border-style: solid;
+}
+
+.green-border-hover:hover {
+    border-color: #418774;
+    border-style: solid;
+}
+
+
 /**********************
 *
 * images control
@@ -936,8 +993,13 @@ hr.green {
 .docs {
     margin-bottom: 10px;
     min-height: 155px;
+    padding: 12px;
 }
-
+.docs:hover{
+    -webkit-border-radius:12px;
+    -moz-border-radius:12px;
+    border-radius:12px;
+}
 /**********************
 *
 * case studies
@@ -947,6 +1009,15 @@ hr.green {
 hr {
     width: 70%;
     color: #e7e7e7;
+}
+/**********************
+*
+* case studies
+*
+**********************/
+
+.platform h2{
+
 }
 
 /**********************
@@ -1024,16 +1095,6 @@ hr {
     padding: 0;
 }
 
-/**********************
-*
-* Releases table
-*
-**********************/
-
-.sidebar{
-    border-right: 1px solid gray;
-
-}
 /**********************
 *
 * columns of same height styles
@@ -1180,5 +1241,11 @@ input.form-control:focus, .form-control:focus {
         border: none;
         background: none;
         color: white;
+    }
+
+
+    .sidebar{
+        border-right: 1px solid gray;
+
     }
 }
