@@ -8,13 +8,14 @@
 			<!-- Messages nd notifications -->
 			<div class="col-lg-12 col-md-12">
 				<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+				<br />
 			</div>
 			<!-- General contact us form -->
 			<div class="col-lg-6 col-md-8">
 				<tabset>
 					<tab heading="Send Us a Message">
 						<br>
-						<form name="contactForm" ng-submit="contactForm.$valid && sendContact()" novalidate>
+						<form name="contactForm" novalidate ng-submit="contactForm.$valid && sendContact()">
 							
 							<div class="form-group">
 								<input ng-model="contact.name" type="text" placeholder="Your Name" class="form-control" tooltip="Enter your full name..." required/>
@@ -47,7 +48,7 @@
 					</tab>
 					<tab heading="Submit your Project">
 						<br>
-						<form name="requestForm" novalidate>
+						<form name="requestForm" novalidate ng-submit="requestForm.$valid && sendRequest()">
 							<div class="clearfix">
 								<div class="col-md-6 col-sm-12 form-group">
 									<input ng-model="project.company" type="text" class="form-control" placeholder="Company Name" tooltip="Input data" required/>
@@ -73,14 +74,14 @@
 								<div id="captcha2"></div>
 							</div>
 							<div class="form-group">
-								<input type="submit" ng-click="requestForm.$valid && sendRequest()" class="btn yellow yellow-dark-hover white-txt pull-right" value="Submit Your project" />
+								<input type="submit" class="btn yellow yellow-dark-hover white-txt pull-right" value="Submit Your project" />
 							</div>
 							<div class="clearfix"></div>
 						</form>
 					</tab>
 					<tab heading="Become a Contributor">
 						<br>
-						<form name="joinForm" ng-submit="contactForm.$valid && joinUs()" novalidate>
+						<form name="joinForm" novalidate ng-submit="joinForm.$valid && joinUs()">
 							
 							<div class="form-group">
 								<input ng-model="join.name" type="text" placeholder="Your Name" class="form-control" tooltip="Enter your full name..." required/>
@@ -98,7 +99,8 @@
 							<div class="form-group">
 								<h4>What product do you want to contribute to?</h4>
 								<div ng-repeat="badge in repos">
-									<input type="checkbox" ng-model="join.product">&nbsp;{{badge.label}}
+									<input type="checkbox" ng-click="toggleSelection(badge);"/>&nbsp;{{badge.label}}
+									<!--<input type="checkbox" ng-model="join.product">-->
 								</div>
 							</div>
 							<div class="form-group">
