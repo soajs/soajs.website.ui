@@ -60,7 +60,6 @@ contactUsApp.controller('contactCtrl', [ '$scope', '$http', '$timeout', function
 					purpose: ''
 				};
 
-				$scope.contactForm.$setPristine();
 				$scope.alerts.push({
 					'type': 'success',
 					'msg': "Thank you for contacting us. We will get back to you shortly."
@@ -86,6 +85,8 @@ contactUsApp.controller('contactCtrl', [ '$scope', '$http', '$timeout', function
 	$scope.sendRequest = function () {
 		$scope.alerts.push({ 'type': 'warning', 'msg': "Your message is being sent, please wait ..." });
 		$scope.project.captcha = aValueCaptcha;
+		$scope.project.isSubmitProject = true;
+		
 		$http({
 			method: 'POST',
 			url: '/sections/contactus/sendMail.php',
@@ -103,7 +104,6 @@ contactUsApp.controller('contactCtrl', [ '$scope', '$http', '$timeout', function
 					message: ''
 				};
 				
-				$scope.requestForm.$setPristine();
 				$scope.alerts.push({
 					'type': 'success',
 					'msg': "Thank you for contacting us. We will get back to you shortly."
@@ -129,6 +129,7 @@ contactUsApp.controller('contactCtrl', [ '$scope', '$http', '$timeout', function
 	$scope.joinUs = function () {
 		$scope.alerts.push({ 'type': 'warning', 'msg': "Your message is being sent, please wait ..." });
 		$scope.join.captcha = ccaptcha;
+		$scope.join.isContribute = true;
 		$http({
 			method: 'POST',
 			url: '/sections/contactus/sendMail.php',
@@ -146,7 +147,6 @@ contactUsApp.controller('contactCtrl', [ '$scope', '$http', '$timeout', function
 					message: ''
 				};
 				
-				$scope.joinForm.$setPristine();
 				$scope.alerts.push({
 					'type': 'success',
 					'msg': "Thank you for contacting us. We will get back to you shortly."
