@@ -220,7 +220,7 @@ docApp.controller('docPageCtrl', ['$scope', '$timeout', function ($scope, $timeo
 			entries: [
 				{
 					"name": "UI Listing Grid",
-					"link": ""
+					"link": "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/63861622/UI+Listing+Grid"
 				},
 				{
 					"name": "UI Form",
