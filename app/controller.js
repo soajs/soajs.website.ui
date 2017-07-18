@@ -59,7 +59,7 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', function ($sc
 
 	$scope.$on('refreshPageTitle', function (event, args) {
         $scope.pageTitle = args.title;
-        $scope.titleLine2 = args.titleLine2;
+        $scope.titleLine2 = args.subTitle;
 	});
 
 	$scope.today = new Date().getTime();
@@ -72,7 +72,7 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', function ($sc
 		$scope.currentLocation = $location.path();
 		for (var entry = 0; entry < navigation.length; entry++) {
 			var urlOnly = navigation[entry].url.replace('/:anchor?', '').replace("/:section?", '');
-			if (urlOnly === '#' + $scope.currentLocation) {
+			if (urlOnly === $scope.currentLocation) {
 				if (navigation[entry].title && navigation[entry].title !== '') {
 					jQuery('head title').html(navigation[entry].title);
 				}
