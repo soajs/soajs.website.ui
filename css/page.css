@@ -1016,8 +1016,9 @@ hr {
 *
 **********************/
 
-.platform h2{
+.platform .icon{
 
+    padding-top: 40px;
 }
 
 .platform .data {
