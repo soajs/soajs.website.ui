@@ -945,7 +945,7 @@ hr.green {
 .whatis {
     /* The image used */
     background-image: url("../images/homepage/whatis.png");
-    background-color: #000;
+    background-color: #fff;
     /* Set a specific height
     */
     /* Create the parallax scrolling effect*/
@@ -1020,6 +1020,11 @@ hr {
 
 }
 
+.platform .data {
+    margin-top : 75px;
+    margin-bottom : 75px;
+
+}
 /**********************
 *
 * Accordion
