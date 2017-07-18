@@ -95,6 +95,12 @@ getStartedApp.controller('getStartedCtrl', ['$scope', function ($scope) {
 					title: "Mongo client Driver",
 					link: "https://soajsorg.atlassian.net/wiki/display/SOAJ/Mongo+Client+Driver",
 					description: "Forget about handling database connectivity, race conditions, or topologies and use the SOAJS Mongo Client Driver. Connect to standalone and multitenant databases transparently and run all the query operations you need"
+				},
+				{
+					icon: "https://soajsorg.atlassian.net/wiki/download/thumbnails/16121916/preRequisites.png?version=1&modificationDate=1500029031953&cacheVersion=1&api=v2?width=64&height=64",
+					title: "Hot to install",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/EX/pages/61673365/How+to+Install",
+					description: "Learn about the prerequisites needed for development use on SOAJS"
 				}
 			]
 		},
