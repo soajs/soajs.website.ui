@@ -218,6 +218,7 @@ h2, .h2 {
     float: left;
     padding: 14px 0;
     max-width: 120px;
+    margin-left: 14px;
 }
 
 .topbar .branding .logo
@@ -235,7 +236,7 @@ h2, .h2 {
     display: none;
     float: right;
     height: 100% !important;
-    padding: 16px 20px;
+    padding: 16px 20px;`
 }
 
 .topbar .topnav li {
@@ -371,6 +372,7 @@ Footer section
     margin-top: 70px;
     margin-bottom: 50px;
     color: gray;
+    font-size: 9px;
 }
 
 .bottom .socialMedia {
