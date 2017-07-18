@@ -1,68 +1,28 @@
 "use strict";
-var documentationApp = app.components;
+var docApp = app.components;
 
-documentationApp.controller('documentationtCtrl', ['$scope', '$http', '$routeParams', '$compile', 'loadFileContent', 'loadHTMLContent', 'loadBASHContent', 'loadJsonFileContent', function($scope, $http, $routeParams, $compile, loadFileContent, loadHTMLContent, loadBASHContent, loadJsonFileContent) {
-	$scope.isArray = angular.isArray;
-	$scope.path = "sections/documentation/content/";
-
-	$scope.loadCode = function(path, elId) {
-		loadFileContent($scope, path, elId);
+docApp.controller('docPageCtrl', ['$scope', '$timeout', function ($scope, $timeout) {
+	var pageData = {
+		title: "Documentation",
+		class: "platform",
+		subTitle: ""
 	};
-
-	$scope.loadJson = function(path, elId) {
-		loadJsonFileContent($scope, path, elId);
-	};
-
-	$scope.loadSection = function(sectionName, subSectionName) {
-		var angularElement = angular.element(document.getElementById('documentationPreview'));
-		$http.get('sections/documentation/content/' + sectionName + '/' + subSectionName + '/data.json').success(function(data) {
-			$scope[subSectionName.replace("-", "_")] = data;
-		}).error(function(error) {
-			console.log(error);
-		});
-
-		$http.get('sections/documentation/' + sectionName + '/' + subSectionName + ".html").success(function(data) {
-			angularElement.html(data);
-			$compile(angularElement.contents())($scope);
-			renderCodeSnippets();
-		}).error(function() {
-			console.log("Error fetching documentation page. Please try again.");
-		});
-
-		$scope.docuLink = "/documentation/" + sectionName + '/' + subSectionName;
-	};
-
-	if($routeParams && $routeParams.section && $routeParams.subSection) {
-		$scope.loadSection($routeParams.section, $routeParams.subSection);
-	}
-	else if($routeParams && $routeParams.section) {
-		var angularElement = angular.element(document.getElementById('documentationPreview'));
-		$http.get('sections/documentation/services/' + $routeParams.section + ".html").success(function(data) {
-			angularElement.html(data);
-			$compile(angularElement.contents())($scope);
-			renderCodeSnippets();
-		}).error(function() {
-			console.log("Error fetching documentation page. Please try again.");
-		});
-	}
-
-	$scope.loadHTML = function(path, elId) {
-		loadHTMLContent($scope, path, elId);
-	};
-
-	$scope.loadBASH = function(path, elId) {
-		loadBASHContent($scope, path, elId);
-	};
-
-	$scope.scrollToDiv = function(divId, prefix) {
-		jQuery("html, body").delay(500).animate({scrollTop: jQuery('#' + divId).offset().top - prefix}, 1000);
+	$scope.$parent.$emit('refreshPageTitle', pageData);
+	
+	$scope.redirecting = false;
+	$scope.confluencePage = function(link){
+		$scope.redirecting = true;
+		//todo: scroll to top
+		$timeout(function(){
+			window.open(link);
+		}, 5000);
 	};
 	
-	$scope.spaces = [
+	$scope.docs = [
 		{
 			"name": "SOAJS",
 			"description": "Service Oriented Architecture built using JavaScript, SOAJS is a open source platform as a service (aPaaS) that offers a fully ready to use CORE framework and Platform to build, deploy, manage and troubleshoot clouds of microservices & daemons.",
-			"link": "https://soajsorg.atlassian.net/wiki/spaces/SOAJ",
+			"link": "https://soajsorg.atlassian.net/wiki/spaces/SOAJ"
 		},
 		{
 			"name": "Dashboard",
@@ -75,7 +35,7 @@ documentationApp.controller('documentationtCtrl', ['$scope', '$http', '$routePar
 			"link": "https://soajsorg.atlassian.net/wiki/spaces/COMP"
 		},
 		{
-			"name": "Generic Content Service",
+			"name": "GCS",
 			"description": "Generic Content Service is a ready made product that offers a fully mature and ready to use UI wizard that helps you build any informative content microservice along with it's management UI module at the same time.",
 			"link": "https://soajsorg.atlassian.net/wiki/spaces/GCS"
 		},
@@ -113,6 +73,160 @@ documentationApp.controller('documentationtCtrl', ['$scope', '$http', '$routePar
 			"name": "Updates & Upgrades",
 			"description": "Get Familiar with how to update and upgrade deployed Services/Daemons and UI Sections. Learn how the SOAJS Dashboard provides tons of functionality and features that help you apply these updates with just clicks of a button.",
 			"link": "https://soajsorg.atlassian.net/wiki/spaces/UU"
+		}
+	];
+	
+	$scope.sidebar = [
+		{
+			name: "Framework",
+			entries: [
+				{
+					name: "Create a Service",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61347270/Service"
+				},
+				{
+					name: "Create a Daemon",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61347851/Daemon"
+				},
+				{
+					name: "Create a UI Module",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61708923/UI+Module"
+				},
+				{
+					name: "Request",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61353462/Request"
+				},
+				{
+					name: "Response",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61353659/Response"
+				},
+				{
+					name: "Environment Variables",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61975478/Environment+Variables"
+				},
+				{
+					name: "Profiles",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61975404/Profiles"
+				},
+				{
+					name: "Registry",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61354289/Registry"
+				},
+				{
+					name: "IMFV",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61353979/IMFV"
+				},
+				{
+					name: "Security",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61355074/Security"
+				},
+				{
+					name: "Access Levels",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61978469/Access+Levels"
+				},
+				{
+					name: "Services Config",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61817554/Services+Config"
+				},
+				{
+					name: "Service Operations & Maintenance",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61862866/"
+				},
+				{
+					name: "Catalog Recipes",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/62493834/Catalog+Recipes"
+				}
+			]
+		},
+		{
+			name: "Databases",
+			entries: [
+				{
+					name: "Mongo Client Driver",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61991783/Mongo+Client+Driver"
+				}
+			]
+		},
+		{
+			name: "Features",
+			entries: [
+				{
+					name: "Architecture",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61992077/Architecture"
+				},
+				{
+					name: "Productization",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61517242/Productization"
+				},
+				{
+					name: "Multitenancy",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61509025/Multitenancy"
+				},
+				{
+					name: "Multi Environment",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/61991576/Multi+Environment"
+				}
+			]
+		},
+		{
+			name: "Components",
+			entries: [
+				{
+					name: "Swagger",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SWAG"
+				},
+				{
+					name: "Composer",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/COMP"
+				},
+				{
+					name: "GCS",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/GCS"
+				}
+			]
+		},
+		{
+			name: "Ready Made Services",
+			entries: [
+				{
+					name: "Controller",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/CON"
+				},
+				{
+					name: "URAC",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/URAC"
+				},
+				{
+					name: "oAuth",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/OAUT"
+				},
+				{
+					name: "Dashboard",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/DSBRD"
+				}
+			]
+		},
+		{
+			name: "Deployment",
+			entries: [
+				{
+					"name": "SOAJS Installer",
+					"link": "https://soajsorg.atlassian.net/wiki/spaces/IN"
+				}
+			]
+		},
+		{
+			name: "UI SDK",
+			entries: [
+				{
+					"name": "UI Listing Grid",
+					"link": "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/63861622/UI+Listing+Grid"
+				},
+				{
+					"name": "UI Form",
+					"link": "https://soajsorg.atlassian.net/wiki/spaces/SOAJ/pages/63862512/UI+Form"
+				}
+			]
 		}
 	];
 }]);

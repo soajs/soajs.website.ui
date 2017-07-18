@@ -1,16 +1,19 @@
 "use strict";
 var homeApp = app.components;
-homeApp.controller('homePageCtrl', ['$scope', '$http', function($scope, $http) {
-	$scope.fList = [];
-	$http({
-		method: 'GET',
-		url: 'sections/features/data/features.json',
-		cache: true
-	}).success(function(data) {
-		$scope.fList = data;
-	});
+homeApp.controller('homePageCtrl', ['$scope', '$http', function ($scope, $http) {
+    $scope.pageTitle = "Home";
+    $scope.subTitle ="";
+    var pageData = {
+        title: "Complete enterprise open source",
+        titleLine2: "platform as a service solution",
+        subTitle: "Achieve with certainty: ROI, Speed, Quality, Standardization"
+    };
+    $scope.$parent.$emit('refreshPageTitle', pageData);
 
-	$http.get("sections/home/repos.json").success(function(data) {
-		$scope.repos = data;
-	});
+
+    $http.get("sections/home/repos.json").success(function(data) {
+        $scope.repos = data;
+    });
+
+
 }]);

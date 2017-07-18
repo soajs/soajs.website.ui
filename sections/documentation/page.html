@@ -1,111 +1,27 @@
-<style>
-	.left-sidebar .active {
-		color: #DF9630;
-	}
-</style>
-<div class="page" ng-controller="documentationtCtrl">
-	<div class="main-section-container">
-		<div class="left-sidebar">
-			<div class="left-menu">
-				<section id="soajs">
-					<br/>
-					<h4>Framework</h4>
-					<hr>
-					<ul>
-						<li ng-class="{'active': (docuLink=== '/documentation/core/service')}"><a href="#/documentation/core/service">Create Service</a></li>
-						<li ng-class="{'active': (docuLink=== '/documentation/core/daemon')}"><a href="#/documentation/core/daemon">Create Daemon</a></li>
-						<li ng-class="{'active': (docuLink=== '/documentation/ui/module')}"><a href="#/documentation/ui/module">Create UI Module</a></li>
-						<li ng-class="{'active': (docuLink=== '/documentation/core/request')}"><a href="#/documentation/core/request">Request</a></li>
-						<li ng-class="{'active': (docuLink=== '/documentation/core/response')}"><a href="#/documentation/core/response">Response</a></li>
-						<li ng-class="{'active': (docuLink=== '/documentation/core/envVariables')}"><a href="#/documentation/core/envVariables">Environment Variables</a></li>
-						<li ng-class="{'active': (docuLink=== '/documentation/core/profiles')}"><a href="#/documentation/core/profiles">Profiles</a></li>
-						<li ng-class="{'active': (docuLink=== '/documentation/core/registry')}"><a href="#/documentation/core/registry">Registry</a></li>
-						<li ng-class="{'active': (docuLink=== '/documentation/core/imfv')}"><a href="#/documentation/core/imfv">IMFV</a></li>
-						<li ng-class="{'active': (docuLink=== '/documentation/core/key-security')}"><a href="#/documentation/core/key-security">Security</a></li>
-						<li ng-class="{'active': (docuLink=== '/documentation/core/acl')}"><a href="#/documentation/core/acl">Access Levels</a></li>
-						<li ng-class="{'active': (docuLink=== '/documentation/core/serviceConfig')}"><a href="#/documentation/core/serviceConfig">Services Config</a></li>
-						<li ng-class="{'active': (docuLink=== '/documentation/core/serviceOpM')}"><a href="#/documentation/core/serviceOpM">Service Operations & Maintenance</a></li>
-						<li ng-class="{'active': (docuLink=== '/documentation/core/catalogRecipes')}"><a href="#/documentation/core/catalogRecipes">Catalog Recipes</a></li>
-					</ul>
-				</section>
-                <section id="db">
-                    <br/>
-                    <h4>Databases</h4>
-                    <hr>
-                    <ul>
-                        <li ng-class="{'active': (docuLink=== '/documentation/db/mongo')}"><a href="#/documentation/db/mongo">Mongo Client Driver</a></li>
-                    </ul>
-                </section>
-				<section>
-					<br/>
-					<h4>Features</h4>
-					<hr/>
-					<ul>
-						<li ng-class="{'active': (docuLink=== '/documentation/advanced/architecture')}"><a href="#/documentation/advanced/architecture">Architecture</a></li>
-						<li ng-class="{'active': (docuLink=== '/documentation/advanced/productization')}"><a href="#/documentation/advanced/productization">Productization</a></li>
-						<li ng-class="{'active': (docuLink=== '/documentation/advanced/multitenancy')}"><a href="#/documentation/advanced/multitenancy">Multitenancy</a></li>
-						<li ng-class="{'active': (docuLink=== '/documentation/advanced/environment')}"><a href="#/documentation/advanced/environment">Multi Environment</a></li>
-					</ul>
-				</section>
-				<section id="components">
-					<br/>
-					<h4>Components</h4>
-					<hr>
-					<ul>
-						<li ng-class="{'active': (docuLink=== '/documentation/services/swagger')}"><a href="#/documentation/components/swagger">Swagger</a></li>
-						<li ng-class="{'active': (docuLink=== '/documentation/services/composer')}"><a href="#/documentation/components/composer">Composer</a></li>
-						<li ng-class="{'active': (docuLink=== '/documentation/services/gcs')}"><a href="#/documentation/components/gcs">GCS</a></li>
-					</ul>
-				</section>
-				<section id="services">
-					<br/>
-					<h4>Ready Made Services</h4>
-					<hr>
-					<ul>
-						<li ng-class="{'active': (docuLink=== '/documentation/services/controller')}"><a href="#/documentation/services/controller">Controller</a></li>
-						<li ng-class="{'active': (docuLink=== '/documentation/services/urac')}"><a href="#/documentation/services/urac">URAC</a></li>
-						<li ng-class="{'active': (docuLink=== '/documentation/services/oauth')}"><a href="#/documentation/services/oauth">oAuth</a></li>
-						<li ng-class="{'active': (docuLink=== '/documentation/services/proxy')}"><a href="#/documentation/services/proxy">Proxy</a></li>
-						<li ng-class="{'active': (docuLink=== '/documentation/services/dashboard')}"><a href="#/documentation/services/dashboard">Dashboard</a></li>
-					</ul>
-				</section>
-				<section id="deployment">
-					<br/>
-					<h4>Deployment</h4>
-					<hr>
-					<ul>
-						<li ng-class="{'active': (docuLink=== '/documentation/install/install')}"><a href="#/documentation/install/install">SOAJS Installer</a></li>
-					</ul>
-				</section>
-				<section id="dashbd">
-					<br/>
-					<h4>UI SDK</h4>
-					<hr>
-					<ul>
-						<li ng-class="{'active': (docuLink=== '/documentation/ui/grid')}"><a href="#/documentation/ui/grid">UI Listing Grid</a></li>
-						<li ng-class="{'active': (docuLink=== '/documentation/ui/form')}"><a href="#/documentation/ui/form">UI Form</a></li>
-					</ul>
-				</section>
+<div class="container">
+	<div ng-controller="docPageCtrl">
+		<div class="col-xs-12 col-sm-3 sidebar "  >
+			<div ng-repeat="section in sidebar">
+				<b>{{section.name}}</b>
+				<ul>
+					<li ng-repeat="entry in section.entries">
+						<a href="" target="_blank" ng-click="confluencePage(entry.link)">{{entry.name}}</a>
+					</li>
+				</ul>
 			</div>
 		</div>
-		<div class="right-sidebar" id="documentationPreview">
-			<h1>SOAJS Documentation</h1>
-			<div class="white-container">
-				<table width="100%" class="myTable">
-					<thead>
-						<tr>
-							<th class="col1">Space Name</th>
-							<th>Description</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr ng-repeat="oneSpace in spaces" ng-class="{'first': $first, 'last': $last}" ng-class-odd="'odd'" ng-class-even="'even'">
-							<td valign="top"><a href="{{oneSpace.link}}" target="_blank"><b>{{oneSpace.name}}</b></a></td>
-							<td valign="top">{{oneSpace.description}}</td>
-						</tr>
-					</tbody>
-				</table>
+        <div class="col-sm-1"></div>
+		<div class="col-sm-8">
+			<div ng-repeat="space in docs" class="row" ng-show="!redirecting">
+				<div class="col-sm-2 col-md-2"><a href="{{space.link}}">{{space.name}}</a></div>
+				<div class="col-sm-10 col-md-10"><em>{{space.description}}</em></div>
+				<div class="col-xs-10">&nbsp;</div>
+			</div>
+			<div ng-show="redirecting">
+				<p>The Documentation has been moved to confluence, you will be redirected in a few seconds.</p>
 			</div>
 		</div>
 	</div>
+
+    <div class="separator50 clear">&nbsp</div>
 </div>

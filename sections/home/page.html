@@ -1,121 +1,139 @@
 <div class="page" ng-controller="homePageCtrl">
-	<div>
-		<div class="banner">
-			<div class="banner-container">
-				<div class="left-main">
-					<div class="beaverImg" id="beaverImg1"> </div>
-					<div class="tagline">
-						<p>SOAJS is an open source dream framework that empowers building crazy fast the API-nization layer between the product frontend (UI/UX) and backend (business logic).
-						</p>
-					</div>
-					<div class="about-container">
-						<ul>
-							<li class="one"><span><b>Develop enterprise-grade APIs</b> — Super fast and secure by design, scalable and multitenant.</span></li>
-							<li class="two"><span><b>Focus on building your product</b> — Don't waste your time building the api layer and end up stuck maintaining it.</span></li>
-							<li class="three"><span><b>Standardize your APIs</b> — From day one give full flexibility to engineers to code the business logic layer as well as UI/UX layer.</span></li>
-							<li class="four"><span><b>Create homogeneity</b> — Create Homogeneity and never worry about the inconsistency among your engineer teams.</span></li>
-							<li class="five"><span><b>Become hyper agile</b> -- Achieve high velocity while building satellite teams without facing any coherency problems among the services.</span></li>
-						</ul>
+    <!-- Rounded  Icons Section -->
+    <div class="container">
+        <div class="row">
+	        <div class="col-xs-12 separator50"></div>
+            <div class="col-lg-3 col-md-6  col-sm-6 col-xs-12 text-center">
+                <div class="icon">
+                    <i class="yellow-light white-txt circle icon-cogs"></i>
+                    <div class="separator50"></div>
+                    <h2>Develop</h2>
+                    <div class="separator10"></div>
+                    <p>Capable of running on any data source or existing technology</p>
+                    <a class="yellow-txt"   href="javascript: window.location.href='/platform#develop'">Learn More ></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6  col-sm-6 col-xs-12 text-center">
+                <div class="icon">
+                    <i class="red white-txt circle icon-home-manage"></i>
+                    <div class="separator50"></div>
+                    <h2>Manage</h2>
+                    <div class="separator10"></div>
+                    <p>Full blown API management, lifecycle and gateway management.</p>
+                    <a class="red-txt"   href="javascript: window.location.href='/platform#manage'">Learn More ></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6  col-sm-6 col-xs-12  text-center">
+                <div class="icon">
+                    <i class="green white-txt circle icon-home-deploy"></i>
+                    <div class="separator50"></div>
+                    <h2>Deploy</h2>
+                    <div class="separator10"></div>
+                    <p>Making the cloud as simple as a “click click click- done. That easy &trade;.</p>
+                    <a class="green-txt" href="javascript: window.location.href='/platform#deploy'">Learn More ></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6  col-sm-6 col-xs-12 text-center ">
+                <div class="icon">
+                    <i class="blue white-txt circle icon-home-operate"></i>
+                    <div class="separator50"></div>
+                    <h2>Operate</h2>
+                    <div class="separator10"></div>
+                    <p>Fully manages and operates all products ensuring ROI is achieved.</p>
+                    <a class="blue-txt"   href="javascript: window.location.href='/platform#operate'">Learn More ></a>
+                </div>
+            </div>
+            <div class="col-xs-12 separator50"></div>
+        </div>
+    </div>
+    <!-- The parrallex image section--->
+    <div class="text-center white-txt whatis">
+        <div class="content">
+            <h2>What is SOAJS</h2>
+            <p>
+	            A complete Enterprise Open Source aPaaS to build auto-scaling SOA based solutions.<br />
+	            Our aPaaS is the richest integrated and harmonized platform on the market covering all your needs:<br />
+	            Framework - API Management & Lifecycle - Continuous Integration & Delivery - Metrics<br />
+	            and it is also adaptable to what you already have.
+            </p>
+            <div class="col-xs-12 separator50"></div>
+            <a type="button" class="btn yellow-dark white-txt yellow-light-hover" href="/getstarted">Get Started</a>&nbsp;
+            <a type="button" class="btn yellow-dark white-txt yellow-light-hover" href="/documentation">See The Docs</a>
+        </div>
+    </div>
 
-					</div>
 
-				</div>
+    <!-- Join the community white section  ( Badges )-->
+    <div class="container">
+        <div class="row">
+            <div class="simple text-center navy-dark-txt">
 
+                <div class="separator50"></div>
+                <h2>Join the SOAJS community</h2>
+                <div class="separator50"></div>
+                <div ng-repeat="badge in repos">
 
-			</div>
-		</div>
-		<!-- white bar -->
-		<div class="white-banner">
-			<div class="banner-container" style="">
-				<div class="w-100 c-both t-center">
-					<a target="_blank" class="small-button2" href="https://soajsorg.atlassian.net/wiki/display/IN/Installer">Install SOAJS</a>
-					<br />
-				</div>
-				<div class="repos">
-					<ul>
-						<li ng-repeat="badge in repos" ng-class-even ="'even'" ng-class-odd ="'odd'">
-							<div id="repo{{badge.id}}" class="repoinner">
+                    <div class="col-lg-4 col-sm-6 col-xs-12">
+                        <H2 class="yellow-dark-txt" ng-if="badge.documentation">
+                            <a ng-if="!badge.external" href="{{badge.documentation}}">{{badge.label}}</a>
+                            <a ng-if="badge.external" target="_blank"
+                               href="{{badge.documentation}}">{{badge.label}}</a>
+                        </H2>
+                        <div id="repo{{badge.id}}" class="badgesinner">
+                            <div class="repoLabel" ng-if="!badge.documentation"><a>{{badge.label}}</a></div>
+                            <div class="repoLinks npm" ng-if="badge.npm">
+                                <a href="https://badge.fury.io/js/{{badge.npm}}" target="_blank"><img
+                                    ng-src="https://badge.fury.io/js/{{badge.npm}}.svg" alt="NPM version"></a>
+                            </div>
+                            <div class="repoLinks travis" ng-if="badge.travis">
+                                <a href="https://travis-ci.org/{{badge.travis}}" target="_blank"><img
+                                    data-bindattr-732="732" ng-src="https://travis-ci.org/{{badge.travis}}.svg"
+                                    alt="Build status"></a>
+                            </div>
 
-								<div class="repoLabel" ng-if="badge.documentation">
-									<a ng-if="!badge.external" href="{{badge.documentation}}">{{badge.label}}</a>
-									<a ng-if="badge.external" target="_blank" href="{{badge.documentation}}">{{badge.label}}</a>
-								</div>
-								<div class="repoLabel" ng-if="!badge.documentation"><a>{{badge.label}}</a></div>
+                            <div class="repoLinks coveralls" ng-if="badge.coveralls">
+                                <a href="https://coveralls.io/r/{{badge.coveralls}}" target="_blank"><img
+                                    ng-src="https://coveralls.io/repos/{{badge.coveralls}}/badge.svg"
+                                    alt="Coverage Status"></a>
+                            </div>
+                            <div class="repoLinks docker" ng-if="badge.docker">
+                                <div style="height:12px;">&nbsp;</div>
+                                <a href="{{badge.docker.link}}" target="_blank"><img ng-src="{{badge.docker.label}}"
+                                                                                     alt="Docker pulls"></a>
+                            </div>
+                            <div class="repoLinks gitLink" ng-if="badge.github">
+                                <div style="height:12px;">&nbsp;</div>
+                                <iframe ng-src="{{badge.github | trustAsResourceUrl}}" frameborder="0" scrolling="0"
+                                        style="" allowTransparency="true"></iframe>
+                            </div>
+                        </div>
+                    </div>
 
-								<div class="repoLinks npm" ng-if="badge.npm">
-									<a href="https://badge.fury.io/js/{{badge.npm}}" target="_blank"><img ng-src="https://badge.fury.io/js/{{badge.npm}}.svg" alt="NPM version"></a>
-								</div>
-								<div class="repoLinks travis" ng-if="badge.travis">
-									<a href="https://travis-ci.org/{{badge.travis}}" target="_blank"><img data-bindattr-732="732" ng-src="https://travis-ci.org/{{badge.travis}}.svg" alt="Build status"></a>
-								</div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="separator50"></div>
+            </div>
 
-								<div class="repoLinks coveralls" ng-if="badge.coveralls">
-									<a href="https://coveralls.io/r/{{badge.coveralls}}" target="_blank"><img ng-src="https://coveralls.io/repos/{{badge.coveralls}}/badge.svg" alt="Coverage Status"></a>
-								</div>
-								<div class="repoLinks coveralls" ng-if="badge.docker">
-									<a href="https://hub.docker.com/search/?isAutomated=0&isOfficial=0&page=1&pullCount=0&q=soajs&starCount=0" target="_blank"><img ng-src="https://img.shields.io/docker/pulls/{{badge.docker}}.svg" alt="Docker pulls"></a>
-								</div>
-								<div class="repoLinks gitLink" ng-if="badge.github">
-									<iframe ng-src="{{badge.github | trustAsResourceUrl}}" frameborder="0" scrolling="0" style="" allowTransparency="true"></iframe>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<!-- end white bar -->
+        </div>
+    </div>
 
-		<!--Features list-->
-		<div class="soajs-features">
-			<div class="features-container">
-				<div class="features">
-					<h2>Features</h2>
-
-					<p>Build your product APIs with soajs and take advantage of tons of features that usually take months of work from your engineering team. Now you can be done within minutes.</p>
-					<hr class="white"/>
-				</div>
-				<ul class="feature-list">
-					<li ng-repeat="feature in fList" ng-class-odd="'odd'" ng-class-even="'even'">
-						<div ng-click='goToAnchor("features",feature.id)'>
-							<img class="icon" ng-src="{{feature.icon}}" alt="{{feature.title}}"/>
-							<h5> {{feature.title}} </h5>
-
-							<p>{{feature.description}}</p>
-						</div>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<div class="powered-by-container">
-		<h1>Powered By</h1>
-		<hr/>
-		<br/>
-
-		<div class="powered-icon"><a target="_blank" href="http://nodejs.org/"><img src="images/footer/nodeIcon.png" alt="nodejs" /></a></div>
-		<div class="powered-icon"><a target="_blank" href="http://www.elasticsearch.org/"><img src="images/footer/elasticSearchIcon.png" alt="elasticsearch" /></a></div>
-		<div class="powered-icon"><a target="_blank" href="http://www.mongodb.org/"><img src="images/footer/mongoDb.png" alt="mongodb" /></a></div>
-		<div class="powered-icon"><a target="_blank" href="https://angularjs.org/"><img src="images/footer/angularIcon.png" alt="angularjs" /></a></div>
-	</div>
-	<div class="whyBeaver">
-		<div class="whyBeaver-container">
-			<h1>Why the beaver?</h1>
-			<p>
-				We have chosen the beaver as our representative because of its smart and powerful building technique.
-				It is able to build a robust structure by securing its foundation;
-				starting from the bottom layer, and working its way upward.
-			</p>
-
-			<p>Like the beaver, SOAJS allows you to build, from day one,
-			a very solid enterprise level service oriented architecture that is
-			reliable and scalable.
-			Nothing would be an after thought. You never need to re-write your code if you want to grow your services.</p>
-			<div id="twitter-badge">
-				<!--<a href="https://twitter.com/soajsorg" class="twitter-follow-button" data-show-count="false" data-size="small">Follow @soajsorg</a>
-				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-				</script> -->
-			</div>
-		</div>
-	</div>
+    <!-- Shaded Orange strip -->
+    <div class="col-lg-12 orange-shade spearator50">&nbsp;</div>
+    <!-- Bottom White section-->
+    <div class="simple">
+        <div class="container">
+            <div class="row">
+                <div class="separator50"></div>
+                <h2>Why the Beaver?</h2>
+                <div class="separator10"></div>
+                <p>We have chosen the beaver as our representative because of its smart and powerful building technique.
+                    It is able to build a robust structure by securing its foundation; starting from the bottom layer,
+                    and working its way upward.</p>
+                <p>Like the beaver, SOAJS allows you to build, from day one, a very solid enterprise level service
+                    oriented architecture that is reliable and scalable. Nothing would be an after thought. You never
+                    need to re-write your code if you want to grow your services.</p>
+            </div>
+        </div>
+        <div class="separator30"></div>
+    </div>
 </div>

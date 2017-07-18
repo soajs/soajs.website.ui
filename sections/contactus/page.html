@@ -1,36 +1,138 @@
-<div class="page">
-	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-	<div class="main-section-container"><br>
+<script src="https://www.google.com/recaptcha/api.js?onload=myCallBack&render=explicit" async defer></script>
 
-		<div class="white-container">
-			<div ng-controller="contactCtrl">
+<div ng-controller="contactCtrl">
+	
+	<!-- White top section -->
+	<div class="container">
+		<div class="row">
+			<!-- Messages nd notifications -->
+			<div class="col-lg-12 col-md-12">
 				<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
-				SOAJS TEAM is looking forward to get in touch with you, please fill out the form below and we will get back to you as soon as possible.<br/>
-
-				<form name="contactForm" ng-submit="contactForm.$valid && sendContact()" novalidate>
-					<label> Name </label>
-					<input ng-model="contact.name" type="text" placeholder="Full Name" class="form-control" tooltip="Enter your full name..." required/><br/>
-					<label>Email</label>
-					<input ng-model="contact.email" type="email" class="form-control" placeholder="jimmyDean@example.org" tooltip="Enter your email address..." required/><br/>
-
-					<label>Purpose </label>
-					<select ng-model="contact.purpose" class="form-control" tootltip="Pick a purpose for your message..." required>
-						<option value=""> -- How can we help you --</option>
-						<option value="Support">I need Support</option>
-						<option value="Contribute">I want to Contribute</option>
-						<option value="Feedback">I have feedback</option>
-						<option value="Consultancy">I need Consultancy</option>
-					</select><br/>
-					<label>Your message</label>
-					<textarea required class="form-control" placeholder="Write your message here..." tooltip="Provide as much information as possible in your message..." rows="10" ng-model="contact.message"></textarea>
-					<br>
-
-					<div class="g-recaptcha" data-sitekey="6LcMzgMTAAAAAKd0Lqit5HJUI2Y6evlriyxT8-Zj"></div>
-					<input type="submit" class="btn btn-primary pull-right" value="Submit"/>
-					<br class="clearfix" style="clear: both">
-				</form>
+				<br />
+			</div>
+			<!-- General contact us form -->
+			<div class="col-lg-6 col-md-8">
+				<tabset>
+					<tab heading="Send Us a Message">
+						<br>
+						<form name="contactForm" novalidate ng-submit="contactForm.$valid && sendContact()">
+							
+							<div class="form-group">
+								<input ng-model="contact.name" type="text" placeholder="Your Name" class="form-control" tooltip="Enter your full name..." required/>
+							</div>
+							<div class="form-group">
+								<input ng-model="contact.email" type="email" class="form-control" placeholder="Email" tooltip="Enter your email address..." required/>
+							</div>
+							
+							<div class="form-group">
+								<select ng-model="contact.purpose" class="form-control" tootltip="Pick a purpose for your message..." required>
+									<option value=""> -- Subject --</option>
+									<option value="I need Support">I need Support</option>
+									<option value="I have Feedback">I have feedback</option>
+									<option value="I need Consultancy">I need Consultancy</option>
+								</select>
+							</div>
+							
+							<div class="form-group">
+								<textarea required class="form-control" placeholder="Write your message here..." tooltip="Provide as much information as possible in your message..." rows="10" ng-model="contact.message"></textarea>
+							</div>
+							
+							<div class="col-md-6 col-sm-12 form-group">
+								<div id="captcha1"></div>
+							</div>
+							<div class="form-group">
+								<input type="submit" class="btn yellow yellow-dark-hover white-txt pull-right" value="Submit"/>
+							</div>
+							<br class="clearfix">
+						</form>
+					</tab>
+					<tab heading="Submit your Project">
+						<br>
+						<form name="requestForm" novalidate ng-submit="requestForm.$valid && sendRequest()">
+							<div class="clearfix">
+								<div class="col-md-6 col-sm-12 form-group">
+									<input ng-model="project.company" type="text" class="form-control" placeholder="Company Name" tooltip="Input data" required/>
+								</div>
+								
+								<div class="col-md-6 col-sm-12 form-group">
+									<input ng-model="project.address" type="text" class="form-control" placeholder="Company Address" tooltip="Input data" required/>
+								</div>
+								<div class="col-md-6 col-sm-12 form-group">
+									<input ng-model="project.name" type="text" class="form-control" placeholder="Contact Name " tooltip="Input data" required/>
+								</div>
+								<div class="col-md-6 col-sm-12 form-group">
+									<input ng-model="project.email" type="text" class="form-control" placeholder="Contact Email" tooltip="Input data" required/>
+								</div>
+								<div class="col-md-6 col-sm-12 form-group">
+									<input ng-model="project.phone" type="text" class="form-control" placeholder="Contact Phone" tooltip="Input data" required/>
+								</div>
+								<div class="col-md-12 col-sm-12 form-group">
+                                    <textarea required class="form-control" placeholder="Describe your project" tooltip="Provide as much information as possible about your project" rows="10" ng-model="project.message"></textarea>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-12 form-group">
+								<div id="captcha2"></div>
+							</div>
+							<div class="form-group">
+								<input type="submit" class="btn yellow yellow-dark-hover white-txt pull-right" value="Submit Your project" />
+							</div>
+							<div class="clearfix"></div>
+						</form>
+					</tab>
+					<tab heading="Become a Contributor">
+						<br>
+						<form name="joinForm" novalidate ng-submit="joinForm.$valid && joinUs()">
+							
+							<div class="form-group">
+								<input ng-model="join.name" type="text" placeholder="Your Name" class="form-control" tooltip="Enter your full name..." required/>
+							</div>
+							<div class="form-group">
+								<input ng-model="join.email" type="email" class="form-control" placeholder="Email" tooltip="Enter your email address..." required/>
+							</div>
+							<div class="form-group">
+								<input ng-model="join.location" type="text" class="form-control" placeholder="Location" tooltip="Location" required/>
+							</div>
+							<div class="form-group">
+								<input ng-model="join.github" type="text" class="form-control" placeholder="GIT URL" tooltip="git url" required/>
+							</div>
+							
+							<div class="form-group">
+								<h4>What product do you want to contribute to?</h4>
+								<div ng-repeat="badge in repos">
+									<input type="checkbox" ng-click="toggleSelection(badge);"/>&nbsp;{{badge.label}}
+									<!--<input type="checkbox" ng-model="join.product">-->
+								</div>
+							</div>
+							<div class="form-group">
+                                <textarea required class="form-control" placeholder="How can you contirbute" tooltip="Provide as much information as possible in your message..." rows="10" ng-model="join.message"></textarea>
+							</div>
+							<div class="col-md-6 col-sm-12 form-group">
+								<div id="captcha3"></div>
+							</div>
+							<div class="form-group">
+								<input type="submit" class="btn yellow yellow-dark-hover white-txt pull-right" value="Submit"/>
+							</div>
+							<br class="clearfix">
+						</form>
+					</tab>
+				</tabset>
+				<div class="separator50"></div>
+			</div>
+			<!-- twitter feeds -->
+			<div class="col-lg-4 col-md-4 hidden-sm  hidden-sm hidden-xs pull-right">
+				<div class="socialMedia col-lg-12 text-center" style="margin-bottom: 22px;">
+					<a href="https://gitter.im/soajs/soajs" class="" target="_blank" style="margin-right:17px;">
+						<i class="black-txt     navy-dark-txt-hover icon-gitter"></i>
+					</a>
+					<a href="https://twitter.com/soajsorg" class="" target="_blank">
+						<i class="twitterColor-txt  navy-dark-txt-hover icon-footer-twitter-color"></i>
+					</a>
+				</div>
+				<div class="col-xs-12">&nbsp;</div>
+				<a class="twitter-timeline" data-height="530" href="https://twitter.com/soajsorg">Tweets by soajsorg</a>
+				<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 			</div>
 		</div>
 	</div>
+	<div class="clearfix"></div>
 </div>
-
