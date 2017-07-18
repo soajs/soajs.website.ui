@@ -1,0 +1,32 @@
+
+
+/* ==========================================================================
+   our custom styles  -- applies to all pages
+   ========================================================================== */
+
+.clearfix {
+    display: inline-block;
+}
+
+.clearfix:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+    font-size: 0;
+    visibility: hidden;
+}
+
+/* Hides from IE-mac \*/
+.clearfix {
+    display: block;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.clearfix:before, .clearfix:after {
+    display: table;
+    content: " "
+}
