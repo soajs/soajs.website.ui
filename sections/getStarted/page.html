@@ -8,10 +8,10 @@
 			
 			<div class="separator50 col-xs-12"></div>
 			<div ng-repeat="section in level.sections" class="col-lg-6 col-md-6  col-sm-12 docs gray-txt blue-border-hover white-border">
-				<div class="col-xs-2 col-sm-2 col-md-2">
+				<div class="hidden-xs col-sm-2 col-md-2">
 					<a target="_blank" href="{{section.link}}"><img ng-src="{{section.icon}}" alt="{{section.title}}" border="0" /></a>
 				</div>
-				<div class="col-xs-10 col-sm-10 col-md-10">
+				<div class="col-xs-12 col-sm-10 col-md-10">
 					<a target="_blank" href="{{section.link}}"><b>{{section.title}}</b></a><br />
 					<em>{{section.description}}</em>
 				</div>
