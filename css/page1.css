@@ -175,6 +175,8 @@ max widths
 
     .navbar-header {
         float: right;
+        position:absolute;
+        right: 5px;
     }
 
     .navbar-default .navbar-header button .icon-bar {
