@@ -175,6 +175,8 @@ max widths
 
     .navbar-header {
         float: right;
+        position:absolute;
+        right: 5px;
     }
 
     .navbar-default .navbar-header button .icon-bar {
@@ -250,6 +252,10 @@ max widths
     .jumbotron h1, .jumbotron .h1{
         font-size:32px !important;
     }
+
+    body{
+        font-size:14px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -288,10 +294,17 @@ max widths
         /*padding: 2px;*/
     }
     .jumbotron h1, .jumbotron .h1{
-        font-size:22px !important;
+        font-size:32px !important;
     }
     body{
-        font-size:14px;
+        font-size:13px;
     }
 
+    h2, .h2 {
+        font-size: 20px;
+
+    }
+    .btn{
+        font-size: 11px;
+    }
 }
