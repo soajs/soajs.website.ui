@@ -189,7 +189,7 @@ contactUsApp.controller('contactCtrl', [ '$scope', '$http', '$timeout', function
 	
 	var pageData = {
 		title: "Contact Us",
-		subTitle: "Contact"
+		subTitle: ""
 	};
 	$scope.$parent.$emit('refreshPageTitle', pageData);
 

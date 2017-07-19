@@ -59,7 +59,8 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', function ($sc
 
 	$scope.$on('refreshPageTitle', function (event, args) {
         $scope.pageTitle = args.title;
-        $scope.titleLine2 = args.subTitle;
+        $scope.titleLine2 = args.titleLine2;
+        $scope.subTitle = args.subTitle;
 	});
 
 	$scope.today = new Date().getTime();
