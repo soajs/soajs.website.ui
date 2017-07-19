@@ -369,10 +369,12 @@ Footer section
 }
 
 .copyright {
+    margin: auto;
     margin-top: 70px;
     margin-bottom: 50px;
     color: gray;
     font-size: 9px;
+    text-align: center;
 }
 
 .bottom .socialMedia {
