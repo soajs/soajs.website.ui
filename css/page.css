@@ -1263,3 +1263,12 @@ input.form-control:focus, .form-control:focus {
     }
 
 }
+
+/*****************
+*
+* footer.
+*****************/
+footer{
+    margin : 0;
+    padding: 0;
+}
