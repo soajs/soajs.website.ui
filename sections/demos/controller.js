@@ -9,7 +9,7 @@ demosdApp.controller('demosCtrl', ['$scope', function ($scope) {
 	$scope.$parent.$emit('refreshPageTitle', pageData);
 	$scope.demos = [
 		{
-			icon: "",
+			icon: "images/quickDemo.png",
 			title: "Quick Demo",
 			link: "https://soajsorg.atlassian.net/wiki/spaces/EX/pages/61867290/Quick+Demo",
 			description: "Building a SOAJS Microservice with minimal effort using <a href='https://soajsorg.atlassian.net/wiki/display/SWAG' target='_blank'>Swagger</a>" +
@@ -20,7 +20,7 @@ demosdApp.controller('demosCtrl', ['$scope', function ($scope) {
 			"</ol>"
 		},
 		{
-			icon: "",
+			icon: "images/jsCOnf.png",
 			title: "JSCONF",
 			link: "https://soajsorg.atlassian.net/wiki/spaces/EX/pages/61864316/JSCONF",
 			description: "<a href='http://jsconf.com/' target='_blank'>JSCONF</a> is a JavaScript organization that arranges conference events throughout the year related to technologies developed on top of JavaScript. " +
@@ -29,7 +29,7 @@ demosdApp.controller('demosCtrl', ['$scope', function ($scope) {
 			"He showed SOAJS in action and for that particular event, he used examples found in one of the public repos <a href='http://github.com/soajs/soajs.jsconf' target='_blank'>soajs.jsconf</a>."
 		},
 		{
-			icon: "",
+			icon: "images/fullDemo.png",
 			title: "Full Demo",
 			link: "https://soajsorg.atlassian.net/wiki/spaces/EX/pages/62550838/Full+Demo",
 			description: "<ol>" +
@@ -44,7 +44,7 @@ demosdApp.controller('demosCtrl', ['$scope', function ($scope) {
 			"</ol>"
 		},
 		{
-			icon: "",
+			icon: "images/tidbit.png",
 			title: "TIDBIT",
 			link: "https://soajsorg.atlassian.net/wiki/spaces/EX/pages/62982572/TIDBIT#TIDBIT-menu-link-content",
 			description: "Demonstrate how SOAJS:<br />" +
