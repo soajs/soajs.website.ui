@@ -35,6 +35,14 @@ var navigation = [
 		'scripts': ['sections/getStarted/controller.js']
 	},
 	{
+		'id': 'demos',
+		'label': 'Demos',
+		'title': 'SOAJS | Demos',
+		'url': '/demos',
+		'tplPath': 'sections/demos/page.html',
+		'scripts': ['sections/demos/controller.js']
+	},
+	{
 		'id': 'documentation',
 		'label': 'Documentation',
 		'title': 'SOAJS | Documentation',
