@@ -10,7 +10,7 @@ demosdApp.controller('demosCtrl', ['$scope', function ($scope) {
 	$scope.demos = [
 		{
 			icon: "images/quickDemo.png",
-			title: "Quick Demo - a taste of SOAJS Dashboard",
+			title: "Quick Demo - a taste of SOAJS platform",
 			link: "https://soajsorg.atlassian.net/wiki/spaces/EX/pages/61867290/Quick+Demo",
 			description: "Building a SOAJS Microservice with minimal effort using <a href='https://soajsorg.atlassian.net/wiki/display/SWAG' target='_blank'>Swagger</a>" +
 			"<ol>" +
