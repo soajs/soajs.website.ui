@@ -9,7 +9,7 @@ demosdApp.controller('demosCtrl', ['$scope', function ($scope) {
 	$scope.$parent.$emit('refreshPageTitle', pageData);
 	$scope.demos = [
 		{
-			icon: "images/quickDemo.png",
+			icon: "images/quickdemo.png",
 			title: "Quick Demo - a taste of SOAJS platform",
 			link: "https://soajsorg.atlassian.net/wiki/spaces/EX/pages/61867290/Quick+Demo",
 			description: "Building a SOAJS Microservice with minimal effort using <a href='https://soajsorg.atlassian.net/wiki/display/SWAG' target='_blank'>Swagger</a>" +
@@ -44,7 +44,7 @@ demosdApp.controller('demosCtrl', ['$scope', function ($scope) {
             "</ol>"
         },
         {
-            icon: "images/fullDemo.png",
+            icon: "images/fulldemo.png",
             title: "Full App Demo - Pet store",
             link: "https://soajsorg.atlassian.net/wiki/spaces/EX/pages/62550838/Full+Demo",
             description: "<ol>" +
@@ -59,7 +59,7 @@ demosdApp.controller('demosCtrl', ['$scope', function ($scope) {
             "</ol>"
         },
 		{
-			icon: "images/jsCOnf.png",
+			icon: "images/jsconf.png",
 			title: "JSCONF - Javascript conference demo",
 			link: "https://soajsorg.atlassian.net/wiki/spaces/EX/pages/61864316/JSCONF",
 			description: "<a href='http://jsconf.com/' target='_blank'>JSCONF</a> is a JavaScript organization that arranges conference events throughout the year related to technologies developed on top of JavaScript. " +
