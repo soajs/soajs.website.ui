@@ -1007,6 +1007,12 @@ hr.green {
     margin-bottom: 10px;
     min-height: 155px;
     padding: 12px;
+
+  border-color: darkgray;
+  -webkit-border-radius:12px;
+  -moz-border-radius:12px;
+  border-radius:12px;
+
 }
 .docs:hover{
     -webkit-border-radius:12px;
