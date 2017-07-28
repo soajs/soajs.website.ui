@@ -507,6 +507,19 @@ Setions
     background-color: #418774
 }
 
+
+/**********************
+*
+* Mercury :  section with  light gray background,
+*
+**********************/
+
+.mercury{
+  background-color: #e7e7e7;
+}
+
+
+
 .orange-shade {
     background: -moz-linear-gradient(45deg, rgba(244, 134, 0, 1) 0%, rgba(244, 181, 0, 1) 100%); /* ff3.6+ */
     background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(244, 134, 0, 1)), color-stop(100%, rgba(244, 181, 0, 1))); /* safari4+,chrome */
@@ -625,6 +638,10 @@ Setions
 }
 
 
+.mercury-txt{
+color: #e7e7e7;
+}
+
 /*************************************************************************************
 *
 * text hover-effects
@@ -637,6 +654,7 @@ Setions
 .gray-txt-hover:hover {
     color: gray;
 }
+
 
 .navy-txt-hover:hover {
     color: #19303f;
@@ -725,6 +743,11 @@ Setions
     border-style: solid;
 }
 
+
+.mercury-border{
+  border-color: #e7e7e7;
+  border-style: solid;
+}
 
 /*************************************************************************************
 *
@@ -1004,20 +1027,18 @@ hr.green {
 **********************/
 
 .docs {
-    margin-bottom: 10px;
-    min-height: 155px;
+    margin-bottom: 12px;
     padding: 12px;
+  float: left;
+  width: 99%;
+  min-height:120px;
+}
 
-  border-color: #e7e7e7;
+
+.roundedBorder{
   -webkit-border-radius:12px;
   -moz-border-radius:12px;
   border-radius:12px;
-
-}
-.docs:hover{
-    -webkit-border-radius:12px;
-    -moz-border-radius:12px;
-    border-radius:12px;
 }
 /**********************
 *
