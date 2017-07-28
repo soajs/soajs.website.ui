@@ -1115,6 +1115,9 @@ hr {
     background-color: #122733;
 }
 
+.margin-bottom-demos {
+    margin-bottom: 15px;
+}
 /**********************
 *
 * Releases table
