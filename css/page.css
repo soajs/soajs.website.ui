@@ -1007,6 +1007,12 @@ hr.green {
     margin-bottom: 10px;
     min-height: 155px;
     padding: 12px;
+
+  border-color: #e7e7e7;
+  -webkit-border-radius:12px;
+  -moz-border-radius:12px;
+  border-radius:12px;
+
 }
 .docs:hover{
     -webkit-border-radius:12px;
@@ -1221,61 +1227,6 @@ input.form-control:focus, .form-control:focus {
     outline: none !important;
 }
 
-@media (min-width: 768px) {
-
-    .topbar .topnav li {
-        -webkit-border-radius: 22px;
-        -moz-border-radius: 22px;
-        border-radius: 22px;
-        border: 2px solid rgba(255, 255, 255, 0);
-    }
-
-    .topbar .topnav li.active,
-    .topbar .topnav li:hover {
-        color: white;
-        /*font-weight: bold;*/
-        -webkit-border-radius: 22px;
-        -moz-border-radius: 22px;
-        border-radius: 22px;
-        border: 2px solid rgba(255, 255, 255, 1);
-    }
-
-    .topbar .topnav .dropdown-menu > li:hover,
-    .topbar.scrolling .topnav .dropdown-menu > li:hover {
-        border: 2px solid rgba(255, 255, 255, 0);
-    }
-
-    .topbar .topnav .dropdown-menu > li.active,
-    .topbar.scrolling .topnav .dropdown-menu > li.active,
-    .topbar.scrolling .topnav .dropdown-menu > li.active a,
-    .topbar.scrolling .topnav .dropdown-menu > li.active {
-        border: none;
-        background: none;
-        color: white;
-    }
-
-    .topbar .topnav .dropdown-menu > li a:hover,
-    .topbar .topnav .dropdown-menu > li a,
-    .topbar.scrolling .topnav .dropdown-menu > li a:hover,
-    .topbar.scrolling .topnav .dropdown-menu > li a,
-    .topbar.scrolling .topnav .dropdown-menu > li.active a:hover,
-    .topbar.scrolling .topnav .dropdown-menu > li.active a {
-        border: none;
-        background: none;
-        color: white;
-    }
-
-
-    .sidebar{
-        border-right: 1px solid gray;
-
-    }
-
-    .pointer{
-        cursor:pointer;
-    }
-
-}
 
 /*****************
 *
@@ -1285,3 +1236,4 @@ footer{
     margin : 0;
     padding: 0;
 }
+
