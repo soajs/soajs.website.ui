@@ -1115,8 +1115,11 @@ hr {
     background-color: #122733;
 }
 
-.margin-bottom-demos {
+.demos {
     margin-bottom: 15px;
+  padding-top:12px;
+  padding-bottom: 22px;
+  float: left;
 }
 /**********************
 *
