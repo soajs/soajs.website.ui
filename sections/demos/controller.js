@@ -44,7 +44,7 @@ demosdApp.controller('demosCtrl', ['$scope', function ($scope) {
             "</ol>"
         },
         {
-            icon: "images/fulldemo.png",
+            icon: "images/fullDemo.png",
             title: "Full App Demo - Pet store",
             link: "https://soajsorg.atlassian.net/wiki/spaces/EX/pages/62550838/Full+Demo",
             description: "<ol>" +
@@ -59,7 +59,7 @@ demosdApp.controller('demosCtrl', ['$scope', function ($scope) {
             "</ol>"
         },
 		{
-			icon: "images/jsconf.png",
+			icon: "images/jsConf.png",
 			title: "JSCONF - Javascript conference demo",
 			link: "https://soajsorg.atlassian.net/wiki/spaces/EX/pages/61864316/JSCONF",
 			description: "<a href='http://jsconf.com/' target='_blank'>JSCONF</a> is a JavaScript organization that arranges conference events throughout the year related to technologies developed on top of JavaScript. " +
