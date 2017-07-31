@@ -260,6 +260,16 @@ max widths
 
 @media (max-width: 480px) {
 
+
+  .g-recaptcha {
+    transform:scale(0.7);
+    transform-origin:0;
+    -webkit-transform:scale(0.7);
+    transform:scale(0.7);
+    -webkit-transform-origin:0 0;
+    transform-origin:0 0;
+
+  }
     form .form-group {
         padding: 0;
     }

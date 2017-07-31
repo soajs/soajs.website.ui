@@ -1,7 +1,7 @@
 <script src="https://www.google.com/recaptcha/api.js?onload=myCallBack&render=explicit" async defer></script>
 
 <div ng-controller="contactCtrl">
-	
+
 	<!-- White top section -->
 	<div class="container">
 		<div class="row">
@@ -16,14 +16,14 @@
 					<tab heading="Send Us a Message">
 						<br>
 						<form name="contactForm" novalidate ng-submit="contactForm.$valid && sendContact()">
-							
+
 							<div class="form-group">
 								<input ng-model="contact.name" type="text" placeholder="Your Name" class="form-control" tooltip="Enter your full name..." required/>
 							</div>
 							<div class="form-group">
 								<input ng-model="contact.email" type="email" class="form-control" placeholder="Email" tooltip="Enter your email address..." required/>
 							</div>
-							
+
 							<div class="form-group">
 								<select ng-model="contact.purpose" class="form-control" tootltip="Pick a purpose for your message..." required>
 									<option value=""> -- Subject --</option>
@@ -32,13 +32,13 @@
 									<option value="I need Consultancy">I need Consultancy</option>
 								</select>
 							</div>
-							
+
 							<div class="form-group">
 								<textarea required class="form-control" placeholder="Write your message here..." tooltip="Provide as much information as possible in your message..." rows="10" ng-model="contact.message"></textarea>
 							</div>
-							
+
 							<div class="col-md-6 col-sm-12 form-group">
-								<div id="captcha1"></div>
+								<div id="captcha1" class="g-recaptcha"></div>
 							</div>
 							<div class="form-group">
 								<input type="submit" class="btn yellow yellow-dark-hover white-txt pull-right" value="Submit"/>
@@ -53,7 +53,7 @@
 								<div class="col-md-6 col-sm-12 form-group">
 									<input ng-model="project.company" type="text" class="form-control" placeholder="Company Name" tooltip="Input data" required/>
 								</div>
-								
+
 								<div class="col-md-6 col-sm-12 form-group">
 									<input ng-model="project.address" type="text" class="form-control" placeholder="Company Address" tooltip="Input data" required/>
 								</div>
@@ -71,7 +71,7 @@
 								</div>
 							</div>
 							<div class="col-md-6 col-sm-12 form-group">
-								<div id="captcha2"></div>
+								<div id="captcha2" class="g-recaptcha"></div>
 							</div>
 							<div class="form-group">
 								<input type="submit" class="btn yellow yellow-dark-hover white-txt pull-right" value="Submit Your project" />
@@ -82,7 +82,7 @@
 					<tab heading="Become a Contributor">
 						<br>
 						<form name="joinForm" novalidate ng-submit="joinForm.$valid && joinUs()">
-							
+
 							<div class="form-group">
 								<input ng-model="join.name" type="text" placeholder="Your Name" class="form-control" tooltip="Enter your full name..." required/>
 							</div>
@@ -95,7 +95,7 @@
 							<div class="form-group">
 								<input ng-model="join.github" type="text" class="form-control" placeholder="GIT URL" tooltip="git url" required/>
 							</div>
-							
+
 							<div class="form-group">
 								<h4>What product do you want to contribute to?</h4>
 								<div ng-repeat="badge in repos">
@@ -107,7 +107,7 @@
                                 <textarea required class="form-control" placeholder="How can you contirbute" tooltip="Provide as much information as possible in your message..." rows="10" ng-model="join.message"></textarea>
 							</div>
 							<div class="col-md-6 col-sm-12 form-group">
-								<div id="captcha3"></div>
+								<div id="captcha3" class="g-recaptcha"></div>
 							</div>
 							<div class="form-group">
 								<input type="submit" class="btn yellow yellow-dark-hover white-txt pull-right" value="Submit"/>
