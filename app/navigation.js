@@ -57,6 +57,14 @@ var navigation = [
 		'url': '/platform',
 		'tplPath': 'sections/platform/page.html',
 		'scripts': ['sections/platform/controller.js']
+	},
+	{
+		'id': 'videos',
+		'label': 'Videos',
+		'title': 'SOAJS | Videos',
+		'url': '/videos',
+		'tplPath': 'sections/videos/page.html',
+		'scripts': ['sections/videos/controller.js']
 	}
 ];
 

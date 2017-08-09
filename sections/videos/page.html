@@ -1,0 +1,21 @@
+<div class="container">
+	<div ng-controller="videosPageCtrl">
+		<div class="separator50 col-xs-12"></div>
+		<div ng-repeat="video in videos" class="col-lg-12 col-md-12  col-sm-12 gray-txt blue-border-hover mercury-border roundedBorder demos">
+			
+			<div class="col-xs-12 col-sm-12 col-md-12 clearfix">
+				<a target="_blank" href="" class="title"><b>{{video.name}}</b></a><br /><hr />
+			</div>
+			
+			<div class="col-xs-7 col-sm-7 col-md-7 pull-left">
+				<div class="embed-responsive embed-responsive-16by9">
+					<youtube-video class="embed-responsive-item" video-id="video.link"></youtube-video>
+				</div>
+			</div>
+			<div class="col-xs-5 col-sm-5 col-md-5 pull-left">
+				<em ng-bind-html="video.description|toTrustedHtml"></em>
+			</div>
+		</div>
+		<div class="col-xs-12 separator50 clearfix"></div>
+	</div>
+</div>

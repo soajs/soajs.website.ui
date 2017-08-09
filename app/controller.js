@@ -1,5 +1,5 @@
 'use strict';
-var app = angular.module('mainWebsite', ['ui.bootstrap', 'ngRoute']);
+var app = angular.module('mainWebsite', ['ui.bootstrap', 'ngRoute', 'youtube-embed']);
 
 app.config([
 	'$routeProvider',
