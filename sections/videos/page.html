@@ -6,14 +6,13 @@
 			<div class="col-xs-12 col-sm-12 col-md-12 clearfix">
 				<a target="_blank" href="" class="title"><b>{{video.name}}</b></a><br /><hr style="width: 100%" />
 			</div>
-			
-			<div class="col-xs-7 col-sm-7 col-md-7 pull-left">
+			<div class="col-xs-12 col-sm-12 col-md-12" style="padding-bottom: 10px">
+				<em ng-bind-html="video.description|toTrustedHtml"></em>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12">
 				<div class="embed-responsive embed-responsive-16by9">
 					<youtube-video class="embed-responsive-item" video-id="video.link"></youtube-video>
 				</div>
-			</div>
-			<div class="col-xs-5 col-sm-5 col-md-5 pull-left">
-				<em ng-bind-html="video.description|toTrustedHtml"></em>
 			</div>
 		</div>
 		<div class="col-xs-12 separator50 clearfix"></div>
