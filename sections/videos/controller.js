@@ -22,14 +22,9 @@ videosApp.controller('videosPageCtrl', ['$scope', function ($scope) {
 			"link": "BNTUChhmZJk"
 		},
 		{
-			"name": "API Management, Lifecycle and Packaging with SOAJS",
-			"description": "Learn how SOAJS platform delivers a comprehensive API management, lifecycle, gateway and packaging strategy. From a developer standpoint, this is a smart solution because you do not need to start building from scratch",
-			"link": "OrdKOy6vNtY"
-		},
-		{
-			"name": "Create & Deploy Environment with SOAJS",
-			"description": "Learn how a multi-environment can be used. This feature is frequently used within in enterprise development scenarios where developers create and modify code in a development or testing environment.",
-			"link": "icUQ40o1zqk"
+			"name": "Configure Continuous Integration with SOAJS",
+			"description": "Learn how to configure Continuous Integration. Continuous Integration is an amazing feature that allows you to automatically update services or release a new version of your service",
+			"link": "b87ebiu11Cg"
 		},
 		{
 			"name": "Catalog Deployment with SOAJS",
@@ -39,14 +34,19 @@ videosApp.controller('videosPageCtrl', ['$scope', function ($scope) {
 			"link": "kHUCXRwKoQQ"
 		},
 		{
+			"name": "Create & Deploy Environment with SOAJS",
+			"description": "Learn how a multi-environment can be used. This feature is frequently used within in enterprise development scenarios where developers create and modify code in a development or testing environment.",
+			"link": "icUQ40o1zqk"
+		},
+		{
+			"name": "API Management, Lifecycle and Packaging with SOAJS",
+			"description": "Learn how SOAJS platform delivers a comprehensive API management, lifecycle, gateway and packaging strategy. From a developer standpoint, this is a smart solution because you do not need to start building from scratch",
+			"link": "OrdKOy6vNtY"
+		},
+		{
 			"name": "Test your API with SOAJS",
 			"description": "Learn the quick and easy way to test your API’s with SOAJS Swagger Simulator",
 			"link": "uxON9H7RWog"
-		},
-		{
-			"name": "Configure Continuous Integration with SOAJS",
-			"description": "Learn how to configure Continuous Integration. Continuous Integration is an amazing feature that allows you to automatically update services or release a new version of your service",
-			"link": "b87ebiu11Cg"
 		},
 		{
 			"name": "Continuous Integartion & Delivery with SOAJS",
