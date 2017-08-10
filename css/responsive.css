@@ -150,16 +150,33 @@
 /***
 max widths
 */
+@media (max-width: 920px) {
+  .topbar .topnav li a{
+    font-size: 12px;
+  }
+  .navbar-right{
+    margin-top:8px;
+  }
+
+}
 
 @media (max-width: 800px) {
     .col-sm-height {
         display: block;
         float: none;
     }
+  .topbar .topnav li a{
+    font-size: 10px;
+  }
 }
 
 @media (max-width: 767px) {
 
+
+  .topbar .topnav li a
+  {
+    font-size:16px;
+  }
     .oneRepo .repoNews {
         padding: 0;
     }
@@ -319,12 +336,12 @@ max widths
     }
 }
 
-
+/*
 @media screen and (min-width: 760px) and (max-width: 820px) {
-  /* STYLES HERE */
   .topbar .branding{
     display: none;
   }
 
 }
 
+*/
