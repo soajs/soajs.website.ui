@@ -120,6 +120,11 @@ h2, .h2 {
     box-shadow: none;
 }
 
+.navbar-right{
+  margin-top:5px;
+}
+
+
 .navbar-default.scrolling {
     background-color: white;
 }
@@ -192,6 +197,11 @@ h2, .h2 {
     color: #19303f;
 }
 
+/* patch to prevent shaking effect on hover */
+.topbar.scrolling .topnav li {
+  border: 2px solid #fff;
+
+}
 .topbar.scrolling .topnav li.active, .topbar.scrolling .topnav li:hover {
     border: 2px solid #f48600;
 
