@@ -192,9 +192,12 @@ h2, .h2 {
     color: #19303f;
 }
 
+.topbar.scrolling .topnav li.active, .topbar.scrolling .topnav li {
+    border: 2px solid transparent;
+}
+
 .topbar.scrolling .topnav li.active, .topbar.scrolling .topnav li:hover {
     border: 2px solid #f48600;
-
 }
 
 .topbar.scrolling .topnav li.active a, .topbar.scrolling .topnav li:hover a {
