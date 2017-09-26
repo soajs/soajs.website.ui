@@ -7,8 +7,9 @@
     "repos": [
       {
         "name": "soajs",
-        "version": "1.0.13",
+        "version": "1.0.14",
         "features": [
+          "Added new controller routes to return loaded registry",
           "Provided ability to add optional API that returns the swagger contract of a service",
           "Provided support to invoke the swagger API publicly without the need to provide a key or access token",
           "Updated controller middleware to append awareness information about environment controllers in injected headers",
@@ -29,6 +30,7 @@
           "Fixed issue with detecting ACL at urac level"
         ],
         "enhancedTests": [
+          "Moved caching registry to soajs.core.modules",
           "Updated dependency list",
           "Removed cluster logs when deploying a service",
           "Replaced bcrypt with bcryptjs",
@@ -37,14 +39,17 @@
       },
       {
         "name": "soajs.core.modules",
-        "version": "1.0.6",
+        "version": "1.0.8",
         "features": [
+          "Created new model for registry: API",
           "Added support to create & manage resources",
           "Added support to plug and unplug resources",
           "Added support to share resources in multiple or all environments"
         ],
         "enhancedTests":[
-          "Replaced bcrypt with bcryptjs"
+          "Moved auto reload registry to soajs.core/registry module",
+          "Replaced bcrypt with bcryptjs",
+          "General performance issue in caching registry"
         ]
       },
       {
@@ -93,8 +98,9 @@
       },
       {
         "name": "soajs.dashboard",
-        "version": "1.1.28",
+        "version": "1.1.30",
         "features": [
+          "Added support for the new custom registry feature",
           "Added support for new resources feature",
           "Added new Catalog recipes",
           "Added multiple update wizards for databases, clusters, catalog recipes & high availability",
@@ -126,6 +132,9 @@
           "Added new support for code updates ledger"
         ],
         "enhancedTests": [
+          "Added filter support in git accounts",
+          "Fixed performance issue reported in deploy/repositories section",
+          "Changed how core provision cluster is calculated upon service/daemon deployment",
           "Updated default behavior of swagger Editor Service Generator UI module",
           "Removed memory limit on all ELK templates",
           "Improved UI permission checks",
@@ -138,6 +147,7 @@
           "Mocked 3rd parties and ensure better code coverage and quality"
         ],
         "bugFixes": [
+          "Minor fix in high availability redeploy operation",
           "Fixed issue when deactivating and reactivating analytics using kubernetes deployment",
           "Fixed UI issue reported when displaying service logs when autoscaling capability is turned on",
           "Fixed issue reported when configuring repositories for deployment",
@@ -153,8 +163,10 @@
       },
       {
         "name": "soajs.installer",
-        "version": "1.1.21",
+        "version": "1.1.22",
         "features": [
+          "Renamed clusters to resources and revamped its interface",
+          "Updates and improvements in deployments sections",
           "Added support for new resources feature",
           "Updates in service templates for both kubernetes and docker swarm deployment",
           "Added support to deploy Heapster when using kubernetes deployment which is used for autoscaling services",
