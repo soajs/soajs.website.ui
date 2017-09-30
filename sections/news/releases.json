@@ -98,8 +98,10 @@
       },
       {
         "name": "soajs.dashboard",
-        "version": "1.1.30",
+        "version": "1.1.31",
         "features": [
+          "Updated angular version",
+          "Updates and new input types in UI form plugins",
           "Added support for the new custom registry feature",
           "Added support for new resources feature",
           "Added new Catalog recipes",
@@ -132,6 +134,7 @@
           "Added new support for code updates ledger"
         ],
         "enhancedTests": [
+          "Updates in deploy nginx services",
           "Added filter support in git accounts",
           "Fixed performance issue reported in deploy/repositories section",
           "Changed how core provision cluster is calculated upon service/daemon deployment",
