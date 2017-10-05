@@ -1,5 +1,97 @@
 [
-
+  {
+    "id": "Orca",
+    "label": "Orca",
+    "date": "October 5, 2017",
+    "repos": [
+      {
+        "name": "soajs.core.modules",
+        "version": "1.0.9",
+        "enhancedTests": [
+          "Locked Down Dependencies List"
+        ]
+      },
+      {
+        "name": "soajs.core.drivers",
+        "version": "0.0.15",
+        "features": [
+          "Added Support to Customize port exposing ports and binding IP for services that need to acquired the real remote ip when traffic arrives"
+        ],
+        "bugFixes":[
+          "Fixed reported issue with service and deployment names when deploying analytics using docker driver"
+        ],
+        "enhancedTests": [
+          "Locked Down Dependencies List"
+        ]
+      },
+      {
+        "name": "soajs.urac.driver",
+        "version": "1.0.4",
+        "enhancedTests": [
+          "Locked Down Dependencies List"
+        ]
+      },
+      {
+        "name": "soajs",
+        "version": "1.0.14",
+        "enhancedTests": [
+          "Locked Down Dependencies List"
+        ]
+      },
+      {
+        "name": "soajs.composer",
+        "version": "1.0.3",
+        "enhancedTests": [
+          "Locked Down Dependencies List"
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "1.1.32",
+        "features": [
+          "Moved UI from Repository to soajs.dashboard.ui & soajs.portal.ui",
+          "Added Support to Customize port exposing ports and binding IP for services that need to acquired the real remote ip when traffic arrives"
+        ],
+        "bugFixes":[
+          "Fixed reported issue with commit values when redeploying a service/daemon"
+        ]
+      },
+      {
+        "name": "soajs.gcs",
+        "version": "1.0.4",
+        "enhancedTests": [
+          "Updated how core database connection is initiated"
+        ]
+      },
+      {
+        "name": "soajs.dashboard.ui",
+        "version": "0.0.1",
+        "features": [
+          "First Release",
+          "Provides interface for develop, manage & deploy pillars",
+          "Provides Link to Open portal interface from top user menu"
+        ]
+      },
+      {
+        "name": "soajs.portal.ui",
+        "version": "0.0.1",
+        "features": [
+          "First Release",
+          "Provides interface for operate pillars",
+          "Provides Link to Open dashboard interface from top user menu"
+        ]
+      },
+      {
+        "name": "soajs.installer",
+        "version": "1.123",
+        "features": [
+          "Provided support to deploy the new portal Interface",
+          "Changed Nginx deployment to global",
+          "Added support to Bind Nginx service IP to node to support fetching the real remote ip at runtime"
+        ]
+      }
+    ]
+  },
   {
     "id": "Great White Shark",
     "label": "Great White Shark 2",
