@@ -47,7 +47,7 @@
       },
       {
         "name": "soajs.dashboard",
-        "version": "1.1.32",
+        "version": "1.1.33",
         "features": [
           "Moved UI from Repository to soajs.dashboard.ui & soajs.portal.ui",
           "Added Support to Customize port exposing ports and binding IP for services that need to acquired the real remote ip when traffic arrives"
