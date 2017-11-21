@@ -6,7 +6,7 @@
 		"repos": [
 			{
 				"name": "soajs",
-				"version": "2.0.0",
+				"version": "2.0.1",
 				"features": [
 					"Added support to store awareness information in controllers deployed manually",
 					"Added new route key/permission/get that returns the ACL and allowed environments for a given external key"
@@ -18,7 +18,7 @@
 			},
 			{
 				"name": "soajs.dashboard",
-				"version": "2.0.0",
+				"version": "2.0.1",
 				"features": [
 					"Provided the ability to Create and Deploy Hybrid Clouds.",
 					"Provided the ability to communicate between environments deployed on Hybrid Clouds using different technologies.",
@@ -72,7 +72,7 @@
 			},
 			{
 				"name": "soajs.core.modules",
-				"version": "1.0.9",
+				"version": "2.0.0",
 				"features": [
 					"Added support for access tokens created in portal environment",
 					"Added support to provide locked property when applicable in tenants before forwarding requests",
@@ -112,7 +112,7 @@
 			},
 			{
 				"name": "soajs.urac",
-				"version": "2.0.0",
+				"version": "2.0.1",
 				"features": [
 					"Created new API to list tenants from different environments",
 					"Created new API to retrieve the ACL information of a user"
@@ -120,28 +120,28 @@
 			},
 			{
 				"name": "soajs.oauth",
-				"version": "2.0.0",
+				"version": "2.0.1",
 				"features": [
 					"updated dependency list of soajs"
 				]
 			},
 			{
 				"name": "soajs.controller",
-				"version": "2.0.0",
+				"version": "2.0.1",
 				"features": [
 					"updated dependency list of soajs"
 				]
 			},
 			{
 				"name": "soajs.composer",
-				"version": "2.0.0",
+				"version": "2.0.1",
 				"features": [
 					"updated dependency list of soajs"
 				]
 			},
 			{
 				"name": "soajs.installer",
-				"version": "2.0.0",
+				"version": "2.0.1",
 				"features": [
 					"Updated provisioned data to support Hybrid Cloud Deployment",
 					"Updated povisioned data to support techop groups",
