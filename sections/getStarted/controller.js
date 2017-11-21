@@ -98,7 +98,7 @@ getStartedApp.controller('getStartedCtrl', ['$scope', function ($scope) {
 				},
 				{
 					icon: "https://soajsorg.atlassian.net/wiki/download/thumbnails/16121916/preRequisites.png?version=1&modificationDate=1500029031953&cacheVersion=1&api=v2?width=64&height=64",
-					title: "Hot to install",
+					title: "How to install",
 					link: "https://soajsorg.atlassian.net/wiki/spaces/EX/pages/61673365/How+to+Install",
 					description: "Learn about the prerequisites needed for development use on SOAJS"
 				}

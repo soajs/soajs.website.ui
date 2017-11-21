@@ -7,6 +7,7 @@
     "coveralls":"soajs/soajs",
     "documentation": "#/documentation/",
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs&type=watch&count=true",
+    "snyk": "soajs/soajs",
     "docker": {
       "link": "https://hub.docker.com/search/?isAutomated=0&isOfficial=0&page=1&pullCount=0&q=soajs&starCount=0",
       "label": "https://img.shields.io/docker/pulls/soajsorg/soajs.svg"
@@ -19,6 +20,7 @@
     "travis":"soajs/soajs.urac",
     "coveralls":"soajs/soajs.urac",
     "documentation": "https://soajsorg.atlassian.net/wiki/display/URAC/URAC",
+    "snyk": "soajs/soajs.urac",
     "external": true,
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.urac&type=watch&count=true"
   },
@@ -29,6 +31,7 @@
     "travis":"soajs/soajs.oauth",
     "coveralls":"soajs/soajs.oauth",
     "documentation": "https://soajsorg.atlassian.net/wiki/display/OAUT/oAuth",
+    "snyk": "soajs/soajs.oauth",
     "external": true,
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.oauth&type=watch&count=true"
   },
@@ -39,6 +42,7 @@
     "travis":"soajs/soajs.dashboard",
     "coveralls":"soajs/soajs.dashboard",
     "documentation": "#/documentation/services/dashboard-services",
+    "snyk": "soajs/soajs.dashboard",
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.dashboard&type=watch&count=true"
   },
   {
@@ -48,6 +52,7 @@
     "travis":"soajs/soajs.gcs",
     "coveralls":"soajs/soajs.gcs",
     "documentation": "#/documentation/services/gcs",
+    "snyk": "soajs/soajs.gcs",
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.gcs&type=watch&count=true"
   },
   {
@@ -55,6 +60,7 @@
     "label": "Controller",
     "npm":"soajs.controller",
     "documentation": "https://soajsorg.atlassian.net/wiki/display/CON/Controller",
+    "snyk": "soajs/soajs.controller",
     "external": true,
     "github": "http://ghbtns.com/github-btn.html?user=soajs&repo=soajs.controller&type=watch&count=true"
   }

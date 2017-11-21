@@ -98,6 +98,13 @@
                                     ng-src="https://coveralls.io/repos/{{badge.coveralls}}/badge.svg"
                                     alt="Coverage Status"></a>
                             </div>
+	
+	                        <div class="repoLinks snyk" ng-if="badge.snyk">
+		                        <a href="https://snyk.io/test/github/{{badge.snyk}}" target="_blank">
+	                                <img src="https://snyk.io/test/github/{{badge.snyk}}/badge.svg" alt="Known Vulnerabilities" data-canonical-src="https://snyk.io/test/github/{{badge.snyk}}" style="max-width:100%;"/>
+		                        </a>
+	                        </div>
+	                        
                             <div class="repoLinks docker" ng-if="badge.docker">
                                 <div style="height:12px;">&nbsp;</div>
                                 <a href="{{badge.docker.link}}" target="_blank"><img ng-src="{{badge.docker.label}}"

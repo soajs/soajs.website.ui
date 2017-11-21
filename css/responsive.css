@@ -152,7 +152,7 @@ max widths
 */
 @media (max-width: 920px) {
   .topbar .topnav li a{
-    font-size: 12px;
+    font-size: 12.5px;
   }
   .navbar-right{
     margin-top:8px;
@@ -166,7 +166,7 @@ max widths
         float: none;
     }
   .topbar .topnav li a{
-    font-size: 10px;
+    font-size: 11px;
   }
 }
 

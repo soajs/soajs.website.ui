@@ -1,10 +1,8 @@
 <div class="container">
 	<div ng-controller="newsPageCtrl">
 
-		<div class="row" style="display: none">
-
 			<!-- main news - large -->
-
+		<!--<div class="row" style="display: none">
 			<div class="col-lg-8 col-md-12 ">
 				<h2>Heading</h2>
 				<img src="images/news/demo1.png" class="wide"/>
@@ -65,27 +63,44 @@
 				<a class="twitter-timeline" data-height="530" href="https://twitter.com/soajsorg">Tweets by soajsorg</a>
 				<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-12 col-md-12">
+		</div>-->
+		<!--<div class="row">-->
+			<!--<div class="col-lg-12 col-md-12">-->
+				<!---->
+				<!--<h2>SOAJS Great White Shark </h2>-->
+				<!--<p>-->
+					<!--River Shark Release contains the latest SOAJS updates and the first release in its new <b>1.x</b>-->
+					<!--version.<br>-->
+					<!--In this new version, SOAJS introduced the new <b>sessionless behavior</b> where logged in users no-->
+					<!--longer have sessions unless required by the microservices to store custom product information.<br>-->
+					<!--In addition, soajs framework is broken down to multiple repositories for better management,-->
+					<!--flexibility,-->
+					<!--modulatiry and usage.<br>-->
+					<!--Please use the latest version of the-->
+					<!--<a href="https://soajsorg.atlassian.net/wiki/display/IN/Installer">SOAJS-->
+						<!--Installer</a> to deploy this new version.-->
+				<!--</p>-->
+				<!--<div class="red white-txt text-center">The new SOAJS version is not backward compatible.</div>-->
+			<!--</div>-->
+			<!--<div class="col-lg-12 col-md-12">-->
 
-				<h2>SOAJS News </h2>
-				<p>
-					River Shark Release contains the latest SOAJS updates and the first release in its new <b>1.x</b>
-					version.<br>
-					In this new version, SOAJS introduced the new <b>sessionless behavior</b> where logged in users no
-					longer have sessions unless required by the microservices to store custom product information.<br>
-					In addition, soajs framework is broken down to multiple repositories for better management,
-					flexibility,
-					modulatiry and usage.<br>
-					Please use the latest version of the
-					<a href="https://soajsorg.atlassian.net/wiki/display/IN/Installer">SOAJS
-						Installer</a> to deploy this new version.
-				</p>
-				<div class="red white-txt text-center">The new SOAJS version is not backward compatible.</div>
-			</div>
-		</div>
-		<div class="clearfix"></div>
+				<!--<h2>SOAJS Rivershark </h2>-->
+				<!--<p>-->
+					<!--River Shark Release contains the latest SOAJS updates and the first release in its new <b>1.x</b>-->
+					<!--version.<br>-->
+					<!--In this new version, SOAJS introduced the new <b>sessionless behavior</b> where logged in users no-->
+					<!--longer have sessions unless required by the microservices to store custom product information.<br>-->
+					<!--In addition, soajs framework is broken down to multiple repositories for better management,-->
+					<!--flexibility,-->
+					<!--modulatiry and usage.<br>-->
+					<!--Please use the latest version of the-->
+					<!--<a href="https://soajsorg.atlassian.net/wiki/display/IN/Installer">SOAJS-->
+						<!--Installer</a> to deploy this new version.-->
+				<!--</p>-->
+				<!--<div class="red white-txt text-center">The new SOAJS version is not backward compatible.</div>-->
+			<!--</div>-->
+		<!--</div>-->
+		<!--<div class="clearfix"></div>-->
 
 		<div class="row">
 			<div class="col-lg-12 col-md-12">
@@ -95,7 +110,8 @@
 					<div class="panel panel-default" ng-repeat="release in newsList">
 						<div class="panel-heading">
 							<h4 class="panel-title">
-								<a class="accordion-toggle pointer" data-toggle="collapse" data-parent="#accordion" data-target="#collapse_{{$index}}">
+								<a class="accordion-toggle" style="cursor: pointer" data-toggle="collapse"
+                   data-parent="#accordion" data-target="#collapse_{{$index}}">
 									{{release.label}}
 								</a>
 								<span class="pull-right text-right">{{release.date}}</span>
@@ -117,12 +133,6 @@
 											<div ng-if="repo.description">
 												<div ng-repeat="line in repo.description">{{line}}</div>
 											</div>
-											<div ng-if="repo.bugFixes && repo.bugFixes.length">
-												<div class="releaseNotes red-txt bug">Bug fixes:</div>
-												<ul>
-													<li ng-repeat="bug in repo.bugFixes">{{bug}}</li>
-												</ul>
-											</div>
 											<div ng-if="repo.features && repo.features.length">
 												<div class="releaseNotes green-txt feature">Features:</div>
 												<ul>
@@ -132,7 +142,13 @@
 											<div ng-if="repo.enhancedTests && repo.enhancedTests.length">
 												<div class="releaseNotes red-txt etest">Enhanced Tests:</div>
 												<ul>
-													<li ng-repeat="test in repo.enhancedTests">{{test}}</li>
+													<li ng-repeat="test in repo.enhancedTests" ng-bind-html="test|toTrustedHtml"></li>
+												</ul>
+											</div>
+											<div ng-if="repo.bugFixes && repo.bugFixes.length">
+												<div class="releaseNotes red-txt bug">Bug fixes:</div>
+												<ul>
+													<li ng-repeat="bug in repo.bugFixes">{{bug}}</li>
 												</ul>
 											</div>
 											<div ng-if="repo.custom">
