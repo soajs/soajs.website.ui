@@ -139,6 +139,13 @@
 													<li ng-repeat="feature in repo.features" ng-bind-html="feature|toTrustedHtml"></li>
 												</ul>
 											</div>
+											<div ng-if="repo.enhancements && repo.enhancements.length">
+												<div class="releaseNotes blue-txt">
+													Enhancements:</div>
+												<ul>
+													<li ng-repeat="enhancement in repo.enhancements" ng-bind-html="enhancement|toTrustedHtml"></li>
+												</ul>
+											</div>
 											<div ng-if="repo.enhancedTests && repo.enhancedTests.length">
 												<div class="releaseNotes red-txt etest">Enhanced Tests:</div>
 												<ul>
@@ -149,6 +156,14 @@
 												<div class="releaseNotes red-txt bug">Bug fixes:</div>
 												<ul>
 													<li ng-repeat="bug in repo.bugFixes">{{bug}}</li>
+												</ul>
+											</div>
+											<div ng-if="repo.deprecated && repo.deprecated.length">
+												<div class="releaseNotes yellow-light-txt">
+													Deprecated:</div>
+												<ul>
+													<li ng-repeat="dep in repo.deprecated"
+														ng-bind-html="dep|toTrustedHtml"></li>
 												</ul>
 											</div>
 											<div ng-if="repo.custom">
