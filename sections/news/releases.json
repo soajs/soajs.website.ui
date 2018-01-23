@@ -100,7 +100,7 @@
       },
       {
         "name": "soajs.installer",
-        "version": "2.0.7",
+        "version": "2.0.8",
         "features": [
           "Updated catalog recipes",
           "Updated service labels for Kubernetes metrics server"
