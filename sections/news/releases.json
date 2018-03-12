@@ -1,5 +1,127 @@
 [
   {
+    "id": "fin_whale",
+    "label": "Fin Whale",
+    "date": "March 12, 2018",
+    "repos": [
+      {
+        "name": "soajs",
+        "version": "2.0.6",
+        "enhancements": [
+          "Removed Support for Content Builder & GCS, no longer supported"
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "2.0.10",
+        "features": [
+          "Enabled Hybrid deployment under the same environment when using kubernetes"
+        ],
+        "enhancements": [
+          "General Code Optimization in Several Modules"
+        ]
+      },
+      {
+        "name": "soajs.dashboard.ui",
+        "version": "2.0.9",
+        "features": [
+          "Enabled Hybrid deployment under the same environment when using kubernetes"
+        ],
+        "enhancements": [
+          "General Code Optimization in Several Modules"
+        ]
+      },
+      {
+        "name": "soajs.portal.ui",
+        "version": "2.0.2",
+        "enhancements": [
+          "General Code Optimization in Several Modules"
+        ]
+      },
+      {
+        "name": "soajs.core.modules",
+        "version": "2.0.2",
+        "features": [
+          "Added Support to detect correct key when running in SAAS Mode",
+          "ES Driver delete by query plugin is now available when driver is 2.x and below"
+        ]
+      },
+      {
+        "name": "soajs.core.drivers",
+        "version": "2.0.5",
+        "features": [
+          "Enabled Hybrid deployment under the same environment when using kubernetes"
+        ]
+      },
+      {
+        "name": "soajs.epg",
+        "version": "0.0.1",
+        "features": [
+          "Contains an engine that is used to deploy Endpoint systems created using SOAJS with multi authentication, version, model support",
+          "First Release"
+        ]
+      },
+      {
+        "name": "soajs.urac",
+        "version": "2.0.6",
+        "features": [
+          "Updated dependency list of soajs",
+          "Added support to check user limit upon user add when running in SAAS Mode",
+          "Added support to prevent delete default groups when running in SAAS Mode",
+          "Updated Readme.MD File"
+        ]
+      },
+      {
+        "name": "soajs.oauth",
+        "version": "2.0.4",
+        "features": [
+          "Updated dependency list of soajs"
+        ]
+      },
+      {
+        "name": "soajs.urac.driver",
+        "version": "1.0.5",
+        "features": [
+          "Updated Readme.MD File"
+        ]
+      },
+      {
+        "name": "soajs.controller",
+        "version": "2.0.6",
+        "features": [
+          "Updated dependency list of soajs"
+        ]
+      },
+      {
+        "name": "soajs.composer",
+        "version": "2.0.5",
+        "features": [
+          "Updated dependency list of soajs",
+          "Provided the ability to parse a service configuration if provided as a parameter"
+        ]
+      },
+      {
+        "name": "soajs.installer",
+        "version": "2.0.9",
+        "features": [
+          "Enabled Hybrid deployment under the same environment when using kubernetes",
+          "Upgrade preparation scripts for both docker & kuberentes"
+        ],
+        "enhancements": [
+          "Code Fixes and Performance Updates"
+        ]
+      },
+      {
+        "name": "grunt-soajs",
+        "version": "0.0.8",
+        "enhancements": [
+          "Code Fixes and Performance Updates",
+          "Added support for inputs descriptions in APIs"
+        ]
+      }
+    ]
+  },
+  {
     "id": "humpback_whale",
     "label": "Humpback Whale",
     "date": "January 22, 2018",
