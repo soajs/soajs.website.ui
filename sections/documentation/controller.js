@@ -20,13 +20,13 @@ docApp.controller('docPageCtrl', ['$scope', '$timeout', function ($scope, $timeo
 	
 	$scope.docs = [
 		{
-			"name": "SOAJS",
+			"name": "Framework",
 			"description": "Service Oriented Architecture built using JavaScript, SOAJS is a open source platform as a service (aPaaS) that offers a fully ready to use CORE framework and Platform to build, deploy, manage and troubleshoot clouds of microservices & daemons.",
 			"link": "https://soajsorg.atlassian.net/wiki/spaces/SOAJ"
 		},
 		{
-			"name": "Dashboard",
-			"description": "The SOAJS Dashboard is a ready made product designed to assist you in managing your cloud of microservices. The Dashboard acts like a Control Panel allowing you to control, develop, manage, deploy, monitor and operate your products through simple clicks.",
+			"name": "Console",
+			"description": "The SOAJS Console is a ready made product designed to assist you in managing your cloud of microservices. The Console acts like a Control Panel allowing you to control, develop, manage, deploy, monitor and operate your products through simple clicks.",
 			"link": "https://soajsorg.atlassian.net/wiki/spaces/DSBRD"
 		},
 		{
@@ -45,8 +45,8 @@ docApp.controller('docPageCtrl', ['$scope', '$timeout', function ($scope, $timeo
 			"link": "https://soajsorg.atlassian.net/wiki/spaces/IN"
 		},
 		{
-			"name": "Controller",
-			"description": "SOAJS Controller is the main gateway to the cloud of microservices. The Controller balances the load arriving to services, provides supports for CORS and keeps an eye on services' status inside the cloud.",
+			"name": "API Gateway",
+			"description": "SOAJS API Gateway is the main entry point to the cloud of microservices. The API Gateway balances the load arriving to services, provides supports for CORS and keeps an eye on services' status inside the cloud.",
 			"link": "https://soajsorg.atlassian.net/wiki/spaces/CON"
 		},
 		{
@@ -189,7 +189,7 @@ docApp.controller('docPageCtrl', ['$scope', '$timeout', function ($scope, $timeo
 			name: "Ready Made Services",
 			entries: [
 				{
-					name: "Controller",
+					name: "API Gateway",
 					link: "https://soajsorg.atlassian.net/wiki/spaces/CON"
 				},
 				{
@@ -201,7 +201,7 @@ docApp.controller('docPageCtrl', ['$scope', '$timeout', function ($scope, $timeo
 					link: "https://soajsorg.atlassian.net/wiki/spaces/OAUT"
 				},
 				{
-					name: "Dashboard",
+					name: "Console",
 					link: "https://soajsorg.atlassian.net/wiki/spaces/DSBRD"
 				}
 			]

@@ -1,7 +1,7 @@
 [
   {
     "id": "SOAJS",
-    "label": "SOAJS",
+    "label": "Framework",
     "npm": "soajs",
     "travis":"soajs/soajs",
     "coveralls":"soajs/soajs",
@@ -37,7 +37,7 @@
   },
   {
     "id": "Dashboard",
-    "label": "Dashboard",
+    "label": "Console",
     "npm":"soajs.dashboard",
     "travis":"soajs/soajs.dashboard",
     "coveralls":"soajs/soajs.dashboard",
@@ -46,18 +46,8 @@
     "github": "https://ghbtns.com/github-btn.html?user=soajs&repo=soajs.dashboard&type=watch&count=true"
   },
   {
-    "id": "GCS",
-    "label": "GCS",
-    "npm":"soajs.gcs",
-    "travis":"soajs/soajs.gcs",
-    "coveralls":"soajs/soajs.gcs",
-    "documentation": "#/documentation/services/gcs",
-    "snyk": "soajs/soajs.gcs",
-    "github": "https://ghbtns.com/github-btn.html?user=soajs&repo=soajs.gcs&type=watch&count=true"
-  },
-  {
     "id": "Controller",
-    "label": "Controller",
+    "label": "API Gateway",
     "npm":"soajs.controller",
     "documentation": "https://soajsorg.atlassian.net/wiki/display/CON/Controller",
     "snyk": "soajs/soajs.controller",
