@@ -1,5 +1,89 @@
 [
   {
+    "id": "sword_fish",
+    "label": "Sword Fish",
+    "date": "July 5, 2018",
+    "repos": [
+      {
+        "name": "soajs",
+        "version": "2.0.11",
+        "enhancements": [
+          "Updated all integration points with Cloostro(soajs.core.drivers)"
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "2.1.4",
+        "features": [
+          "Added ability to deploy vm layers using terraform infra as code templates",
+          "Added ability to operate and manage vm layers and their instances",
+          "Added ability to execute in vm instances",
+          "Added ability to deploy resources in vm layer instances",
+          "Added ability to attach and detach container technology after creating an environment",
+          "Added new step in create Environment FSM to provision vm layers"
+        ],
+        "enhancements": [
+          "Improved cleanup when removing an environment",
+          "Code Optimization and improvement in multiple modules"
+        ]
+      },
+      {
+        "name": "soajs.dashboard.ui",
+        "version": "2.1.3",
+        "features": [
+          "Added ability to create and manage infra as code templates using terraform driver",
+          "Added ability to provision, manage and operate on vm layers",
+          "Added ability to deploy a resource in vm layer",
+          "Added ability to operate on vm layer instances",
+          "Added ability to attach and detach container technology after creating an environment",
+          "Added new step in Environment wizard to provision vm layers"
+        ],
+        "enhancements": [
+          "Improved classification and organization of infra as code templates",
+          "Code Optimization and improvement in multiple modules"
+        ]
+      },
+      {
+        "name": "soajs.core.drivers",
+        "version": "3.0.4",
+        "features": [
+          "Incubated Terraform as a new driver for VM provisioning",
+          "Added new Microsoft Azure Driver",
+          "Added support for Microsoft Azure to use Terraform as VM Driver",
+          "Added support for Microsoft Azure Native APIs for VM management"
+        ]
+      },
+      {
+        "name": "soajs.urac",
+        "version": "2.0.11",
+        "features": [
+          "Updated dependency list of soajs"
+        ]
+      },
+      {
+        "name": "soajs.oauth",
+        "version": "2.0.11",
+        "features": [
+          "Updated dependency list of soajs"
+        ]
+      },
+      {
+        "name": "soajs.controller",
+        "version": "2.0.11",
+        "features": [
+          "Updated dependency list of soajs"
+        ]
+      },
+      {
+        "name": "soajs.composer",
+        "version": "2.0.10",
+        "features": [
+          "Updated dependency list of soajs"
+        ]
+      }
+    ]
+  },
+  {
     "id": "gray_whale",
     "label": "Gray Whale",
     "date": "June 6, 2018",
