@@ -1,5 +1,76 @@
 [
   {
+    "id": "dolphin",
+    "label": "Dolpin",
+    "date": "July 26, 2018",
+    "repos": [
+      {
+        "name": "soajs.dashboard",
+        "version": "2.1.8",
+        "features": [
+          "New Pillar to Manage infra cloud providers",
+          "&nbsp;&nbsp;&nbsp;Manage Resource Groups",
+          "&nbsp;&nbsp;&nbsp;Manage Networks",
+          "&nbsp;&nbsp;&nbsp;Manage Firewall",
+          "&nbsp;&nbsp;&nbsp;Manage Public IPs",
+          "&nbsp;&nbsp;&nbsp;Manage Load Balancers",
+          "&nbsp;&nbsp;&nbsp;Manage deployments",
+          "&nbsp;&nbsp;&nbsp;Manage infra as code templates",
+          "Added Ability to Onboard / Release Unknown VM Layers",
+          "Added Ability to deploy resources in on-boarded VM Layers",
+          "Added advanced Ports Management when deploying resources in VM Layers"
+        ],
+        "enhancements": [
+          "Added Ability to validate IaC inputs if validation is provided",
+          "Added support to manage Kubernetes services that have no deployments",
+          "Code Optimization and improvement in multiple modules"
+        ]
+      },
+      {
+        "name": "soajs.dashboard.ui",
+        "version": "2.1.6",
+        "features": [
+
+        ],
+        "enhancements": [
+          "Added Ability to validate IaC inputs if validation is provided",
+          "Added support to manage Kubernetes services that have no deployments",
+          "Code Optimization and improvement in multiple modules"
+        ]
+      },
+      {
+        "name": "soajs.core.drivers",
+        "version": "3.0.6",
+        "features": [
+          "Added Microsoft Azure Native API support for:",
+          "&nbsp;&nbsp;&nbsp;Resource Groups",
+          "&nbsp;&nbsp;&nbsp;Networks",
+          "&nbsp;&nbsp;&nbsp;Security Groups",
+          "&nbsp;&nbsp;&nbsp;Public IPs",
+          "&nbsp;&nbsp;&nbsp;Load Balancers",
+          "Added support to onBoard/Release Unknown VM Layers"
+        ],
+        "enhancements": [
+          "Added support to manage Kubernetes services that have no deployments"
+        ]
+      },
+      {
+        "name": "soajs.installer",
+        "version": "2.0.20",
+        "enhancements": [
+          "Updated Sample Provisioning Data",
+          "Code Optimization and improvement"
+        ],
+        "bugFixes": [
+          "Fixed reported issue when choosing remote docker deployment and juggling back and forth between pages of the installer before triggering final installation button",
+          "Fixed reported issue when choosing manual deployment",
+          "Fixed reported issue when selecting deployment type in installer homepage",
+          "Fixed reported issue in cluster when setting host value to 127.0.0.1 or localhost"
+        ]
+      }
+    ]
+  },
+  {
     "id": "sword_fish",
     "label": "Sword Fish",
     "date": "July 5, 2018",
