@@ -5,8 +5,8 @@ homeApp.controller('homePageCtrl', ['$scope', '$http', function ($scope, $http) 
     $scope.subTitle ="";
     var pageData = {
         title: "Complete enterprise open source",
-        titleLine2: "platform as a service solution",
-        subTitle: "Achieve with certainty: ROI, Speed, Quality, Standardization"
+        titleLine2: "microservice management platform ",
+        subTitle: "Achieve with certainty: Durable Digital Agility"
     };
     $scope.$parent.$emit('refreshPageTitle', pageData);
 
