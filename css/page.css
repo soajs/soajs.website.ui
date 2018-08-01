@@ -1069,6 +1069,16 @@ hr {
     margin-bottom : 75px;
 
 }
+
+.platform .dataTop {
+     margin-top : 75px;
+
+ }
+
+.platform .dataBottom {
+    margin-bottom : 75px;
+
+}
 /**********************
 *
 * Accordion
