@@ -827,14 +827,14 @@ img.thumb {
 * Elements  Icons
 *
 **********************/
-.circle {
+.circle, .circle2 {
     border-radius: 50%;
     padding: 10px;
     cursor: pointer;
     outline: none !important;
 }
 
-.circle.no-border {
+.circle.no-border, .circle2.no-border {
     border: none;
 }
 
@@ -858,7 +858,17 @@ img.thumb {
 }
 
 .icon .circle {
-    padding: 15px;
+    padding: 35px 15px;
+    display: inline-block;
+    width:150px;
+    height:150px;
+}
+
+.icon .circle2 {
+    padding: 40px 0px;
+    display: inline-block;
+    width:150px;
+    height:150px;
 }
 
 /**********************
@@ -996,6 +1006,7 @@ hr.green {
     -o-background-size: cover;
     background-size: cover;
     position: relative;
+    letter-spacing: 1px;
 }
 
 .whatis .content {
