@@ -1,21 +1,21 @@
 <div class="container">
 	<div ng-controller="docPageCtrl">
-		<div class="col-xs-12 col-sm-3 sidebar "  >
+		<div class="col-sm-12 col-sm-3 sidebar "  >
 			<div ng-repeat="section in sidebar">
 				<b>{{section.name}}</b>
 				<ul>
 					<li ng-repeat="entry in section.entries">
-						<a href="" target="_blank" ng-click="confluencePage(entry.link)">{{entry.name}}</a>
+						<a href="{{entry.link}}" target="_blank">{{entry.name}}</a>
 					</li>
 				</ul>
 			</div>
 		</div>
 
-		<div style="border-bottom: 1px solid black; margin-bottom: 10px; margin-top: 5px;" class="col-xs-12 visible-xs"></div>
-        <div class="col-sm-1"></div>
+		<div style="border-bottom: 1px solid black; margin-bottom: 10px; margin-top: 5px;" class="col-sm-12 visible-xs"></div>
+        <div class="col-sm-4"></div>
 		<div class="col-sm-8">
 			<div ng-repeat="space in docs" class="row" ng-show="!redirecting">
-				<div class="col-sm-3 col-md-3"><a href="{{space.link}}">{{space.name}}</a></div>
+				<div class="col-sm-3 col-md-3"><a href="{{space.link}}" target="blank">{{space.name}}</a></div>
 				<div class="col-sm-9 col-md-9"><em>{{space.description}}</em></div>
 				<div class="col-xs-9">&nbsp;</div>
 			</div>
