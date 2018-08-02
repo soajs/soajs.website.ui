@@ -1042,8 +1042,8 @@ hr.green {
     margin: 0;
     padding: 0;
     height: 450px;
-    padding-top: 60px;
-    padding-bottom: 80px;
+    padding-top: 20px;
+    /*padding-bottom: 80px;*/
     width: 100%;
     top: 0;
     left: 0;
