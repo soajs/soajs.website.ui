@@ -14,28 +14,6 @@
     }
   },
   {
-    "id": "URAC",
-    "label": "URAC",
-    "npm":"soajs.urac",
-    "travis":"soajs/soajs.urac",
-    "coveralls":"soajs/soajs.urac",
-    "documentation": "https://soajsorg.atlassian.net/wiki/display/URAC/URAC",
-    "snyk": "soajs/soajs.urac",
-    "external": true,
-    "github": "https://ghbtns.com/github-btn.html?user=soajs&repo=soajs.urac&type=watch&count=true"
-  },
-  {
-    "id": "oAuth",
-    "label": "oAuth",
-    "npm":"soajs.oauth",
-    "travis":"soajs/soajs.oauth",
-    "coveralls":"soajs/soajs.oauth",
-    "documentation": "https://soajsorg.atlassian.net/wiki/display/OAUT/oAuth",
-    "snyk": "soajs/soajs.oauth",
-    "external": true,
-    "github": "https://ghbtns.com/github-btn.html?user=soajs&repo=soajs.oauth&type=watch&count=true"
-  },
-  {
     "id": "Dashboard",
     "label": "Console",
     "npm":"soajs.dashboard",
