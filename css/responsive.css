@@ -67,6 +67,21 @@
 }
 
 @media (min-width: 768px) {
+
+    /**********************
+    *
+    * Homepage modules sections
+    *
+    **********************/
+    .modules h2{
+        height: 60px;
+    }
+
+    .modules p{
+        height: 150px;
+    }
+
+
     .row-sm-height {
         display: table;
         table-layout: fixed;
@@ -94,6 +109,7 @@
 }
 
 @media (min-width: 992px) {
+
     .row-md-height {
         display: table;
         table-layout: fixed;
@@ -120,7 +136,36 @@
     }
 }
 
+@media (min-width: 1023px){
+    /**********************
+    *
+    * Homepage modules sections
+    *
+    **********************/
+    .modules h2{
+        height: 60px;
+    }
+
+    .modules p{
+        height: 120px;
+    }
+}
+
 @media (min-width: 1200px) {
+
+    /**********************
+    *
+    * Homepage modules sections
+    *
+    **********************/
+    .modules h2{
+        height: 70px;
+    }
+
+    .modules p{
+        height: 180px;
+    }
+
     .row-lg-height {
         display: table;
         table-layout: fixed;
@@ -150,6 +195,16 @@
 /***
 max widths
 */
+@media (max-width:1025px){
+    .bottom .menu {
+        padding-top:50px;
+    }
+
+    .socialMedia {
+        margin-top: 30px;
+    }
+}
+
 @media (max-width: 920px) {
   .topbar .topnav li a{
     font-size: 12.5px;
@@ -161,6 +216,37 @@ max widths
 }
 
 @media (max-width: 800px) {
+
+    .whatis .content {
+        margin: 0;
+        padding: 0;
+        height: 600px;
+        padding-top: 20px;
+        /*padding-bottom: 80px;*/
+        width: 100%;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.6);
+        transition: all 1s;
+        -webkit-transition: all 1s;
+
+    }
+
+    .blue-section .itemsList{
+        padding: 50px;
+        min-height: 250px;
+        box-shadow: none;
+        display: block;
+    }
+
+    .blue-section2 .itemsList{
+        min-height: 300px;
+        padding: 50px;
+        box-shadow: none;
+        display: block;
+    }
+
     .col-sm-height {
         display: block;
         float: none;
@@ -171,7 +257,6 @@ max widths
 }
 
 @media (max-width: 767px) {
-
 
   .topbar .topnav li a
   {
@@ -276,7 +361,6 @@ max widths
 }
 
 @media (max-width: 480px) {
-
 
   .g-recaptcha {
     transform:scale(0.7);
