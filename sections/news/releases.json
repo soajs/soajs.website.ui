@@ -1,5 +1,285 @@
 [
   {
+    "id": "dolphin",
+    "label": "Dolpin",
+    "date": "July 26, 2018",
+    "repos": [
+      {
+        "name": "soajs.dashboard",
+        "version": "2.1.8",
+        "features": [
+          "New Pillar to Manage infra cloud providers",
+          "&nbsp;&nbsp;&nbsp;Manage Resource Groups",
+          "&nbsp;&nbsp;&nbsp;Manage Networks",
+          "&nbsp;&nbsp;&nbsp;Manage Firewall",
+          "&nbsp;&nbsp;&nbsp;Manage Public IPs",
+          "&nbsp;&nbsp;&nbsp;Manage Load Balancers",
+          "&nbsp;&nbsp;&nbsp;Manage deployments",
+          "&nbsp;&nbsp;&nbsp;Manage infra as code templates",
+          "Added Ability to Onboard / Release Unknown VM Layers",
+          "Added Ability to deploy resources in on-boarded VM Layers",
+          "Added advanced Ports Management when deploying resources in VM Layers"
+        ],
+        "enhancements": [
+          "Added Ability to validate IaC inputs if validation is provided",
+          "Added support to manage Kubernetes services that have no deployments",
+          "Code Optimization and improvement in multiple modules"
+        ]
+      },
+      {
+        "name": "soajs.dashboard.ui",
+        "version": "2.1.6",
+        "features": [
+
+        ],
+        "enhancements": [
+          "Added Ability to validate IaC inputs if validation is provided",
+          "Added support to manage Kubernetes services that have no deployments",
+          "Code Optimization and improvement in multiple modules"
+        ]
+      },
+      {
+        "name": "soajs.core.drivers",
+        "version": "3.0.6",
+        "features": [
+          "Added Microsoft Azure Native API support for:",
+          "&nbsp;&nbsp;&nbsp;Resource Groups",
+          "&nbsp;&nbsp;&nbsp;Networks",
+          "&nbsp;&nbsp;&nbsp;Security Groups",
+          "&nbsp;&nbsp;&nbsp;Public IPs",
+          "&nbsp;&nbsp;&nbsp;Load Balancers",
+          "Added support to onBoard/Release Unknown VM Layers"
+        ],
+        "enhancements": [
+          "Added support to manage Kubernetes services that have no deployments"
+        ]
+      },
+      {
+        "name": "soajs.installer",
+        "version": "2.0.20",
+        "enhancements": [
+          "Updated Sample Provisioning Data",
+          "Code Optimization and improvement"
+        ],
+        "bugFixes": [
+          "Fixed reported issue when choosing remote docker deployment and juggling back and forth between pages of the installer before triggering final installation button",
+          "Fixed reported issue when choosing manual deployment",
+          "Fixed reported issue when selecting deployment type in installer homepage",
+          "Fixed reported issue in cluster when setting host value to 127.0.0.1 or localhost"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sword_fish",
+    "label": "Sword Fish",
+    "date": "July 5, 2018",
+    "repos": [
+      {
+        "name": "soajs",
+        "version": "2.0.11",
+        "enhancements": [
+          "Updated all integration points with Cloostro(soajs.core.drivers)"
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "2.1.4",
+        "features": [
+          "Added ability to deploy vm layers using terraform infra as code templates",
+          "Added ability to operate and manage vm layers and their instances",
+          "Added ability to execute in vm instances",
+          "Added ability to deploy resources in vm layer instances",
+          "Added ability to attach and detach container technology after creating an environment",
+          "Added new step in create Environment FSM to provision vm layers"
+        ],
+        "enhancements": [
+          "Improved cleanup when removing an environment",
+          "Code Optimization and improvement in multiple modules"
+        ]
+      },
+      {
+        "name": "soajs.dashboard.ui",
+        "version": "2.1.3",
+        "features": [
+          "Added ability to create and manage infra as code templates using terraform driver",
+          "Added ability to provision, manage and operate on vm layers",
+          "Added ability to deploy a resource in vm layer",
+          "Added ability to operate on vm layer instances",
+          "Added ability to attach and detach container technology after creating an environment",
+          "Added new step in Environment wizard to provision vm layers"
+        ],
+        "enhancements": [
+          "Improved classification and organization of infra as code templates",
+          "Code Optimization and improvement in multiple modules"
+        ]
+      },
+      {
+        "name": "soajs.core.drivers",
+        "version": "3.0.4",
+        "features": [
+          "Incubated Terraform as a new driver for VM provisioning",
+          "Added new Microsoft Azure Driver",
+          "Added support for Microsoft Azure to use Terraform as VM Driver",
+          "Added support for Microsoft Azure Native APIs for VM management"
+        ]
+      },
+      {
+        "name": "soajs.urac",
+        "version": "2.0.11",
+        "features": [
+          "Updated dependency list of soajs"
+        ]
+      },
+      {
+        "name": "soajs.oauth",
+        "version": "2.0.11",
+        "features": [
+          "Updated dependency list of soajs"
+        ]
+      },
+      {
+        "name": "soajs.controller",
+        "version": "2.0.11",
+        "features": [
+          "Updated dependency list of soajs"
+        ]
+      },
+      {
+        "name": "soajs.composer",
+        "version": "2.0.10",
+        "features": [
+          "Updated dependency list of soajs"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gray_whale",
+    "label": "Gray Whale",
+    "date": "June 6, 2018",
+    "repos": [
+      {
+        "name": "soajs",
+        "version": "2.0.9",
+        "enhancements": [
+          "Updated all integration points with Cloostro(soajs.core.drivers)"
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "2.1.2",
+        "features": [
+          "Updated all integration points with Cloostro(soajs.core.drivers)",
+          "Introduced new deploy environment from Templates",
+          "Introduced Templated Environment Management",
+          "Introduced Infra Cloud Provider Integration & Management",
+          "Introduced Infra template as code Management"
+        ],
+        "enhancements": [
+          "Full revamp of add environment workflow",
+          "Full revamp of resource management APIs",
+          "Full revamp of all cloud operation APIs",
+          "Full revamp of Get Deployed Service Information",
+          "Added Support for Catalog Deployment Technology Restriction",
+          "Code Optimization of all data models used in modules"
+        ],
+        "bugFixes": [
+          "fixed reported issue in download service code api under API Builder"
+        ]
+      },
+      {
+        "name": "soajs.dashboard.ui",
+        "version": "2.1.1",
+        "features": [
+          "Introduced new Module to Integrate and Manage Infra Cloud Providers",
+          "Introduced new Module to Manage Infra template as code",
+          "Introduced new Module to Manager Environment Templates",
+          "Replaced Create Environment, with Create Environment from Templates"
+        ],
+        "enhancements": [
+          "Added Support for Catalog Deployment Technology Restriction",
+          "Fixed reported issue in API Simulator regarding access tokens"
+        ]
+      },
+      {
+        "name": "soajs.core.modules",
+        "version": "2.0.5",
+        "features": [
+          "Provided support to share resourced created in any environment"
+        ]
+      },
+      {
+        "name": "soajs.core.drivers",
+        "version": "3.0.2",
+        "features": [
+          "Introduced New Drivers for Infra Cloud Providers: AWS - Google Cloud",
+          "Added Support for AWS & Google Cluster Management",
+          "Added Support for AWS & Google Load Balancer Management",
+          "Added Support for AWS S3 Bucket Management",
+          "Container Technology Drivers extending existing common container libraries",
+          "Introduced New Cluster Drivers for Technology Providers: Docker Swarm - Kubernetes",
+          "Revamped and Standardized all Entry points to executing drivers methods in Cloostro"
+        ],
+        "enhancements":[
+          "Updated all Container Drivers Methods",
+          "Added Support for Template Manipulation in Container Drivers",
+          "Full Code Optimization in Container Driver"
+        ]
+      },
+      {
+        "name": "soajs.urac",
+        "version": "2.0.9",
+        "features": [
+          "Updated dependency list of soajs"
+        ]
+      },
+      {
+        "name": "soajs.oauth",
+        "version": "2.0.9",
+        "features": [
+          "Updated dependency list of soajs"
+        ]
+      },
+      {
+        "name": "soajs.controller",
+        "version": "2.0.9",
+        "features": [
+          "Updated dependency list of soajs"
+        ]
+      },
+      {
+        "name": "soajs.composer",
+        "version": "2.0.8",
+        "features": [
+          "Updated dependency list of soajs"
+        ]
+      },
+      {
+        "name": "soajs.installer",
+        "version": "2.0.15",
+        "features": [
+          "Added New Ready to Use Templated Environment Samples"
+        ],
+        "enhancements": [
+          "Updated Catalog Recipes with restrictions on technology supported",
+          "Added support to use Docker Swarm Token",
+          "Update Cloud Providers images"
+        ],
+        "bugfixes": [
+          "Fixed reported issues when running Nginx in post installation scripts"
+        ]
+      },
+      {
+        "name": "soajs.mongodb.data",
+        "version": "2.0.3",
+        "enhancements": [
+          "Updated Sample Data for Test Cases"
+        ]
+      }
+    ]
+  },
+  {
     "id": "fin_whale",
     "label": "Fin Whale",
     "date": "March 12, 2018",
