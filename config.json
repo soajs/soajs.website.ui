@@ -1,13 +1,9 @@
 {
   "setup": {
-
-    "dashboard": {
-      "nginx": {
-        "sites-enabled": {
-          "path": "FILES/nginx/sites-enabled"
-        }
+    "nginx": {
+      "sites-enabled": {
+        "path": "FILES/nginx/sites-enabled"
       }
     }
-
   }
 }
