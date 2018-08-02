@@ -114,6 +114,10 @@ h2, .h2 {
     margin-top: 100px;
 }
 
+.nav-tabs {
+    font-size: 14px;
+}
+
 .navbar-default {
     background: none;
     border: none;

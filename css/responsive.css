@@ -257,7 +257,9 @@ max widths
 }
 
 @media (max-width: 767px) {
-
+    .nav-tabs {
+        font-size: 12px;
+    }
   .topbar .topnav li a
   {
     font-size:16px;
@@ -361,7 +363,9 @@ max widths
 }
 
 @media (max-width: 480px) {
-
+    .nav-tabs {
+        font-size: 8px;
+    }
   .g-recaptcha {
     transform:scale(0.7);
     transform-origin:0;
