@@ -15,9 +15,9 @@
         <div class="col-sm-1"></div>
 		<div class="col-sm-8">
 			<div ng-repeat="space in docs" class="row" ng-show="!redirecting">
-				<div class="col-sm-2 col-md-2"><a href="{{space.link}}">{{space.name}}</a></div>
-				<div class="col-sm-10 col-md-10"><em>{{space.description}}</em></div>
-				<div class="col-xs-10">&nbsp;</div>
+				<div class="col-sm-3 col-md-3"><a href="{{space.link}}">{{space.name}}</a></div>
+				<div class="col-sm-9 col-md-9"><em>{{space.description}}</em></div>
+				<div class="col-xs-9">&nbsp;</div>
 			</div>
 			<div ng-show="redirecting">
 				<p>The Documentation has been moved to confluence, you will be redirected in a few seconds.</p>
