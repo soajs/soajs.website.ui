@@ -985,6 +985,35 @@ hr.green {
 * Homepage sections
 *
 **********************/
+.blue-section2 {
+    background-color:#132732;
+    letter-spacing: 1px;
+}
+
+.blue-section {
+    background-color: #182f3d;
+    letter-spacing: 1px;
+}
+
+.blue-section2 .im,
+.blue-section .im {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.blue-section .itemsList{
+    padding: 50px;
+    min-height: 311px;
+    box-shadow: none;
+    display: block;
+}
+
+.blue-section2 .itemsList{
+    min-height: 413px;
+    padding: 50px;
+    box-shadow: none;
+    display: block;
+}
 
 /**********************
 *

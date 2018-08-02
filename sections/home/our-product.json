@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Cloud orchestration & distributed architecture",
+    "icon": "im im-cubes"
+  },
+  {
+    "title": "Continuous integration and continuous delivery (dockerswarm, kubernetes, travis-ci, drone-io, jenkins, …)",
+    "icon": "im im-timer"
+  },
+  {
+    "title": "Smart multi environment deploy with ledger, rollback and multi version support",
+    "icon": "im im-rocket"
+  },
+  {
+    "title": "Deploy, share & secure resources onto any cloud with a click of a button",
+    "icon": "im im-database"
+  },
+  {
+    "title": "API management & lifecycle",
+    "icon": "im im-sitemap"
+  },
+  {
+    "title": "API catalog with swagger UI",
+    "icon": "im im-flip-chart-o"
+  },
+  {
+    "title": "API gateway & traffic control",
+    "icon": "im im-gamepad"
+  },
+  {
+    "title": "API productization and ACL",
+    "icon": "im im-control-panel"
+  },
+  {
+    "title": "API simulation and testing",
+    "icon": "im im-flask"
+  },
+  {
+    "title": "Multi-tenancy and Multi-security for your API (nodejs, Java, php …)",
+    "icon": "im im-shield"
+  },
+  {
+    "title": "On-board Analytics and/or 3rd party(ies) integration (Galileo, Datadog, Runscope, ...)",
+    "icon": "im im-line-chart-up"
+  },
+  {
+    "title": "Full monitoring, high availability, analytic and control",
+    "icon": "im im-dashboard"
+  },
+  {
+    "title": "Auto scaling & healing on multiple cloud (AWS, Rackspace, Google, Azure, ...)",
+    "icon": "im im-fullscreen"
+  },
+  {
+    "title": "Catalog deployment empowering you to deploy any system",
+    "icon": "im im-note-o"
+  },
+  {
+    "title": "Rapid application development (Endpoint, restful API and Daemon)",
+    "icon": "im im-flash"
+  }
+]
