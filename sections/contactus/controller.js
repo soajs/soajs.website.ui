@@ -1,6 +1,6 @@
 "use strict";
 var contactUsApp = app.components;
-contactUsApp.controller('contactCtrl', [ '$scope', '$http', '$timeout', function ($scope, $http, $timeout) {
+contactUsApp.controller('contactCtrl', [ '$scope', '$http', '$timeout', '$window', function ($scope, $http, $timeout, $window) {
 	$scope.alerts = [];
 	$scope.contact = {
 		name: '',
@@ -28,6 +28,8 @@ contactUsApp.controller('contactCtrl', [ '$scope', '$http', '$timeout', function
 		message: ''
 	};
 	
+	let address = $window.location.protocol + "//api." + $window.location.host;
+	
 	$scope.closeAlert = function (index) {
 		$scope.alerts.splice(index, 1);
 	};
@@ -41,15 +43,15 @@ contactUsApp.controller('contactCtrl', [ '$scope', '$http', '$timeout', function
     $http.get("sections/home/repos.json").success(function(data) {
         $scope.repos = data;
     });
-
+    
 	$scope.sendContact = function () {
 		$scope.alerts.push({ 'type': 'warning', 'msg': "Your message is being sent, please wait ..." });
 		$scope.contact.captcha = iCaptcha1Value;
 		$http({
 			method: 'POST',
-			url: '/sections/contactus/sendMail.php',
+			url: address + '/sendMessage',
 			data: $scope.contact,
-			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+			headers: { 'Content-Type': 'application/json' }
 		}).success(function (data, status, headers, config) {
 			grecaptcha.reset();
 			if (data.result === true) {
@@ -89,9 +91,9 @@ contactUsApp.controller('contactCtrl', [ '$scope', '$http', '$timeout', function
 		
 		$http({
 			method: 'POST',
-			url: '/sections/contactus/sendMail.php',
+			url: address + '/sendProject',
 			data: $scope.project,
-			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+			headers: { 'Content-Type': 'application/json' }
 		}).success(function (data, status, headers, config) {
 			grecaptcha.reset();
 			if (data.result === true) {
@@ -132,9 +134,9 @@ contactUsApp.controller('contactCtrl', [ '$scope', '$http', '$timeout', function
 		$scope.join.isContribute = true;
 		$http({
 			method: 'POST',
-			url: '/sections/contactus/sendMail.php',
+			url: address + '/sendContribute',
 			data: $scope.join,
-			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+			headers: { 'Content-Type': 'application/json' }
 		}).success(function (data, status, headers, config) {
 			grecaptcha.reset();
 			if (data.result === true) {
