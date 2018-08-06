@@ -1020,6 +1020,15 @@ hr.green {
     display: block;
 }
 
+.fieldMsg{
+    color:#CCCCCC;
+    font-style:italic;
+    font-size:14px;
+    display:block;
+    width:100%;
+    text-align: center;
+    margin: 20px auto 0;
+}
 /**********************
 *
 * what is simple section with background parallax image

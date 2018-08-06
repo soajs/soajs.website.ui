@@ -375,6 +375,11 @@ max widths
 }
 
 @media (max-width: 480px) {
+
+    .fieldMsg{
+        font-size:13px;
+    }
+
     .youtubevideoPlayer{
         height: 162px;
     }
