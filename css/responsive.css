@@ -192,7 +192,15 @@
     }
 
     .youtubevideoPlayer{
+        /*height: 412px;*/
+        height: 300px;
+    }
+}
+
+@media (min-width: 1441px) {
+    .youtubevideoPlayer{
         height: 412px;
+        /*height: 300px;*/
     }
 }
 
