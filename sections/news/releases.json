@@ -2,12 +2,50 @@
   {
     "id": "dolphin",
     "label": "Dolpin",
-    "date": "July 26, 2018",
+    "date": "August 13, 2018",
     "repos": [
       {
-        "name": "soajs.dashboard",
-        "version": "2.1.8",
+        "name": "SOAJS Framework",
+        "version": "2.1.12",
         "features": [
+          "Added support to create and manage API traffic throttling per environment",
+          "Added support to override API traffic throttling per tenant and per tenant per IP address"
+        ]
+      },
+      {
+        "name": "SOAJS API Gateway",
+        "version": "2.1.12",
+        "enhancements": [
+          "Updated dependency list of SOAJS Framework"
+        ]
+      },
+      {
+        "name": "SOAJS Composer",
+        "version": "2.1.12",
+        "enhancements": [
+          "Updated dependency list of SOAJS Framework"
+        ]
+      },
+      {
+        "name": "SOAJS oAuth",
+        "version": "2.1.12",
+        "enhancements": [
+          "Updated dependency list of SOAJS Framework"
+        ]
+      },
+      {
+        "name": "SOAJS URAC",
+        "version": "2.1.12",
+        "enhancements": [
+          "Update response of create group API",
+          "Updated dependency list of SOAJS Framework"
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "2.1.11",
+        "features": [
+          "Added support to create and manage API traffic throttling per environment",
           "New Pillar to Manage infra cloud providers",
           "&nbsp;&nbsp;&nbsp;Manage Resource Groups",
           "&nbsp;&nbsp;&nbsp;Manage Networks",
@@ -23,19 +61,28 @@
         "enhancements": [
           "Added Ability to validate IaC inputs if validation is provided",
           "Added support to manage Kubernetes services that have no deployments",
-          "Code Optimization and improvement in multiple modules"
+          "Code Optimization and improvement in multiple modules",
+          "Code Fixes and Performance Updates when activating & synchronizing git repositories",
+          "Code Fixes and Performance Updates when managing tenant applications & application keys",
+          "Code Fixes and Performance Updates when Deploying resources with attached custom UI repositories"
         ]
       },
       {
         "name": "soajs.dashboard.ui",
-        "version": "2.1.6",
+        "version": "2.1.9",
         "features": [
-
+          "Added support to create and manage API traffic throttling per environment"
         ],
         "enhancements": [
           "Added Ability to validate IaC inputs if validation is provided",
           "Added support to manage Kubernetes services that have no deployments",
-          "Code Optimization and improvement in multiple modules"
+          "Code Optimization and improvement in multiple modules",
+          "Code updates when managing tenants applications and applications keys",
+          "Code updates when turning on and off oAuth security at the tenant level"
+        ],
+        "bugFixes": [
+          "Fixed reported bug when tagging activated repositories with static content",
+          "Fixed reported bug when editing catalog recipes and setting restrictions"
         ]
       },
       {
