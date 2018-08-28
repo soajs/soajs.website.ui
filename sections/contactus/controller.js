@@ -29,7 +29,7 @@ contactUsApp.controller('contactCtrl', [ '$scope', '$http', '$timeout', '$window
 	};
 	
 	
-	let address = window.location.protocol + "://api.soajs.org:" + window.location.port ;
+	let address = window.location.protocol + "//api.soajs.org:" + window.location.port ;
 	
 	$scope.closeAlert = function (index) {
 		$scope.alerts.splice(index, 1);
