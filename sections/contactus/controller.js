@@ -28,7 +28,7 @@ contactUsApp.controller('contactCtrl', [ '$scope', '$http', '$timeout', '$window
 		message: ''
 	};
 	
-	let address = $window.location.protocol + "//api.soajs.org";
+	let address = "https://api.soajs.org";
 	
 	$scope.closeAlert = function (index) {
 		$scope.alerts.splice(index, 1);
@@ -49,7 +49,7 @@ contactUsApp.controller('contactCtrl', [ '$scope', '$http', '$timeout', '$window
 		$scope.contact.captcha = iCaptcha1Value;
 		$http({
 			method: 'POST',
-			url: address + '/sendMessage',
+			url: address + '/soajsorg/sendMessage',
 			data: $scope.contact,
 			headers: { 'Content-Type': 'application/json' }
 		}).success(function (data, status, headers, config) {
@@ -91,7 +91,7 @@ contactUsApp.controller('contactCtrl', [ '$scope', '$http', '$timeout', '$window
 		
 		$http({
 			method: 'POST',
-			url: address + '/sendProject',
+			url: address + '/soajsorg/sendProject',
 			data: $scope.project,
 			headers: { 'Content-Type': 'application/json' }
 		}).success(function (data, status, headers, config) {
@@ -134,7 +134,7 @@ contactUsApp.controller('contactCtrl', [ '$scope', '$http', '$timeout', '$window
 		$scope.join.isContribute = true;
 		$http({
 			method: 'POST',
-			url: address + '/sendContribute',
+			url: address + '/soajsorg/sendContribute',
 			data: $scope.join,
 			headers: { 'Content-Type': 'application/json' }
 		}).success(function (data, status, headers, config) {
