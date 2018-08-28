@@ -28,7 +28,8 @@ contactUsApp.controller('contactCtrl', [ '$scope', '$http', '$timeout', '$window
 		message: ''
 	};
 	
-	let address = "https://api.soajs.org";
+	
+	let address = window.location.protocol + "://" + window.location.port + "api.soajs.org";
 	
 	$scope.closeAlert = function (index) {
 		$scope.alerts.splice(index, 1);
