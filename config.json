@@ -1,9 +1,0 @@
-{
-  "setup": {
-    "nginx": {
-      "sites-enabled": {
-        "path": "FILES/nginx/sites-enabled"
-      }
-    }
-  }
-}

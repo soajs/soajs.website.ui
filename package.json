@@ -17,8 +17,6 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "request": "*",
-    "soajs": "*"
   },
   "devDependencies": {
 
