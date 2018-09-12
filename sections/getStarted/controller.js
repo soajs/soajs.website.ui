@@ -43,6 +43,12 @@ getStartedApp.controller('getStartedCtrl', ['$scope', function ($scope) {
 					description: "Learn how SOAJS standardizes REST API responses"
 				},
 				{
+					icon: "https://soajsorg.atlassian.net/wiki/download/thumbnails/16121916/response-1.png?width=64&height=64",
+					title: "Middleware",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/MW",
+					description: "Use SOAJS Middleware and modernize your existing API"
+				},
+				{
 					icon: "https://soajsorg.atlassian.net/wiki/download/thumbnails/16121916/registry-1.png?width=64&height=64",
 					title: "Registry",
 					link: "https://soajsorg.atlassian.net/wiki/display/SOAJ/Registry",
@@ -91,16 +97,16 @@ getStartedApp.controller('getStartedCtrl', ['$scope', function ($scope) {
 					description: "Turn on multitenancy on your service and check out how to secure it with SOAJS"
 				},
 				{
-					icon: "https://soajsorg.atlassian.net/wiki/download/thumbnails/16121916/mongoClientDriver.png?width=64&height=64",
-					title: "Mongo client Driver",
-					link: "https://soajsorg.atlassian.net/wiki/display/SOAJ/Mongo+Client+Driver",
-					description: "Forget about handling database connectivity, race conditions, or topologies and use the SOAJS Mongo Client Driver. Connect to standalone and multitenant databases transparently and run all the query operations you need"
-				},
-				{
 					icon: "https://soajsorg.atlassian.net/wiki/download/thumbnails/16121916/preRequisites.png?version=1&modificationDate=1500029031953&cacheVersion=1&api=v2?width=64&height=64",
 					title: "How to install",
 					link: "https://soajsorg.atlassian.net/wiki/spaces/EX/pages/61673365/How+to+Install",
 					description: "Learn about the prerequisites needed for development use on SOAJS"
+				},
+				{
+					icon: "https://soajsorg.atlassian.net/wiki/download/thumbnails/16121916/mongoClientDriver.png?width=64&height=64",
+					title: "Mongo client Driver",
+					link: "https://soajsorg.atlassian.net/wiki/display/SOAJ/Mongo+Client+Driver",
+					description: "Forget about handling database connectivity, race conditions, or topologies and use the SOAJS Mongo Client Driver. Connect to standalone and multitenant databases transparently and run all the query operations you need"
 				}
 			]
 		},
@@ -134,7 +140,7 @@ getStartedApp.controller('getStartedCtrl', ['$scope', function ($scope) {
 				},
 				{
 					icon: "https://soajsorg.atlassian.net/wiki/download/thumbnails/16121916/dashboard-1.png?width=64&height=64",
-					title: "Dashboard",
+					title: "SOAJS Console",
 					link: "https://soajsorg.atlassian.net/wiki/spaces/DSBRD",
 					description: "Learn how to manage and control your entire cloud of microservices and daemons in all its environments using just the dashboard UI."
 				},
@@ -156,12 +162,12 @@ getStartedApp.controller('getStartedCtrl', ['$scope', function ($scope) {
 					link: "https://soajsorg.atlassian.net/wiki/display/DSBRD/Deploy",
 					description: "Customize & Deploy environments. Configure clusters & databases and orchestrate your cloud. Scale as much as you need, troubleshoot and run maintenance operations on your cloud."
 				},
-				{
-					icon: "https://soajsorg.atlassian.net/wiki/download/thumbnails/16121916/operate-1.png?width=64&height=64",
-					title: "Operate",
-					link: "https://soajsorg.atlassian.net/wiki/display/DSBRD/Operate",
-					description: "Operate on the custom modules you have built for your product and in all the deployed environments."
-				},
+				// {
+				// 	icon: "https://soajsorg.atlassian.net/wiki/download/thumbnails/16121916/operate-1.png?width=64&height=64",
+				// 	title: "Operate",
+				// 	link: "https://soajsorg.atlassian.net/wiki/display/DSBRD/Operate",
+				// 	description: "Operate on the custom modules you have built for your product and in all the deployed environments."
+				// },
 				{
 					icon: "https://soajsorg.atlassian.net/wiki/download/thumbnails/16121916/multiEnvironment.png?width=64&height=64",
 					title: "Multi Environment",
@@ -186,12 +192,12 @@ getStartedApp.controller('getStartedCtrl', ['$scope', function ($scope) {
 					link: "https://soajsorg.atlassian.net/wiki/spaces/COMP",
 					description: "Speed things up by using the SOAJS composer and organize your microservice layers: REST - Models - Business Logic"
 				},
-				{
-					icon: "https://soajsorg.atlassian.net/wiki/download/thumbnails/16121916/gcs-1.png?width=64&height=64",
-					title: "GCS",
-					link: "https://soajsorg.atlassian.net/wiki/spaces/GCS",
-					description: "Generate and Operate on microservice and UI modules using the advanced generic content service wizard"
-				},
+				// {
+				// 	icon: "https://soajsorg.atlassian.net/wiki/download/thumbnails/16121916/gcs-1.png?width=64&height=64",
+				// 	title: "GCS",
+				// 	link: "https://soajsorg.atlassian.net/wiki/spaces/GCS",
+				// 	description: "Generate and Operate on microservice and UI modules using the advanced generic content service wizard"
+				// },
 				{
 					icon: "https://soajsorg.atlassian.net/wiki/download/thumbnails/16121916/accessLevels.png?width=64&height=64",
 					title: "Access Levels",
