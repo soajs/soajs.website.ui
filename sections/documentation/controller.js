@@ -25,26 +25,6 @@ docApp.controller('docPageCtrl', ['$scope', '$timeout', function ($scope, $timeo
 			"link": "https://soajsorg.atlassian.net/wiki/spaces/SOAJ"
 		},
 		{
-			"name": "Console",
-			"description": "The SOAJS Console is a ready made product designed to assist you in managing your cloud of microservices. The Console acts like a Control Panel allowing you to control, develop, manage, deploy, monitor and operate your products through simple clicks.",
-			"link": "https://soajsorg.atlassian.net/wiki/spaces/DSBRD"
-		},
-		{
-			"name": "Composer",
-			"description": "Speed things up by using the SOAJS composer and organize your daemon's Jobs and microservice's layers (REST - Models - Business Logic).",
-			"link": "https://soajsorg.atlassian.net/wiki/spaces/COMP"
-		},
-		{
-			"name": "GCS",
-			"description": "Generic Content Service is a ready made product that offers a fully mature and ready to use UI wizard that helps you build any informative content microservice along with it's management UI module at the same time.",
-			"link": "https://soajsorg.atlassian.net/wiki/spaces/GCS"
-		},
-		{
-			"name": "Installer",
-			"description": "Deploy Local and Remote clouds using the SOAJS installer. Go live by using the Dashboard and the ready made services.",
-			"link": "https://soajsorg.atlassian.net/wiki/spaces/IN"
-		},
-		{
 			"name": "API Gateway",
 			"description": "SOAJS API Gateway is the main entry point to the cloud of microservices. The API Gateway balances the load arriving to services, provides supports for CORS and keeps an eye on services' status inside the cloud.",
 			"link": "https://soajsorg.atlassian.net/wiki/spaces/CON"
@@ -60,10 +40,35 @@ docApp.controller('docPageCtrl', ['$scope', '$timeout', function ($scope, $timeo
 			"link": "https://soajsorg.atlassian.net/wiki/spaces/OAUT"
 		},
 		{
-			"name": "Proxy",
-			"description": "SOAJS Proxy is a microservice that redirects requests between deployed and running environments.",
-			"link": "https://soajsorg.atlassian.net/wiki/spaces/PROX"
+			"name": "Middleware",
+			"description": "The SOAJS Middleware allows you to modernize existing API and benefit from the features that SOAJS offers without changing your code.",
+			"link": "https://soajsorg.atlassian.net/wiki/spaces/MW"
 		},
+		{
+			"name": "Console",
+			"description": "The SOAJS Console is a ready made product designed to assist you in managing your cloud of microservices. The Console acts like a Control Panel allowing you to control, develop, manage, deploy, monitor and operate your products through simple clicks.",
+			"link": "https://soajsorg.atlassian.net/wiki/spaces/DSBRD"
+		},
+		{
+			"name": "Composer",
+			"description": "Speed things up by using the SOAJS composer and organize your daemon's Jobs and microservice's layers (REST - Models - Business Logic).",
+			"link": "https://soajsorg.atlassian.net/wiki/spaces/COMP"
+		},
+		// {
+		// 	"name": "GCS",
+		// 	"description": "Generic Content Service is a ready made product that offers a fully mature and ready to use UI wizard that helps you build any informative content microservice along with it's management UI module at the same time.",
+		// 	"link": "https://soajsorg.atlassian.net/wiki/spaces/GCS"
+		// },
+		{
+			"name": "Installer",
+			"description": "Deploy Local and Remote clouds using the SOAJS installer. Go live by using the Dashboard and the ready made services.",
+			"link": "https://soajsorg.atlassian.net/wiki/spaces/IN"
+		},
+		// {
+		// 	"name": "Proxy",
+		// 	"description": "SOAJS Proxy is a microservice that redirects requests between deployed and running environments.",
+		// 	"link": "https://soajsorg.atlassian.net/wiki/spaces/PROX"
+		// },
 		{
 			"name": "Swagger",
 			"description": "SOAJS Swagger Editor allows you to create a microservice by simply writing the documentation of its APIs.",
@@ -169,23 +174,6 @@ docApp.controller('docPageCtrl', ['$scope', '$timeout', function ($scope, $timeo
 			]
 		},
 		{
-			name: "Components",
-			entries: [
-				{
-					name: "Swagger",
-					link: "https://soajsorg.atlassian.net/wiki/spaces/SWAG"
-				},
-				{
-					name: "Composer",
-					link: "https://soajsorg.atlassian.net/wiki/spaces/COMP"
-				},
-				{
-					name: "GCS",
-					link: "https://soajsorg.atlassian.net/wiki/spaces/GCS"
-				}
-			]
-		},
-		{
 			name: "Ready Made Services",
 			entries: [
 				{
@@ -201,9 +189,30 @@ docApp.controller('docPageCtrl', ['$scope', '$timeout', function ($scope, $timeo
 					link: "https://soajsorg.atlassian.net/wiki/spaces/OAUT"
 				},
 				{
+					name: "Middleware",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/MW"
+				},
+				{
 					name: "Console",
 					link: "https://soajsorg.atlassian.net/wiki/spaces/DSBRD"
 				}
+			]
+		},
+		{
+			name: "Components",
+			entries: [
+				{
+					name: "Swagger",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/SWAG"
+				},
+				{
+					name: "Composer",
+					link: "https://soajsorg.atlassian.net/wiki/spaces/COMP"
+				},
+				// {
+				// 	name: "GCS",
+				// 	link: "https://soajsorg.atlassian.net/wiki/spaces/GCS"
+				// }
 			]
 		},
 		{
