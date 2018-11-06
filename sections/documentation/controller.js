@@ -59,11 +59,11 @@ docApp.controller('docPageCtrl', ['$scope', '$timeout', function ($scope, $timeo
 		// 	"description": "Generic Content Service is a ready made product that offers a fully mature and ready to use UI wizard that helps you build any informative content microservice along with it's management UI module at the same time.",
 		// 	"link": "https://soajsorg.atlassian.net/wiki/spaces/GCS"
 		// },
-		{
-			"name": "Installer",
-			"description": "Deploy Local and Remote clouds using the SOAJS installer. Go live by using the Dashboard and the ready made services.",
-			"link": "https://soajsorg.atlassian.net/wiki/spaces/IN"
-		},
+		// {
+		// 	"name": "Installer",
+		// 	"description": "Deploy Local and Remote clouds using the SOAJS installer. Go live by using the Dashboard and the ready made services.",
+		// 	"link": "https://soajsorg.atlassian.net/wiki/spaces/IN"
+		// },
 		// {
 		// 	"name": "Proxy",
 		// 	"description": "SOAJS Proxy is a microservice that redirects requests between deployed and running environments.",
@@ -213,15 +213,6 @@ docApp.controller('docPageCtrl', ['$scope', '$timeout', function ($scope, $timeo
 				// 	name: "GCS",
 				// 	link: "https://soajsorg.atlassian.net/wiki/spaces/GCS"
 				// }
-			]
-		},
-		{
-			name: "Deployment",
-			entries: [
-				{
-					"name": "SOAJS Installer",
-					"link": "https://soajsorg.atlassian.net/wiki/spaces/IN"
-				}
 			]
 		},
 		{

@@ -69,6 +69,14 @@ var navigation = [
 		'url': '/videos',
 		'tplPath': 'sections/videos/page.html',
 		'scripts': ['sections/videos/controller.js']
+	},
+	{
+		'id': 'install',
+		'label': 'Install',
+		'title': 'SOAJS | Install',
+		'url': '/install',
+		'tplPath': 'sections/install/page.html',
+		'scripts': ['sections/install/controller.js']
 	}
 ];
 

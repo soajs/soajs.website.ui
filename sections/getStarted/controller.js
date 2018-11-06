@@ -97,12 +97,6 @@ getStartedApp.controller('getStartedCtrl', ['$scope', function ($scope) {
 					description: "Turn on multitenancy on your service and check out how to secure it with SOAJS"
 				},
 				{
-					icon: "https://soajsorg.atlassian.net/wiki/download/thumbnails/16121916/preRequisites.png?version=1&modificationDate=1500029031953&cacheVersion=1&api=v2?width=64&height=64",
-					title: "How to install",
-					link: "https://soajsorg.atlassian.net/wiki/spaces/EX/pages/61673365/How+to+Install",
-					description: "Learn about the prerequisites needed for development use on SOAJS"
-				},
-				{
 					icon: "https://soajsorg.atlassian.net/wiki/download/thumbnails/16121916/mongoClientDriver.png?width=64&height=64",
 					title: "Mongo client Driver",
 					link: "https://soajsorg.atlassian.net/wiki/display/SOAJ/Mongo+Client+Driver",

@@ -1327,3 +1327,50 @@ footer{
     padding: 0;
 }
 
+/*****************
+ *
+ * Install page
+ */
+.installPage h1,
+.installPage h2,
+.installPage h3{
+    color: rgb(65, 100, 126);
+}
+
+.installStepButton {
+    background: transparent;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+    border-top: 1px solid rgb(65, 100, 126);
+    border-right: 1px solid rgb(65, 100, 126);
+    border-bottom: 1px solid rgb(65, 100, 126);
+    border-left: 1px solid rgb(65, 100, 126);
+    color: rgb(65, 100, 126);
+    display: inline-block;
+    line-height: 60px;
+    margin-right: 25px;
+    text-align: center;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    font-weight: 600;
+    vertical-align: middle;
+}
+
+.installSteps{
+    border: solid 1px #ededed;
+    border-radius:8px;
+}
+
+.installSteps .row{
+    margin:0 0 30px 0;
+    padding:30px;
+    border-bottom:solid 1px #ededed;
+}
+
+.installSteps .last-row{
+    border-bottom:none;
+    margin: 0;
+}
