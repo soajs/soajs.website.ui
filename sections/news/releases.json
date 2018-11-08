@@ -6,22 +6,12 @@
     "repos": [
       {
         "name": "SOAJS Framework",
-        "version": "2.1.14",
+        "version": "2.0.17",
         "features": [
           "Added Support to start the same micro-service on the same machine but under different environments while using the same port configuration."
         ],
         "enhancements": [
           "Updated versions of dependency modules"
-        ]
-      },
-      {
-        "name": "soajs.core.modules",
-        "version": "2.0.7",
-        "features": [
-          "Added Support to start the same micro-service on the same machine but under different environments while using the same port configuration."
-        ],
-        "enhancements": [
-          "Updated Gateway Awareness and Registry to support new feature"
         ]
       },
       {
@@ -66,6 +56,16 @@
         ],
         "bugFixes": [
           "Fixed reported issue when redeploying services with consumed volumes as secrets using kubernetes"
+        ]
+      },
+      {
+        "name": "soajs.core.modules",
+        "version": "2.0.7",
+        "features": [
+          "Added Support to start the same micro-service on the same machine but under different environments while using the same port configuration."
+        ],
+        "enhancements": [
+          "Updated Gateway Awareness and Registry to support new feature"
         ]
       },
       {
