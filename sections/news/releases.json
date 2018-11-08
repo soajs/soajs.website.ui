@@ -1,5 +1,121 @@
 [
   {
+    "id": "piranha",
+    "label": "Piranha",
+    "date": "November 8, 2018",
+    "repos": [
+      {
+        "name": "SOAJS Framework",
+        "version": "2.1.14",
+        "features": [
+          "Added Support to start the same micro-service on the same machine but under different environments while using the same port configuration."
+        ],
+        "enhancements": [
+          "Updated versions of dependency modules"
+        ]
+      },
+      {
+        "name": "soajs.core.modules",
+        "version": "2.0.7",
+        "features": [
+          "Added Support to start the same micro-service on the same machine but under different environments while using the same port configuration."
+        ],
+        "enhancements": [
+          "Updated Gateway Awareness and Registry to support new feature"
+        ]
+      },
+      {
+        "name": "SOAJS API Gateway",
+        "version": "2.1.14",
+        "enhancements": [
+          "Updated version of soajs framework"
+        ]
+      },
+      {
+        "name": "SOAJS Composer",
+        "version": "2.1.14",
+        "enhancements": [
+          "Updated version of soajs framework"
+        ]
+      },
+      {
+        "name": "SOAJS oAuth",
+        "version": "2.1.14",
+        "enhancements": [
+          "Updated version of soajs framework"
+        ]
+      },
+      {
+        "name": "SOAJS URAC",
+        "version": "2.1.14",
+        "enhancements": [
+          "Updated dependency list of SOAJS Framework",
+          "Updated version of soajs.urac.driver"
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "2.1.19",
+        "features": [
+          "Added Support to start & stop SOAJS Ready Made Services in manual development environments",
+          "Created new Express APP to host the SOAJS UI Console without the need to use an Nginx or other web servers. Express App is controlled via the new SOAJS Installer."
+        ],
+        "enhancements": [
+          "Updated version of soajs framework",
+          "Updated version of soajs.core.drivers framework"
+        ],
+        "bugFixes": [
+          "Fixed reported issue when redeploying services with consumed volumes as secrets using kubernetes"
+        ]
+      },
+      {
+        "name": "soajs.dashboard.ui",
+        "version": "2.1.17",
+        "features": [
+          "Added Ability to validate IaC inputs if validation is provided",
+          "Added Support to Registry Secrets for Kubernetes",
+          "Added Support to deploy pods from Private Repositories in Kubernetes",
+          "Created new Express APP to host the SOAJS UI Console without the need to use an Nginx or other web servers. Express App is controlled via the new SOAJS Installer."
+        ],
+        "enhancements": [
+          "Enabled support to trigger maintenance operations on all microservices and daemons running in manual development environments"
+        ]
+      },
+      {
+        "name": "soajs.core.drivers",
+        "version": "3.0.16",
+        "enhancements": [
+          "Updated versions of dependency modules"
+        ]
+      },
+      {
+        "name": "soajs.urac.driver",
+        "version": "1.0.8",
+        "enhancedTests": [
+          "Updated versions of dependency modules"
+        ]
+      },
+      {
+        "name": "soajs.installer",
+        "version": "3.0.0",
+        "features": [
+          "Ability to install, update, remove, start, stop and restart soajs console",
+          "Ability to start and stop SOAJS RMS services",
+          "Ability to install, remove, start, stop and connect to docker and kubernetes",
+          "Ability to configure, start, stop, patch, reset mongodb server",
+          "Ability to start & stop the soajs remote cloud installer"
+        ]
+      },
+      {
+        "name": "soajs.website.ui",
+        "version": "N/A",
+        "features": [
+          "Created the new installation page for the new installer."
+        ]
+      }
+    ]
+  },
+  {
     "id": "dolphin",
     "label": "Dolpin",
     "date": "August 13, 2018",
