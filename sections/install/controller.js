@@ -9,5 +9,5 @@ installApp.controller('installPageCtrl', ['$scope', '$timeout', function ($scope
 	};
 	$scope.$parent.$emit('refreshPageTitle', pageData);
 	
-	$scope.installerZipLink = "";
+	$scope.installerZipLink = "https://sourceforge.net/projects/soajs/files/soajs.installer.zip/download";
 }]);
