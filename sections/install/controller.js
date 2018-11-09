@@ -3,7 +3,7 @@ var installApp = app.components;
 
 installApp.controller('installPageCtrl', ['$scope', '$timeout', function ($scope, $timeout) {
 	var pageData = {
-		title: "Install",
+		title: "SOAJS Installer",
 		class: "platform",
 		subTitle: ""
 	};
