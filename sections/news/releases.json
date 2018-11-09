@@ -97,7 +97,7 @@
       },
       {
         "name": "soajs.installer",
-        "version": "3.0.0",
+        "version": "3.0.2",
         "features": [
           "Ability to install, update, remove, start, stop and restart soajs console",
           "Ability to start and stop SOAJS RMS services",
