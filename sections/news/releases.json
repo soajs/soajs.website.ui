@@ -1,5 +1,35 @@
 [
   {
+    "id": "piranha 2",
+    "label": "Piranha 2",
+    "date": "November 15, 2018",
+    "repos": [
+      {
+        "name": "soajs.dashboard",
+        "version": "2.1.20",
+        "features": [
+          "Added Support to send private Environment Variables to Travis CI"
+        ],
+        "bugFixes": [
+          "Fixed reported issue when adding a Single Cloud Clustering Environment"
+        ]
+      },
+      {
+        "name": "soajs.dashboard.ui",
+        "version": "2.1.18",
+        "features": [
+          "Added Ability to validate IaC inputs if validation is provided",
+          "Added Support to Registry Secrets for Kubernetes",
+          "Added Support to deploy pods from Private Repositories in Kubernetes",
+          "Created new Express APP to host the SOAJS UI Console without the need to use an Nginx or other web servers. Express App is controlled via the new SOAJS Installer."
+        ],
+        "enhancements": [
+          "Added Support to send private Environment Variables to Travis CI"
+        ]
+      }
+    ]
+  },
+  {
     "id": "piranha",
     "label": "Piranha",
     "date": "November 8, 2018",
