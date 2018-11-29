@@ -1,6 +1,6 @@
 [
   {
-    "id": "piranha 2",
+    "id": "piranha_2",
     "label": "Piranha 2",
     "date": "November 29, 2018",
     "repos": [
@@ -37,8 +37,8 @@
     ]
   },
   {
-    "id": "piranha",
-    "label": "Piranha",
+    "id": "piranha_1",
+    "label": "Piranha 1",
     "date": "November 8, 2018",
     "repos": [
       {
@@ -902,7 +902,7 @@
     ]
   },
   {
-    "id": "Orca",
+    "id": "orca",
     "label": "Orca",
     "date": "October 5, 2017",
     "repos": [
@@ -995,7 +995,7 @@
     ]
   },
   {
-    "id": "Great White Shark",
+    "id": "great_white_shark_2",
     "label": "Great White Shark 2",
     "date": "September 16, 2017",
     "repos": [
@@ -1196,7 +1196,7 @@
     ]
   },
   {
-    "id": "Great White Shark",
+    "id": "great_white_shark_1",
     "label": "Great White Shark 1",
     "date": "Jun 2, 2017",
     "repos": [
@@ -1340,8 +1340,8 @@
     ]
   },
   {
-    "id": "rivershark1",
-    "label": "Release River Shark 1",
+    "id": "rivershark",
+    "label": "River Shark",
     "date": "April 5, 2017",
     "repos": [
       {
@@ -1540,8 +1540,8 @@
     ]
   },
   {
-    "id": "Whale Shark",
-    "label": "Release Whale Shark",
+    "id": "whale_shark",
+    "label": "Whale Shark",
     "date": "March 31, 2017",
     "repos": [
       {
@@ -1719,8 +1719,8 @@
     ]
   },
   {
-    "id": "Release Hammerhead 3",
-    "label": "Release Hammerhead 3",
+    "id": "hammerhead_3",
+    "label": "Hammerhead 3",
     "date": "January 16, 2017",
     "repos": [
       {
@@ -1750,8 +1750,8 @@
     ]
   },
   {
-    "id": "Release Hammerhead 2",
-    "label": "Release Hammerhead 2",
+    "id": "hammerhead_2",
+    "label": "Hammerhead 2",
     "date": "December 29, 2016",
     "repos": [
       {
@@ -1845,8 +1845,8 @@
     ]
   },
   {
-    "id": "Release Hammerhead",
-    "label": "Release Hammerhead",
+    "id": "hammerhead_1",
+    "label": "Hammerhead 1",
     "date": "December 5, 2016",
     "repos": [
       {
@@ -2000,8 +2000,8 @@
     ]
   },
   {
-    "id": "Release Salmon Shark",
-    "label": "Release Salmon Shark",
+    "id": "salmon_shark",
+    "label": "Salmon Shark",
     "date": "July 11, 2016",
     "repos": [
       {
@@ -2134,8 +2134,8 @@
     ]
   },
   {
-    "id": "Release Bull Shark",
-    "label": "Release Bull Shark",
+    "id": "bull_shark",
+    "label": "Bull Shark",
     "date": "May 20, 2016",
     "repos": [
       {
@@ -2226,8 +2226,8 @@
     ]
   },
   {
-    "id": "Release Manta Ray",
-    "label": "Release Manta Ray",
+    "id": "manta_ray",
+    "label": "Manta Ray",
     "date": "April 12, 2016",
     "repos": [
       {
@@ -2365,8 +2365,8 @@
     ]
   },
   {
-    "id": "Release Electric Eel",
-    "label": "Release Electric Eel",
+    "id": "electric_eel",
+    "label": "Electric Eel",
     "date": "December 22, 2015",
     "repos": [
       {
@@ -2426,8 +2426,8 @@
     ]
   },
   {
-    "id": "Release JawFish",
-    "label": "Release JawFish",
+    "id": "jawFish",
+    "label": "JawFish",
     "date": "November 27, 2015",
     "repos": [
       {
@@ -2485,8 +2485,8 @@
     ]
   },
   {
-    "id": "Release BeardFish",
-    "label": "Release BeardFish",
+    "id": "beardFish",
+    "label": "BeardFish",
     "date": "November 25, 2015",
     "repos": [
       {
@@ -2546,8 +2546,8 @@
     ]
   },
   {
-    "id": "Release BlueFish",
-    "label": "Release BlueFish",
+    "id": "blueFish",
+    "label": "BlueFish",
     "date": "October 15, 2015",
     "repos": [
       {
@@ -2571,8 +2571,8 @@
     ]
   },
   {
-    "id": "Release LionFish",
-    "label": "Release LionFish",
+    "id": "lionFish",
+    "label": "LionFish",
     "date": "August 31, 2015",
     "repos": [
       {
@@ -2648,8 +2648,8 @@
     ]
   },
   {
-    "id": "Release TigerFish",
-    "label": "Release TigerFish",
+    "id": "tigerFish",
+    "label": "TigerFish",
     "date": "August 10, 2015",
     "repos": [
       {
@@ -2785,8 +2785,8 @@
     ]
   },
   {
-    "id": "Release Dragonfish",
-    "label": "Release Dragonfish",
+    "id": "dragonfish",
+    "label": "Dragonfish",
     "date": "May 20, 2015",
     "repos": [
       {
@@ -2910,8 +2910,8 @@
     ]
   },
   {
-    "id": "Release Trunkfish",
-    "label": "Release Trunkfish",
+    "id": "trunkfish_1",
+    "label": "Trunkfish 1",
     "date": "May 5, 2015",
     "repos": [
       {
@@ -2955,8 +2955,8 @@
     ]
   },
   {
-    "id": "Release Thornfish",
-    "label": "Release Thornfish",
+    "id": "thornfish_2",
+    "label": "Thornfish 2",
     "date": "April 30, 2015",
     "repos": [
       {
@@ -3053,8 +3053,8 @@
     ]
   },
   {
-    "id": "Release Goldfish",
-    "label": "Release Goldfish",
+    "id": "goldfish",
+    "label": "Goldfish",
     "date": "April 15, 2015",
     "repos": [
       {
@@ -3181,8 +3181,8 @@
     ]
   },
   {
-    "id": "Release Clownfish",
-    "label": "Release Clownfish",
+    "id": "clownfish",
+    "label": "Clownfish",
     "date": "March 20, 2015",
     "repos": [
       {
