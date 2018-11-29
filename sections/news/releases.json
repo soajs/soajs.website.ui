@@ -2,14 +2,16 @@
   {
     "id": "piranha 2",
     "label": "Piranha 2",
-    "date": "November 15, 2018",
+    "date": "November 29, 2018",
     "repos": [
       {
         "name": "soajs.dashboard",
-        "version": "2.1.20",
+        "version": "2.1.23",
         "features": [
-          "Added Support to send private Environment Variables to Travis CI",
-          "Ability to control from which branch to deploy the Microservice Multi-versions"
+          "Added Support For Multi-Version Deployment to repositories of type service, daemon, and multi."
+        ],
+        "enhancements": [
+          "Added Support to send private Environment Variables to Travis CI"
         ],
         "bugFixes": [
           "Fixed reported issue when adding a Single Cloud Clustering Environment"
@@ -17,10 +19,19 @@
       },
       {
         "name": "soajs.dashboard.ui",
-        "version": "2.1.18",
+        "version": "2.1.20",
+        "features": [
+          "Added Support For Multi-Version Deployment to repositories of type service, daemon, and multi."
+        ],
         "enhancements": [
-          "Added Support to send private Environment Variables to Travis CI",
-          "Ability to control from which branch to deploy the Microservice version"
+          "Added Support to send private Environment Variables to Travis CI"
+        ]
+      },
+      {
+        "name": "soajs.installer",
+        "version": "3.0.3",
+        "enhancements": [
+          "Appended Provisioning Data to cater for Multi-versioning"
         ]
       }
     ]
