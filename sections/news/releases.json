@@ -19,7 +19,7 @@
       },
       {
         "name": "soajs.dashboard.ui",
-        "version": "2.1.20",
+        "version": "2.1.21",
         "features": [
           "Added Support For Multi-Version Deployment to repositories of type service, daemon, and multi."
         ],
