@@ -1,4 +1,202 @@
 [
+
+  {
+    "id": "Bitterling_2",
+    "label": "Bitterling 2",
+    "date": "February 11, 2019",
+    "repos": [
+      {
+        "name": "soajs.mongodb.data",
+        "version": "2.1.3",
+        "enhancements": [
+          "Updated Sample Test data"
+        ]
+      },
+      {
+        "name": "soajs.core.libs",
+        "version": "1.1.0",
+        "features": [
+          "Added sanitize capabilities to lib versions to support 1x2 as version"
+        ],
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.core.modules",
+        "version": "2.3.0",
+        "features": [
+          "Added support for sanitize version from 1.2 to 1x2"
+        ]
+      },
+      {
+        "name": "soajs.core.drivers",
+        "version": "3.3.0",
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.urac.driver",
+        "version": "1.2.0",
+        "enhancements": [
+          "New enhanced URAC is now supported"
+        ]
+      },
+      {
+        "name": "soajs",
+        "version": "2.2.2",
+        "enhancements": [
+          "Fixed edge case when an oauth route is called and key is not provided we should skip",
+          "Enhanced test cases",
+          "removed serviceName lowercase requirement",
+          "Assured key in header in case of get param",
+          "Version with format 1.1 is supported now",
+          "New enhanced URAC",
+          "Fixed aclUracCheck in case ACl is empty",
+          "Fixed unit test for controller MW",
+          "Added support for ACL service version added support for allowedPackages"
+        ]
+      },
+      {
+        "name": "soajs.composer",
+        "version": "2.2.2",
+        "enhancements": [
+          "Handling error response on service init",
+          "Updated dependancies"
+        ]
+      },
+      {
+        "name": "soajs.controller",
+        "version": "2.2.1",
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.oauth",
+        "version": "2.2.0",
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.urac",
+        "version": "2.2.0",
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "2.4.0",
+        "enhancements": [
+          "Updated dependency list",
+          "Added Support For Swagger SHA",
+          "Enhanced Swagger Verification"
+        ]
+      },
+      {
+        "name": "soajs.dashboard.ui",
+        "version": "2.4.0",
+        "features": [
+          "Fixed Reported Bug in when activating a Git Account",
+          "Fixed Reported Bug in when Creating an Authorization"
+        ],
+        "bugFixes": [
+          "Enhanced UI in Api Catalogs ",
+          "Enhanced UI in ACL"
+        ]
+      },
+      {
+        "name": "soajs.epg",
+        "version": "0.1.2",
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "Bitterling",
+    "label": "Bitterling 1",
+    "date": "January 8, 2019",
+    "repos": [
+      {
+        "name": "soajs.core.libs",
+        "version": "1.0.3",
+        "features": [
+          "Added support for 2 digit version 1.1"
+        ],
+        "enhancements": [
+          "Consolidated version check and validation under libs"
+        ]
+      },
+      {
+        "name": "soajs.core.modules",
+        "version": "2.2.0",
+        "features": [
+          "Added support for 2 digit version 1.1 at registry level"
+        ],
+        "enhancements": [
+          "Added support for to bundle env in keyObj",
+          "Added error if key is being used in wrong env"
+        ]
+      },
+      {
+        "name": "soajs.core.drivers",
+        "version": "3.2.2",
+        "enhancements": [
+          "Added support for environment variables of type secret in Kubernetes",
+          "Added support for static IP when deploying GKE cluster",
+          "Leverage the same Kubernetes Cluster to create multi-environment each with different namespace"
+        ],
+        "bugFixes": [
+          "Fixed Reported Bug When Redeploying Resources and Services"
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "2.3.6",
+        "enhancements": [
+          "Added support for Environment Variables of type secret in Kubernetes",
+          "Added support for Static IP when deploying GKE cluster",
+          "Added support for Port types in Maintenance Operations",
+          "Enhanced Readiness Probe Operations for Kubernetes",
+          "Added Support for swagger file of type JSON",
+          "Allow activating a Repository even if malformed Swagger File",
+          "Added support for description and/or summary for swagger"
+        ],
+        "bugFixes": [
+          "Fixed Reported Bug When Redeploying Resources and Services "
+        ],
+        "features": [
+          "Allowed exposing service ports to the outside in Container Technology",
+          "Added Support for Custom Environment Variables to Travis in CI as locked",
+          "Leverage the same Kubernetes Cluster to create multi-environment each with different namespace"
+        ]
+      },
+      {
+        "name": "soajs.dashboard.ui",
+        "version": "2.3.3",
+        "features": [
+          "Allowed exposing Service Ports to the outside in container technology",
+          "Added Support for Custom Environment Variables to Travis in CI as locked",
+          "Leverage the same Kubernetes Cluster to create multi-environment each with different namespace"
+        ],
+        "enhancements": [
+          "Added support for environment variables of type secret in Kubernetes",
+          "Added support for Port types in Maintenance Operations",
+          "Enhanced Readiness Probe Operations for Kubernetes",
+          "Added Service name to Api Catalog and Repositories Sections",
+          "Allow activating a Repository even if malformed Swagger File"
+        ],
+        "bugFixes": [
+          "Fixed Reported Bug When Redeploying Resources and Services "
+        ]
+      }
+    ]
+  },
   {
     "id": "devario",
     "label": "Devario",
