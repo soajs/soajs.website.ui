@@ -3,13 +3,13 @@ var navigation = [
 	{
 		'id': 'home',
 		'label': 'home',
-		'title': 'SOAJS - microservice management platform',
+		'title': 'Open Source Enterprise Microservices Management Platform',
 		'description': 'The only complete, end-to-end microservices management platform, SOAJS specifically addresses\n' +
             'these IT plumbing challenges, so you can deploy microservices significantly earlier and faster.\n' +
             'IT initiatives such as digital transformation are simplified, accelerated, cost reduced, and risk mitigated.\n' +
             'Our fully integrated, world-class API lifecycle management, multi-cloud orchestration, release management,\n' +
             'and IT Ops automation capabilities eliminate your IT organization’s modernization pain.',
-		'keywords': '#soajs @soajsorg, soa, soajs, service oriented architecture, multitenant, multi-tenant, productization, software, linux, platform, node, mongo, framework, npm, javascript, angularjs, angular, js, nodejs, mongodb, haproxy, cloud architecture, software as a service, saas, user registration and access control urac, security, cloud awareness, cloud-awareness, self awareness, self-awareness, multi service, multiservice, multi-service, enterprise solution, API, API management, enterprise APIs, elastic search, elastic-search, elasticsearch',
+		'keywords': '#soajs @soajsorg, microservice, microservices, API, API management, API gateway, enterprise APIs, multi-cloud, orchestration, multitenant, multi-tenant, soajs',
 		'url': '/',
 		'tplPath': 'sections/home/page.html',
 		'scripts': ['sections/home/controller.js']
