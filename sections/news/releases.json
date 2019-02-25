@@ -1,5 +1,113 @@
 [
-
+  {
+    "id": "Banjo_1",
+    "label": "Banjo 1",
+    "date": "February 25, 2019",
+    "repos": [
+      {
+        "name": "soajs.core.libs",
+        "version": "1.2.0",
+        "enhancements": [
+          "Unsanitize version when validating a version"
+        ]
+      },
+      {
+        "name": "soajs.core.modules",
+        "version": "2.4.1",
+        "enhancements": [
+          "Updated dependency list"
+        ],
+        "features": [
+          "Sanitize version @ controllers",
+          "Assured version @ host collection to be string"
+        ],
+        "bugFixes": [
+          "Fxed controllers host bug on deletion we should check if we can delete host from the array",
+          "Fixed register new service version bug"
+          ]
+      },
+      {
+        "name": "soajs.core.drivers",
+        "version": "3.4.0",
+        "enhancements": [
+          "Updated dependency list",
+          "Sanitized docker and kubernetes service name"
+        ]
+      },
+      {
+        "name": "soajs.urac.driver",
+        "version": "1.3.0",
+        "enhancements": [
+          "Removed unneeded logs",
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs",
+        "version": "2.3.0",
+        "features": [
+          "Multi version acl"
+          ],
+        "enhancements": [
+          "Updated dependency list",
+          "Removed check if version exist in acl at MT MW",
+          "Assured version when register is triggered @ controller to be string 1.1"
+        ]
+      },
+      {
+        "name": "soajs.composer",
+        "version": "2.3.0",
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.controller",
+        "version": "2.3.0",
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.oauth",
+        "version": "2.3.0",
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.urac",
+        "version": "2.3.0",
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "2.5.0",
+        "enhancements": [
+          "Added 2 digit Semantic version (1.1) support for Services and Daemons",
+          "Sanitized Data from multiple collections (services, daemons, controllers, and cicd"
+        ]
+      },
+      {
+        "name": "soajs.dashboard.ui",
+        "version": "2.5.0",
+        "enhancements": [
+          "Added 2 digit Semantic version (1.1) support for Services and Daemons",
+          "Modified Catalog recipes- Changed Allow Certificates to File Attachments",
+          "Modified Catalog recipes- Changed Default Memory Limit to 0"
+        ]
+      },
+      {
+        "name": "soajs.epg",
+        "version": "0.2.0",
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      }
+    ]
+  },
   {
     "id": "Bitterling_2",
     "label": "Bitterling 2",
