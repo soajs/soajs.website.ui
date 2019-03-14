@@ -1,5 +1,139 @@
 [
   {
+    "id": "Banjo_2",
+    "label": "Banjo 2",
+    "date": "March 14, 2019",
+    "repos": [
+      {
+        "name": "soajs.core.modules",
+        "version": "2.5.2",
+        "enhancements": [
+          "Updated dependency list"
+        ],
+        "features": [
+          "Added Product Scope ACL capabilities",
+          "Added Package Category ACL",
+          "Added Pass-through endpoint capabilities",
+          "Added pass through endpoints deployed to registry",
+          "Added the ability for Package ACL to be granular or packaged"
+        ]
+      },
+      {
+        "name": "soajs.core.drivers",
+        "version": "3.5.1",
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.urac.driver",
+        "version": "1.4.1",
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs",
+        "version": "2.4.1",
+        "features": [
+          "Added Pass-through endpoint support",
+          "Added support for pass through endpoints deployed at registry to fetch latest version and forward to deployed version within the environment"
+        ],
+        "enhancements": [
+          "Updated dependency list",
+          "Removed unneeded logs"
+        ]
+      },
+      {
+        "name": "soajs.composer",
+        "version": "2.4.1",
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.controller",
+        "version": "2.4.1",
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.oauth",
+        "version": "2.4.0",
+        "enhancements": [
+          "Updated dependency list",
+          "Enhanced API catalog content",
+          "Enhanced API Group Name"
+        ]
+      },
+      {
+        "name": "soajs.urac",
+        "version": "2.4.0",
+        "enhancements": [
+          "Updated dependency list",
+          "Updated group add API",
+          "Enhanced API Group Name"
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "2.6.0",
+        "features": [
+          "Added Product Scope ACL capabilities",
+          "Added Package Category ACL",
+          "Added Purge API"
+        ],
+        "enhancements": [
+          "Updated dependency list",
+          "Updated group name APIs"
+        ],
+        "bugFixes": [
+          "Fixed Multiple Reported Bugs"
+        ]
+      },
+      {
+        "name": "soajs.dashboard.ui",
+        "version": "2.6.0",
+        "features": [
+          "Changed API Catalog view",
+          "New look for add Product ACL View",
+          "New look for add Package Category ACL View"
+        ],
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.epg",
+        "version": "0.3.1",
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.installer",
+        "version": "3.3.1",
+        "features": [
+          "Added mongo migrate with to_urac_v2 strategy",
+          "Added (profile setHost) ability to change mongo host",
+          "Added (console setHost) ability to change console host"
+        ],
+        "enhancements": [
+          "Console update to remove its microservices before updating",
+          "Assured profile port to integer type"
+        ]
+      },
+      {
+        "name": "soajs.buildImages",
+        "version": "2.1.4-1.1.4",
+        "enhancements": [
+          "Assured profile port to integer type"
+        ]
+      }
+    ]
+  },
+  {
     "id": "Banjo_1",
     "label": "Banjo 1",
     "date": "February 25, 2019",
@@ -24,7 +158,7 @@
         "bugFixes": [
           "Fxed controllers host bug on deletion we should check if we can delete host from the array",
           "Fixed register new service version bug"
-          ]
+        ]
       },
       {
         "name": "soajs.core.drivers",
@@ -47,7 +181,7 @@
         "version": "2.3.0",
         "features": [
           "Multi version acl"
-          ],
+        ],
         "enhancements": [
           "Updated dependency list",
           "Removed check if version exist in acl at MT MW",
