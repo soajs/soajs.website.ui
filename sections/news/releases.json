@@ -9,6 +9,11 @@
       "manual": {
         "note": "<b>For manual deploy do the following:</b>",
         "content": [
+          "1- download the new soajs.installer",
+          "2- backup the file config.js from the existing soajs.installer/etc/config.js",
+          "3- delete the existing soajs.installer folder",
+          "4- unzip the new installer and copy it to the same location",
+          "5- copy the backed up config.js into soajs.installer/etc/",
           "sudo soajs console update",
           "sudo soajs console stop",
           "sudo soajs mongo migrate to_urac_v2",
@@ -18,6 +23,12 @@
       "remote": {
         "note": "<b>For remote deploy do the following:</b>",
         "content": [
+          "1- download the new soajs.installer",
+          "2- backup the folder startup from the existing soajs.installer/include/soajs-remote/data/startup",
+          "3- backup the file custom.js from the existing soajs.installer/include/soajs-remote/data/custom.js",
+          "4- delete the existing soajs.installer folder",
+          "5- unzip the new installer and copy it to the same location",
+          "6- copy the backed up custom.js file and startup folder into soajs.installer/include/soajs-remote/data/",
           "Redeploy SOASJ services from the console for dashboard environment",
           "sudo soajs remote-installer migrate to_urac_v2",
           "restart SOASJ services from the console for dashboard environment"
