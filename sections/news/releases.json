@@ -3,6 +3,27 @@
     "id": "Banjo_2",
     "label": "Banjo 2",
     "date": "March 14, 2019",
+    "content": {
+      "note": "<b class='red-txt'>Banjo 2 Release</b> is a major release requires running soajs migrator and here are the steps:",
+      "footer": "if you need help please contact soajs support, we are looking forward to guide with this update.",
+      "manual": {
+        "note": "<b>For manual deploy do the following:</b>",
+        "content": [
+          "sudo soajs console update",
+          "sudo soajs console stop",
+          "sudo soajs mongo migrate to_urac_v2",
+          "sudo soajs console restart"
+        ]
+      },
+      "remote": {
+        "note": "<b>For remote deploy do the following:</b>",
+        "content": [
+          "Redeploy SOASJ services from the console for dashboard environment",
+          "sudo soajs remote-installer migrate to_urac_v2",
+          "restart SOASJ services from the console for dashboard environment"
+        ]
+      }
+    },
     "repos": [
       {
         "name": "soajs.core.modules",
@@ -78,7 +99,7 @@
       },
       {
         "name": "soajs.dashboard",
-        "version": "2.6.0",
+        "version": "2.6.1",
         "features": [
           "Added Product Scope ACL capabilities",
           "Added Package Category ACL",
@@ -94,7 +115,7 @@
       },
       {
         "name": "soajs.dashboard.ui",
-        "version": "2.6.0",
+        "version": "2.6.1",
         "features": [
           "Changed API Catalog view",
           "New look for add Product ACL View",
@@ -113,7 +134,7 @@
       },
       {
         "name": "soajs.installer",
-        "version": "3.3.1",
+        "version": "3.3.2",
         "features": [
           "Added mongo migrate with to_urac_v2 strategy",
           "Added (profile setHost) ability to change mongo host",

@@ -130,10 +130,26 @@
 						</div>
 						<div id="collapse_{{$index}}" class="panel-collapse collapse" ng-class="{'in': $index === 0}">
 							<div class="panel-body">
-								<div ng-if="release.content">
-									<div ng-repeat="line in release.content" ng-bind-html="line|toTrustedHtml"></div>
 
+								<div ng-if="release.content" style='margin: 10px; padding: 10px; font-size: 14px;'>
+									<div class="col-md-12 col-sm-12 col-xs-12" ng-bind-html="release.content.note|toTrustedHtml">{{release.content.note}}</div>
+									<div class="col-md-6 col-sm-6 col-xs-12">
+										<div ng-bind-html="release.content.manual.note|toTrustedHtml">{{release.content.manual.note}}</div>
+										<ul>
+											<li ng-repeat="line in release.content.manual.content" ng-bind-html="line|toTrustedHtml"></li>
+										</ul>
+									</div>
+
+									<div class="col-md-6 col-sm-6 col-xs-12">
+										<div ng-bind-html="release.content.remote.note|toTrustedHtml">{{release.content.remote.note}}</div>
+										<ul>
+											<li ng-repeat="line in release.content.remote.content" ng-bind-html="line|toTrustedHtml"></li>
+										</ul>
+									</div>
+
+									<div class="col-md-12 col-sm-12 col-xs-12" ng-bind-html="release.content.footer|toTrustedHtml">{{release.content.footer}}</div>
 								</div>
+
 								<div ng-if="release.repos">
 									<div ng-repeat="repo in release.repos" class="col-md-12 col-xs-12 content oneRepo">
 										<div class="col-md-4 col-sm-4 col-xs-12 repoName-wrapper">
