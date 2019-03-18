@@ -3,6 +3,38 @@
     "id": "Banjo_2",
     "label": "Banjo 2",
     "date": "March 14, 2019",
+    "content": {
+      "note": "<b class='red-txt'>Banjo 2 Release</b> is a major release requires running soajs migrator and here are the steps:",
+      "footer": "if you need help please contact soajs support, we are looking forward to guide with this update.",
+      "manual": {
+        "note": "<b>For manual deploy do the following:</b>",
+        "content": [
+          "1- download the new soajs.installer",
+          "2- backup the file config.js from the existing soajs.installer/etc/config.js",
+          "3- delete the existing soajs.installer folder",
+          "4- unzip the new installer and copy it to the same location",
+          "5- copy the backed up config.js into soajs.installer/etc/",
+          "sudo soajs console update",
+          "sudo soajs console stop",
+          "sudo soajs mongo migrate to_urac_v2",
+          "sudo soajs console restart"
+        ]
+      },
+      "remote": {
+        "note": "<b>For remote deploy do the following:</b>",
+        "content": [
+          "1- download the new soajs.installer",
+          "2- backup the folder startup from the existing soajs.installer/include/soajs-remote/data/startup",
+          "3- backup the file custom.js from the existing soajs.installer/include/soajs-remote/data/custom.js",
+          "4- delete the existing soajs.installer folder",
+          "5- unzip the new installer and copy it to the same location",
+          "6- copy the backed up custom.js file and startup folder into soajs.installer/include/soajs-remote/data/",
+          "Redeploy SOASJ services from the console for dashboard environment",
+          "sudo soajs remote-installer migrate to_urac_v2",
+          "restart SOASJ services from the console for dashboard environment"
+        ]
+      }
+    },
     "repos": [
       {
         "name": "soajs.core.modules",
@@ -34,7 +66,7 @@
       },
       {
         "name": "soajs",
-        "version": "2.4.1",
+        "version": "2.4.2",
         "features": [
           "Added Pass-through endpoint support",
           "Added support for pass through endpoints deployed at registry to fetch latest version and forward to deployed version within the environment"
@@ -53,7 +85,7 @@
       },
       {
         "name": "soajs.controller",
-        "version": "2.4.1",
+        "version": "2.4.2",
         "enhancements": [
           "Updated dependency list"
         ]
@@ -78,7 +110,7 @@
       },
       {
         "name": "soajs.dashboard",
-        "version": "2.6.0",
+        "version": "2.6.1",
         "features": [
           "Added Product Scope ACL capabilities",
           "Added Package Category ACL",
@@ -94,7 +126,7 @@
       },
       {
         "name": "soajs.dashboard.ui",
-        "version": "2.6.0",
+        "version": "2.6.1",
         "features": [
           "Changed API Catalog view",
           "New look for add Product ACL View",
@@ -113,7 +145,7 @@
       },
       {
         "name": "soajs.installer",
-        "version": "3.3.1",
+        "version": "3.3.2",
         "features": [
           "Added mongo migrate with to_urac_v2 strategy",
           "Added (profile setHost) ability to change mongo host",
