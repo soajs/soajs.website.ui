@@ -1,5 +1,14 @@
 [
   {
+    "id": "Banjo_3",
+    "label": "Banjo 3",
+    "date": "Soon",
+    "content": {
+      "note": "Coming soon the week of March 25. Tons of features like pagination, search, and favorite tabs for repositories and API catalog"
+    }
+  },
+
+  {
     "id": "Banjo_2",
     "label": "Banjo 2",
     "date": "March 14, 2019",
