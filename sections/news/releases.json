@@ -1,5 +1,129 @@
 [
   {
+    "id": "Banjo_4",
+    "label": "Banjo 4",
+    "date": "Coming Soon",
+    "content": {
+      "note": "Tons of features like favorite for repositories per git account, pass through endpoint, custom swagger filename",
+      "msg" : [
+        "Pass-through endpoints: Add pass-through API to the catalog by specify in a UI form the name of the service, the version, etc..  the swagger content by picking one of the 3 following options (copy paste in swagger editor, provide a url, or pick a repo and a branch).",
+        "API builder service setting re-design: An easy and very intuitive UI to add service settings while creating microservices or endpoints.",
+        "API design: ability to change the API contract using a swagger editor from the API catalog.",
+        "API documentation: WYSIWYG editor to add documentation to your API from the API catalog. "
+      ]
+    }
+  },
+  {
+    "id": "Banjo_3",
+    "label": "Banjo 3",
+    "date": "March 22, 2019",
+    "repos": [
+      {
+        "name": "soajs.core.modules",
+        "version": "2.5.3",
+        "enhancements": [
+          "Added error codes when key or package not found",
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.urac.driver",
+        "version": "1.4.2",
+        "enhancements": [
+          "Added assertions for group info",
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.core.drivers",
+        "version": "3.5.2",
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs",
+        "version": "2.4.3",
+        "enhancements": [
+          "Added assertions when key or package not found",
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.controller",
+        "version": "2.4.3",
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.composer",
+        "version": "2.4.2",
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.epg",
+        "version": "0.3.2",
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.oauth",
+        "version": "2.4.1",
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.urac",
+        "version": "2.4.1",
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+
+      {
+        "name": "soajs.dashboard",
+        "version": "2.6.2",
+        "bugFixes": [
+          "Fixed Multiple Reported Bugs"
+        ],
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.dashboard.ui",
+        "version": "2.6.3",
+        "features": [
+          "Added Search for Api Catalog",
+          "Added Search for product ACL",
+          "Added pagination for API Catalog",
+          "Added log more for repositories per git account",
+          "Added pagination for product ACL",
+          "Added favorite to API Catalog"
+        ],
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.installer",
+        "version": "3.3.4",
+        "features": [
+          "Added migrate capabilities to remote installation"
+        ],
+        "enhancements": [
+          "Enhanced data for manual and remote deployment"
+        ]
+      }
+    ]
+  },
+
+  {
     "id": "Banjo_2",
     "label": "Banjo 2",
     "date": "March 14, 2019",

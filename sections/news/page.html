@@ -133,6 +133,11 @@
 
 								<div ng-if="release.content" style='margin: 10px; padding: 10px; font-size: 14px;'>
 									<div class="col-md-12 col-sm-12 col-xs-12" ng-bind-html="release.content.note|toTrustedHtml">{{release.content.note}}</div>
+									<div ng-if="release.content.msg" class="col-md-12 col-sm-12 col-xs-12">
+										<ul>
+											<li ng-repeat="msg in release.content.msg" ng-bind-html="msg|toTrustedHtml"></li>
+										</ul>
+									</div>
 									<div class="col-md-6 col-sm-6 col-xs-12">
 										<div ng-bind-html="release.content.manual.note|toTrustedHtml">{{release.content.manual.note}}</div>
 										<ul>
