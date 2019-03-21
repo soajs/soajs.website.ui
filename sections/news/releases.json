@@ -87,7 +87,7 @@
 
       {
         "name": "soajs.dashboard",
-        "version": "2.6.2",
+        "version": "2.6.3",
         "bugFixes": [
           "Fixed Multiple Reported Bugs"
         ],
@@ -97,7 +97,7 @@
       },
       {
         "name": "soajs.dashboard.ui",
-        "version": "2.6.3",
+        "version": "2.6.4",
         "features": [
           "Added Search for Api Catalog",
           "Added Search for product ACL",
