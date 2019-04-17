@@ -1,14 +1,155 @@
 [
   {
     "id": "Kanyu_1",
-    "label": "Kanyu Releases",
-    "date": "Are Coming Soon",
+    "label": "Kanyu 1",
+    "date": "April 17, 2019",
     "content": {
-      "note": "Tons of features with Kanyu will be release soon",
-      "msg": [
-        "An announcement will happen shortly. stay tunned :)"
-      ]
-    }
+      "note": "<b class='red-txt'>Banjo 2 Release</b> is a major release requires running soajs migrator and here are the steps:",
+      "footer": "if you need help please contact soajs support, we are looking forward to guide with this update.",
+      "manual": {
+        "note": "<b>For manual deploy do the following:</b>",
+        "content": [
+          "1- download the new soajs.installer",
+          "2- backup the file config.js from the existing soajs.installer/etc/config.js",
+          "3- delete the existing soajs.installer folder",
+          "4- unzip the new installer and copy it to the same location",
+          "5- copy the backed up config.js into soajs.installer/etc/",
+          "sudo soajs console update",
+          "sudo soajs console stop",
+          "sudo soajs mongo migrate to_acl_v2",
+          "sudo soajs console restart"
+        ]
+      },
+      "remote": {
+        "note": "<b>For remote deploy do the following:</b>",
+        "content": [
+          "1- download the new soajs.installer",
+          "2- backup the folder startup from the existing soajs.installer/include/soajs-remote/data/startup",
+          "3- backup the file custom.js from the existing soajs.installer/include/soajs-remote/data/custom.js",
+          "4- delete the existing soajs.installer folder",
+          "5- unzip the new installer and copy it to the same location",
+          "6- copy the backed up custom.js file and startup folder into soajs.installer/include/soajs-remote/data/",
+          "Redeploy SOASJ services from the console for dashboard environment",
+          "sudo soajs remote-installer migrate to_acl_v2",
+          "restart SOASJ services from the console for dashboard environment"
+        ]
+      }
+    },
+    "repos": [
+      {
+        "name": "soajs.core.modules",
+        "version": "2.5.5",
+        "enhancements": [
+          "Added mw param support for EPG to trigger register on gateway",
+          "Added pin login errors",
+          "Enhanced scope ACL conversion to pack ACL",
+          "Updated dev dependencies list"
+        ]
+      },
+      {
+        "name": "soajs.urac.driver",
+        "version": "1.4.4",
+        "features": [
+          "Added multi tenant pin login"
+        ],
+        "enhancements": [
+          "Resolved groups when login to support getUserFromToken for acceleration",
+          "Updated dependencies list",
+          "Updated dev dependencies list"
+        ]
+      },
+      {
+        "name": "soajs",
+        "version": "2.4.6",
+        "features": [
+          "Added multi tenant pin login"
+        ],
+        "enhancements": [
+          "Optimized gotoservice",
+          "Added mw param support for EPG to be sent to registry",
+          "Updated dependencies list",
+          "Updated dev dependencies list"
+        ]
+      },
+      {
+        "name": "soajs.controller",
+        "version": "2.4.5",
+        "enhancements": [
+          "Updated dependencies list",
+        ]
+      },
+      {
+        "name": "soajs.composer",
+        "version": "2.4.4",
+        "enhancements": [
+          "Updated dependencies list",
+          "Updated dev dependencies list"
+        ]
+      },
+      {
+        "name": "soajs.epg",
+        "version": "0.4.0",
+        "features": [
+          "Added pipeline mapper",
+          "Added regex to mapper",
+          "Added deep path resolve to mapper"
+        ],
+        "enhancements": [
+          "Updated dependencies list",
+          "Updated dev dependencies list"
+        ]
+      },
+      {
+        "name": "soajs.oauth",
+        "version": "2.4.3",
+        "features": [
+          "Added pin login capabilities by tenant.product"
+          ],
+        "enhancements": [
+          "Updated dependencies list",
+          "Updated dev dependencies list"
+        ]
+      },
+      {
+        "name": "soajs.urac",
+        "version": "2.4.5",
+        "enhancements": [
+          "Updated dependencies list",
+          "Updated dev dependencies list"
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "2.6.9",
+        "features": [
+          "Added pin login capabilities by tenant.product"
+        ],
+        "enhancements": [
+          "Updated dependencies list"
+        ]
+      },
+      {
+        "name": "soajs.dashboard.ui",
+        "version": "2.6.14",
+        "features": [
+          "Added pin login capabilities at oauth modal"
+        ]
+      },
+      {
+        "name": "soajs.installer",
+        "version": "2.3.5",
+        "features": [
+          "Added migrator for acl_v2"
+        ]
+      },
+      {
+        "name": "soajs.buildimages",
+        "version": "2.1.5",
+        "features": [
+          "Added step deploy for nginx (deploy, install, run)"
+        ]
+      }
+    ]
   },
   {
     "id": "Banjo_4",
