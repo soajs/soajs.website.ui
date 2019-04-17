@@ -4,7 +4,7 @@
     "label": "Kanyu 1",
     "date": "April 17, 2019",
     "content": {
-      "note": "<b class='red-txt'>Banjo 2 Release</b> is a major release requires running soajs migrator and here are the steps:",
+      "note": "<b class='red-txt'>This Release</b> is a major release requires running soajs migrator and here are the steps:",
       "footer": "if you need help please contact soajs support, we are looking forward to guide with this update.",
       "manual": {
         "note": "<b>For manual deploy do the following:</b>",
