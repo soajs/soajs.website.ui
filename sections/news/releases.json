@@ -130,7 +130,7 @@
       },
       {
         "name": "soajs.dashboard",
-        "version": "2.6.10",
+        "version": "2.6.11",
         "features": [
           "Added pin login capabilities by tenant.product",
           "Enhanced Git search to support local and remote "
