@@ -1,17 +1,124 @@
 [
   {
-    "id": "Banjo_4",
-    "label": "Banjo 4",
-    "date": "Coming Soon",
+    "id": "Kanyu_1",
+    "label": "Kanyu Releases",
+    "date": "Are Coming Soon",
     "content": {
-      "note": "Tons of features like favorite for repositories per git account, pass through endpoint, custom swagger filename",
-      "msg" : [
-        "Pass-through endpoints: Add pass-through API to the catalog by specify in a UI form the name of the service, the version, etc..  the swagger content by picking one of the 3 following options (copy paste in swagger editor, provide a url, or pick a repo and a branch).",
-        "API builder service setting re-design: An easy and very intuitive UI to add service settings while creating microservices or endpoints.",
-        "API design: ability to change the API contract using a swagger editor from the API catalog.",
-        "API documentation: WYSIWYG editor to add documentation to your API from the API catalog. "
+      "note": "Tons of features with Kanyu will be release soon",
+      "msg": [
+        "An announcement will happen shortly. stay tunned :)"
       ]
     }
+  },
+  {
+    "id": "Banjo_4",
+    "label": "Banjo 4",
+    "date": "April 17, 2019",
+    "repos": [
+      {
+        "name": "soajs.core.modules",
+        "version": "2.5.4",
+        "enhancements": [
+          "Updated mongoDB indexes for registry and provision"
+        ]
+      },
+      {
+        "name": "soajs.urac.driver",
+        "version": "1.4.3",
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.core.drivers",
+        "version": "3.5.3",
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs",
+        "version": "2.4.4",
+        "enhancements": [
+          "If key is not present skip and let controller MW handle this",
+          "Updated dependency list"
+        ],
+        "bugFixes": [
+          "Fixed version MW callback bug"
+        ]
+      },
+      {
+        "name": "soajs.controller",
+        "version": "2.4.4",
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.composer",
+        "version": "2.4.3",
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.epg",
+        "version": "0.3.3",
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.oauth",
+        "version": "2.4.2",
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.urac",
+        "version": "2.4.4",
+        "enhancements": [
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "2.6.8",
+        "features": [
+          "Added manual gateway information",
+          "Added Single Source of truth to PassThrough using Git",
+          "Enhanced tab refresh focus after saving under API builder",
+          "Added Versioning to Api simulate"
+        ],
+        "enhancements": [
+          "Bumped Bitbucket SAAS driver to version 2.0",
+          "Revamped Bitbucket Server driver",
+          "Updated dependency list"
+        ]
+      },
+      {
+        "name": "soajs.dashboard.ui",
+        "version": "2.6.13",
+        "features": [
+          "Added manual gateway information",
+          "Added Single Source of truth to PassThrough using Git",
+          "Added Versioning to Api simulate in Endpoints"
+        ],
+        "enhancements": [
+          "Enhanced tab refresh focus after saving under API builder",
+          "Revamped Api Bulder Settings UI",
+          "Updated dependency list"
+        ],
+        "bugFixes": [
+          "Fixed ACL schema bug at product scope",
+          "Fixed save ACL bug",
+          "Fixed add oauth user (b2b)",
+          "Fixed semantic version for local deployment",
+          "Fixed ui version bug for local deployment"
+        ]
+      }
+    ]
   },
   {
     "id": "Banjo_3",
@@ -84,7 +191,6 @@
           "Updated dependency list"
         ]
       },
-
       {
         "name": "soajs.dashboard",
         "version": "2.6.3",
@@ -122,7 +228,6 @@
       }
     ]
   },
-
   {
     "id": "Banjo_2",
     "label": "Banjo 2",
