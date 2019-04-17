@@ -47,8 +47,18 @@
         ]
       },
       {
+        "name": "soajs.core.drivers",
+        "version": "3.5.4",
+        "enhancements": [
+          "Added mw param support for EPG to trigger register on gateway",
+          "Added pin login errors",
+          "Enhanced scope ACL conversion to pack ACL",
+          "Updated dev dependencies list"
+        ]
+      },
+      {
         "name": "soajs.urac.driver",
-        "version": "1.4.4",
+        "version": "1.4.5",
         "features": [
           "Added multi tenant pin login"
         ],
@@ -60,7 +70,7 @@
       },
       {
         "name": "soajs",
-        "version": "2.4.6",
+        "version": "2.4.7",
         "features": [
           "Added multi tenant pin login"
         ],
@@ -73,14 +83,14 @@
       },
       {
         "name": "soajs.controller",
-        "version": "2.4.5",
+        "version": "2.4.6",
         "enhancements": [
           "Updated dependencies list"
         ]
       },
       {
         "name": "soajs.composer",
-        "version": "2.4.4",
+        "version": "2.4.5",
         "enhancements": [
           "Updated dependencies list",
           "Updated dev dependencies list"
@@ -88,7 +98,7 @@
       },
       {
         "name": "soajs.epg",
-        "version": "0.4.0",
+        "version": "0.4.1",
         "features": [
           "Added pipeline mapper",
           "Added regex to mapper",
@@ -101,7 +111,7 @@
       },
       {
         "name": "soajs.oauth",
-        "version": "2.4.3",
+        "version": "2.4.4",
         "features": [
           "Added pin login capabilities by tenant.product"
           ],
@@ -120,9 +130,10 @@
       },
       {
         "name": "soajs.dashboard",
-        "version": "2.6.9",
+        "version": "2.6.10",
         "features": [
-          "Added pin login capabilities by tenant.product"
+          "Added pin login capabilities by tenant.product",
+          "Enhanced Git search to support local and remote "
         ],
         "enhancements": [
           "Updated dependencies list"
@@ -130,14 +141,15 @@
       },
       {
         "name": "soajs.dashboard.ui",
-        "version": "2.6.14",
+        "version": "2.6.15",
         "features": [
-          "Added pin login capabilities at oauth modal"
+          "Added pin login capabilities at oauth modal",
+          "Repository search works locally and remotely for better search"
         ]
       },
       {
         "name": "soajs.installer",
-        "version": "2.3.5",
+        "version": "3.3.5",
         "features": [
           "Added migrator for acl_v2"
         ]
