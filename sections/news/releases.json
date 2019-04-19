@@ -38,29 +38,29 @@
     "repos": [
       {
         "name": "soajs.core.modules",
-        "version": "2.5.5",
+        "version": "2.5.6",
         "enhancements": [
           "Added mw param support for EPG to trigger register on gateway",
           "Added pin login errors",
           "Enhanced scope ACL conversion to pack ACL",
-          "Updated dev dependencies list"
+          "Updated dev dependencies list",
+          "Added support for urac_Config and uracGroupConfig"
         ]
       },
       {
         "name": "soajs.core.drivers",
-        "version": "3.5.4",
+        "version": "3.5.5",
         "enhancements": [
-          "Added mw param support for EPG to trigger register on gateway",
-          "Added pin login errors",
-          "Enhanced scope ACL conversion to pack ACL",
+          "Updated dependencies list",
           "Updated dev dependencies list"
         ]
       },
       {
         "name": "soajs.urac.driver",
-        "version": "1.4.5",
+        "version": "1.4.6",
         "features": [
-          "Added multi tenant pin login"
+          "Added multi tenant pin login",
+          "Added allowedEnvironment to  be able to secure env among users"
         ],
         "enhancements": [
           "Resolved groups when login to support getUserFromToken for acceleration",
@@ -70,7 +70,7 @@
       },
       {
         "name": "soajs",
-        "version": "2.4.7",
+        "version": "2.4.8",
         "features": [
           "Added multi tenant pin login"
         ],
@@ -78,19 +78,20 @@
           "Optimized gotoservice",
           "Added mw param support for EPG to be sent to registry",
           "Updated dependencies list",
-          "Updated dev dependencies list"
+          "Updated dev dependencies list",
+          "Added support for urac_Config and uracGroupConfig"
         ]
       },
       {
         "name": "soajs.controller",
-        "version": "2.4.6",
+        "version": "2.4.7",
         "enhancements": [
           "Updated dependencies list"
         ]
       },
       {
         "name": "soajs.composer",
-        "version": "2.4.5",
+        "version": "2.4.6",
         "enhancements": [
           "Updated dependencies list",
           "Updated dev dependencies list"
@@ -98,7 +99,7 @@
       },
       {
         "name": "soajs.epg",
-        "version": "0.4.1",
+        "version": "0.4.2",
         "features": [
           "Added pipeline mapper",
           "Added regex to mapper",
@@ -111,7 +112,7 @@
       },
       {
         "name": "soajs.oauth",
-        "version": "2.4.4",
+        "version": "2.4.5",
         "features": [
           "Added pin login capabilities by tenant.product"
           ],
@@ -122,15 +123,20 @@
       },
       {
         "name": "soajs.urac",
-        "version": "2.4.5",
+        "version": "2.4.9",
+        "features": [
+          "Added allowedEnvironments to group routes",
+          "Added allowedTenants to user routes"
+          ],
         "enhancements": [
+          "Enhanced indexes",
           "Updated dependencies list",
           "Updated dev dependencies list"
         ]
       },
       {
         "name": "soajs.dashboard",
-        "version": "2.6.11",
+        "version": "2.6.14",
         "features": [
           "Added pin login capabilities by tenant.product",
           "Enhanced Git search to support local and remote "
@@ -141,7 +147,7 @@
       },
       {
         "name": "soajs.dashboard.ui",
-        "version": "2.6.15",
+        "version": "2.6.18",
         "features": [
           "Added pin login capabilities at oauth modal",
           "Repository search works locally and remotely for better search"
