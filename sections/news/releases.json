@@ -17,6 +17,7 @@
           "sudo soajs console update",
           "sudo soajs console stop",
           "sudo soajs mongo migrate to_acl_v2",
+          "sudo soajs mongo migrate to_dashboard_v1",
           "sudo soajs console restart"
         ]
       },
@@ -31,6 +32,7 @@
           "6- copy the backed up custom.js file and startup folder into soajs.installer/include/soajs-remote/data/",
           "Redeploy SOASJ services from the console for dashboard environment",
           "sudo soajs remote-installer migrate to_acl_v2",
+          "sudo soajs remote-installer migrate to_dashboard_v1",
           "restart SOASJ services from the console for dashboard environment"
         ]
       }
@@ -57,10 +59,12 @@
       },
       {
         "name": "soajs.urac.driver",
-        "version": "1.4.6",
+        "version": "1.4.8",
         "features": [
           "Added multi tenant pin login",
-          "Added allowedEnvironment to  be able to secure env among users"
+          "Added allowedEnvironment to  be able to secure env among users",
+          "Added last Login ",
+          "Added AzureAD login"
         ],
         "enhancements": [
           "Resolved groups when login to support getUserFromToken for acceleration",
@@ -70,7 +74,7 @@
       },
       {
         "name": "soajs",
-        "version": "2.4.8",
+        "version": "2.4.10",
         "features": [
           "Added multi tenant pin login"
         ],
@@ -79,19 +83,20 @@
           "Added mw param support for EPG to be sent to registry",
           "Updated dependencies list",
           "Updated dev dependencies list",
-          "Added support for urac_Config and uracGroupConfig"
+          "Added support for urac_Config and uracGroupConfig",
+          "Applied path to regex for all user acl"
         ]
       },
       {
         "name": "soajs.controller",
-        "version": "2.4.7",
+        "version": "2.4.9",
         "enhancements": [
           "Updated dependencies list"
         ]
       },
       {
         "name": "soajs.composer",
-        "version": "2.4.6",
+        "version": "2.4.8",
         "enhancements": [
           "Updated dependencies list",
           "Updated dev dependencies list"
@@ -99,7 +104,7 @@
       },
       {
         "name": "soajs.epg",
-        "version": "0.4.2",
+        "version": "0.4.4",
         "features": [
           "Added pipeline mapper",
           "Added regex to mapper",
@@ -112,7 +117,7 @@
       },
       {
         "name": "soajs.oauth",
-        "version": "2.4.5",
+        "version": "2.4.8",
         "features": [
           "Added pin login capabilities by tenant.product"
           ],
@@ -123,23 +128,31 @@
       },
       {
         "name": "soajs.urac",
-        "version": "2.4.9",
+        "version": "2.4.13",
         "features": [
           "Added allowedEnvironments to group routes",
-          "Added allowedTenants to user routes"
+          "Added allowedTenants to user routes",
+          "Added /admin/group/addEnvironment",
+          "Added Product API"
           ],
         "enhancements": [
           "Enhanced indexes",
           "Updated dependencies list",
-          "Updated dev dependencies list"
+          "Updated dev dependencies list",
+          "Enhanced group and user APIs",
+          "Enhanced product package add to return full application code"
         ]
       },
       {
         "name": "soajs.dashboard",
-        "version": "2.6.14",
+        "version": "2.6.19",
         "features": [
           "Added pin login capabilities by tenant.product",
-          "Enhanced Git search to support local and remote "
+          "Enhanced Git search to support local and remote ",
+          "Added Environment security",
+          "Added Pin Login support",
+          "Added tags, attributes, program to soa.json",
+          "Added swaggerFilename to soa.json"
         ],
         "enhancements": [
           "Updated dependencies list"
@@ -147,17 +160,27 @@
       },
       {
         "name": "soajs.dashboard.ui",
-        "version": "2.6.18",
+        "version": "2.6.19",
         "features": [
           "Added pin login capabilities at oauth modal",
-          "Repository search works locally and remotely for better search"
+          "Repository search works locally and remotely for better search",
+          "Added Sub tenant UI",
+          "Added Environment security UI",
+          "Added port and protocol under registry edit",
+          "Added default acl configuration to manual config file",
+          "Added API catalog dashboard"
+        ],
+        "enhancements": [
+          "Changed available environments for external key to come from product scope"
         ]
       },
       {
         "name": "soajs.installer",
-        "version": "3.3.5",
+        "version": "3.3.6",
         "features": [
-          "Added migrator for acl_v2"
+          "Added migrator for acl_v2",
+          "Added migrator for dashboard_v1",
+          "Added program to soajs services"
         ]
       },
       {
