@@ -2,7 +2,7 @@
   {
     "id": "Kanyu_1",
     "label": "Kanyu 1",
-    "date": "April 17, 2019",
+    "date": "May 22, 2019",
     "content": {
       "note": "<b class='red-txt'>This Release</b> is a major release requires running soajs migrator and here are the steps:",
       "footer": "if you need help please contact soajs support, we are looking forward to guide with this update.",
@@ -40,18 +40,19 @@
     "repos": [
       {
         "name": "soajs.core.modules",
-        "version": "2.5.6",
+        "version": "2.5.7",
         "enhancements": [
           "Added mw param support for EPG to trigger register on gateway",
           "Added pin login errors",
           "Enhanced scope ACL conversion to pack ACL",
           "Updated dev dependencies list",
-          "Added support for urac_Config and uracGroupConfig"
+          "Added support for urac_Config and uracGroupConfig",
+          "Added tenant type and main tenant information"
         ]
       },
       {
         "name": "soajs.core.drivers",
-        "version": "3.5.5",
+        "version": "3.5.6",
         "enhancements": [
           "Updated dependencies list",
           "Updated dev dependencies list"
@@ -59,12 +60,13 @@
       },
       {
         "name": "soajs.urac.driver",
-        "version": "1.4.8",
+        "version": "1.4.9",
         "features": [
           "Added multi tenant pin login",
           "Added allowedEnvironment to  be able to secure env among users",
           "Added last Login ",
-          "Added AzureAD login"
+          "Added AzureAD login",
+          "Added support for sub tenant login"
         ],
         "enhancements": [
           "Resolved groups when login to support getUserFromToken for acceleration",
@@ -74,9 +76,11 @@
       },
       {
         "name": "soajs",
-        "version": "2.4.10",
+        "version": "2.4.12",
         "features": [
-          "Added multi tenant pin login"
+          "Added multi tenant pin login",
+          "Added proxy to external URI",
+          "Added sub tenant support for injected header object"
         ],
         "enhancements": [
           "Optimized gotoservice",
@@ -84,19 +88,20 @@
           "Updated dependencies list",
           "Updated dev dependencies list",
           "Added support for urac_Config and uracGroupConfig",
-          "Applied path to regex for all user acl"
+          "Applied path to regex for all user acl",
+          "Enhanced proxy to support extKey"
         ]
       },
       {
         "name": "soajs.controller",
-        "version": "2.4.9",
+        "version": "2.4.11",
         "enhancements": [
           "Updated dependencies list"
         ]
       },
       {
         "name": "soajs.composer",
-        "version": "2.4.8",
+        "version": "2.4.10",
         "enhancements": [
           "Updated dependencies list",
           "Updated dev dependencies list"
@@ -104,7 +109,7 @@
       },
       {
         "name": "soajs.epg",
-        "version": "0.4.4",
+        "version": "0.4.6",
         "features": [
           "Added pipeline mapper",
           "Added regex to mapper",
@@ -117,7 +122,7 @@
       },
       {
         "name": "soajs.oauth",
-        "version": "2.4.8",
+        "version": "2.4.10",
         "features": [
           "Added pin login capabilities by tenant.product"
           ],
@@ -128,12 +133,17 @@
       },
       {
         "name": "soajs.urac",
-        "version": "2.4.13",
+        "version": "2.4.14",
         "features": [
           "Added allowedEnvironments to group routes",
           "Added allowedTenants to user routes",
           "Added /admin/group/addEnvironment",
-          "Added Product API"
+          "Added Product API",
+          "Added Delete User API",
+          "Added UN/Invite User By ID API",
+          "Added Bulk Invite Users",
+          "Added Support for Auto-Generated Code for Products, Packages, And Tenants",
+          "Changed PinCode To become Auto-Generated"
           ],
         "enhancements": [
           "Enhanced indexes",
@@ -145,7 +155,7 @@
       },
       {
         "name": "soajs.dashboard",
-        "version": "2.6.19",
+        "version": "2.6.24",
         "features": [
           "Added pin login capabilities by tenant.product",
           "Enhanced Git search to support local and remote ",
@@ -155,12 +165,15 @@
           "Added swaggerFilename to soa.json"
         ],
         "enhancements": [
-          "Updated dependencies list"
+          "Updated dependencies list",
+          "Added Support for Auto-Generated Code for Products, Packages, And Tenants",
+          "Added Label to External Key",
+          "Update Response of Add Package API"
         ]
       },
       {
         "name": "soajs.dashboard.ui",
-        "version": "2.6.19",
+        "version": "2.6.22",
         "features": [
           "Added pin login capabilities at oauth modal",
           "Repository search works locally and remotely for better search",
@@ -168,15 +181,20 @@
           "Added Environment security UI",
           "Added port and protocol under registry edit",
           "Added default acl configuration to manual config file",
-          "Added API catalog dashboard"
+          "Added API catalog dashboard",
+          "Added Support for Multi-Environment in Members Area"
         ],
         "enhancements": [
-          "Changed available environments for external key to come from product scope"
+          "Changed available environments for external key to come from product scope",
+          "Updated Pin Code in Configuration for SubTenant Users",
+          "Added Proxy Support to Simulate API under Api Catalog",
+          "Added Label to External Key",
+          "Added GET User Token form Token to Registry"
         ]
       },
       {
         "name": "soajs.installer",
-        "version": "3.3.6",
+        "version": "3.3.7",
         "features": [
           "Added migrator for acl_v2",
           "Added migrator for dashboard_v1",
