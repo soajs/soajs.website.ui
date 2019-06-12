@@ -1,5 +1,152 @@
 [
   {
+    "id": "Kanyu_2",
+    "label": "Kanyu 2",
+    "date": "June 14, 2019",
+    "repos": [
+      {
+        "name": "soajs.core.modules",
+        "version": "2.5.8",
+        "enhancements": [
+          "Added error message when URI env settings are missing from registry"
+        ]
+      },
+      {
+        "name": "soajs.core.drivers",
+        "version": "3.5.7",
+        "enhancements": [
+          "Updated dependencies list"
+        ]
+      },
+      {
+        "name": "soajs.urac.driver",
+        "version": "2.0.0",
+        "enhancements": [
+          "Complete revamp with ES6 code base",
+          "Updated dependencies list"
+        ]
+      },
+      {
+        "name": "soajs",
+        "version": "2.5.0",
+        "enhancements": [
+          "Updated dependencies list",
+          "Support for new soajs.urac.driver",
+          "Added assurance for proxy URI",
+          "Added assurance for urls in case of endpoint service"
+        ]
+      },
+      {
+        "name": "soajs.controller",
+        "version": "2.5.0",
+        "enhancements": [
+          "Updated dependencies list"
+        ]
+      },
+      {
+        "name": "soajs.composer",
+        "version": "2.5.0",
+        "enhancements": [
+          "Updated dependencies list"
+        ]
+      },
+      {
+        "name": "soajs.epg",
+        "version": "0.5.0",
+        "enhancements": [
+          "Updated dependencies list"
+        ]
+      },
+      {
+        "name": "soajs.oauth",
+        "version": "2.5.0",
+        "enhancements": [
+          "Updated dependencies list",
+          "Support for new soajs.urac.driver"
+        ]
+      },
+      {
+        "name": "soajs.urac",
+        "version": "2.5.0",
+        "features": [
+          "Added allowedTenants to user routes",
+          "Added allowedEnvironments to group routes",
+          "Added /admin/group/addEnvironment",
+          "Added Product API",
+          "Added Delete User API",
+          "Added UN/Invite User By ID API",
+          "Added Bulk Invite Users",
+          "Added Support for Auto-Generated Code for Products, Packages, And Tenants",
+          "Changed PinCode To become Auto-Generated"
+        ],
+        "enhancements": [
+          "Enhanced indexes",
+          "Updated dependencies list",
+          "Enhanced forgot password to return full URI",
+          "Enhanced product package add to return full application code"
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "2.7.0",
+        "features": [
+          "Added pin login capabilities by tenant.product",
+          "Enhanced Git search to support local and remote",
+          "Added Environment security",
+          "Added Pin Login support",
+          "Added tags, attributes, program to soa.json",
+          "Added swaggerFilename to soa.json",
+          "Added Dashboard Api Catalog route",
+          "Removed Soajs Services from Dashboard Api Metrics"
+        ],
+        "enhancements": [
+          "Added Support for Auto-Generated Code for Products, Packages, And Tenants",
+          "Added Label to External Key",
+          "Update Response of Add Package API",
+          "Updated dependencies list"
+        ]
+      },
+      {
+        "name": "soajs.dashboard.ui",
+        "version": "2.7.0",
+        "features": [
+          "Added pin login capabilities at oauth modal",
+          "Repository search works locally and remotely for better search",
+          "Added Sub tenant UI",
+          "Added Environment security UI",
+          "Added port and protocol under registry edit",
+          "Added default acl configuration to manual config file",
+          "Added API catalog dashboard",
+          "Added Support for Multi-Environment in Members Area",
+          "Added Api Catalog Tab under Dashboard Pillar"
+        ],
+        "enhancements": [
+          "Changed available environments for external key to come from product scope",
+          "Updated Pin Code in Configuration for SubTenant Users",
+          "Added Proxy Support to Simulate API under Api Catalog",
+          "Added Label to External Key",
+          "Added GET User Token form Token to Registry",
+          "Revamped Service Detail under Api Catalog module"
+        ]
+      },
+      {
+        "name": "soajs.installer",
+        "version": "3.3.9",
+        "features": [
+          "Added sparce to pin login index",
+          "Enhanced handling for oauth token at mongo custom"
+        ]
+      },
+      {
+        "name": "soajs.buildimages",
+        "version": "2.1.6",
+        "features": [
+          "goLang image has version 1.12.5-alpine"
+        ]
+      }
+    ]
+  },
+  {
     "id": "Kanyu_1",
     "label": "Kanyu 1",
     "date": "May 22, 2019",
@@ -173,7 +320,7 @@
       },
       {
         "name": "soajs.dashboard.ui",
-        "version": "2.6.22",
+        "version": "2.6.23",
         "features": [
           "Added pin login capabilities at oauth modal",
           "Repository search works locally and remotely for better search",
