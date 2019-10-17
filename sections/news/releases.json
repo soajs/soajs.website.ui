@@ -4,8 +4,8 @@
     "label": "Kanyu 3",
     "date": "Sept 14, 2019",
     "content": {
-      "note": "<b class='red-txt'>This Release</b> is a major release requires running soajs migrator and here are the steps:",
-      "footer": "if you need help please contact soajs support, we are looking forward to guide with this update."
+      "note": "<b class='red-txt'>This Release</b> is a major if you face problem please contact us.",
+      "footer": "if you need help please contact soajs support, we are looking forward to guide you with this update."
     },
     "repos": [
       {
