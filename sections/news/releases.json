@@ -1,5 +1,184 @@
 [
   {
+    "id": "Kanyu_3",
+    "label": "Kanyu 3",
+    "date": "Sept 14, 2019",
+    "content": {
+      "note": "<b class='red-txt'>This Release</b> is a major release requires running soajs migrator and here are the steps:",
+      "footer": "if you need help please contact soajs support, we are looking forward to guide with this update."
+    },
+    "repos": [
+      {
+        "name": "soajs.core.modules",
+        "version": "2.5.21",
+        "enhancements": [
+          "Configured soajs by default to map error codes into http status",
+          "Added support for tenant profile",
+          "Added maintenance information to registry when /register is triggered for local deployment",
+          "Added assurance for product.scope.acl",
+          "Added getPackagesData at provisioning to support multi package per group per product",
+          "Added the ability to have dedicated cluster for oauth token per environment",
+          "Updated dependencies list"
+        ]
+      },
+      {
+        "name": "soajs.core.drivers",
+        "version": "3.5.21",
+        "enhancements": [
+          "Upgraded Kubernetes driver",
+          "Added Support for CronJob Deployment for Kubernetes",
+          "Added Support for Cluster Role Binding Deployment for Kubernetes",
+          "Added Support for Cluster Role Binding Deployment for Kubernetes",
+          "Updated dependencies list"
+        ],
+        "bugFixes": [
+          "Fixed maintenance operation under Kubernetes Driver"
+        ]
+      },
+      {
+        "name": "soajs.urac.driver",
+        "version": "2.0.12",
+        "enhancements": [
+          "Added indexing for pin login uniqueness by tenant",
+          "Optimized URAC group indexing",
+          "Updated dependencies list"
+        ]
+      },
+      {
+        "name": "soajs",
+        "version": "2.5.20",
+        "enhancements": [
+          "Added support for multi package per product per group",
+          "Added support for custom pinAPI at custom registry",
+          "Added support for tenant profile at injected object",
+          "Added Support for access_token as header param",
+          "Added addition information about version and dependencies at heartbeat maintenance route",
+          "Added awareness to route getRegistry",
+          "Enhanced stream support and header sent response check on abort and error",
+          "Added support for PATCH http method",
+          "Updated dependencies list"
+        ]
+      },
+      {
+        "name": "soajs.controller",
+        "version": "3.0.0",
+        "enhancements": [
+          "Complete revamp with ES6 codebase",
+          "Updated dependencies list"
+        ]
+      },
+      {
+        "name": "soajs.composer",
+        "version": "2.5.1",
+        "enhancements": [
+          "Updated dependencies list"
+        ]
+      },
+      {
+        "name": "soajs.epg",
+        "version": "0.5.1",
+        "enhancements": [
+          "Updated dependencies list"
+        ]
+      },
+      {
+        "name": "soajs.oauth",
+        "version": "2.6.0",
+        "enhancements": [
+          "Complete revamp with ES6 codebase",
+          "Sending package.json information as configuration",
+          "Added support for dedicated OAuth mongo cluster per environment with roaming capabilities from dashboard",
+          "Updated dependencies list"
+        ]
+      },
+      {
+        "name": "soaps.multitenant",
+        "version": "1.0.4",
+        "enhancements": [
+          "First release of this dedicated microservice to manage productization and multitenancy",
+          "Updated dependencies list"
+        ]
+      },
+      {
+        "name": "soajs.urac",
+        "version": "2.5.22",
+        "enhancements": [
+          "Sending package.json information as configuration",
+          "Ability to set pin code configuration",
+          "Added route to recover Pin Code",
+          "Added the ability to add a user under the main tenancy and at the same time invite to a sub tenancy",
+          "Updated dependencies list"
+        ]
+      },
+      {
+        "name": "soajs.dashboard",
+        "version": "2.7.24",
+        "features": [
+          "Added Support for Swagger Cashing in Services",
+          "Removal of Resource Security per User",
+          "Sending package.json information as configuration",
+          "Added Support to Kubernetes cronJob Daemons",
+          "Added Support to Kubernetes cronJob Daemon group configuration",
+          "Added Support to all Http request methods",
+          "Added Liveliness Probe for Kuberentes deployment",
+          "Added Support for Maintenance Operations to all Services",
+          "Updated dependencies list"
+        ],
+        "bugFixes": [
+          "Fixed all reported bugs"
+        ]
+      },
+      {
+        "name": "soajs.dashboard.ui",
+        "version": "2.7.17",
+        "features": [
+          "Added Support for Swagger Cashing in Services",
+          "Added Support for Multitenant Service Deployment",
+          "Revamped Daemon Catalog",
+          "Added Support to Kubernetes cronJob Daemons",
+          "Added Support to Kubernetes cronJob Daemon group configuration",
+          "Added Support to all Http request methods",
+          "ACL View (Product and Scope)",
+          "API Catalog View",
+          "Dashboard Metrics View",
+          "Dashboard Api Catalog View",
+          "Added Liveliness Probe for Kuberentes deployment in Catalog Recipe View",
+          "Added Support for Maintenance Operations to all Services"
+        ],
+        "bugFixes": [
+          "Fixed minor bugs in adding groups",
+          "Fixed minor bugs in adding members"
+        ]
+      },
+      {
+        "name": "soajs.installer",
+        "version": "4.0.0",
+        "features": [
+          "The new v4.x that makes it easy to update the installer code base",
+          "Enhanced ready data",
+          "Added ability to to delete all data before importing custom data with --clean",
+          "Added restart to service",
+          "Added soajs services stop|start|restart --env=%code%",
+          "Added migrate to_multitenant_v1"
+        ]
+      },
+      {
+        "name": "soajs.installer",
+        "version": "4.0.0",
+        "features": [
+          "The new v4.x that makes it easy to update the installer code base"
+        ],
+        "enhancements": [
+          "Enhanced ready data",
+          "Added ability to to delete all data before importing custom data with --clean",
+          "Added restart to service",
+          "Added soajs services stop|start|restart --env=%code%",
+          "Added migrate to_multitenant_v1"
+        ]
+      }
+    ]
+  },
+  {
     "id": "Kanyu_2",
     "label": "Kanyu 2",
     "date": "June 14, 2019",
@@ -272,7 +451,7 @@
         "version": "2.4.10",
         "features": [
           "Added pin login capabilities by tenant.product"
-          ],
+        ],
         "enhancements": [
           "Updated dependencies list",
           "Updated dev dependencies list"
@@ -291,7 +470,7 @@
           "Added Bulk Invite Users",
           "Added Support for Auto-Generated Code for Products, Packages, And Tenants",
           "Changed PinCode To become Auto-Generated"
-          ],
+        ],
         "enhancements": [
           "Enhanced indexes",
           "Updated dependencies list",
