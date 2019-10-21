@@ -4,7 +4,7 @@
     "label": "Kanyu 3",
     "date": "Sept 14, 2019",
     "content": {
-      "note": "<b class='red-txt'>This Release</b> is a major if you face problem please contact us.",
+      "note": "<b class='red-txt'>This Release</b> is a major one. Please update to installer version 4.x, for more information checkout <a href='https://soajsorg.atlassian.net/wiki/spaces/IN/pages/1427472397/Update+Installer'> this help page </a>",
       "footer": "if you need help please contact soajs support, we are looking forward to guide you with this update."
     },
     "repos": [
