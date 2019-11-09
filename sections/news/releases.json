@@ -1,5 +1,14 @@
 [
   {
+    "id": "Kanyu_4",
+    "label": "Kanyu 4",
+    "date": "Nov 8, 2019",
+    "content": {
+      "note": "<b>Happy to announce that Kanyu 4 is out. </a>",
+      "footer": "For more information please  <a href='https://soajsorg.atlassian.net/wiki/spaces/IN/pages/1434386624/Kanuy'>click here</a>"
+    }
+  },
+  {
     "id": "Kanyu_3",
     "label": "Kanyu 3",
     "date": "Sept 14, 2019",
