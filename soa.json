@@ -2,5 +2,6 @@
   "type": "static",
   "name": "soajsorg",
   "description": "This is the soajs org website",
-  "version": "1"
+  "version": "1",
+  "group": "websites"
 }
