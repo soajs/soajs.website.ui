@@ -1,5 +1,5 @@
 'use strict';
-var sitekey = "6LcMzgMTAAAAAKd0Lqit5HJUI2Y6evlriyxT8-Zj";
+var sitekey = "6LfrQsYZAAAAALSeInG4jeGTDQ-hVlQ6lRI7M7bv";
 var captcha1, captcha2, captcha3;
 var iCaptcha1Value, aValueCaptcha, ccaptcha;
 
