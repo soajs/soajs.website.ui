@@ -1,7 +1,8 @@
 {
-  "type": "static",
   "name": "soajsorg",
-  "description": "This is the soajs org website",
+  "type": "static",
+  "group": "Website",
+  "subType": "soajs",
   "version": "1",
-  "group": "websites"
+  "description": "This is the soajs org website"
 }
