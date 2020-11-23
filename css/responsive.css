@@ -207,7 +207,23 @@
 /***
 max widths
 */
-@media (max-width:1025px){
+@media (max-width:1024px){
+    .whatis .content {
+        margin: 0;
+        padding: 0;
+        height: 700px;
+        padding-top: 20px;
+        /*padding-bottom: 80px;*/
+        width: 100%;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.6);
+        transition: all 1s;
+        -webkit-transition: all 1s;
+
+    }
+
     .bottom .menu {
         padding-top:50px;
     }
@@ -240,7 +256,7 @@ max widths
     .whatis .content {
         margin: 0;
         padding: 0;
-        height: 600px;
+        height: 650px;
         padding-top: 20px;
         /*padding-bottom: 80px;*/
         width: 100%;
@@ -276,7 +292,7 @@ max widths
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .nav-tabs {
         font-size: 12px;
     }
@@ -381,8 +397,39 @@ max widths
         font-size:14px;
     }
 }
+@media (max-width: 540px) {
+    .whatis .content {
+        margin: 0;
+        padding: 0;
+        height: 750px;
+        padding-top: 20px;
+        /*padding-bottom: 80px;*/
+        width: 100%;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.6);
+        transition: all 1s;
+        -webkit-transition: all 1s;
 
+    }
+}
 @media (max-width: 480px) {
+    .whatis .content {
+        margin: 0;
+        padding: 0;
+        height: 850px;
+        padding-top: 20px;
+        /*padding-bottom: 80px;*/
+        width: 100%;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.6);
+        transition: all 1s;
+        -webkit-transition: all 1s;
+
+    }
 
     .fieldMsg{
         font-size:13px;
@@ -455,6 +502,43 @@ max widths
     }
 }
 
+@media (max-width: 320px) {
+
+    .whatis .content {
+        margin: 0;
+        padding: 0;
+        height: 950px;
+        padding-top: 20px;
+        /*padding-bottom: 80px;*/
+        width: 100%;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.6);
+        transition: all 1s;
+        -webkit-transition: all 1s;
+
+    }
+}
+
+@media (max-width: 280px) {
+
+    .whatis .content {
+        margin: 0;
+        padding: 0;
+        height: 1100px;
+        padding-top: 20px;
+        /*padding-bottom: 80px;*/
+        width: 100%;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.6);
+        transition: all 1s;
+        -webkit-transition: all 1s;
+
+    }
+}
 /*
 @media screen and (min-width: 760px) and (max-width: 820px) {
   .topbar .branding{
