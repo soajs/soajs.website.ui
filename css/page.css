@@ -1007,7 +1007,7 @@ hr.green {
 }
 
 .blue-section .itemsList{
-    padding: 50px;
+    padding: 30px;
     min-height: 311px;
     box-shadow: none;
     display: block;
@@ -1054,7 +1054,7 @@ hr.green {
 .whatis .content {
     margin: 0;
     padding: 0;
-    height: 450px;
+    height: 600px;
     padding-top: 20px;
     /*padding-bottom: 80px;*/
     width: 100%;

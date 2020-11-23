@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Cloud orchestration & distributed architecture",
+    "icon": "im im-cubes"
+  },
+  {
+    "title": "Smart multi environment deploy with ledger, rollback and multi version support",
+    "icon": "im im-rocket"
+  },
+  {
+    "title": "Deploy from any source code and binary",
+    "icon": "im im-shield"
+  },
+  {
+    "title": "Infra as Code native & 3rd party support",
+    "icon": "im im-flask"
+  },
+  {
+    "title": "Import/export/clone environments",
+    "icon": "im im-fullscreen"
+  },
+  {
+    "title": "Custom CI/CD with Smart Release",
+    "icon": "im im-gamepad"
+  },
+  {
+    "title": "Support multi continuous integration server",
+    "icon": "im im-timer"
+  },
+  {
+    "title": "Support multi GIT server",
+    "icon": "im im-database"
+  }
+]

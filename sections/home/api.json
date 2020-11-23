@@ -1,0 +1,22 @@
+[
+  {
+    "title": "API Builder: passthrough and smart endpoint",
+    "icon": "im im-plugin"
+  },
+  {
+    "title": "API Framework: build microservice tenfold faster",
+    "icon": "im im-code"
+  },
+  {
+    "title": "Heterogeneous Catalog with source code integration and adaptation",
+    "icon": "im im-store"
+  },
+  {
+    "title": "Complete pipelines management for APIs and resources",
+    "icon": "im im-pulse"
+  },
+  {
+    "title": "Easily adapt to existing APIs & legacy systems",
+    "icon": "im im-fingerprint"
+  }
+]
