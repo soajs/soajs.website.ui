@@ -211,7 +211,7 @@ max widths
     .whatis .content {
         margin: 0;
         padding: 0;
-        height: 700px;
+        height: 750px;
         padding-top: 20px;
         /*padding-bottom: 80px;*/
         width: 100%;
@@ -256,7 +256,7 @@ max widths
     .whatis .content {
         margin: 0;
         padding: 0;
-        height: 650px;
+        height: 780px;
         padding-top: 20px;
         /*padding-bottom: 80px;*/
         width: 100%;
@@ -418,7 +418,7 @@ max widths
     .whatis .content {
         margin: 0;
         padding: 0;
-        height: 850px;
+        height: 820px;
         padding-top: 20px;
         /*padding-bottom: 80px;*/
         width: 100%;
@@ -501,13 +501,29 @@ max widths
         font-size: 11px;
     }
 }
+@media (max-width: 375px) {
+    .whatis .content {
+        margin: 0;
+        padding: 0;
+        height: 920px;
+        padding-top: 20px;
+        /*padding-bottom: 80px;*/
+        width: 100%;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.6);
+        transition: all 1s;
+        -webkit-transition: all 1s;
 
+    }
+}
 @media (max-width: 320px) {
 
     .whatis .content {
         margin: 0;
         padding: 0;
-        height: 950px;
+        height: 1080px;
         padding-top: 20px;
         /*padding-bottom: 80px;*/
         width: 100%;
@@ -526,7 +542,7 @@ max widths
     .whatis .content {
         margin: 0;
         padding: 0;
-        height: 1100px;
+        height: 1230px;
         padding-top: 20px;
         /*padding-bottom: 80px;*/
         width: 100%;
