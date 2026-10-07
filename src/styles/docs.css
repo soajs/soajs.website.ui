@@ -1,0 +1,12 @@
+/* Starlight theme overrides: SOAJS brand accent. */
+:root {
+	--sl-color-accent-low: #3a2a12;
+	--sl-color-accent: #c47f16;
+	--sl-color-accent-high: #f3d3a1;
+	--sl-font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+:root[data-theme='light'] {
+	--sl-color-accent-low: #f8e6c9;
+	--sl-color-accent: #a8670a;
+	--sl-color-accent-high: #4a2f06;
+}

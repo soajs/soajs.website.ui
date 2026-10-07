@@ -1,0 +1,62 @@
+---
+import Base from '../layouts/Base.astro';
+import { platforms, totals } from '../data/platforms';
+---
+
+<Base
+	title="Built on SOAJS"
+	description="Products built on SOAJS: secure communications, regulated healthcare, IoT, retail loyalty, creator marketplaces and venture operations."
+>
+	<section class="hero">
+		<div class="wrap">
+			<p class="eyebrow">Built on SOAJS</p>
+			<h1>We build on SOAJS ourselves.<br /><span>{totals.platforms} products, {totals.services} microservices.</span></h1>
+			<p class="lead">
+				These are the products our own team has shipped on SOAJS. The domains are very different; the pattern is the
+				same. Tenants, users and access rules live in the gateway, so every service holds only business logic. Other
+				teams have built many more products on SOAJS.
+			</p>
+			<nav class="toc" aria-label="Platforms">
+				{platforms.map((p) => <a class="tag" href={`#${p.id}`}>{p.name}</a>)}
+			</nav>
+		</div>
+	</section>
+
+	<div class="wrap">
+		{platforms.map((p) => (
+			<article class="case" id={p.id}>
+				<div>
+					<p class="domain">{p.domain}</p>
+					<h2>{p.name}</h2>
+					<dl class="stats" style="margin:20px 0">
+						<div><dt>{p.services}</dt><dd>SOAJS microservices</dd></div>
+					</dl>
+					{p.url && <p><a href={p.url} rel="noopener">{new URL(p.url).hostname.replace(/^www\./, '')} ↗</a></p>}
+				</div>
+				<div>
+					<p class="lead" style="margin-bottom:20px">{p.summary}</p>
+					<ul>
+						{p.points.map((pt) => <li>{pt}</li>)}
+					</ul>
+					<p style="margin-top:20px">
+						{p.soajs.map((s) => <span class="tag">{s}</span>)}
+					</p>
+				</div>
+			</article>
+		))}
+	</div>
+
+	<section>
+		<div class="wrap">
+			<div class="band">
+				<div>
+					<h2>Building on SOAJS?</h2>
+					<p>Tell us about it and we will add your product to this page.</p>
+				</div>
+				<div class="actions">
+					<a class="btn btn-primary" href="https://github.com/soajs">Share your project</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Base>

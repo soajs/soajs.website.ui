@@ -1,24 +1,23 @@
 {
-  "name": "soajs.website.ui",
-  "description": "soajs website",
-  "version": "1.0.6",
-  "author": {
-    "name": "soajs team",
-    "email": "team@soajs.org"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:soajs/soajs.website.ui.git"
-  },
-  "engines": {
-    "node": "*"
-  },
+  "name": "soajs.website",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "www.soajs.org — the SOAJS website and documentation",
+  "license": "Apache-2.0",
   "scripts": {
-    "test": "grunt test"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "sync:versions": "node scripts/sync-versions.mjs",
+    "deploy:preview": "astro build && wrangler pages deploy dist --project-name soajs --branch v2-preview",
+    "deploy:production": "astro build && wrangler pages deploy dist --project-name soajs --branch main"
   },
   "dependencies": {
-  },
-  "devDependencies": {
-
+    "@astrojs/markdown-remark": "7.3.1",
+    "@astrojs/starlight": "0.42.2",
+    "astro": "7.3.3",
+    "sharp": "0.35.5"
   }
 }

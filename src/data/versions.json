@@ -1,0 +1,436 @@
+{
+  "latest": "stingray",
+  "patch": "3",
+  "releaseLastPatch": {
+    "kanyu": "6",
+    "stingray": "2"
+  },
+  "serviceLabels": {
+    "soajs.controller": {
+      "label": "Gateway",
+      "service": "gateway",
+      "type": "any"
+    },
+    "soajs.urac": {
+      "label": "URAC",
+      "service": "urac",
+      "type": "any"
+    },
+    "soajs.oauth": {
+      "label": "oAuth",
+      "service": "oauth",
+      "type": "any"
+    },
+    "soajs.multitenant": {
+      "label": "Multitenant",
+      "service": "multitenant",
+      "type": "console"
+    },
+    "soajs.repositories": {
+      "label": "Repositories",
+      "service": "repositories",
+      "type": "console"
+    },
+    "soajs.marketplace": {
+      "label": "Marketplace",
+      "service": "marketplace",
+      "type": "console"
+    },
+    "soajs.infra": {
+      "label": "Infra",
+      "service": "infra",
+      "type": "console"
+    },
+    "soajs.console": {
+      "label": "Console",
+      "service": "console",
+      "type": "console"
+    },
+    "soajs.dashboard": {
+      "label": "Dashboard",
+      "service": "dashboard",
+      "type": "console"
+    },
+    "soajs.dashboard.ui": {
+      "label": "Console UI",
+      "service": "ui",
+      "type": "console"
+    }
+  },
+  "serviceVersions": [
+    {
+      "service": "urac",
+      "pack": "soajs.urac",
+      "versions": [
+        {
+          "label": "3",
+          "version": "3.x"
+        }
+      ]
+    }
+  ],
+  "releases": [
+    {
+      "name": "kanyu",
+      "patch": "5",
+      "description": "Kanuy 5 brought URAC v3 as well as other cool features. Check out our website for more information @ www.soajs.org",
+      "label": "Kanyu",
+      "previousPatches": [
+        "4",
+        "3",
+        "2",
+        "1"
+      ],
+      "prerequisite": [
+        {
+          "patch": "5",
+          "migration": [
+            "to_acl_v3"
+          ],
+          "older": [
+            {
+              "patches": [
+                "3",
+                "2",
+                "1"
+              ],
+              "migration": [
+                "to_dashboard_v1",
+                "to_multitenant_v1"
+              ]
+            }
+          ]
+        }
+      ],
+      "repositories": [
+        {
+          "repo": "soajs.controller",
+          "ver": "3.x",
+          "msVer": 1,
+          "semVer": "3.0.4"
+        },
+        {
+          "repo": "soajs.urac",
+          "ver": "3.x",
+          "msVer": 3,
+          "semVer": "3.0.13"
+        },
+        {
+          "repo": "soajs.oauth",
+          "ver": "2.x",
+          "msVer": 1,
+          "semVer": "2.5.22"
+        },
+        {
+          "repo": "soajs.multitenant",
+          "ver": "1.x",
+          "msVer": 1,
+          "semVer": "1.0.12"
+        },
+        {
+          "repo": "soajs.dashboard",
+          "ver": "2.x",
+          "msVer": 1,
+          "semVer": "2.7.31"
+        },
+        {
+          "repo": "soajs.dashboard.ui",
+          "ver": "2.x",
+          "semVer": "2.7.25"
+        }
+      ]
+    },
+    {
+      "name": "kanyu",
+      "patch": "6",
+      "description": "Kanuy 6 brought remote-installer revamp and 3rd party login with Azure AD SSO. Check out our website for more information @ www.soajs.org",
+      "label": "Kanyu",
+      "previousPatches": [
+        "5",
+        "4",
+        "3",
+        "2",
+        "1"
+      ],
+      "prerequisite": [
+        {
+          "patch": "6",
+          "migration": [],
+          "older": [
+            {
+              "patches": [
+                "4",
+                "3",
+                "2",
+                "1"
+              ],
+              "migration": [
+                "to_acl_v3",
+                "to_dashboard_v1",
+                "to_multitenant_v1"
+              ]
+            }
+          ]
+        }
+      ],
+      "repositories": [
+        {
+          "repo": "soajs.controller",
+          "ver": "3.x",
+          "msVer": 1,
+          "semVer": "3.1.19"
+        },
+        {
+          "repo": "soajs.oauth",
+          "ver": "2.x",
+          "msVer": 1,
+          "semVer": "2.7.15"
+        },
+        {
+          "repo": "soajs.multitenant",
+          "ver": "1.x",
+          "msVer": 1,
+          "semVer": "1.2.7"
+        },
+        {
+          "repo": "soajs.urac",
+          "ver": "3.x",
+          "msVer": 3,
+          "semVer": "3.1.13"
+        },
+        {
+          "repo": "soajs.dashboard",
+          "ver": "2.x",
+          "msVer": 1,
+          "semVer": "2.8.8"
+        },
+        {
+          "repo": "soajs.dashboard.ui",
+          "ver": "2.x",
+          "semVer": "2.7.70"
+        }
+      ]
+    },
+    {
+      "name": "stingray",
+      "patch": "1",
+      "description": "The complete new soajs console with tons of new features.",
+      "label": "Stingray",
+      "previousPatches": [],
+      "prerequisite": [],
+      "repositories": [
+        {
+          "repo": "soajs.controller",
+          "ver": "4.x",
+          "msVer": 1,
+          "semVer": "4.0.23"
+        },
+        {
+          "repo": "soajs.oauth",
+          "ver": "3.x",
+          "msVer": 1,
+          "semVer": "3.0.13"
+        },
+        {
+          "repo": "soajs.multitenant",
+          "ver": "2.x",
+          "msVer": 1,
+          "semVer": "2.0.13"
+        },
+        {
+          "repo": "soajs.urac",
+          "ver": "4.x",
+          "msVer": 3,
+          "semVer": "4.0.13"
+        },
+        {
+          "repo": "soajs.marketplace",
+          "ver": "1.x",
+          "msVer": 1,
+          "semVer": "1.0.22"
+        },
+        {
+          "repo": "soajs.repositories",
+          "ver": "1.x",
+          "msVer": 1,
+          "semVer": "1.0.15"
+        },
+        {
+          "repo": "soajs.infra",
+          "ver": "1.x",
+          "msVer": 1,
+          "semVer": "1.0.11"
+        },
+        {
+          "repo": "soajs.console",
+          "ver": "1.x",
+          "msVer": 1,
+          "semVer": "1.0.15"
+        },
+        {
+          "repo": "soajs.dashboard",
+          "ver": "3.x",
+          "msVer": 1,
+          "semVer": "3.0.11"
+        },
+        {
+          "repo": "soajs.dashboard.ui",
+          "ver": "3.x",
+          "msVer": 1,
+          "semVer": "3.0.31"
+        }
+      ],
+      "upgrade": {
+        "from": [
+          "kanyu"
+        ],
+        "kanyu": {
+          "patch": "6",
+          "allowed": true,
+          "description": "Kanyu to Stingray is allowed and our migration scripts will handle all backward compatibilities issues transparently",
+          "prerequisite": {
+            "installer": {
+              "version": "4.0.0",
+              "migration": [
+                "to_acl_v3"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "stingray",
+      "patch": "2",
+      "description": "Stingray 2 is all about application catalog and more multitenancy",
+      "label": "Stingray",
+      "previousPatches": [
+        "1"
+      ],
+      "prerequisite": [],
+      "repositories": [
+        {
+          "repo": "soajs.controller",
+          "ver": "4.x",
+          "msVer": 1,
+          "semVer": "4.0.37"
+        },
+        {
+          "repo": "soajs.oauth",
+          "ver": "3.x",
+          "msVer": 1,
+          "semVer": "3.0.23"
+        },
+        {
+          "repo": "soajs.multitenant",
+          "ver": "2.x",
+          "msVer": 1,
+          "semVer": "2.0.31"
+        },
+        {
+          "repo": "soajs.urac",
+          "ver": "4.x",
+          "msVer": 3,
+          "semVer": "4.0.29"
+        },
+        {
+          "repo": "soajs.marketplace",
+          "ver": "1.x",
+          "msVer": 1,
+          "semVer": "1.0.40"
+        },
+        {
+          "repo": "soajs.repositories",
+          "ver": "1.x",
+          "msVer": 1,
+          "semVer": "1.0.24"
+        },
+        {
+          "repo": "soajs.infra",
+          "ver": "1.x",
+          "msVer": 1,
+          "semVer": "1.0.25"
+        },
+        {
+          "repo": "soajs.console",
+          "ver": "1.x",
+          "msVer": 1,
+          "semVer": "1.0.25"
+        },
+        {
+          "repo": "soajs.dashboard.ui",
+          "ver": "3.x",
+          "msVer": 1,
+          "semVer": "3.0.61"
+        }
+      ]
+    },
+    {
+      "name": "stingray",
+      "patch": "3",
+      "description": "Stingray 3 the new SOAJS UI built with react",
+      "label": "Stingray",
+      "previousPatches": [
+        "1",
+        "2"
+      ],
+      "prerequisite": [],
+      "repositories": [
+        {
+          "repo": "soajs.controller",
+          "ver": "4.x",
+          "msVer": 1,
+          "semVer": "4.3.13"
+        },
+        {
+          "repo": "soajs.oauth",
+          "ver": "3.x",
+          "msVer": 1,
+          "semVer": "3.1.23"
+        },
+        {
+          "repo": "soajs.multitenant",
+          "ver": "2.x",
+          "msVer": 1,
+          "semVer": "2.1.19"
+        },
+        {
+          "repo": "soajs.urac",
+          "ver": "4.x",
+          "msVer": 3,
+          "semVer": "4.1.26"
+        },
+        {
+          "repo": "soajs.marketplace",
+          "ver": "1.x",
+          "msVer": 1,
+          "semVer": "1.1.15"
+        },
+        {
+          "repo": "soajs.repositories",
+          "ver": "1.x",
+          "msVer": 1,
+          "semVer": "1.1.12"
+        },
+        {
+          "repo": "soajs.infra",
+          "ver": "1.x",
+          "msVer": 1,
+          "semVer": "1.1.19"
+        },
+        {
+          "repo": "soajs.console",
+          "ver": "1.x",
+          "msVer": 1,
+          "semVer": "1.1.13"
+        },
+        {
+          "repo": "soajs.dashboard.ui",
+          "ver": "4.x",
+          "msVer": 1,
+          "semVer": "4.2.7"
+        }
+      ]
+    }
+  ]
+}

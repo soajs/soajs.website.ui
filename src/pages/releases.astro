@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+import versions from '../data/versions.json';
+
+// Generated from soajs.installer.versions/versions.json; refresh it with `npm run sync:versions`.
+type Repo = { repo: string; semVer: string };
+type Release = { name: string; patch: string; label: string; description: string; repositories?: Repo[] };
+
+const labels = versions.serviceLabels as Record<string, { label: string }>;
+const releases = [...(versions.releases as Release[])].reverse();
+const isLatest = (r: Release) => r.name === versions.latest && r.patch === versions.patch;
+const labelFor = (repo: string) => labels[repo]?.label ?? repo;
+---
+
+<Base title="Releases" description="SOAJS releases and the exact service versions each one ships.">
+	<section class="hero">
+		<div class="wrap">
+			<p class="eyebrow">Releases</p>
+			<h1>What ships in each release</h1>
+			<p class="lead">
+				Each release pins the gateway and core services to tested versions. Individual packages are also published
+				to npm and Docker Hub between releases.
+			</p>
+		</div>
+	</section>
+
+	<div class="wrap">
+		{releases.map((r) => (
+			<article class="case" id={`${r.name}-${r.patch}`}>
+				<div>
+					<h2>{r.label} {r.patch}</h2>
+					{isLatest(r) && <span class="tag preview">Latest</span>}
+					<p class="muted">{r.description.replace(/Kanuy/g, 'Kanyu').replace(/\s*Check out our website.*$/, '')}</p>
+				</div>
+				{r.repositories && r.repositories.length > 0 && (
+					<div class="table-wrap">
+						<table>
+							<thead><tr><th scope="col">Component</th><th scope="col">Package</th><th scope="col">Version</th></tr></thead>
+							<tbody>
+								{r.repositories.map((repo) => (
+									<tr><td>{labelFor(repo.repo)}</td><td><code>{repo.repo}</code></td><td>{repo.semVer}</td></tr>
+								))}
+							</tbody>
+						</table>
+					</div>
+				)}
+			</article>
+		))}
+	</div>
+</Base>

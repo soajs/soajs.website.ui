@@ -1,0 +1,35 @@
+---
+const links = [
+	{ href: '/platform/', label: 'Platform' },
+	{ href: '/built-on-soajs/', label: 'Built on SOAJS' },
+	{ href: '/docs/', label: 'Docs' },
+	{ href: '/releases/', label: 'Releases' },
+	{ href: '/open-source/', label: 'Open source' },
+];
+const path = Astro.url.pathname.replace(/\/?$/, '/');
+---
+
+<header class="site-header">
+	<div class="wrap">
+		<a class="brand" href="/" aria-label="SOAJS home">
+			<img class="on-light" src="/images/soajs-logo.png" alt="SOAJS" width="140" height="30" />
+			<img class="on-dark" src="/images/soajs-logo-white.png" alt="SOAJS" width="95" height="30" />
+		</a>
+		<button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+		<nav class="nav" id="site-nav" aria-label="Main">
+			{links.map((l) => (
+				<a href={l.href} aria-current={path.startsWith(l.href) ? 'page' : undefined}>{l.label}</a>
+			))}
+			<a class="gh" href="https://github.com/soajs">GitHub</a>
+		</nav>
+	</div>
+</header>
+
+<script>
+	const btn = document.querySelector<HTMLButtonElement>('.menu-toggle');
+	const nav = document.getElementById('site-nav');
+	btn?.addEventListener('click', () => {
+		const open = nav?.classList.toggle('open') ?? false;
+		btn.setAttribute('aria-expanded', String(open));
+	});
+</script>

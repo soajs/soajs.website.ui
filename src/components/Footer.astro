@@ -1,0 +1,73 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+	<div class="wrap">
+		<div class="cols">
+			<div>
+				<h2>Platform</h2>
+				<ul>
+					<li><a href="/platform/#gateway">Gateway</a></li>
+					<li><a href="/platform/#multitenancy">Multitenancy</a></li>
+					<li><a href="/platform/#identity">Identity &amp; access</a></li>
+					<li><a href="/platform/#traffic">Traffic control</a></li>
+					<li><a href="/platform/#deploy">Deploy</a></li>
+				</ul>
+			</div>
+			<div>
+				<h2>Developers</h2>
+				<ul>
+					<li><a href="/docs/">Documentation</a></li>
+					<li><a href="/docs/getting-started/quickstart/">Quickstart</a></li>
+					<li><a href="/platform/#sdks">SDKs</a></li>
+					<li><a href="/releases/">Releases</a></li>
+				</ul>
+			</div>
+			<div>
+				<h2>Community</h2>
+				<ul>
+					<li><a href="https://github.com/soajs">GitHub</a></li>
+					<li><a href="https://www.npmjs.com/package/soajs">npm</a></li>
+					<li><a href="https://hub.docker.com/u/soajsorg">Docker Hub</a></li>
+					<li><a href="/open-source/">Contributing</a></li>
+				</ul>
+			</div>
+			<div>
+				<h2>SOAJS</h2>
+				<ul>
+					<li><a href="/built-on-soajs/">Built on SOAJS</a></li>
+					<li><a href="https://www.herrontech.com">Herron Tech</a></li>
+				</ul>
+			</div>
+		</div>
+		<div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center">
+			<span>© {year} SOAJS. Released under the Apache-2.0 license.</span>
+			<button class="theme-toggle" type="button" data-theme-toggle>Theme: auto</button>
+		</div>
+	</div>
+</footer>
+
+<script>
+	const btn = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
+	const order = ['auto', 'light', 'dark'] as const;
+	const read = () => {
+		try {
+			return (localStorage.getItem('soajs-theme') as (typeof order)[number]) || 'auto';
+		} catch {
+			return 'auto';
+		}
+	};
+	const apply = (mode: (typeof order)[number]) => {
+		if (mode === 'auto') delete document.documentElement.dataset.theme;
+		else document.documentElement.dataset.theme = mode;
+		if (btn) btn.textContent = `Theme: ${mode}`;
+		try {
+			// Keep the Starlight docs theme in sync with the marketing pages.
+			localStorage.setItem('soajs-theme', mode);
+			localStorage.setItem('starlight-theme', mode === 'auto' ? '' : mode);
+		} catch {}
+	};
+	if (btn) btn.textContent = `Theme: ${read()}`;
+	btn?.addEventListener('click', () => apply(order[(order.indexOf(read()) + 1) % order.length]));
+</script>

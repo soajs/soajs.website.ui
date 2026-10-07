@@ -1,0 +1,172 @@
+---
+// Reference architecture: a multi-tenant, real-time product on SOAJS.
+// The shape mirrors how Connect Spaces is built (socket auth via /soajs/acl,
+// API calls proxied through the gateway), with the product details made generic.
+const steps = [
+	['External key → tenant', 'tenant · application · package'],
+	['Package ACL', 'service · version · API'],
+	['OAuth token', 'restricted · device-bound'],
+	['URAC user & tenant', 'user · groups · overrides'],
+	['Traffic', 'rate limit · cache · idempotency'],
+	['Route via registry', 'service name + version'],
+];
+const groups: [string, string[]][] = [
+	['Accounts', ['onboarding · organizations · profiles']],
+	['Product', ['catalog · orders · payments']],
+	['Messaging', ['chat · notifications · email & SMS']],
+	['Platform', ['files · analytics · reporting']],
+];
+const groupY = [180, 254, 328, 402];
+---
+
+<figure class="diagram" id="architecture">
+	<div class="diagram-scroll">
+		<svg viewBox="0 0 1200 625" role="img" aria-labelledby="cd-title cd-desc" xmlns="http://www.w3.org/2000/svg">
+			<title id="cd-title">Example architecture of a multi-tenant product on SOAJS</title>
+			<desc id="cd-desc">
+				Clients call the SOAJS gateway over HTTPS with a tenant key and access token. The real-time socket server
+				authenticates each connection through the gateway and sends every API call through the gateway pipeline. The
+				gateway resolves the tenant, checks the package ACL, validates the OAuth token, applies URAC access and traffic
+				policy, then routes to SOAJS core services or your own microservices. Scheduled jobs call the gateway with their
+				own tenant key.
+			</desc>
+			<defs>
+				<marker id="cd-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+					<path d="M0 0 L10 5 L0 10 z" class="dg-arrowhead" />
+				</marker>
+			</defs>
+
+			<!-- Clients -->
+			<rect x="10" y="55" width="230" height="280" rx="14" class="dg-group" />
+			<text x="22" y="45" class="dg-label">Clients</text>
+			<g>
+				<rect x="22" y="70" width="206" height="70" rx="10" class="dg-box" />
+				<text x="36" y="99" class="dg-title">Mobile apps</text>
+				<text x="36" y="120" class="dg-sub">iOS · Android</text>
+			</g>
+			<g>
+				<rect x="22" y="155" width="206" height="70" rx="10" class="dg-box" />
+				<text x="36" y="184" class="dg-title">Web portals</text>
+				<text x="36" y="205" class="dg-sub">customer &amp; admin, as static UIs</text>
+			</g>
+			<g>
+				<rect x="22" y="240" width="206" height="70" rx="10" class="dg-box" />
+				<text x="36" y="269" class="dg-title">Partner integrations</text>
+				<text x="36" y="290" class="dg-sub">server-to-server API calls</text>
+			</g>
+
+			<!-- 1: HTTPS to gateway -->
+			<circle cx="266" cy="92" r="9" class="dg-flow-bg" /><text x="266" y="96" text-anchor="middle" class="dg-flow-letter">A</text>
+			<text x="281" y="96" class="dg-flow">HTTPS · key + access_token</text>
+			<line x1="228" y1="105" x2="488" y2="105" class="dg-line dg-accent" marker-end="url(#cd-arrow)" />
+			<line x1="228" y1="190" x2="488" y2="190" class="dg-line dg-accent" marker-end="url(#cd-arrow)" />
+			<line x1="228" y1="275" x2="488" y2="275" class="dg-line dg-accent" marker-end="url(#cd-arrow)" />
+
+			<!-- 2: WebSocket -->
+			<path d="M125 335 V435 H273" class="dg-line" fill="none" marker-end="url(#cd-arrow)" />
+			<circle cx="145" cy="421" r="9" class="dg-flow-bg" /><text x="145" y="425" text-anchor="middle" class="dg-flow-letter">B</text>
+			<text x="160" y="425" class="dg-flow">WebSocket</text>
+			<rect x="275" y="380" width="180" height="110" rx="10" class="dg-box dg-box-strong" />
+			<text x="289" y="406" class="dg-title">Real-time server</text>
+			<text x="289" y="426" class="dg-sub">e.g. Socket.IO</text>
+			<text x="289" y="452" class="dg-code">auth: GET /soajs/acl</text>
+			<text x="289" y="472" class="dg-code">emit('api') → gateway</text>
+			<line x1="455" y1="435" x2="488" y2="435" class="dg-line" marker-end="url(#cd-arrow)" />
+
+			<!-- Gateway -->
+			<rect x="490" y="50" width="260" height="440" rx="14" class="dg-gateway" />
+			<text x="508" y="78" class="dg-title dg-on-gw">SOAJS gateway</text>
+			<text x="508" y="97" class="dg-sub dg-on-gw-muted">soajs.controller · scale with replicas</text>
+			{steps.map(([t, s], i) => (
+				<g>
+					<rect x="505" y={112 + i * 60} width="230" height="50" rx="8" class="dg-step" />
+					<circle cx="523" cy={137 + i * 60} r="10" class="dg-num-bg" />
+					<text x="523" y={141 + i * 60} text-anchor="middle" class="dg-num">{i + 1}</text>
+					<text x="541" y={133 + i * 60} class="dg-step-title">{t}</text>
+					<text x="541" y={150 + i * 60} class="dg-step-sub">{s}</text>
+				</g>
+			))}
+
+			<!-- MongoDB -->
+			<line x1="620" y1="490" x2="620" y2="528" class="dg-line" marker-end="url(#cd-arrow)" />
+			<rect x="490" y="530" width="260" height="60" rx="10" class="dg-box" />
+			<text x="508" y="555" class="dg-title">MongoDB</text>
+			<text x="508" y="575" class="dg-sub">registry · tenants · products · ACL</text>
+
+			<!-- 4: cross-network -->
+			<rect x="20" y="530" width="435" height="80" rx="10" class="dg-box" />
+			<circle cx="45" cy="551" r="9" class="dg-flow-bg" /><text x="45" y="555" text-anchor="middle" class="dg-flow-letter">D</text>
+			<text x="60" y="556" class="dg-title">Scheduled jobs &amp; other deployments</text>
+			<text x="36" y="577" class="dg-sub">cron jobs and daemons call the gateway with their own tenant key</text>
+			<text x="36" y="596" class="dg-sub">each customer, region or network can be its own tenant</text>
+			<path d="M455 560 H472 V470 H488" class="dg-line" fill="none" marker-end="url(#cd-arrow)" />
+
+			<!-- Behind the gateway -->
+			<line x1="750" y1="85" x2="798" y2="85" class="dg-line" marker-end="url(#cd-arrow)" />
+			<rect x="800" y="50" width="380" height="70" rx="10" class="dg-box dg-box-strong" />
+			<text x="816" y="79" class="dg-title">SOAJS core services</text>
+			<text x="816" y="100" class="dg-sub">oauth · urac · multitenant · console</text>
+
+			<line x1="750" y1="300" x2="798" y2="300" class="dg-line" marker-end="url(#cd-arrow)" />
+			<circle cx="774" cy="284" r="9" class="dg-flow-bg" /><text x="774" y="288" text-anchor="middle" class="dg-flow-letter">C</text>
+			<rect x="800" y="140" width="380" height="350" rx="14" class="dg-group" />
+			<text x="816" y="166" class="dg-title">Your microservices · Node.js, Go, Python</text>
+			{groups.map(([label, lines], i) => (
+				<g>
+					<rect x="812" y={groupY[i]} width="356" height="66" rx="8" class="dg-box" />
+					<text x="826" y={groupY[i] + 21} class="dg-step-title-plain">{label}</text>
+					{lines.map((l, j) => (
+						<text x="826" y={groupY[i] + 39 + j * 16} class="dg-code">{l}</text>
+					))}
+				</g>
+			))}
+
+			<!-- LiveKit -->
+			<line x1="1090" y1="490" x2="1090" y2="528" class="dg-line" marker-end="url(#cd-arrow)" />
+			<rect x="960" y="530" width="220" height="60" rx="10" class="dg-box" />
+			<text x="976" y="555" class="dg-title">Third-party services</text>
+			<text x="976" y="575" class="dg-sub">payments, media, messaging</text>
+		</svg>
+	</div>
+	<figcaption>
+		<ol class="diagram-legend">
+			<li><strong>API calls.</strong> Each client app has its own external key, tied to a tenant and a product package. Every request carries that key and the user's access token, and the gateway runs steps 1–6 before your code executes. Device-bound tokens also need the matching <code>device-id</code> header.</li>
+			<li><strong>Real-time.</strong> Your socket server doesn't need its own auth. It validates each connection's key and token with the gateway's <code>/soajs/acl</code> endpoint, then sends API calls through the same gateway pipeline as HTTPS traffic, so one ACL covers both.</li>
+			<li><strong>Service to service.</strong> Services call each other and the core services through SOAJS inter-service connections, with tenant and user context carried on each call. A service only declares <code>extKeyRequired</code>, <code>oauth</code> and <code>urac</code> in its config; it writes no authentication code.</li>
+			<li><strong>Jobs and deployments.</strong> Background jobs are clients too: they call the gateway with their own tenant key and get the same ACL. Model each customer, region or network as a tenant to keep their data and access apart.</li>
+		</ol>
+		<p class="diagram-note">Connect Spaces runs this pattern in production: 23 microservices and a Socket.IO real-time layer behind one SOAJS gateway. <a href="/built-on-soajs/#connect-spaces">Read the case study</a>.</p>
+	</figcaption>
+</figure>
+
+<style>
+	.diagram { margin: 0; }
+	.diagram-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-inset); padding: 16px; }
+	.diagram-scroll svg { display: block; width: 100%; min-width: 880px; height: auto; font-family: var(--font); }
+	.diagram-legend { list-style: upper-alpha; margin: 20px 0 0; padding-left: 1.4em; display: grid; gap: 10px; color: var(--fg-muted); }
+	.diagram-legend strong { color: var(--fg); }
+	.diagram-note { margin: 16px 0 0; color: var(--fg-muted); font-size: 0.94rem; }
+
+	.dg-group { fill: none; stroke: var(--line); stroke-dasharray: 5 5; stroke-width: 1.5; }
+	.dg-box { fill: var(--card); stroke: var(--line); stroke-width: 1.5; }
+	.dg-box-strong { stroke: var(--fg-muted); }
+	.dg-gateway { fill: var(--navy); stroke: var(--navy); }
+	.dg-step { fill: color-mix(in srgb, #ffffff 9%, var(--navy)); stroke: color-mix(in srgb, #ffffff 18%, var(--navy)); }
+	.dg-num-bg { fill: var(--brand); }
+	.dg-num { fill: #1a1205; font-size: 11px; font-weight: 700; }
+	.dg-label { fill: var(--fg-muted); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+	.dg-title { fill: var(--fg); font-size: 14px; font-weight: 700; }
+	.dg-sub { fill: var(--fg-muted); font-size: 11.5px; }
+	.dg-code { fill: var(--fg-muted); font-size: 11.5px; font-family: var(--mono); }
+	.dg-on-gw { fill: #ffffff; }
+	.dg-on-gw-muted { fill: #b6c4cc; }
+	.dg-step-title { fill: #ffffff; font-size: 12.5px; font-weight: 650; }
+	.dg-step-sub { fill: #b6c4cc; font-size: 11px; }
+	.dg-step-title-plain { fill: var(--fg); font-size: 12.5px; font-weight: 650; }
+	.dg-flow { fill: var(--fg); font-size: 12px; font-weight: 600; }
+	.dg-flow-bg { fill: var(--fg); }
+	.dg-flow-letter { fill: var(--bg); font-size: 11px; font-weight: 700; }
+	.dg-line { stroke: var(--fg-muted); stroke-width: 1.6; }
+	.dg-accent { stroke: var(--brand); stroke-width: 2; }
+	.dg-arrowhead { fill: var(--fg-muted); }
+</style>

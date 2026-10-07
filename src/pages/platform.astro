@@ -1,0 +1,244 @@
+---
+import { Code } from 'astro:components';
+import Base from '../layouts/Base.astro';
+import ArchitectureDiagram from '../components/ArchitectureDiagram.astro';
+
+const sections = [
+	{ id: 'multitenancy', label: 'Tenants & keys' },
+	{ id: 'acl', label: 'Access control' },
+	{ id: 'identity', label: 'Identity & tokens' },
+	{ id: 'traffic', label: 'Traffic' },
+	{ id: 'gateway', label: 'Routing & operations' },
+	{ id: 'imfv', label: 'Input validation' },
+	{ id: 'console', label: 'Console' },
+	{ id: 'sdks', label: 'SDKs' },
+	{ id: 'deploy', label: 'Deploy' },
+];
+
+// The "Pro" package from the home page example, as the gateway stores it.
+const aclExample = `{
+  "prod": {
+    "orders": {
+      "1": {
+        "access": true,
+        "apisPermission": "restricted",
+        "get": {
+          "apis": {
+            "/catalog": { "access": false },
+            "/reports": { "access": ["managers"] }
+          }
+        },
+        "post": {
+          "apis": { "/orders": { "access": true } }
+        }
+      }
+    }
+  }
+}`;
+---
+
+<Base
+	title="Platform"
+	description="How the SOAJS gateway works: tenants and keys, per-API ACL, OAuth and device-bound tokens, rate limiting, caching and idempotency, routing, input validation, the console, SDKs for Node.js, Go and Python, and Helm deployment."
+>
+	<section class="hero">
+		<div class="wrap">
+			<p class="eyebrow">Platform</p>
+			<h1>One gateway.<br /><span>Every tenant, every API, every user.</span></h1>
+			<p class="lead">
+				The SOAJS gateway resolves the customer from the key, applies their package's ACL to the exact API being
+				called and validates the user's token. Then it applies traffic policy and routes the call. Core services for
+				users, tokens and tenants run behind it, and your services plug in with an SDK and a config file.
+			</p>
+			<nav class="toc" aria-label="On this page">
+				{sections.map((s) => <a class="tag" href={`#${s.id}`}>{s.label}</a>)}
+			</nav>
+		</div>
+	</section>
+
+	<section class="soft">
+		<div class="wrap">
+			<div class="section-head">
+				<p class="eyebrow">How it fits together</p>
+				<h2>A multi-tenant, real-time product on SOAJS</h2>
+				<p class="lead">Apps, a real-time server, background jobs and your own services all go through one gateway. Tenancy, ACL and tokens are decided there, once.</p>
+			</div>
+			<ArchitectureDiagram />
+		</div>
+	</section>
+
+	<div class="wrap">
+		<article class="feature" id="multitenancy">
+			<div>
+				<p class="eyebrow">Tenants &amp; keys</p>
+				<h2>Sell the same services as different products</h2>
+				<p class="muted">Every request carries a key. The key says which customer is calling and what they subscribed to.</p>
+				<p><a href="/docs/concepts/multitenancy/">Multitenancy guide →</a></p>
+			</div>
+			<div>
+				<ul class="checks">
+					<li><strong>Products and packages.</strong> A product groups services; each package inside it is a plan with its own ACL.</li>
+					<li><strong>Tenants, applications and keys.</strong> A tenant subscribes to a package through an application, and each application gets its own external keys with an expiry date.</li>
+					<li><strong>Key restrictions.</strong> Each key can carry IP allow and deny lists and device rules by browser and user agent.</li>
+					<li><strong>Per-tenant behaviour.</strong> Service configuration and tenant profiles let one deployment behave differently for each customer.</li>
+					<li><strong>Networks and memberships.</strong> Packages can be overridden per network, and user memberships are resolved per product.</li>
+				</ul>
+			</div>
+		</article>
+
+		<article class="feature" id="acl">
+			<div>
+				<p class="eyebrow">Access control</p>
+				<h2>ACL down to every API</h2>
+				<p class="muted">The package ACL decides, per environment, service version, HTTP method and API, who may call what.</p>
+				<ul class="checks" style="margin-top:20px">
+					<li><strong>Three levels per API.</strong> Public, signed-in users, or only users in named groups.</li>
+					<li><strong>Restricted mode.</strong> With <code>apisPermission: "restricted"</code>, any API not listed is refused.</li>
+					<li><strong>Overrides where you need them.</strong> An ACL on the application replaces the package ACL, and a user's groups can grant their own packages for the product.</li>
+					<li><strong>One source of truth.</strong> <code>/soajs/acl</code> returns the ACL for a key and user, so socket servers and other tools apply the same rules.</li>
+				</ul>
+				<p style="margin-top:16px"><a href="/docs/concepts/access-control/">Access control guide →</a></p>
+			</div>
+			<div>
+				<div class="code-label">Pro package ACL · orders service v1</div>
+				<Code code={aclExample} lang="json" theme="github-dark" class="code" />
+				<p class="muted" style="margin-top:12px;font-size:0.92rem">
+					<code>/catalog</code> is public, <code>/orders</code> needs a signed-in user, <code>/reports</code> needs the
+					<code>managers</code> group, and every other API is refused.
+				</p>
+			</div>
+		</article>
+
+		<article class="feature" id="identity">
+			<div>
+				<p class="eyebrow">Identity &amp; tokens</p>
+				<h2>OAuth and users, built in</h2>
+				<p class="muted">The <code>oauth</code> and <code>urac</code> services run behind the gateway like any other service; the gateway checks their tokens on every private API.</p>
+			</div>
+			<div>
+				<ul class="checks">
+					<li><strong>OAuth 2.0, per tenant.</strong> Access and refresh tokens, with the signed-in user and their groups forwarded to your service on <code>req.soajs.urac</code>.</li>
+					<li><strong>Every login method.</strong> Username and password, LDAP, OpenAM, social providers, Azure AD, PIN, or phone number with a one-time code.</li>
+					<li><strong>Users and groups.</strong> URAC manages users, groups, invitations and per-user access, separately for each tenant.</li>
+					<li><strong>Restricted tokens.</strong> A signed-in mobile app can authorise a web app on another tenant and product without a new login, and the token only works where it was issued. <a href="/docs/security/restricted-tokens/">How it works</a></li>
+					<li><strong>Device-bound tokens.</strong> Tokens can be tied to a device ID that the gateway checks on refresh and on every private call. <a href="/docs/security/device-binding/">Details</a></li>
+				</ul>
+			</div>
+		</article>
+
+		<article class="feature" id="traffic">
+			<div>
+				<p class="eyebrow">Traffic</p>
+				<h2>Policy at the edge</h2>
+				<p class="muted">Configured in the registry or per service, enforced by the gateway before the call is routed.</p>
+				<p><a href="/docs/traffic/rate-limiting/">Rate limiting</a> · <a href="/docs/traffic/caching/">Caching</a> · <a href="/docs/traffic/idempotency/">Idempotency</a></p>
+			</div>
+			<div>
+				<ul class="checks">
+					<li><strong>Rate limiting.</strong> By tenant, or by tenant and IP, with separate strategies for public and private APIs that services can override.</li>
+					<li><strong>IP ban list.</strong> Blocked addresses never reach a service.</li>
+					<li><strong>Response caching.</strong> GET responses cached per API with their own time-to-live, scoped per tenant or per user, in memory or MongoDB.</li>
+					<li><strong>Idempotency.</strong> An <code>Idempotency-Key</code> header makes writes safe to retry: the gateway runs the request once and replays the stored response.</li>
+					<li><strong>CORS.</strong> Origins and credentials set per environment.</li>
+				</ul>
+			</div>
+		</article>
+
+		<article class="feature" id="gateway">
+			<div>
+				<p class="eyebrow">Routing &amp; operations</p>
+				<h2>Find the service, keep it running</h2>
+				<p class="muted">Two gateway builds share the same registry, keys and ACL model.</p>
+				<p><span class="tag">Node.js · Express 5</span><span class="tag preview">Go · preview</span></p>
+				<p><a href="/docs/concepts/gateway/">Gateway reference →</a></p>
+			</div>
+			<div>
+				<ul class="checks">
+					<li><strong>Registry and discovery.</strong> Services are found through a MongoDB-backed registry and routed by name and version, with tenant and user context attached.</li>
+					<li><strong>Cross-environment proxy.</strong> <code>/soajs/proxy</code> forwards a call to another environment's gateway with its own key.</li>
+					<li><strong>Roaming between deployments.</strong> A user signed in on one deployment can reach services on another. The tenant and user context the first gateway verified travels with the call, and the receiving gateway accepts it only from gateway IPs it has whitelisted for that service.</li>
+					<li><strong>Maintenance.</strong> Global and per-service maintenance mode, readiness checks and registry reload.</li>
+					<li><strong>Activity tracking.</strong> Last-seen per user, with triggers by service, method or API.</li>
+					<li><strong>Safe logs.</strong> Error logs with sensitive values redacted.</li>
+					<li><strong>Go build.</strong> A smaller, faster-starting gateway for Kubernetes. It does not yet include caching, idempotency, device binding or restricted tokens. <a href="/docs/deploy/go-gateway/">Compare the two</a></li>
+				</ul>
+			</div>
+		</article>
+
+		<article class="feature" id="imfv">
+			<div>
+				<p class="eyebrow">Input validation</p>
+				<h2>Inputs mapped and validated before your handler</h2>
+				<p class="muted">IMFV: input mapping, formatting and validation, declared in the service config.</p>
+			</div>
+			<div>
+				<ul class="checks">
+					<li><strong>Sources in priority order.</strong> Read each input from query, body, params or headers, with defaults.</li>
+					<li><strong>JSON-schema validation.</strong> Types, formats, objects and arrays, including custom formats.</li>
+					<li><strong>Shared fields.</strong> Declare common inputs once and reuse them across a service's APIs.</li>
+					<li><strong>Hardened parsing.</strong> Protection against ReDoS patterns and prototype pollution, with request size limits.</li>
+				</ul>
+			</div>
+		</article>
+
+		<article class="feature" id="console">
+			<div>
+				<p class="eyebrow">Console &amp; marketplace</p>
+				<h2>Run the whole platform from one place</h2>
+				<p class="muted">A React web console backed by its own microservices.</p>
+			</div>
+			<div>
+				<ul class="checks">
+					<li><strong>Environments.</strong> Registry and configuration for each environment.</li>
+					<li><strong>Customers and plans.</strong> Tenants, applications, keys, products, packages and their ACLs.</li>
+					<li><strong>Marketplace.</strong> A catalog of every service, daemon, resource and static UI.</li>
+					<li><strong>Code and infrastructure.</strong> Git repositories, cloud accounts and Kubernetes clusters.</li>
+				</ul>
+			</div>
+		</article>
+
+		<article class="feature" id="sdks">
+			<div>
+				<p class="eyebrow">SDKs</p>
+				<h2>Bring your language</h2>
+				<p class="muted">Services in any of these languages sit behind the same gateway, keys and ACL.</p>
+			</div>
+			<div class="grid grid-3">
+				<div class="card"><h3>Node.js</h3><p class="muted">The <code>soajs</code> framework plus the <code>soajs.nodejs</code> middleware for Express apps.</p><a href="/docs/sdks/nodejs/">Node.js SDK</a></div>
+				<div class="card"><h3>Go</h3><p class="muted"><code>soajs.golang</code> middleware for Go HTTP services.</p><a href="/docs/sdks/go/">Go SDK</a></div>
+				<div class="card"><h3>Python</h3><p class="muted"><code>soajs.python</code> for FastAPI, Starlette, Flask and Django.</p><a href="/docs/sdks/python/">Python SDK</a></div>
+			</div>
+		</article>
+
+		<article class="feature" id="deploy">
+			<div>
+				<p class="eyebrow">Deploy</p>
+				<h2>Kubernetes, with Helm</h2>
+				<p class="muted">From managed cloud clusters to air-gapped on-prem.</p>
+				<p><a href="/docs/deploy/helm/">Helm</a> · <a href="/docs/deploy/soa-json/">soa.json</a></p>
+			</div>
+			<div>
+				<ul class="checks">
+					<li><strong>Helm charts.</strong> One for the gateway and each core service, published as <code>soajsorg/*</code> images.</li>
+					<li><strong>Deploy from source.</strong> A deployer image builds and runs your service inside the container.</li>
+					<li><strong>Self-describing repos.</strong> A <code>soa.json</code> file declares whether a repo is a service, a daemon, a static UI, a config or a custom component. Resources and cron jobs are deployed through the marketplace.</li>
+				</ul>
+			</div>
+		</article>
+	</div>
+
+	<section>
+		<div class="wrap">
+			<div class="band">
+				<div>
+					<h2>See it on your own cluster</h2>
+					<p>Install the gateway and core services with Helm, then put your first service behind it.</p>
+				</div>
+				<div class="actions">
+					<a class="btn btn-primary" href="/docs/getting-started/quickstart/">Quickstart</a>
+					<a class="btn btn-ghost" href="https://github.com/soajs/soajs">Star on GitHub</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Base>

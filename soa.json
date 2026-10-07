@@ -3,6 +3,6 @@
   "type": "static",
   "group": "Website",
   "subType": "soajs",
-  "version": "1",
-  "description": "This is the soajs org website"
+  "version": "2",
+  "description": "The soajs.org website (Astro build; serve dist/)"
 }

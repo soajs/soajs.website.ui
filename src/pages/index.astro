@@ -1,0 +1,340 @@
+---
+import Base from '../layouts/Base.astro';
+import { Code } from 'astro:components';
+import ArchitectureDiagram from '../components/ArchitectureDiagram.astro';
+import { platforms, totals } from '../data/platforms';
+
+const handlerCode = `service.get('/orders', (req, res) => {
+  // The gateway already resolved the tenant, applied
+  // its package ACL to this API and checked the user.
+  const { tenant, urac, inputmaskData } = req.soajs;
+
+  orders.list(tenant.id, urac._id, inputmaskData, (err, data) =>
+    res.json(req.soajs.buildResponse(err, data)));
+});`;
+
+const serviceConfig = `module.exports = {
+  type: 'service',
+  serviceName: 'orders',
+  serviceGroup: 'commerce',
+  servicePort: 4100,
+  requestTimeout: 30,
+  extKeyRequired: true, // tenant key + package ACL
+  oauth: true,          // access token required
+  urac: true,           // user context on req.soajs
+  maintenance: { readiness: '/heartbeat', port: { type: 'maintenance' } },
+  schema: {
+    get: {
+      '/orders': {
+        _apiInfo: { l: 'List orders', group: 'Orders' },
+        limit: {
+          source: ['query.limit'],
+          default: 50,
+          validation: { type: 'integer' }
+        }
+      }
+    }
+  }
+};`;
+---
+
+<Base
+	title="SOAJS"
+	description="SOAJS is an open-source multi-tenant API gateway. Tenant keys, per-API ACL and OAuth work together at the gateway, so every customer gets exactly the access in their package and your microservices only contain business logic."
+>
+	<section class="hero">
+		<div class="wrap hero-grid">
+			<div>
+			<p class="eyebrow">Open-source multi-tenant API gateway</p>
+			<h1>Turn your microservices<br /><span>into multi-tenant products.</span></h1>
+			<p class="lead">
+				Before your code runs, the SOAJS gateway knows which customer is calling, what they are allowed to use and
+				who the user is. Tenant keys, per-API ACL and OAuth work together, so each customer gets exactly the access
+				in their package. Rate limiting, caching and idempotency come with it. You write the business logic.
+			</p>
+			<div class="actions">
+				<a class="btn btn-primary" href="/docs/getting-started/quickstart/">Get started</a>
+				<a class="btn btn-ghost" href="#how-it-fits">See how it works</a>
+				<a class="btn btn-ghost" href="https://github.com/soajs/soajs">Star on GitHub</a>
+			</div>
+			<div class="hero-meta">
+				<span>Free and open source, Apache-2.0</span>
+				<span>Node.js, Go and Python</span>
+				<span>Cloud, on-prem or air-gapped</span>
+			</div>
+			</div>
+			<div class="hero-code">
+				<div class="code-label">orders/index.js: your whole handler</div>
+				<Code code={handlerCode} lang="js" theme="github-dark" class="code" />
+			</div>
+		</div>
+	</section>
+
+	<section class="soft">
+		<div class="wrap">
+			<div class="section-head">
+				<p class="eyebrow">Sound familiar?</p>
+				<h2>The plumbing every multi-tenant product ends up rebuilding</h2>
+			</div>
+			<div class="grid grid-2">
+				<div class="card">
+					<h3>Every customer needs different access</h3>
+					<p class="muted">Plans, partners and enterprise deals turn into per-customer flags and special cases in business logic, one <code>if</code> at a time.</p>
+					<p><strong>With SOAJS:</strong> each customer's key maps to a product package, and its ACL decides, API by API, what that customer can call.</p>
+				</div>
+				<div class="card">
+					<h3>Every service re-implements auth</h3>
+					<p class="muted">Copy-pasted token checks drift across teams and languages until nobody is sure which rules apply where.</p>
+					<p><strong>With SOAJS:</strong> OAuth tokens, tenant keys and user groups are checked once, at the gateway, for every service.</p>
+				</div>
+				<div class="card">
+					<h3>Traffic rules live in ten places</h3>
+					<p class="muted">Rate limits, response caches and safe retries get rebuilt in each service, or skipped.</p>
+					<p><strong>With SOAJS:</strong> rate limiting, GET caching and Idempotency-Key replay protection are gateway settings, per service.</p>
+				</div>
+				<div class="card">
+					<h3>Sockets and jobs skip the rules</h3>
+					<p class="muted">Real-time servers and background workers grow a second, weaker copy of your access control.</p>
+					<p><strong>With SOAJS:</strong> they authenticate through the same gateway and get the same ACL as HTTP calls.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section>
+		<div class="wrap">
+			<div class="section-head">
+				<p class="eyebrow">Tenants × ACL × OAuth</p>
+				<h2>One set of services. Every customer gets exactly what they bought.</h2>
+				<p class="lead">
+					The power is in the combination. The key says which customer is calling, their package's ACL says what they
+					can reach, and the OAuth token says which user is acting. The gateway applies all three on every request.
+				</p>
+			</div>
+			<div class="grid grid-2" style="align-items:start">
+				<div>
+					<div class="table-wrap">
+						<table class="acl">
+							<caption>Example: one <em>Commerce</em> product, three packages, the same three APIs</caption>
+							<thead>
+								<tr><th scope="col">Caller</th><th scope="col"><code>GET /catalog</code></th><th scope="col"><code>POST /orders</code></th><th scope="col"><code>GET /reports</code></th></tr>
+							</thead>
+							<tbody>
+								<tr><th scope="row">Acme<span>Pro package</span></th><td class="yes">Public</td><td class="yes">Signed-in users</td><td class="yes">Managers group only</td></tr>
+								<tr><th scope="row">Globex<span>Basic package</span></th><td class="yes">Public</td><td class="yes">Signed-in users</td><td class="no">Not in package</td></tr>
+								<tr><th scope="row">Storefront<span>Guest package</span></th><td class="yes">Public</td><td class="no">Not in package</td><td class="no">Not in package</td></tr>
+							</tbody>
+						</table>
+					</div>
+					<p class="muted" style="margin-top:12px;font-size:0.92rem">Same service, same code. Only the package each key belongs to is different.</p>
+				</div>
+				<ul class="checks">
+					<li><strong>The key picks the tenant and the package.</strong> Each customer application gets its own external keys, with their own expiry.</li>
+					<li><strong>The package ACL decides each API.</strong> Public, signed-in only, or limited to user groups, per environment, service version and HTTP method.</li>
+					<li><strong>The OAuth user can widen or narrow access.</strong> URAC groups can grant their own packages, so an admin inside a tenant sees more than a regular user.</li>
+					<li><strong>Change access without touching services.</strong> Update a package in the console and the gateway enforces it for every service behind it.</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="soft">
+		<div class="wrap grid grid-2" style="align-items:start">
+			<div>
+				<p class="eyebrow">What you stop writing</p>
+				<h2>Every check runs before your code does</h2>
+				<p class="lead">
+					Every call goes through the same ordered pipeline. Set <code>extKeyRequired</code>, <code>oauth</code> and
+					<code>urac</code> in a service's config and it gets all of them, with no auth code in the service.
+				</p>
+				<p><a href="/docs/concepts/gateway/">Read the gateway reference →</a></p>
+			</div>
+			<ol class="pipeline">
+				<li class="edge"><div><strong>Protect the edge</strong><span>IP ban list and global maintenance mode.</span></div></li>
+				<li><div><strong>Resolve the tenant</strong><span>The external key identifies tenant, application and product package.</span></div></li>
+				<li><div><strong>Check the package ACL</strong><span>Is this service, version and API in the package the key belongs to?</span></div></li>
+				<li><div><strong>Validate the token</strong><span>OAuth access token, including tenant-restricted and device-bound tokens.</span></div></li>
+				<li><div><strong>Apply user and tenant access</strong><span>URAC user, group and per-tenant overrides.</span></div></li>
+				<li><div><strong>Shape traffic</strong><span>Idempotency-Key replay protection, rate limiting and GET response caching.</span></div></li>
+				<li class="edge"><div><strong>Route the call</strong><span>Found through the service registry and forwarded with tenant context attached.</span></div></li>
+			</ol>
+		</div>
+	</section>
+
+
+
+	<section id="gateway-features">
+		<div class="wrap">
+			<div class="section-head">
+				<p class="eyebrow">The gateway, in full</p>
+				<h2>Everything the gateway does for every service behind it</h2>
+				<p class="lead">All of it is configuration: in the registry, the console or a service's config file. None of it is code in your services.</p>
+			</div>
+			<div class="grid grid-3 feature-cards">
+				<div class="card">
+					<h3>Tenants &amp; keys</h3>
+					<ul>
+						<li>Tenant, application and product package resolved from each external key</li>
+						<li>Key expiry dates</li>
+						<li>Per-key IP allow and deny lists</li>
+						<li>Per-key device rules by browser and user agent</li>
+						<li>Per-tenant service configuration and tenant profiles</li>
+						<li>Package overrides per network</li>
+					</ul>
+				</div>
+				<div class="card">
+					<h3>Access control</h3>
+					<ul>
+						<li>Package ACL per environment, service, version, HTTP method and API</li>
+						<li>Public, signed-in or group-only APIs</li>
+						<li>Restricted mode: only listed APIs are reachable</li>
+						<li>Application-level ACL overrides</li>
+						<li>User groups that grant their own packages</li>
+						<li>Memberships resolved per product</li>
+						<li><code>/soajs/acl</code> so sockets and other servers share the same rules</li>
+					</ul>
+				</div>
+				<div class="card">
+					<h3>Identity &amp; tokens</h3>
+					<ul>
+						<li>OAuth 2.0 access tokens checked on every private API</li>
+						<li>The signed-in user and their groups forwarded to your service</li>
+						<li>Tenant-restricted tokens for cross-tenant pairing</li>
+						<li>Device-bound tokens checked against a <code>device-id</code> header</li>
+						<li>Login through the oauth service: password, LDAP, OpenAM, social, Azure AD, PIN or phone code</li>
+					</ul>
+				</div>
+				<div class="card">
+					<h3>Traffic</h3>
+					<ul>
+						<li>Rate limiting by tenant or by tenant and IP</li>
+						<li>Separate strategies for public and private APIs, overridable per service</li>
+						<li>IP ban list</li>
+						<li>GET response caching with per-API TTL, in memory or MongoDB</li>
+						<li>Idempotency-Key replay protection for writes</li>
+						<li>CORS settings per environment</li>
+					</ul>
+				</div>
+				<div class="card">
+					<h3>Routing &amp; operations</h3>
+					<ul>
+						<li>Service registry and discovery, routing by service name and version</li>
+						<li>Tenant and user context forwarded on every call</li>
+						<li>Proxy calls to another environment's gateway with its own key</li>
+						<li>Roaming between deployments, carrying the verified tenant and user</li>
+						<li>Global and per-service maintenance mode, readiness checks and registry reload</li>
+						<li>Last-seen tracking with triggers by service, method or API</li>
+						<li>Error logs with sensitive values redacted</li>
+					</ul>
+				</div>
+				<div class="card">
+					<h3>Runs where you do</h3>
+					<ul>
+						<li>Node.js gateway on Express 5, scaled out with replicas</li>
+						<li>Go gateway in preview: smaller image, faster start</li>
+						<li>Kubernetes with Helm, cloud or on-prem</li>
+						<li>Fully air-gapped deployments</li>
+						<li>Services in Node.js, Go or Python behind the same rules</li>
+					</ul>
+				</div>
+			</div>
+			<p style="margin-top:24px"><a href="/docs/concepts/gateway/">Gateway reference →</a></p>
+		</div>
+	</section>
+
+	<section class="soft" id="how-it-fits">
+		<div class="wrap">
+			<div class="section-head">
+				<p class="eyebrow">How it fits together</p>
+				<h2>A multi-tenant, real-time product on SOAJS</h2>
+				<p class="lead">Apps, a real-time server, background jobs and your own services all go through one gateway. Tenancy, ACL and tokens are decided there, once.</p>
+			</div>
+			<ArchitectureDiagram />
+		</div>
+	</section>
+	<section>
+		<div class="wrap">
+			<div class="section-head">
+				<p class="eyebrow">Beyond the gateway</p>
+				<h2>The rest of the platform</h2>
+			</div>
+			<div class="grid grid-2">
+				<div class="card">
+					<h3><a href="/platform/#imfv">Input validation</a></h3>
+					<p class="muted">Declare each API's inputs, sources and JSON-schema validation in config. Requests arrive at your handler already mapped and validated.</p>
+				</div>
+				<div class="card">
+					<h3><a href="/platform/#identity">Users, groups and login</a></h3>
+					<p class="muted">The urac and oauth services manage users, groups, invitations and every login method, per tenant.</p>
+				</div>
+				<div class="card">
+					<h3><a href="/platform/#console">Console and marketplace</a></h3>
+					<p class="muted">A web console for environments, tenants, keys, products, packages, the service catalog, Git repositories and infrastructure.</p>
+				</div>
+				<div class="card">
+					<h3><a href="/platform/#deploy">Deploy and SDKs</a></h3>
+					<p class="muted">Helm charts for every core service, in-container deployment from source, and SDKs for Node.js, Go and Python.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="soft">
+		<div class="wrap grid grid-2" style="align-items:center">
+			<div>
+				<p class="eyebrow">Configuration, not boilerplate</p>
+				<h2>Three flags instead of an auth layer</h2>
+				<p class="lead">
+					A service's config tells the gateway who may call it, which APIs it exposes, and how each input is
+					sourced and validated. By the time your handler runs, the caller is known and the input in
+					<code>req.soajs.inputmaskData</code> is already clean.
+				</p>
+				<p><a href="/docs/getting-started/first-service/">Build your first service →</a></p>
+			</div>
+			<div>
+				<div class="code-label">config.js</div>
+				<Code code={serviceConfig} lang="js" theme="github-dark" class="code" />
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="wrap">
+			<div class="section-head">
+				<p class="eyebrow">Built on SOAJS</p>
+				<h2>We build our own products on it</h2>
+				<p class="lead">Encrypted communications, regulated healthcare, IoT, fintech and social: our team runs each of these on SOAJS. Many more products have been built on it by other teams.</p>
+			</div>
+			<dl class="stats" style="margin-bottom:40px">
+				<div><dt>{totals.services}</dt><dd>microservices across our products</dd></div>
+				<div><dt>{totals.platforms}</dt><dd>multi-tenant products</dd></div>
+				<div><dt>23</dt><dd>services behind a single gateway in Connect Spaces</dd></div>
+			</dl>
+			<div class="grid grid-3">
+				{platforms.map((p) => (
+					<div class="card">
+						<h3><a href={`/built-on-soajs/#${p.id}`}>{p.name}</a></h3>
+						<p class="muted" style="margin-bottom:8px">{p.domain}</p>
+						<p>{p.summary}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="wrap">
+			<div class="band">
+				<div>
+					<h2>Try it on your own cluster</h2>
+					<p>Install the gateway and core services with Helm, then put your first service behind it.</p>
+				</div>
+				<div class="actions">
+					<a class="btn btn-primary" href="/docs/getting-started/quickstart/">Quickstart</a>
+					<a class="btn btn-ghost" href="https://github.com/soajs/soajs">Star on GitHub</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Base>

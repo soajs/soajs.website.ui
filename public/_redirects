@@ -1,0 +1,8 @@
+# Routes from the previous soajs.org (AngularJS) site
+/getstarted     /docs/getting-started/quickstart/  301
+/install        /docs/getting-started/quickstart/  301
+/documentation  /docs/                             301
+/news           /releases/                         301
+/demos          /docs/                             301
+/videos         /docs/                             301
+/contactUs      /                                  301

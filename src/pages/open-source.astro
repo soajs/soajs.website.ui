@@ -1,0 +1,82 @@
+---
+import Base from '../layouts/Base.astro';
+
+const groups = [
+	{
+		title: 'Gateway and framework',
+		repos: [
+			['soajs', 'Core framework for Node.js services (Express 5).'],
+			['soajs.controller', 'The multi-tenant API gateway (Node.js).'],
+			['soajs.core.modules', 'Shared models, mail and token generation.'],
+			['soajs.core.libs', 'Shared libraries.'],
+		],
+	},
+	{
+		title: 'Core services',
+		repos: [
+			['soajs.oauth', 'OAuth 2.0 tokens, LDAP, social, phone and restricted tokens.'],
+			['soajs.urac', 'Users, groups and access.'],
+			['soajs.urac.driver', 'URAC data driver.'],
+			['soajs.multitenant', 'Tenants, products and packages.'],
+			['soajs.marketplace', 'Service catalog.'],
+			['soajs.console', 'Registry and console back end.'],
+			['soajs.infra', 'Cloud and Kubernetes infrastructure.'],
+			['soajs.repositories', 'Git repository management.'],
+			['soajs.dashboard.ui', 'The React console UI.'],
+		],
+	},
+	{
+		title: 'SDKs and deployment',
+		repos: [
+			['soajs.nodejs', 'Node.js middleware SDK.'],
+			['soajs.golang', 'Go middleware SDK.'],
+			['soajs.python', 'Python SDK for FastAPI, Starlette, Flask and Django.'],
+			['soajs.helm', 'Helm charts for the gateway and core services.'],
+			['soajs.deployer', 'Builds and runs services from source inside the container.'],
+			['soajs.installer.versions', 'Release manifest.'],
+		],
+	},
+];
+---
+
+<Base title="Open source" description="SOAJS is open source under the Apache-2.0 license. Find the repositories, packages and images, and learn how to contribute.">
+	<section class="hero">
+		<div class="wrap">
+			<p class="eyebrow">Open source</p>
+			<h1>Apache-2.0,<br /><span>developed in the open.</span></h1>
+			<p class="lead">
+				Every part of SOAJS on this page is on GitHub under the <a href="https://github.com/soajs">soajs</a> organisation,
+				published to npm and, for services, to Docker Hub as <code>soajsorg/*</code> images.
+			</p>
+			<div class="actions">
+				<a class="btn btn-primary" href="https://github.com/soajs">GitHub organisation</a>
+				<a class="btn btn-ghost" href="https://www.npmjs.com/package/soajs">npm</a>
+				<a class="btn btn-ghost" href="https://hub.docker.com/u/soajsorg">Docker Hub</a>
+			</div>
+		</div>
+	</section>
+
+	<div class="wrap">
+		{groups.map((g) => (
+			<section style="padding:32px 0">
+				<h2>{g.title}</h2>
+				<div class="grid grid-3">
+					{g.repos.map(([name, desc]) => (
+						<div class="card">
+							<h3><a href={`https://github.com/soajs/${name}`}>{name}</a></h3>
+							<p class="muted">{desc}</p>
+						</div>
+					))}
+				</div>
+			</section>
+		))}
+
+		<section style="padding:32px 0 64px">
+			<h2>Contributing</h2>
+			<p class="lead">
+				Open an issue or a pull request on the relevant repository. Each repository runs its tests in GitHub Actions;
+				please include tests with changes to the gateway or core services.
+			</p>
+		</section>
+	</div>
+</Base>
