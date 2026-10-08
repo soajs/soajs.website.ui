@@ -20,6 +20,7 @@ const groupY = [180, 254, 328, 402];
 ---
 
 <figure class="diagram" id="architecture">
+	<p class="diagram-hint">Swipe sideways to see the whole diagram.</p>
 	<div class="diagram-scroll">
 		<svg viewBox="0 0 1200 625" role="img" aria-labelledby="cd-title cd-desc" xmlns="http://www.w3.org/2000/svg">
 			<title id="cd-title">Example architecture of a multi-tenant product on SOAJS</title>
@@ -141,6 +142,8 @@ const groupY = [180, 254, 328, 402];
 
 <style>
 	.diagram { margin: 0; }
+	.diagram-hint { display: none; font-size: 0.85rem; color: var(--fg-muted); margin: 0 0 8px; }
+	@media (max-width: 880px) { .diagram-hint { display: block; } }
 	.diagram-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-inset); padding: 16px; }
 	.diagram-scroll svg { display: block; width: 100%; min-width: 880px; height: auto; font-family: var(--font); }
 	.diagram-legend { list-style: upper-alpha; margin: 20px 0 0; padding-left: 1.4em; display: grid; gap: 10px; color: var(--fg-muted); }

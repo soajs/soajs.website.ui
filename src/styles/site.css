@@ -119,8 +119,8 @@ section { padding: 72px 0; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme='light']) .hero h1 span { color: var(--brand); } }
 :root[data-theme='dark'] .hero h1 span { color: var(--brand); }
 .hero .lead { margin-bottom: 28px; }
-.hero-grid { display: grid; gap: 40px; grid-template-columns: 1fr; align-items: center; }
-@media (min-width: 1040px) { .hero-grid { grid-template-columns: 1.15fr 1fr; } }
+.hero-grid { display: grid; gap: 40px; grid-template-columns: minmax(0, 1fr); align-items: center; }
+@media (min-width: 1040px) { .hero-grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); } }
 .hero-code pre { font-size: 0.82rem; box-shadow: 0 20px 50px -20px rgba(22, 38, 47, 0.45); }
 .hero-meta { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px 20px; color: var(--fg-muted); font-size: 0.92rem; }
 .hero-meta span::before { content: '✓ '; color: var(--brand); font-weight: 700; }
@@ -194,7 +194,7 @@ tr:last-child td { border-bottom: 0; }
 .theme-toggle { background: none; border: 1px solid var(--line); color: var(--fg-muted); border-radius: 8px; padding: 6px 10px; font: inherit; cursor: pointer; }
 
 /* Let grid children shrink below their content width (long code lines, tables). */
-.grid > *, .feature > *, .case > * { min-width: 0; }
+.grid > *, .feature > *, .case > *, .hero-grid > * { min-width: 0; }
 pre.astro-code { overflow-x: auto; }
 
 /* ACL example table */
@@ -215,3 +215,34 @@ ul.checks strong { display: block; color: var(--fg); }
 .feature-cards li { margin-bottom: 0.45em; }
 .feature-cards li::marker { color: var(--brand); }
 table.acl thead code { white-space: nowrap; }
+
+/* Phones */
+@media (max-width: 600px) {
+	section { padding: 52px 0; }
+	.hero { padding: 48px 0 52px; }
+	h1 { font-size: 2.1rem; }
+	.hero h1 br { display: none; }
+	.lead { font-size: 1.06rem; }
+	.hero .actions { display: grid; grid-template-columns: 1fr 1fr; }
+	.hero .actions .btn-primary { grid-column: 1 / -1; }
+	.actions .btn { justify-content: center; text-align: center; padding: 12px 10px; font-size: 0.95rem; }
+	.hero-code pre { font-size: 0.74rem; }
+	.site-footer .cols { grid-template-columns: 1fr 1fr; gap: 24px 20px; }
+	/* ACL table: one card per caller */
+	.table-wrap:has(table.acl) { border: 0; overflow: visible; }
+	table.acl, table.acl tbody, table.acl tr, table.acl th, table.acl td, table.acl caption { display: block; }
+	table.acl thead { display: none; }
+	table.acl caption { border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 12px; }
+	table.acl tbody { display: grid; gap: 12px; }
+	table.acl tr { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--card); }
+	table.acl th[scope='row'] { background: var(--bg-soft); border-bottom: 1px solid var(--line); }
+	table.acl td { position: relative; padding: 10px 16px 10px 48%; }
+	table.acl td::after { content: attr(data-label); position: absolute; left: 16px; top: 11px; font-family: var(--mono); font-size: 0.8rem; color: var(--fg-muted); }
+	table.acl tr td:last-child { border-bottom: 0; }
+	pre.code { padding: 16px; }
+	.card { padding: 20px; }
+	.band { padding: 28px 20px; }
+	.band .actions, .band .actions .btn { width: 100%; }
+	.section-head { margin-bottom: 28px; }
+	.stats dt { font-size: 1.8rem; }
+}

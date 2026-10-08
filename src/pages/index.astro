@@ -46,7 +46,7 @@ const serviceConfig = `module.exports = {
 		<div class="wrap hero-grid">
 			<div>
 			<p class="eyebrow">Open-source multi-tenant API gateway</p>
-			<h1>Turn your microservices<br /><span>into multi-tenant products.</span></h1>
+			<h1>Turn your microservices <br /><span>into multi-tenant products.</span></h1>
 			<p class="lead">
 				Before your code runs, the SOAJS gateway knows which customer is calling, what they are allowed to use and
 				who the user is. Tenant keys, per-API ACL and OAuth work together, so each customer gets exactly the access
@@ -121,9 +121,9 @@ const serviceConfig = `module.exports = {
 								<tr><th scope="col">Caller</th><th scope="col"><code>GET /catalog</code></th><th scope="col"><code>POST /orders</code></th><th scope="col"><code>GET /reports</code></th></tr>
 							</thead>
 							<tbody>
-								<tr><th scope="row">Acme<span>Pro package</span></th><td class="yes">Public</td><td class="yes">Signed-in users</td><td class="yes">Managers group only</td></tr>
-								<tr><th scope="row">Globex<span>Basic package</span></th><td class="yes">Public</td><td class="yes">Signed-in users</td><td class="no">Not in package</td></tr>
-								<tr><th scope="row">Storefront<span>Guest package</span></th><td class="yes">Public</td><td class="no">Not in package</td><td class="no">Not in package</td></tr>
+								<tr><th scope="row">Acme<span>Pro package</span></th><td data-label="GET /catalog" class="yes">Public</td><td data-label="POST /orders" class="yes">Signed-in users</td><td data-label="GET /reports" class="yes">Managers group only</td></tr>
+								<tr><th scope="row">Globex<span>Basic package</span></th><td data-label="GET /catalog" class="yes">Public</td><td data-label="POST /orders" class="yes">Signed-in users</td><td data-label="GET /reports" class="no">Not in package</td></tr>
+								<tr><th scope="row">Storefront<span>Guest package</span></th><td data-label="GET /catalog" class="yes">Public</td><td data-label="POST /orders" class="no">Not in package</td><td data-label="GET /reports" class="no">Not in package</td></tr>
 							</tbody>
 						</table>
 					</div>
