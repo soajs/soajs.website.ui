@@ -42,6 +42,45 @@ npm run deploy:preview      # https://v2-preview.soajs.pages.dev, production unt
 npm run deploy:production   # www.soajs.org
 ```
 
-Roll back from the Cloudflare dashboard: Pages → soajs → Deployments → pick a previous production deployment → Rollback.
+Production deploys from your local checkout, not from GitHub, so make sure you are on an up-to-date `v2` before deploying.
+
+### Releasing a change
+
+1. Work on a branch off `v2`, then merge it and push:
+
+   ```sh
+   git checkout v2
+   git merge --ff-only <your-branch>
+   git push origin v2
+   git branch -d <your-branch>
+   ```
+
+2. Deploy a preview and check it, including on a phone:
+
+   ```sh
+   npm run deploy:preview
+   ```
+
+   Open `https://v2-preview.soajs.pages.dev`. Production is not touched.
+
+3. Deploy to production:
+
+   ```sh
+   npm run deploy:production
+   ```
+
+   This builds and publishes to the Pages `main` branch, which serves `www.soajs.org`. It is live within a minute.
+
+4. Confirm the release:
+
+   ```sh
+   npx wrangler pages deployment list --project-name soajs | head -6
+   ```
+
+   The top Production row should show the commit you just released. Open `www.soajs.org` (hard refresh if needed).
+
+### Rolling back
+
+Note the ID of the current production deployment before you release (step 4 lists it). To roll back, open the Cloudflare dashboard: Pages → soajs → Deployments → pick the previous production deployment → Rollback.
 
 `public/_redirects` maps the old site's routes to their new pages, and `public/_headers` sets caching and security headers. `dist/` can also be served as a SOAJS static resource (see `soa.json`).
