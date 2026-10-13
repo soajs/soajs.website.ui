@@ -380,13 +380,13 @@
           "repo": "soajs.controller",
           "ver": "4.x",
           "msVer": 1,
-          "semVer": "4.3.13"
+          "semVer": "4.3.16"
         },
         {
           "repo": "soajs.oauth",
           "ver": "3.x",
           "msVer": 1,
-          "semVer": "3.1.23"
+          "semVer": "3.1.25"
         },
         {
           "repo": "soajs.multitenant",
