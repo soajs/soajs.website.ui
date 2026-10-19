@@ -380,7 +380,7 @@
           "repo": "soajs.controller",
           "ver": "4.x",
           "msVer": 1,
-          "semVer": "4.3.17"
+          "semVer": "4.3.18"
         },
         {
           "repo": "soajs.oauth",
