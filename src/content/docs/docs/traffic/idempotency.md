@@ -67,14 +67,36 @@ For a non-GET request to a matched API:
 |---|---|
 | No `Idempotency-Key`, enforcement off | Request passes through unchanged. |
 | No `Idempotency-Key`, enforcement on | `428`, code `182`: Idempotency-Key header is required for this API. |
-| Key not seen before | The key is locked as in flight, the request is forwarded, and the response (status, headers, body) is stored for `ttl`. |
+| Key not seen before | The key is locked as in flight and the request goes on. What happens to the key then depends on how the request ends, see below. |
 | Key seen, still in flight | `409`, code `181`: Request with this Idempotency-Key is still being processed. |
 | Key seen, completed | The stored response is returned as is. The service is not called. |
-| Proxying to the service fails | The lock is released, so the client can retry with the same key. |
 
 Keys are scoped per tenant: the same key sent with two different tenants' external keys is tracked separately. With `mongo`, entries are stored in the `idempotency_store` collection of the gateway database (or the provisioning database if none is configured), with a TTL index on `expiresAt`.
 
-The stored response is replayed whatever its status code, so a request that failed in the service with a `4xx`/`5xx` is replayed with that same response until the key expires. Use a new key to retry an operation after fixing its input.
+## How a locked key ends
+
+Only an answer the service actually produced is stored and replayed. Anything else releases the key, so the client's retry with the same key runs again instead of getting the same refusal until the TTL:
+
+| The request ends with | The key | A retry with the same key |
+|---|---|---|
+| A service response below `500` (`2xx`, `3xx`, `4xx`) | Stored for `ttl` | Gets the stored response. The service is not called. |
+| A service response of `500` or more | Released | Reaches the service again. |
+| Proxying to the service fails | Released | Reaches the service again. |
+| The gateway answers before the service: throttled (`429`), an error, a refusal | Released | Runs again. |
+| The client disconnects before the request reaches the service | Released | Runs again. |
+| The client disconnects while the service is answering | Follows the service response, as above | |
+
+A `4xx` is the service's answer to that input and stays replayed: use a new key to retry an operation after fixing its input. A `5xx` is retried with the same key, so a service that can fail with a `5xx` after part of the work is done must protect that work itself.
+
+A release only removes a key that is still in flight and was locked by that request. It never removes a stored response, and never a lock taken by a later retry after the first one's `ttl` ran out.
+
+Before `soajs.controller` 4.3.19, a key locked by a request that the gateway answered itself (a throttled `429`, for example) stayed in flight until its `ttl`, and every retry got `409`/`181`. A `5xx` from the service was stored and replayed.
+
+## Client handling
+
+- Treat `409`/`181` as "still in progress": wait and retry with the same key.
+- Retry a `429`, a `5xx` or a network error with the same key.
+- Use a new key only for a new operation, or after changing the input of one that got a `4xx`.
 
 ## Error codes
 
