@@ -74,7 +74,7 @@ Production deploys from your local checkout, not from GitHub, so make sure you a
 4. Confirm the release:
 
    ```sh
-   npx wrangler pages deployment list --project-name soajs | head -6
+   npx wrangler pages deployment list --project-name soajs | head -8
    ```
 
    The top Production row should show the commit you just released. Open `www.soajs.org` (hard refresh if needed).
