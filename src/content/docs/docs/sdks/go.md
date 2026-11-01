@@ -7,13 +7,15 @@ sidebar:
 
 `github.com/soajs/soajs.golang` loads the environment registry from the gateway, keeps it reloaded, and decodes the gateway's `soajsinjectobj` header into a context value on every request. It works with `net/http` handlers and anything that accepts them (the repository has a Gin example).
 
-Requires Go 1.21 or later.
+Requires Go 1.21 or later. Current version: v1.0.5.
 
 ## Install
 
 ```bash
-go get github.com/soajs/soajs.golang
+go get github.com/soajs/soajs.golang@v1.0.5
 ```
+
+Releases before v1.0.5 are from 2019: use v1.0.5 or later for the API on this page.
 
 ## Minimal service
 
@@ -59,11 +61,11 @@ func main() {
 |---|---|
 | `SOAJS_REGISTRY_API` | `hostname:port` of the gateway maintenance port, for example `controller:5000`. No scheme. |
 | `SOAJS_ENV` | Environment code. Required by `NewFromConfig`. |
-| `SOAJS_DEPLOY_MANUAL` | When `true`, `NewFromConfig` registers the service with the gateway. |
+| `SOAJS_DEPLOY_MANUAL` | Optional. When `true`, `NewFromConfig` registers the service with the gateway; not set means `false` (before v1.0.5, `NewFromConfig` failed when it was not set). |
 
 ## Registering from a configuration
 
-`NewFromConfig` validates a `Config`, loads the registry for `SOAJS_ENV` with auto-reload on, and registers the service when `SOAJS_DEPLOY_MANUAL` is `true`:
+`NewFromConfig` validates a `Config`, loads the registry for `SOAJS_ENV` with auto-reload on, registers the service when `SOAJS_DEPLOY_MANUAL` is `true`, and sets up [MCP tools](#mcp-tools) from `SwaggerFilename`:
 
 ```go
 cfg := soajsgo.Config{
@@ -83,6 +85,25 @@ registry, err := soajsgo.NewFromConfig(ctx, cfg)
 ```
 
 `Validate` requires `Type`, `ServiceName`, `ServicePort`, `ServiceVersion` (`1` or `1.1` format), `ServiceGroup`, `Maintenance.Readiness` and `Maintenance.Port.Type`. The `Config` JSON tags match the [`soa.json`](/docs/deploy/soa-json/) fields (`name`, `group`, `port`, `version`, `type`, `maintenance`, `interConnect`, ...), so you can also unmarshal your `soa.json` into it.
+
+## MCP tools
+
+The gateway can list a service's APIs as [MCP tools](/docs/concepts/mcp/) for AI agents. A Go
+service describes its APIs with its Swagger 2.0 or OpenAPI 3 document, and `registry.Middleware`
+serves it on `GET /mcp/tools`:
+
+- `NewFromConfig` sets `registry.MCP` from the config: `SwaggerFilename` (`swaggerFilename` in
+  `soa.json`), default `/swagger.yml`, relative to the folder the service runs from.
+- With `New`, set it yourself:
+
+  ```go
+  registry.MCP = &soajsgo.MCPTools{ServiceName: "orders", ServiceVersion: "1", SwaggerFilename: "/api/swagger.json"}
+  ```
+
+  `SwaggerDocument` (the document content) wins over the file. Without `registry.MCP` the route is
+  left to your app.
+- A JSON document is sent parsed, YAML as text. No document: the service has no tools.
+- Only the gateway's own call is answered; a client request through the gateway goes to your app.
 
 ## Request context
 

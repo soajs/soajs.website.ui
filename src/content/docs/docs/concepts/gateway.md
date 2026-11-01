@@ -97,13 +97,14 @@ The maintenance server listens on the data port plus `serviceConfig.ports.mainte
 | `/register` | Used by services to register their host (custom mode only). |
 | `GET /getRegistry` | Returns the registry for a service. This is the address services use as `SOAJS_REGISTRY_API`. |
 
-Every SOAJS service has its own maintenance port with at least `/heartbeat`, `/reloadRegistry` and `/loadProvision`.
+Every SOAJS service has its own maintenance port with at least `/heartbeat`, `/reloadRegistry` and `/loadProvision`, and, from `soajs` 4.1.24, `/mcp/tools`, which describes its APIs for the [MCP endpoint](/docs/concepts/mcp/).
 
 ## Built-in gateway routes
 
 | Route | Description |
 |---|---|
 | `/soajs/acl` | Returns the ACL for the calling key (and user, when an `access_token` is sent). |
+| `POST /soajs/mcp` | MCP endpoint: the caller's APIs as tools for AI agents. Off unless enabled. See [MCP for AI agents](/docs/concepts/mcp/). |
 | `/soajs/proxy?proxyRoute=<encoded route>` | Proxies the call to a service route, optionally in another environment (`__env`). |
 
 ## Configuration sources

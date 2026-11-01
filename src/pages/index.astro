@@ -36,6 +36,18 @@ const serviceConfig = `module.exports = {
     }
   }
 };`;
+
+const mcpClient = `{
+  "mcpServers": {
+    "acme": {
+      "url": "https://api.example.com/soajs/mcp",
+      "headers": {
+        "key": "<Acme's agent key>",
+        "Authorization": "Bearer <user token>"
+      }
+    }
+  }
+}`;
 ---
 
 <Base
@@ -61,11 +73,36 @@ const serviceConfig = `module.exports = {
 				<span>Free and open source, Apache-2.0</span>
 				<span>Node.js, Go and Python</span>
 				<span>Cloud, on-prem or air-gapped</span>
+				<span>MCP-ready for AI agents</span>
 			</div>
 			</div>
 			<div class="hero-code">
 				<div class="code-label">orders/index.js: your whole handler</div>
 				<Code code={handlerCode} lang="js" theme="github-dark" class="code" />
+			</div>
+		</div>
+	</section>
+
+	<section id="mcp">
+		<div class="wrap grid grid-2" style="align-items:start">
+			<div>
+				<p class="eyebrow">New · MCP for AI agents</p>
+				<h2>Every service is an MCP tool. With each customer's permissions.</h2>
+				<p class="lead">
+					AI agents connect to one gateway endpoint and see your APIs as tools. The tenant's package and the
+					user's ACL decide which ones, exactly as they do for your apps. A tool call is an ordinary API call:
+					OAuth, ACL, rate limiting and idempotency apply before your service runs.
+				</p>
+				<ul class="checks">
+					<li><strong>No MCP server to write.</strong> SOAJS services describe their APIs from <code>config.js</code>; Node.js, Python and Go services from their Swagger.</li>
+					<li><strong>No second permission system.</strong> An agent gets what its key's package and its user allow. Give agents their own key and package to narrow it further.</li>
+					<li><strong>No way around your rules.</strong> Every tool call goes through the same gateway checks as any other call, and counts toward your rate limits and activity tracking.</li>
+				</ul>
+				<p><a href="/docs/concepts/mcp/">Connect an agent →</a></p>
+			</div>
+			<div>
+				<div class="code-label">MCP client configuration</div>
+				<Code code={mcpClient} lang="json" theme="github-dark" class="code" />
 			</div>
 		</div>
 	</section>
@@ -193,6 +230,7 @@ const serviceConfig = `module.exports = {
 						<li>User groups that grant their own packages</li>
 						<li>Memberships resolved per product</li>
 						<li><code>/soajs/acl</code> so sockets and other servers share the same rules</li>
+						<li><code>/soajs/mcp</code>: the same APIs as MCP tools for AI agents</li>
 					</ul>
 				</div>
 				<div class="card">

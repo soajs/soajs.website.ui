@@ -126,6 +126,23 @@ const aclExample = `{
 			</div>
 		</article>
 
+		<article class="feature" id="mcp">
+			<div>
+				<p class="eyebrow">MCP for AI agents</p>
+				<h2>Your APIs as tools, with your rules</h2>
+				<p class="muted">One endpoint, <code>/soajs/mcp</code>, turned on per environment in the registry.</p>
+				<p><a href="/docs/concepts/mcp/">MCP for AI agents →</a></p>
+			</div>
+			<div>
+				<ul class="checks">
+					<li><strong>Tools from what services already declare.</strong> SOAJS services describe their APIs from <code>config.js</code>; services built with the Node.js, Python or Go SDK from their Swagger or OpenAPI document.</li>
+					<li><strong>Filtered per caller.</strong> An agent sees the APIs its key's package and its user's ACL allow; a restricted service shows only what its ACL lists.</li>
+					<li><strong>Every call checked.</strong> A tool call is processed as the API call it stands for: key, OAuth, device binding, tenant access resolver, ACL, rate limiting, idempotency and caching.</li>
+					<li><strong>Agents get their own key.</strong> Give agents an application, key and package of their own in the tenant to give them a narrower set than your apps.</li>
+				</ul>
+			</div>
+		</article>
+
 		<article class="feature" id="traffic">
 			<div>
 				<p class="eyebrow">Traffic</p>
@@ -160,7 +177,7 @@ const aclExample = `{
 					<li><strong>Maintenance.</strong> Global and per-service maintenance mode, readiness checks and registry reload.</li>
 					<li><strong>Activity tracking.</strong> Last-seen per user, with triggers by service, method or API.</li>
 					<li><strong>Safe logs.</strong> Error logs with sensitive values redacted.</li>
-					<li><strong>Go build.</strong> A smaller, faster-starting gateway for Kubernetes. It does not yet include caching, idempotency, device binding or restricted tokens. <a href="/docs/deploy/go-gateway/">Compare the two</a></li>
+					<li><strong>Go build.</strong> A smaller, faster-starting gateway for Kubernetes. It does not yet include caching, idempotency, device binding, restricted tokens or the MCP endpoint. <a href="/docs/deploy/go-gateway/">Compare the two</a></li>
 				</ul>
 			</div>
 		</article>

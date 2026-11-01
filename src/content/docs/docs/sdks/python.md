@@ -5,17 +5,19 @@ sidebar:
   order: 3
 ---
 
-`soajs-python` (version 1.0.0, Python 3.9+) provides a thread-safe registry manager and middleware that decodes the gateway's `soajsinjectobj` header into a typed context. It has an ASGI middleware for FastAPI and Starlette, and a WSGI middleware for Flask and Django.
+`soajs-python` (version 1.0.1, Python 3.10+) provides a thread-safe registry manager and middleware that decodes the gateway's `soajsinjectobj` header into a typed context. It has an ASGI middleware for FastAPI and Starlette, and a WSGI middleware for Flask and Django.
 
 ## Install
 
+The package is not on PyPI; install it from the GitHub release:
+
 ```bash
-pip install soajs-python
+pip install "soajs-python @ git+https://github.com/soajs/soajs.python@1.0.1"
 
 # with framework extras
-pip install "soajs-python[fastapi]"
-pip install "soajs-python[flask]"
-pip install "soajs-python[django]"
+pip install "soajs-python[fastapi] @ git+https://github.com/soajs/soajs.python@1.0.1"
+pip install "soajs-python[flask] @ git+https://github.com/soajs/soajs.python@1.0.1"
+pip install "soajs-python[django] @ git+https://github.com/soajs/soajs.python@1.0.1"
 ```
 
 ## Environment variables
@@ -41,6 +43,7 @@ registry = RegistryManager(
     service_group="Shop",
     service_version="1",
     service_ip="127.0.0.1",   # optional, defaults to 127.0.0.1
+    config=config,            # optional: a soajs.Config or dict, its flags are sent on registration
 )
 
 db = registry.get_database("orders")
@@ -60,26 +63,22 @@ registry.stop()                          # stop the auto-reload thread
 ```python
 from fastapi import FastAPI, Request
 from soajs import RegistryManager
-from soajs.middleware import SOAJSMiddleware
+from soajs.middleware import SOAJSMiddleware, get_soajs_context
 
 registry = RegistryManager(service_name="orders", env_code="dev", service_type="service")
 
 app = FastAPI()
-app.add_middleware(SOAJSMiddleware, registry=registry)
+app.add_middleware(SOAJSMiddleware, registry=registry, swagger_document=app.openapi)
 
 @app.get("/list")
 async def list_orders(request: Request):
-    context = request.scope.get("soajs")
+    context = get_soajs_context(request)
     if context is None:
         return {"error": "No SOAJS context"}
     return {"tenant": context.tenant.code}
 ```
 
-The ASGI middleware stores the context in `request.scope["soajs"]` when the header is present.
-
-:::caution
-In `soajs-python` 1.0.0, the helper `get_soajs_context(request)` reads the scope with `getattr` instead of a dictionary lookup and returns `None` even when the context is set. Read `request.scope.get("soajs")` directly, as above.
-:::
+The ASGI middleware stores the context in `request.scope["soajs"]` when the header is present; `get_soajs_context(request)` reads it (in 1.0.0 it always returned `None`; fixed in 1.0.1). `swagger_document=app.openapi` serves FastAPI's OpenAPI document for [MCP tools](#mcp-tools).
 
 ## Flask
 
@@ -91,7 +90,7 @@ from soajs.middleware import SOAJSWSGIMiddleware
 registry = RegistryManager(service_name="orders", env_code="dev", service_type="service")
 
 app = Flask(__name__)
-app.wsgi_app = SOAJSWSGIMiddleware(app.wsgi_app, registry)
+app.wsgi_app = SOAJSWSGIMiddleware(app.wsgi_app, registry, swagger_filename="/swagger.yml")
 
 @app.route("/list")
 def list_orders():
@@ -114,6 +113,19 @@ from soajs.middleware import SOAJSWSGIMiddleware
 registry = RegistryManager(service_name="orders", env_code="dev", service_type="service")
 application = SOAJSWSGIMiddleware(get_wsgi_application(), registry)
 ```
+
+## MCP tools
+
+The gateway can list a service's APIs as [MCP tools](/docs/concepts/mcp/) for AI agents. A Python
+service describes its APIs with its Swagger 2.0 or OpenAPI 3 document, and the middleware serves it
+on `GET /mcp/tools`:
+
+- `swagger_document`: the document, or a callable returning it (FastAPI: `app.openapi`); it wins
+  over the file.
+- `swagger_filename`: a file relative to the folder the service runs from, default `/swagger.yml`.
+  A JSON file is sent parsed, YAML as text.
+- No document: the service has no tools.
+- Only the gateway's own call is answered; a client request through the gateway goes to your app.
 
 ## Context
 

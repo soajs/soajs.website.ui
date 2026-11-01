@@ -10,7 +10,7 @@ There are two ways to write a Node.js service for SOAJS:
 - The **`soajs` framework**, which builds the Express 5 app for you, validates inputs and runs the maintenance port. See [Your first service](/docs/getting-started/first-service/).
 - The **`soajs.nodejs` middleware**, for an app you already have. It loads the registry and decodes the gateway's `soajsinjectobj` header into `req.soajs`. You keep your own routing, validation and server.
 
-This page covers `soajs.nodejs` (version 2.0.3).
+This page covers `soajs.nodejs` (version 2.0.4).
 
 ## Install
 
@@ -48,6 +48,27 @@ app.listen(4300);
 ```
 
 The optional callback receives `(err, reg)` once the registry has loaded.
+
+## MCP tools
+
+The gateway can list a service's APIs as [MCP tools](/docs/concepts/mcp/) for AI agents. A service
+using this middleware describes its APIs with its Swagger 2.0 or OpenAPI 3 document, and the
+middleware serves it on `GET /mcp/tools`:
+
+```js
+app.use(soajsMW({
+	serviceName: "orders",
+	serviceVersion: 1,
+	swaggerFilename: "/swagger.yml" // the default, relative to the folder the service runs from
+}));
+```
+
+- `swaggerDocument` (an object, for example from swagger-jsdoc) wins over the file.
+- A `.json` file is sent parsed, YAML as text. No document: the service has no tools.
+- Only the gateway's own call is answered; a client request through the gateway goes to your app.
+- If your app mounts its routes itself: `app.get("/mcp/tools", soajsMW.mcpTools(config))`.
+
+The `soajs` framework needs none of this: its services describe their APIs from `config.js`.
 
 ## Environment variables
 
@@ -88,7 +109,7 @@ req.soajs.reg.stopAutoReload();
 The middleware reloads the registry periodically when the environment's service configuration (`getServiceConfig()`) has `awareness.autoReloadRegistry` set, in milliseconds.
 
 :::caution
-The default environment record and the gateway spell this key `autoRelaodRegistry`. `soajs.nodejs` 2.0.3 only reads `autoReloadRegistry`, so with the default record it does not auto-reload. Add the correctly spelled key to the environment, or call `reload()` yourself.
+The default environment record and the gateway spell this key `autoRelaodRegistry`. `soajs.nodejs` (since 2.0.3) only reads `autoReloadRegistry`, so with the default record it does not auto-reload. Add the correctly spelled key to the environment, or call `reload()` yourself.
 :::
 
 ## Calling other services

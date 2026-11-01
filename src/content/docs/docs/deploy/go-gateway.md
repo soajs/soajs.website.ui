@@ -67,6 +67,7 @@ Not implemented in the Go gateway:
 | [Idempotency keys](/docs/traffic/idempotency/) (`idempotency`) | yes | no |
 | [Device binding](/docs/security/device-binding/) check (`user.deviceId` vs `device-id`, error 156) | yes | no |
 | [Restricted token](/docs/security/restricted-tokens/) check (`restrictedTo`, error 147) | yes | no |
+| [MCP endpoint](/docs/concepts/mcp/) (`/soajs/mcp`, `mcp` in the custom registry) | yes | no |
 | Membership resolution (`membership` in the custom registry) | yes | no |
 | External key `geo` / `device` allow and deny lists | yes | no |
 | Network package overrides (`networkPackages` on the key) | yes | no |
