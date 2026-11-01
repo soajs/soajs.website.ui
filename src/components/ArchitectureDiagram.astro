@@ -29,7 +29,8 @@ const groupY = [180, 254, 328, 402];
 				authenticates each connection through the gateway and sends every API call through the gateway pipeline. The
 				gateway resolves the tenant, checks the package ACL, validates the OAuth token, applies URAC access and traffic
 				policy, then routes to SOAJS core services or your own microservices. Scheduled jobs call the gateway with their
-				own tenant key.
+				own tenant key. AI agents connect over MCP to /soajs/mcp, see the APIs their key and user allow as tools, and
+				each tool call goes through the same pipeline.
 			</desc>
 			<defs>
 				<marker id="cd-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -38,7 +39,7 @@ const groupY = [180, 254, 328, 402];
 			</defs>
 
 			<!-- Clients -->
-			<rect x="10" y="55" width="230" height="280" rx="14" class="dg-group" />
+			<rect x="10" y="55" width="230" height="355" rx="14" class="dg-group" />
 			<text x="22" y="45" class="dg-label">Clients</text>
 			<g>
 				<rect x="22" y="70" width="206" height="70" rx="10" class="dg-box" />
@@ -55,6 +56,11 @@ const groupY = [180, 254, 328, 402];
 				<text x="36" y="269" class="dg-title">Partner integrations</text>
 				<text x="36" y="290" class="dg-sub">server-to-server API calls</text>
 			</g>
+			<g>
+				<rect x="22" y="325" width="206" height="70" rx="10" class="dg-box dg-box-strong" />
+				<text x="36" y="354" class="dg-title">AI agents</text>
+				<text x="36" y="375" class="dg-sub">MCP clients · assistants, copilots</text>
+			</g>
 
 			<!-- 1: HTTPS to gateway -->
 			<circle cx="266" cy="92" r="9" class="dg-flow-bg" /><text x="266" y="96" text-anchor="middle" class="dg-flow-letter">A</text>
@@ -63,10 +69,15 @@ const groupY = [180, 254, 328, 402];
 			<line x1="228" y1="190" x2="488" y2="190" class="dg-line dg-accent" marker-end="url(#cd-arrow)" />
 			<line x1="228" y1="275" x2="488" y2="275" class="dg-line dg-accent" marker-end="url(#cd-arrow)" />
 
+			<!-- 5: MCP -->
+			<circle cx="266" cy="343" r="9" class="dg-flow-bg" /><text x="266" y="347" text-anchor="middle" class="dg-flow-letter">E</text>
+			<text x="281" y="347" class="dg-flow">MCP · POST /soajs/mcp</text>
+			<line x1="228" y1="360" x2="488" y2="360" class="dg-line dg-accent" marker-end="url(#cd-arrow)" />
+
 			<!-- 2: WebSocket -->
-			<path d="M125 335 V435 H273" class="dg-line" fill="none" marker-end="url(#cd-arrow)" />
-			<circle cx="145" cy="421" r="9" class="dg-flow-bg" /><text x="145" y="425" text-anchor="middle" class="dg-flow-letter">B</text>
-			<text x="160" y="425" class="dg-flow">WebSocket</text>
+			<path d="M125 410 V455 H273" class="dg-line" fill="none" marker-end="url(#cd-arrow)" />
+			<circle cx="145" cy="441" r="9" class="dg-flow-bg" /><text x="145" y="445" text-anchor="middle" class="dg-flow-letter">B</text>
+			<text x="160" y="445" class="dg-flow">WebSocket</text>
 			<rect x="275" y="380" width="180" height="110" rx="10" class="dg-box dg-box-strong" />
 			<text x="289" y="406" class="dg-title">Real-time server</text>
 			<text x="289" y="426" class="dg-sub">e.g. Socket.IO</text>
@@ -135,6 +146,7 @@ const groupY = [180, 254, 328, 402];
 			<li><strong>Real-time.</strong> Your socket server doesn't need its own auth. It validates each connection's key and token with the gateway's <code>/soajs/acl</code> endpoint, then sends API calls through the same gateway pipeline as HTTPS traffic, so one ACL covers both.</li>
 			<li><strong>Service to service.</strong> Services call each other and the core services through SOAJS inter-service connections, with tenant and user context carried on each call. A service only declares <code>extKeyRequired</code>, <code>oauth</code> and <code>urac</code> in its config; it writes no authentication code.</li>
 			<li><strong>Jobs and deployments.</strong> Background jobs are clients too: they call the gateway with their own tenant key and get the same ACL. Model each customer, region or network as a tenant to keep their data and access apart.</li>
+			<li><strong>AI agents.</strong> Agents connect over MCP to <code>/soajs/mcp</code> with their own tenant key and a user's token. They see the APIs that key's package and that user allow as tools, and every tool call goes through steps 1–6 like any API call. <a href="/docs/concepts/mcp/">MCP for AI agents</a></li>
 		</ol>
 		<p class="diagram-note">Connect Spaces runs this pattern in production: 23 microservices and a Socket.IO real-time layer behind one SOAJS gateway. <a href="/built-on-soajs/#connect-spaces">Read the case study</a>.</p>
 	</figcaption>
