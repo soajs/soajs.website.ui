@@ -79,6 +79,7 @@ Without the `interConnect` entry, `awareness.connect` returns the gateway host i
 | `deviceId` | body | no | The **web app's** device id. Omit it and the token is not device-bound. |
 | `agent` | body | no | The web app's user-agent. Only enforced if `restrictedTo.agent` is also set. |
 | `ttl` | body | no | Lifetime in seconds, minimum 60. Defaults to `accessTokenLifetime` (7200). |
+| `loginMode` | body | no | `oauth` (default) or `urac`. See [Login mode](#login-mode). From `soajs.oauth` 3.1.31. |
 
 `deviceId` and `agent` are body fields because on this call the `device-id` and `user-agent` headers belong to your service, not to the browser. Pass the values stored when the pairing was opened.
 
@@ -120,7 +121,16 @@ Response:
 }
 ```
 
-The minted token has `loginMode` `oauth`, so the gateway takes the user straight from the token and does not look it up in the web app's tenant.
+### Login mode
+
+By default the minted token has `loginMode` `oauth`: the gateway takes the user straight from the token and does not look it up in the web app's tenant. The user's status and groups stay as they were at mint time until the token expires. This is what the pairing flow needs.
+
+With `loginMode` `urac`, the gateway loads the user from URAC on every call, like an ordinary session:
+
+- a user set to inactive is refused (error 146) on the next call;
+- group changes apply on the next call.
+
+Use it only when the token is used under a tenant the user belongs to, since the lookup is made in the tenant of the request. Under another tenant, every call is refused. The gateway's `getUserFromToken` setting must be off, or the user is taken from the token again.
 
 ### Mint errors
 
