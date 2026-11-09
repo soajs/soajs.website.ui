@@ -386,7 +386,7 @@
           "repo": "soajs.oauth",
           "ver": "3.x",
           "msVer": 1,
-          "semVer": "3.1.31"
+          "semVer": "3.1.32"
         },
         {
           "repo": "soajs.multitenant",

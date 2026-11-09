@@ -132,12 +132,14 @@ With `loginMode` `urac`, the gateway loads the user from URAC on every call, lik
 
 Use it only when the token is used under a tenant the user belongs to, since the lookup is made in the tenant of the request. Under another tenant, every call is refused. The gateway's `getUserFromToken` setting must be off, or the user is taken from the token again.
 
+From `soajs.oauth` 3.1.32, when `restrictedTo.tenant` names one tenant, a `urac` mint finds the user under that tenant instead of the calling one. The user must have it as home tenant or be invited to it. This lets a service mint for users of other tenants, for example AI agents that are users of a customer's tenant.
+
 ### Mint errors
 
 | Code | Meaning |
 |---|---|
 | 400 | Required data missing. |
-| 413 | User not found for `:id` in the calling tenant. |
+| 413 | User not found for `:id` in the calling tenant, or, with `loginMode` `urac`, in the one tenant `restrictedTo.tenant` names. |
 | 415 | The call carries a user's own token and `:id` is a different user. |
 | 416 | The user record is missing a required field (`username`, `tenant`, ...). |
 | 600 | Token generation failed. |
