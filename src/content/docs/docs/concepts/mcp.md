@@ -29,7 +29,7 @@ SOAJS gateway
 
 | Component | Version |
 |---|---|
-| Gateway (`soajs.controller`) | 4.3.23; 4.3.26 for [agent sign-in](#let-agents-sign-in) and a key per tool call |
+| Gateway (`soajs.controller`) | 4.3.23; 4.3.26 for [agent sign-in](#let-agents-sign-in) and a key per tool call; 4.3.27 for `auth.scheme` |
 | Services built on `soajs` | 4.1.24: tools from `config.js`, nothing to add |
 | Services built with `soajs.nodejs` | 2.0.4, with a Swagger / OpenAPI document ([Node.js SDK](/docs/sdks/nodejs/#mcp-tools)) |
 | Services built with `soajs-python` | 1.0.1 ([Python SDK](/docs/sdks/python/#mcp-tools)) |
@@ -102,6 +102,7 @@ The gateway is the protected resource; the authorization server (the consent pag
 - **Which endpoints:** by the product of the key in the URL, else by the host the request came in on, else `default`. Each environment, and each domain, can point at its own sign-in page.
 - **Without a valid token,** `/soajs/mcp` answers 401 with a `WWW-Authenticate` header that tells the client where to sign in. The gateway serves the discovery documents at `/.well-known/oauth-protected-resource` and `/.well-known/oauth-authorization-server/...`.
 - **The key comes from the token.** Clients don't send a key. Issue a token restricted to the agent's tenant, product, package and key, for example with `soajs.oauth` `POST /restricted/token/guest`, and the gateway uses that key and checks the restrictions on every call.
+- **Behind a proxy:** the addresses the gateway gives out use the scheme and host the request came in on (`X-Forwarded-Proto`, `X-Forwarded-Host`). If your TLS proxy does not pass the scheme on, add `"scheme": "https"` to `auth` (gateway 4.3.27).
 - **Without `auth`,** nothing changes: clients send the key and token themselves.
 
 ### Give agents their own package
