@@ -4,7 +4,7 @@ import versions from '../data/versions.json';
 
 // Generated from soajs.installer.versions/versions.json; refresh it with `npm run sync:versions`.
 type Repo = { repo: string; semVer: string };
-type Release = { name: string; patch: string; label: string; description: string; repositories?: Repo[] };
+type Release = { name: string; patch: string; label: string; description: string; framework?: Repo; repositories?: Repo[] };
 
 const labels = versions.serviceLabels as Record<string, { label: string }>;
 const releases = [...(versions.releases as Release[])].reverse();
@@ -37,6 +37,9 @@ const labelFor = (repo: string) => labels[repo]?.label ?? repo;
 						<table>
 							<thead><tr><th scope="col">Component</th><th scope="col">Package</th><th scope="col">Version</th></tr></thead>
 							<tbody>
+								{r.framework && (
+									<tr><td>Framework</td><td><code>{r.framework.repo}</code></td><td>{r.framework.semVer}</td></tr>
+								)}
 								{r.repositories.map((repo) => (
 									<tr><td>{labelFor(repo.repo)}</td><td><code>{repo.repo}</code></td><td>{repo.semVer}</td></tr>
 								))}

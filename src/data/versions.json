@@ -374,6 +374,10 @@
         "1",
         "2"
       ],
+      "framework": {
+        "repo": "soajs",
+        "semVer": "4.1.24"
+      },
       "prerequisite": [],
       "repositories": [
         {
@@ -428,7 +432,7 @@
           "repo": "soajs.dashboard.ui",
           "ver": "4.x",
           "msVer": 1,
-          "semVer": "4.2.7"
+          "semVer": "4.2.8"
         }
       ]
     }
