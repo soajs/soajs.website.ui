@@ -1,6 +1,6 @@
 ---
 title: Go gateway (preview)
-description: A Go implementation of the SOAJS gateway. Preview, not yet publicly released, and not at feature parity with the Node.js gateway.
+description: The SOAJS gateway written in Go. It answers as the Node.js gateway does, checked request by request, and reads the latest data schema only. Not yet released.
 sidebar:
   order: 3
   badge:
@@ -9,74 +9,67 @@ sidebar:
 ---
 
 :::caution[Preview]
-The Go gateway is a preview. It is not yet publicly released, and it does not implement several features of the Node.js gateway (`soajs.controller`) listed below. Use the Node.js gateway for production.
+The Go gateway has every feature of the Node.js gateway, but it is not yet released as a version or an image. Use the Node.js gateway (`soajs.controller`) in production.
 :::
 
-The Go gateway is a rewrite of `soajs.controller` in Go (Go 1.26+, MongoDB 5.0+). It reads the same core database (registry, custom registry, tenants, keys, packages, tokens), exposes the same URL scheme (`/<service>/<path>`, `/<service>/v<N>/<path>`), the same built-in routes (`/soajs/acl`, `/soajs/proxy`), and the same maintenance routes.
+The Go gateway ([soajs.controller.go](https://github.com/soajs/soajs.controller.go)) is the SOAJS gateway written in Go. The Node.js gateway, `soajs.controller` 4.3.28, is its specification. It reads the same profile and databases, uses the same URL scheme (`/<service>[/v<N>]/<path>`), and answers the same way.
+
+## How parity is checked
+
+A conformance harness replays 123 requests against both gateways on the same fixture database. It compares the status, the headers and the body byte for byte, and both gateways pass all of them. The requests cover:
+
+- keys, package ACLs, OAuth, restricted tokens, device binding, PIN, and paused users;
+- proxying, roaming, `soajsinjectobj` and HEAD;
+- throttling, idempotency and the response cache;
+- the maintenance port;
+- `/soajs/acl`, `/soajs/proxy` and [MCP](/docs/concepts/mcp/), including agent tokens.
+
+## Latest data schema only
+
+The Go gateway reads only the current shape of each collection, and carries no code for older shapes. A document that does not match its schema is logged, then skipped or refused, never converted. The schema of every collection the gateway reads is in the repository's [data-schema](https://github.com/soajs/soajs.controller.go/tree/main/docs/data-schema) folder, with a checker you can run against a database.
+
+Two settings matter when you move an existing environment to the Go gateway:
+
+- **urac:** the custom registry `urac` entry must set `masterDB`, the core database that holds users and groups. The Go gateway reads urac there only.
+- **Booleans:** settings such as `cors.credentials` must be stored as true or false, not as text.
 
 ## Build and run
 
 ```bash
-go build -o controller ./cmd/controller
-SOAJS_ENV=dev SOAJS_MONGO_URI="mongodb://<mongo-host>:27017" ./controller
+make build    # bin/controller (Go 1.25+)
+SOAJS_ENV=dev SOAJS_PROFILE=/opt/soajs/profile/soajsprofile ./bin/controller
 ```
 
-The Makefile also has `build`, `build-linux`, `docker`, `test`, `test-coverage` and `lint` targets.
+- **`SOAJS_PROFILE`** is required. It is the same profile file the Node.js gateway reads, and it says where the provision database is.
+- **`SOAJS_ENV`** is the environment whose registry is loaded.
+- **Ports:** the gateway listens on `SOAJS_SERVICE_PORT` (4000). The maintenance port comes from the registry: `serviceConfig.ports.controller` + `maintenanceInc`.
 
-## Configuration
+Every setting is listed in [configuration](https://github.com/soajs/soajs.controller.go/blob/main/docs/configuration.md).
 
-Configuration comes from `configs/default.yaml` and from environment variables with the `SOAJS_` prefix (nested keys use `_`).
+## Routes
 
-| Variable | Default | Description |
-|---|---|---|
-| `SOAJS_ENV` | `dev` | Environment code. |
-| `SOAJS_SERVICE_PORT` | `4000` | Gateway data port. |
-| `SOAJS_MONGO_URI` | `mongodb://localhost:27017` | MongoDB connection URI. |
-| `SOAJS_MONGO_DATABASE` | `core_provision` | Core provisioning database. |
-| `SOAJS_LOG_LEVEL` | `info` | `debug`, `info`, `warn` or `error`. |
-| `SOAJS_DEPLOY_HA` | unset | Any value enables HA (Kubernetes) awareness. |
-
-The maintenance port is the controller port plus `serviceConfig.ports.maintenanceInc` from the environment registry, as in the Node.js gateway. If the registry does not provide them, it falls back to the data port plus `1001`.
-
-| Maintenance route | Description |
+| Port | Routes |
 |---|---|
-| `GET /heartbeat` | Health check. |
-| `GET /loadProvision` | Reload provisioning data. |
-| `GET /reloadRegistry` | Reload the registry. |
-| `GET /getRegistry` | Registry for a service. |
-| `GET /awarenessStat` | Awareness state. |
-| `GET`, `POST /register` | Register a service host. |
-
-## Pipeline
-
-```
-context → cors → favicon → response → enhancer → ip2ban → maintenanceMode → url
-→ awareness → awarenessEnv → key → keyACL → gotoService → mt → /soajs route setup
-→ oauth → userACL → /soajs routes → traffic → lastSeen → monitor → proxy
-```
-
-Note that the project README lists a slightly different order (oauth before mt); the order above is the one wired in `internal/server/controller.go`.
+| Gateway | `/<service>[/v<N>]/<path>`, `/soajs/acl`, `/soajs/proxy`, `/soajs/mcp`, `/.well-known/*` (MCP authorization metadata) |
+| Maintenance | `/heartbeat`, `/reloadRegistry`, `/loadProvision`, `/getRegistry`, `/awarenessStat`, `POST /register`, `POST /cache/invalidate` |
 
 ## Differences from the Node.js gateway
 
-Not implemented in the Go gateway:
+Each difference below is deliberate. The full list, with the pull request for each, is in [differences](https://github.com/soajs/soajs.controller.go/blob/main/docs/differences.md).
 
-| Feature | Node.js gateway | Go gateway |
-|---|---|---|
-| [GET response caching](/docs/traffic/caching/) (`cache`) | yes | no |
-| [Idempotency keys](/docs/traffic/idempotency/) (`idempotency`) | yes | no |
-| [Device binding](/docs/security/device-binding/) check (`user.deviceId` vs `device-id`, error 156) | yes | no |
-| [Restricted token](/docs/security/restricted-tokens/) check (`restrictedTo`, error 147) | yes | no |
-| [MCP endpoint](/docs/concepts/mcp/) (`/soajs/mcp`, `mcp` in the custom registry) | yes | no |
-| Membership resolution (`membership` in the custom registry) | yes | no |
-| External key `geo` / `device` allow and deny lists | yes | no |
-| Network package overrides (`networkPackages` on the key) | yes | no |
-| CORS settings from the environment registry | yes | fixed defaults; `device-id` is not in the allowed headers |
+**Not ported:**
 
-Other differences:
+- JWT access tokens (oauth type 0);
+- endpoint-type services;
+- `/proxy/redirect`;
+- `GET /register`;
+- older data shapes, including per-tenant urac databases and `access` as a list of groups.
 
-- **Error codes.** The Go gateway defines its own codes, and several numbers mean something else than in the Node.js gateway and `soajs.core.modules` (for example `156` is "Service not found", `157` maintenance mode, `158` rate limit exceeded, `159` IP banned). Clients that branch on error codes need to account for this.
-- **Rate limiting.** Implemented separately from the Node.js `traffic` middleware, with memory and MongoDB models.
-- **User ACL.** Resolved in a separate `userACL` step after `oauth`.
+**Behaviour:**
 
-Implemented, with the same configuration as the Node.js gateway: IP ban list, maintenance mode, key and package ACL, MT IP whitelist (`mt.whitelist`), PIN wrapper and whitelist, roaming, OAuth 2.0 and JWT token validation, throttling strategies, last-seen notifications and request monitoring.
+- **`soajsinjectobj`:** a request's own header is removed, so services only receive the one the gateway builds.
+- **Load balancing:** round-robin makes at most one pass over the hosts.
+- **Kubernetes:** the namespace is read from the current deployer shape.
+- **Health-check cache:** rebuilding keeps going after an error.
+- **Idempotency:** the lock is taken in one atomic operation. An answer is still recorded if the client disconnects.
+- **Registry dumps:** never include connection-pool options.
