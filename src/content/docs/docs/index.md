@@ -55,4 +55,4 @@ Ports are the values in each service's `config.js` and the Helm chart defaults. 
 - Security: [OAuth](/docs/security/oauth/), [Restricted tokens](/docs/security/restricted-tokens/), [Device binding](/docs/security/device-binding/).
 - Traffic: [Caching](/docs/traffic/caching/), [Idempotency](/docs/traffic/idempotency/), [Rate limiting](/docs/traffic/rate-limiting/).
 - SDKs: [Node.js](/docs/sdks/nodejs/), [Go](/docs/sdks/go/), [Python](/docs/sdks/python/).
-- Deploy: [Helm charts](/docs/deploy/helm/), [soa.json](/docs/deploy/soa-json/), [Go gateway (preview)](/docs/deploy/go-gateway/).
+- Deploy: [Helm charts](/docs/deploy/helm/), [soa.json](/docs/deploy/soa-json/), [Go gateway](/docs/deploy/go-gateway/).

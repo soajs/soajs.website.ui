@@ -1,22 +1,22 @@
 ---
-title: Go gateway (preview)
-description: The SOAJS gateway written in Go. It answers as the Node.js gateway does, checked request by request, and reads the latest data schema only. Not yet released.
+title: Go gateway
+description: The SOAJS gateway written in Go, released as 4.4.28. It answers as the Node.js gateway does, checked request by request, and reads the latest data schema only.
 sidebar:
   order: 3
   badge:
-    text: Preview
-    variant: caution
+    text: New
+    variant: success
 ---
 
-:::caution[Preview]
-The Go gateway has every feature of the Node.js gateway, but it is not yet released as a version or an image. Use the Node.js gateway (`soajs.controller`) in production.
+:::note[Released: 4.4.28]
+The Go gateway is released as version 4.4.28, with the Docker image `soajsorg/gateway-go:4.4.28` (also tagged `4.x` and `latest`). It is new: run it next to the Node.js gateway in a test environment before you move production traffic to it. Releases before 4.4.28 are superseded and should not be used.
 :::
 
-The Go gateway ([soajs.controller.go](https://github.com/soajs/soajs.controller.go)) is the SOAJS gateway written in Go. The Node.js gateway, `soajs.controller` 4.3.28, is its specification. It reads the same profile and databases, uses the same URL scheme (`/<service>[/v<N>]/<path>`), and answers the same way.
+The Go gateway ([soajs.controller.go](https://github.com/soajs/soajs.controller.go)) is the SOAJS gateway written in Go. The Node.js gateway, `soajs.controller` 4.3.29, is its specification. It reads the same profile and databases, uses the same URL scheme (`/<service>[/v<N>]/<path>`), and answers the same way.
 
 ## How parity is checked
 
-A conformance harness replays 123 requests against both gateways on the same fixture database. It compares the status, the headers and the body byte for byte, and both gateways pass all of them. The requests cover:
+A conformance harness replays 126 requests against both gateways on the same fixture database. It compares the status, the headers and the body byte for byte, and both gateways pass all of them. The requests cover:
 
 - keys, package ACLs, OAuth, restricted tokens, device binding, PIN, and paused users;
 - proxying, roaming, `soajsinjectobj` and HEAD;
@@ -33,7 +33,17 @@ Two settings matter when you move an existing environment to the Go gateway:
 - **urac:** the custom registry `urac` entry must set `masterDB`, the core database that holds users and groups. The Go gateway reads urac there only.
 - **Booleans:** settings such as `cors.credentials` must be stored as true or false, not as text.
 
-## Build and run
+## Run
+
+With Docker:
+
+```bash
+docker run -e SOAJS_ENV=dev -e SOAJS_PROFILE=/opt/soajs/profile/soajsprofile \
+  -v /path/to/soajsprofile:/opt/soajs/profile/soajsprofile:ro \
+  -p 4000:4000 soajsorg/gateway-go:4.4.28
+```
+
+From source:
 
 ```bash
 make build    # bin/controller (Go 1.25+)
@@ -67,9 +77,6 @@ Each difference below is deliberate. The full list, with the pull request for ea
 
 **Behaviour:**
 
-- **`soajsinjectobj`:** a request's own header is removed, so services only receive the one the gateway builds.
-- **Load balancing:** round-robin makes at most one pass over the hosts.
-- **Kubernetes:** the namespace is read from the current deployer shape.
-- **Health-check cache:** rebuilding keeps going after an error.
+- **Kubernetes:** the namespace is read from the current deployer shape only. A deployer without a namespace gives no host.
 - **Idempotency:** the lock is taken in one atomic operation. An answer is still recorded if the client disconnects.
 - **Registry dumps:** never include connection-pool options.
