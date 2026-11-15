@@ -5,7 +5,9 @@ sidebar:
   order: 1
 ---
 
-The gateway (`soajs.controller`, service name `controller`) is the single entry point for API traffic in an environment. It listens on the data port (4000 by default) and on a maintenance port (data port + `maintenanceInc`, 5000 by default).
+The gateway (service name `controller`) is the single entry point for API traffic in an environment. It listens on the data port (4000 by default) and on a maintenance port (data port + `maintenanceInc`, 5000 by default). It comes in two builds that answer the same way: Node.js (`soajs.controller`) and Go (`soajs.controller.go`).
+
+This page explains how the gateway works. To run and configure it, see the [Gateway](/docs/gateway/overview/) section.
 
 ## Request URL
 
@@ -78,14 +80,7 @@ Turn the whole gateway into maintenance mode from the custom registry entry `gat
 }
 ```
 
-| Key | Default | Description |
-|---|---|---|
-| `on` | off | Enables maintenance mode. |
-| `status` | `503` | HTTP status returned. |
-| `message` | `"Maintenance mode is on, come back soon"` | Message returned. |
-| `retryAfter` | none | Value of the `Retry-After` header, in seconds. |
-
-The check runs before any key or service lookup, so it applies to every route.
+The check runs before any key or service lookup, so it applies to every route. The keys and their defaults are in [Custom registry](/docs/gateway/custom-registry/#maintenancemode).
 
 ## Stopping the gateway
 
@@ -100,33 +95,17 @@ A second signal while stopping is ignored. In Kubernetes, keep `terminationGrace
 
 ## Maintenance port
 
-The maintenance server listens on the data port plus `serviceConfig.ports.maintenanceInc` from the environment registry (4000 + 1000 = 5000 in the default environment). Keep it internal to the cluster.
-
-| Route | Purpose |
-|---|---|
-| `GET /heartbeat` | Liveness and readiness check. |
-| `GET /reloadRegistry` | Reloads the environment registry. |
-| `GET /loadProvision` | Reloads tenants, keys and packages. |
-| `GET /awarenessStat` | Returns the awareness state (hosts and health) of the services. |
-| `/register` | Used by services to register their host (custom mode only). |
-| `GET /getRegistry` | Returns the registry for a service. This is the address services use as `SOAJS_REGISTRY_API`. |
-
-Every SOAJS service has its own maintenance port with at least `/heartbeat`, `/reloadRegistry` and `/loadProvision`, and, from `soajs` 4.1.24, `/mcp/tools`, which describes its APIs for the [MCP endpoint](/docs/concepts/mcp/).
+The maintenance server listens on the data port plus `serviceConfig.ports.maintenanceInc` from the environment registry (4000 + 1000 = 5000 in the default environment). It answers health checks, reloads the registry and provisioning data, and lets services register and load their registry. Keep it internal to the cluster. The routes are listed in [Routes](/docs/gateway/routes/#maintenance-port).
 
 ## Built-in gateway routes
 
-| Route | Description |
-|---|---|
-| `/soajs/acl` | Returns the ACL for the calling key (and user, when an `access_token` is sent). |
-| `POST /soajs/mcp` | MCP endpoint: the caller's APIs as tools for AI agents. Off unless enabled. See [MCP for AI agents](/docs/concepts/mcp/). |
-| `/soajs/proxy?proxyRoute=<encoded route>` | Proxies the call to a service route, optionally in another environment (`__env`). |
+The gateway answers a few routes itself: `/soajs/acl` (the caller's ACL), `POST /soajs/mcp` ([MCP for AI agents](/docs/concepts/mcp/)) and `/soajs/proxy` (forward a call, optionally to another environment). See [Routes](/docs/gateway/routes/).
 
 ## Configuration sources
 
-The gateway reads its configuration from three places:
-
-| Source | Where | Examples |
+| Source | Where | Reference |
 |---|---|---|
-| Environment registry | `services.config` of the environment record (`registry.serviceConfig`) | `ports`, `cors`, `oauth`, `throttling` strategies, `awareness` |
-| Custom registry | the custom registry entry named `gateway` (`registry.custom.gateway.value`) | `maintenanceMode`, `traffic`, `cache`, `idempotency`, `events`, `mcp`, `mt.whitelist`, `lastSeen`, `oauth.deviceIdCheck` |
-| Tenant key configuration | the key's `config`, exposed to services as `servicesConfig` | per-service configuration, `gateway.throttling` overrides |
+| Environment variables | the process | [Run it](/docs/gateway/run/#environment-variables) |
+| Environment registry | `services.config` of the environment record (`registry.serviceConfig`) | [Environment registry](/docs/gateway/environment-registry/) |
+| Custom registry | the entries named `gateway`, `oauth` and `urac` | [Custom registry](/docs/gateway/custom-registry/) |
+| Tenant key configuration | the key's `config`, exposed to services as `servicesConfig` | [Key configuration](/docs/gateway/custom-registry/#key-configuration) |
