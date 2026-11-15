@@ -81,7 +81,7 @@ The last case lets several environments run on one machine without port clashes.
 In custom mode the gateway learns the real port when the service registers. The service sends its catalog `port` and its real data port, `portHost`. The host record keeps `portHost`, or `port` when there is none. When the registry loads, for an environment not listed in `SOAJS_SENSITIVE_ENVS` (default `["dashboard"]`), the host's port replaces the service's port, and the catalog port is kept as `oport`.
 
 :::caution[Keep SOAJS_SENSITIVE_ENVS aligned]
-Services exempt only `DASHBOARD` from the port offset. The gateway exempts the environments in `SOAJS_SENSITIVE_ENVS`. If you add another environment to `SOAJS_SENSITIVE_ENVS` in custom mode, its services still listen on shifted ports, but the gateway keeps calling the catalog port. Leave `SOAJS_SENSITIVE_ENVS` at `["dashboard"]` unless your services run with `SOAJS_DEPLOY_HA` or `SOAJS_SRVPORT`.
+Services exempt only `DASHBOARD` from the port offset. The gateway exempts the environments in `SOAJS_SENSITIVE_ENVS`. If you add another environment to `SOAJS_SENSITIVE_ENVS` in custom mode, its services still listen on shifted ports, but the gateway keeps calling the catalog port. Leave `SOAJS_SENSITIVE_ENVS` at `["dashboard"]` unless the services of the environments you add run with `SOAJS_DEPLOY_HA`.
 :::
 
 To check a service (health checks, request-timeout renewal, fetching its MCP tools), the gateway uses the `maintenance` block of the service's catalog version:
