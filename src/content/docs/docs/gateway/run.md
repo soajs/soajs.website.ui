@@ -51,7 +51,7 @@ Node.js 24 is the version the gateway is tested with.
 
 ### Docker
 
-The image is `soajsorg/gateway`, tagged with the version (`4.3.30`). The code is in `/opt/soajs/soajs.controller/`, and the image has no default command, so give it one:
+The image is `soajsorg/gateway`, tagged with the version (`4.3.30`), `4.x` and `latest`. The working directory is the code, `/opt/soajs/soajs.controller/`, and the default command is a shell, so give it `node .`:
 
 ```bash
 docker run --rm \
@@ -59,7 +59,6 @@ docker run --rm \
   -e SOAJS_PROFILE=/opt/soajs/profile/soajsprofile \
   -v /path/to/soajsprofile:/opt/soajs/profile/soajsprofile:ro \
   -p 4000:4000 -p 5000:5000 \
-  -w /opt/soajs/soajs.controller \
   soajsorg/gateway:4.3.30 node .
 ```
 
@@ -99,7 +98,7 @@ It exposes port 4000 and the maintenance port 5000, and uses `GET /heartbeat` on
 
 `SOAJS_REGISTRY_API` is not read by the gateway. Your services use it to reach the gateway's maintenance port (`<gateway host>:5000`) and load their registry from `/getRegistry`.
 
-The gateway's own port is not an environment variable. It is `serviceConfig.ports.controller` in the [environment registry](/docs/gateway/environment-registry/#ports), 4000 in the default environment.
+The gateway's own port is not an environment variable. It is `services.config.ports.controller` of the environment record (`serviceConfig.ports.controller`, see [Ports](/docs/gateway/environment-registry/#ports)), 4000 in the default environment. The registry loader copies it to the gateway entry as `services.controller.port`, which is what the gateway listens on.
 
 ## Go gateway
 

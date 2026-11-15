@@ -107,11 +107,11 @@ The other `session` keys and `cookie` are not used by the gateway. They are pass
 
 | Key | Type | Description |
 |---|---|---|
-| `requestTimeout` | integer, s | Time a service has to answer, for services that do not set their own. |
-| `requestTimeoutRenewal` | integer | How many times the timeout is renewed for a service still sending its answer. |
+| `requestTimeout` | integer, s | Time a service has to answer, for services that do not set their own. Default `30`. |
+| `requestTimeoutRenewal` | integer | How many times the timeout is renewed for a service still sending its answer. Default `0`. |
 | `authorization` | boolean | Turns on the `soajsauth` session cookie on proxied calls. |
 
-A service's own `requestTimeout` and `requestTimeoutRenewal`, from its catalog entry, win over these.
+A service's own `requestTimeout` and `requestTimeoutRenewal`, from its catalog entry, win over these. The gateway entry has no port key of its own: its port is `services.config.ports.controller`.
 
 ## Other fields
 
