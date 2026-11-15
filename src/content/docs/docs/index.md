@@ -53,6 +53,6 @@ Ports are the values in each service's `config.js` and the Helm chart defaults. 
 - [Your first service](/docs/getting-started/first-service/): write a Node.js microservice and call it through the gateway.
 - Concepts: [Gateway](/docs/concepts/gateway/), [Multi-tenancy](/docs/concepts/multitenancy/), [Access control](/docs/concepts/access-control/), [Tenant access resolver](/docs/concepts/tenant-access-resolver/).
 - Security: [OAuth](/docs/security/oauth/), [Restricted tokens](/docs/security/restricted-tokens/), [Device binding](/docs/security/device-binding/).
-- Traffic: [Caching](/docs/traffic/caching/), [Idempotency](/docs/traffic/idempotency/), [Rate limiting](/docs/traffic/rate-limiting/).
+- Traffic: [Caching](/docs/traffic/caching/), [Idempotency](/docs/traffic/idempotency/), [Rate limiting](/docs/traffic/rate-limiting/), [Call events](/docs/traffic/call-events/).
 - SDKs: [Node.js](/docs/sdks/nodejs/), [Go](/docs/sdks/go/), [Python](/docs/sdks/python/).
 - Deploy: [Helm charts](/docs/deploy/helm/), [soa.json](/docs/deploy/soa-json/), [Go gateway](/docs/deploy/go-gateway/).
