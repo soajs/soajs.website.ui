@@ -65,6 +65,35 @@ The gateway builds its routing table from the environment registry and the catal
 
 Services declared with `interConnect` receive the hosts of the listed services in `soajsinjectobj`, so they can call each other directly instead of going back through the gateway.
 
+### Service ports
+
+A service's catalog entry gives its port, for example 4001 for urac. The port it actually listens on depends on how it runs:
+
+| Case | Data port | Maintenance port |
+|---|---|---|
+| `SOAJS_DEPLOY_HA` set | catalog port | catalog port + `maintenanceInc` |
+| no HA, `SOAJS_SRVPORT` set | `SOAJS_SRVPORT` | `SOAJS_SRVPORT` + `maintenanceInc` |
+| no HA, environment `DASHBOARD` | catalog port | catalog port + `maintenanceInc` |
+| no HA, any other environment | catalog port + the environment's `ports.controller` | data port + `maintenanceInc` |
+
+The last case lets several environments run on one machine without port clashes. With urac on 4001, `ports.controller` 4000 and `maintenanceInc` 1000, urac listens on 8001 and 9001 in `DEV`, and on 4001 and 5001 in `DASHBOARD`. The same rules apply to daemons. The gateway itself never takes the offset: it listens on `ports.controller`, with its maintenance port at `ports.controller` + `maintenanceInc`.
+
+In custom mode the gateway learns the real port when the service registers. The service sends its catalog `port` and its real data port, `portHost`. The host record keeps `portHost`, or `port` when there is none. When the registry loads, for an environment not listed in `SOAJS_SENSITIVE_ENVS` (default `["dashboard"]`), the host's port replaces the service's port, and the catalog port is kept as `oport`.
+
+:::caution[Keep SOAJS_SENSITIVE_ENVS aligned]
+Services exempt only `DASHBOARD` from the port offset. The gateway exempts the environments in `SOAJS_SENSITIVE_ENVS`. If you add another environment to `SOAJS_SENSITIVE_ENVS` in custom mode, its services still listen on shifted ports, but the gateway keeps calling the catalog port. Leave `SOAJS_SENSITIVE_ENVS` at `["dashboard"]` unless your services run with `SOAJS_DEPLOY_HA` or `SOAJS_SRVPORT`.
+:::
+
+To check a service (health checks, request-timeout renewal, fetching its MCP tools), the gateway uses the `maintenance` block of the service's catalog version:
+
+| `maintenance.port.type` | Checked at |
+|---|---|
+| `maintenance` | `readiness` path on the service port + `maintenanceInc` |
+| `inherit` | `readiness` path on the service port |
+| no `maintenance` block | `/heartbeat` on the service port + `maintenanceInc`. The health check then tries `/heartbeat` on the service port itself. |
+
+Gateways of other environments are checked at their `ports.controller` + `maintenanceInc`, `/heartbeat`.
+
 ## Maintenance mode
 
 Turn the whole gateway into maintenance mode from the custom registry entry `gateway`:

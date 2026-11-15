@@ -31,7 +31,7 @@ You can run both gateways against the same environment and move traffic one inst
 | `GET /register` | `POST /register`. |
 | `?name=` on `/getRegistry` | `?serviceName=`. |
 | Per-tenant urac databases | `masterDB` in the `urac` entry. |
-| Older data shapes: application-level ACLs, flat `apis` lists, ACLs without a version, `access` as a list of groups, `dbs.clusters`, `custom` inside the environment record, the old deployer shape, hosts without `version` | The current shapes the console writes. |
+| Older data shapes: application-level ACLs, flat `apis` lists, ACLs without a version, `access` as a list of groups, `dbs.clusters`, `custom` inside the environment record, the old deployer shape, hosts without `version`, a catalog `maintenance.port.type` other than `maintenance` or `inherit` with a numeric `port.value` | The current shapes the console writes. |
 | `SOAJS_SOLO`, `SOAJS_MONGO_CON_KEEPALIVE` | Not needed: the Go gateway always reads MongoDB and keeps its connections open. |
 
 ## Configured differently

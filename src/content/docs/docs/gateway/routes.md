@@ -133,4 +133,4 @@ curl http://<gateway pod>:5000/loadProvision    # tenants, keys, packages
 
 ## Every service's maintenance port
 
-Each SOAJS service has its own maintenance port, its port plus `maintenanceInc`, with at least `/heartbeat`, `/reloadRegistry` and `/loadProvision`. From `soajs` 4.1.24 it also has `/mcp/tools`, which describes its APIs for the MCP endpoint.
+Each SOAJS service has its own maintenance port, with at least `/heartbeat`, `/reloadRegistry` and `/loadProvision`. From `soajs` 4.1.24 it also has `/mcp/tools`, which describes its APIs for the MCP endpoint. Which port that is depends on the environment and how the service runs: see [Service ports](/docs/concepts/gateway/#service-ports).
