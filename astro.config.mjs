@@ -56,6 +56,7 @@ export default defineConfig({
 				{ label: 'Introduction', link: '/docs/' },
 				{ label: 'Getting started', items: [{ autogenerate: { directory: 'docs/getting-started' } }] },
 				{ label: 'Concepts', items: [{ autogenerate: { directory: 'docs/concepts' } }] },
+				{ label: 'Gateway', items: [{ autogenerate: { directory: 'docs/gateway' } }] },
 				{ label: 'Security', items: [{ autogenerate: { directory: 'docs/security' } }] },
 				{ label: 'Traffic', items: [{ autogenerate: { directory: 'docs/traffic' } }] },
 				{ label: 'SDKs', items: [{ autogenerate: { directory: 'docs/sdks' } }] },

@@ -5,7 +5,7 @@ description: What SOAJS is, how a request flows through it, and the core service
 
 SOAJS is an open-source platform for building multi-tenant APIs. It is made of three parts:
 
-- **A gateway** (`soajs.controller`) that every API call goes through. It resolves the tenant from the external key, applies the package ACL, validates the access token, enforces rate limits, and routes the call to the right microservice.
+- **A gateway** (`soajs.controller`, also built in Go as `soajs.controller.go`) that every API call goes through. It resolves the tenant from the external key, applies the package ACL, validates the access token, enforces rate limits, and routes the call to the right microservice.
 - **Core services** that provide multi-tenancy, users, OAuth 2.0, a service catalog and a management console.
 - **A framework and SDKs** for writing services: the `soajs` Node.js framework (built on Express 5), plus middleware for Node.js, Go and Python services.
 
@@ -29,7 +29,7 @@ client ──► gateway ──► key ──► ACL ──► oauth ──► r
 4. For private APIs, the access token is validated and the user (URAC) is resolved.
 5. The gateway looks up a healthy host for the service in the environment registry and proxies the request. Tenant, key, application and user information travel to the service in the `soajsinjectobj` header.
 
-The full pipeline is described in [Gateway](/docs/concepts/gateway/).
+The full pipeline is described in [Gateway concepts](/docs/concepts/gateway/). To run and configure the gateway, Node.js or Go, see the [Gateway](/docs/gateway/overview/) section.
 
 ## Core services
 
@@ -54,5 +54,6 @@ Ports are the values in each service's `config.js` and the Helm chart defaults. 
 - Concepts: [Gateway](/docs/concepts/gateway/), [Multi-tenancy](/docs/concepts/multitenancy/), [Access control](/docs/concepts/access-control/), [Tenant access resolver](/docs/concepts/tenant-access-resolver/).
 - Security: [OAuth](/docs/security/oauth/), [Restricted tokens](/docs/security/restricted-tokens/), [Device binding](/docs/security/device-binding/).
 - Traffic: [Caching](/docs/traffic/caching/), [Idempotency](/docs/traffic/idempotency/), [Rate limiting](/docs/traffic/rate-limiting/), [Call events](/docs/traffic/call-events/).
+- Gateway: [Overview](/docs/gateway/overview/), [Run it](/docs/gateway/run/), [Environment registry](/docs/gateway/environment-registry/), [Custom registry](/docs/gateway/custom-registry/), [Routes](/docs/gateway/routes/), [Node.js and Go](/docs/gateway/node-vs-go/).
 - SDKs: [Node.js](/docs/sdks/nodejs/), [Go](/docs/sdks/go/), [Python](/docs/sdks/python/).
-- Deploy: [Helm charts](/docs/deploy/helm/), [soa.json](/docs/deploy/soa-json/), [Go gateway](/docs/deploy/go-gateway/).
+- Deploy: [Helm charts](/docs/deploy/helm/), [soa.json](/docs/deploy/soa-json/).
