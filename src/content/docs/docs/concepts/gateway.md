@@ -32,18 +32,21 @@ Requests go through these middleware, in this order (from `server/controller.js`
 | 5 | `enhancer` | Adds request helpers such as client IP and user-agent lookup. |
 | 6 | `ip2ban` | Rejects client IPs listed in the custom registry with `403`. See [Rate limiting](/docs/traffic/rate-limiting/#ip-ban-list). |
 | 7 | `maintenanceMode` | Returns a maintenance response for every request when maintenance mode is on (see below). |
-| 8 | `url` | Parses the service name and version from the URL, moves the `key` and `access_token` into place. |
-| 9 | `awareness` | Attaches service discovery (`getHost`) for the current environment. |
-| 10 | `awarenessEnv` | Attaches discovery for other environments, used by proxy routes. |
-| 11 | `key` | Loads the external key from the provisioning data: tenant, application, package. Rejects keys for another environment (`144`). |
-| 12 | `keyACL` | Resolves the ACL of the requested service from the application or the package. |
-| 13 | `gotoService` | Validates the target service and version and prepares the proxy call. |
-| 14 | `mt` | Multi-tenant security: IP whitelist, key geo and device restrictions, ACL, OAuth (the `oauth` middleware runs from here), URAC user and user ACL, service and API checks. Builds the `soajsinjectobj` header. |
-| 15 | `idempotency` | `Idempotency-Key` handling for configured write APIs. See [Idempotency](/docs/traffic/idempotency/). |
-| 16 | `traffic` | Rate limiting. See [Rate limiting](/docs/traffic/rate-limiting/). |
-| 17 | `cache` | GET response caching for configured APIs. See [Caching](/docs/traffic/caching/). |
-| 18 | `lastSeen` | When enabled, notifies a service (URAC by default) of user activity. |
-| 19 | proxy | Forwards the request to a healthy host of the service and streams the response back. |
+| 8 | MCP discovery | Serves the `/.well-known/oauth-*` documents of the MCP sign-in, when `mcp.auth` is set. See [MCP for AI agents](/docs/concepts/mcp/). |
+| 9 | `url` | Parses the service name and version from the URL, moves the `key` and `access_token` into place. |
+| 10 | `awareness` | Attaches service discovery (`getHost`) for the current environment. |
+| 11 | `awarenessEnv` | Attaches discovery for other environments, used by proxy routes. |
+| 12 | MCP authorize | For `/soajs/mcp` with MCP sign-in on: answers `401` without a valid token, and takes the key from a token restricted to one key. |
+| 13 | `events` | Starts the [call event](/docs/traffic/call-events/) of the request, when call events are on. The event is written after the answer, off the request path. |
+| 14 | `key` | Loads the external key from the provisioning data: tenant, application, package. Rejects keys for another environment (`144`). |
+| 15 | `keyACL` | Resolves the ACL of the requested service from the application or the package. |
+| 16 | `gotoService` | Validates the target service and version and prepares the proxy call. |
+| 17 | `mt` | Multi-tenant security: IP whitelist, key geo and device restrictions, ACL, OAuth (the `oauth` middleware runs from here), URAC user and user ACL, service and API checks. Builds the `soajsinjectobj` header. |
+| 18 | `idempotency` | `Idempotency-Key` handling for configured write APIs. See [Idempotency](/docs/traffic/idempotency/). |
+| 19 | `traffic` | Rate limiting. See [Rate limiting](/docs/traffic/rate-limiting/). |
+| 20 | `cache` | GET response caching for configured APIs. See [Caching](/docs/traffic/caching/). |
+| 21 | `lastSeen` | When enabled, notifies a service (URAC by default) of user activity. |
+| 22 | proxy | Forwards the request to a healthy host of the service and streams the response back. |
 
 The provisioning data (tenants, keys, packages) is loaded before middleware 9 to 18 are added, so the gateway does not serve traffic past `url` until it has loaded.
 
@@ -84,6 +87,17 @@ Turn the whole gateway into maintenance mode from the custom registry entry `gat
 
 The check runs before any key or service lookup, so it applies to every route.
 
+## Stopping the gateway
+
+From 4.3.30, on `SIGTERM` or `SIGINT` the gateway stops cleanly:
+
+1. The gateway and maintenance ports stop accepting connections, and idle keep-alive connections close.
+2. Requests in flight finish, for at most `SOAJS_SERVER_SHUTDOWN_TIMEOUT` seconds (10 by default).
+3. Cleanup runs, such as writing the call events still queued.
+4. The process exits with `0`. When the timeout passes first, it exits anyway.
+
+A second signal while stopping is ignored. In Kubernetes, keep `terminationGracePeriodSeconds` above the timeout.
+
 ## Maintenance port
 
 The maintenance server listens on the data port plus `serviceConfig.ports.maintenanceInc` from the environment registry (4000 + 1000 = 5000 in the default environment). Keep it internal to the cluster.
@@ -114,5 +128,5 @@ The gateway reads its configuration from three places:
 | Source | Where | Examples |
 |---|---|---|
 | Environment registry | `services.config` of the environment record (`registry.serviceConfig`) | `ports`, `cors`, `oauth`, `throttling` strategies, `awareness` |
-| Custom registry | the custom registry entry named `gateway` (`registry.custom.gateway.value`) | `maintenanceMode`, `traffic`, `cache`, `idempotency`, `mt.whitelist`, `lastSeen`, `oauth.deviceIdCheck` |
+| Custom registry | the custom registry entry named `gateway` (`registry.custom.gateway.value`) | `maintenanceMode`, `traffic`, `cache`, `idempotency`, `events`, `mcp`, `mt.whitelist`, `lastSeen`, `oauth.deviceIdCheck` |
 | Tenant key configuration | the key's `config`, exposed to services as `servicesConfig` | per-service configuration, `gateway.throttling` overrides |
