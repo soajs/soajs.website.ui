@@ -5,7 +5,7 @@ sidebar:
   order: 6
 ---
 
-The Go gateway answers as the Node.js gateway 4.3.30 does. A conformance harness checks it on 127 requests, and on the call events both write. The differences below are deliberate. The full list, with the pull request for each, is in the repository's [differences](https://github.com/soajs/soajs.controller.go/blob/main/docs/differences.md).
+The Go gateway answers as the Node.js gateway 4.3.30 does. A conformance harness checks it on 128 requests, and on the call events both write. The differences below are deliberate. The full list, with the pull request for each, is in the repository's [differences](https://github.com/soajs/soajs.controller.go/blob/main/docs/differences.md).
 
 ## Before you switch
 
