@@ -20,7 +20,7 @@ This section is the reference for running and configuring it:
 | | Node.js | Go |
 |---|---|---|
 | Repository | [soajs.controller](https://github.com/soajs/soajs.controller) | [soajs.controller.go](https://github.com/soajs/soajs.controller.go) |
-| Current version | 4.3.30 | 4.4.29 |
+| Current version | 4.3.30 | 4.4.30 |
 | Docker image | `soajsorg/gateway` | `soajsorg/gateway-go` |
 | npm package | `soajs.controller` | none, a single binary |
 | Helm chart | `soajs-controller` in [soajs.helm](https://github.com/soajs/soajs.helm) | none yet |

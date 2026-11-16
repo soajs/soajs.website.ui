@@ -104,7 +104,7 @@ The gateway's own port is not an environment variable. It is `services.config.po
 
 ### Docker
 
-The image is `soajsorg/gateway-go`, tagged `4.4.29`, `4.x` and `latest`. It runs as a non-root user, and its entry point is the gateway, so no command is needed.
+The image is `soajsorg/gateway-go`, tagged `4.4.30`, `4.x` and `latest`. It runs as a non-root user, and its entry point is the gateway, so no command is needed.
 
 ```bash
 docker run --rm \
@@ -112,7 +112,7 @@ docker run --rm \
   -e SOAJS_PROFILE=/opt/soajs/profile/soajsprofile \
   -v /path/to/soajsprofile:/opt/soajs/profile/soajsprofile:ro \
   -p 4000:4000 -p 5000:5000 \
-  soajsorg/gateway-go:4.4.29
+  soajsorg/gateway-go:4.4.30
 ```
 
 ### From source

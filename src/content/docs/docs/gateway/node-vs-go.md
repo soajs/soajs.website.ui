@@ -71,7 +71,7 @@ You can run both gateways against the same environment and move traffic one inst
 
 **Gateway routes**
 
-- `/soajs/acl` sorts the API lists in `finalACL`.
+- `/soajs/acl` sorts the object keys and the API lists in `finalACL`; the content is the same as the Node.js gateway's.
 - `/soajs/proxy` answers `139` for an invalid `%` escape in `proxyRoute`.
 - `/soajs/mcp` returns Go's error text for a tool call that fails on the network, and does not use an `operationId` that is not a string in a tool name.
 
