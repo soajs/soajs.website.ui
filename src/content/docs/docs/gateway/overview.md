@@ -26,7 +26,7 @@ This section is the reference for running and configuring it:
 | Helm chart | `soajs-controller` in [soajs.helm](https://github.com/soajs/soajs.helm) | none yet |
 | Data it reads | every shape the console has written over time | the latest data schema only |
 
-Both builds read the same profile file, the same databases and the same registry. They use the same URL scheme and the same ports, and they answer the same way. The Node.js gateway, `soajs.controller` 4.3.30, is the specification. A conformance harness replays 128 requests against both on the same data and compares the status, the headers and the body byte for byte. It also compares the [call events](/docs/traffic/call-events/) each one writes. Both pass all of them.
+Both builds read the same profile file, the same databases and the same registry. They use the same URL scheme and the same ports, and they answer the same way. The Node.js gateway, `soajs.controller` 4.3.30, is the specification. A conformance harness replays 128 requests against both on the same data and compares the status, the headers and the body: byte for byte, except the ACL, MCP and maintenance answers, which are compared as parsed JSON. It also compares the [call events](/docs/traffic/call-events/) each one writes. Both pass all of them.
 
 ## How to choose
 
