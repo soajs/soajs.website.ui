@@ -5,13 +5,13 @@ sidebar:
   order: 6
 ---
 
-The Go gateway answers as the Node.js gateway 4.3.30 does. A conformance harness checks it on 128 requests, and on the call events both write. The differences below are deliberate. The full list, with the pull request for each, is in the repository's [differences](https://github.com/soajs/soajs.controller.go/blob/main/docs/differences.md).
+The Go gateway answers as the Node.js gateway 4.3.30 does. A conformance harness checks it on 129 requests, and on the call events both write. The differences below are deliberate. The full list, with the pull request for each, is in the repository's [differences](https://github.com/soajs/soajs.controller.go/blob/main/docs/differences.md).
 
 ## Before you switch
 
 Check these in the environment you move:
 
-1. **Latest data schema.** The Go gateway reads only the current shape of each collection. A document that does not match is logged, then skipped or refused, never converted. Run `schemacheck` from the repository against your databases first. The schema of each collection is in its [data-schema](https://github.com/soajs/soajs.controller.go/tree/main/docs/data-schema) folder.
+1. **Latest data schema.** The Go gateway reads only the current shape of each collection. A document that does not match is logged, then skipped or refused, never converted. Fields the gateway does not read are ignored (4.4.31+), so your services can keep their own fields in user and group records. Run `schemacheck` from the repository against your databases first. The schema of each collection is in its [data-schema](https://github.com/soajs/soajs.controller.go/tree/main/docs/data-schema) folder.
 2. **urac `masterDB`.** The custom registry `urac` entry must set `masterDB`, the core database that holds users and groups. The Go gateway reads users only there. Without it, calls that need the user answer `146`.
 3. **Booleans are booleans.** Settings such as `cors.credentials` must be stored as `true` or `false`, not as text. A document with text in a boolean field does not match its schema.
 4. **The `gateway` custom registry entry.** It is checked as a whole. One unknown key or wrong type and the whole entry is skipped, so every feature in it is off. `lastSeen` needs `include`, in the method-list form. See [Custom registry](/docs/gateway/custom-registry/#lastseen).
