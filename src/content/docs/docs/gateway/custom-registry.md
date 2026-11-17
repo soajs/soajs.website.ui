@@ -31,7 +31,7 @@ An entry is loaded when it is `plugged` and was created in the environment, or i
 ```
 
 :::caution[Go: the entry must match its schema]
-The Go gateway checks each entry against its [data schema](https://github.com/soajs/soajs.controller.go/blob/main/docs/data-schema/custom_registry.md). An entry with an unknown key, a wrong type or a missing required key is logged and skipped as a whole, so every feature in it is off. The Node.js gateway reads what it finds. Run the repository's `schemacheck` against your database before you move an environment to the Go gateway.
+The Go gateway checks each entry against its [data schema](https://github.com/soajs/soajs.controller.go/blob/main/docs/data-schema/custom_registry.md). Unknown keys are ignored. A feature it cannot read (in `gateway`: `events`, `mcp`, `lastSeen`, one throttling strategy, one ip2ban address, and so on) is left out on its own, logged and listed on `/schemaProblems`; the other features work. The Node.js gateway reads what it finds. Run the repository's `schemacheck` against your database before you move an environment to the Go gateway.
 :::
 
 ## The `gateway` entry

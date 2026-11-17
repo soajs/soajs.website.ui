@@ -101,6 +101,7 @@ The maintenance server listens on the gateway port plus `serviceConfig.ports.mai
 | `/getRegistry` | `GET` | The registry of one service. Services call it at startup, at the address they get in `SOAJS_REGISTRY_API`. |
 | `/register` | `POST` | A service registers its host. Used without `SOAJS_DEPLOY_HA` only. |
 | `/cache/invalidate` | `POST` | Removes cached GET answers a service knows are out of date. Needs the mongo cache model. |
+| `/schemaProblems` | `GET` | Go gateway 4.4.32+ only. The problems found in the data the gateway read: collection, document `_id`, location, rule and what the gateway did (read as Node.js, left out a piece, skipped the document, fell back to the key's package). Locations only, never values. `?collection=` filters. See [How Go reads imperfect data](https://github.com/soajs/soajs.controller.go/blob/main/docs/data-schema/imperfect-data.md). |
 
 ### `/getRegistry`
 

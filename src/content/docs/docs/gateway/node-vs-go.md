@@ -5,16 +5,16 @@ sidebar:
   order: 6
 ---
 
-The Go gateway answers as the Node.js gateway 4.3.30 does. A conformance harness checks it on 129 requests, and on the call events both write. The differences below are deliberate. The full list, with the pull request for each, is in the repository's [differences](https://github.com/soajs/soajs.controller.go/blob/main/docs/differences.md).
+The Go gateway answers as the Node.js gateway 4.3.30 does. A conformance harness checks it on 136 requests, and on the call events both write. The differences below are deliberate. The full list, with the pull request for each, is in the repository's [differences](https://github.com/soajs/soajs.controller.go/blob/main/docs/differences.md).
 
 ## Before you switch
 
 Check these in the environment you move:
 
-1. **Latest data schema.** The Go gateway reads only the current shape of each collection. A document that does not match is logged, then skipped or refused, never converted. Fields the gateway does not read are ignored (4.4.31+), so your services can keep their own fields in user and group records. Run `schemacheck` from the repository against your databases first. The schema of each collection is in its [data-schema](https://github.com/soajs/soajs.controller.go/tree/main/docs/data-schema) folder.
+1. **Latest data schema.** The Go gateway reads the current shape of each collection, never older shapes. From 4.4.32 it reads imperfect data with care: a malformed value that the Node.js gateway gives a definite meaning is read the same way; fields the gateway does not read are ignored, so your services can keep their own fields in user and group records; and a value it cannot read leaves out only the smallest piece that holds it (one extKey, one API rule, one feature), always toward refusal, never toward access. Every problem is logged and listed on the maintenance route `/schemaProblems`. Run `schemacheck` from the repository against your databases first. Details: [How Go reads imperfect data](https://github.com/soajs/soajs.controller.go/blob/main/docs/data-schema/imperfect-data.md). Run `schemacheck` from the repository against your databases first. The schema of each collection is in its [data-schema](https://github.com/soajs/soajs.controller.go/tree/main/docs/data-schema) folder.
 2. **urac `masterDB`.** The custom registry `urac` entry must set `masterDB`, the core database that holds users and groups. The Go gateway reads users only there. Without it, calls that need the user answer `146`.
-3. **Booleans are booleans.** Settings such as `cors.credentials` must be stored as `true` or `false`, not as text. A document with text in a boolean field does not match its schema.
-4. **The `gateway` custom registry entry.** It is checked as a whole. One unknown key or wrong type and the whole entry is skipped, so every feature in it is off. `lastSeen` needs `include`, in the method-list form. See [Custom registry](/docs/gateway/custom-registry/#lastseen).
+3. **Booleans.** Store `true` or `false`. Text such as `"true"` is read as the Node.js gateway reads it (truthiness) and reported on `/schemaProblems`.
+4. **The `gateway` custom registry entry.** It is checked feature by feature: a feature it cannot read is left out on its own and reported, and the others work. `lastSeen` needs `include`, in the method-list form. See [Custom registry](/docs/gateway/custom-registry/#lastseen).
 5. **The gateway port.** The Go gateway listens on `SOAJS_SERVICE_PORT` (4000), not on `serviceConfig.ports.controller`. Set it if your registry uses another port. See [Ports](/docs/gateway/run/#ports).
 6. **Nothing below is in use.** Check that no service or client relies on a feature listed under Not ported.
 
@@ -41,7 +41,7 @@ You can run both gateways against the same environment and move traffic one inst
 | Logging | `serviceConfig.logger` in the registry | `SOAJS_LOG_LEVEL` and `SOAJS_LOG_FORMAT` |
 | Gateway port | `serviceConfig.ports.controller` | `SOAJS_SERVICE_PORT` |
 | Settings file | none | optional `config.yaml` |
-| Invalid custom registry entry | read as found | skipped as a whole, and logged |
+| Imperfect data | read as found | read as Node.js reads it where defined; otherwise the smallest broken piece is left out, toward refusal, and listed on `/schemaProblems` |
 
 ## Behaviour
 
