@@ -149,7 +149,9 @@ The repository also has a Kubernetes example in `deployments/kubernetes`.
 
 The same settings can be written in a `config.yaml` (keys such as `service_port`, `log_level`, `maintenance.port_increment`), looked up in the working directory, `./configs` and `/etc/soajs/`. Environment variables take precedence. The repository's [config.example.yaml](https://github.com/soajs/soajs.controller.go/blob/main/configs/config.example.yaml) lists every key with its default.
 
-The Go gateway does not read `SOAJS_MONGO_CON_KEEPALIVE` or `SOAJS_SOLO`. Its connections always stay open, and it always reads MongoDB.
+Only `SOAJS_PROFILE` is required; every other variable is optional.
+
+The Go gateway does not read `SOAJS_MONGO_CON_KEEPALIVE` or `SOAJS_SOLO`. Its connections always stay open, and it always reads MongoDB. It does not read `SOAJS_MONGO_URI` either: the profile file and the registry say where every database is. Only the repository's `schemacheck` tool reads `SOAJS_MONGO_URI`, when you run it by hand, so leave it out of the gateway's deployment.
 
 ## Ports
 
